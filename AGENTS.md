@@ -10,4 +10,6 @@
 - Prefer the smallest reliable design. Explain current limits plainly and do not
   present future traffic support as implemented.
 - Keep official service behavior and limits canonical in `SERVICE.md`.
+- Keep the linked AI-agent provenance statement in the public interface and
+  README aligned with snowball's canonical policy.
 - Never use em dashes. Use regular hyphens.

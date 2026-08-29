@@ -71,6 +71,11 @@ def test_serves_dashboard():
     assert b'id="point-result" tabindex="-1"' in body
     assert b'max="5"' in body
     assert b"Fairway" not in body
+    assert b"Founder-directed. Built entirely by AI agents." in body
+    assert (
+        b'href="https://snowball-projects.github.io/licensing/#how-snowball-is-built"'
+        in body
+    )
 
     status, body = request("/leaflet.css")
     assert status == "200 OK"
