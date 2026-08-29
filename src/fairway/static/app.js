@@ -1,4 +1,4 @@
-const state = { rows: [], evaluation: null, request: null, layers: [] };
+const state = { rows: [], activeRows: [], evaluation: null, request: null, layers: [] };
 const map = L.map("map", { zoomControl: true }).setView([41.88, -87.82], 9);
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -13,6 +13,7 @@ function color(index) {
 
 function clearResults() {
   state.evaluation = null;
+  state.activeRows = [];
   state.layers.splice(0).forEach((layer) => layer.remove());
 }
 
@@ -130,7 +131,8 @@ function drawRegion(points, kind) {
 async function calculate() {
   state.request?.abort();
   clearResults();
-  const origins = state.rows.filter((row) => row.coordinate).map((row) => row.coordinate);
+  const activeRows = state.rows.filter((row) => row.coordinate);
+  const origins = activeRows.map((row) => row.coordinate);
   if (origins.length < 2) {
     setStatus("Add at least two origins.");
     return;
@@ -147,12 +149,12 @@ async function calculate() {
     const result = await response.json();
     if (!response.ok) throw new Error(result.error);
     state.evaluation = result;
+    state.activeRows = activeRows;
     drawRegion(result.total.region, "total");
     drawRegion(result.maximum.region, "maximum");
     const bounds = L.latLngBounds([...origins, ...result.total.region, ...result.maximum.region]);
     if (bounds.isValid()) map.fitBounds(bounds.pad(0.12));
-    const tolerance = Number(document.querySelector("#tolerance").value);
-    setStatus(`Showing exact ${tolerance}-minute regions from ${result.provenance.snapshot}. Click anywhere to compare trips.`);
+    setStatus("");
   } catch (error) {
     if (error.name !== "AbortError") setStatus(error.message || "fairway could not calculate these origins.");
   }
@@ -178,13 +180,23 @@ map.on("click", async ({ latlng }) => {
     if (!response.ok) throw new Error(result.error);
     const content = document.createElement("div");
     content.className = "point-popup";
-    content.innerHTML = `<strong>${result.coordinate[0].toFixed(5)}, ${result.coordinate[1].toFixed(5)}</strong>`;
+    content.innerHTML = `<strong class="point-address">${result.coordinate[0].toFixed(5)}, ${result.coordinate[1].toFixed(5)}</strong>`;
     const list = document.createElement("ul");
+    list.className = "travel-times";
     result.travel_times_seconds.forEach((time, index) => {
+      const originIndex = state.rows.indexOf(state.activeRows[index]);
       const item = document.createElement("li");
-      item.innerHTML = `<span style="color:${color(index)}">Origin ${index + 1}</span><strong>${minutes(time)}</strong>`;
+      item.className = "time-pill";
+      item.style.background = color(originIndex);
+      item.textContent = minutes(time);
+      item.ariaLabel = `Origin ${originIndex + 1}: ${minutes(time)}`;
       list.append(item);
     });
+    const total = result.travel_times_seconds.reduce((sum, time) => sum + time, 0);
+    const totalItem = document.createElement("li");
+    totalItem.className = "time-pill total-time";
+    totalItem.textContent = `${minutes(total)} total`;
+    list.append(totalItem);
     const form = document.createElement("form");
     const input = document.createElement("input");
     input.required = true;

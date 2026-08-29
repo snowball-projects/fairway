@@ -2,7 +2,7 @@
 
 fairway is a minimal dashboard for comparing modo's total-time and minimax
 meeting regions. Add two or more origins, inspect both regions, and click any
-map point to compare individual driving times.
+map point to compare individual and combined driving times.
 
 The initial release covers the Chicago-area static road snapshot. It does not
 yet account for live or historical traffic, depart-at, or arrive-by times.

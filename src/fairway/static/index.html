@@ -20,7 +20,7 @@
       <section class="panel" aria-label="fairway controls">
         <header>
           <a class="brand" href="https://snowball-projects.github.io">fairway</a>
-          <p>Find the road regions that minimize total time and the longest trip.</p>
+          <p>Find meeting areas that save the group time or shorten the longest drive.</p>
         </header>
 
         <div class="origins-heading">
@@ -34,20 +34,28 @@
           <span><input id="tolerance" type="number" min="0" max="30" value="1" /> min</span>
         </label>
 
-        <div class="legend" aria-label="Optimization regions">
-          <span><i class="total"></i>Total travel time</span>
-          <span><i class="maximum"></i>Longest individual trip</span>
+        <div class="legend-heading">
+          <span>Meeting regions</span>
+          <details class="info">
+            <summary aria-label="About Fairway's results">i</summary>
+            <p>
+              Purple minimizes everyone's combined driving time. Orange makes the longest drive
+              as short as possible. Results use a static Chicago-area road network and the selected
+              tolerance. Traffic and scheduled arrival or departure are not yet supported. Address
+              suggestions go directly to Photon.
+              <a href="https://github.com/snowball-projects/fairway/blob/main/SERVICE.md"
+                >Service policy</a
+              >
+              · <a href="https://github.com/snowball-projects/fairway">Source</a>
+            </p>
+          </details>
+        </div>
+        <div class="legend" aria-label="Meeting regions">
+          <span><i class="total"></i>Least driving overall</span>
+          <span><i class="maximum"></i>Shortest longest drive</span>
         </div>
 
         <p id="status" role="status">Add at least two origins.</p>
-        <p class="note">
-          Static Chicago-area road times. Traffic, depart-at, and arrive-by are not yet supported.
-          Address suggestions go directly to Photon. Read the
-          <a href="https://github.com/snowball-projects/fairway/blob/main/SERVICE.md"
-            >service policy</a
-          >
-          or <a href="https://github.com/snowball-projects/fairway">source</a>.
-        </p>
       </section>
       <div id="map" aria-label="Meeting-region map"></div>
     </main>

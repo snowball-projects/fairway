@@ -29,7 +29,9 @@ def test_serves_dashboard():
     assert status == "200 OK"
     assert b"fairway" in body
     assert b'href="/leaflet.css"' in body
-    assert b"service policy" in body
+    assert b"Least driving overall" in body
+    assert b"Shortest longest drive" in body
+    assert b"Service policy" in body
 
     status, body = request("/leaflet.css")
     assert status == "200 OK"
