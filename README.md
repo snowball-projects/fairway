@@ -29,6 +29,9 @@ analyses in memory. Nothing is written to a database.
 
 The road snapshot is a separately versioned release artifact rather than source
 code. Every result identifies its snapshot, cost profile, and modo version.
+`data/snapshots.json` binds each published artifact to its checksum, supported
+core, graph bounds, and cost profile. `FAIRWAY_SNAPSHOT` selects one catalog
+entry for the current process.
 
 ## License
 

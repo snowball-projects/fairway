@@ -31,19 +31,20 @@
 
         <label class="tolerance">
           <span>Region tolerance</span>
-          <span><input id="tolerance" type="number" min="0" max="30" value="1" /> min</span>
+          <span><input id="tolerance" type="number" min="0" max="5" value="1" /> min</span>
         </label>
 
         <div class="legend-heading">
           <span>Meeting regions</span>
           <details class="info">
-            <summary aria-label="About Fairway's results">i</summary>
+            <summary aria-label="About fairway's results">i</summary>
             <p>
               Purple minimizes everyone's combined driving time. Its tolerance is additional
               combined time. Orange makes the longest drive as short as possible, with the same
               tolerance applied to that drive. Stronger points are closer to the exact optimum.
-              Results use a static Chicago-area road network. Traffic and scheduled arrival or
-              departure are not yet supported. Address suggestions go directly to Photon.
+              Results use the active static road snapshot. Traffic and scheduled arrival or
+              departure are not yet supported. Address suggestions are limited to the snapshot's
+              supported core and go directly to Photon.
               <a href="https://github.com/snowball-projects/fairway/blob/main/SERVICE.md"
                 >Service policy</a
               >
@@ -57,11 +58,29 @@
         </div>
 
         <p id="status" role="status">Add at least two origins.</p>
+        <section id="results" class="results" aria-labelledby="results-heading" hidden>
+          <h2 id="results-heading">Results</h2>
+          <div id="result-summary"></div>
+          <form id="point-form" class="point-inspector">
+            <label for="point-coordinate">Compare another road point</label>
+            <div class="point-fields">
+              <input
+                id="point-coordinate"
+                inputmode="decimal"
+                autocomplete="off"
+                placeholder="41.88, -87.63"
+                required
+              />
+              <button type="submit">Compare</button>
+            </div>
+          </form>
+          <div id="point-result" tabindex="-1" aria-live="polite"></div>
+        </section>
         <footer class="maintainer">
           Maintained by <a href="https://snowball-projects.github.io">snowball</a>.
         </footer>
       </section>
-      <div id="map" aria-label="Meeting-region map"></div>
+      <div id="map" role="region" aria-label="Meeting-region map"></div>
     </main>
   </body>
 </html>

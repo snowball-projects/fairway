@@ -10,13 +10,20 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.13"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          python-version: ${{ matrix.python-version }}
           cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - run: pip install '.[test]'
       - run: ruff check .
+      - run: ruff format --check .
+      - run: node --check src/fairway/static/app.js
       - run: python -m pytest
-

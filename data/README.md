@@ -1,5 +1,9 @@
 # Road snapshot
 
+`snapshots.json` is fairway's versioned artifact catalog. The fetch script and
+runtime use it as the canonical binding between a snapshot identifier, file,
+release URL, checksum, cost profile, supported core, and graph bounds.
+
 `chicago-static-v1.npz` is an immutable compact road graph built from
 OpenStreetMap data. It is distributed as a GitHub release artifact and is not
 tracked in the source tree.
