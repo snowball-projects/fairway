@@ -1,0 +1,38 @@
+# fairway
+
+fairway is a minimal dashboard for comparing modo's total-time and minimax
+meeting regions. Add two or more origins, inspect both regions, and click any
+map point to compare individual driving times.
+
+The initial release covers the Chicago-area static road snapshot. It does not
+yet account for live or historical traffic, depart-at, or arrive-by times.
+
+## Run locally
+
+Python 3.11 or newer is required.
+
+```sh
+python -m pip install -e '.[test]'
+python scripts/fetch_snapshot.py
+gunicorn fairway.app:application
+```
+
+Open `http://127.0.0.1:8000`. Address suggestions come from the public Photon
+demo service. Coordinates can also be entered as `latitude, longitude`.
+
+## Architecture
+
+One Python process serves the browser files and JSON API. It loads one immutable
+compact road snapshot, asks modo to calculate both exact vertex regions from a
+shared shortest-path analysis, and keeps only a small bounded set of temporary
+analyses in memory. Nothing is written to a database.
+
+The road snapshot is a separately versioned release artifact rather than source
+code. Every result identifies its snapshot, cost profile, and modo version.
+
+## License
+
+fairway is a snowball project licensed under the [Apache License 2.0](LICENSE).
+Its OpenStreetMap-derived road snapshot is separately available under the Open
+Database License. See [data/README.md](data/README.md).
+

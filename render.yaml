@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: fairway
+    runtime: python
+    plan: free
+    buildCommand: pip install . && python scripts/fetch_snapshot.py
+    startCommand: gunicorn --preload fairway.app:application
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.7
+      - key: FAIRWAY_GRAPH
+        value: data/chicago-static-v1.npz
+      - key: FAIRWAY_SNAPSHOT
+        value: chicago-static-v1
+

@@ -1,0 +1,2 @@
+"""fairway dashboard."""
+

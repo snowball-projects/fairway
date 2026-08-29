@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fairway"
+version = "0.1.0"
+description = "A minimal dashboard for fair geographic meeting regions."
+authors = [{name = "snowball"}]
+license = "Apache-2.0"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "gunicorn>=23,<24",
+  "modo @ git+https://github.com/snowball-projects/modo.git@4aa8eee370b234fc33459937437841bcac94cb30",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9", "ruff>=0.12,<1"]
+
+[project.urls]
+Repository = "https://github.com/snowball-projects/fairway"
+
+[tool.setuptools.package-data]
+fairway = ["static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
