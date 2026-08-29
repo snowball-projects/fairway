@@ -13,7 +13,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
   "gunicorn>=23,<24",
-  "modo @ git+https://github.com/snowball-projects/modo.git@4aa8eee370b234fc33459937437841bcac94cb30",
+  "modo @ git+https://github.com/snowball-projects/modo.git@8f2684a83ac238fa39b9ffe77091579e27f19673",
 ]
 
 [project.optional-dependencies]
