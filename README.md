@@ -37,3 +37,8 @@ Its OpenStreetMap-derived road snapshot is separately available under the Open
 Database License. See [data/README.md](data/README.md). The locally served
 Leaflet stylesheet remains under BSD-2-Clause; see
 [LEAFLET-LICENSE.txt](src/fairway/static/LEAFLET-LICENSE.txt).
+
+See [NOTICE](NOTICE) for attribution, [CONTRIBUTING.md](CONTRIBUTING.md) before
+submitting work, the official [hosted-service policy](SERVICE.md), and
+snowball's [licensing and identity
+policy](https://snowball-projects.github.io/licensing/).

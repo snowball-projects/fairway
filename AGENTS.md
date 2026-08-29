@@ -9,5 +9,5 @@
   analytics, advertising, and destination ranking.
 - Prefer the smallest reliable design. Explain current limits plainly and do not
   present future traffic support as implemented.
+- Keep official service behavior and limits canonical in `SERVICE.md`.
 - Never use em dashes. Use regular hyphens.
-

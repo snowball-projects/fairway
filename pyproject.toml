@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "A minimal dashboard for fair geographic meeting regions."
 authors = [{name = "snowball"}]
 license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
