@@ -34,5 +34,6 @@ code. Every result identifies its snapshot, cost profile, and modo version.
 
 fairway is a snowball project licensed under the [Apache License 2.0](LICENSE).
 Its OpenStreetMap-derived road snapshot is separately available under the Open
-Database License. See [data/README.md](data/README.md).
-
+Database License. See [data/README.md](data/README.md). The locally served
+Leaflet stylesheet remains under BSD-2-Clause; see
+[LEAFLET-LICENSE.txt](src/fairway/static/LEAFLET-LICENSE.txt).

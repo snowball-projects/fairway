@@ -28,6 +28,11 @@ def test_serves_dashboard():
     status, body = request()
     assert status == "200 OK"
     assert b"fairway" in body
+    assert b'href="/leaflet.css"' in body
+
+    status, body = request("/leaflet.css")
+    assert status == "200 OK"
+    assert b".leaflet-tile" in body
 
 
 def test_rejects_too_few_origins():

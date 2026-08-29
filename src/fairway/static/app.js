@@ -5,6 +5,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
 }).addTo(map);
 const canvas = L.canvas({ padding: 0.5 });
+new ResizeObserver(() => map.invalidateSize()).observe(document.querySelector("#map"));
 
 function color(index) {
   return `hsl(${(198 + index * 137.508) % 360} 62% 38%)`;
