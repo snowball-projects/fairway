@@ -46,7 +46,10 @@ def _result(road, result):
         "optimum": list(result.coordinate),
         "objective_seconds": result.objective_seconds,
         "travel_times_seconds": list(result.travel_times_seconds),
-        "region": [list(point) for point in road.coordinates(result.region)],
+        "region": [{
+            "coordinate": list(road.coordinate(vertex)),
+            "excess_seconds": excess,
+        } for vertex, excess in result.region_excess_seconds.items()],
     }
 
 

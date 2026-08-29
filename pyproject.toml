@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fairway"
-version = "0.1.0"
+version = "0.2.0"
 description = "A minimal dashboard for fair geographic meeting regions."
 authors = [{name = "snowball"}]
 license = "Apache-2.0"
@@ -13,7 +13,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
   "gunicorn>=23,<24",
-  "modo @ git+https://github.com/snowball-projects/modo.git@8f2684a83ac238fa39b9ffe77091579e27f19673",
+  "modo @ git+https://github.com/snowball-projects/modo.git@63ed701b7c1c34fadebcd9ba30e4ae8e1dde3dd5",
 ]
 
 [project.optional-dependencies]

@@ -120,11 +120,19 @@ function renumber() {
   });
 }
 
-function drawRegion(points, kind) {
-  const options = kind === "total"
-    ? { radius: 3, color: "#7652c8", weight: 0, fillOpacity: 0.42, renderer: canvas }
-    : { radius: 4, color: "#ed7b3a", weight: 1.5, fillOpacity: 0, renderer: canvas };
-  const group = L.layerGroup(points.map((point) => L.circleMarker(point, options))).addTo(map);
+function drawRegion(points, kind, tolerance) {
+  const markers = points.map((point) => {
+    const strength = tolerance ? Math.max(0, 1 - point.excess_seconds / tolerance) : 1;
+    const exact = point.excess_seconds < 0.001;
+    const options = kind === "total"
+      ? { radius: exact ? 5 : 2 + 2.5 * strength, color: "#7652c8", weight: 0,
+          fillOpacity: 0.08 + 0.64 * strength, renderer: canvas }
+      : { radius: exact ? 6 : 2.5 + 2.5 * strength, color: "#ed7b3a",
+          weight: 0.6 + 1.8 * strength, opacity: 0.14 + 0.76 * strength,
+          fillOpacity: 0, renderer: canvas };
+    return L.circleMarker(point.coordinate, options);
+  });
+  const group = L.layerGroup(markers).addTo(map);
   state.layers.push(group);
 }
 
@@ -140,19 +148,22 @@ async function calculate() {
   state.request = new AbortController();
   setStatus("Calculating both regions…");
   try {
+    const tolerance = Number(document.querySelector("#tolerance").value) * 60;
     const response = await fetch("/api/evaluations", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ origins, tolerance_seconds: Number(document.querySelector("#tolerance").value) * 60 }),
+      body: JSON.stringify({ origins, tolerance_seconds: tolerance }),
       signal: state.request.signal,
     });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error);
     state.evaluation = result;
     state.activeRows = activeRows;
-    drawRegion(result.total.region, "total");
-    drawRegion(result.maximum.region, "maximum");
-    const bounds = L.latLngBounds([...origins, ...result.total.region, ...result.maximum.region]);
+    drawRegion(result.total.region, "total", tolerance);
+    drawRegion(result.maximum.region, "maximum", tolerance);
+    const regionPoints = [...result.total.region, ...result.maximum.region]
+      .map((point) => point.coordinate);
+    const bounds = L.latLngBounds([...origins, ...regionPoints]);
     if (bounds.isValid()) map.fitBounds(bounds.pad(0.12));
     setStatus("");
   } catch (error) {

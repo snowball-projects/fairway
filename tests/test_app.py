@@ -50,17 +50,22 @@ def test_calculates_both_regions_and_selected_point(monkeypatch):
     graph.add_node("a", y=0, x=0)
     graph.add_node("b", y=0, x=10)
     graph.add_node("x", y=1, x=2)
+    graph.add_node("y", y=1, x=3)
     graph.add_edge("a", "x", travel_time=1)
     graph.add_edge("b", "x", travel_time=9)
+    graph.add_edge("a", "y", travel_time=5)
+    graph.add_edge("b", "y", travel_time=6)
     monkeypatch.setattr(app, "_graph", CompactRoadGraph.from_networkx(graph))
     app._analyses.clear()
 
     status, body = request("/api/evaluations", "POST", {
-        "origins": [[0, 0], [0, 10]], "tolerance_seconds": 60})
+        "origins": [[0, 0], [0, 10]], "tolerance_seconds": 0.75})
     result = json.loads(body)
     assert status == "200 OK"
-    assert result["total"]["region"] == [[1.0, 2.0]]
-    assert result["maximum"]["region"] == [[1.0, 2.0]]
+    assert result["total"]["region"] == [{
+        "coordinate": [1.0, 2.0], "excess_seconds": 0.0}]
+    assert result["maximum"]["region"] == [{
+        "coordinate": [1.0, 3.0], "excess_seconds": 0.0}]
 
     status, body = request(
         f"/api/evaluations/{result['id']}/travel-times", "POST",
