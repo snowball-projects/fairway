@@ -11,5 +11,8 @@
   present future traffic support as implemented.
 - Keep official service behavior and limits canonical in `SERVICE.md`.
 - Keep the linked AI-agent provenance statement in the public interface and
-  README aligned with snowball's canonical policy.
+  README exactly `Built by AI agents`, without qualifiers. Link it to
+  snowball's canonical
+  `../snowball-projects.github.io/src/pages/licensing.md#how-snowball-is-built`
+  policy.
 - Never use em dashes. Use regular hyphens.

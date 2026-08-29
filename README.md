@@ -1,10 +1,11 @@
 # fairway
 
-fairway is a minimal dashboard for comparing modo's total-time and minimax
-meeting regions. Add two or more origins, inspect both regions, and click any
-map point to compare individual and combined driving times.
+fairway is a minimal dashboard for comparing two modo meeting regions. One
+minimizes total driving time; the other minimizes the longest driving time. Add
+two or more origins, inspect both regions, and click any map point to compare
+individual and combined driving times.
 
-[Founder-directed. Built entirely by AI agents.](https://snowball-projects.github.io/licensing/#how-snowball-is-built)
+[Built by AI agents](https://snowball-projects.github.io/licensing/#how-snowball-is-built)
 
 The initial release covers the Chicago-area static road snapshot. It does not
 yet account for live or historical traffic, depart-at, or arrive-by times.

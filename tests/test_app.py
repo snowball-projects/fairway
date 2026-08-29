@@ -63,15 +63,19 @@ def test_serves_dashboard():
     assert status == "200 OK"
     assert b"fairway" in body
     assert b'href="/leaflet.css"' in body
-    assert b"Least driving overall" in body
-    assert b"Shortest longest drive" in body
+    assert b"Minimize total driving time" in body
+    assert b"Minimize longest driving time" in body
     assert b"Service policy" in body
-    assert b"Maintained by" in body
-    assert b'id="point-form"' in body
-    assert b'id="point-result" tabindex="-1"' in body
+    assert b"Built by AI agents" in body
+    assert b"Maintained by" not in body
+    assert b'id="results"' not in body
+    assert b'id="point-form"' not in body
+    assert b'id="point-result"' not in body
     assert b'max="5"' in body
     assert b"Fairway" not in body
-    assert b"Founder-directed. Built entirely by AI agents." in body
+    assert b"Founder-directed" not in body
+    assert b"Built entirely" not in body
+    assert b"Written by AI agents" not in body
     assert (
         b'href="https://snowball-projects.github.io/licensing/#how-snowball-is-built"'
         in body
@@ -85,6 +89,12 @@ def test_serves_dashboard():
     assert status == "200 OK"
     assert b'fetch("/api/config")' in body
     assert b"bbox=${state.photonBbox}" in body
+    assert b'fillColor: "#ed7b3a"' in body
+    assert b"renderEvaluation" not in body
+
+    status, body = request("/styles.css")
+    assert status == "200 OK"
+    assert b".legend .maximum { background: #ed7b3a; }" in body
 
     status, body = request("/api/config")
     config = json.loads(body)

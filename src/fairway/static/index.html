@@ -37,14 +37,14 @@
         <div class="legend-heading">
           <span>Meeting regions</span>
           <details class="info">
-            <summary aria-label="About fairway's results">i</summary>
+            <summary aria-label="About fairway's meeting regions">i</summary>
             <p>
-              Purple minimizes everyone's combined driving time. Its tolerance is additional
-              combined time. Orange makes the longest drive as short as possible, with the same
-              tolerance applied to that drive. Stronger points are closer to the exact optimum.
-              Results use the active static road snapshot. Traffic and scheduled arrival or
-              departure are not yet supported. Address suggestions are limited to the snapshot's
-              supported core and go directly to Photon.
+              Purple minimizes total driving time across everyone. Its tolerance is additional
+              total time. Orange minimizes the longest individual drive, with the same tolerance
+              applied to that drive. Stronger points are closer to the exact optimum. Results use
+              the active static road snapshot. Traffic and scheduled arrival or departure are not
+              yet supported. Address suggestions are limited to the snapshot's supported core and
+              go directly to Photon.
               <a href="https://github.com/snowball-projects/fairway/blob/main/SERVICE.md"
                 >Service policy</a
               >
@@ -53,33 +53,14 @@
           </details>
         </div>
         <div class="legend" aria-label="Meeting regions">
-          <span><i class="total"></i>Least driving overall</span>
-          <span><i class="maximum"></i>Shortest longest drive</span>
+          <span><i class="total"></i>Minimize total driving time</span>
+          <span><i class="maximum"></i>Minimize longest driving time</span>
         </div>
 
         <p id="status" role="status">Add at least two origins.</p>
-        <section id="results" class="results" aria-labelledby="results-heading" hidden>
-          <h2 id="results-heading">Results</h2>
-          <div id="result-summary"></div>
-          <form id="point-form" class="point-inspector">
-            <label for="point-coordinate">Compare another road point</label>
-            <div class="point-fields">
-              <input
-                id="point-coordinate"
-                inputmode="decimal"
-                autocomplete="off"
-                placeholder="41.88, -87.63"
-                required
-              />
-              <button type="submit">Compare</button>
-            </div>
-          </form>
-          <div id="point-result" tabindex="-1" aria-live="polite"></div>
-        </section>
         <footer class="maintainer">
-          Maintained by <a href="https://snowball-projects.github.io">snowball</a>.
           <a href="https://snowball-projects.github.io/licensing/#how-snowball-is-built"
-            >Founder-directed. Built entirely by AI agents.</a
+            >Built by AI agents</a
           >
         </footer>
       </section>

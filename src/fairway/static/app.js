@@ -13,11 +13,6 @@ const state = {
 const view = {
   addOrigin: document.querySelector("#add-origin"),
   origins: document.querySelector("#origins"),
-  pointCoordinate: document.querySelector("#point-coordinate"),
-  pointForm: document.querySelector("#point-form"),
-  pointResult: document.querySelector("#point-result"),
-  resultSummary: document.querySelector("#result-summary"),
-  results: document.querySelector("#results"),
   status: document.querySelector("#status"),
   tolerance: document.querySelector("#tolerance"),
 };
@@ -56,10 +51,6 @@ function clearResults() {
   state.activeRows = [];
   state.layers.splice(0).forEach((layer) => layer.remove());
   map.closePopup();
-  view.results.hidden = true;
-  view.resultSummary.replaceChildren();
-  view.pointResult.replaceChildren();
-  view.pointCoordinate.value = "";
 }
 
 function parseCoordinate(value) {
@@ -290,9 +281,9 @@ function drawRegion(points, kind, tolerance) {
         : {
             radius: exact ? 6 : 2.5 + 2.5 * strength,
             color: "#ed7b3a",
-            weight: 0.6 + 1.8 * strength,
-            opacity: 0.14 + 0.76 * strength,
-            fillOpacity: 0,
+            fillColor: "#ed7b3a",
+            weight: 0,
+            fillOpacity: 0.08 + 0.64 * strength,
             renderer: canvas,
             interactive: false,
           };
@@ -300,39 +291,6 @@ function drawRegion(points, kind, tolerance) {
   });
   const group = L.layerGroup(markers).addTo(map);
   state.layers.push(group);
-}
-
-function objectiveSummary(title, result, measure) {
-  const article = document.createElement("article");
-  const heading = document.createElement("h3");
-  heading.textContent = title;
-  const detail = document.createElement("p");
-  detail.textContent = `${measure}. Exact point: ${formatCoordinate(result.optimum)}. Region: ${result.region.length.toLocaleString()} road points.`;
-  const inspect = document.createElement("button");
-  inspect.type = "button";
-  inspect.textContent = "Compare travel times here";
-  inspect.onclick = () => {
-    view.pointCoordinate.value = formatCoordinate(result.optimum);
-    inspectPoint(result.optimum, null, true);
-  };
-  article.append(heading, detail, inspect);
-  return article;
-}
-
-function renderEvaluation(result) {
-  view.results.hidden = false;
-  view.resultSummary.replaceChildren(
-    objectiveSummary(
-      "Least driving overall",
-      result.total,
-      `${duration(result.total.objective_seconds)} combined driving time`,
-    ),
-    objectiveSummary(
-      "Shortest longest drive",
-      result.maximum,
-      `${duration(result.maximum.objective_seconds)} longest drive`,
-    ),
-  );
 }
 
 async function responseBody(response) {
@@ -379,13 +337,12 @@ async function calculate() {
     state.activeRows = activeRows;
     drawRegion(result.total.region, "total", tolerance);
     drawRegion(result.maximum.region, "maximum", tolerance);
-    renderEvaluation(result);
     const regionPoints = [...result.total.region, ...result.maximum.region].map(
       (point) => point.coordinate,
     );
     const bounds = L.latLngBounds([...result.origins, ...regionPoints]);
     if (bounds.isValid()) map.fitBounds(bounds.pad(0.12));
-    setStatus("Results ready.");
+    setStatus("Meeting regions ready.");
   } catch (error) {
     if (error.name !== "AbortError" && state.request === controller) {
       setStatus(error.message || "fairway could not calculate these origins.");
@@ -412,10 +369,10 @@ function searchForm(coordinate) {
   return form;
 }
 
-function pointContent(result, activeRows, compact) {
+function pointContent(result, activeRows) {
   const content = document.createElement("div");
   content.className = "point-popup";
-  const heading = document.createElement(compact ? "strong" : "h3");
+  const heading = document.createElement("strong");
   heading.className = "point-address";
   heading.textContent = formatCoordinate(result.coordinate);
   const list = document.createElement("ul");
@@ -427,8 +384,8 @@ function pointContent(result, activeRows, compact) {
     const item = document.createElement("li");
     item.className = "time-pill";
     item.style.background = color(originIndex);
-    item.textContent = compact ? duration(time) : label;
-    if (compact) item.ariaLabel = label;
+    item.textContent = duration(time);
+    item.ariaLabel = label;
     list.append(item);
   });
   const total = result.travel_times_seconds.reduce((sum, time) => sum + time, 0);
@@ -440,7 +397,7 @@ function pointContent(result, activeRows, compact) {
   return content;
 }
 
-async function inspectPoint(coordinate, popup = null, focusResult = false) {
+async function inspectPoint(coordinate, popup) {
   if (state.pointPopup !== popup) closePointPopup();
   if (popup) state.pointPopup = popup;
   const evaluation = state.evaluation;
@@ -464,8 +421,7 @@ async function inspectPoint(coordinate, popup = null, focusResult = false) {
   cancelPointRequest();
   const controller = new AbortController();
   state.pointRequest = controller;
-  view.pointResult.textContent = "Calculating travel times…";
-  if (popup) popup.setContent("Calculating travel times…");
+  popup.setContent("Calculating travel times…");
   try {
     const response = await fetch(`/api/evaluations/${evaluation.id}/travel-times`, {
       method: "POST",
@@ -476,13 +432,8 @@ async function inspectPoint(coordinate, popup = null, focusResult = false) {
     const result = await responseBody(response);
     if (!response.ok) throw new Error(result.error);
     if (state.pointRequest !== controller || state.evaluation !== evaluation) return;
-    view.pointCoordinate.value = formatCoordinate(result.coordinate);
-    view.pointResult.replaceChildren(pointContent(result, activeRows, false));
-    if (popup) {
-      popup.setLatLng(result.coordinate);
-      popup.setContent(pointContent(result, activeRows, true));
-    }
-    if (focusResult) view.pointResult.focus();
+    popup.setLatLng(result.coordinate);
+    popup.setContent(pointContent(result, activeRows));
     setStatus("Travel times ready.");
   } catch (error) {
     if (
@@ -491,8 +442,7 @@ async function inspectPoint(coordinate, popup = null, focusResult = false) {
       state.evaluation === evaluation
     ) {
       const message = error.message || "Travel times are unavailable.";
-      view.pointResult.textContent = message;
-      if (popup) popup.setContent(message);
+      popup.setContent(message);
       setStatus(message);
     }
   } finally {
@@ -501,33 +451,12 @@ async function inspectPoint(coordinate, popup = null, focusResult = false) {
 }
 
 map.on("click", ({ latlng }) => {
-  view.pointCoordinate.value = formatCoordinate([latlng.lat, latlng.lng]);
   const popup = L.popup()
     .setLatLng(latlng)
     .setContent("Calculating travel times…")
     .openOn(map);
   inspectPoint([latlng.lat, latlng.lng], popup);
 });
-
-view.pointForm.onsubmit = (event) => {
-  event.preventDefault();
-  cancelPointRequest();
-  closePointPopup();
-  const coordinate = parseCoordinate(view.pointCoordinate.value);
-  if (!coordinate) {
-    const message = "Enter a point as latitude, longitude within their valid ranges.";
-    view.pointResult.textContent = message;
-    setStatus(message);
-    return;
-  }
-  inspectPoint(coordinate, null, true);
-};
-view.pointCoordinate.oninput = () => {
-  cancelPointRequest();
-  closePointPopup();
-  view.pointResult.replaceChildren();
-  if (state.evaluation) setStatus("Results ready.");
-};
 view.addOrigin.onclick = addOrigin;
 view.tolerance.onchange = calculate;
 map.on("popupclose", ({ popup }) => {

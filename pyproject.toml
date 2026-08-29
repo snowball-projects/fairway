@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fairway"
-version = "0.3.0"
+version = "0.3.1"
 description = "A minimal dashboard for fair geographic meeting regions."
 authors = [{name = "snowball"}]
 license = "Apache-2.0"
