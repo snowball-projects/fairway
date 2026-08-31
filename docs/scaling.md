@@ -1,10 +1,8 @@
 # Geographic and catalog scaling
 
-fairway ranks a finite destination catalog. It does not need modo's complete
-optimal-region scan, but the current static provider still calculates one full
-shortest-path field per golfer and reads the course vertices from those fields.
-This is simple, exact over the named graph, and inexpensive for the current
-eight-course catalog.
+fairway ranks a finite destination catalog. Its static provider calculates one
+shortest-path field per golfer and reads each course vertex from those fields.
+The result is exact over the named graph.
 
 ## Current boundary
 
@@ -13,10 +11,10 @@ artifact. The official service accepts at most eight origins and evaluates at
 most eight catalog courses. The course catalog and road snapshot are loaded
 once, while every ranking request remains stateless.
 
-The result is exact only for the graph vertices, edge costs, and routing points
-named in its provenance. Static free-flow costs are a model, not observed
-traffic. A larger course catalog does not repair incomplete roads, stale
-entrances, or an unsuitable cost profile.
+Exactness is limited to the graph vertices, edge costs, and routing points named
+in the result provenance. Static free-flow costs are a model, not observed
+traffic. More courses would not repair incomplete roads, stale entrances, or an
+unsuitable cost profile.
 
 ## Reversible expansion
 
@@ -51,14 +49,12 @@ Before replacing the static provider, record:
 - latency, timeout, partial-result, and provider-outage behavior
 - a local or alternate-provider recovery path
 
-Traffic-aware ranking is useful for a finite course list, but it is primarily a
-live-data and service-reliability problem. It should ship only with an explicit
-label and a static fallback, not as an undocumented change to the current
-model.
+Traffic-aware ranking would require an explicit label and a static fallback; it
+must not silently replace the current model.
 
 Run the repeatable local matrix benchmark with:
 
 ```sh
-python scripts/benchmark_snapshot.py data/chicago-static-v1.npz \
+uv run --locked python scripts/benchmark_snapshot.py data/chicago-static-v1.npz \
   41.8781,-87.6298 42.0334,-88.0834 42.0451,-87.6877
 ```

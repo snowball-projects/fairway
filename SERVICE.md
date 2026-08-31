@@ -13,8 +13,8 @@ their own service policies.
 - Results rank a dated, bounded course catalog using the identified static road
   snapshot and cost profile. Traffic, scheduled departures or arrivals,
   prices, ratings, tee times, and availability are not supported.
-- A course's outbound link opens its official site. fairway does not broker,
-  monitor, or receive information about a booking.
+- Course links open the operator's official site. fairway does not broker
+  bookings or receive booking information.
 
 ## Browser services
 
@@ -30,14 +30,11 @@ their own service policies.
 
 ## Acceptable use
 
-Use the service for ordinary interactive course comparisons. Do not
-intentionally disrupt it, evade its limits, send automated bulk traffic, access
-another person's data, or use it in violation of applicable law or another
-person's rights. Good-faith security research is welcome when it avoids harm and
-is reported privately.
-
-snowball may reject, limit, or block abusive traffic. The service is provided
-without a guarantee of availability.
+Use the service for ordinary interactive course comparisons. Do not disrupt it,
+evade its limits, send automated bulk traffic, or violate applicable law or
+another person's rights. Report good-faith security research privately and avoid
+harm. snowball may reject, limit, or block abusive traffic. Availability is not
+guaranteed.
 
 ## Current limits
 
@@ -48,9 +45,9 @@ more than 5 km from a road vertex. The core spans 41.8500077 to 42.1799662
 latitude and -88.1399989 to -87.6012705 longitude.
 
 The `chicago-public-courses-v1` catalog contains eight public courses reviewed
-as of August 30, 2026. It is not a complete directory. Catalog facts and routing
-points can become stale, and the service does not infer missing fields. Current
-coverage and provenance are documented in [data/README.md](data/README.md).
+as of August 30, 2026. It is incomplete, its facts and routing points can become
+stale, and missing fields are not inferred. [data/README.md](data/README.md) is
+the canonical coverage and provenance record.
 
 Report security issues through [GitHub's private vulnerability reporting
 form](https://github.com/snowball-projects/fairway/security/advisories/new).

@@ -26,22 +26,17 @@ It is distributed as a GitHub release artifact and is not tracked in source.
 Build it from an OSMnx-style GraphML input with:
 
 ```sh
-python scripts/build_snapshot.py local-chicago.graphml data/chicago-static-v1.npz
+uv run --locked python scripts/build_snapshot.py local-chicago.graphml \
+  data/chicago-static-v1.npz
 ```
 
 ## Course catalog
 
-`course-catalog-v1.json` is fairway's first bounded catalog. It contains eight
-public courses whose reviewed routing points fall inside the road snapshot's
-supported core. It intentionally balances four 9-hole and four 18-hole courses
-so the only current filter remains useful.
-
-The catalog contains:
-
-- Columbus Park, Sydney R. Marovitz, and Robert A. Black from Chicago Park
-  District Golf
-- Billy Caldwell, Edgebrook, Chick Evans, Indian Boundary, and Highland Woods
-  from Forest Preserve Golf
+`course-catalog-v1.json` contains eight public courses whose reviewed routing
+points fall inside the road snapshot's supported core: three operated by Chicago
+Park District Golf and five by Forest Preserve Golf. It includes four 9-hole
+and four 18-hole courses. The JSON file is the canonical list of entries and
+sources.
 
 Names, public access, street addresses, hole counts, and official course links
 were checked against the operator page identified by each course's
@@ -70,9 +65,8 @@ To update the catalog:
 5. Publish a new catalog identifier and `as_of` date rather than mutating a
    previously released artifact silently.
 
-The catalog loader computes and returns the JSON file's SHA-256 digest with
-every ranking. This binds a result to the exact local file even before the
-catalog is published as a separate release artifact.
+Every ranking includes the catalog file's SHA-256 digest, binding the result to
+the exact local file.
 
 Copyright OpenStreetMap contributors. OpenStreetMap data is available under the
 [Open Database License](https://www.openstreetmap.org/copyright).

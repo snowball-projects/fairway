@@ -54,14 +54,14 @@
               <input type="radio" name="objective" value="maximum" checked />
               <span>
                 <strong>Shortest longest drive</strong>
-                <small>Keep the farthest golfer closer</small>
+                <small>Minimize the farthest golfer's time</small>
               </span>
             </label>
             <label>
               <input type="radio" name="objective" value="combined" />
               <span>
                 <strong>Lowest combined drive</strong>
-                <small>Use the least group travel time</small>
+                <small>Minimize the group's total time</small>
               </span>
             </label>
           </fieldset>
@@ -81,7 +81,7 @@
         <details class="method-note">
           <summary>How this works</summary>
           <p>
-            fairway ranks a fixed public-course catalog using modeled drive times on one static
+            fairway ranks a fixed public-course catalog using modeled drive times from one static
             road snapshot. It does not use traffic, prices, ratings, or live tee-time availability.
           </p>
           <p>
@@ -102,7 +102,7 @@
 
       <section class="map-stage" aria-label="Golf course map">
         <div id="map" role="region" aria-label="Interactive course map"></div>
-        <p class="map-key"><span></span>Public course in the current catalog</p>
+        <p class="map-key"><span></span>Public course in catalog</p>
       </section>
 
       <aside class="results-panel" aria-labelledby="results-title">
@@ -119,7 +119,7 @@
         <div id="results" class="results" aria-live="polite">
           <div class="empty-state">
             <span class="empty-flag" aria-hidden="true"></span>
-            <p>The course pins are ready. Your ranking will appear here.</p>
+            <p>Results will appear here.</p>
           </div>
         </div>
         <footer class="catalog-note">

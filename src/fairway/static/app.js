@@ -449,7 +449,7 @@ function renumber() {
   view.addOrigin.disabled = state.rows.length >= state.maxOrigins;
 }
 
-function emptyResults(message = "The course pins are ready. Your ranking will appear here.") {
+function emptyResults(message = "Results will appear here.") {
   const empty = document.createElement("div");
   empty.className = "empty-state";
   const flag = document.createElement("span");
@@ -557,7 +557,7 @@ function renderRanking(result) {
   view.rankingDescription.textContent =
     result.objective === "maximum"
       ? "Ranked by each course's longest individual drive."
-      : "Ranked by every golfer's combined driving time.";
+      : "Ranked by the group's combined driving time.";
 }
 
 async function responseBody(response) {
@@ -582,7 +582,7 @@ async function calculate() {
   const controller = new AbortController();
   state.request = controller;
   view.results.setAttribute("aria-busy", "true");
-  setStatus("Ranking courses for the group...");
+  setStatus("Ranking courses...");
   try {
     const response = await fetch("/api/rankings", {
       method: "POST",
