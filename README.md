@@ -18,9 +18,10 @@ include traffic, prices, ratings, tee times, or availability.
 Python 3.11 or newer is required.
 
 ```sh
-python -m pip install -e '.[test]'
-python scripts/fetch_snapshot.py
-gunicorn fairway.app:application
+python -m pip install uv==0.12.6
+uv sync --extra test --locked
+uv run --locked python scripts/fetch_snapshot.py
+uv run --locked gunicorn fairway.app:application
 ```
 
 Open `http://127.0.0.1:8000`. Address suggestions come from the public Photon
@@ -29,10 +30,10 @@ demo service. Coordinates can also be entered as `latitude, longitude`.
 Run the project checks with:
 
 ```sh
-ruff check .
-ruff format --check .
+uv run --locked ruff check .
+uv run --locked ruff format --check .
 node --check src/fairway/static/app.js
-python -m pytest
+uv run --locked python -m pytest
 ```
 
 ## Ranking

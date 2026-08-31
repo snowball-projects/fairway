@@ -32,7 +32,10 @@ def valid_catalog():
         "description": "Test catalog.",
         "sources": [
             {"id": "facts", "url": "https://example.com/facts"},
-            {"id": "routing", "url": "https://example.com/routing"},
+            {
+                "id": "routing",
+                "url": "https://www.openstreetmap.org/copyright",
+            },
         ],
         "courses": [
             {
@@ -76,8 +79,11 @@ def test_rejects_invalid_catalog_roots(tmp_path, change):
         ("access", "unknown"),
         ("routing_coordinate", [91, 0]),
         ("website", "javascript:alert(1)"),
+        ("website", "https://user@example.com/course"),
         ("facts_source", "missing"),
         ("routing_reference", ""),
+        ("routing_reference", "node/not-a-number"),
+        ("access", "private"),
     ],
 )
 def test_rejects_invalid_course_fields(tmp_path, field, value):

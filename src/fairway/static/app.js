@@ -1,6 +1,6 @@
 const COLORS = [
   "#2f6fba",
-  "#c34f72",
+  "#c14c70",
   "#a86412",
   "#6d50ad",
   "#087c6b",
@@ -18,8 +18,11 @@ const state = {
   activeCourse: null,
   request: null,
   photonBbox: null,
+  coreBounds: null,
+  ready: false,
   maxOrigins: COLORS.length,
 };
+const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const view = {
   addOrigin: document.querySelector("#add-origin"),
@@ -72,6 +75,21 @@ function parseCoordinate(value) {
 
 function formatCoordinate(coordinate) {
   return `${coordinate[0].toFixed(5)}, ${coordinate[1].toFixed(5)}`;
+}
+
+function looksLikeCoordinateInput(value) {
+  return /^[+\-\d.,\s]+$/.test(value);
+}
+
+function insideCore(coordinate) {
+  if (!state.coreBounds) return true;
+  const [south, west, north, east] = state.coreBounds;
+  return (
+    coordinate[0] >= south &&
+    coordinate[0] <= north &&
+    coordinate[1] >= west &&
+    coordinate[1] <= east
+  );
 }
 
 function duration(seconds) {
@@ -170,7 +188,7 @@ function popupContent(course) {
   const link = document.createElement("a");
   link.href = course.website;
   link.target = "_blank";
-  link.rel = "noopener";
+  link.rel = "noopener noreferrer";
   link.textContent = "Open course site";
   content.append(link);
   return content;
@@ -214,8 +232,15 @@ function selectCourse(courseId, scrollToCard = false) {
   document.querySelectorAll(".course-card").forEach((card) => {
     card.dataset.active = String(card.dataset.courseId === courseId);
   });
-  const card = document.querySelector(`[data-course-id="${courseId}"]`);
-  if (scrollToCard) card?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  const card = [...document.querySelectorAll(".course-card")].find(
+    (candidate) => candidate.dataset.courseId === courseId,
+  );
+  if (scrollToCard) {
+    card?.scrollIntoView({
+      block: "nearest",
+      behavior: REDUCED_MOTION ? "auto" : "smooth",
+    });
+  }
 }
 
 function closeSuggestions(row, abort = false) {
@@ -270,14 +295,14 @@ function setOrigin(row, label, coordinate) {
   row.coordinate = coordinate;
   closeSuggestions(row, true);
   updateOriginMarker(row);
-  if (map.getZoom() < 10) map.setView(coordinate, 10);
+  if (map.getZoom() < 10) map.setView(coordinate, 10, { animate: !REDUCED_MOTION });
   calculate();
 }
 
 async function suggest(row) {
   const query = row.input.value.trim();
   closeSuggestions(row, true);
-  if (parseCoordinate(query) || query.length < 3) return;
+  if (parseCoordinate(query) || query.length < 3 || looksLikeCoordinateInput(query)) return;
   const controller = new AbortController();
   row.controller = controller;
   try {
@@ -293,7 +318,7 @@ async function suggest(row) {
       const geometry = feature?.geometry?.coordinates;
       if (!Array.isArray(geometry) || geometry.length < 2) return;
       const coordinate = [Number(geometry[1]), Number(geometry[0])];
-      if (!coordinate.every(Number.isFinite)) return;
+      if (!coordinate.every(Number.isFinite) || !insideCore(coordinate)) return;
       const button = document.createElement("button");
       button.type = "button";
       button.id = `${row.suggestions.id}-option-${row.suggestions.childElementCount}`;
@@ -353,6 +378,7 @@ function addOrigin() {
   remove.textContent = "×";
   row.input.autocomplete = "off";
   row.input.spellcheck = false;
+  row.input.setAttribute("aria-describedby", "origin-help");
   row.suggestions.className = "suggestions";
   row.suggestions.id = `origin-${nextOriginId}-suggestions`;
   nextOriginId += 1;
@@ -441,6 +467,7 @@ function clearRanking() {
   state.ranking = null;
   state.activeRows = [];
   state.activeCourse = null;
+  view.results.setAttribute("aria-busy", "false");
   updateCourseMarkers();
   emptyResults();
   const holes = selectedHoles();
@@ -460,7 +487,9 @@ function courseCard(course, objective) {
   focus.className = "course-focus";
   focus.onclick = () => {
     selectCourse(course.id);
-    map.flyTo(course.coordinate, Math.max(map.getZoom(), 12));
+    const zoom = Math.max(map.getZoom(), 12);
+    if (REDUCED_MOTION) map.setView(course.coordinate, zoom, { animate: false });
+    else map.flyTo(course.coordinate, zoom);
     state.courseMarkers.get(course.id)?.openPopup();
   };
   const rank = document.createElement("span");
@@ -511,7 +540,7 @@ function courseCard(course, objective) {
   const link = document.createElement("a");
   link.href = course.website;
   link.target = "_blank";
-  link.rel = "noopener";
+  link.rel = "noopener noreferrer";
   link.textContent = "Course site";
   footer.append(address, link);
   article.append(focus, times, footer);
@@ -541,6 +570,10 @@ async function responseBody(response) {
 
 async function calculate() {
   clearRanking();
+  if (!state.ready) {
+    setStatus("Loading course coverage...");
+    return;
+  }
   const activeRows = state.rows.filter((row) => row.coordinate);
   if (activeRows.length < 2) {
     setStatus("Add at least two golfer origins.");
@@ -548,6 +581,7 @@ async function calculate() {
   }
   const controller = new AbortController();
   state.request = controller;
+  view.results.setAttribute("aria-busy", "true");
   setStatus("Ranking courses for the group...");
   try {
     const response = await fetch("/api/rankings", {
@@ -572,7 +606,9 @@ async function calculate() {
       ...result.courses.map((course) => course.coordinate),
     ];
     const bounds = L.latLngBounds(points);
-    if (bounds.isValid()) map.fitBounds(bounds.pad(0.08), { maxZoom: 12 });
+    if (bounds.isValid()) {
+      map.fitBounds(bounds.pad(0.08), { maxZoom: 12, animate: !REDUCED_MOTION });
+    }
     setStatus(`${result.courses.length} courses ranked on the current static road snapshot.`);
   } catch (error) {
     if (error.name !== "AbortError" && state.request === controller) {
@@ -581,7 +617,10 @@ async function calculate() {
       setStatus(message, true);
     }
   } finally {
-    if (state.request === controller) state.request = null;
+    if (state.request === controller) {
+      state.request = null;
+      view.results.setAttribute("aria-busy", "false");
+    }
   }
 }
 
@@ -593,12 +632,14 @@ async function configure() {
     state.catalog = config.courses;
     state.maxOrigins = Math.min(config.max_origins, COLORS.length);
     const [south, west, north, east] = config.core_bounds;
+    state.coreBounds = [south, west, north, east];
     state.photonBbox = [west, south, east, north].join(",");
     drawCatalog();
     const bounds = L.latLngBounds(state.catalog.map((course) => course.coordinate));
-    if (bounds.isValid()) map.fitBounds(bounds.pad(0.12));
+    if (bounds.isValid()) map.fitBounds(bounds.pad(0.12), { animate: !REDUCED_MOTION });
     view.catalogName.textContent = `${config.course_catalog.title} · ${config.course_catalog.as_of}`;
-    clearRanking();
+    state.ready = true;
+    calculate();
   } catch (error) {
     setStatus(error.message || "Course coverage is unavailable.", true);
     emptyResults("The course catalog could not be loaded.");

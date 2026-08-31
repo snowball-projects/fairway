@@ -51,6 +51,71 @@ def test_selects_smallest_compatible_core_independent_of_order():
                 }
             ]
         },
+        {
+            "snapshots": [
+                {
+                    "id": "bad",
+                    "file": "bad.npz",
+                    "url": "https://example.test:invalid/bad.npz",
+                    "sha256": "0" * 64,
+                    "cost_profile": "test",
+                    "core_bounds": [0, 0, 1, 1],
+                    "graph_bounds": [0, 0, 1, 1],
+                }
+            ]
+        },
+        {
+            "snapshots": [
+                {
+                    "id": "bad",
+                    "file": "bad.npz",
+                    "url": "https://example.test /bad.npz",
+                    "sha256": "0" * 64,
+                    "cost_profile": "test",
+                    "core_bounds": [0, 0, 1, 1],
+                    "graph_bounds": [0, 0, 1, 1],
+                }
+            ]
+        },
+        {
+            "snapshots": [
+                {
+                    "id": "bad",
+                    "file": "bad.npz",
+                    "url": "file:///tmp/bad.npz",
+                    "sha256": "0" * 64,
+                    "cost_profile": "test",
+                    "core_bounds": [0, 0, 1, 1],
+                    "graph_bounds": [0, 0, 1, 1],
+                }
+            ]
+        },
+        {
+            "snapshots": [
+                {
+                    "id": "bad",
+                    "file": "bad.npz",
+                    "url": "custom://example.test/bad.npz",
+                    "sha256": "0" * 64,
+                    "cost_profile": "test",
+                    "core_bounds": [0, 0, 1, 1],
+                    "graph_bounds": [0, 0, 1, 1],
+                }
+            ]
+        },
+        {
+            "snapshots": [
+                {
+                    "id": "bad",
+                    "file": "bad.npz",
+                    "url": "https://example.test/bad.npz",
+                    "sha256": "g" * 64,
+                    "cost_profile": "test",
+                    "core_bounds": [0, 0, 1, 1],
+                    "graph_bounds": [0, 0, 1, 1],
+                }
+            ]
+        },
     ],
 )
 def test_rejects_invalid_catalog(tmp_path, change):

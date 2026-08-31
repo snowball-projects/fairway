@@ -13,7 +13,14 @@ from fairway.courses import Course
 
 
 def request(
-    path="/", method="GET", payload=None, *, raw_body=None, content_length="auto"
+    path="/",
+    method="GET",
+    payload=None,
+    *,
+    raw_body=None,
+    content_length="auto",
+    content_type="auto",
+    include_headers=False,
 ):
     body = (
         raw_body
@@ -23,10 +30,12 @@ def request(
         else b""
     )
     status = None
+    headers = None
 
-    def start_response(value, _headers):
-        nonlocal status
+    def start_response(value, response_headers):
+        nonlocal headers, status
         status = value
+        headers = dict(response_headers)
 
     environ = {
         "PATH_INFO": path,
@@ -37,8 +46,12 @@ def request(
         environ["CONTENT_LENGTH"] = str(len(body))
     elif content_length is not None:
         environ["CONTENT_LENGTH"] = str(content_length)
+    if content_type == "auto" and method == "POST":
+        environ["CONTENT_TYPE"] = "application/json"
+    elif content_type is not None and content_type != "auto":
+        environ["CONTENT_TYPE"] = content_type
     result = b"".join(app.application(environ, start_response))
-    return status, result
+    return (status, result, headers) if include_headers else (status, result)
 
 
 def road_graph():
@@ -107,6 +120,7 @@ def test_serves_course_ranking_interface():
     assert b'fetch("/api/rankings"' in body
     assert b"courseMarkers" in body
     assert b"COLORS" in body
+    assert b"looksLikeCoordinateInput(query)" in body
     assert b'element.setAttribute("aria-label", label)' in body
     assert b'element.setAttribute("title", label)' in body
     assert b"`${course.name}, rank ${rank}`" in body
@@ -127,6 +141,80 @@ def test_serves_course_ranking_interface():
     assert b".origin-pin" in body
     assert b"@media (max-width: 960px)" in body
     assert b"min-height: 40rem" not in body
+
+
+def test_sets_security_and_cache_headers_on_every_response_kind():
+    status, _body, headers = request(include_headers=True)
+    assert status == "200 OK"
+    assert headers["Cache-Control"] == "no-cache"
+    assert headers["Content-Type"] == "text/html; charset=utf-8"
+    assert headers["Content-Security-Policy"] == app.CONTENT_SECURITY_POLICY
+    assert "https://unpkg.com" in headers["Content-Security-Policy"]
+    assert "https://tile.openstreetmap.org" in headers["Content-Security-Policy"]
+    assert "https://photon.komoot.io" in headers["Content-Security-Policy"]
+    assert headers["Cross-Origin-Opener-Policy"] == "same-origin"
+    assert headers["Cross-Origin-Resource-Policy"] == "same-origin"
+    assert headers["Referrer-Policy"] == "no-referrer"
+    assert headers["Strict-Transport-Security"] == "max-age=31536000"
+    assert headers["X-Content-Type-Options"] == "nosniff"
+    assert headers["X-Frame-Options"] == "DENY"
+
+    status, _body, headers = request("/api/config", include_headers=True)
+    assert status == "200 OK"
+    assert headers["Cache-Control"] == "no-store"
+    assert headers["Content-Type"] == "application/json; charset=utf-8"
+    assert headers["Content-Security-Policy"] == app.CONTENT_SECURITY_POLICY
+
+    status, _body, headers = request("/missing", include_headers=True)
+    assert status == "404 Not Found"
+    assert headers["Cache-Control"] == "no-store"
+    assert headers["Content-Security-Policy"] == app.CONTENT_SECURITY_POLICY
+
+
+def test_known_routes_enforce_methods_and_support_head(monkeypatch):
+    monkeypatch.setattr(app, "_graph", road_graph())
+    monkeypatch.setattr(app, "_graph_sha256", app.SNAPSHOT_METADATA.sha256)
+
+    status, body, headers = request("/", "HEAD", include_headers=True)
+    assert status == "200 OK"
+    assert body == b""
+    assert int(headers["Content-Length"]) > 0
+
+    status, body, headers = request("/api/rankings", "HEAD", include_headers=True)
+    assert status == "405 Method Not Allowed"
+    assert body == b""
+    assert int(headers["Content-Length"]) > 0
+    assert headers["Allow"] == "POST"
+
+    for path, method, allowed in (
+        ("/health", "POST", "GET, HEAD"),
+        ("/api/config", "POST", "GET, HEAD"),
+        ("/api/rankings", "GET", "POST"),
+    ):
+        status, _body, headers = request(path, method, include_headers=True)
+        assert status == "405 Method Not Allowed"
+        assert headers["Allow"] == allowed
+
+
+@pytest.mark.parametrize(
+    "content_type", [None, "text/plain", "application/x-www-form-urlencoded"]
+)
+def test_rankings_require_json_content_type(content_type):
+    status, body = request(
+        "/api/rankings", "POST", raw_body=b"{}", content_type=content_type
+    )
+    assert status == "415 Unsupported Media Type"
+    assert b"content type must be application/json" in body
+
+
+def test_rankings_accept_json_content_type_parameters(ranked_courses):
+    status, _body = request(
+        "/api/rankings",
+        "POST",
+        {"origins": [[41.88, -87.80], [41.88, -87.70]]},
+        content_type="application/json; charset=utf-8",
+    )
+    assert status == "200 OK"
 
 
 def test_config_exposes_bounded_catalog_and_provenance():
@@ -294,6 +382,8 @@ def test_rejects_invalid_ranking_options(ranked_courses, payload, message):
         {"first": [41.88, -87.80], "other": [41.88, -87.70]},
         ["41.88,-87.80", "41.88,-87.70"],
         [[41.88, -87.80, 1], [41.88, -87.70]],
+        [[True, -87.80], [41.88, -87.70]],
+        [["41.88", -87.80], [41.88, -87.70]],
     ],
 )
 def test_rejects_malformed_origin_coordinates(ranked_courses, origins):

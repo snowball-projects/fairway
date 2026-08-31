@@ -4,7 +4,7 @@
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
   --ink: #17352d;
-  --muted: #687870;
+  --muted: #64736a;
   --line: #d8d9cf;
   --paper: #fbfaf4;
   --green: #1d5c46;
@@ -55,7 +55,7 @@ a { color: inherit; }
 .section-heading,
 .results-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
 .section-heading.compact { margin-bottom: .85rem; }
-.eyebrow { margin: 0 0 .25rem; color: #8a948d; font-size: .68rem; font-weight: 800; letter-spacing: .16em; }
+.eyebrow { margin: 0 0 .25rem; color: #64736a; font-size: .68rem; font-weight: 800; letter-spacing: .16em; }
 h1, h2 { margin: 0; color: var(--ink); font: 700 1.08rem/1.2 Georgia, "Times New Roman", serif; }
 .quiet-button {
   border: 1px solid #b9c9c0;
@@ -141,7 +141,7 @@ h1, h2 { margin: 0; color: var(--ink); font: 700 1.08rem/1.2 Georgia, "Times New
 .suggestions button:hover,
 .suggestions button:focus,
 .suggestions button[aria-selected="true"] { background: #eef2e8; outline: none; }
-.hint { margin: .62rem 0 0 2.2rem; color: #829087; font-size: .68rem; line-height: 1.35; }
+.hint { margin: .62rem 0 0 2.2rem; color: #64736a; font-size: .68rem; line-height: 1.35; }
 
 .choice-group { display: grid; gap: .48rem; margin: 0; padding: 0; border: 0; }
 .choice-group label { position: relative; display: block; cursor: pointer; }
@@ -168,24 +168,24 @@ h1, h2 { margin: 0; color: var(--ink); font: 700 1.08rem/1.2 Georgia, "Times New
 .choice-group input:checked + span::before { border: 3px solid white; background: var(--green); box-shadow: 0 0 0 1px var(--green); }
 .choice-group input:focus-visible + span { outline: 2px solid var(--green); outline-offset: 2px; }
 .choice-group strong { color: #24473c; font-size: .79rem; }
-.choice-group small { color: #748078; font-size: .68rem; }
+.choice-group small { color: #64736a; font-size: .68rem; }
 
 .hole-filter { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: .85rem 0 0; padding: 0; border: 0; }
 .hole-filter legend { float: left; color: #65756c; font-size: .72rem; font-weight: 750; }
 .segments { display: flex; padding: .18rem; border-radius: 999px; background: #e9ebe4; }
 .segments label { position: relative; cursor: pointer; }
 .segments input { position: absolute; opacity: 0; }
-.segments span { display: block; min-width: 2.4rem; border-radius: 999px; padding: .35rem .52rem; color: #6a766f; font-size: .7rem; font-weight: 750; text-align: center; }
+.segments span { display: block; min-width: 2.4rem; border-radius: 999px; padding: .35rem .52rem; color: #5e6d65; font-size: .7rem; font-weight: 750; text-align: center; }
 .segments input:checked + span { color: var(--ink); background: white; box-shadow: 0 1px 4px rgb(30 53 44 / 10%); }
 .segments input:focus-visible + span { outline: 2px solid var(--green); }
 
 .status { min-height: 2.5rem; margin: 1rem 0; color: #315f4e; font-size: .78rem; line-height: 1.4; }
 .status[data-error="true"] { color: #9b3d35; }
-.method-note { border-top: 1px solid var(--line); padding-top: .85rem; color: #68766f; font-size: .72rem; }
+.method-note { border-top: 1px solid var(--line); padding-top: .85rem; color: var(--muted); font-size: .72rem; }
 .method-note summary { color: #465f55; font-weight: 750; cursor: pointer; }
 .method-note p { margin: .62rem 0 0; line-height: 1.5; }
 .method-note a, .provenance a, .catalog-note a { text-underline-offset: .18em; }
-.provenance { margin-top: auto; padding-top: 1.25rem; color: #829087; font-size: .69rem; }
+.provenance { margin-top: auto; padding-top: 1.25rem; color: #64736a; font-size: .69rem; }
 
 .map-stage { position: relative; min-width: 0; min-height: 0; }
 #map { width: 100%; height: 100%; background: #dce5dd; }
@@ -214,7 +214,7 @@ h1, h2 { margin: 0; color: var(--ink); font: 700 1.08rem/1.2 Georgia, "Times New
 .results-heading { padding: 1.7rem 1.5rem 1rem; }
 .results-heading h2 { font-size: 1.25rem; }
 .result-count { border-radius: 999px; padding: .38rem .6rem; color: #53695f; background: #e9eee7; font-size: .67rem; font-weight: 750; }
-.ranking-description { margin: 0; padding: 0 1.5rem 1rem; border-bottom: 1px solid var(--line); color: #718078; font-size: .75rem; line-height: 1.4; }
+.ranking-description { margin: 0; padding: 0 1.5rem 1rem; border-bottom: 1px solid var(--line); color: #64736a; font-size: .75rem; line-height: 1.4; }
 .results { flex: 1; overflow-y: auto; padding: .75rem; }
 .course-list { display: grid; gap: .55rem; margin: 0; padding: 0; list-style: none; }
 .course-card { border: 1px solid #d6d9d1; border-radius: .75rem; background: white; transition: border-color .16s ease, transform .16s ease, box-shadow .16s ease; }
@@ -233,23 +233,23 @@ h1, h2 { margin: 0; color: var(--ink); font: 700 1.08rem/1.2 Georgia, "Times New
 }
 .rank { display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: .55rem; color: white; background: var(--green); font: 700 .82rem/1 Georgia, serif; }
 .course-title { margin: .05rem 0 0; color: #1d4035; font-size: .84rem; line-height: 1.25; }
-.course-meta { display: flex; gap: .35rem; margin-top: .3rem; color: #75837b; font-size: .66rem; }
+.course-meta { display: flex; gap: .35rem; margin-top: .3rem; color: #64736a; font-size: .66rem; }
 .course-meta span + span::before { margin-right: .35rem; content: "·"; }
 .score-row { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem; margin-top: .72rem; }
 .score { display: grid; gap: .1rem; border-radius: .45rem; padding: .45rem .52rem; background: #f2f3ed; }
 .score strong { color: #294c40; font-size: .78rem; }
-.score small { color: #7b8780; font-size: .59rem; }
+.score small { color: #607067; font-size: .59rem; }
 .score.primary { background: #e8f0dc; }
 .golfer-times { display: flex; flex-wrap: wrap; gap: .35rem; margin: .55rem .85rem .7rem 3.55rem; padding: 0; list-style: none; }
 .golfer-time { border: 1px solid color-mix(in srgb, var(--golfer) 38%, white); border-radius: 999px; padding: .28rem .5rem; color: color-mix(in srgb, var(--golfer) 78%, #142e25); background: color-mix(in srgb, var(--golfer) 9%, white); font-size: .65rem; font-weight: 750; }
-.card-footer { display: flex; justify-content: space-between; gap: .5rem; margin-left: 3.55rem; padding: 0 .85rem .75rem 0; color: #78867e; font-size: .64rem; }
+.card-footer { display: flex; justify-content: space-between; gap: .5rem; margin-left: 3.55rem; padding: 0 .85rem .75rem 0; color: #64736a; font-size: .64rem; }
 .card-footer a { color: #315f4e; font-weight: 750; text-underline-offset: .16em; }
-.empty-state { display: grid; place-items: center; min-height: 15rem; padding: 2rem; color: #829087; text-align: center; }
+.empty-state { display: grid; place-items: center; min-height: 15rem; padding: 2rem; color: #64736a; text-align: center; }
 .empty-state p { max-width: 14rem; font-size: .78rem; line-height: 1.5; }
 .empty-flag { position: relative; width: 2.2rem; height: 2.2rem; border: 1px solid #cbd3c9; border-radius: 50%; }
 .empty-flag::before { position: absolute; top: .45rem; left: .95rem; width: 1px; height: 1.2rem; background: #7a9185; content: ""; }
 .empty-flag::after { position: absolute; top: .42rem; left: 1rem; border-top: .32rem solid transparent; border-bottom: .32rem solid transparent; border-left: .72rem solid var(--green); content: ""; }
-.catalog-note { display: flex; justify-content: space-between; gap: .8rem; padding: .85rem 1rem; border-top: 1px solid var(--line); color: #7b8981; background: #f6f5ee; font-size: .62rem; line-height: 1.35; }
+.catalog-note { display: flex; justify-content: space-between; gap: .8rem; padding: .85rem 1rem; border-top: 1px solid var(--line); color: #5e6d65; background: #f6f5ee; font-size: .62rem; line-height: 1.35; }
 
 .origin-pin { display: grid; place-items: center; width: 1.9rem !important; height: 1.9rem !important; border: 2px solid white; border-radius: 50%; color: white; font-size: .72rem; font-weight: 850; box-shadow: 0 .2rem .7rem rgb(0 0 0 / 26%); }
 .course-pin { display: grid; place-items: center; width: 1.65rem !important; height: 1.65rem !important; border: 2px solid white; border-radius: 50% 50% 50% .22rem; color: #17352d; background: var(--lime); font-size: .66rem; font-weight: 850; box-shadow: 0 .2rem .7rem rgb(0 0 0 / 24%); transform: rotate(-45deg); }
@@ -290,4 +290,13 @@ h1, h2 { margin: 0; color: var(--ink); font: 700 1.08rem/1.2 Georgia, "Times New
   .choice-group { grid-template-columns: 1fr; }
   .map-key { bottom: 1rem; white-space: nowrap; }
   .catalog-note { display: grid; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

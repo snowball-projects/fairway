@@ -36,7 +36,9 @@
             <button id="add-origin" class="quiet-button" type="button">Add golfer</button>
           </div>
           <div id="origins" class="origin-list"></div>
-          <p class="hint">Choose an address suggestion or enter latitude, longitude.</p>
+          <p id="origin-help" class="hint">
+            Address suggestions use Photon. Or enter latitude, longitude.
+          </p>
         </section>
 
         <section class="control-section" aria-labelledby="ranking-title">
@@ -99,7 +101,7 @@
       </aside>
 
       <section class="map-stage" aria-label="Golf course map">
-        <div id="map"></div>
+        <div id="map" role="region" aria-label="Interactive course map"></div>
         <p class="map-key"><span></span>Public course in the current catalog</p>
       </section>
 

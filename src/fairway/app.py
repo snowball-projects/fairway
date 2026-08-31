@@ -43,6 +43,20 @@ if any(
 MAX_REQUEST_BYTES = 32_768
 MAX_ORIGINS = 8
 MAX_SNAP_DISTANCE_KILOMETERS = 5
+CONTENT_SECURITY_POLICY = "default-src 'self'; base-uri 'none'; connect-src 'self' https://photon.komoot.io; font-src 'self'; form-action 'none'; frame-ancestors 'none'; frame-src 'none'; img-src 'self' data: https://tile.openstreetmap.org; object-src 'none'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline'; worker-src 'none'"
+SECURITY_HEADERS = (
+    ("Content-Security-Policy", CONTENT_SECURITY_POLICY),
+    ("Cross-Origin-Opener-Policy", "same-origin"),
+    ("Cross-Origin-Resource-Policy", "same-origin"),
+    (
+        "Permissions-Policy",
+        "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
+    ),
+    ("Referrer-Policy", "no-referrer"),
+    ("Strict-Transport-Security", "max-age=31536000"),
+    ("X-Content-Type-Options", "nosniff"),
+    ("X-Frame-Options", "DENY"),
+)
 LOGGER = logging.getLogger(__name__)
 _graph = None
 _graph_sha256 = None
@@ -60,6 +74,10 @@ class _PayloadTooLarge(Exception):
     """A request body that exceeds the hosted-service byte limit."""
 
 
+class _UnsupportedMediaType(Exception):
+    """A ranking request that is not JSON."""
+
+
 def _road():
     global _graph, _graph_sha256
     if _graph is None:
@@ -75,14 +93,16 @@ def _road():
     return _graph
 
 
-def _json(start_response, status, value):
+def _json(start_response, status, value, extra_headers=()):
     body = json.dumps(value, separators=(",", ":")).encode()
     start_response(
         status,
         [
-            ("Content-Type", "application/json"),
+            ("Content-Type", "application/json; charset=utf-8"),
             ("Content-Length", str(len(body))),
             ("Cache-Control", "no-store"),
+            *SECURITY_HEADERS,
+            *extra_headers,
         ],
     )
     return [body]
@@ -118,7 +138,12 @@ def _body(environ):
 def _coordinates(value):
     if not isinstance(value, list):
         raise _BadRequest("origins must be a list")
-    if any(not isinstance(point, (list, tuple)) or len(point) != 2 for point in value):
+    if any(
+        not isinstance(point, list)
+        or len(point) != 2
+        or any(type(coordinate) not in {int, float} for coordinate in point)
+        for point in value
+    ):
         raise _BadRequest("origins must contain latitude, longitude pairs")
     try:
         points = tuple(
@@ -192,6 +217,9 @@ def _config(start_response):
 
 
 def _rankings(environ, start_response):
+    content_type = environ.get("CONTENT_TYPE", "").partition(";")[0].strip().lower()
+    if content_type != "application/json":
+        raise _UnsupportedMediaType("content type must be application/json")
     request = _body(environ)
     origins = _coordinates(request.get("origins", []))
     if not 2 <= len(origins) <= MAX_ORIGINS:
@@ -267,39 +295,72 @@ def _static(start_response, path):
         return _json(start_response, "404 Not Found", {"error": "not found"})
     body = file.read_bytes()
     content_type = mimetypes.guess_type(file)[0] or "application/octet-stream"
+    if content_type.startswith("text/") or content_type in {
+        "application/javascript",
+        "application/json",
+    }:
+        content_type += "; charset=utf-8"
     start_response(
-        "200 OK", [("Content-Type", content_type), ("Content-Length", str(len(body)))]
+        "200 OK",
+        [
+            ("Content-Type", content_type),
+            ("Content-Length", str(len(body))),
+            ("Cache-Control", "no-cache"),
+            *SECURITY_HEADERS,
+        ],
     )
     return [body]
 
 
-def application(environ, start_response):
-    """Serve fairway and its same-origin ranking API."""
+def _method_not_allowed(start_response, allow):
+    return _json(
+        start_response,
+        "405 Method Not Allowed",
+        {"error": "method not allowed"},
+        (("Allow", allow),),
+    )
+
+
+def _application(environ, start_response):
     path = environ.get("PATH_INFO", "/")
     method = environ.get("REQUEST_METHOD", "GET")
     try:
         if path == "/health":
+            if method not in {"GET", "HEAD"}:
+                return _method_not_allowed(start_response, "GET, HEAD")
             _road()
             return _json(start_response, "200 OK", {"status": "ok"})
-        if path == "/api/config" and method == "GET":
+        if path == "/api/config":
+            if method not in {"GET", "HEAD"}:
+                return _method_not_allowed(start_response, "GET, HEAD")
             return _config(start_response)
-        if path == "/api/rankings" and method == "POST":
+        if path == "/api/rankings":
+            if method != "POST":
+                return _method_not_allowed(start_response, "POST")
             return _rankings(environ, start_response)
-        if method == "GET":
+        if method in {"GET", "HEAD"}:
             return _static(start_response, path)
-        return _json(
-            start_response, "405 Method Not Allowed", {"error": "method not allowed"}
-        )
+        return _method_not_allowed(start_response, "GET, HEAD")
     except _PayloadTooLarge as error:
         return _json(start_response, "413 Payload Too Large", {"error": str(error)})
     except _UnprocessableRequest as error:
         return _json(start_response, "422 Unprocessable Entity", {"error": str(error)})
     except _BadRequest as error:
         return _json(start_response, "400 Bad Request", {"error": str(error)})
+    except _UnsupportedMediaType as error:
+        return _json(
+            start_response, "415 Unsupported Media Type", {"error": str(error)}
+        )
     except Exception:
-        LOGGER.exception("Unhandled fairway request failure: %s %s", method, path)
+        LOGGER.exception("Unhandled fairway request failure: %r %r", method, path)
         return _json(
             start_response,
             "500 Internal Server Error",
             {"error": "fairway could not calculate this request"},
         )
+
+
+def application(environ, start_response):
+    """Serve fairway and its same-origin ranking API."""
+    body = _application(environ, start_response)
+    return [] if environ.get("REQUEST_METHOD", "GET") == "HEAD" else body

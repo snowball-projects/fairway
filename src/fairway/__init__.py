@@ -1,1 +1,1 @@
-"""fairway dashboard."""
+"""fairway golf-course chooser."""
