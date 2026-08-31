@@ -14,7 +14,7 @@ requires-python = ">=3.11"
 dependencies = [
   "gunicorn>=23,<24",
   "networkx>=3.4,<4",
-  "modo @ git+https://github.com/snowball-projects/modo.git@59770f98c59db66298aba3318e1cf05af104deb9",
+  "modo @ git+https://github.com/snowball-projects/modo.git@0a0bafa60fb69bf56d813d94d0cce5778ac5e2dc",
 ]
 
 [project.optional-dependencies]
