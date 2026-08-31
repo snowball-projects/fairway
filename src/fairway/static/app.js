@@ -11,7 +11,6 @@ const COLORS = [
 
 const state = {
   rows: [],
-  catalog: [],
   courseMarkers: new Map(),
   ranking: null,
   activeRows: [],
@@ -25,13 +24,18 @@ const state = {
 const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const view = {
+  appShell: document.querySelector(".app-shell"),
   addOrigin: document.querySelector("#add-origin"),
   origins: document.querySelector("#origins"),
   status: document.querySelector("#status"),
+  resultsPanel: document.querySelector("#results-panel"),
   results: document.querySelector("#results"),
   resultCount: document.querySelector("#result-count"),
   rankingDescription: document.querySelector("#ranking-description"),
   catalogName: document.querySelector("#catalog-name"),
+  mapKey: document.querySelector("#map-key"),
+  filterToggle: document.querySelector("#filter-toggle"),
+  filterPopover: document.querySelector("#filter-popover"),
 };
 let nextOriginId = 1;
 
@@ -46,6 +50,23 @@ new ResizeObserver(() => map.invalidateSize()).observe(document.querySelector("#
 function setStatus(message, error = false) {
   view.status.textContent = message;
   view.status.dataset.error = String(error);
+}
+
+function setFilterOpen(open, focus = false) {
+  const nextOpen = open && !view.resultsPanel.hidden;
+  view.filterPopover.hidden = !nextOpen;
+  view.filterToggle.setAttribute("aria-expanded", String(nextOpen));
+  if (nextOpen && focus) {
+    view.filterPopover.querySelector("input:checked")?.focus();
+  }
+}
+
+function setResultsVisible(visible) {
+  if (!visible) setFilterOpen(false);
+  view.resultsPanel.hidden = !visible;
+  view.mapKey.hidden = !visible;
+  view.appShell.classList.toggle("has-results", visible);
+  requestAnimationFrame(() => map.invalidateSize({ animate: false }));
 }
 
 function selected(name) {
@@ -194,13 +215,17 @@ function popupContent(course) {
   return content;
 }
 
-function drawCatalog() {
+function clearCourseMarkers() {
   state.courseMarkers.forEach((marker) => marker.remove());
   state.courseMarkers.clear();
-  state.catalog.forEach((course) => {
-    const label = courseMarkerLabel(course);
+}
+
+function drawCourseMarkers() {
+  clearCourseMarkers();
+  state.ranking?.courses.forEach((course) => {
+    const label = courseMarkerLabel(course, course.rank);
     const marker = L.marker(course.coordinate, {
-      icon: courseIcon(course),
+      icon: courseIcon(course, course.rank),
       keyboard: true,
       title: label,
       alt: label,
@@ -214,14 +239,12 @@ function drawCatalog() {
 }
 
 function updateCourseMarkers() {
-  state.catalog.forEach((course) => {
-    const result = currentResult(course.id);
+  state.ranking?.courses.forEach((course) => {
     const marker = state.courseMarkers.get(course.id);
     if (!marker) return;
-    marker.setOpacity(state.ranking && !result ? 0.28 : 1);
-    marker.setIcon(courseIcon(course, result?.rank));
-    labelMarker(marker, courseMarkerLabel(course, result?.rank));
-    marker.setZIndexOffset(state.activeCourse === course.id ? 1000 : result ? 500 - result.rank : 0);
+    marker.setIcon(courseIcon(course, course.rank));
+    labelMarker(marker, courseMarkerLabel(course, course.rank));
+    marker.setZIndexOffset(state.activeCourse === course.id ? 1000 : 500 - course.rank);
     if (marker.isPopupOpen()) marker.setPopupContent(popupContent(course));
   });
 }
@@ -378,7 +401,6 @@ function addOrigin() {
   remove.textContent = "×";
   row.input.autocomplete = "off";
   row.input.spellcheck = false;
-  row.input.setAttribute("aria-describedby", "origin-help");
   row.suggestions.className = "suggestions";
   row.suggestions.id = `origin-${nextOriginId}-suggestions`;
   nextOriginId += 1;
@@ -402,6 +424,7 @@ function addOrigin() {
     row.marker?.remove();
     row.marker = null;
     clearRanking();
+    setStatus("Add at least two golfer origins.");
     row.timer = setTimeout(() => suggest(row), 300);
   };
   row.input.onkeydown = (event) => {
@@ -449,18 +472,6 @@ function renumber() {
   view.addOrigin.disabled = state.rows.length >= state.maxOrigins;
 }
 
-function emptyResults(message = "Results will appear here.") {
-  const empty = document.createElement("div");
-  empty.className = "empty-state";
-  const flag = document.createElement("span");
-  flag.className = "empty-flag";
-  flag.ariaHidden = "true";
-  const text = document.createElement("p");
-  text.textContent = message;
-  empty.append(flag, text);
-  view.results.replaceChildren(empty);
-}
-
 function clearRanking() {
   state.request?.abort();
   state.request = null;
@@ -468,12 +479,21 @@ function clearRanking() {
   state.activeRows = [];
   state.activeCourse = null;
   view.results.setAttribute("aria-busy", "false");
-  updateCourseMarkers();
-  emptyResults();
-  const holes = selectedHoles();
-  const count = state.catalog.filter((course) => holes.includes(course.holes)).length;
-  view.resultCount.textContent = `${count} ${count === 1 ? "course" : "courses"}`;
-  view.rankingDescription.textContent = "Add two origins to compare each golfer's drive.";
+  view.results.replaceChildren();
+  view.resultCount.textContent = "";
+  view.rankingDescription.textContent = "";
+  clearCourseMarkers();
+  setResultsVisible(false);
+}
+
+function restoreFilters(result) {
+  const objective = document.querySelector(
+    `input[name="objective"][value="${result.objective}"]`,
+  );
+  const holesValue = result.holes.length === 2 ? "all" : String(result.holes[0]);
+  const holes = document.querySelector(`input[name="holes"][value="${holesValue}"]`);
+  if (objective) objective.checked = true;
+  if (holes) holes.checked = true;
 }
 
 function courseCard(course, objective) {
@@ -560,6 +580,19 @@ function renderRanking(result) {
       : "Ranked by the group's combined driving time.";
 }
 
+function fitRanking(activeRows, result) {
+  const points = [
+    ...activeRows.map((row) => row.coordinate),
+    ...result.courses.map((course) => course.coordinate),
+  ];
+  const bounds = L.latLngBounds(points);
+  requestAnimationFrame(() => {
+    if (state.ranking !== result || !bounds.isValid()) return;
+    map.invalidateSize({ animate: false });
+    map.fitBounds(bounds.pad(0.08), { maxZoom: 12, animate: !REDUCED_MOTION });
+  });
+}
+
 async function responseBody(response) {
   try {
     return await response.json();
@@ -568,21 +601,26 @@ async function responseBody(response) {
   }
 }
 
-async function calculate() {
-  clearRanking();
+async function calculate({ preserveResults = false } = {}) {
+  const previousRanking = preserveResults ? state.ranking : null;
+  state.request?.abort();
+  state.request = null;
   if (!state.ready) {
+    if (!previousRanking) clearRanking();
     setStatus("Loading course coverage...");
     return;
   }
   const activeRows = state.rows.filter((row) => row.coordinate);
   if (activeRows.length < 2) {
+    clearRanking();
     setStatus("Add at least two golfer origins.");
     return;
   }
+  if (!previousRanking) clearRanking();
   const controller = new AbortController();
   state.request = controller;
   view.results.setAttribute("aria-busy", "true");
-  setStatus("Ranking courses...");
+  setStatus(previousRanking ? "Updating ranking..." : "Ranking courses...");
   try {
     const response = await fetch("/api/rankings", {
       method: "POST",
@@ -599,22 +637,23 @@ async function calculate() {
     if (state.request !== controller) return;
     state.ranking = result;
     state.activeRows = activeRows;
+    state.activeCourse = null;
+    restoreFilters(result);
     renderRanking(result);
-    updateCourseMarkers();
-    const points = [
-      ...activeRows.map((row) => row.coordinate),
-      ...result.courses.map((course) => course.coordinate),
-    ];
-    const bounds = L.latLngBounds(points);
-    if (bounds.isValid()) {
-      map.fitBounds(bounds.pad(0.08), { maxZoom: 12, animate: !REDUCED_MOTION });
-    }
+    drawCourseMarkers();
+    setResultsVisible(true);
+    fitRanking(activeRows, result);
     setStatus(`${result.courses.length} courses ranked on the current static road snapshot.`);
   } catch (error) {
     if (error.name !== "AbortError" && state.request === controller) {
       const message = error.message || "fairway could not rank these courses.";
-      emptyResults(message);
-      setStatus(message, true);
+      if (previousRanking) {
+        restoreFilters(previousRanking);
+        setStatus(`${message} Previous results are still shown.`, true);
+      } else {
+        clearRanking();
+        setStatus(message, true);
+      }
     }
   } finally {
     if (state.request === controller) {
@@ -629,26 +668,53 @@ async function configure() {
     const response = await fetch("/api/config");
     const config = await responseBody(response);
     if (!response.ok) throw new Error(config.error);
-    state.catalog = config.courses;
     state.maxOrigins = Math.min(config.max_origins, COLORS.length);
     const [south, west, north, east] = config.core_bounds;
     state.coreBounds = [south, west, north, east];
     state.photonBbox = [west, south, east, north].join(",");
-    drawCatalog();
-    const bounds = L.latLngBounds(state.catalog.map((course) => course.coordinate));
-    if (bounds.isValid()) map.fitBounds(bounds.pad(0.12), { animate: !REDUCED_MOTION });
     view.catalogName.textContent = `${config.course_catalog.title} · ${config.course_catalog.as_of}`;
     state.ready = true;
     calculate();
   } catch (error) {
     setStatus(error.message || "Course coverage is unavailable.", true);
-    emptyResults("The course catalog could not be loaded.");
+    clearRanking();
   }
 }
 
 view.addOrigin.onclick = addOrigin;
 document.querySelectorAll('input[name="objective"], input[name="holes"]').forEach((input) => {
-  input.onchange = calculate;
+  input.onchange = () => calculate({ preserveResults: true });
+});
+view.filterToggle.onclick = () => setFilterOpen(view.filterPopover.hidden, true);
+view.filterPopover.addEventListener("keydown", (event) => {
+  if (event.key !== "Tab") return;
+  const tabStops = [...view.filterPopover.querySelectorAll("input:checked")];
+  const first = tabStops[0];
+  const last = tabStops[tabStops.length - 1];
+  const leavingBackwards = event.shiftKey && document.activeElement === first;
+  const leavingForwards = !event.shiftKey && document.activeElement === last;
+  if (!leavingBackwards && !leavingForwards) return;
+  event.preventDefault();
+  setFilterOpen(false);
+  const destination = leavingBackwards
+    ? view.filterToggle
+    : view.results.querySelector(".course-focus") || view.filterToggle;
+  destination.focus();
+});
+document.addEventListener("click", (event) => {
+  if (
+    !view.filterPopover.hidden &&
+    !view.filterPopover.contains(event.target) &&
+    !view.filterToggle.contains(event.target)
+  ) {
+    setFilterOpen(false);
+  }
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !view.filterPopover.hidden) {
+    setFilterOpen(false);
+    view.filterToggle.focus();
+  }
 });
 map.on("popupclose", () => {
   state.activeCourse = null;

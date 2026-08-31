@@ -29,51 +29,10 @@
 
         <section class="control-section" aria-labelledby="origins-title">
           <div class="section-heading">
-            <div>
-              <p class="eyebrow">01</p>
-              <h1 id="origins-title">Where is everyone?</h1>
-            </div>
+            <h1 id="origins-title">Where is everyone?</h1>
             <button id="add-origin" class="quiet-button" type="button">Add golfer</button>
           </div>
           <div id="origins" class="origin-list"></div>
-          <p id="origin-help" class="hint">
-            Address suggestions use Photon. Or enter latitude, longitude.
-          </p>
-        </section>
-
-        <section class="control-section" aria-labelledby="ranking-title">
-          <div class="section-heading compact">
-            <div>
-              <p class="eyebrow">02</p>
-              <h2 id="ranking-title">How should we rank?</h2>
-            </div>
-          </div>
-          <fieldset class="choice-group">
-            <legend class="visually-hidden">Ranking method</legend>
-            <label>
-              <input type="radio" name="objective" value="maximum" checked />
-              <span>
-                <strong>Shortest longest drive</strong>
-                <small>Minimize the farthest golfer's time</small>
-              </span>
-            </label>
-            <label>
-              <input type="radio" name="objective" value="combined" />
-              <span>
-                <strong>Lowest combined drive</strong>
-                <small>Minimize the group's total time</small>
-              </span>
-            </label>
-          </fieldset>
-
-          <fieldset class="hole-filter">
-            <legend>Holes</legend>
-            <div class="segments">
-              <label><input type="radio" name="holes" value="all" checked /><span>All</span></label>
-              <label><input type="radio" name="holes" value="9" /><span>9</span></label>
-              <label><input type="radio" name="holes" value="18" /><span>18</span></label>
-            </div>
-          </fieldset>
         </section>
 
         <p id="status" class="status" role="status">Add at least two golfer origins.</p>
@@ -102,28 +61,62 @@
 
       <section class="map-stage" aria-label="Golf course map">
         <div id="map" role="region" aria-label="Interactive course map"></div>
-        <p class="map-key"><span></span>Public course in catalog</p>
+        <p id="map-key" class="map-key" hidden><span></span>Ranked course</p>
       </section>
 
-      <aside class="results-panel" aria-labelledby="results-title">
+      <aside id="results-panel" class="results-panel" aria-labelledby="results-title" hidden>
         <header class="results-heading">
-          <div>
-            <p class="eyebrow">03</p>
-            <h2 id="results-title">Course ranking</h2>
+          <h2 id="results-title">Course ranking</h2>
+          <div class="results-actions">
+            <span id="result-count" class="result-count"></span>
+            <button
+              id="filter-toggle"
+              class="filter-toggle"
+              type="button"
+              aria-label="Order and filter results"
+              aria-controls="filter-popover"
+              aria-expanded="false"
+              aria-haspopup="dialog"
+            >
+              <span class="filter-icon" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </span>
+            </button>
+            <div
+              id="filter-popover"
+              class="filter-popover"
+              role="dialog"
+              aria-label="Order and filter results"
+              hidden
+            >
+              <fieldset class="filter-group">
+                <legend>Order by</legend>
+                <div class="filter-options">
+                  <label>
+                    <input type="radio" name="objective" value="maximum" checked />
+                    <span>Shortest longest drive</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="objective" value="combined" />
+                    <span>Lowest combined drive</span>
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset class="filter-group">
+                <legend>Holes</legend>
+                <div class="hole-options">
+                  <label><input type="radio" name="holes" value="all" checked /><span>All</span></label>
+                  <label><input type="radio" name="holes" value="9" /><span>9</span></label>
+                  <label><input type="radio" name="holes" value="18" /><span>18</span></label>
+                </div>
+              </fieldset>
+            </div>
           </div>
-          <span id="result-count" class="result-count">8 courses</span>
         </header>
-        <p id="ranking-description" class="ranking-description">
-          Add two origins to compare each golfer's drive.
-        </p>
-        <div id="results" class="results" aria-live="polite">
-          <div class="empty-state">
-            <span class="empty-flag" aria-hidden="true"></span>
-            <p>Results will appear here.</p>
-          </div>
-        </div>
+        <p id="ranking-description" class="ranking-description"></p>
+        <div id="results" class="results" aria-live="polite"></div>
         <footer class="catalog-note">
-          <span id="catalog-name">Loading catalog details...</span>
+          <span id="catalog-name"></span>
           <a href="https://github.com/snowball-projects/fairway/blob/main/data/README.md"
             >Coverage and provenance</a
           >

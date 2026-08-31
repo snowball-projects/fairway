@@ -18,16 +18,23 @@ unsuitable cost profile.
 
 ## Reversible expansion
 
-1. Add public courses only after verifying access, holes, address, official
-   link, and a drivable destination point.
-2. Publish a new immutable catalog identifier and retain the old catalog for
-   reproducibility.
-3. Build dated regional road snapshots from OpenStreetMap extracts with a
-   supported core and routing halo.
-4. Select one snapshot that contains all origins and candidate destinations.
-   State borders and arbitrary search radii must not become routing borders.
-5. Measure request latency, process memory, artifact size, failure rate, and
-   hosted cost before adding a graph cache or external routing service.
+The next safe unit is an immutable regional bundle: one road snapshot with an
+inner supported core and routing halo, plus one reviewed course catalog whose
+destinations lie inside that core. Claim only bundles that have been built,
+benchmarked, deployed, and returned in result provenance.
+
+1. Pin the OpenStreetMap extract, region geometry, road filter, cost profile,
+   tool versions, and checksums.
+2. Verify every course's public access, holes, address, official link, and
+   drivable destination point.
+3. Publish new immutable road and course identifiers while retaining prior
+   versions for reproducibility.
+4. Measure artifact size, cold loading, peak memory, worst-case latency, and
+   hosted cost before deployment.
+
+Reject inputs outside one active bundle. Cross-region ranking requires prebuilt
+partition and boundary routing; runtime road downloads and larger course lists
+alone are not coverage.
 
 Private courses, live tee times, prices, and ratings are separate data
 decisions. They must not enter the catalog merely because a routing provider can

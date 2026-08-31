@@ -104,21 +104,42 @@ def test_serves_course_ranking_interface():
     assert b"Shortest longest drive" in body
     assert b"Lowest combined drive" in body
     assert b'id="results"' in body
+    assert b'id="results-panel"' in body
+    assert b'class="results-panel" aria-labelledby="results-title" hidden' in body
     assert b'id="map"' in body
+    assert b'id="map-key" class="map-key" hidden' in body
+    assert b'id="filter-toggle"' in body
+    assert b'aria-controls="filter-popover"' in body
+    assert b'aria-haspopup="dialog"' in body
+    assert b"Order by" in body
+    assert b"Holes" in body
     assert b"Service policy" in body
     assert b"Built by AI agents" in body
+    assert b"Address suggestions use Photon" not in body
+    assert b'class="eyebrow"' not in body
+    assert b"Results will appear here" not in body
     assert b"meeting region" not in body.lower()
     assert b"tee-time availability" in body
     assert (
         b'href="https://snowball-projects.github.io/licensing/#how-snowball-is-built"'
         in body
     )
+    controls = body.split(b'<aside class="controls"', 1)[1].split(b"</aside>", 1)[0]
+    assert b'name="objective"' not in controls
+    assert b'name="holes"' not in controls
 
     status, body = request("/app.js")
     assert status == "200 OK"
     assert b'fetch("/api/config")' in body
     assert b'fetch("/api/rankings"' in body
     assert b"courseMarkers" in body
+    assert b"drawCourseMarkers" in body
+    assert b"drawCatalog" not in body
+    assert b"setResultsVisible(true)" in body
+    assert b"preserveResults: true" in body
+    assert b'event.key !== "Tab"' in body
+    assert b'querySelectorAll("input:checked")' in body
+    assert b'view.results.querySelector(".course-focus")' in body
     assert b"COLORS" in body
     assert b"looksLikeCoordinateInput(query)" in body
     assert b'element.setAttribute("aria-label", label)' in body
@@ -137,6 +158,11 @@ def test_serves_course_ranking_interface():
     status, body = request("/styles.css")
     assert status == "200 OK"
     assert b"grid-template-columns" in body
+    assert b".app-shell.has-results" in body
+    assert b"[hidden]" in body
+    assert b".filter-popover" in body
+    assert b".filter-icon span:nth-child(3)" in body
+    assert b'.status[data-error="true"]' in body
     assert b".course-card" in body
     assert b".origin-pin" in body
     assert b"@media (max-width: 960px)" in body
