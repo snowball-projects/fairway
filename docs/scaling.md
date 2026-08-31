@@ -1,67 +1,64 @@
-# Geographic scaling
+# Geographic and catalog scaling
 
-fairway should support lower-48 road calculations without weakening modo's exact
-road-vertex semantics or making a national graph a permanent application
-dependency.
+fairway ranks a finite destination catalog. It does not need modo's complete
+optimal-region scan, but the current static provider still calculates one full
+shortest-path field per golfer and reads the course vertices from those fields.
+This is simple, exact over the named graph, and inexpensive for the current
+eight-course catalog.
 
 ## Current boundary
 
-The initial Chicago snapshot contains 63,413 vertices and 166,843 compact
-directed arcs in a 2.60 MB artifact. On the reference development machine it
-loads in about 0.05 seconds. A three-origin shortest-path analysis takes about
-0.06 seconds, and a 32-origin analysis takes about 0.39 seconds. Scanning both
-objectives takes about 0.002 seconds and 0.007 seconds for those cases after the
-compact engine's vectorized August 2026 changes. These are single-run
-measurements, not service guarantees.
+The initial `chicago-static-v1` graph contains 63,413 vertices in a 2.60 MB
+artifact. The official service accepts at most eight origins and evaluates at
+most eight catalog courses. The course catalog and road snapshot are loaded
+once, while every ranking request remains stateless.
 
-The current algorithm performs one complete shortest-path search per origin.
-Its retained travel-time matrix grows with the number of origins multiplied by
-the number of road vertices. A single detailed lower-48 graph would therefore
-conflict with the small-process deployment before it conflicts with geographic
-coordinates or state boundaries.
+The result is exact only for the graph vertices, edge costs, and routing points
+named in its provenance. Static free-flow costs are a model, not observed
+traffic. A larger course catalog does not repair incomplete roads, stale
+entrances, or an unsuitable cost profile.
 
-## Reversible first expansion
+## Reversible expansion
 
-1. Build immutable regional road snapshots offline from dated OpenStreetMap
-   extracts using pinned tools and cost rules.
-2. Give every snapshot a supported core and a larger graph halo. Select the
-   smallest core containing every origin. State borders are not routing borders.
-3. Publish source timestamps, source and artifact checksums, tool versions,
-   bounds, observed and imputed speed counts, vertex and arc counts, and known
-   limits with each artifact.
-4. Load one selected graph into the existing Python process. Add a graph cache
-   only if measured traffic shows that repeated switching warrants it.
-5. Start with a Great Lakes corridor whose supported core includes Milwaukee,
-   Chicago, and Peoria, then test denser and larger regions before producing the
-   rest of the catalog.
+1. Add public courses only after verifying access, holes, address, official
+   link, and a drivable destination point.
+2. Publish a new immutable catalog identifier and retain the old catalog for
+   reproducibility.
+3. Build dated regional road snapshots from OpenStreetMap extracts with a
+   supported core and routing halo.
+4. Select one snapshot that contains all origins and candidate destinations.
+   State borders and arbitrary search radii must not become routing borders.
+5. Measure request latency, process memory, artifact size, failure rate, and
+   hosted cost before adding a graph cache or external routing service.
 
-`data/snapshots.json` is the versioned catalog. A result remains exact only over
-the graph and cost profile named in its provenance. A request that fits no
-published core must fail clearly.
+Private courses, live tee times, prices, and ratings are separate data
+decisions. They must not enter the catalog merely because a routing provider can
+return a matrix for them.
 
-## National decision gate
+## Provider decision gate
 
-New York, Miami, Seattle, and Los Angeles in one request require a true national
-routing field. Regional snapshots cannot answer that request, and joining their
-answers would not preserve shortest paths.
+`StaticModoMatrix` is intentionally narrow: origins and destination coordinates
+go in, snapped road points and per-origin times come out. A future provider can
+use a self-hosted routing engine or a lawful external matrix API without moving
+course discovery or ranking semantics out of fairway.
 
-Before adding another runtime, benchmark an exact lower-48 prototype for
-artifact size, build time, cold load, nearest-road lookup, 2-, 4-, 8-, and
-32-origin routing, both objective scans, selected-point evaluation, and peak
-resident memory. `scripts/benchmark_snapshot.py` records the runtime measures
-that apply to the current compact engine.
+Before replacing the static provider, record:
+
+- matrix limits for origins and destinations
+- cost per interactive ranking and at expected monthly usage
+- traffic coverage and the meaning of departure times
+- privacy, retention, attribution, caching, and derived-data restrictions
+- latency, timeout, partial-result, and provider-outage behavior
+- a local or alternate-provider recovery path
+
+Traffic-aware ranking is useful for a finite course list, but it is primarily a
+live-data and service-reliability problem. It should ship only with an explicit
+label and a static fallback, not as an undocumented change to the current
+model.
+
+Run the repeatable local matrix benchmark with:
 
 ```sh
 python scripts/benchmark_snapshot.py data/chicago-static-v1.npz \
   41.8781,-87.6298 42.0334,-88.0834 42.0451,-87.6877
-python scripts/benchmark_snapshot.py --memory-bounded \
-  data/chicago-static-v1.npz 41.8781,-87.6298 42.0334,-88.0834 \
-  42.0451,-87.6877
 ```
-
-A routing engine is compatible only if modo can obtain the complete per-origin
-travel-time field needed for its region. Point-to-point and bounded matrix APIs
-are not drop-in replacements. If the compact prototype misses its measured
-resource budget, a native shortest-path-tree runtime is justified. Changing the
-result to sampled candidates or a straight-line approximation is a separate
-product decision and must be labeled as such.

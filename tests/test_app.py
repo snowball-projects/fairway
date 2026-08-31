@@ -1,12 +1,15 @@
 import io
 import json
 import logging
+from dataclasses import replace
+from hashlib import sha256
 
 import networkx as nx
 import pytest
 from modo import CompactRoadGraph
 
 from fairway import app
+from fairway.courses import Course
 
 
 def request(
@@ -38,13 +41,6 @@ def request(
     return status, result
 
 
-@pytest.fixture(autouse=True)
-def clear_analyses():
-    app._analyses.clear()
-    yield
-    app._analyses.clear()
-
-
 def road_graph():
     graph = nx.DiGraph()
     graph.add_node("a", y=41.88, x=-87.80)
@@ -58,55 +54,238 @@ def road_graph():
     return CompactRoadGraph.from_networkx(graph)
 
 
-def test_serves_dashboard():
+def course(identifier, name, coordinate, holes):
+    return Course(
+        identifier,
+        name,
+        "1 Test Way, Chicago, IL",
+        coordinate,
+        holes,
+        "public",
+        f"https://example.com/{identifier}",
+        "cpd-columbus",
+        "openstreetmap-2026-08-30",
+        f"node/{identifier}",
+    )
+
+
+@pytest.fixture
+def ranked_courses(monkeypatch):
+    monkeypatch.setattr(app, "_graph", road_graph())
+    monkeypatch.setattr(app, "_graph_sha256", app.SNAPSHOT_METADATA.sha256)
+    monkeypatch.setattr(
+        app,
+        "COURSES",
+        (
+            course("combined", "Combined Course", (41.89, -87.78), 9),
+            course("balanced", "Balanced Course", (41.89, -87.77), 18),
+        ),
+    )
+
+
+def test_serves_course_ranking_interface():
     status, body = request()
     assert status == "200 OK"
     assert b"fairway" in body
-    assert b'href="/leaflet.css"' in body
-    assert b"Minimize total driving time" in body
-    assert b"Minimize longest driving time" in body
+    assert b"Choose the course that works for the whole group" in body
+    assert b"Shortest longest drive" in body
+    assert b"Lowest combined drive" in body
+    assert b'id="results"' in body
+    assert b'id="map"' in body
     assert b"Service policy" in body
     assert b"Built by AI agents" in body
-    assert b"Maintained by" not in body
-    assert b'id="results"' not in body
-    assert b'id="point-form"' not in body
-    assert b'id="point-result"' not in body
-    assert b'max="5"' in body
-    assert b"Fairway" not in body
-    assert b"Founder-directed" not in body
-    assert b"Built entirely" not in body
-    assert b"Written by AI agents" not in body
+    assert b"meeting region" not in body.lower()
+    assert b"tee-time availability" in body
     assert (
         b'href="https://snowball-projects.github.io/licensing/#how-snowball-is-built"'
         in body
     )
 
-    status, body = request("/leaflet.css")
-    assert status == "200 OK"
-    assert b".leaflet-tile" in body
-
     status, body = request("/app.js")
     assert status == "200 OK"
     assert b'fetch("/api/config")' in body
-    assert b"bbox=${state.photonBbox}" in body
-    assert b'fillColor: "#ed7b3a"' in body
-    assert b"renderEvaluation" not in body
+    assert b'fetch("/api/rankings"' in body
+    assert b"courseMarkers" in body
+    assert b"COLORS" in body
+    assert b'element.setAttribute("aria-label", label)' in body
+    assert b'element.setAttribute("title", label)' in body
+    assert b"`${course.name}, rank ${rank}`" in body
+    assert b"`Golfer ${state.rows.indexOf(row) + 1}`" in body
+    assert b'row.input.setAttribute("role", "combobox")' in body
+    assert b'row.suggestions.setAttribute("role", "listbox")' in body
+    assert b'row.input.setAttribute("aria-activedescendant"' in body
+    assert b'event.key === "ArrowDown"' in body
+    assert b'event.key === "ArrowUp"' in body
+    assert b'event.key === "Enter"' in body
+    assert b'event.key === "Escape"' in body
+    assert b"setTimeout(() => row.suggestions.replaceChildren(), 180)" not in body
 
     status, body = request("/styles.css")
     assert status == "200 OK"
-    assert b".legend .maximum { background: #ed7b3a; }" in body
+    assert b"grid-template-columns" in body
+    assert b".course-card" in body
+    assert b".origin-pin" in body
+    assert b"@media (max-width: 960px)" in body
+    assert b"min-height: 40rem" not in body
 
+
+def test_config_exposes_bounded_catalog_and_provenance():
     status, body = request("/api/config")
-    config = json.loads(body)
+    result = json.loads(body)
     assert status == "200 OK"
-    assert config["snapshot"] == "chicago-static-v1"
-    assert config["core_bounds"] == [41.8500077, -88.1399989, 42.1799662, -87.6012705]
+    assert result["snapshot"] == "chicago-static-v1"
+    assert result["max_origins"] == 8
+    assert result["course_catalog"]["id"] == "chicago-public-courses-v1"
+    assert result["course_catalog"]["as_of"] == "2026-08-30"
+    assert len(result["course_catalog"]["sha256"]) == 64
+    assert len(result["courses"]) == 8
+    assert {course["holes"] for course in result["courses"]} == {9, 18}
+    assert {course["access"] for course in result["courses"]} == {"public"}
+    assert all(
+        course["facts_source"].startswith("https://") for course in result["courses"]
+    )
+    assert all(
+        course["routing_source"].startswith("https://www.openstreetmap.org/")
+        for course in result["courses"]
+    )
 
 
-def test_rejects_too_few_origins():
-    status, body = request("/api/evaluations", "POST", {"origins": [[1, 2]]})
+def test_verifies_graph_checksum_before_load_and_provenance(monkeypatch, tmp_path):
+    graph_path = tmp_path / "roads.npz"
+    road_graph().save(graph_path)
+    expected = sha256(graph_path.read_bytes()).hexdigest()
+    monkeypatch.setattr(app, "GRAPH_PATH", str(graph_path))
+    monkeypatch.setattr(
+        app, "SNAPSHOT_METADATA", replace(app.SNAPSHOT_METADATA, sha256=expected)
+    )
+    monkeypatch.setattr(app, "_graph", None)
+    monkeypatch.setattr(app, "_graph_sha256", None)
+    monkeypatch.setattr(
+        app,
+        "COURSES",
+        (
+            course("combined", "Combined Course", (41.89, -87.78), 9),
+            course("balanced", "Balanced Course", (41.89, -87.77), 18),
+        ),
+    )
+
+    status, body = request(
+        "/api/rankings",
+        "POST",
+        {"origins": [[41.88, -87.80], [41.88, -87.70]]},
+    )
+    result = json.loads(body)
+
+    assert status == "200 OK"
+    assert app._graph_sha256 == expected
+    assert result["provenance"]["road_snapshot_sha256"] == expected
+
+
+def test_rejects_graph_checksum_mismatch_before_load(monkeypatch, tmp_path):
+    graph_path = tmp_path / "roads.npz"
+    road_graph().save(graph_path)
+    loaded = False
+
+    def load(_path):
+        nonlocal loaded
+        loaded = True
+
+    monkeypatch.setattr(app, "GRAPH_PATH", str(graph_path))
+    monkeypatch.setattr(
+        app, "SNAPSHOT_METADATA", replace(app.SNAPSHOT_METADATA, sha256="0" * 64)
+    )
+    monkeypatch.setattr(app, "_graph", None)
+    monkeypatch.setattr(app, "_graph_sha256", None)
+    monkeypatch.setattr(app.CompactRoadGraph, "load", load)
+
+    with pytest.raises(RuntimeError, match="checksum does not match"):
+        app._road()
+
+    assert loaded is False
+    assert app._graph is None
+    assert app._graph_sha256 is None
+
+
+def test_ranks_by_shortest_longest_drive(ranked_courses):
+    status, body = request(
+        "/api/rankings",
+        "POST",
+        {
+            "origins": [[41.88, -87.80], [41.88, -87.70]],
+            "objective": "maximum",
+            "holes": [9, 18],
+        },
+    )
+    result = json.loads(body)
+    assert status == "200 OK"
+    assert [course["id"] for course in result["courses"]] == [
+        "balanced",
+        "combined",
+    ]
+    assert result["courses"][0]["travel_times_seconds"] == [5.0, 6.0]
+    assert result["courses"][0]["maximum_seconds"] == 6.0
+    assert result["courses"][0]["combined_seconds"] == 11.0
+    assert result["origin_road_coordinates"] == [
+        [41.88, -87.8],
+        [41.88, -87.7],
+    ]
+    assert result["provenance"]["course_catalog"] == "chicago-public-courses-v1"
+    assert "id" not in result
+
+
+def test_ranks_by_combined_drive_and_filters_holes(ranked_courses):
+    status, body = request(
+        "/api/rankings",
+        "POST",
+        {
+            "origins": [[41.88, -87.80], [41.88, -87.70]],
+            "objective": "combined",
+            "holes": [9, 18],
+        },
+    )
+    result = json.loads(body)
+    assert status == "200 OK"
+    assert [course["id"] for course in result["courses"]] == [
+        "combined",
+        "balanced",
+    ]
+
+    status, body = request(
+        "/api/rankings",
+        "POST",
+        {
+            "origins": [[41.88, -87.80], [41.88, -87.70]],
+            "objective": "combined",
+            "holes": [18],
+        },
+    )
+    result = json.loads(body)
+    assert status == "200 OK"
+    assert [course["id"] for course in result["courses"]] == ["balanced"]
+
+
+@pytest.mark.parametrize(
+    ("payload", "message"),
+    [
+        ({"origins": [[41.88, -87.80]]}, b"provide between 2 and 8 origins"),
+        (
+            {"origins": [[41.88, -87.80], [41.88, -87.70]], "objective": "total"},
+            b"objective must be 'combined' or 'maximum'",
+        ),
+        (
+            {"origins": [[41.88, -87.80], [41.88, -87.70]], "holes": [12]},
+            b"holes must be a nonempty list containing 9 or 18",
+        ),
+        (
+            {"origins": [[41.88, -87.80], [41.88, -87.70]], "holes": []},
+            b"holes must be a nonempty list containing 9 or 18",
+        ),
+    ],
+)
+def test_rejects_invalid_ranking_options(ranked_courses, payload, message):
+    status, body = request("/api/rankings", "POST", payload)
     assert status == "400 Bad Request"
-    assert b"provide between 2 and 32 origins" in body
+    assert message in body
 
 
 @pytest.mark.parametrize(
@@ -117,69 +296,48 @@ def test_rejects_too_few_origins():
         [[41.88, -87.80, 1], [41.88, -87.70]],
     ],
 )
-def test_rejects_non_list_or_malformed_origin_coordinates(origins):
-    status, body = request("/api/evaluations", "POST", {"origins": origins})
+def test_rejects_malformed_origin_coordinates(ranked_courses, origins):
+    status, body = request("/api/rankings", "POST", {"origins": origins})
     assert status == "400 Bad Request"
-    assert b"origins must be a list" in body or b"coordinates must contain" in body
+    assert b"origins must" in body
 
 
-def test_calculates_both_regions_and_selected_point(monkeypatch):
-    monkeypatch.setattr(app, "_graph", road_graph())
-
+def test_rejects_origins_outside_published_coverage(ranked_courses):
     status, body = request(
-        "/api/evaluations",
+        "/api/rankings",
         "POST",
-        {
-            "origins": [[41.8801, -87.8001], [41.8801, -87.7001]],
-            "tolerance_seconds": 0.75,
-        },
-    )
-    result = json.loads(body)
-    assert status == "200 OK"
-    assert result["origins"] == [[41.88, -87.8], [41.88, -87.7]]
-    assert result["total"]["region"] == [
-        {"coordinate": [41.89, -87.78], "excess_seconds": 0.0}
-    ]
-    assert result["maximum"]["region"] == [
-        {"coordinate": [41.89, -87.77], "excess_seconds": 0.0}
-    ]
-    assert result["id"] in app._analyses
-
-    status, body = request(
-        f"/api/evaluations/{result['id']}/travel-times",
-        "POST",
-        {"coordinate": [41.8901, -87.7801]},
-    )
-    assert status == "200 OK"
-    selected = json.loads(body)
-    assert selected["coordinate"] == [41.89, -87.78]
-    assert selected["travel_times_seconds"] == [1.0, 9.0]
-
-    status, body = request(
-        f"/api/evaluations/{result['id']}/travel-times",
-        "POST",
-        {"coordinate": {"latitude": 41.89, "longitude": -87.78}},
-    )
-    assert status == "400 Bad Request"
-    assert b"coordinates must contain" in body
-
-    status, body = request(
-        f"/api/evaluations/{result['id']}/travel-times",
-        "POST",
-        {"coordinate": [40.7128, -74.0060]},
+        {"origins": [[40.7128, -74.0060], [34.0522, -118.2437]]},
     )
     assert status == "422 Unprocessable Entity"
-    assert b"too far from a road" in body
+    assert b"outside fairway's current road coverage" in body
 
 
-def test_reads_body_without_content_length(monkeypatch):
-    monkeypatch.setattr(app, "_graph", road_graph())
-    status, _body = request(
-        "/api/evaluations",
+def test_rejects_unreachable_courses_with_clear_status(monkeypatch):
+    graph = nx.DiGraph()
+    graph.add_node("a", y=41.88, x=-87.80)
+    graph.add_node("b", y=41.88, x=-87.70)
+    graph.add_node("x", y=41.89, x=-87.78)
+    monkeypatch.setattr(app, "_graph", CompactRoadGraph.from_networkx(graph))
+    monkeypatch.setattr(app, "_graph_sha256", app.SNAPSHOT_METADATA.sha256)
+    monkeypatch.setattr(
+        app,
+        "COURSES",
+        (course("course", "Course", (41.89, -87.78), 9),),
+    )
+    status, body = request(
+        "/api/rankings",
         "POST",
-        {
-            "origins": [[41.88, -87.80], [41.88, -87.70]],
-        },
+        {"origins": [[41.88, -87.80], [41.88, -87.70]]},
+    )
+    assert status == "422 Unprocessable Entity"
+    assert b"no mutually reachable road route" in body
+
+
+def test_reads_body_without_content_length(ranked_courses):
+    status, _body = request(
+        "/api/rankings",
+        "POST",
+        {"origins": [[41.88, -87.80], [41.88, -87.70]]},
         content_length=None,
     )
     assert status == "200 OK"
@@ -187,20 +345,20 @@ def test_reads_body_without_content_length(monkeypatch):
 
 @pytest.mark.parametrize("raw_body", [b"[]", b"null", b'"value"'])
 def test_rejects_non_object_json_roots(raw_body):
-    status, body = request("/api/evaluations", "POST", raw_body=raw_body)
+    status, body = request("/api/rankings", "POST", raw_body=raw_body)
     assert status == "400 Bad Request"
     assert b"JSON body must be an object" in body
 
 
 def test_rejects_invalid_utf8_json():
-    status, body = request("/api/evaluations", "POST", raw_body=b'{"origins":\xff}')
+    status, body = request("/api/rankings", "POST", raw_body=b'{"origins":\xff}')
     assert status == "400 Bad Request"
     assert b"request body must be valid UTF-8 JSON" in body
 
 
 def test_caps_declared_and_undeclared_request_bodies():
     status, body = request(
-        "/api/evaluations",
+        "/api/rankings",
         "POST",
         raw_body=b"{}",
         content_length=app.MAX_REQUEST_BYTES + 1,
@@ -209,7 +367,7 @@ def test_caps_declared_and_undeclared_request_bodies():
     assert b"request is too large" in body
 
     status, body = request(
-        "/api/evaluations",
+        "/api/rankings",
         "POST",
         raw_body=b" " * (app.MAX_REQUEST_BYTES + 1),
         content_length=None,
@@ -219,84 +377,9 @@ def test_caps_declared_and_undeclared_request_bodies():
 
 
 def test_rejects_truncated_declared_request_body():
-    status, body = request("/api/evaluations", "POST", raw_body=b"{}", content_length=3)
+    status, body = request("/api/rankings", "POST", raw_body=b"{}", content_length=3)
     assert status == "400 Bad Request"
     assert b"request body is shorter than content length" in body
-
-
-def test_rejects_coordinates_outside_snapshot(monkeypatch):
-    monkeypatch.setattr(app, "_graph", road_graph())
-    status, body = request(
-        "/api/evaluations",
-        "POST",
-        {
-            "origins": [[40.7128, -74.0060], [34.0522, -118.2437]],
-        },
-    )
-    assert status == "422 Unprocessable Entity"
-    assert b"too far from a road" in body
-
-
-def test_rejects_coordinates_too_far_from_a_snapshot_road(monkeypatch):
-    monkeypatch.setattr(app, "_graph", road_graph())
-    status, body = request(
-        "/api/evaluations",
-        "POST",
-        {
-            "origins": [[41.88, -87.80], [42.17, -87.61]],
-        },
-    )
-    assert status == "422 Unprocessable Entity"
-    assert b"too far from a road" in body
-
-
-def test_rejects_unreachable_origins_with_clear_status(monkeypatch):
-    graph = nx.DiGraph()
-    graph.add_node("a", y=41.88, x=-87.80)
-    graph.add_node("b", y=41.88, x=-87.70)
-    monkeypatch.setattr(app, "_graph", CompactRoadGraph.from_networkx(graph))
-
-    status, body = request(
-        "/api/evaluations",
-        "POST",
-        {
-            "origins": [[41.88, -87.80], [41.88, -87.70]],
-        },
-    )
-    assert status == "422 Unprocessable Entity"
-    assert b"no mutually reachable road location" in body
-    assert not app._analyses
-
-
-def test_failed_oversized_region_is_not_cached(monkeypatch):
-    monkeypatch.setattr(app, "_graph", road_graph())
-    monkeypatch.setattr(app, "MAX_REGION_POINTS", 1)
-
-    status, body = request(
-        "/api/evaluations",
-        "POST",
-        {
-            "origins": [[41.88, -87.80], [41.88, -87.70]],
-        },
-    )
-    assert status == "422 Unprocessable Entity"
-    assert b"too many region points" in body
-    assert not app._analyses
-
-
-def test_rejects_tolerance_above_service_limit(monkeypatch):
-    monkeypatch.setattr(app, "_graph", road_graph())
-    status, body = request(
-        "/api/evaluations",
-        "POST",
-        {
-            "origins": [[41.88, -87.80], [41.88, -87.70]],
-            "tolerance_seconds": app.MAX_TOLERANCE_SECONDS + 1,
-        },
-    )
-    assert status == "422 Unprocessable Entity"
-    assert b"cannot exceed 5 minutes" in body
-    assert not app._analyses
 
 
 def test_logs_unexpected_server_errors(monkeypatch, caplog):
@@ -306,11 +389,9 @@ def test_logs_unexpected_server_errors(monkeypatch, caplog):
     monkeypatch.setattr(app, "_road", fail)
     with caplog.at_level(logging.ERROR, logger="fairway.app"):
         status, body = request(
-            "/api/evaluations",
+            "/api/rankings",
             "POST",
-            {
-                "origins": [[41.88, -87.80], [41.88, -87.70]],
-            },
+            {"origins": [[41.88, -87.80], [41.88, -87.70]]},
         )
     assert status == "500 Internal Server Error"
     assert b"fairway could not calculate this request" in body

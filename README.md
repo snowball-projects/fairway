@@ -1,14 +1,17 @@
 # fairway
 
-fairway is a minimal dashboard for comparing two modo meeting regions. One
-minimizes total driving time; the other minimizes the longest driving time. Add
-two or more origins, inspect both regions, and click any map point to compare
-individual and combined driving times.
+fairway helps a group choose a golf course by road travel time. Add two or more
+golfer origins, filter the bounded public-course catalog by hole count, and rank
+the remaining courses by either the shortest longest individual drive or the
+lowest combined driving time. The map keeps each golfer's color consistent and
+the ranked list shows every golfer's modeled time to every course.
 
 [Built by AI agents](https://snowball-projects.github.io/licensing/#how-snowball-is-built)
 
-The initial release covers the Chicago-area static road snapshot. It does not
-yet account for live or historical traffic, depart-at, or arrive-by times.
+The first catalog contains eight public 9- and 18-hole courses inside the
+`chicago-static-v1` road snapshot. It is a reviewed, dated starting point, not a
+complete Chicagoland course directory. Results use static road costs and do not
+include traffic, prices, ratings, tee times, or availability.
 
 ## Run locally
 
@@ -23,25 +26,47 @@ gunicorn fairway.app:application
 Open `http://127.0.0.1:8000`. Address suggestions come from the public Photon
 demo service. Coordinates can also be entered as `latitude, longitude`.
 
+Run the project checks with:
+
+```sh
+ruff check .
+ruff format --check .
+node --check src/fairway/static/app.js
+python -m pytest
+```
+
+## Ranking
+
+For each candidate course `c`, fairway calculates every golfer's static road
+travel time `t_i(c)`. The two ranking choices are:
+
+- shortest longest drive: `max_i t_i(c)`
+- lowest combined drive: `sum_i t_i(c)`
+
+Ties use the other score, then the course name. A ranking is only as current as
+the named course catalog, routing points, road snapshot, and cost profile in its
+provenance. See [data/README.md](data/README.md) for the v1 catalog boundary and
+source method.
+
 ## Architecture
 
-One Python process serves the browser files and JSON API. It loads one immutable
-compact road snapshot, asks modo to calculate both exact vertex regions from a
-shared shortest-path analysis, and keeps only a small bounded set of temporary
-analyses in memory. Nothing is written to a database.
+One Python process serves the browser files and JSON API. The browser sends
+confirmed origin coordinates, the selected ranking, and the hole filter to
+`POST /api/rankings`. The process loads one immutable compact road snapshot,
+uses modo to build the origin-to-course travel-time matrix, ranks the catalog,
+and returns the result without storing the request.
 
-The road snapshot is a separately versioned release artifact rather than source
-code. Every result identifies its snapshot, cost profile, and modo version.
-`data/snapshots.json` binds each published artifact to its checksum, supported
-core, graph bounds, and cost profile. `FAIRWAY_SNAPSHOT` selects one catalog
-entry for the current process.
+`StaticModoMatrix` is the narrow routing-provider boundary. Course discovery,
+filter semantics, ranking, catalog provenance, and presentation remain owned by
+fairway. No database or hosted modo service is required.
 
 ## License
 
 fairway is a snowball project licensed under the [Apache License 2.0](LICENSE).
-Its OpenStreetMap-derived road snapshot is separately available under the Open
-Database License. See [data/README.md](data/README.md). The locally served
-Leaflet stylesheet remains under BSD-2-Clause; see
+Its OpenStreetMap-derived road snapshot and course routing-point catalog are
+separately available under the Open Database License. See
+[data/README.md](data/README.md). The locally served Leaflet stylesheet remains
+under BSD-2-Clause; see
 [LEAFLET-LICENSE.txt](src/fairway/static/LEAFLET-LICENSE.txt).
 
 See [NOTICE](NOTICE) for attribution, [CONTRIBUTING.md](CONTRIBUTING.md) before

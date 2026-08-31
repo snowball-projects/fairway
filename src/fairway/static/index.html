@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Compare fair geographic meeting regions." />
+    <meta
+      name="description"
+      content="Compare public golf courses by every golfer's road travel time."
+    />
+    <meta name="theme-color" content="#f4f2e9" />
     <title>fairway</title>
     <link rel="stylesheet" href="/leaflet.css" />
     <link rel="stylesheet" href="/styles.css" />
@@ -16,55 +20,113 @@
     <script src="/app.js" defer></script>
   </head>
   <body>
-    <main>
-      <section class="panel" aria-label="fairway controls">
-        <header>
+    <main class="app-shell">
+      <aside class="controls" aria-label="Plan a round">
+        <header class="masthead">
           <a class="brand" href="https://snowball-projects.github.io">fairway</a>
-          <p>Find meeting areas that save the group time or shorten the longest drive.</p>
+          <p>Choose the course that works for the whole group.</p>
         </header>
 
-        <div class="origins-heading">
-          <h1>Origins</h1>
-          <button id="add-origin" type="button">Add</button>
-        </div>
-        <div id="origins"></div>
+        <section class="control-section" aria-labelledby="origins-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">01</p>
+              <h1 id="origins-title">Where is everyone?</h1>
+            </div>
+            <button id="add-origin" class="quiet-button" type="button">Add golfer</button>
+          </div>
+          <div id="origins" class="origin-list"></div>
+          <p class="hint">Choose an address suggestion or enter latitude, longitude.</p>
+        </section>
 
-        <label class="tolerance">
-          <span>Region tolerance</span>
-          <span><input id="tolerance" type="number" min="0" max="5" value="1" /> min</span>
-        </label>
+        <section class="control-section" aria-labelledby="ranking-title">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">02</p>
+              <h2 id="ranking-title">How should we rank?</h2>
+            </div>
+          </div>
+          <fieldset class="choice-group">
+            <legend class="visually-hidden">Ranking method</legend>
+            <label>
+              <input type="radio" name="objective" value="maximum" checked />
+              <span>
+                <strong>Shortest longest drive</strong>
+                <small>Keep the farthest golfer closer</small>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="objective" value="combined" />
+              <span>
+                <strong>Lowest combined drive</strong>
+                <small>Use the least group travel time</small>
+              </span>
+            </label>
+          </fieldset>
 
-        <div class="legend-heading">
-          <span>Meeting regions</span>
-          <details class="info">
-            <summary aria-label="About fairway's meeting regions">i</summary>
-            <p>
-              Purple minimizes total driving time across everyone. Its tolerance is additional
-              total time. Orange minimizes the longest individual drive, with the same tolerance
-              applied to that drive. Stronger points are closer to the exact optimum. Results use
-              the active static road snapshot. Traffic and scheduled arrival or departure are not
-              yet supported. Address suggestions are limited to the snapshot's supported core and
-              go directly to Photon.
-              <a href="https://github.com/snowball-projects/fairway/blob/main/SERVICE.md"
-                >Service policy</a
-              >
-              · <a href="https://github.com/snowball-projects/fairway">Source</a>
-            </p>
-          </details>
-        </div>
-        <div class="legend" aria-label="Meeting regions">
-          <span><i class="total"></i>Minimize total driving time</span>
-          <span><i class="maximum"></i>Minimize longest driving time</span>
-        </div>
+          <fieldset class="hole-filter">
+            <legend>Holes</legend>
+            <div class="segments">
+              <label><input type="radio" name="holes" value="all" checked /><span>All</span></label>
+              <label><input type="radio" name="holes" value="9" /><span>9</span></label>
+              <label><input type="radio" name="holes" value="18" /><span>18</span></label>
+            </div>
+          </fieldset>
+        </section>
 
-        <p id="status" role="status">Add at least two origins.</p>
-        <footer class="maintainer">
+        <p id="status" class="status" role="status">Add at least two golfer origins.</p>
+
+        <details class="method-note">
+          <summary>How this works</summary>
+          <p>
+            fairway ranks a fixed public-course catalog using modeled drive times on one static
+            road snapshot. It does not use traffic, prices, ratings, or live tee-time availability.
+          </p>
+          <p>
+            <a href="https://github.com/snowball-projects/fairway/blob/main/SERVICE.md"
+              >Service policy</a
+            >
+            <span aria-hidden="true">·</span>
+            <a href="https://github.com/snowball-projects/fairway">Source</a>
+          </p>
+        </details>
+
+        <footer class="provenance">
           <a href="https://snowball-projects.github.io/licensing/#how-snowball-is-built"
             >Built by AI agents</a
           >
         </footer>
+      </aside>
+
+      <section class="map-stage" aria-label="Golf course map">
+        <div id="map"></div>
+        <p class="map-key"><span></span>Public course in the current catalog</p>
       </section>
-      <div id="map" role="region" aria-label="Meeting-region map"></div>
+
+      <aside class="results-panel" aria-labelledby="results-title">
+        <header class="results-heading">
+          <div>
+            <p class="eyebrow">03</p>
+            <h2 id="results-title">Course ranking</h2>
+          </div>
+          <span id="result-count" class="result-count">8 courses</span>
+        </header>
+        <p id="ranking-description" class="ranking-description">
+          Add two origins to compare each golfer's drive.
+        </p>
+        <div id="results" class="results" aria-live="polite">
+          <div class="empty-state">
+            <span class="empty-flag" aria-hidden="true"></span>
+            <p>The course pins are ready. Your ranking will appear here.</p>
+          </div>
+        </div>
+        <footer class="catalog-note">
+          <span id="catalog-name">Loading catalog details...</span>
+          <a href="https://github.com/snowball-projects/fairway/blob/main/data/README.md"
+            >Coverage and provenance</a
+          >
+        </footer>
+      </aside>
     </main>
   </body>
 </html>

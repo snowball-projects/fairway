@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "id": "chicago-public-courses-v1",
+  "title": "Chicago-area public courses",
+  "as_of": "2026-08-30",
+  "description": "Eight public 9- and 18-hole courses with reviewed routing points inside the chicago-static-v1 road snapshot.",
+  "sources": [
+    {
+      "id": "cpd-columbus",
+      "url": "https://columbuspark.cpdgolf.com/"
+    },
+    {
+      "id": "cpd-marovitz",
+      "url": "https://sydneymarovitz.cpdgolf.com/"
+    },
+    {
+      "id": "cpd-robert-black",
+      "url": "https://robertblack.cpdgolf.com/"
+    },
+    {
+      "id": "fpg-billy-caldwell",
+      "url": "https://billycaldwell.forestpreservegolf.com/the-course/"
+    },
+    {
+      "id": "fpg-edgebrook",
+      "url": "https://edgebrook.forestpreservegolf.com/the-course/"
+    },
+    {
+      "id": "fpg-chick-evans",
+      "url": "https://chickevans.forestpreservegolf.com/the-course/"
+    },
+    {
+      "id": "fpg-indian-boundary",
+      "url": "https://indianboundary.forestpreservegolf.com/"
+    },
+    {
+      "id": "fpg-highland-woods",
+      "url": "https://highlandwoods.forestpreservegolf.com/the-course/"
+    },
+    {
+      "id": "openstreetmap-2026-08-30",
+      "url": "https://www.openstreetmap.org/copyright"
+    }
+  ],
+  "courses": [
+    {
+      "id": "columbus-park",
+      "name": "Columbus Park Golf Course",
+      "address": "5701 W Jackson Boulevard, Chicago, IL 60644",
+      "routing_coordinate": [41.8763775, -87.7685259],
+      "holes": 9,
+      "access": "public",
+      "website": "https://columbuspark.cpdgolf.com/",
+      "facts_source": "cpd-columbus",
+      "routing_source": "openstreetmap-2026-08-30",
+      "routing_reference": "way/162517919"
+    },
+    {
+      "id": "sydney-marovitz",
+      "name": "Sydney R. Marovitz Golf Course",
+      "address": "3701 N Recreation Drive, Chicago, IL 60613",
+      "routing_coordinate": [41.951876, -87.6411208],
+      "holes": 9,
+      "access": "public",
+      "website": "https://sydneymarovitz.cpdgolf.com/",
+      "facts_source": "cpd-marovitz",
+      "routing_source": "openstreetmap-2026-08-30",
+      "routing_reference": "way/53582240"
+    },
+    {
+      "id": "robert-black",
+      "name": "Robert A. Black Golf Course",
+      "address": "2045 W Pratt Boulevard, Chicago, IL 60645",
+      "routing_coordinate": [42.0048705, -87.6817395],
+      "holes": 9,
+      "access": "public",
+      "website": "https://robertblack.cpdgolf.com/",
+      "facts_source": "cpd-robert-black",
+      "routing_source": "openstreetmap-2026-08-30",
+      "routing_reference": "way/209952284"
+    },
+    {
+      "id": "billy-caldwell",
+      "name": "Billy Caldwell Golf Course",
+      "address": "6150 N Caldwell Avenue, Chicago, IL 60646",
+      "routing_coordinate": [41.9924068, -87.7569474],
+      "holes": 9,
+      "access": "public",
+      "website": "https://billycaldwell.forestpreservegolf.com/",
+      "facts_source": "fpg-billy-caldwell",
+      "routing_source": "openstreetmap-2026-08-30",
+      "routing_reference": "way/162836507"
+    },
+    {
+      "id": "edgebrook",
+      "name": "Edgebrook Golf Course",
+      "address": "6100 N Central Avenue, Chicago, IL 60646",
+      "routing_coordinate": [41.9913002, -87.7695254],
+      "holes": 18,
+      "access": "public",
+      "website": "https://edgebrook.forestpreservegolf.com/",
+      "facts_source": "fpg-edgebrook",
+      "routing_source": "openstreetmap-2026-08-30",
+      "routing_reference": "way/677597973"
+    },
+    {
+      "id": "chick-evans",
+      "name": "Chick Evans Golf Course",
+      "address": "6145 Golf Road, Morton Grove, IL 60053",
+      "routing_coordinate": [42.0542286, -87.7808255],
+      "holes": 18,
+      "access": "public",
+      "website": "https://chickevans.forestpreservegolf.com/",
+      "facts_source": "fpg-chick-evans",
+      "routing_source": "openstreetmap-2026-08-30",
+      "routing_reference": "way/202762135"
+    },
+    {
+      "id": "indian-boundary",
+      "name": "Indian Boundary Golf Course",
+      "address": "8600 W Forest Preserve Avenue, Chicago, IL 60634",
+      "routing_coordinate": [41.9394098, -87.8441955],
+      "holes": 18,
+      "access": "public",
+      "website": "https://indianboundary.forestpreservegolf.com/",
+      "facts_source": "fpg-indian-boundary",
+      "routing_source": "openstreetmap-2026-08-30",
+      "routing_reference": "way/163450051"
+    },
+    {
+      "id": "highland-woods",
+      "name": "Highland Woods Golf Course",
+      "address": "2775 Ela Road, Hoffman Estates, IL 60192",
+      "routing_coordinate": [42.067164, -88.092438],
+      "holes": 18,
+      "access": "public",
+      "website": "https://highlandwoods.forestpreservegolf.com/",
+      "facts_source": "fpg-highland-woods",
+      "routing_source": "openstreetmap-2026-08-30",
+      "routing_reference": "way/29116340"
+    }
+  ]
+}

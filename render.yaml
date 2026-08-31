@@ -13,4 +13,5 @@ services:
         value: data/chicago-static-v1.npz
       - key: FAIRWAY_SNAPSHOT
         value: chicago-static-v1
-
+      - key: FAIRWAY_COURSE_CATALOG
+        value: data/course-catalog-v1.json

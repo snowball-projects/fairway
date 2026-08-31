@@ -1,8 +1,9 @@
 # Contributing
 
-Discuss changes to fairway's interface, API, road snapshot, dependencies, or
-scope before opening a pull request. Keep fairway a thin interface around modo,
-preserve its privacy and service boundaries, and run the checks documented in
+Discuss changes to fairway's interface, API, course catalog, road snapshot,
+dependencies, or scope before opening a pull request. Keep course facts and
+routing points traceable to the sources required by [data/README.md](data/README.md),
+preserve the privacy and service boundaries, and run the checks documented in
 [README.md](README.md).
 
 Pull requests should explain the problem, the important decisions, and how the
