@@ -68,7 +68,7 @@ uv run --locked ruff format --check .
 node --check src/fairway/static/app.js
 node --check src/fairway/static/leaflet.js
 uv run --locked python -m pytest
-uv build --wheel
+uv build
 ```
 
 - To run the application, fetch the verified snapshot with
@@ -82,5 +82,6 @@ uv build --wheel
   not keep tests that merely repeat implementation details. Check browser
   behavior and accessibility when changing the interface.
 - `render.yaml` is the deployment source. Verify the release's installed wheel,
+  the extracted source archive's locked installation and tests,
   CI, hosted `/health`, and a bounded ranking smoke test before describing it as
   deployed. Report any checks that could not run and why.

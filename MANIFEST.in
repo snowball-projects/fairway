@@ -1,0 +1,6 @@
+include AGENTS.md CLAUDE.md CONTRIBUTING.md SECURITY.md SERVICE.md
+include .env.example render.yaml uv.lock
+include data/README.md
+recursive-include docs *.md
+recursive-include scripts *.py
+recursive-include tests *.py

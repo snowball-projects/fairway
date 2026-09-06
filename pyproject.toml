@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools==80.9.0"]
+requires = ["setuptools==83.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "fairway"
-version = "0.6.0"
+version = "0.6.1"
 description = "A group golf-course chooser ranked by road travel time."
 authors = [{name = "snowball"}]
 license = "Apache-2.0"
@@ -16,7 +16,7 @@ dependencies = [
   "networkx>=3.4,<4",
   "numpy>=1.26,<3",
   "scipy>=1.12,<2",
-  "modo @ git+https://github.com/snowball-projects/modo.git@285d35c212f884b1d0b8efb15af906461c94ee1e",
+  "modo @ git+https://github.com/snowball-projects/modo.git@4e9577611490507f0217ec8dae51a1a600fa6548",
 ]
 
 [project.optional-dependencies]

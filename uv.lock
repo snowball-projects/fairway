@@ -17,7 +17,7 @@ wheels = [
 
 [[package]]
 name = "fairway"
-version = "0.6.0"
+version = "0.6.1"
 source = { editable = "." }
 dependencies = [
     { name = "gunicorn" },
@@ -38,7 +38,7 @@ test = [
 [package.metadata]
 requires-dist = [
     { name = "gunicorn", specifier = ">=26.2,<27" },
-    { name = "modo", git = "https://github.com/snowball-projects/modo.git?rev=285d35c212f884b1d0b8efb15af906461c94ee1e" },
+    { name = "modo", git = "https://github.com/snowball-projects/modo.git?rev=4e9577611490507f0217ec8dae51a1a600fa6548" },
     { name = "networkx", specifier = ">=3.4,<4" },
     { name = "numpy", specifier = ">=1.26,<3" },
     { name = "pytest", marker = "extra == 'test'", specifier = ">=9.0.3,<10" },
@@ -76,8 +76,8 @@ wheels = [
 
 [[package]]
 name = "modo"
-version = "0.3.4"
-source = { git = "https://github.com/snowball-projects/modo.git?rev=285d35c212f884b1d0b8efb15af906461c94ee1e#285d35c212f884b1d0b8efb15af906461c94ee1e" }
+version = "0.3.5"
+source = { git = "https://github.com/snowball-projects/modo.git?rev=4e9577611490507f0217ec8dae51a1a600fa6548#4e9577611490507f0217ec8dae51a1a600fa6548" }
 dependencies = [
     { name = "geographiclib" },
     { name = "networkx" },

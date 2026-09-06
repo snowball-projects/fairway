@@ -37,8 +37,13 @@ uv run --locked ruff format --check .
 node --check src/fairway/static/app.js
 node --check src/fairway/static/leaflet.js
 uv run --locked python -m pytest
-uv build --wheel
+uv build
 ```
+
+Release both the wheel and source archive. The source archive includes the
+lockfile, maintenance scripts, tests, and operating documentation. CI extracts
+it into a separate directory, installs its locked dependencies, and runs its
+tests so validation does not depend on files from the original checkout.
 
 ## TomTom configuration
 

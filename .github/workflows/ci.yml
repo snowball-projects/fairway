@@ -31,12 +31,19 @@ jobs:
       - run: node --check src/fairway/static/app.js
       - run: node --check src/fairway/static/leaflet.js
       - run: uv run --locked python -m pytest
-      - run: uv build --wheel
+      - run: uv build
       - name: Smoke-test installed wheel command
         run: |
           python -m venv /tmp/fairway-wheel
           /tmp/fairway-wheel/bin/pip install --no-deps dist/fairway-*.whl
           /tmp/fairway-wheel/bin/fairway-fetch-snapshot --help
+      - name: Test extracted source distribution
+        run: |
+          mkdir "$RUNNER_TEMP/fairway-source"
+          tar -xzf dist/fairway-*.tar.gz -C "$RUNNER_TEMP/fairway-source" --strip-components=1
+          cd "$RUNNER_TEMP/fairway-source"
+          uv sync --extra test --locked
+          env -u PYTHONPATH uv run --locked python -m pytest
       - if: matrix.python-version == '3.13'
         run: uv run --locked python scripts/fetch_snapshot.py
       - if: matrix.python-version == '3.13'
