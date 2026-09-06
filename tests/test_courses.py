@@ -3,10 +3,11 @@ import json
 import pytest
 
 from fairway.courses import load_course_catalog
+from fairway.paths import COURSE_CATALOG_PATH
 
 
 def test_loads_published_course_catalog():
-    catalog = load_course_catalog("data/course-catalog-v1.json")
+    catalog = load_course_catalog(COURSE_CATALOG_PATH)
     assert catalog.identifier == "chicago-public-courses-v1"
     assert catalog.as_of == "2026-08-30"
     assert len(catalog.sha256) == 64

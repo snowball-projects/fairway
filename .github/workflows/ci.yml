@@ -29,4 +29,19 @@ jobs:
       - run: uv run --locked ruff check .
       - run: uv run --locked ruff format --check .
       - run: node --check src/fairway/static/app.js
+      - run: node --check src/fairway/static/leaflet.js
       - run: uv run --locked python -m pytest
+      - run: uv build --wheel
+      - name: Smoke-test installed wheel command
+        run: |
+          python -m venv /tmp/fairway-wheel
+          /tmp/fairway-wheel/bin/pip install --no-deps dist/fairway-*.whl
+          /tmp/fairway-wheel/bin/fairway-fetch-snapshot --help
+      - if: matrix.python-version == '3.13'
+        run: uv run --locked python scripts/fetch_snapshot.py
+      - if: matrix.python-version == '3.13'
+        run: uv run --locked python scripts/validate_snapshot.py
+      - if: matrix.python-version == '3.13'
+        run: uv run --locked python scripts/build_course_index.py /tmp/fairway-courses.npz
+      - if: matrix.python-version == '3.13'
+        run: uv run --locked python scripts/validate_snapshot.py --course-index /tmp/fairway-courses.npz

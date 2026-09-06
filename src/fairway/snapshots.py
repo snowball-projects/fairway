@@ -59,18 +59,16 @@ def _snapshot(value):
     bounds = _bounds(value["core_bounds"])
     graph_bounds = _bounds(value["graph_bounds"])
     if (
-        not isinstance(value["id"], str)
-        or not value["id"]
-        or not isinstance(value["file"], str)
-        or not value["file"]
-        or not isinstance(value["cost_profile"], str)
-        or not value["cost_profile"]
+        not _plain_text(value["id"])
+        or not _plain_text(value["file"])
+        or not _plain_text(value["cost_profile"])
         or bounds[0] > bounds[2]
         or bounds[1] > bounds[3]
-        or graph_bounds[0] > bounds[0]
-        or graph_bounds[1] > bounds[1]
-        or graph_bounds[2] < bounds[2]
-        or graph_bounds[3] < bounds[3]
+        or graph_bounds[0] >= bounds[0]
+        or graph_bounds[1] >= bounds[1]
+        or graph_bounds[2] <= bounds[2]
+        or graph_bounds[3] <= bounds[3]
+        or value["file"] in {".", ".."}
         or Path(value["file"]).name != value["file"]
         or not is_https_url(value["url"])
         or not isinstance(value["sha256"], str)
@@ -112,10 +110,20 @@ def _bounds(value):
     return bounds
 
 
+def _plain_text(value):
+    return (
+        isinstance(value, str)
+        and bool(value)
+        and value == value.strip()
+        and not any(ord(character) < 32 or ord(character) == 127 for character in value)
+    )
+
+
 def is_https_url(value):
     """Return whether a URL uses HTTPS without credentials or control characters."""
     if not isinstance(value, str) or any(
-        character.isspace() or ord(character) == 127 for character in value
+        character.isspace() or ord(character) < 32 or ord(character) == 127
+        for character in value
     ):
         return False
     try:

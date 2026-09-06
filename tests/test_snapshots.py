@@ -2,6 +2,7 @@ import json
 
 import pytest
 
+from fairway.paths import SNAPSHOT_CATALOG_PATH
 from fairway.snapshots import Snapshot, load_catalog, select_snapshot
 
 
@@ -18,7 +19,7 @@ def snapshot(identifier, bounds):
 
 
 def test_loads_published_catalog():
-    catalog = load_catalog("data/snapshots.json")
+    catalog = load_catalog(SNAPSHOT_CATALOG_PATH)
     assert catalog[0].identifier == "chicago-static-v1"
     assert catalog[0].contains([(41.8781, -87.6298)])
     assert not catalog[0].contains([(43.0389, -87.9065)])
@@ -45,6 +46,58 @@ def test_selects_smallest_compatible_core_independent_of_order():
                     "file": "../bad.npz",
                     "url": "https://example.test/bad",
                     "sha256": "short",
+                    "cost_profile": "test",
+                    "core_bounds": [0, 0, 1, 1],
+                    "graph_bounds": [0, 0, 1, 1],
+                }
+            ]
+        },
+        {
+            "snapshots": [
+                {
+                    "id": "bad",
+                    "file": "..",
+                    "url": "https://example.test/bad.npz",
+                    "sha256": "0" * 64,
+                    "cost_profile": "test",
+                    "core_bounds": [0, 0, 1, 1],
+                    "graph_bounds": [-1, -1, 2, 2],
+                }
+            ]
+        },
+        {
+            "snapshots": [
+                {
+                    "id": "bad",
+                    "file": "roads\u0000.npz",
+                    "url": "https://example.test/bad.npz",
+                    "sha256": "0" * 64,
+                    "cost_profile": "test",
+                    "core_bounds": [0, 0, 1, 1],
+                    "graph_bounds": [-1, -1, 2, 2],
+                }
+            ]
+        },
+        {
+            "snapshots": [
+                {
+                    "id": "bad",
+                    "file": "bad.npz",
+                    "url": "https://example.test/bad.npz\u0000suffix",
+                    "sha256": "0" * 64,
+                    "cost_profile": "test",
+                    "core_bounds": [0, 0, 1, 1],
+                    "graph_bounds": [-1, -1, 2, 2],
+                }
+            ]
+        },
+        {
+            "snapshots": [
+                {
+                    "id": "bad",
+                    "file": "bad.npz",
+                    "url": "https://example.test/bad.npz",
+                    "sha256": "0" * 64,
                     "cost_profile": "test",
                     "core_bounds": [0, 0, 1, 1],
                     "graph_bounds": [0, 0, 1, 1],

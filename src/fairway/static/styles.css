@@ -146,8 +146,7 @@ h1, h2 { margin: 0; color: var(--ink); font: 700 1.08rem/1.2 Georgia, "Times New
 .method-note { padding-top: 1rem; color: var(--muted); font-size: .72rem; }
 .method-note summary { color: #465f55; font-weight: 750; cursor: pointer; }
 .method-note p { margin: .62rem 0 0; line-height: 1.5; }
-.method-note a, .provenance a, .catalog-note a { text-underline-offset: .18em; }
-.provenance { margin-top: auto; padding-top: 1.25rem; color: #64736a; font-size: .69rem; }
+.method-note a, .catalog-note a { text-underline-offset: .18em; }
 
 .map-stage { position: relative; min-width: 0; min-height: 0; }
 #map { width: 100%; height: 100%; background: #dce5dd; }
@@ -262,7 +261,7 @@ h1, h2 { margin: 0; color: var(--ink); font: 700 1.08rem/1.2 Georgia, "Times New
   cursor: pointer;
 }
 .rank { display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: .55rem; color: white; background: var(--green); font: 700 .82rem/1 Georgia, serif; }
-.course-title { margin: .05rem 0 0; color: #1d4035; font-size: .84rem; line-height: 1.25; }
+.course-title { display: block; margin: .05rem 0 0; color: #1d4035; font-size: .84rem; line-height: 1.25; }
 .course-meta { display: flex; gap: .35rem; margin-top: .3rem; color: #64736a; font-size: .66rem; }
 .course-meta span + span::before { margin-right: .35rem; content: "·"; }
 .score-row { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem; margin-top: .72rem; }
@@ -308,7 +307,6 @@ h1, h2 { margin: 0; color: var(--ink); font: 700 1.08rem/1.2 Georgia, "Times New
   .control-section { padding: 1rem 0; }
   .results-panel { min-height: 28rem; border-top: 1px solid var(--line); border-left: 0; box-shadow: none; }
   .results { overflow: visible; }
-  .provenance { padding-top: .8rem; }
 }
 
 @media (max-width: 480px) {

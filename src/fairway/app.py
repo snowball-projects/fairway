@@ -4,22 +4,70 @@ import json
 import logging
 import mimetypes
 import os
+from datetime import UTC
 from hashlib import sha256
 from importlib.metadata import version
-from math import isfinite
+from math import ceil, isfinite
 from pathlib import Path
+from re import fullmatch
+from threading import BoundedSemaphore, Lock
+from time import monotonic
 
 import networkx as nx
 from modo import CompactRoadGraph
 
+from .course_index import CourseDistanceIndex
 from .courses import load_course_catalog
-from .matrix import OutsideRoadCoverage, StaticModoMatrix
+from .matrix import (
+    MAX_SNAP_DISTANCE_KILOMETERS,
+    DestinationFailure,
+    MatrixMetadata,
+    MatrixProviderUnavailable,
+    OutsideRoadCoverage,
+    StaticModoMatrix,
+    TrafficBasis,
+    validate_road_snapshot,
+)
+from .paths import (
+    COURSE_CATALOG_PATH as DEFAULT_COURSE_CATALOG_PATH,
+)
+from .paths import (
+    SNAPSHOT_CATALOG_PATH,
+    graph_path,
+)
+from .scoring import SCORE_RESOLUTION_MILLISECONDS, canonical_milliseconds
 from .snapshots import load_catalog
+from .tomtom import DEFAULT_DAILY_CELL_LIMIT, TomTomMatrix
 
+
+def _environment(name, default=None):
+    value = os.environ.get(name)
+    return default if value in (None, "") else value
+
+
+def _configure_live_matrix():
+    key = _environment("TOMTOM_API_KEY")
+    provider = _environment("FAIRWAY_MATRIX_PROVIDER", "tomtom" if key else "static")
+    if provider == "static":
+        return None
+    if provider != "tomtom":
+        raise RuntimeError("FAIRWAY_MATRIX_PROVIDER must be 'static' or 'tomtom'")
+    try:
+        limit = int(
+            _environment("FAIRWAY_TOMTOM_DAILY_CELLS", DEFAULT_DAILY_CELL_LIMIT)
+        )
+        return TomTomMatrix(key, daily_cell_limit=limit)
+    except (TypeError, ValueError):
+        raise RuntimeError(
+            "TomTom requires a key and a valid daily cell limit"
+        ) from None
+
+
+_live_matrix = _configure_live_matrix()
 STATIC = Path(__file__).with_name("static")
-ROAD_CATALOG_PATH = Path(os.environ.get("FAIRWAY_CATALOG", "data/snapshots.json"))
+ROAD_CATALOG_PATH = Path(_environment("FAIRWAY_CATALOG", str(SNAPSHOT_CATALOG_PATH)))
 ROAD_CATALOG = load_catalog(ROAD_CATALOG_PATH)
-SNAPSHOT = os.environ.get("FAIRWAY_SNAPSHOT", "chicago-static-v1")
+SNAPSHOT = _environment("FAIRWAY_SNAPSHOT", "chicago-static-v1")
 try:
     SNAPSHOT_METADATA = next(
         item for item in ROAD_CATALOG if item.identifier == SNAPSHOT
@@ -27,11 +75,9 @@ try:
 except StopIteration as error:
     raise RuntimeError(f"unknown configured road snapshot: {SNAPSHOT}") from error
 COST_PROFILE = SNAPSHOT_METADATA.cost_profile
-GRAPH_PATH = os.environ.get(
-    "FAIRWAY_GRAPH", str(ROAD_CATALOG_PATH.parent / SNAPSHOT_METADATA.file)
-)
+GRAPH_PATH = str(graph_path(SNAPSHOT_METADATA.file, ROAD_CATALOG_PATH))
 COURSE_CATALOG_PATH = Path(
-    os.environ.get("FAIRWAY_COURSE_CATALOG", "data/course-catalog-v1.json")
+    _environment("FAIRWAY_COURSE_CATALOG", str(DEFAULT_COURSE_CATALOG_PATH))
 )
 COURSE_CATALOG = load_course_catalog(COURSE_CATALOG_PATH)
 COURSES = COURSE_CATALOG.courses
@@ -42,8 +88,16 @@ if any(
 
 MAX_REQUEST_BYTES = 32_768
 MAX_ORIGINS = 8
-MAX_SNAP_DISTANCE_KILOMETERS = 5
-CONTENT_SECURITY_POLICY = "default-src 'self'; base-uri 'none'; connect-src 'self' https://photon.komoot.io; font-src 'self'; form-action 'none'; frame-ancestors 'none'; frame-src 'none'; img-src 'self' data: https://tile.openstreetmap.org; object-src 'none'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline'; worker-src 'none'"
+COURSE_INDEX_PATH = _environment("FAIRWAY_COURSE_INDEX")
+COURSE_INDEX_SHA256 = _environment("FAIRWAY_COURSE_INDEX_SHA256")
+if bool(COURSE_INDEX_PATH) != bool(COURSE_INDEX_SHA256) or (
+    COURSE_INDEX_SHA256 is not None
+    and fullmatch(r"[0-9a-f]{64}", COURSE_INDEX_SHA256) is None
+):
+    raise RuntimeError(
+        "FAIRWAY_COURSE_INDEX and its valid SHA-256 must be configured together"
+    )
+CONTENT_SECURITY_POLICY = "default-src 'self'; base-uri 'none'; connect-src 'self' https://photon.komoot.io; font-src 'self'; form-action 'none'; frame-ancestors 'none'; frame-src 'none'; img-src 'self' data: https://tile.openstreetmap.org; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; worker-src 'none'"
 SECURITY_HEADERS = (
     ("Content-Security-Policy", CONTENT_SECURITY_POLICY),
     ("Cross-Origin-Opener-Policy", "same-origin"),
@@ -60,6 +114,43 @@ SECURITY_HEADERS = (
 LOGGER = logging.getLogger(__name__)
 _graph = None
 _graph_sha256 = None
+_course_distance_index = None
+_compute_gate = BoundedSemaphore(1)
+
+
+class _TokenBucket:
+    """Small identifier-free process-global request budget."""
+
+    def __init__(self, capacity, refill_per_second, clock=monotonic):
+        self.capacity = float(capacity)
+        self.refill_per_second = float(refill_per_second)
+        if (
+            not isfinite(self.capacity)
+            or self.capacity < 1
+            or not isfinite(self.refill_per_second)
+            or self.refill_per_second <= 0
+        ):
+            raise ValueError("token bucket values must be finite and positive")
+        self.tokens = float(capacity)
+        self.updated = clock()
+        self.clock = clock
+        self.lock = Lock()
+
+    def consume(self):
+        with self.lock:
+            now = self.clock()
+            self.tokens = min(
+                self.capacity,
+                self.tokens + max(0.0, now - self.updated) * self.refill_per_second,
+            )
+            self.updated = now
+            if self.tokens >= 1:
+                self.tokens -= 1
+                return 0
+            return max(1, ceil((1 - self.tokens) / self.refill_per_second))
+
+
+_ranking_tokens = _TokenBucket(capacity=12, refill_per_second=0.5)
 
 
 class _UnprocessableRequest(Exception):
@@ -78,23 +169,122 @@ class _UnsupportedMediaType(Exception):
     """A ranking request that is not JSON."""
 
 
+class _ServiceBusy(Exception):
+    """The bounded local calculation slot is already occupied."""
+
+
+class _RateLimited(Exception):
+    """The identifier-free global calculation budget is exhausted."""
+
+    def __init__(self, retry_after):
+        super().__init__("fairway's calculation limit was reached; try again shortly")
+        self.retry_after = retry_after
+
+
+def _digest_source(source):
+    digest = sha256()
+    while chunk := source.read(1024 * 1024):
+        digest.update(chunk)
+    return digest.hexdigest()
+
+
 def _road():
     global _graph, _graph_sha256
     if _graph is None:
-        digest = sha256()
         with Path(GRAPH_PATH).open("rb") as source:
-            while chunk := source.read(1024 * 1024):
-                digest.update(chunk)
-        _graph_sha256 = digest.hexdigest()
-        if _graph_sha256 != SNAPSHOT_METADATA.sha256:
-            _graph_sha256 = None
-            raise RuntimeError("road snapshot checksum does not match")
-        _graph = CompactRoadGraph.load(GRAPH_PATH)
+            _graph_sha256 = _digest_source(source)
+            if _graph_sha256 != SNAPSHOT_METADATA.sha256:
+                _graph_sha256 = None
+                raise RuntimeError("road snapshot checksum does not match")
+            source.seek(0)
+            road = CompactRoadGraph.load(source)
+        validate_road_snapshot(road)
+        _graph = road
     return _graph
 
 
+def _course_index(road):
+    global _course_distance_index
+    if COURSE_INDEX_PATH is None:
+        return None
+    if _course_distance_index is None:
+        with Path(COURSE_INDEX_PATH).open("rb") as source:
+            if _digest_source(source) != COURSE_INDEX_SHA256:
+                raise RuntimeError("course distance index checksum does not match")
+            source.seek(0)
+            course_distance_index = CourseDistanceIndex.load(
+                source,
+                road_snapshot_sha256=SNAPSHOT_METADATA.sha256,
+                course_catalog_sha256=COURSE_CATALOG.sha256,
+                vertex_count=len(road._vertices),
+                expected_course_ids=(course.identifier for course in COURSES),
+            )
+        course_vertices = road.nearest_vertices(
+            course.routing_coordinate for course in COURSES
+        )
+        _course_distance_index = course_distance_index.validate_against(
+            road, course_vertices
+        )
+    return _course_distance_index
+
+
+def _matrix_provider():
+    """Return the configured provider without silently changing its model."""
+    if _live_matrix is not None:
+        return _live_matrix
+    road = _road()
+    if _graph_sha256 is None:
+        raise RuntimeError("road snapshot was not checksum-verified")
+    course_index = _course_index(road)
+    metadata = MatrixMetadata(
+        provider="modo-static",
+        traffic_basis=TrafficBasis.UNAWARE,
+        provenance=(
+            ("road_snapshot", SNAPSHOT),
+            ("road_snapshot_sha256", _graph_sha256),
+            ("cost_profile", COST_PROFILE),
+            ("modo", version("modo")),
+            (
+                "course_index_sha256",
+                COURSE_INDEX_SHA256 if course_index is not None else None,
+            ),
+        ),
+    )
+    return StaticModoMatrix(
+        road,
+        MAX_SNAP_DISTANCE_KILOMETERS,
+        course_index=course_index,
+        metadata=metadata,
+    )
+
+
+def _timestamp(value):
+    if value is None:
+        return None
+    return value.astimezone(UTC).isoformat().replace("+00:00", "Z")
+
+
+def _matrix_provenance(metadata):
+    result = {
+        "matrix_provider": metadata.provider,
+        "matrix_strategy": metadata.strategy,
+        "traffic_basis": metadata.traffic_basis.value,
+        "departure_mode": (
+            metadata.departure.mode.value if metadata.departure is not None else None
+        ),
+        "departure_time": _timestamp(metadata.departure_time),
+        "matrix_calculated_at": _timestamp(metadata.calculated_at),
+        "traffic_data_as_of": _timestamp(metadata.traffic_data_as_of),
+    }
+    for key, value in metadata.provenance:
+        if key in result:
+            raise RuntimeError(f"matrix provenance uses reserved key: {key}")
+        result[key] = value
+    return result
+
+
 def _json(start_response, status, value, extra_headers=()):
-    body = json.dumps(value, separators=(",", ":")).encode()
+    body = json.dumps(value, separators=(",", ":"), allow_nan=False).encode()
     start_response(
         status,
         [
@@ -128,7 +318,7 @@ def _body(environ):
         raise _PayloadTooLarge("request is too large")
     try:
         request = json.loads(body or b"{}")
-    except (UnicodeDecodeError, json.JSONDecodeError, RecursionError) as error:
+    except (UnicodeDecodeError, ValueError, RecursionError) as error:
         raise _BadRequest("request body must be valid UTF-8 JSON") from error
     if not isinstance(request, dict):
         raise _BadRequest("JSON body must be an object")
@@ -163,7 +353,7 @@ def _coordinates(value):
 
 
 def _objective(value):
-    if value not in {"combined", "maximum"}:
+    if not isinstance(value, str) or value not in {"combined", "maximum"}:
         raise _BadRequest("objective must be 'combined' or 'maximum'")
     return value
 
@@ -190,28 +380,42 @@ def _course(course):
     }
 
 
+def _validate_matrix_contract(matrix, origins, candidates):
+    expected_origins = tuple(origins)
+    expected_ids = tuple(course.identifier for course in candidates)
+    expected_destinations = tuple(course.routing_coordinate for course in candidates)
+    if matrix.origin_coordinates != expected_origins:
+        raise RuntimeError("matrix provider changed origin identity or order")
+    if matrix.destination_ids != expected_ids:
+        raise RuntimeError("matrix provider changed destination identity or order")
+    if tuple(item.coordinate for item in matrix.destinations) != expected_destinations:
+        raise RuntimeError("matrix provider changed destination coordinates or order")
+    return matrix
+
+
 def _config(start_response):
     return _json(
         start_response,
         "200 OK",
         {
-            "snapshot": SNAPSHOT,
-            "cost_profile": COST_PROFILE,
             "core_bounds": list(SNAPSHOT_METADATA.core_bounds),
-            "graph_bounds": list(SNAPSHOT_METADATA.graph_bounds),
             "max_origins": MAX_ORIGINS,
             "course_catalog": {
-                "id": COURSE_CATALOG.identifier,
                 "title": COURSE_CATALOG.title,
                 "as_of": COURSE_CATALOG.as_of,
-                "description": COURSE_CATALOG.description,
-                "sha256": COURSE_CATALOG.sha256,
-                "sources": [
-                    {"id": identifier, "url": url}
-                    for identifier, url in COURSE_CATALOG.sources.items()
-                ],
             },
-            "courses": [_course(course) for course in COURSES],
+            "routing": {
+                "provider": "tomtom-matrix-v2"
+                if _live_matrix is not None
+                else "modo-static",
+                "description": (
+                    "Drive times use TomTom's live and historical traffic for leaving "
+                    "now. Confirmed coordinates are sent from fairway to TomTom."
+                    if _live_matrix is not None
+                    else "Drive times use one static road snapshot without traffic. "
+                    "Confirmed coordinates stay within the fairway service."
+                ),
+            },
         },
     )
 
@@ -231,40 +435,104 @@ def _rankings(environ, start_response):
     objective = _objective(request.get("objective", "maximum"))
     holes = _holes(request.get("holes", [9, 18]))
     candidates = tuple(course for course in COURSES if course.holes in holes)
+    if not _compute_gate.acquire(blocking=False):
+        raise _ServiceBusy("fairway is already calculating another ranking")
     try:
-        road = _road()
-        if _graph_sha256 is None:
-            raise RuntimeError("road snapshot was not checksum-verified")
-        matrix = StaticModoMatrix(road, MAX_SNAP_DISTANCE_KILOMETERS).calculate(
-            origins, (course.routing_coordinate for course in candidates)
-        )
-    except OutsideRoadCoverage as error:
-        raise _UnprocessableRequest(
-            "An origin is too far from a road in fairway's current snapshot."
-        ) from error
-    except nx.NetworkXNoPath as error:
-        raise _UnprocessableRequest(
-            "These origins and courses have no mutually reachable road route."
-        ) from error
+        retry_after = _ranking_tokens.consume()
+        if retry_after:
+            raise _RateLimited(retry_after)
+        try:
+            provider = _matrix_provider()
+            matrix = provider.calculate(
+                origins,
+                (course.routing_coordinate for course in candidates),
+                (course.identifier for course in candidates),
+                departure=None,
+            )
+            _validate_matrix_contract(matrix, origins, candidates)
+        except OutsideRoadCoverage as error:
+            raise _UnprocessableRequest(
+                f"Golfer {error.point_index + 1} is more than "
+                f"{error.limit_kilometers:g} km from a modeled road."
+            ) from error
+        except nx.NetworkXNoPath as error:
+            raise _UnprocessableRequest(
+                "These origins have no reachable road route."
+            ) from error
+    finally:
+        _compute_gate.release()
 
     ranked = []
+    unranked = []
     for course, destination in zip(candidates, matrix.destinations, strict=True):
-        travel_times = tuple(map(float, destination.travel_times_seconds))
+        if isinstance(destination, DestinationFailure):
+            unranked.append(
+                {
+                    "id": course.identifier,
+                    "name": course.name,
+                    "reason": destination.reason,
+                }
+            )
+            continue
+        travel_times_milliseconds = canonical_milliseconds(
+            destination.travel_times_seconds
+        )
+        combined_milliseconds = sum(travel_times_milliseconds)
+        maximum_milliseconds = max(travel_times_milliseconds)
         item = _course(course)
         item.update(
             {
-                "road_coordinate": list(destination.road_coordinate),
-                "travel_times_seconds": list(travel_times),
-                "combined_seconds": sum(travel_times),
-                "maximum_seconds": max(travel_times),
+                "road_coordinate": (
+                    list(destination.road_coordinate)
+                    if destination.road_coordinate is not None
+                    else None
+                ),
+                "snap_distance_kilometers": destination.snap_distance_kilometers,
+                "travel_times_seconds": [
+                    value / 1000 for value in travel_times_milliseconds
+                ],
+                "combined_seconds": combined_milliseconds / 1000,
+                "maximum_seconds": maximum_milliseconds / 1000,
+                "_combined_milliseconds": combined_milliseconds,
+                "_maximum_milliseconds": maximum_milliseconds,
             }
         )
         ranked.append(item)
-    primary = "combined_seconds" if objective == "combined" else "maximum_seconds"
-    secondary = "maximum_seconds" if objective == "combined" else "combined_seconds"
-    ranked.sort(key=lambda item: (item[primary], item[secondary], item["name"]))
+    if not ranked:
+        raise _UnprocessableRequest(
+            "No selected course is reachable from every golfer on the current roads."
+        )
+    primary = (
+        "_combined_milliseconds" if objective == "combined" else "_maximum_milliseconds"
+    )
+    secondary = (
+        "_maximum_milliseconds" if objective == "combined" else "_combined_milliseconds"
+    )
+    ranked.sort(
+        key=lambda item: (
+            item[primary],
+            item[secondary],
+            item["name"],
+            item["id"],
+        )
+    )
     for rank, item in enumerate(ranked, 1):
+        del item["_combined_milliseconds"]
+        del item["_maximum_milliseconds"]
         item["rank"] = rank
+    provenance = {
+        "course_catalog": COURSE_CATALOG.identifier,
+        "course_catalog_as_of": COURSE_CATALOG.as_of,
+        "course_catalog_sha256": COURSE_CATALOG.sha256,
+        "score_resolution_seconds": SCORE_RESOLUTION_MILLISECONDS / 1000,
+    }
+    matrix_provenance = _matrix_provenance(matrix.metadata)
+    overlap = provenance.keys() & matrix_provenance.keys()
+    if overlap:
+        raise RuntimeError(
+            f"matrix provenance conflicts with fairway provenance: {sorted(overlap)}"
+        )
+    provenance.update(matrix_provenance)
     return _json(
         start_response,
         "200 OK",
@@ -272,26 +540,27 @@ def _rankings(environ, start_response):
             "objective": objective,
             "holes": sorted(holes),
             "origin_road_coordinates": [
-                list(coordinate) for coordinate in matrix.origin_road_coordinates
+                list(coordinate) if coordinate is not None else None
+                for coordinate in matrix.origin_road_coordinates
             ],
+            "origin_snap_distances_kilometers": list(
+                matrix.origin_snap_distances_kilometers
+            ),
             "courses": ranked,
-            "provenance": {
-                "course_catalog": COURSE_CATALOG.identifier,
-                "course_catalog_as_of": COURSE_CATALOG.as_of,
-                "course_catalog_sha256": COURSE_CATALOG.sha256,
-                "road_snapshot": SNAPSHOT,
-                "road_snapshot_sha256": _graph_sha256,
-                "cost_profile": COST_PROFILE,
-                "modo": version("modo"),
-            },
+            "unranked_courses": unranked,
+            "provenance": provenance,
         },
     )
 
 
 def _static(start_response, path):
     name = "index.html" if path == "/" else path.removeprefix("/")
-    file = STATIC / name
-    if not file.is_file() or STATIC not in file.resolve().parents:
+    try:
+        file = (STATIC / name).resolve()
+        valid = file.is_relative_to(STATIC.resolve()) and file.is_file()
+    except (OSError, RuntimeError, ValueError):
+        valid = False
+    if not valid:
         return _json(start_response, "404 Not Found", {"error": "not found"})
     body = file.read_bytes()
     content_type = mimetypes.guess_type(file)[0] or "application/octet-stream"
@@ -328,8 +597,20 @@ def _application(environ, start_response):
         if path == "/health":
             if method not in {"GET", "HEAD"}:
                 return _method_not_allowed(start_response, "GET, HEAD")
-            _road()
-            return _json(start_response, "200 OK", {"status": "ok"})
+            _matrix_provider()
+            return _json(
+                start_response,
+                "200 OK",
+                {
+                    "status": "ok",
+                    "version": version("fairway"),
+                    "matrix_provider": (
+                        "tomtom-matrix-v2"
+                        if _live_matrix is not None
+                        else "modo-static"
+                    ),
+                },
+            )
         if path == "/api/config":
             if method not in {"GET", "HEAD"}:
                 return _method_not_allowed(start_response, "GET, HEAD")
@@ -350,6 +631,27 @@ def _application(environ, start_response):
     except _UnsupportedMediaType as error:
         return _json(
             start_response, "415 Unsupported Media Type", {"error": str(error)}
+        )
+    except _ServiceBusy as error:
+        return _json(
+            start_response,
+            "503 Service Unavailable",
+            {"error": str(error)},
+            (("Retry-After", "1"),),
+        )
+    except MatrixProviderUnavailable as error:
+        return _json(
+            start_response,
+            "503 Service Unavailable",
+            {"error": str(error)},
+            (("Retry-After", str(error.retry_after_seconds)),),
+        )
+    except _RateLimited as error:
+        return _json(
+            start_response,
+            "429 Too Many Requests",
+            {"error": str(error)},
+            (("Retry-After", str(error.retry_after)),),
         )
     except Exception:
         LOGGER.exception("Unhandled fairway request failure: %r %r", method, path)

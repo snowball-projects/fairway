@@ -4,14 +4,14 @@ services:
     runtime: python
     plan: free
     buildCommand: pip install uv==0.12.6 && uv sync --locked --no-dev && .venv/bin/python scripts/fetch_snapshot.py
-    startCommand: .venv/bin/gunicorn --preload fairway.app:application
+    startCommand: .venv/bin/gunicorn --preload --workers 1 --threads 4 fairway.app:application
     healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
-        value: 3.13.7
+        value: 3.13.15
       - key: FAIRWAY_GRAPH
         value: data/chicago-static-v1.npz
       - key: FAIRWAY_SNAPSHOT
         value: chicago-static-v1
-      - key: FAIRWAY_COURSE_CATALOG
-        value: data/course-catalog-v1.json
+      - key: FAIRWAY_TOMTOM_DAILY_CELLS
+        value: "80"

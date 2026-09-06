@@ -36,6 +36,8 @@ const view = {
   mapKey: document.querySelector("#map-key"),
   filterToggle: document.querySelector("#filter-toggle"),
   filterPopover: document.querySelector("#filter-popover"),
+  routingDescription: document.querySelector("#routing-description"),
+  routingAttribution: document.querySelector("#routing-attribution"),
 };
 let nextOriginId = 1;
 
@@ -417,6 +419,8 @@ function addOrigin() {
     if (coordinate) {
       row.coordinate = coordinate;
       updateOriginMarker(row);
+      clearRanking();
+      setStatus("Updating golfer origins...");
       row.timer = setTimeout(calculate, 200);
       return;
     }
@@ -515,18 +519,20 @@ function courseCard(course, objective) {
   const rank = document.createElement("span");
   rank.className = "rank";
   rank.textContent = course.rank;
-  const body = document.createElement("div");
-  const title = document.createElement("h3");
+  const body = document.createElement("span");
+  const title = document.createElement("span");
   title.className = "course-title";
+  title.setAttribute("role", "heading");
+  title.setAttribute("aria-level", "3");
   title.textContent = course.name;
-  const meta = document.createElement("div");
+  const meta = document.createElement("span");
   meta.className = "course-meta";
   [course.holes + " holes", course.access].forEach((label) => {
     const value = document.createElement("span");
     value.textContent = label;
     meta.append(value);
   });
-  const scores = document.createElement("div");
+  const scores = document.createElement("span");
   scores.className = "score-row";
   [
     ["maximum", duration(course.maximum_seconds), "longest drive"],
@@ -601,6 +607,17 @@ async function responseBody(response) {
   }
 }
 
+function rankingBasis(provenance) {
+  const labels = {
+    "traffic-unaware": "without traffic",
+    live: "with live traffic",
+    historical: "with historical traffic",
+    predicted: "with predicted traffic",
+    blended: "with live and historical traffic",
+  };
+  return labels[provenance?.traffic_basis] || "with provider travel times";
+}
+
 async function calculate({ preserveResults = false } = {}) {
   const previousRanking = preserveResults ? state.ranking : null;
   state.request?.abort();
@@ -643,7 +660,23 @@ async function calculate({ preserveResults = false } = {}) {
     drawCourseMarkers();
     setResultsVisible(true);
     fitRanking(activeRows, result);
-    setStatus(`${result.courses.length} courses ranked on the current static road snapshot.`);
+    const omitted = result.unranked_courses || [];
+    const largestSnap = Math.max(
+      0,
+      ...(result.origin_snap_distances_kilometers || []),
+      ...result.courses.map((course) => course.snap_distance_kilometers || 0),
+    );
+    const notes = [];
+    const unreachable = omitted.filter((course) => course.reason === "unreachable").length;
+    const outsideCoverage = omitted.filter((course) => course.reason === "outside-road-coverage").length;
+    const otherOmissions = omitted.length - unreachable - outsideCoverage;
+    if (unreachable) notes.push(`${unreachable} unreachable ${unreachable === 1 ? "course was" : "courses were"} omitted.`);
+    if (outsideCoverage) notes.push(`${outsideCoverage} ${outsideCoverage === 1 ? "course was" : "courses were"} outside modeled roads.`);
+    if (otherOmissions) notes.push(`${otherOmissions} ${otherOmissions === 1 ? "course was" : "courses were"} omitted.`);
+    if (largestSnap >= 0.25) notes.push(`Nearest-road adjustment: ${largestSnap.toFixed(1)} km.`);
+    setStatus(
+      `${result.courses.length} courses ranked ${rankingBasis(result.provenance)}.${notes.length ? ` ${notes.join(" ")}` : ""}`,
+    );
   } catch (error) {
     if (error.name !== "AbortError" && state.request === controller) {
       const message = error.message || "fairway could not rank these courses.";
@@ -673,6 +706,8 @@ async function configure() {
     state.coreBounds = [south, west, north, east];
     state.photonBbox = [west, south, east, north].join(",");
     view.catalogName.textContent = `${config.course_catalog.title} · ${config.course_catalog.as_of}`;
+    view.routingDescription.textContent = config.routing.description;
+    view.routingAttribution.hidden = config.routing.provider !== "tomtom-matrix-v2";
     state.ready = true;
     calculate();
   } catch (error) {

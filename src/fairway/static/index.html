@@ -11,12 +11,7 @@
     <title>fairway</title>
     <link rel="stylesheet" href="/leaflet.css" />
     <link rel="stylesheet" href="/styles.css" />
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-      defer
-    ></script>
+    <script src="/leaflet.js" defer></script>
     <script src="/app.js" defer></script>
   </head>
   <body>
@@ -40,9 +35,10 @@
         <details class="method-note">
           <summary>How this works</summary>
           <p>
-            fairway ranks a fixed public-course catalog using modeled drive times from one static
-            road snapshot. It does not use traffic, prices, ratings, or live tee-time availability.
+            fairway ranks a fixed public-course catalog by modeled drive times.
+            Prices, ratings, and live tee-time availability are not included.
           </p>
+          <p id="routing-description">Loading travel-time provider...</p>
           <p>
             <a href="https://github.com/snowball-projects/fairway/blob/main/SERVICE.md"
               >Service policy</a
@@ -51,12 +47,6 @@
             <a href="https://github.com/snowball-projects/fairway">Source</a>
           </p>
         </details>
-
-        <footer class="provenance">
-          <a href="https://snowball-projects.github.io/licensing/#how-snowball-is-built"
-            >Built by AI agents</a
-          >
-        </footer>
       </aside>
 
       <section class="map-stage" aria-label="Golf course map">
@@ -117,6 +107,9 @@
         <div id="results" class="results" aria-live="polite"></div>
         <footer class="catalog-note">
           <span id="catalog-name"></span>
+          <a id="routing-attribution" href="https://www.tomtom.com/en-gb/legal/product-attributions/" hidden
+            >Routing © TomTom</a
+          >
           <a href="https://github.com/snowball-projects/fairway/blob/main/data/README.md"
             >Coverage and provenance</a
           >
