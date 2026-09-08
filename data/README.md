@@ -3,7 +3,7 @@
 fairway uses a small immutable course catalog and an optional, separately
 versioned compact road graph for static routing. TomTom mode uses external
 travel-time estimates while keeping the same bounded catalog. Application
-source is Apache-2.0. OpenStreetMap-derived data remains subject to the Open
+source is MIT-licensed. OpenStreetMap-derived data remains subject to the Open
 Database License 1.0; TomTom results remain subject to its service terms.
 
 ## Road snapshot

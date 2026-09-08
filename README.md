@@ -123,7 +123,7 @@ fairway. No database or hosted modo service is required.
 
 ## License
 
-fairway is a snowball project licensed under the [Apache License 2.0](LICENSE).
+fairway's snowball-owned software is licensed under the [MIT License](LICENSE).
 The OpenStreetMap-derived road snapshot and course routing-point catalog remain
 under the Open Database License; see [data/README.md](data/README.md). The local
 Leaflet JavaScript and stylesheet remain under BSD-2-Clause; see

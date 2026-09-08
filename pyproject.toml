@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fairway"
-version = "0.6.1"
+version = "0.6.2"
 description = "A group golf-course chooser ranked by road travel time."
 authors = [{name = "snowball"}]
-license = "Apache-2.0"
+license = "MIT"
 license-files = ["LICENSE", "NOTICE"]
 readme = "README.md"
 requires-python = ">=3.11"
@@ -16,7 +16,7 @@ dependencies = [
   "networkx>=3.4,<4",
   "numpy>=1.26,<3",
   "scipy>=1.12,<2",
-  "modo @ git+https://github.com/snowball-projects/modo.git@4e9577611490507f0217ec8dae51a1a600fa6548",
+  "modo @ git+https://github.com/snowball-projects/modo.git@2996ffb229f65556512748d9f1d8ba25a8b9b87d",
 ]
 
 [project.optional-dependencies]

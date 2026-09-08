@@ -27,8 +27,9 @@
 - Keep travel-time providers replaceable. TomTom supplies optional leave-now
   matrices; modo supplies the static OpenStreetMap fallback. Do not make fairway
   depend on a hosted modo interface or silently switch providers after an error.
-- Use Apache-2.0 for software. Treat OpenStreetMap-derived road and course data
-  as separately licensed under ODbL and preserve its attribution.
+- Use MIT for snowball-owned software. Preserve third-party licenses and notices.
+  Treat OpenStreetMap-derived road and course data as separately licensed under
+  ODbL and preserve its attribution.
 - Keep the service stateless, private by default, and free of accounts,
   analytics, advertising, behavioral tracking, and personalized results.
 - Do not claim live traffic, prices, ratings, tee times, or availability without
