@@ -46,11 +46,15 @@ a { color: inherit; }
 
 .masthead { padding-bottom: 1.4rem; border-bottom: 1px solid var(--line); }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
   color: var(--ink);
   font: 700 2.15rem/.95 Georgia, "Times New Roman", serif;
   letter-spacing: -.045em;
   text-decoration: none;
 }
+.brand img { flex: none; }
 .masthead p { max-width: 17rem; margin: .65rem 0 0; color: var(--muted); font-size: .9rem; line-height: 1.45; }
 
 .control-section { padding: 1.35rem 0 1.45rem; border-bottom: 1px solid var(--line); }

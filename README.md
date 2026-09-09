@@ -45,6 +45,18 @@ lockfile, maintenance scripts, tests, and operating documentation. CI extracts
 it into a separate directory, installs its locked dependencies, and runs its
 tests so validation does not depend on files from the original checkout.
 
+## App icon
+
+Keep the full-resolution artwork in `docs/icon.png` and use the same artwork
+on snowball's project card. The header and touch icon share one small PNG;
+the browser tab uses a 32-pixel version. After replacing the source, regenerate
+both with macOS's built-in image tool (or equivalent PNG resizing):
+
+```sh
+sips -z 180 180 docs/icon.png --out src/fairway/static/icon.png
+sips -z 32 32 docs/icon.png --out src/fairway/static/favicon.png
+```
+
 ## TomTom configuration
 
 Put a fairway-specific Matrix Routing v2 key in the ignored `.env` file using
