@@ -4,7 +4,7 @@
   "type": "module",
   "license": "MIT",
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "test": "node --test --test-isolation=none test/rank-destinations.test.ts test/geographic-candidates.test.ts test/meeting-region.test.ts test/golf-course-catalog-generator.test.ts test/contiguous-us-osm-runner.test.ts test/national-shortlisting-benchmark.test.ts test/national-shortlisting-policy-comparison.test.ts test/national-shortlisting-budget-sensitivity.test.ts",

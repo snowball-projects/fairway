@@ -9,7 +9,7 @@ in the main [README](../../README.md) and [data notes](../../data/README.md).
 
 ## Run the retained checks
 
-Use Node.js 22.18 or newer. No npm dependencies or installation are needed.
+Use Node.js 24 or newer (the retained test runner uses `--test-isolation=none`). No npm dependencies or installation are needed.
 Run commands from this directory because fixtures and artifact paths are relative:
 
 ```sh
