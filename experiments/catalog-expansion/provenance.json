@@ -1,0 +1,134 @@
+{
+  "source": "adelevski/midpoint-tool",
+  "commit": "49e8320a67a2d1839504911877a734f253e6f19e",
+  "files": [
+    {
+      "path": "audit/golf-course-catalog/bounded-sample.jsonl",
+      "sha256": "d02c24baba6e2240e74d83fa5d516c508d831db996aad68ac3ae1811e2b980d0"
+    },
+    {
+      "path": "audit/golf-course-catalog/structural-sample.jsonl",
+      "sha256": "7714345b7807cf9daf09329662380854ece74233604b138afd5a01cf9bd18c75"
+    },
+    {
+      "path": "audit/osm-course-metadata/REPORT.md",
+      "sha256": "263be784d6197f94322cf55a20f91e5688d12bec5c18a99bb0d15fface4ed1f0"
+    },
+    {
+      "path": "benchmark/national-shortlisting-scenarios.json",
+      "sha256": "189e91154d5f18876e61cec783a85082127fb172e70b2c033ef2f3ab30bce6c1"
+    },
+    {
+      "path": "docs/contiguous-us-osm-extraction-rehearsal.md",
+      "sha256": "5152667ba24be99d5d742d583db495f6c15403ae0dabefd05548a17bb583d3b0"
+    },
+    {
+      "path": "docs/golf-course-catalog-generator.md",
+      "sha256": "3477f851874b462a8b392e6678396406fe12e22a82db3f5ddb243dc4870fb564"
+    },
+    {
+      "path": "docs/illinois-osm-extraction-rehearsal.md",
+      "sha256": "384aa61e01e3e42ad866cc32eff4f3144d992057cc96ec67bfa0965e136c146d"
+    },
+    {
+      "path": "docs/national-shortlisting-benchmark.md",
+      "sha256": "bd2268c98376cfbf8b269d7f75c6abb615bff8e432da6632453cafc2fff81d65"
+    },
+    {
+      "path": "docs/national-shortlisting-policy-comparison.md",
+      "sha256": "e19c3a2ccac4751c147d57aae502a53a31267713f5231a16c998415786d198cc"
+    },
+    {
+      "path": "examples/fairway-meeting-region-fixture.ts",
+      "sha256": "fe944de6a54cd9b517a75f954d6d3f759ec43e55eb7204c803bde5dd6187f7b5"
+    },
+    {
+      "path": "examples/four-traveler-fixture.ts",
+      "sha256": "f13d27aa37a0cf5282a360c3dfeac436f3bb57f2cc26dbb36c3ef46382d8e64b"
+    },
+    {
+      "path": "scripts/contiguous-us-osm-sources.json",
+      "sha256": "73a35d9faf7f1e8be6ee1be141af351b7de5d7af1340dede09b258df8906033c"
+    },
+    {
+      "path": "scripts/extract-illinois-osm-golf-courses.ps1",
+      "sha256": "24e5bdb5ada123e1411fb39c563e3120fcacad57ee3c1e10499ce2ebaddfdaca"
+    },
+    {
+      "path": "scripts/generate-golf-course-catalog.ts",
+      "sha256": "94a24b4610b2a082047d2c85f1f50e3ebb6864a1688f6691d69145217313d871"
+    },
+    {
+      "path": "scripts/national-shortlisting-benchmark.ts",
+      "sha256": "768d66174cf1ce96f36dfa08eeba381c0bf41d576c3f8ee59d7ddc328387ee5c"
+    },
+    {
+      "path": "scripts/national-shortlisting-budget-sensitivity.ts",
+      "sha256": "49de57f8323d49f6e1cf402e27e0be9c248d353a0eb0bbdfbdac04b835f658d8"
+    },
+    {
+      "path": "scripts/national-shortlisting-policy-comparison.ts",
+      "sha256": "2bb6948fa432559f6e2fb6f16783742130c5adba90dff2cb4a0df6cacb566f19"
+    },
+    {
+      "path": "scripts/run-contiguous-us-osm-golf-catalog.ps1",
+      "sha256": "b402c4bbf693ab892de8ac0c2b1b7c6ac3a4698108c018c2db4138b06b02e242"
+    },
+    {
+      "path": "src/core/geographic-candidates.ts",
+      "sha256": "cff2887d731336c3add20ffad2ec25eb64a0d1966ff4bea8a9d77ce38b4451a5"
+    },
+    {
+      "path": "src/core/meeting-region.ts",
+      "sha256": "2d523e231fc42efaf9b528d7b5e748ba3b74c7681964b92acf59778ef226f370"
+    },
+    {
+      "path": "src/core/ranking.ts",
+      "sha256": "44b85833ec39e77ede8961747cbec9b39f4525d34a8369614e5d2e6dc7b6ab26"
+    },
+    {
+      "path": "src/providers/location-providers.ts",
+      "sha256": "01355e3176528daea221b50d60412b48ee49a38cad707fe92aff9e4ab64b7fd0"
+    },
+    {
+      "path": "src/providers/openrouteservice-matrix.ts",
+      "sha256": "753f8a70617d66fe33b90f630d4568bbe32017982acc520bc58ffae373e02037"
+    },
+    {
+      "path": "src/providers/provider-http.ts",
+      "sha256": "0eb4456665b34018d89e3fe8bbdfebbfd47175d5afcb366fb4b35a4c29794ee2"
+    },
+    {
+      "path": "test/contiguous-us-osm-runner.test.ts",
+      "sha256": "c753a96a3487703617453b3bf17f58d0552f30d5f777136dee70113c784d33e8"
+    },
+    {
+      "path": "test/geographic-candidates.test.ts",
+      "sha256": "11ff99fc09fe92ec2989224fa0852437200cbfb4f14cc21943c1600eaadc12a4"
+    },
+    {
+      "path": "test/golf-course-catalog-generator.test.ts",
+      "sha256": "f0d1ce166bf6cc5654f53413fda369af0128629c8725f6970a840564107316a1"
+    },
+    {
+      "path": "test/meeting-region.test.ts",
+      "sha256": "c470f72c302bfd1598d909e0bc37b9680fb5525eb420e0c22d92c06aec24014f"
+    },
+    {
+      "path": "test/national-shortlisting-benchmark.test.ts",
+      "sha256": "c7e0edb294c876ee3596020386b5443c87bb5e1459db1c3686d9528782419692"
+    },
+    {
+      "path": "test/national-shortlisting-budget-sensitivity.test.ts",
+      "sha256": "3fb2dab6518c14467373b9fbe8626ab42c54deed2c4950caba9de046da18fc11"
+    },
+    {
+      "path": "test/national-shortlisting-policy-comparison.test.ts",
+      "sha256": "0f0856be5fdcd4c5b86cb6d9e9b328d0e7941856d87be136e4b0ea5103d3bd12"
+    },
+    {
+      "path": "test/rank-destinations.test.ts",
+      "sha256": "3045858f128bfc6af532c2dbc80ac10980c9281a9470466549b2077a8e6b9fb4"
+    }
+  ]
+}

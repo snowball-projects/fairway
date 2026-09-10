@@ -1,0 +1,295 @@
+{
+  "schemaVersion": 1,
+  "scenarios": [
+    {
+      "id": "chicago-metro",
+      "label": "Chicago metropolitan ring",
+      "categories": ["metropolitan", "suburban", "lake"],
+      "origins": [
+        { "label": "Evanston Civic Center, Illinois", "latitude": 42.0451, "longitude": -87.6877 },
+        { "label": "Naperville Municipal Center, Illinois", "latitude": 41.7508, "longitude": -88.1535 },
+        { "label": "Joliet City Hall, Illinois", "latitude": 41.525, "longitude": -88.0817 },
+        { "label": "Chicago City Hall, Illinois", "latitude": 41.8837, "longitude": -87.6324 }
+      ]
+    },
+    {
+      "id": "dallas-fort-worth-suburbs",
+      "label": "Dallas-Fort Worth suburban ring",
+      "categories": ["metropolitan", "suburban", "east-west"],
+      "origins": [
+        { "label": "Fort Worth City Hall, Texas", "latitude": 32.7555, "longitude": -97.3308 },
+        { "label": "Denton City Hall, Texas", "latitude": 33.2148, "longitude": -97.1331 },
+        { "label": "McKinney City Hall, Texas", "latitude": 33.1972, "longitude": -96.6398 },
+        { "label": "Dallas City Hall, Texas", "latitude": 32.7763, "longitude": -96.7969 }
+      ]
+    },
+    {
+      "id": "new-york-tristate",
+      "label": "New York tri-state crossings",
+      "categories": ["metropolitan", "state-border", "river", "bridge", "asymmetric"],
+      "origins": [
+        { "label": "Newark City Hall, New Jersey", "latitude": 40.7357, "longitude": -74.1724 },
+        { "label": "White Plains City Hall, New York", "latitude": 41.033, "longitude": -73.7629 },
+        { "label": "Stamford Government Center, Connecticut", "latitude": 41.0534, "longitude": -73.5387 },
+        { "label": "Brooklyn Borough Hall, New York", "latitude": 40.6924, "longitude": -73.9904 },
+        { "label": "New York City Hall, New York", "latitude": 40.7127, "longitude": -74.006 }
+      ]
+    },
+    {
+      "id": "san-francisco-bay",
+      "label": "San Francisco Bay crossings",
+      "categories": ["metropolitan", "coast", "bridge", "obstructed"],
+      "origins": [
+        { "label": "San Francisco City Hall, California", "latitude": 37.7793, "longitude": -122.4193 },
+        { "label": "Oakland City Hall, California", "latitude": 37.8053, "longitude": -122.2728 },
+        { "label": "San Rafael City Hall, California", "latitude": 37.9735, "longitude": -122.5311 },
+        { "label": "San Jose City Hall, California", "latitude": 37.3378, "longitude": -121.8867 }
+      ]
+    },
+    {
+      "id": "puget-sound",
+      "label": "Puget Sound crossings",
+      "categories": ["regional", "coast", "lake", "bridge", "obstructed"],
+      "expandedReference": true,
+      "origins": [
+        { "label": "Seattle City Hall, Washington", "latitude": 47.6038, "longitude": -122.3301 },
+        { "label": "Bremerton City Hall, Washington", "latitude": 47.5673, "longitude": -122.6326 },
+        { "label": "Everett City Hall, Washington", "latitude": 47.979, "longitude": -122.2021 },
+        { "label": "Tacoma Municipal Building, Washington", "latitude": 47.2529, "longitude": -122.4443 }
+      ]
+    },
+    {
+      "id": "lake-michigan",
+      "label": "Lake Michigan regional triangle",
+      "categories": ["multi-city", "state-border", "lake", "obstructed"],
+      "expandedReference": true,
+      "origins": [
+        { "label": "Milwaukee City Hall, Wisconsin", "latitude": 43.0418, "longitude": -87.9068 },
+        { "label": "Chicago City Hall, Illinois", "latitude": 41.8837, "longitude": -87.6324 },
+        { "label": "Grand Rapids City Hall, Michigan", "latitude": 42.9632, "longitude": -85.6679 }
+      ]
+    },
+    {
+      "id": "chesapeake-bay",
+      "label": "Chesapeake Bay regional group",
+      "categories": ["regional", "state-border", "bay", "bridge", "obstructed"],
+      "origins": [
+        { "label": "Baltimore City Hall, Maryland", "latitude": 39.2909, "longitude": -76.6108 },
+        { "label": "Annapolis City Hall, Maryland", "latitude": 38.9786, "longitude": -76.4922 },
+        { "label": "Easton Town Hall, Maryland", "latitude": 38.7743, "longitude": -76.0763 },
+        { "label": "District of Columbia City Hall", "latitude": 38.8951, "longitude": -77.0364 }
+      ]
+    },
+    {
+      "id": "st-louis-border",
+      "label": "St. Louis state-border pair",
+      "categories": ["two-origin", "state-border", "river", "bridge"],
+      "origins": [
+        { "label": "St. Louis City Hall, Missouri", "latitude": 38.627, "longitude": -90.1994 },
+        { "label": "Belleville City Hall, Illinois", "latitude": 38.5201, "longitude": -89.9839 }
+      ]
+    },
+    {
+      "id": "kansas-city-border",
+      "label": "Kansas City state-border pair",
+      "categories": ["two-origin", "metropolitan", "state-border", "river"],
+      "origins": [
+        { "label": "Kansas City City Hall, Missouri", "latitude": 39.0997, "longitude": -94.5786 },
+        { "label": "Overland Park City Hall, Kansas", "latitude": 38.9822, "longitude": -94.6708 }
+      ]
+    },
+    {
+      "id": "colorado-mountains",
+      "label": "Colorado Front Range and mountain corridor",
+      "categories": ["regional", "mountain", "obstructed", "asymmetric"],
+      "expandedReference": true,
+      "origins": [
+        { "label": "Denver City and County Building, Colorado", "latitude": 39.7392, "longitude": -104.9903 },
+        { "label": "Fort Collins City Hall, Colorado", "latitude": 40.5853, "longitude": -105.0844 },
+        { "label": "Colorado Springs City Hall, Colorado", "latitude": 38.8339, "longitude": -104.8214 },
+        { "label": "Vail Municipal Building, Colorado", "latitude": 39.6403, "longitude": -106.3742 }
+      ]
+    },
+    {
+      "id": "four-corners",
+      "label": "Four Corners sparse regional group",
+      "categories": ["regional", "rural", "sparse-course", "state-border", "mountain"],
+      "origins": [
+        { "label": "Durango City Hall, Colorado", "latitude": 37.2753, "longitude": -107.8801 },
+        { "label": "Cortez City Hall, Colorado", "latitude": 37.3489, "longitude": -108.5859 },
+        { "label": "Farmington City Hall, New Mexico", "latitude": 36.7281, "longitude": -108.2187 },
+        { "label": "Page City Hall, Arizona", "latitude": 36.9147, "longitude": -111.4558 }
+      ]
+    },
+    {
+      "id": "dakotas-plains",
+      "label": "Dakotas and northern plains",
+      "categories": ["multi-city", "rural", "sparse-course", "north-south"],
+      "origins": [
+        { "label": "Bismarck City Hall, North Dakota", "latitude": 46.8083, "longitude": -100.7837 },
+        { "label": "Pierre City Hall, South Dakota", "latitude": 44.3683, "longitude": -100.351 },
+        { "label": "Rapid City City Hall, South Dakota", "latitude": 44.0805, "longitude": -103.231 },
+        { "label": "Aberdeen City Hall, South Dakota", "latitude": 45.4647, "longitude": -98.4865 }
+      ]
+    },
+    {
+      "id": "maine-coast",
+      "label": "Rural Maine coast and interior",
+      "categories": ["regional", "rural", "sparse-course", "coast", "obstructed"],
+      "origins": [
+        { "label": "Bangor City Hall, Maine", "latitude": 44.8016, "longitude": -68.7712 },
+        { "label": "Bar Harbor Municipal Building, Maine", "latitude": 44.3876, "longitude": -68.2039 },
+        { "label": "Augusta City Center, Maine", "latitude": 44.3106, "longitude": -69.7795 },
+        { "label": "Rockland City Hall, Maine", "latitude": 44.1037, "longitude": -69.1089 }
+      ]
+    },
+    {
+      "id": "appalachian-rural",
+      "label": "Central Appalachian rural group",
+      "categories": ["regional", "rural", "sparse-course", "state-border", "mountain"],
+      "origins": [
+        { "label": "Charleston City Hall, West Virginia", "latitude": 38.3498, "longitude": -81.6326 },
+        { "label": "Beckley City Hall, West Virginia", "latitude": 37.7782, "longitude": -81.1882 },
+        { "label": "Pikeville City Hall, Kentucky", "latitude": 37.4793, "longitude": -82.5188 },
+        { "label": "Bristol City Hall, Virginia", "latitude": 36.5951, "longitude": -82.1887 }
+      ]
+    },
+    {
+      "id": "west-texas",
+      "label": "West Texas sparse cities",
+      "categories": ["multi-city", "rural", "sparse-course", "asymmetric"],
+      "origins": [
+        { "label": "Amarillo City Hall, Texas", "latitude": 35.2219, "longitude": -101.8313 },
+        { "label": "Lubbock City Hall, Texas", "latitude": 33.5779, "longitude": -101.8552 },
+        { "label": "Midland City Hall, Texas", "latitude": 31.9973, "longitude": -102.0779 },
+        { "label": "Abilene City Hall, Texas", "latitude": 32.4487, "longitude": -99.7331 }
+      ]
+    },
+    {
+      "id": "florida-peninsula",
+      "label": "Florida peninsula north-south group",
+      "categories": ["multi-city", "coast", "north-south", "dispersed"],
+      "origins": [
+        { "label": "Miami City Hall, Florida", "latitude": 25.7617, "longitude": -80.1918 },
+        { "label": "Tampa City Hall, Florida", "latitude": 27.9506, "longitude": -82.4572 },
+        { "label": "Orlando City Hall, Florida", "latitude": 28.5383, "longitude": -81.3792 },
+        { "label": "Jacksonville City Hall, Florida", "latitude": 30.3322, "longitude": -81.6557 }
+      ]
+    },
+    {
+      "id": "california-coast",
+      "label": "California coast north-south group",
+      "categories": ["multi-city", "coast", "mountain", "north-south", "dispersed"],
+      "origins": [
+        { "label": "San Diego City Hall, California", "latitude": 32.7157, "longitude": -117.1611 },
+        { "label": "Los Angeles City Hall, California", "latitude": 34.0537, "longitude": -118.2428 },
+        { "label": "San Francisco City Hall, California", "latitude": 37.7793, "longitude": -122.4193 },
+        { "label": "Sacramento City Hall, California", "latitude": 38.5816, "longitude": -121.4944 }
+      ]
+    },
+    {
+      "id": "central-north-south",
+      "label": "Central United States north-south line",
+      "categories": ["multi-city", "north-south", "dispersed"],
+      "origins": [
+        { "label": "Minneapolis City Hall, Minnesota", "latitude": 44.9778, "longitude": -93.265 },
+        { "label": "Kansas City City Hall, Missouri", "latitude": 39.0997, "longitude": -94.5786 },
+        { "label": "Dallas City Hall, Texas", "latitude": 32.7763, "longitude": -96.7969 },
+        { "label": "Houston City Hall, Texas", "latitude": 29.7604, "longitude": -95.3698 }
+      ]
+    },
+    {
+      "id": "continental-east-west",
+      "label": "Continental east-west line",
+      "categories": ["multi-city", "east-west", "continental", "dispersed"],
+      "origins": [
+        { "label": "New York City Hall, New York", "latitude": 40.7127, "longitude": -74.006 },
+        { "label": "Chicago City Hall, Illinois", "latitude": 41.8837, "longitude": -87.6324 },
+        { "label": "Denver City and County Building, Colorado", "latitude": 39.7392, "longitude": -104.9903 },
+        { "label": "San Francisco City Hall, California", "latitude": 37.7793, "longitude": -122.4193 }
+      ]
+    },
+    {
+      "id": "continental-corners",
+      "label": "Continental United States corners",
+      "categories": ["multi-city", "continental", "coast", "dispersed"],
+      "expandedReference": true,
+      "origins": [
+        { "label": "Seattle City Hall, Washington", "latitude": 47.6038, "longitude": -122.3301 },
+        { "label": "Los Angeles City Hall, California", "latitude": 34.0537, "longitude": -118.2428 },
+        { "label": "Miami City Hall, Florida", "latitude": 25.7617, "longitude": -80.1918 },
+        { "label": "New York City Hall, New York", "latitude": 40.7127, "longitude": -74.006 }
+      ]
+    },
+    {
+      "id": "asymmetric-east-coast",
+      "label": "Asymmetric East Coast group",
+      "categories": ["multi-city", "asymmetric", "north-south", "objective-disagreement"],
+      "origins": [
+        { "label": "Boston City Hall, Massachusetts", "latitude": 42.3604, "longitude": -71.0579 },
+        { "label": "New York City Hall, New York", "latitude": 40.7127, "longitude": -74.006 },
+        { "label": "Brooklyn Borough Hall, New York", "latitude": 40.6924, "longitude": -73.9904 },
+        { "label": "Philadelphia City Hall, Pennsylvania", "latitude": 39.9526, "longitude": -75.1652 },
+        { "label": "Baltimore City Hall, Maryland", "latitude": 39.2909, "longitude": -76.6108 },
+        { "label": "District of Columbia City Hall", "latitude": 38.8951, "longitude": -77.0364 }
+      ]
+    },
+    {
+      "id": "near-coincident-chicago",
+      "label": "Near-coincident downtown Chicago landmarks",
+      "categories": ["metropolitan", "near-coincident", "two-origin"],
+      "origins": [
+        { "label": "Chicago City Hall, Illinois", "latitude": 41.8837, "longitude": -87.6324 },
+        { "label": "James R. Thompson Center, Illinois", "latitude": 41.8851, "longitude": -87.6319 }
+      ]
+    },
+    {
+      "id": "ohio-pennsylvania-six-city",
+      "label": "Ohio-Pennsylvania six-city region",
+      "categories": ["multi-city", "state-border", "east-west", "six-origin"],
+      "origins": [
+        { "label": "Cleveland City Hall, Ohio", "latitude": 41.4993, "longitude": -81.6944 },
+        { "label": "Akron Municipal Building, Ohio", "latitude": 41.0814, "longitude": -81.519 },
+        { "label": "Youngstown City Hall, Ohio", "latitude": 41.0998, "longitude": -80.6495 },
+        { "label": "Pittsburgh City-County Building, Pennsylvania", "latitude": 40.4406, "longitude": -79.9959 },
+        { "label": "Erie City Hall, Pennsylvania", "latitude": 42.1292, "longitude": -80.0851 },
+        { "label": "Wheeling City Hall, West Virginia", "latitude": 40.064, "longitude": -80.7206 }
+      ]
+    },
+    {
+      "id": "lower-mississippi",
+      "label": "Lower Mississippi River cities",
+      "categories": ["multi-city", "river", "state-border", "north-south"],
+      "origins": [
+        { "label": "Memphis City Hall, Tennessee", "latitude": 35.1495, "longitude": -90.049 },
+        { "label": "Greenville City Hall, Mississippi", "latitude": 33.4101, "longitude": -91.0618 },
+        { "label": "Vicksburg City Hall, Mississippi", "latitude": 32.3526, "longitude": -90.8779 },
+        { "label": "Monroe City Hall, Louisiana", "latitude": 32.5093, "longitude": -92.1193 }
+      ]
+    },
+    {
+      "id": "ozarks-rural",
+      "label": "Ozarks rural and lake group",
+      "categories": ["regional", "rural", "lake", "mountain", "objective-disagreement"],
+      "origins": [
+        { "label": "Springfield City Hall, Missouri", "latitude": 37.2089, "longitude": -93.2923 },
+        { "label": "Branson City Hall, Missouri", "latitude": 36.6437, "longitude": -93.2185 },
+        { "label": "Mountain Home City Hall, Arkansas", "latitude": 36.3353, "longitude": -92.3852 },
+        { "label": "Fayetteville City Hall, Arkansas", "latitude": 36.0626, "longitude": -94.1574 },
+        { "label": "Joplin City Hall, Missouri", "latitude": 37.0842, "longitude": -94.5133 }
+      ]
+    },
+    {
+      "id": "carolinas-coast-mountains",
+      "label": "Carolinas coast-to-mountains group",
+      "categories": ["multi-city", "coast", "mountain", "east-west", "objective-disagreement"],
+      "origins": [
+        { "label": "Wilmington City Hall, North Carolina", "latitude": 34.2257, "longitude": -77.9447 },
+        { "label": "Raleigh Municipal Building, North Carolina", "latitude": 35.7796, "longitude": -78.6382 },
+        { "label": "Charlotte Government Center, North Carolina", "latitude": 35.2271, "longitude": -80.8431 },
+        { "label": "Asheville City Hall, North Carolina", "latitude": 35.5951, "longitude": -82.5515 },
+        { "label": "Greenville City Hall, South Carolina", "latitude": 34.8526, "longitude": -82.394 }
+      ]
+    }
+  ]
+}

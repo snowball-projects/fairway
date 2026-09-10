@@ -133,6 +133,13 @@ time; traffic-data freshness remains unknown. Course discovery, filter
 semantics, ranking, catalog provenance, and presentation remain owned by
 fairway. No database or hosted modo service is required.
 
+## Research
+
+The isolated [catalog expansion experiment](https://github.com/snowball-projects/fairway/tree/main/experiments/catalog-expansion)
+preserves earlier OSM catalog-generation and candidate-selection research.
+It is not used by the hosted app; its historical benchmark did not establish
+a production-ready national shortlist.
+
 ## License
 
 fairway's snowball-owned software is licensed under the [MIT License](LICENSE).

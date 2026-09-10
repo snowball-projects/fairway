@@ -1,0 +1,16 @@
+{
+  "name": "fairway-catalog-expansion-experiment",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "test": "node --test --test-isolation=none test/rank-destinations.test.ts test/geographic-candidates.test.ts test/meeting-region.test.ts test/golf-course-catalog-generator.test.ts test/contiguous-us-osm-runner.test.ts test/national-shortlisting-benchmark.test.ts test/national-shortlisting-policy-comparison.test.ts test/national-shortlisting-budget-sensitivity.test.ts",
+    "generate:golf-course-catalog": "node scripts/generate-golf-course-catalog.ts",
+    "benchmark:national-shortlisting": "node scripts/national-shortlisting-benchmark.ts",
+    "benchmark:national-shortlisting-policies": "node scripts/national-shortlisting-policy-comparison.ts",
+    "benchmark:national-shortlisting-budget-sensitivity": "node scripts/national-shortlisting-budget-sensitivity.ts"
+  }
+}
