@@ -152,3 +152,5 @@ See [NOTICE](NOTICE) for attribution, [CONTRIBUTING.md](CONTRIBUTING.md) before
 submitting work, the official [hosted-service policy](SERVICE.md), and
 snowball's [licensing and identity
 policy](https://snowball-projects.github.io/about/#licensing).
+
+[Operations](https://snowball-projects.github.io/operations/#fairway)
