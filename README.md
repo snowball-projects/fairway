@@ -11,7 +11,7 @@ travel-time provider: TomTom with live and historical traffic for leaving now,
 or a local static modo road snapshot without traffic. Prices, ratings, and
 live tee-time availability are not included.
 
-## Run locally
+## Run
 
 Python 3.11 or newer is required.
 
