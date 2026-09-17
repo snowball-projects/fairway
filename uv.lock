@@ -32,7 +32,7 @@ test = [
 [package.metadata]
 requires-dist = [
     { name = "gunicorn", specifier = ">=26.2,<27" },
-    { name = "modo", git = "https://github.com/snowball-projects/modo.git?rev=2996ffb229f65556512748d9f1d8ba25a8b9b87d" },
+    { name = "modo", git = "https://github.com/adelevski/modo.git?rev=2996ffb229f65556512748d9f1d8ba25a8b9b87d" },
     { name = "networkx", specifier = ">=3.4,<4" },
     { name = "numpy", specifier = ">=1.26,<3" },
     { name = "pytest", marker = "extra == 'test'", specifier = ">=9.0.3,<10" },
@@ -71,7 +71,7 @@ wheels = [
 [[package]]
 name = "modo"
 version = "0.3.7"
-source = { git = "https://github.com/snowball-projects/modo.git?rev=2996ffb229f65556512748d9f1d8ba25a8b9b87d#2996ffb229f65556512748d9f1d8ba25a8b9b87d" }
+source = { git = "https://github.com/adelevski/modo.git?rev=2996ffb229f65556512748d9f1d8ba25a8b9b87d#2996ffb229f65556512748d9f1d8ba25a8b9b87d" }
 dependencies = [
     { name = "geographiclib" },
     { name = "networkx" },
