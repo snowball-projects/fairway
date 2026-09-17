@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "fairway"
 version = "0.6.2"
 description = "A group golf-course chooser ranked by road travel time."
-authors = [{name = "snowball"}]
+authors = [{ name = "Nas Delevski" }]
 license = "MIT"
 license-files = ["LICENSE", "THIRD-PARTY-NOTICES.md"]
 readme = "README.md"
