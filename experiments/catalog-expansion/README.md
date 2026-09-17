@@ -105,6 +105,6 @@ This extraction does not implement that behavior.
 
 Original software is covered by fairway's [MIT license](../../LICENSE).
 OpenStreetMap-derived fixtures and any regenerated catalogs remain separately
-subject to ODbL and OpenStreetMap attribution; see [NOTICE](../../NOTICE).
+subject to ODbL and OpenStreetMap attribution; see [third-party notices](../../THIRD-PARTY-NOTICES.md).
 Provider-derived routing evidence has its own applicable terms. Historical
 reports record experiments, not current service policies or licensing grants.

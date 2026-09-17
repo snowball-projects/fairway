@@ -8,9 +8,9 @@ version = "0.6.2"
 description = "A group golf-course chooser ranked by road travel time."
 authors = [{name = "snowball"}]
 license = "MIT"
-license-files = ["LICENSE", "NOTICE"]
+license-files = ["LICENSE", "THIRD-PARTY-NOTICES.md"]
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
   "gunicorn>=26.2,<27",
   "networkx>=3.4,<4",

@@ -24,10 +24,10 @@ meeting region.
 
 ## Development and verification
 
-Use Python 3.11+ and the committed `uv.lock`:
+Use Python 3.12+ and the committed `uv.lock`:
 
 ```sh
-python -m pip install uv==0.12.6
+python -m pip install uv==0.12.15
 uv sync --extra test --locked
 uv run --locked ruff check .
 uv run --locked ruff format --check .

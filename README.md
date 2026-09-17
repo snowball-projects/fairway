@@ -13,10 +13,10 @@ live tee-time availability are not included.
 
 ## Run
 
-Python 3.11 or newer is required.
+Python 3.12 or newer is required.
 
 ```sh
-python -m pip install uv==0.12.6
+python -m pip install uv==0.12.15
 uv sync --extra test --locked
 uv run --locked python scripts/fetch_snapshot.py
 uv run --locked gunicorn fairway.app:application
@@ -148,7 +148,7 @@ under the Open Database License; see [data/README.md](data/README.md). The local
 Leaflet JavaScript and stylesheet remain under BSD-2-Clause; see
 [LEAFLET-LICENSE.txt](src/fairway/static/LEAFLET-LICENSE.txt).
 
-See [NOTICE](NOTICE) for attribution, [CONTRIBUTING.md](CONTRIBUTING.md) before
+See [third-party notices](THIRD-PARTY-NOTICES.md) for attribution, [CONTRIBUTING.md](CONTRIBUTING.md) before
 submitting work, the official [hosted-service policy](SERVICE.md), and
 snowball's [licensing and identity
 policy](https://snowball-projects.github.io/about/#licensing).
