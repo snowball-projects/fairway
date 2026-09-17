@@ -204,7 +204,7 @@ def test_sets_security_and_cache_headers_on_every_response_kind():
     assert "https://photon.komoot.io" in headers["Content-Security-Policy"]
     assert headers["Cross-Origin-Opener-Policy"] == "same-origin"
     assert headers["Cross-Origin-Resource-Policy"] == "same-origin"
-    assert headers["Referrer-Policy"] == "no-referrer"
+    assert headers["Referrer-Policy"] == "strict-origin-when-cross-origin"
     assert headers["Strict-Transport-Security"] == "max-age=31536000"
     assert headers["X-Content-Type-Options"] == "nosniff"
     assert headers["X-Frame-Options"] == "DENY"

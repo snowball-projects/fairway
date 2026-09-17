@@ -106,7 +106,9 @@ SECURITY_HEADERS = (
         "Permissions-Policy",
         "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
     ),
-    ("Referrer-Policy", "no-referrer"),
+    # OpenStreetMap's tile policy requires a Referer identifying the app.
+    # Send only the origin, never the full URL or its query.
+    ("Referrer-Policy", "strict-origin-when-cross-origin"),
     ("Strict-Transport-Security", "max-age=31536000"),
     ("X-Content-Type-Options", "nosniff"),
     ("X-Frame-Options", "DENY"),
