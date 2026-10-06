@@ -1,36 +1,54 @@
 {
   "updated_on": "2026-10-06",
-  "scope": "Public golf facilities in all 50 US states and DC; incomplete, first acquisition batch.",
-  "record_unit": "One source-listed golf facility. Holes are its published total, so 27/36 may comprise multiple layouts; totals are not invented 27/36-hole rounds.",
-  "public_access_basis": "Each included source explicitly labels Public. Private and unverified semi-private facilities are excluded.",
+  "scope": "Public-play golf courses in all 50 US states and DC; incomplete, ongoing acquisition.",
+  "record_unit": "One named source-listed course or golf facility. Holes are its published total, so 27/36 may comprise multiple layouts; totals are not invented rounds.",
+  "public_access_basis": "Explicit Public classification or owner/government statement welcoming public/nonmember golf. Private and unverified semi-private/resort facilities are excluded.",
   "address_basis": "Published course or mailing address; city-only listings remain null. Not a verified driving entrance.",
   "freshness": "Observed on updated_on; source publication dates are often unknown. No claim of real-time operating status.",
-  "county_basis": "County of an exact Census address match, not proof of the entire course footprint. Missing/ambiguous matches remain null.",
+  "county_basis": "County of an exact Census address match or an explicit primary-source county statement, not proof of the entire course footprint. Missing/ambiguous matches remain null.",
   "rights": "Independently structured bare facts with citations; no source prose, photographs, maps or scorecard artwork copied. No third-party website license asserted.",
   "coverage": {
     "national_complete": false,
-    "facility_count": 273,
+    "course_record_count": 772,
+    "complete_essentials": 448,
     "state_record_counts": {
-      "IA": 126,
+      "CA": 231,
+      "GA": 86,
+      "IA": 145,
+      "MN": 11,
       "ND": 20,
-      "NE": 127
+      "NE": 127,
+      "TN": 85,
+      "VA": 65,
+      "WI": 2
     },
+    "counties_represented": 255,
+    "counties_searched": 35,
     "missing_fields": {
-      "address": 5,
-      "county": 101,
-      "holes": 0
+      "address": 7,
+      "county": 261,
+      "holes": 90
     },
     "inventory_search_states": [
+      "CA",
+      "GA",
       "IA",
+      "MN",
       "ND",
-      "NE"
+      "NE",
+      "TN",
+      "VA",
+      "WI"
     ],
     "state_intake_notes": {
-      "IA": "Public-labelled member facilities plus two Nebraska-association Iowa listings; not all Iowa public courses.",
+      "IA": "Association Public-labelled member facilities, NGA Iowa listings and county gap additions; not all Iowa public courses.",
       "NE": "127 Nebraska facilities in association Public filter; unverified Semi-private excluded.",
-      "ND": "Partial intake: 20 of 93 Public-labelled directory entries before collector interruption."
+      "ND": "Partial intake: 20 of 93 Public-labelled directory entries before collector interruption.",
+      "CA": "NCGA explicit-Public inventory with flagged stale entries excluded; SCGA-only access requires separate operator/government confirmation.",
+      "GA": "Association Public labels plus owner-confirmed public play; missing hole counts stay null.",
+      "TN": "Association Public labels; owner hole-count checks underway."
     },
-    "county_gap_search": "Not started. State inventory intake does not establish county completeness, and no result does not establish no public courses."
+    "county_gap_search": "State inventory intake does not establish county completeness. County searches are incomplete, and no result does not establish no public courses."
   },
   "county_source": {
     "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2026_Gazetteer/2026_Gaz_counties_national.zip",
@@ -42,6 +60,3336 @@
   },
   "courses": [
     {
+      "name": "(The Course at) Wente Vineyards",
+      "address": "5050 Arroyo Road, Livermore, CA 94550",
+      "state": "CA",
+      "county": "Alameda County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "Callippe Preserve Golf Course",
+      "address": "8500 Clubhouse Drive, Pleasanton, CA 94566",
+      "state": "CA",
+      "county": "Alameda County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Dublin Ranch GC",
+      "address": "5900 Signal Hill Drive, Dublin, CA 94568",
+      "state": "CA",
+      "county": "Alameda County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Fremont Park Golf & Practice Center",
+      "address": "39751 Stevenson Place, Fremont, CA 94539",
+      "state": "CA",
+      "county": "Alameda County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Lake Chabot GC",
+      "address": "11450 Golf Links Road, Oakland, CA 94605",
+      "state": "CA",
+      "county": "Alameda County",
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7",
+        "https://www.lakechabotgolf.com/"
+      ]
+    },
+    {
+      "name": "Las Positas GC",
+      "address": "917 Clubhouse Drive, Livermore, CA 94551",
+      "state": "CA",
+      "county": "Alameda County",
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Mission Hills GC",
+      "address": "275 Industrial Parkway, Hayward, CA 94544",
+      "state": "CA",
+      "county": "Alameda County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8",
+        "https://www.missionhillsgc.com/"
+      ]
+    },
+    {
+      "name": "Monarch Bay GC",
+      "address": "13800 Monarch Bay Drive, San Leandro, CA 94577",
+      "state": "CA",
+      "county": "Alameda County",
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Poppy Ridge Golf Course",
+      "address": "4280 Greenville Road, Livermore, CA 94550",
+      "state": "CA",
+      "county": "Alameda County",
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9",
+        "https://poppyridgegolf.ncga.org/faqs"
+      ]
+    },
+    {
+      "name": "Redwood Canyon GC (formerly Willow Park)",
+      "address": "17007 Redwood Road, Castro Valley, CA 94546",
+      "state": "CA",
+      "county": "Alameda County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "Castle Oaks GC",
+      "address": "1000 Castle Oaks Drive, Ione, CA 95640",
+      "state": "CA",
+      "county": "Amador County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Bidwell Park GC",
+      "address": "3199 Golf Course Road, Chico, CA 95973",
+      "state": "CA",
+      "county": "Butte County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Table Mountain GC",
+      "address": "2700 Oro Dam Boulevard West, Oroville, CA 95965",
+      "state": "CA",
+      "county": "Butte County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "(The) Bridges",
+      "address": "9000 South Gale Ridge Road, San Ramon, CA 94582",
+      "state": "CA",
+      "county": "Contra Costa County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Boundary Oak GC",
+      "address": "3800 Valley Vista Road, Walnut Creek, CA 94598",
+      "state": "CA",
+      "county": "Contra Costa County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Brentwood Golf Club",
+      "address": "100 Summerset Drive, Brentwood, CA 94513",
+      "state": "CA",
+      "county": "Contra Costa County",
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Canyon Lakes GC & Brewery",
+      "address": "640 Bollinger Canyon Way, San Ramon, CA 94582",
+      "state": "CA",
+      "county": "Contra Costa County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Diablo Hills GC",
+      "address": "1551 Marchbanks Drive, Walnut Creek, CA 94598",
+      "state": "CA",
+      "county": "Contra Costa County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "San Ramon GC",
+      "address": "9430 Fircrest Lane, San Ramon, CA 94583",
+      "state": "CA",
+      "county": "Contra Costa County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Skylinks at Buchanan Fields GC",
+      "address": "1091 Concord Avenue, Concord, CA 94520",
+      "state": "CA",
+      "county": "Contra Costa County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Tahoe Paradise GC",
+      "address": "3021 U.S. Highway 50, South Lake Tahoe, CA 96150",
+      "state": "CA",
+      "county": "El Dorado County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Bluff Pointe Golf Course and Learning Center",
+      "address": "8225 North Milburn Ave, Fresno, CA 93722",
+      "state": "CA",
+      "county": "Fresno County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Eureka GC",
+      "address": "4750 Fairway Drive, Eureka, CA 95503",
+      "state": "CA",
+      "county": "Humboldt County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Lemoore GC",
+      "address": "350 Iona Avenue, Lemoore, CA 93245",
+      "state": "CA",
+      "county": "Kings County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Diamond Mountain GC",
+      "address": "470895 Circle Drive, Susanville, CA 96130",
+      "state": "CA",
+      "county": "Lassen County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Alhambra Golf Course",
+      "address": "630 South Almansor Street, Alhambra, CA 91801",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=2114",
+        "https://www.alhambragolf.com/book-a-tee-time/"
+      ]
+    },
+    {
+      "name": "Alondra Golf Course",
+      "address": "16400 South Prairie Avenue, Lawndale, CA 90260",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 36,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=2101",
+        "https://parks.lacounty.gov/golf-faq/",
+        "https://parks.lacounty.gov/alondra-golf-course/",
+        "https://parks.lacounty.gov/golf-courses-2026/"
+      ]
+    },
+    {
+      "name": "Angeles National Golf Club",
+      "address": "9401 Foothill Blvd., Sunland, CA 91040",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=2507",
+        "https://www.angelesnational.com/faqs/"
+      ]
+    },
+    {
+      "name": "Chester L. Washington Golf Course",
+      "address": "1818 Charlie Sifford Drive, Los Angeles, CA 90047",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=1",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "Don Knabe Golf Center & Junior Academy",
+      "address": "13717 Shoemaker Avenue, Norwalk, CA 90650",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 9,
+      "sources": [
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://www.playknabegolf.com/plan-a-tournament/"
+      ]
+    },
+    {
+      "name": "Eaton Canyon Golf Course",
+      "address": "1150 Sierra Madre Villa Avenue, Pasadena, CA 91107",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 9,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=2",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=2104",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "El Cariso Golf Course",
+      "address": "13100 Eldridge Ave, Sylmar, CA 91342",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=2",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=2120",
+        "https://www.playelcariso.com/",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "Griffith Park Golf Club",
+      "address": "4730 Crystal Springs Drive , STE 500 Los Angeles , CA 90027",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 36,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=2",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=3432",
+        "https://golf.lacity.gov/"
+      ]
+    },
+    {
+      "name": "Hansen Dam Municipal Golf Course",
+      "address": "10400 Glenoaks Boulevard, Pacoima, CA 91331",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=2",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=2110",
+        "https://golf.lacity.gov/"
+      ]
+    },
+    {
+      "name": "Harbor Park Golf Course",
+      "address": "1235 North Figueroa Place, Wilmington, CA 90744",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 9,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=2",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=2121",
+        "https://golf.lacity.gov/"
+      ]
+    },
+    {
+      "name": "Knollwood Country Club",
+      "address": "12040 Balboa Boulevard, Granada Hills, CA 91344",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=3",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "La Mirada Golf Course",
+      "address": "15501 E. Alicante Road, La Mirada, CA 90638",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=3",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "Lakewood Country Club",
+      "address": "3101 Carson Street, Lakewood, CA 90712",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=3",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "Los Amigos Golf Course",
+      "address": "7295 Quill Drive, Downey, CA 90242",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": null,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=3",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "Los Verdes Golf Course",
+      "address": "7000 W. Los Verdes Drive, Rancho Palos Verdes, CA 90275",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=3",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "Maggie Hathaway Golf Course",
+      "address": "1921 W. 98th Street, Los Angeles, CA 90047",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 9,
+      "sources": [
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://locator.lacounty.gov/parks/Location/3179893/maggie-hathaway-golf-course"
+      ]
+    },
+    {
+      "name": "Marshall Canyon Golf Course",
+      "address": "6100 Stephens Ranch Road, La Verne, CA 91750",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=3",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "Mountain Meadows Golf Course",
+      "address": "1875 Fairplex Drive, Pomona, CA 91768",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=4",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "Penmar Municipal Golf Course",
+      "address": "1233 Rose Avenue Venice , CA 90291",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 9,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=5",
+        "https://golf.lacity.gov/"
+      ]
+    },
+    {
+      "name": "Rancho Park Golf Club",
+      "address": "10460 West Pico Blvd. Marina del Rey , CA 90064",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 27,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=5",
+        "https://golf.lacity.gov/"
+      ]
+    },
+    {
+      "name": "Roosevelt Golf Course",
+      "address": "2650 North Vermont Avenue Los Angeles , CA 90027",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 9,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=5",
+        "https://golf.lacity.gov/"
+      ]
+    },
+    {
+      "name": "Santa Anita Golf Course",
+      "address": "405 S. Santa Anita Avenue, Arcadia, CA 91006",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": null,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=6",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "The Links at Victoria",
+      "address": "340 N. Harbor Boulevard, Carson, CA 90746",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=7",
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "Whittier Narrows Golf Course",
+      "address": "8640 Rush Street, Rosemead, CA 91770",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 27,
+      "sources": [
+        "https://parks.lacounty.gov/golf-courses-2026/",
+        "https://parks.lacounty.gov/golf-faq/"
+      ]
+    },
+    {
+      "name": "Woodley Lakes Golf Course",
+      "address": "6331 Woodley Avenue Encino , CA 91406",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=8",
+        "https://golf.lacity.gov/"
+      ]
+    },
+    {
+      "name": "Madera Municipal GC",
+      "address": "23200 Avenue 17, Madera, CA 93637",
+      "state": "CA",
+      "county": "Madera County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Indian Valley GC",
+      "address": "3035 Novato Boulevard, Novato, CA 94947",
+      "state": "CA",
+      "county": "Marin County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "McInnis Park GC",
+      "address": "350 Smith Ranch Road, San Rafael, CA 94903",
+      "state": "CA",
+      "county": "Marin County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Mill Valley GC",
+      "address": "280 Buena Vista Avenue, Mill Valley, CA 94941",
+      "state": "CA",
+      "county": "Marin County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Peacock Gap GC",
+      "address": "333 Biscayne Drive, San Rafael, CA 94901",
+      "state": "CA",
+      "county": "Marin County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Brooktrails GC",
+      "address": "24860 Birch Street, Willits, CA 95490",
+      "state": "CA",
+      "county": "Mendocino County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Ukiah Valley GC",
+      "address": "599 Park Boulevard, Ukiah, CA 95482",
+      "state": "CA",
+      "county": "Mendocino County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Arrowhead GC",
+      "address": "1901 North Warner Street, Alturas, CA 96101",
+      "state": "CA",
+      "county": "Modoc County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "Bayonet/ Black Horse GC",
+      "address": "1 McClure Way, Seaside, CA 93955",
+      "state": "CA",
+      "county": "Monterey County",
+      "holes": 36,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "Laguna Seca GR",
+      "address": "10520 York Road, Monterey, CA 93940",
+      "state": "CA",
+      "county": "Monterey County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Monterey Pines GC",
+      "address": "1250 Garden Road, Monterey, CA 93940",
+      "state": "CA",
+      "county": "Monterey County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Pacific Grove Golf Links",
+      "address": "77 Asilomar Boulevard, Pacific Grove, CA 93950",
+      "state": "CA",
+      "county": "Monterey County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Poppy Hills Golf Course",
+      "address": "3200 Lopez Road, Pebble Beach, CA 93953",
+      "state": "CA",
+      "county": "Monterey County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Salinas Fairways GC",
+      "address": "45 Skyway Boulevard, Salinas, CA 93905",
+      "state": "CA",
+      "county": "Monterey County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "Twin Creeks GC",
+      "address": "1551 Beacon Hill Drive, Salinas, CA 93905",
+      "state": "CA",
+      "county": "Monterey County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Eagle Vines GC",
+      "address": "580 South Kelly Road, American Canyon, CA 94503",
+      "state": "CA",
+      "county": "Napa County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Napa GC at Kennedy Park",
+      "address": "2295 Streblow Drive, Napa, CA 94558",
+      "state": "CA",
+      "county": "Napa County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Vintner’s GC",
+      "address": "7901 Solano Avenue, Yountville, CA 94599",
+      "state": "CA",
+      "county": "Napa County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "Coyote Moon GC",
+      "address": "10685 Northwoods Boulevard, Truckee, CA 96161",
+      "state": "CA",
+      "county": "Nevada County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "DarkHorse GC",
+      "address": "24150 DarkHorse Drive, Auburn, CA 95602",
+      "state": "CA",
+      "county": "Nevada County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Anaheim Dad Miller Golf Club",
+      "address": "430 North Gilbert Street, Anaheim, CA 92801",
+      "state": "CA",
+      "county": "Orange County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=3444",
+        "https://www.dadmillergc.com/golf/book-a-tee-time"
+      ]
+    },
+    {
+      "name": "Birch Hills Golf Course",
+      "address": "2250 East Birch St, Brea, CA 92821",
+      "state": "CA",
+      "county": "Orange County",
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=3422",
+        "https://www.ci.brea.ca.us/golf"
+      ]
+    },
+    {
+      "name": "Brea Creek Golf Course",
+      "address": "501 West Fir Street, Brea, CA 92821",
+      "state": "CA",
+      "county": "Orange County",
+      "holes": 9,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=12953",
+        "https://golfbrea.com/",
+        "https://www.ci.brea.ca.us/golf"
+      ]
+    },
+    {
+      "name": "Black Oak GC",
+      "address": "2455 Black Oak Road, Auburn, CA 95602",
+      "state": "CA",
+      "county": "Placer County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Diamond Oaks GC",
+      "address": "349 Diamond Oaks Road, Roseville, CA 95678",
+      "state": "CA",
+      "county": "Placer County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Indian Creek CC",
+      "address": "4487 Barton Road, Loomis, CA 95650",
+      "state": "CA",
+      "county": "Placer County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Morgan Creek GC",
+      "address": "8791 Morgan Creek Lane, Roseville, CA 95747",
+      "state": "CA",
+      "county": "Placer County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Northstar California Golf Course",
+      "address": "168 Basque Drive, Truckee, CA 96161",
+      "state": "CA",
+      "county": "Placer County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Ridge Golf Club",
+      "address": "2020 Golf Course Road, Auburn, CA 95602",
+      "state": "CA",
+      "county": "Placer County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "Tahoe City GC",
+      "address": "251 North Lake Boulevard, Tahoe City, CA 96145",
+      "state": "CA",
+      "county": "Placer County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Timber Creek GC",
+      "address": "7050 Del Webb Boulevard, Roseville, CA 95747",
+      "state": "CA",
+      "county": "Placer County",
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Whitney Oaks GC",
+      "address": "2305 Clubhouse Drive, Rocklin, CA 95765",
+      "state": "CA",
+      "county": "Placer County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "Woodcreek GC",
+      "address": "5880 Woodcreek Oaks Boulevard, Roseville, CA 95747",
+      "state": "CA",
+      "county": "Placer County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "Grizzly Ranch GC",
+      "address": "250 Clubhouse Dr., Portola, CA 96122",
+      "state": "CA",
+      "county": "Plumas County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Lake Almanor West GC",
+      "address": "111 Slim Drive, Chester, CA 96020",
+      "state": "CA",
+      "county": "Plumas County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Ancil Hoffman GC",
+      "address": "6700 Tarshes Drive, Carmichael, CA 95608",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "Antelope Greens GC",
+      "address": "2721 Elverta Road, Antelope, CA 95843",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "Bing Maloney GC",
+      "address": "6801 Freeport Boulevard, Sacramento, CA 95822",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Campus Commons",
+      "address": "2 Cadillac Drive, Sacramento, CA 95825",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3",
+        "https://playcampuscommons.com/"
+      ]
+    },
+    {
+      "name": "Cherry Island GC",
+      "address": "2360 Elverta Road, Elverta, CA 95626",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Cordova GC",
+      "address": "9425 Jackson Road, Sacramento, CA 95826",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Dry Creek Ranch GC",
+      "address": "809 Crystal Way, Galt, CA 95632",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Emerald Lakes GC",
+      "address": "10651 East Stockton Blvd., Elk Grove, CA 95624",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Empire Ranch GC",
+      "address": "1620 East Natoma Street, Folsom, CA 95630",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Haggin Oaks GC",
+      "address": "3645 Fulton Avenue, Sacramento, CA 95821",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 36,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Teal Bend GC",
+      "address": "7200 Garden Highway, Sacramento, CA 95837",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Wildhawk GC",
+      "address": "7713 Vineyard Road, Sacramento, CA 95829",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "William Land Park GC",
+      "address": "1701 Sutterville Road, Sacramento, CA 95822",
+      "state": "CA",
+      "county": "Sacramento County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "Ridgemark GCC",
+      "address": "3800 Airline Highway, Hollister, CA 95023",
+      "state": "CA",
+      "county": "San Benito County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "Dos Osos Golf Club",
+      "address": "2492 Old Ranch Road, Escondido, CA 92027",
+      "state": "CA",
+      "county": "San Diego County",
+      "holes": 18,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/dos-osos-golf",
+        "https://www.jcgolf.com/faqs"
+      ]
+    },
+    {
+      "name": "Encinitas Ranch Golf Course",
+      "address": "1275 Quail Gardens Drive, Encinitas, CA 92024",
+      "state": "CA",
+      "county": "San Diego County",
+      "holes": 18,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/encinitas-ranch",
+        "https://www.jcgolf.com/faqs"
+      ]
+    },
+    {
+      "name": "Gleneagles GC at McLaren Park",
+      "address": "2100 Sunnydale Ave., San Francisco, CA 94134",
+      "state": "CA",
+      "county": "San Francisco County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Lincoln Park GC",
+      "address": "34th Avenue & Clement Street, San Francisco, CA 94121",
+      "state": "CA",
+      "county": "San Francisco County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Presidio GC",
+      "address": "300 Finley Road, San Francisco, CA 94129",
+      "state": "CA",
+      "county": "San Francisco County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "TPC Harding Park GC",
+      "address": "99 Harding Road, San Francisco, CA 94132",
+      "state": "CA",
+      "county": "San Francisco County",
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Micke Grove GL",
+      "address": "11401 North Micke Grove Road, Lodi, CA 95240",
+      "state": "CA",
+      "county": "San Joaquin County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Swenson Park GC",
+      "address": "6803 Alexandria Place, Stockton, CA 95207",
+      "state": "CA",
+      "county": "San Joaquin County",
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Cabernet Links Golf and RV Resort (formerly The Links course at Paso Robles)",
+      "address": "5151 Jardine Road, Paso Robles, CA 93446",
+      "state": "CA",
+      "county": "San Luis Obispo County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Dairy Creek GC",
+      "address": "2990 Dairy Creek Road, San Luis Obispo, CA 93405",
+      "state": "CA",
+      "county": "San Luis Obispo County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4",
+        "https://slocountygolf.com/slo-card-fees/",
+        "https://newfrontier.scga.org/course-directory?page=1"
+      ]
+    },
+    {
+      "name": "Morro Bay GC",
+      "address": "201 State Park Road, Morro Bay, CA 93442",
+      "state": "CA",
+      "county": "San Luis Obispo County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Emerald Hills GC",
+      "address": "938 Wilmington Way, Redwood City, CA 94062",
+      "state": "CA",
+      "county": "San Mateo County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Mariners Point Golf Center",
+      "address": "2401 E 3rd Avenue, Foster City, CA 94404",
+      "state": "CA",
+      "county": "San Mateo County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Poplar Creek GC",
+      "address": "1700 Coyote Point Drive, San Mateo, CA 94401",
+      "state": "CA",
+      "county": "San Mateo County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Bay View GC (formerly Summitpointe GC)",
+      "address": "1500 Country Club Drive, Milpitas, CA 95035",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "Baylands Golf Links",
+      "address": "1875 Embarcadero Road, Palo Alto, CA 94303",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "Blackberry Farm Golf Course",
+      "address": "22100 Stevens Creek Boulevard, Cupertino, CA 95014",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3",
+        "https://www.blackberryfarmgolfcourse.com/course/"
+      ]
+    },
+    {
+      "name": "Cinnabar Hills GC",
+      "address": "23600 McKean Road, San Jose, CA 95141",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Deep Cliff GC",
+      "address": "10700 Clubhouse Lane, Cupertino, CA 95014",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Eagle Ridge GC",
+      "address": "2951 Club Drive, Gilroy, CA 95020",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Gavilan GC",
+      "address": "5055 Santa Teresa Boulevard, Gilroy, CA 95020",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Gilroy GC",
+      "address": "2695 Hecker Pass Highway, Gilroy, CA 95020",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 11,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Los Lagos GC",
+      "address": "2995 Tuers Road, San Jose, CA 95121",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Rancho del Pueblo",
+      "address": "1649 Hermocilla Way, San Jose, CA 95116",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "San Jose Municipal GC",
+      "address": "1560 Oakland Road, San Jose, CA 95131",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Santa Teresa GC",
+      "address": "260 Bernal Road, San Jose, CA 95119",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Shoreline GL",
+      "address": "2940 North Shoreline Boulevard, Mountain View, CA 94043",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Sunken Gardens GC",
+      "address": "1010 S. Wolfe Road, Sunnyvale, CA 94086",
+      "state": "CA",
+      "county": "Santa Clara County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "De Laveaga GC",
+      "address": "401 Upper Park Road, Santa Cruz, CA 95065",
+      "state": "CA",
+      "county": "Santa Cruz County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Spring Hills GC",
+      "address": "501 Spring Hills Drive, Watsonville, CA 95076",
+      "state": "CA",
+      "county": "Santa Cruz County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Allen’s GC",
+      "address": "2780 Sacramento Drive, Redding, CA 96001",
+      "state": "CA",
+      "county": "Shasta County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "McCloud GC",
+      "address": "1001 Squaw Valley Road, McCloud, CA 96057",
+      "state": "CA",
+      "county": "Siskiyou County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Shasta Valley GC",
+      "address": "500 Golf Course Road, Montague, CA 96064",
+      "state": "CA",
+      "county": "Siskiyou County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Weed GC",
+      "address": "27730 Old Edgewood Road, Weed, CA 96094",
+      "state": "CA",
+      "county": "Siskiyou County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "(The Golf Club at) Trio Vista",
+      "address": "1000 Summerset Drive, Rio Vista, CA 94571",
+      "state": "CA",
+      "county": "Solano County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "Cypress Lakes GC",
+      "address": "5601 Meridian Road, Vacaville, CA 95687",
+      "state": "CA",
+      "county": "Solano County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Hiddenbrooke GC",
+      "address": "1095 Hiddenbrooke Parkway, Vallejo, CA 94591",
+      "state": "CA",
+      "county": "Solano County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Bennett Valley GC",
+      "address": "3330 Yulupa Avenue, Santa Rosa, CA 95405",
+      "state": "CA",
+      "county": "Sonoma County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "Fairgrounds GC",
+      "address": "1350 Bennett Valley Road, Santa Rosa, CA 95404",
+      "state": "CA",
+      "county": "Sonoma County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Foxtail GC",
+      "address": "100 Golf Course Drive, Rohnert Park, CA 94928",
+      "state": "CA",
+      "county": "Sonoma County",
+      "holes": 36,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Healdsburg Park GC at Tayman Park",
+      "address": "927 South Fitch Mountain Road, Healdsburg, CA 95448",
+      "state": "CA",
+      "county": "Sonoma County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Rooster Run GC",
+      "address": "2301 East Washington Street, Petaluma, CA 94954",
+      "state": "CA",
+      "county": "Sonoma County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "Sebastopol GC",
+      "address": "2881 Scotts Right of Way, Sebastopol, CA 95472",
+      "state": "CA",
+      "county": "Sonoma County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Windsor GC",
+      "address": "1340 19th Hole Drive, Windsor, CA 95492",
+      "state": "CA",
+      "county": "Sonoma County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "Creekside GC",
+      "address": "701 Lincoln Avenue, Modesto, CA 95354",
+      "state": "CA",
+      "county": "Stanislaus County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Dryden Park GC",
+      "address": "920 Sunset Avenue, Modesto, CA 95351",
+      "state": "CA",
+      "county": "Stanislaus County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "River Oaks Golf Course and Events Center",
+      "address": "3441 Golf Links Road, Ceres, CA 95307",
+      "state": "CA",
+      "county": "Stanislaus County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "St. Stanislaus GC",
+      "address": "5000 Crows Landing Road, Modesto, CA 95358",
+      "state": "CA",
+      "county": "Stanislaus County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "River Oaks Golf Club",
+      "address": "201 Lee Road, Nicolaus, CA 95659",
+      "state": "CA",
+      "county": "Sutter County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "(The Links at) Rolling Hills (formerly Sevillano Links)",
+      "address": "2657 Barham Avenue, Corning, CA 96021",
+      "state": "CA",
+      "county": "Tehama County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "Oak Creek GC",
+      "address": "2620 Montgomery Road, Red Bluff, CA 96080",
+      "state": "CA",
+      "county": "Tehama County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Exeter GC",
+      "address": "510 West Visalia Road, Exeter, CA 93221",
+      "state": "CA",
+      "county": "Tulare County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Ridge Creek",
+      "address": "3018 W El Monte Way, Dinuba, CA 93618",
+      "state": "CA",
+      "county": "Tulare County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "Twain Harte GCC",
+      "address": "22909 Meadow Drive, Twain Harte, CA 95383",
+      "state": "CA",
+      "county": "Tuolumne County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Davis GC",
+      "address": "24439 Fairway Drive, Davis, CA 95616",
+      "state": "CA",
+      "county": "Yolo County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Wild Wings GC",
+      "address": "18540 Wild Wings Drive, Woodland, CA 95695",
+      "state": "CA",
+      "county": "Yolo County",
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "Yocha Dehe GC at Cache Creek Casino Resort",
+      "address": "14455 Highway 16, Brooks, CA 95606",
+      "state": "CA",
+      "county": "Yolo County",
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "(The Golf Club at) Moffett Field",
+      "address": "934 Macon Rd., Moffett Field, CA 94035",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "(The) Sea Ranch GC",
+      "address": "42000 Highway 1, Sea Ranch, CA 95497",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Airways GC",
+      "address": "1 Airways Boulevard, Fresno, CA 93727",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "Anaheim Hills Golf Club",
+      "address": "6501 E. Nohl Ranch Road, Anaheim, CA 92807",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=3433",
+        "https://anaheimhillsgc.com/book-a-tee-time/"
+      ]
+    },
+    {
+      "name": "Ashwood Golf Course",
+      "address": "10885 Apple Valley Road Apple Valley , CA 92308",
+      "state": "CA",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=3431",
+        "https://ashwoodgolf.com/golf/"
+      ]
+    },
+    {
+      "name": "Balboa Park Golf Club",
+      "address": "2600 Golf Course Drive San Diego , CA 92102",
+      "state": "CA",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=3436",
+        "https://www.sandiego.org/members/balboa-park-golf-course/2045"
+      ]
+    },
+    {
+      "name": "Bartley Cavanaugh GC",
+      "address": "8301 Freeport Boulevard, Sacramento, CA 95832",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "Benbow Valley Resort & GC",
+      "address": "7000 Benbow Drive, Garberville, CA 95542",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "Blue Rock Springs GC",
+      "address": "655 Columbus Parkway, Vallejo, CA 94591",
+      "state": "CA",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=3"
+      ]
+    },
+    {
+      "name": "Cathedral Canyon Golf Club",
+      "address": "68311 Paseo Real, Cathedral City, CA 92234",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/golf-courses-in-palm-springs-ca",
+        "https://www.jcgolf.com/faqs"
+      ]
+    },
+    {
+      "name": "Chalk Mountain",
+      "address": "1000 El Bordo Road, Atascadero, CA 93422",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Churn Creek GC",
+      "address": "7335 Churn Creek Road, Redding, CA 96002",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4"
+      ]
+    },
+    {
+      "name": "Corica Park Golf Course",
+      "address": "1 Clubhouse Memorial Road, Alameda, CA 94502",
+      "state": "CA",
+      "county": null,
+      "holes": 45,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=4",
+        "https://www.coricapark.com/golf"
+      ]
+    },
+    {
+      "name": "Cross Creek Golf Club",
+      "address": "43860 Glen Meadows Road, Temecula, CA 92590",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.jcgolf.com/news/jc-resorts-selected-to-manage-operations--at-cross-creek-golf-club-in-temecula-ca",
+        "https://www.jcgolf.com/faqs"
+      ]
+    },
+    {
+      "name": "Desert Willow Golf Resort",
+      "address": "38-995 Desert Willow Drive, Palm Desert, CA 92260",
+      "state": "CA",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://newfrontier.scga.org/course-directory?page=2",
+        "https://newfrontier.scga.org/_hcms/api/facility-courses?facilityId=2307",
+        "https://www.desertwillow.com/golf-overview/"
+      ]
+    },
+    {
+      "name": "Diablo Creek GC",
+      "address": "4050 Port Chicago Highway, Concord, CA 94520",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Escalon GC",
+      "address": "17051 South Escalon-Bellota Road, Escalon, CA 95320",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Fall River Valley GCC",
+      "address": "42889 Highway 299E, Fall River Mills, CA 96028",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Forebay GC",
+      "address": "29500 Bayview Road, Santa Nella, CA 95322",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=5"
+      ]
+    },
+    {
+      "name": "Franklin Canyon GC",
+      "address": "Highway 4, Hercules, CA 94547",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Glen Ivy Golf Club",
+      "address": "24400 Trilogy Parkway, Corona, CA 92883",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/glen-ivy-golf",
+        "https://www.jcgolf.com/faqs"
+      ]
+    },
+    {
+      "name": "Glenn GCC",
+      "address": "6226 County Road 39, Willows, CA 95988",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Golden Gate Park GC",
+      "address": "47th and Fulton Avenues, San Francisco, CA 94121",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Graeagle Meadows GC",
+      "address": "6984 Highway 89, Graeagle, CA 96103",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Hunter Ranch GC",
+      "address": "4041 Highway 46 East, Paso Robles, CA 93446",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "Jack Tone Golf",
+      "address": "1500 Ruess Road, Ripon, CA 95366",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=6"
+      ]
+    },
+    {
+      "name": "King City GC",
+      "address": "613 South Vanderhurst Street, King City, CA 93930",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Lake Redding GC",
+      "address": "1795 Benton Drive, Redding, CA 96003",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Lincoln Hills GC",
+      "address": "1005 Sun City Lane, Lincoln, CA 95648",
+      "state": "CA",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Little River Inn GC",
+      "address": "7751 North Highway 1, Little River, CA 95456",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Lockeford Springs GC",
+      "address": "16360 North Highway 88, Lodi, CA 95240",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Lone Tree GC",
+      "address": "4800 Golf Course Road, Antioch, CA 94509",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Los Serranos Golf Club",
+      "address": "15656 Yorba Avenue, Chino Hills, CA 91709",
+      "state": "CA",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/golf-courses-in-chino-hills-ca",
+        "https://www.jcgolf.com/faqs",
+        "https://www.losserranosgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Manteca Park GC",
+      "address": "305 North Union Road, Manteca, CA 95337",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=7"
+      ]
+    },
+    {
+      "name": "Mather GC",
+      "address": "4103 Zinfandel Dr., Mather, CA 95655",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Metropolitan GL",
+      "address": "10051 Doolittle Drive, Oakland, CA 94603",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Mission Hills North - Gary Player Signature Course",
+      "address": "70705 Ramon Road, Rancho Mirage, CA 92270",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.jcgolf.com/mission-hills-north-golf-course",
+        "https://www.missionhillsnorth.com/book-a-tee-time/"
+      ]
+    },
+    {
+      "name": "Mount Huff GC",
+      "address": "15301 Highway 89, Crescent Mills, CA 95934",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Mount St. Helena GC",
+      "address": "2025 Grant Street, Calistoga, CA 94515",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Mount Whitney GC",
+      "address": "2559 South Main Street, Lone Pine, CA 93545",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=8"
+      ]
+    },
+    {
+      "name": "Northwood GC",
+      "address": "19400 Highway 116, Monte Rio, CA 95462",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Oaks North Golf Course",
+      "address": "12602 Oaks North Drive, San Diego, CA 92128",
+      "state": "CA",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/north-county-san-diego-golf-courses",
+        "https://www.jcgolf.com/faqs"
+      ]
+    },
+    {
+      "name": "Old Brockway GC",
+      "address": "400 Brassie Road, Kings Beach, CA 96143",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Old River GC",
+      "address": "18007 N. MacArthur Drive, Tracy, CA 95304",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Paradise Valley GC",
+      "address": "3950 Paradise Valley Road, Fairfield, CA 94533",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Paso Robles GC",
+      "address": "1600 Country Club Drive, Paso Robles, CA 93446",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Pheasant Run GC",
+      "address": "19 Clubhouse Drive, Chowchilla, CA 93610",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Pleasanton Golf Center",
+      "address": "Alameda County Fairgrounds, Pleasanton, CA 94566",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Ponderosa GC",
+      "address": "10040 Reynold Way, Truckee, CA 96160",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Porterville GC",
+      "address": "702 East Isham, Porterville, CA 93257",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=9"
+      ]
+    },
+    {
+      "name": "Pruneridge GC",
+      "address": "400 North Saratoga Ave., Santa Clara, CA 95050",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "Rancho Bernardo Inn Golf Course",
+      "address": "17550 Bernardo Oaks Drive, San Diego, CA 92128",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/golf-courses-in-san-diego-ca",
+        "https://www.jcgolf.com/faqs"
+      ]
+    },
+    {
+      "name": "Rancho Solano GC",
+      "address": "3250 Rancho Solano Parkway, Fairfield, CA 94533",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "Riverside GC",
+      "address": "7492 N. Riverside Drive, Fresno, CA 93722",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=10"
+      ]
+    },
+    {
+      "name": "San Juan Oaks GC",
+      "address": "1996 San Juan Oaks Drive, Hollister, CA 95023",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11",
+        "https://sanjuanoaks.com/"
+      ]
+    },
+    {
+      "name": "Shadow Lakes",
+      "address": "401 West Country Club Drive, Brentwood, CA 94513",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Sharp Park GC",
+      "address": "Highway 1, Foot of Sharp Park Road, Pacifica, CA 94044",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Shelter Cove GL",
+      "address": "1555 Upper Pacific Drive, Shelter Cove, CA 95589",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Sherwood Forest GC",
+      "address": "79 North Frankwood, Sanger, CA 93657",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Snowcreek GC",
+      "address": "Two Fairway Drive, Mammoth Lakes, CA 93546",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Spring Valley GC",
+      "address": "3441 East Calaveras Boulevard, Milpitas, CA 95035",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=11"
+      ]
+    },
+    {
+      "name": "Sunnyvale GC",
+      "address": "605 Macara Lane, Sunnyvale, CA 94085",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "The Crossings at Carlsbad",
+      "address": "5800 The Crossings Drive, Carlsbad, CA 92008",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/carlsbad-ca-golf-courses",
+        "https://www.jcgolf.com/faqs"
+      ]
+    },
+    {
+      "name": "The Golf Club at Terra Lago",
+      "address": "84-000 Terra Lago Parkway, Indio, CA 92203",
+      "state": "CA",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/the-golf-club-at-terra-lago",
+        "https://golfterralago.com/more-info"
+      ]
+    },
+    {
+      "name": "The Golf Club of California",
+      "address": "3742 Flowerwood Lane, Fallbrook, CA 92028",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/the-golf-club-of-california",
+        "https://www.jcgolf.com/faqs",
+        "https://www.thegolfclubofcalifornia.com/"
+      ]
+    },
+    {
+      "name": "The Tucker (formerly Anderson Tucker Oaks GC)",
+      "address": "6241 Churn Creek Road, Redding, CA 96002",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=2"
+      ]
+    },
+    {
+      "name": "The Welk Golf Course",
+      "address": "8860 Lawrence Welk Drive, Escondido, CA 92026",
+      "state": "CA",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/golf-courses-near-escondido-ca",
+        "https://www.jcgolf.com/faqs"
+      ]
+    },
+    {
+      "name": "Tilden Park GC",
+      "address": "10 Golf Course Drive, Berkeley, CA 94708",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Trinity Alps Golf and Country Club",
+      "address": "111 Golf Course Road, Weaverville, CA 96093",
+      "state": "CA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Tulare GC",
+      "address": "5320 South Laspina, Tulare, CA 93274",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Turkey Creek GC",
+      "address": "1525 State Highway 193, Lincoln, CA 95648",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=12"
+      ]
+    },
+    {
+      "name": "Twin Oaks Golf Course",
+      "address": "1425 N. Twin Oaks Valley Road, San Marcos, CA 92069",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/san-marcos-ca-golf-courses",
+        "https://www.jcgolf.com/faqs"
+      ]
+    },
+    {
+      "name": "Valley Oaks GC",
+      "address": "1800 South Plaza Drive, Visalia, CA 93277",
+      "state": "CA",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "Whitehawk Ranch GC",
+      "address": "768 Whitehawk Drive, Clio, CA 96106",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "Wildhorse GC",
+      "address": "2323 Rockwell Drive, Davis, CA 95616",
+      "state": "CA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en#page=13"
+      ]
+    },
+    {
+      "name": "The Chimneys Golf Course",
+      "address": "338 Monroe Highway, Winder, GA 30680",
+      "state": "GA",
+      "county": "Barrow County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.chimneysgc.com/"
+      ]
+    },
+    {
+      "name": "Barnsley Resort",
+      "address": "597 Barnsley Gardens Road Northwest, Adairsville, GA 30103",
+      "state": "GA",
+      "county": "Bartow County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Bowden Golf Course",
+      "address": "3111 Millerfield Road, Macon, GA 31211",
+      "state": "GA",
+      "county": "Bibb County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://visitmacon.org/directory/bowden-golf-course/"
+      ]
+    },
+    {
+      "name": "Georgia Southern University Golf Course",
+      "address": "1031 Golf Club Road, Statesboro, GA 30458",
+      "state": "GA",
+      "county": "Bulloch County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.georgiasouthern.edu/student-life/recreation/golf-course"
+      ]
+    },
+    {
+      "name": "Applewood Golf Course",
+      "address": "6130 Story Mill Road, Keysville, GA 30816",
+      "state": "GA",
+      "county": "Burke County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Folkston Golf Club",
+      "address": "186 Country Club Road, Folkston, GA 31537",
+      "state": "GA",
+      "county": "Charlton County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.folkstongolfclub.com/"
+      ]
+    },
+    {
+      "name": "Bacon Park Golf Course",
+      "address": "1 Shorty Cooper Dr, Savannah, GA 31406",
+      "state": "GA",
+      "county": "Chatham County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.baconparkgolf.com/about/"
+      ]
+    },
+    {
+      "name": "Henderson Golf Club",
+      "address": "1 Al Henderson Drive, Savannah, GA 31419",
+      "state": "GA",
+      "county": "Chatham County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://hendersongolfclub.com/"
+      ]
+    },
+    {
+      "name": "Callahan Golf Links",
+      "address": "4991 Reinhardt College Parkway, Waleska, GA 30183",
+      "state": "GA",
+      "county": "Cherokee County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "University of Georgia Golf Course",
+      "address": "2600 Riverbend Road, Athens, GA 30605",
+      "state": "GA",
+      "county": "Clarke County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://golfcourse.uga.edu/"
+      ]
+    },
+    {
+      "name": "Cobblestone Golf Course",
+      "address": "4200 Nance Road, Acworth, GA 30101",
+      "state": "GA",
+      "county": "Cobb County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Legacy Golf Club",
+      "address": "1825 Windy Hill Road, Smyrna, GA 30080",
+      "state": "GA",
+      "county": "Cobb County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.legacyfoxcreek.com/legacy-golf-links/"
+      ]
+    },
+    {
+      "name": "Candler Park Golf Course",
+      "address": "585 Candler Park Drive NE, Atlanta, GA 30307",
+      "state": "GA",
+      "county": "DeKalb County",
+      "holes": 9,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.cityofatlantagolf.com/candler-park-golf-course/"
+      ]
+    },
+    {
+      "name": "Flint River Municipal Golf Club",
+      "address": "2000 McAdams Road, Albany, GA 31705",
+      "state": "GA",
+      "county": "Dougherty County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.albanyga.gov/City-Departments/Recreation-and-Parks-Department/Parks-Facilities/Flint-River-Municipal-Golf-Course"
+      ]
+    },
+    {
+      "name": "West Pines Golf Club",
+      "address": "9090 Rose Avenue , Douglasville, GA 30134",
+      "state": "GA",
+      "county": "Douglas County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.westpinesgc.com/"
+      ]
+    },
+    {
+      "name": "Stonebridge Golf Club",
+      "address": "585 Stonebridge Drive, Rome, GA 30165",
+      "state": "GA",
+      "county": "Floyd County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://romega.gov/9/Recreation"
+      ]
+    },
+    {
+      "name": "Countryland Golf Course",
+      "address": "6560 Mayfield Drive, Cumming, GA 30041",
+      "state": "GA",
+      "county": "Forsyth County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Hampton Golf Village",
+      "address": "6310 Hampton Golf Club Drive, Cumming, GA 30041",
+      "state": "GA",
+      "county": "Forsyth County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.hamptongolfvillage.net/-home"
+      ]
+    },
+    {
+      "name": "Highland Walk at Victoria Bryant",
+      "address": "1415 Bryant Park Road, Royston, GA 30662",
+      "state": "GA",
+      "county": "Franklin County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://gastateparks.org/HighlandWalk"
+      ]
+    },
+    {
+      "name": "Alfred Tup Holmes Golf Club",
+      "address": "2300 Wilson Drive SW, Atlanta, GA 30311",
+      "state": "GA",
+      "county": "Fulton County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.cityofatlantagolf.com/alfred-tup-holmes-golf-course/"
+      ]
+    },
+    {
+      "name": "Browns Mill Golf Course",
+      "address": "480 Cleveland Avenue SE, Atlanta, GA 30354",
+      "state": "GA",
+      "county": "Fulton County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.cityofatlantagolf.com/"
+      ]
+    },
+    {
+      "name": "RiverPines Golf",
+      "address": "4775 Old Alabama Road, Alpharetta, GA 30022",
+      "state": "GA",
+      "county": "Fulton County",
+      "holes": 27,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.riverpinesgolf.com/"
+      ]
+    },
+    {
+      "name": "Wolf Creek Golf Club",
+      "address": "3000 Union Road Southwest, Atlanta, GA 30331",
+      "state": "GA",
+      "county": "Fulton County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Whitepath Golf Club",
+      "address": "1156 Shenendoa Drive, Ellijay, GA 30540",
+      "state": "GA",
+      "county": "Gilmer County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.golfwhitepath.com/the-course.html"
+      ]
+    },
+    {
+      "name": "Jekyll Island Golf Resort",
+      "address": "322 Captain Wylly Road, Jekyll Island, GA 31527",
+      "state": "GA",
+      "county": "Glynn County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Sea Palms Golf Resort",
+      "address": "515 North Windward Drive, St Simons Island, GA 31522",
+      "state": "GA",
+      "county": "Glynn County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.seapalms.com/files/6656/Holiday_Menu_Single_pages_no_prices_showing_for_website.pdf"
+      ]
+    },
+    {
+      "name": "Calhoun Elks Lodge Golf Course",
+      "address": "143 Craigtown Road NE, Calhoun, GA 30701",
+      "state": "GA",
+      "county": "Gordon County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.elks.org/lodges/home.cfm?LodgeNumber=1883"
+      ]
+    },
+    {
+      "name": "Fields Ferry Golf Club",
+      "address": "581 Fields Ferry Drive NE, Calhoun, GA 30701",
+      "state": "GA",
+      "county": "Gordon County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://fieldsferrygolf.com/"
+      ]
+    },
+    {
+      "name": "Sugar Hill Golf Club",
+      "address": "6094 Suwanee Dam Road, Sugar Hill, GA 30518",
+      "state": "GA",
+      "county": "Gwinnett County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Chattahoochee Golf Club",
+      "address": "301 Tommy Aaron Drive, Gainesville, GA 30506",
+      "state": "GA",
+      "county": "Hall County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Chicopee Woods Golf Club",
+      "address": "2515 Atlanta Highway, Gainesville, GA 30504",
+      "state": "GA",
+      "county": "Hall County",
+      "holes": 27,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.chicopeewoodsgolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Lanier Islands Legacy Golf Course",
+      "address": "7000 Lanier Islands Parkway, Buford, GA 30518",
+      "state": "GA",
+      "county": "Hall County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.lanierislands.com/golf/"
+      ]
+    },
+    {
+      "name": "Reunion Golf Club",
+      "address": "5609 Grand Reunion Drive, Hoschton, GA 30548",
+      "state": "GA",
+      "county": "Hall County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.reuniongolfclub.com/-home"
+      ]
+    },
+    {
+      "name": "Callaway Resort & Gardens",
+      "address": "17800 U.S. 27, Pine Mountain, GA 31822",
+      "state": "GA",
+      "county": "Harris County",
+      "holes": 36,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://prodcms.callawaygardens.com/the-gardens/"
+      ]
+    },
+    {
+      "name": "Double Oaks Golf Club",
+      "address": "3100 Ila Road, Commerce, GA 30530",
+      "state": "GA",
+      "county": "Jackson County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://doubleoaksgolfclub.net/"
+      ]
+    },
+    {
+      "name": "Bull Creek Golf Course",
+      "address": "7333 Lynch Road, Midland, GA 31820",
+      "state": "GA",
+      "county": "Muscogee County",
+      "holes": 36,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://sportscouncil.columbusga.gov/Facilities/Bull-Creek"
+      ]
+    },
+    {
+      "name": "Lane Creek Golf Club",
+      "address": "1201 Club Drive, Bishop, GA 30621",
+      "state": "GA",
+      "county": "Oconee County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://lanecreekgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Uncle Remus Golf Course",
+      "address": "120 Hambone Holle Drive, Eatonton, GA 31024",
+      "state": "GA",
+      "county": "Putnam County",
+      "holes": 9,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.uncleremusgolf.com/about"
+      ]
+    },
+    {
+      "name": "Augusta Municipal Golf Course",
+      "address": "2023 Highland Avenue, Augusta, GA 30904",
+      "state": "GA",
+      "county": "Richmond County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Cherokee Run Golf Club",
+      "address": "1595 Centennial Olympic Parkway NE, Conyers, GA 30013",
+      "state": "GA",
+      "county": "Rockdale County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.cherokeerungolfclub.com/about-us/"
+      ]
+    },
+    {
+      "name": "Griffin City Golf Course",
+      "address": "625 Camp Northern Road, Griffin, GA 30224",
+      "state": "GA",
+      "county": "Spalding County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "The Links at Lake Toccoa",
+      "address": "201 Black Mountain Road, Toccoa, GA 30577",
+      "state": "GA",
+      "county": "Stephens County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Brazells Creek Golf Course",
+      "address": "355 Golf Course Road, Reidsville, GA 30453",
+      "state": "GA",
+      "county": "Tattnall County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://gastateparks.org/BrazellsCreek"
+      ]
+    },
+    {
+      "name": "Reynolds Golf Club",
+      "address": "26 Golf Course Drive, Reynolds, GA 31076",
+      "state": "GA",
+      "county": "Taylor County",
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Forest Lakes Golf Club",
+      "address": "80 Moorman Drive, Tifton, GA 31794",
+      "state": "GA",
+      "county": "Tift County",
+      "holes": 9,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.abac.edu/community/auxiliary-services/forest-lakes-golf-course.html"
+      ]
+    },
+    {
+      "name": "Cedar Lake Golf Club",
+      "address": "5720 South Sharon Church Road, Loganville, GA 30052",
+      "state": "GA",
+      "county": "Walton County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://cedarlakegolf.com/course"
+      ]
+    },
+    {
+      "name": "Creek at Hard Labor",
+      "address": "1400 Knox Chapel Road, Social Circle, GA 30025",
+      "state": "GA",
+      "county": "Walton County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://gastateparks.org/TheCreek"
+      ]
+    },
+    {
+      "name": "Lakes at Laura S. Walker",
+      "address": "5500 Laura Walker Road, Waycross, GA 31503",
+      "state": "GA",
+      "county": "Ware County",
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://gastateparks.org/lauraswalker"
+      ]
+    },
+    {
+      "name": "Apple Mountain Golf Club",
+      "address": "901 Rockford Creek Road, Clarkesville, GA 30523",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://applemountaingolfga.com/the-course"
+      ]
+    },
+    {
+      "name": "Arrowhead Pointe Golf Club",
+      "address": "2790 Olympic Rowing Drive, Elberton, GA 30635",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://gastateparks.org/ArrowheadPointe"
+      ]
+    },
+    {
+      "name": "Ashton Hills Golf Club",
+      "address": "10400 Bypass Road, Covington, GA 30014",
+      "state": "GA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.ashtonhillsgc.com/",
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Bartram Trail Golf Club",
+      "address": "470 Bartram Trail Club Drive, Evans, GA 30809",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://bartramtrailgolfclub.org/course"
+      ]
+    },
+    {
+      "name": "Bear's Best-Atlanta",
+      "address": "5342 Aldeburgh Drive, Suwanee, GA 30024",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.invitedclubs.com/clubs/bear-s-best-atlanta"
+      ]
+    },
+    {
+      "name": "Black Creek Golf Club",
+      "address": "277 Canterwood Drive, Ellabell, GA 31308",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.bcgolfclub.com/",
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Bobby Jones Golf Course",
+      "address": "2205 Northside Drive NW, Atlanta, GA 30305",
+      "state": "GA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.bobbyjonesgc.com/"
+      ]
+    },
+    {
+      "name": "Bradshaw Farm Golf Club",
+      "address": "3030 Bradshaw Club Drive, Acworth, GA 30188",
+      "state": "GA",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.bradshawfarmgc.com/",
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Briar Creek Country Club",
+      "address": "301 Country Club Road, Sylvania, GA 30467",
+      "state": "GA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Butternut Creek Golf Course",
+      "address": "129 Union County Road Rec, Blairsville, GA 30512",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://butternutcreek.golf/"
+      ]
+    },
+    {
+      "name": "Chastain Park Golf Course",
+      "address": "216 Chastain Park Avenue NW, Atlanta, GA 30342",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.cityofatlantagolf.com/chastain-park-golf-course/"
+      ]
+    },
+    {
+      "name": "Chateau Elan Golf Club",
+      "address": "6060 Golf Club Drive, Braselton, GA 30517",
+      "state": "GA",
+      "county": null,
+      "holes": 45,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://chateauelan.com/golf/"
+      ]
+    },
+    {
+      "name": "City Club Marietta",
+      "address": "510 Powder Springs Street SE, Marietta, GA 30064",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.cityclubmarietta.com/"
+      ]
+    },
+    {
+      "name": "Collins Hill Golf Course",
+      "address": "585 Camp Perrin Road NE, Lawrenceville, GA 30043",
+      "state": "GA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.collinshillgolf.com/",
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Country Club of Gwinnett",
+      "address": "3254 Clubside View Court SW, Snellville, GA 30039",
+      "state": "GA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.countryclubgwinnett.com/",
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Country Oaks Golf Course",
+      "address": "148 Chimney Oaks Drive, Homer, GA 30547",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.countryoaksgolfcourse.org/"
+      ]
+    },
+    {
+      "name": "Coweta Club",
+      "address": "300 Arbor Springs Parkway, Newnan, GA 30265",
+      "state": "GA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.cowetaclub.com/",
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Crooked Oak Golf Club of Colquitt",
+      "address": "100 Clubhouse Drive, Colquitt, GA 39837",
+      "state": "GA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Dogwood Golf Club",
+      "address": "4207 Flint Hill Road Southwest, Austell, GA 30106",
+      "state": "GA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://dogwoodgolfclub.com/",
+        "https://www.gsga.org/clubs/directory"
+      ],
+      "access_note": "Public play Monday–Thursday; selected times Friday–Saturday."
+    },
+    {
+      "name": "Eisenhower Lakes Golf Club",
+      "address": "537 Range Rd., Fort Gordon, GA 30905",
+      "state": "GA",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://gordon.armymwr.com/programs/eisenhower-lakes"
+      ],
+      "access_note": "Visitors without Military ID or AIE card must obtain a visitor pass through Gate 6. Bring driver’s license, vehicle registration and proof of insurance."
+    },
+    {
+      "name": "Fairfield Plantation G & CC",
+      "address": "7500 Monticello Drive, Villa Rica, GA 30180",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://fairfieldplantation.com/Amenities/Golf.aspx",
+        "https://www.gsga.org/clubs/directory"
+      ],
+      "access_note": "Non-members may book up to seven days ahead. Course closed Tuesdays for maintenance."
+    },
+    {
+      "name": "Fairways of Canton",
+      "address": "400 Laurel Canyon Parkway, Canton, GA 30114",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.fairwaysofcanton.com/"
+      ]
+    },
+    {
+      "name": "Forest Hills Golf Club",
+      "address": "1500 Comfort Road, Augusta, GA 30909",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://theforesthillsgolfcourse.com/",
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Georgia Veterans Golf Course",
+      "address": "2315 US 280 West, Cordele, GA 31015",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.lakeblackshearresort.com/golf/course-layout/"
+      ]
+    },
+    {
+      "name": "Griffin Bell Golf & Conference Center",
+      "address": "1800 South Lee Street, Americus, GA 31709",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.griffinbellgolf.com/",
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "International City Golf Club",
+      "address": "72 Play Golf Lane Drive, Warner Robins, GA 31088",
+      "state": "GA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "John A. White Golf Course",
+      "address": "1053 Cascade  Circle, Atlanta, GA 30311",
+      "state": "GA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.jawgc.com/"
+      ]
+    },
+    {
+      "name": "Lafayette Golf Course",
+      "address": "1 Fred Henry Drive, Lafayette, GA 30728",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://mycityoflafayettega.org/city_services/lafayette_golf_course.php"
+      ]
+    },
+    {
+      "name": "Laurel Island Links",
+      "address": "233 Marsh Harbour Parkway, Kingsland, GA 31548",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://laurelislandlinksgc.com/"
+      ]
+    },
+    {
+      "name": "Little Fishing Creek Golf Course",
+      "address": "65 GA-22, Milledgeville, GA 31061",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.littlefishingcreek.com/about"
+      ]
+    },
+    {
+      "name": "Mary Calder Golf Club",
+      "address": "1 Mary Calder Drive, Savannah, GA 31415",
+      "state": "GA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.marycaldergc.com/"
+      ]
+    },
+    {
+      "name": "Nob North Golf Course",
+      "address": "298 Nob North Drive, Cohutta, GA 30710",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.nobnorth.com/"
+      ]
+    },
+    {
+      "name": "Oxbow Creek Golf Club",
+      "address": "3491 Lumpkin Road, Columbus, GA 31903",
+      "state": "GA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://visitcolumbusga.com/visit/things-to-do/oxbow_creek_golf_course/"
+      ]
+    },
+    {
+      "name": "Rincon Golf Course",
+      "address": "1 Clubhouse Drive, Rincon, GA 31326",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://cityclubatlostplantation.com/"
+      ]
+    },
+    {
+      "name": "Riverview Park Golf Course",
+      "address": "300 Riverview Drive, Dublin, GA 31021",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.dublinriverview.com/"
+      ]
+    },
+    {
+      "name": "St. Andrews Golf Club",
+      "address": "8799 Edinburg Dr, Winston, GA 30187",
+      "state": "GA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.gsga.org/clubs/directory"
+      ]
+    },
+    {
+      "name": "Steel Canyon Golf Club",
+      "address": "460 Morgan Falls Road, Atlanta, GA 30350",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://steelcanyongolfclub.com/"
+      ]
+    },
+    {
+      "name": "Trident Lakes Golf Club",
+      "address": "1010 USS Proteus Blvd, Bldg. 0163, Naval Submarine Base, Kings Bay, GA 31547",
+      "state": "GA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gsga.org/clubs/directory",
+        "https://www.navymwrkingsbay.com/programs/496e3fd9-cdc4-4d80-bd5f-73f3bc9cabf3"
+      ]
+    },
+    {
       "name": "Waukon Golf & Country Club",
       "address": "308 1st Street SE, Waukon, IA 52172",
       "state": "IA",
@@ -51,6 +3399,16 @@
         "https://iowagolf.org/iga-member-club-directory/",
         "https://iowagolf.org/dir-waukon-cc/",
         "https://iowagolf.org/dir-waukon-golf-and-country-club/"
+      ]
+    },
+    {
+      "name": "Audubon Golf & Country Club",
+      "address": "520 South Division St. W, Audubon, IA 50025",
+      "state": "IA",
+      "county": "Audubon County",
+      "holes": 9,
+      "sources": [
+        "https://www.audubongolfcc.com/"
       ]
     },
     {
@@ -210,6 +3568,28 @@
       ]
     },
     {
+      "name": "Crestwood Hills Golf Course",
+      "address": "1101 Hillcrest Dr., Anita, IA 50020",
+      "state": "IA",
+      "county": "Cass County",
+      "holes": 18,
+      "sources": [
+        "https://www.anitagolf.com/",
+        "https://www.anitagolf.com/calendar/muscular-dystrophy-association-golf-tournament/"
+      ]
+    },
+    {
+      "name": "Nishna Hills Golf Club",
+      "address": "1504 E 14th St, Atlantic, IA 50022",
+      "state": "IA",
+      "county": "Cass County",
+      "holes": 18,
+      "sources": [
+        "https://nishnahillsgolf.com/",
+        "https://visitwesterniowa.com/wp-content/uploads/2024/05/Guide-1-84.pdf"
+      ]
+    },
+    {
       "name": "Highland Park Golf Course",
       "address": "944 17th Street NE, Mason City, IA 50401",
       "state": "IA",
@@ -244,6 +3624,17 @@
       ]
     },
     {
+      "name": "Wapsi Oaks Golf & Social",
+      "address": "1594 Highway 30, Calamus, IA 52729",
+      "state": "IA",
+      "county": "Clinton County",
+      "holes": 9,
+      "sources": [
+        "https://wapsioaks.com/contact-us/",
+        "https://cdnsm5-hosted.civiclive.com/UserFiles/Servers/Server_6481372/Image/Departments/Parks%20and%20Recreation/Park%20Master%20Plan/06%20Davenport%20Comprehensive%20Parks%20Master%20Plan%2004.18.22%20-%20Appendix%20E%20-%20Golf%20Course%20Study.pdf"
+      ]
+    },
+    {
       "name": "River Valley Golf Course",
       "address": "22927 Valley View Trail, Adel, IA 50003",
       "state": "IA",
@@ -252,6 +3643,16 @@
       "sources": [
         "https://iowagolf.org/iga-member-club-directory/",
         "https://iowagolf.org/dir-river-valley-gc/"
+      ]
+    },
+    {
+      "name": "Leon Golf & Country Club",
+      "address": "1204 W. 1st Street, Leon, IA",
+      "state": "IA",
+      "county": "Decatur County",
+      "holes": 9,
+      "sources": [
+        "https://southerniowatourism.com/counties/decatur-county/"
       ]
     },
     {
@@ -460,6 +3861,16 @@
       ]
     },
     {
+      "name": "Humboldt Country Club",
+      "address": "10 Country Club Dr, Humboldt, IA 50548",
+      "state": "IA",
+      "county": "Humboldt County",
+      "holes": 9,
+      "sources": [
+        "https://golfhumboldt.com/"
+      ]
+    },
+    {
       "name": "Marengo Golf Club",
       "address": "1655 M Avenue, Marengo, IA 52301",
       "state": "IA",
@@ -571,6 +3982,18 @@
       ]
     },
     {
+      "name": "Heritage Oaks Golf & Country Club",
+      "address": "15582 40th Street, Wapello, IA 52653",
+      "state": "IA",
+      "county": "Louisa County",
+      "holes": 18,
+      "sources": [
+        "https://www.heritageoaks.golf/faqs",
+        "https://www.heritageoaks.golf/home-1",
+        "https://louisacountyia.gov/wp-content/uploads/2022/06/Louisa-County-Comprehensive-Plan-6.24.2022.pdf"
+      ]
+    },
+    {
       "name": "Otter Valley Country Club",
       "address": "2669 Kennedy Ave., George, IA 51237",
       "state": "IA",
@@ -659,6 +4082,17 @@
       ]
     },
     {
+      "name": "Shenandoah Golf Course",
+      "address": "1800 S. Elm St., Shenandoah, IA 51601",
+      "state": "IA",
+      "county": "Page County",
+      "holes": 18,
+      "sources": [
+        "https://shenandoahiowagolf.com/",
+        "https://www.sciaiowa.com/pdfs/Shenandoah_Visitors_Guide.pdf"
+      ]
+    },
+    {
       "name": "Akron Golf Course",
       "address": "941 Country Club Dr., Akron, IA 51001",
       "state": "IA",
@@ -678,6 +4112,28 @@
       "sources": [
         "https://iowagolf.org/iga-member-club-directory/",
         "https://iowagolf.org/dir-hidden-acres-golf-course/"
+      ]
+    },
+    {
+      "name": "Fonda Golf Course",
+      "address": "13351 Highway 7, Fonda, IA",
+      "state": "IA",
+      "county": "Pocahontas County",
+      "holes": 9,
+      "sources": [
+        "https://visitwesterniowa.com/wp-content/uploads/2024/05/Guide-1-84.pdf",
+        "https://www.fonda.lib.ia.us/services/font-awesome"
+      ]
+    },
+    {
+      "name": "Pocahontas Golf Club",
+      "address": "310 NE 6th St, Pocahontas, IA",
+      "state": "IA",
+      "county": "Pocahontas County",
+      "holes": 9,
+      "sources": [
+        "https://visitwesterniowa.com/wp-content/uploads/2024/05/Guide-1-84.pdf",
+        "https://www.fonda.lib.ia.us/services/font-awesome"
       ]
     },
     {
@@ -833,6 +4289,27 @@
       "sources": [
         "https://iowagolf.org/iga-member-club-directory/",
         "https://iowagolf.org/dir-grinnell-college-gc/"
+      ]
+    },
+    {
+      "name": "Sac Country Club",
+      "address": "729 Oak Street, Sac City, IA",
+      "state": "IA",
+      "county": "Sac County",
+      "holes": 9,
+      "sources": [
+        "https://saccountryclub.com/aboutSCC.html",
+        "https://www.lakeviewlifestyle.com/find-your-passion/parks-recreation/"
+      ]
+    },
+    {
+      "name": "Spring Lake Golf & Country Club",
+      "address": "3286 Karr Avenue, Wall Lake, IA 51466",
+      "state": "IA",
+      "county": "Sac County",
+      "holes": 9,
+      "sources": [
+        "https://www.golfspringlake.com/"
       ]
     },
     {
@@ -1057,6 +4534,18 @@
       ]
     },
     {
+      "name": "Northwood Country Club",
+      "address": "1391 490th Street, Northwood, IA 50459",
+      "state": "IA",
+      "county": "Worth County",
+      "holes": 9,
+      "sources": [
+        "https://www.winn-worthbetco.com/life/recreation",
+        "https://nwcountryclub.com/",
+        "https://nwcountryclub.com/contact-us/"
+      ]
+    },
+    {
       "name": "Clarmond Country Club",
       "address": "1776 Page Ave, Clarion, IA 50525",
       "state": "IA",
@@ -1098,6 +4587,16 @@
       "sources": [
         "https://iowagolf.org/iga-member-club-directory/",
         "https://iowagolf.org/dir-avoca-cc/"
+      ]
+    },
+    {
+      "name": "Beaver Meadows Golf & Country Club",
+      "address": "32078 Highway 14, Parkersburg, IA 50665",
+      "state": "IA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://beavermeadowsgolf.org/"
       ]
     },
     {
@@ -1156,6 +4655,27 @@
       ]
     },
     {
+      "name": "Coon Hunters Golf Course",
+      "address": null,
+      "state": "IA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.traveljonescounty.com/connections/52869-coon-hunters-golf-course/"
+      ]
+    },
+    {
+      "name": "Corydon Golf Course",
+      "address": null,
+      "state": "IA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://cityofcorydoniowa.com/park-facilities-and-activities",
+        "https://cityofcorydoniowa.com/faq"
+      ]
+    },
+    {
       "name": "Deer Run Golf Course",
       "address": "801 First Avenue South, Hinton, IA 51024",
       "state": "IA",
@@ -1197,6 +4717,16 @@
       "sources": [
         "https://iowagolf.org/iga-member-club-directory/",
         "https://iowagolf.org/dir-finkbine-gc/"
+      ]
+    },
+    {
+      "name": "Five Island Golf Course",
+      "address": "14 N Lawler St, Emmetsburg, IA 50536",
+      "state": "IA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://emmetsburg.com/golf/"
       ]
     },
     {
@@ -1299,6 +4829,17 @@
         "https://iowagolf.org/iga-member-club-directory/",
         "https://iowagolf.org/dir-pleasant-valley-sports-club/",
         "https://www.pleasantvalleysportsclub.com/contact-us.html"
+      ]
+    },
+    {
+      "name": "Plum Creek Golf Course",
+      "address": "2689 Country Club Drive, Fredericksburg, IA 50630",
+      "state": "IA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.fredericksburgiowa.com/recreation.html",
+        "https://www.fredericksburgiowadevelopment.org/"
       ]
     },
     {
@@ -1444,6 +4985,127 @@
       "sources": [
         "https://iowagolf.org/iga-member-club-directory/",
         "https://iowagolf.org/dir-willowcreekgc/"
+      ]
+    },
+    {
+      "name": "Woods Edge Golf Course",
+      "address": "504 W Union St, Edgewood, IA 52042-8156",
+      "state": "IA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://woodsedgegolf.com/",
+        "https://www.claytoncountyiowa.com/business/woods-edge-golf-course"
+      ]
+    },
+    {
+      "name": "Green Haven Golf Course",
+      "address": "2800 Greenhaven Road, Anoka, MN 55303",
+      "state": "MN",
+      "county": "Anoka County",
+      "holes": 18,
+      "sources": [
+        "https://www.greenhavengolfcourse.com/index.php"
+      ]
+    },
+    {
+      "name": "Victory Links Golf Course",
+      "address": "2010 105th Ave NE, Blaine, MN 55449",
+      "state": "MN",
+      "county": "Anoka County",
+      "holes": 18,
+      "sources": [
+        "https://victorylinks.nscsports.org/"
+      ]
+    },
+    {
+      "name": "Hidden Greens Golf Course",
+      "address": "12977 200th Street East, Hastings, MN 55033",
+      "state": "MN",
+      "county": "Dakota County",
+      "holes": 18,
+      "sources": [
+        "https://www.hiddengreensgolf.com/faq-2"
+      ]
+    },
+    {
+      "name": "Rivers Bend Golf Course",
+      "address": "24461 Heron Rd, Preston, MN 55965",
+      "state": "MN",
+      "county": "Fillmore County",
+      "holes": 18,
+      "sources": [
+        "https://barnresort.com/riversbend"
+      ]
+    },
+    {
+      "name": "Sundance Golf Course",
+      "address": "15240 113th Ave N, Maple Grove, MN 55369",
+      "state": "MN",
+      "county": "Hennepin County",
+      "holes": 9,
+      "sources": [
+        "https://www.sundanceentertainment.com/golf/"
+      ]
+    },
+    {
+      "name": "Montgomery National Golf Club",
+      "address": "900 Rogers Drive, Montgomery, MN 56069",
+      "state": "MN",
+      "county": "Le Sueur County",
+      "holes": 18,
+      "sources": [
+        "https://www.montgomerynationalgolf.com/news"
+      ]
+    },
+    {
+      "name": "Pine City Country Club",
+      "address": "10413 Golf Course Rd. SW, Pine City, MN 55063",
+      "state": "MN",
+      "county": "Pine County",
+      "holes": 9,
+      "sources": [
+        "https://www.pinecitycc.com/contact/"
+      ]
+    },
+    {
+      "name": "Blackduck Municipal Golf Course",
+      "address": "20857 Blackduck Lake Rd NE, Blackduck, MN",
+      "state": "MN",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://blackduckgolf.com/golf/"
+      ]
+    },
+    {
+      "name": "Eagle Ridge Golf Course",
+      "address": "One Green Way, Coleraine, MN 55722",
+      "state": "MN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfeagleridge.com/"
+      ]
+    },
+    {
+      "name": "Oakdale Golf Club",
+      "address": "55106 Co Rd 38, Buffalo Lake, MN 55314",
+      "state": "MN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://oakdalegolfclub.com/"
+      ]
+    },
+    {
+      "name": "Springfield Golf Course",
+      "address": "651 S O’Connell Ave, Springfield, MN 56087",
+      "state": "MN",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://springfieldgolfcourse.net/course-tour/"
       ]
     },
     {
@@ -3046,6 +6708,1610 @@
       "sources": [
         "https://www.nebgolf.org/course-directory/wymore-country-club/",
         "https://www.nebgolf.org/course-directory/?cd_club_type=Public&cd_holes=9"
+      ]
+    },
+    {
+      "name": "Centennial Golf Course",
+      "address": "101 Centennial Blvd., Oak Ridge, TN, 37830",
+      "state": "TN",
+      "county": "Anderson County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses",
+        "https://www.centennial.golf/course-stats/"
+      ]
+    },
+    {
+      "name": "Egwani Farms Golf Course",
+      "address": "3920 South Singleton Station Rd., Rockford, TN, 37853",
+      "state": "TN",
+      "county": "Blount County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=20&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Lambert Acres Golf Course",
+      "address": "3402 Tuckaleechee Pike, Maryville, TN, 37803",
+      "state": "TN",
+      "county": "Blount County",
+      "holes": 27,
+      "sources": [
+        "https://tngolf.org/courses?offset=60&limit=20&hsLang=en",
+        "https://www.lambertacresgc.com/"
+      ]
+    },
+    {
+      "name": "Elizabethton Golf Club",
+      "address": "185 Buck Van Huss Rd., Elizabethton, TN, 37643",
+      "state": "TN",
+      "county": "Carter County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=20&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Nashville National Golf Links",
+      "address": "1725 New Hope Rd., Joelton, TN, 37080",
+      "state": "TN",
+      "county": "Cheatham County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=80&limit=20&hsLang=en",
+        "https://nashvillenational.golf/"
+      ]
+    },
+    {
+      "name": "Woodlake Golf Course",
+      "address": "330 Woodlake Blvd., Tazewell, TN, 37879",
+      "state": "TN",
+      "county": "Claiborne County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=160&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Willowbrook Golf Club",
+      "address": "6751 McMinnville Hwy, Manchester, TN, 37355",
+      "state": "TN",
+      "county": "Coffee County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=160&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Bear Trace at Cumberland Mountain",
+      "address": "407 Wild Plum Ln., Crossville, TN, 38572",
+      "state": "TN",
+      "county": "Cumberland County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses"
+      ]
+    },
+    {
+      "name": "Harpeth Hills Golf Course",
+      "address": "2424 Old Hickory Blvd., Nashville, TN, 37221",
+      "state": "TN",
+      "county": "Davidson County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=40&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Hermitage Golf Course - President's Reserve",
+      "address": "3940 Old Hickory Blvd., Old Hickory, TN, 37138",
+      "state": "TN",
+      "county": "Davidson County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=60&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "McCabe Golf Course",
+      "address": "100 46th Ave. N, Nashville, TN, 37209",
+      "state": "TN",
+      "county": "Davidson County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=80&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Nashboro Golf Club",
+      "address": "1101 Nashboro Blvd., Nashville, TN, 37217",
+      "state": "TN",
+      "county": "Davidson County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=80&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Ted Rhodes Golf Course",
+      "address": "1901 Ed Temple Blvd., Nashville, TN, 37208",
+      "state": "TN",
+      "county": "Davidson County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=120&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Two Rivers Golf Course",
+      "address": "2235 Two Rivers Pkwy, Nashville, TN, 37214",
+      "state": "TN",
+      "county": "Davidson County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=160&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "The Farms Golf Club",
+      "address": "2100 Club House Dr., Dyersburg, TN, 38024",
+      "state": "TN",
+      "county": "Dyer County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=140&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Scenic View Golf Course",
+      "address": "3992 AEDC Rd., Winchester, TN, 37398",
+      "state": "TN",
+      "county": "Franklin County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=100&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Clinchview Golf Club",
+      "address": "970 US-11W, Bean Station, TN, 37708",
+      "state": "TN",
+      "county": "Grainger County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=20&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Graysburg Hills Golf Club",
+      "address": "910 Graysburg Hills Rd., Chuckey, TN, 37641",
+      "state": "TN",
+      "county": "Greene County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=40&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Bear Trace at Harrison Bay",
+      "address": "8919 Harrison Bay Rd., Harrison, TN, 37341",
+      "state": "TN",
+      "county": "Hamilton County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses"
+      ]
+    },
+    {
+      "name": "Brainerd Golf Club",
+      "address": "5203 Old Mission Rd., Chattanooga, TN, 37411",
+      "state": "TN",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses",
+        "https://chattanooga.gov/things-to-do/golf-courses/brainerd"
+      ]
+    },
+    {
+      "name": "Brown Acres Golf Club",
+      "address": "406 Brown Rd., Chattanooga, TN, 37421",
+      "state": "TN",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses",
+        "https://chattanooga.gov/things-to-do/golf-courses/brown-acres"
+      ]
+    },
+    {
+      "name": "Moccasin Bend Golf Club",
+      "address": "381 Moccasin Bend Rd., Chattanooga, TN, 37405",
+      "state": "TN",
+      "county": "Hamilton County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=80&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "TN Golf Trail at Paris Landing",
+      "address": "285 Golf Course Ln., Buchanan, TN, 38222",
+      "state": "TN",
+      "county": "Henry County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=140&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Patriot Hills Golf Club",
+      "address": "735 Constitution Dr., Jefferson City, TN, 37760",
+      "state": "TN",
+      "county": "Jefferson County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=100&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Island Pointe Golf Club",
+      "address": "9610 Kodak Rd., Kodak, TN, 37764",
+      "state": "TN",
+      "county": "Knox County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=60&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Knoxville Municipal Golf Course",
+      "address": "3925 Schaad Rd., Knoxville, TN, 37921",
+      "state": "TN",
+      "county": "Knox County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=60&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Ruggles Ferry Golf Course",
+      "address": "8530 N. Ruggles Ferry Pike, Strawberry Plains, TN, 37871",
+      "state": "TN",
+      "county": "Knox County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=100&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Three Ridges Golf Course",
+      "address": "6101 Wise Springs Rd., Knoxville, TN, 37918",
+      "state": "TN",
+      "county": "Knox County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=140&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Willow Creek Golf Course",
+      "address": "12003 Kingston Pike, Knoxville, TN, 37934",
+      "state": "TN",
+      "county": "Knox County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=160&limit=20&hsLang=en",
+        "https://willowcreekgolf.net/"
+      ]
+    },
+    {
+      "name": "Dixie Oaks Golf Club",
+      "address": "76 Pleasant Garden Rd., Summertown, TN, 38483",
+      "state": "TN",
+      "county": "Lawrence County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=20&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Jackson National Golf Club",
+      "address": "307 Henderson Rd., Jackson, TN, 38305",
+      "state": "TN",
+      "county": "Madison County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=60&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Woodland Hills Country Club",
+      "address": "2 Club House Dr., Pinson, TN, 38366",
+      "state": "TN",
+      "county": "Madison County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=160&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "TN Golf Trail at Henry Horton",
+      "address": "4358 Nashville Hwy, Chapel Hill, TN, 37034",
+      "state": "TN",
+      "county": "Marshall County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=140&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Towhee Club",
+      "address": "3901 Kedron Rd., Spring Hill, TN, 37174",
+      "state": "TN",
+      "county": "Maury County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=160&limit=20&hsLang=en",
+        "https://www.towheeclub.com/"
+      ]
+    },
+    {
+      "name": "Ridgewood Golf Club",
+      "address": "387 County Rd. 603, Athens, TN, 37303",
+      "state": "TN",
+      "county": "McMinn County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=100&limit=20&hsLang=en",
+        "https://ridgewoodgc.com/"
+      ]
+    },
+    {
+      "name": "Springbrook Country Club",
+      "address": "123 Country Club Rd., Niota, TN, 37826",
+      "state": "TN",
+      "county": "McMinn County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=120&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Swan Lake Golf Course",
+      "address": "581 Dunbar Cave Rd., Clarksville, TN, 37043",
+      "state": "TN",
+      "county": "Montgomery County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=120&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "The River Club Golf & Learning",
+      "address": "1150 Warfield Blvd., Clarksville, TN, 37043",
+      "state": "TN",
+      "county": "Montgomery County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=140&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Golden Eagle Golf Club",
+      "address": "1500 Country Club Rd., Cookeville, TN, 38501",
+      "state": "TN",
+      "county": "Putnam County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=40&limit=20&hsLang=en",
+        "https://www.ttugoldeneaglegolfclub.com/course/"
+      ]
+    },
+    {
+      "name": "Southern Hills Golf Course",
+      "address": "4770 Ben Jared Rd., Baxter, TN, 38544",
+      "state": "TN",
+      "county": "Putnam County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=120&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "White Plains Golf Course",
+      "address": "4000 Plantation Drive, Cookeville, TN, 38506",
+      "state": "TN",
+      "county": "Putnam County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=160&limit=20&hsLang=en",
+        "https://www.whiteplainsgolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Indian Hills Golf Club",
+      "address": "405 Calumet Trace, Murfreesboro, TN, 37127",
+      "state": "TN",
+      "county": "Rutherford County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=60&limit=20&hsLang=en",
+        "https://indianhillsgc.com/"
+      ]
+    },
+    {
+      "name": "Creekside Plantation",
+      "address": "1045 Creekside Village Way, Seymour, TN, 37865",
+      "state": "TN",
+      "county": "Sevier County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=20&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Gatlinburg Golf Course",
+      "address": "520 Dollywood Ln., Pigeon Forge, TN, 37863",
+      "state": "TN",
+      "county": "Sevier County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=40&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Sevierville Golf Club - Highlands",
+      "address": "1444 Old Knoxville Highway, Sevierville, TN, 37876",
+      "state": "TN",
+      "county": "Sevier County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=120&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Sevierville Golf Club - River",
+      "address": "1444 Old Knoxville Highway, Sevierville, TN, 37876",
+      "state": "TN",
+      "county": "Sevier County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=120&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Links at Audubon",
+      "address": "663 Cherry Rd., Memphis, TN, 38117",
+      "state": "TN",
+      "county": "Shelby County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=60&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Links at Fox Meadows",
+      "address": "3064 Clarke Rd., Memphis, TN, 38115",
+      "state": "TN",
+      "county": "Shelby County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=80&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Links at Galloway",
+      "address": "3815 Walnut Grove Rd., Memphis, TN, 38111",
+      "state": "TN",
+      "county": "Shelby County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=80&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Links at Pine Hill",
+      "address": "930 East Mallory Ave., Memphis, TN, 38106",
+      "state": "TN",
+      "county": "Shelby County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=80&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Mirimichi Golf Course",
+      "address": "6195 Woodstock Cuba Rd., Millington, TN, 38053",
+      "state": "TN",
+      "county": "Shelby County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=80&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Overton Park 9",
+      "address": "2080 Poplar Ave., Memphis, TN, 38104",
+      "state": "TN",
+      "county": "Shelby County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=100&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Cattails at Meadowview",
+      "address": "1901 Meadowview Parkway, Kingsport, TN, 37660",
+      "state": "TN",
+      "county": "Sullivan County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses"
+      ]
+    },
+    {
+      "name": "Tri Cities Golf Club",
+      "address": "2354 Feathers Chapel Rd., Blountville, TN, 37617",
+      "state": "TN",
+      "county": "Sullivan County",
+      "holes": 27,
+      "sources": [
+        "https://tngolf.org/courses?offset=160&limit=20&hsLang=en",
+        "https://www.tricitiesgc.com/"
+      ]
+    },
+    {
+      "name": "Twelve Stones Crossing Golf Club",
+      "address": "1201 12 Stones Crossing, Goodlettsville, TN, 37072",
+      "state": "TN",
+      "county": "Sumner County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=160&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Forest Hills Golf Course",
+      "address": "200 Kubo Rd., Drummonds, TN, 38023",
+      "state": "TN",
+      "county": "Tipton County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=20&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Pine Oaks Golf Club",
+      "address": "1709 Buffalo Rd., Johnson City, TN, 37604",
+      "state": "TN",
+      "county": "Washington County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=100&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Persimmon Hills Golf Course",
+      "address": "1696 Rock Hill Rd., Sharon, TN, 38255",
+      "state": "TN",
+      "county": "Weakley County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=100&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Cheekwood Golf Club",
+      "address": "285 Spencer Creek Rd., Franklin, TN, 37069",
+      "state": "TN",
+      "county": "Williamson County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses"
+      ]
+    },
+    {
+      "name": "Franklin Bridge Golf Club",
+      "address": "750 Riverview Dr., Franklin, TN, 37064",
+      "state": "TN",
+      "county": "Williamson County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=40&limit=20&hsLang=en",
+        "https://franklinbridgegolf.com/nashville-golf-course/"
+      ]
+    },
+    {
+      "name": "The Little Course at Conner Lane",
+      "address": "400 Franklin Rd., Franklin, TN, 37069",
+      "state": "TN",
+      "county": "Williamson County",
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=80&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Pine Creek Golf Club",
+      "address": "1835 Logue Rd., Mt Juliet, TN, 37122",
+      "state": "TN",
+      "county": "Wilson County",
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=100&limit=20&hsLang=en",
+        "https://www.pinecreekgolf.net/"
+      ]
+    },
+    {
+      "name": "Bear Trace at Tims Ford",
+      "address": "891 Wisemen Bend Rd., Winchester, TN, 37398",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses"
+      ]
+    },
+    {
+      "name": "Cedar Crest Golf Club",
+      "address": "7972 Mona Rd., Murfreesboro, TN, 37129",
+      "state": "TN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses",
+        "https://www.cedarcrestgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Crockett Ridge Golf Course",
+      "address": "4439 L Jack Drive, Kingsport, TN, 37664",
+      "state": "TN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=20&limit=20&hsLang=en",
+        "https://www.crockettridgegc.com/course-details/"
+      ]
+    },
+    {
+      "name": "Deadhorse Lake Golf",
+      "address": "555 Frank Gardner Ln., Knoxville, TN, 37932",
+      "state": "TN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=20&limit=20&hsLang=en",
+        "https://deadhorselake.com/"
+      ]
+    },
+    {
+      "name": "Fair Oaks Golf Club",
+      "address": "220 Fairoaks Dr., Oakland, TN, 38060",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=20&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Flagstone Golf Course",
+      "address": "4179 Benton Pike NE, Cleveland, TN, 37323",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=20&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Gaylord Springs Golf Links",
+      "address": "18 Springhouse Ln, Nashville, TN, 37138",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=40&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Greens at Deerfield",
+      "address": "161 Clubhouse Dr., Lafollette, TN, 37766",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=40&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Greystone Golf Club",
+      "address": "2555 US-70, Dickson, TN, 37055",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=40&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Hermitage Golf Course - General's Retreat",
+      "address": "3939 Old Hickory Blvd., Old Hickory, TN, 37138",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=40&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Lake Tansi Golf Course",
+      "address": "2476 Dunbar Rd., Crossville, TN, 38572",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=60&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Mouse Creek Golf Club",
+      "address": "1118 Congress Parkway N., Athens, TN, 37303",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=80&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Old Fort Golf Club",
+      "address": "1028 Golf Club Ln., Murfreesboro, TN, 37129",
+      "state": "TN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://tngolf.org/courses?offset=80&limit=20&hsLang=en",
+        "https://www.oldfortgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Saddle Creek Golf Club",
+      "address": "1480 Fayetteville Hwy, Lewisburg, TN, 37091",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=100&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Smyrna Golf Course",
+      "address": "101 Sam Ridley Parkway E., Smyrna, TN, 37167",
+      "state": "TN",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://tngolf.org/courses?offset=120&limit=20&hsLang=en",
+        "https://www.smyrnagolfcourse.com/"
+      ]
+    },
+    {
+      "name": "TN Golf Trail at Fall Creek Falls",
+      "address": "626 Golf Course Rd., Spencer, TN, 38585",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=140&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "TN Golf Trail at Montgomery Bell",
+      "address": "800 Hotel Ave., Burns, TN, 37029",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=140&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "TN Golf Trail at Pickwick Landing",
+      "address": "60 Winfield Dunn Ln., Pickwick Dam, TN, 38365",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=140&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "TN Golf Trail at Warriors' Path",
+      "address": "1687 Fall Creek Rd., Kingsport, TN, 37664",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=140&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "The Course at Pillow Springs",
+      "address": "119 Stoneybrook Rd., Columbia, TN, 38401",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=120&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "The Course at Sewanee",
+      "address": "444 Green's View Rd., Sewanee, TN, 37383",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=120&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "The Legacy Golf Course",
+      "address": "100 Raymond Floyd Dr., Springfield, TN, 37172",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=140&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Whittle Springs Golf Course",
+      "address": "3113 Valley View Dr., Knoxville, TN, 37917",
+      "state": "TN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tngolf.org/courses?offset=160&limit=20&hsLang=en"
+      ]
+    },
+    {
+      "name": "Colonial Hills Golf Club",
+      "address": "1990 Gumtree Road, Forest, VA 24551",
+      "state": "VA",
+      "county": "Bedford County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11776?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Poplar Forest Golf Course",
+      "address": "960 Ramblewood Road, Forest, VA 24551",
+      "state": "VA",
+      "county": "Bedford County",
+      "holes": 9,
+      "sources": [
+        "https://vsga.org/courselisting/11934?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Clear Creek Golf Club",
+      "address": "732 Harleywood Road, Bristol, VA 24202",
+      "state": "VA",
+      "county": "Bristol city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11772?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Lake Gaston Golf Club",
+      "address": "890 Baird Road, Gasburg, VA 23857",
+      "state": "VA",
+      "county": "Brunswick County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11882?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Hat Creek Golf Course",
+      "address": "437 Golf Course Road, Brookneal, VA 24528",
+      "state": "VA",
+      "county": "Campbell County",
+      "holes": 9,
+      "sources": [
+        "https://vsga.org/courselisting/11841?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "The Golf Club at Mattaponi Springs",
+      "address": "22490 Penola Road, Ruther Glen, VA 22546",
+      "state": "VA",
+      "county": "Caroline County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11902?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Meadowcreek Golf Course",
+      "address": "1400 Pen Park Road, Charlottesville, VA 22901",
+      "state": "VA",
+      "county": "Charlottesville city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11904?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Battlefield Golf Club",
+      "address": "1001 Centerville Turnpike S, Chesapeake, VA 23322",
+      "state": "VA",
+      "county": "Chesapeake city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11729?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Providence Golf Club",
+      "address": "1160 S. Providence Road, Richmond, VA 23236",
+      "state": "VA",
+      "county": "Chesterfield County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11940?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Windy Hill Golf Course",
+      "address": "16500 Midlothian Turnpike, Midlothian, VA 23113",
+      "state": "VA",
+      "county": "Chesterfield County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/12015?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Goodyear Golf Club",
+      "address": "1901 Goodyear Boulevard, Danville, VA 24541",
+      "state": "VA",
+      "county": "Danville city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11828?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Burke Lake Golf Center",
+      "address": "6915 Ox Road, Fairfax Station, VA 22039",
+      "state": "VA",
+      "county": "Fairfax County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/55979?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Greendale Golf Course",
+      "address": "6700 Telegraph Road, Alexandria, VA 22310",
+      "state": "VA",
+      "county": "Fairfax County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11833?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Jefferson District Golf Course",
+      "address": "7900 Lee Highway, Falls Church, VA 22042",
+      "state": "VA",
+      "county": "Fairfax County",
+      "holes": 9,
+      "sources": [
+        "https://vsga.org/courselisting/11867?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Laurel Hill Golf Club",
+      "address": "8700 Laurel Crest Drive, Lorton, VA 22079",
+      "state": "VA",
+      "county": "Fairfax County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11889?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Oakmont Golf Center",
+      "address": "3136 Jermantown Road, Oakton, VA 22124",
+      "state": "VA",
+      "county": "Fairfax County",
+      "holes": 9,
+      "sources": [
+        "https://vsga.org/courselisting/55944?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Penderbrook Golf Club",
+      "address": "3700 Golf Trail Lane, Fairfax, VA 22033",
+      "state": "VA",
+      "county": "Fairfax County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11926?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Pinecrest Golf Course",
+      "address": "6600 Little River Turnpike, Alexandria, VA 22312",
+      "state": "VA",
+      "county": "Fairfax County",
+      "holes": 9,
+      "sources": [
+        "https://vsga.org/courselisting/11930?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Pohick Bay Golf Course",
+      "address": "10301 Gunston Road, Lorton, VA 22079",
+      "state": "VA",
+      "county": "Fairfax County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11933?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Twin Lakes Golf Course",
+      "address": "6201 Union Mill Road, Clifton, VA 20124",
+      "state": "VA",
+      "county": "Fairfax County",
+      "holes": 36,
+      "sources": [
+        "https://vsga.org/courselisting/11991?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Copper Cove Golf Club",
+      "address": "360 Chestnut Creek Drive, Hardy, VA 24101",
+      "state": "VA",
+      "county": "Franklin County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/12007?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Appleland Sports Center",
+      "address": "4490 Valley Pike, Stephens City, VA 22655",
+      "state": "VA",
+      "county": "Frederick County",
+      "holes": 12,
+      "sources": [
+        "https://vsga.org/courselisting/56054?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Sycamore Creek Golf Course",
+      "address": "1991 Manakin Road, Manakin-Sabot, VA 23103",
+      "state": "VA",
+      "county": "Goochland County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11984?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "The Hollows Golf Club",
+      "address": "14501 Greenwood Church Road, Montpelier, VA 23192",
+      "state": "VA",
+      "county": "Hanover County",
+      "holes": 27,
+      "sources": [
+        "https://vsga.org/courselisting/11854?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Heritage Oaks Golf Course",
+      "address": "680 Garbers Church Road, Harrisonburg, VA 22801",
+      "state": "VA",
+      "county": "Harrisonburg city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11844?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Queenfield Golf Club",
+      "address": "1896 Dabneys Mill Road, Manquin, VA 23106",
+      "state": "VA",
+      "county": "King William County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11942?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Algonkian Golf Course",
+      "address": "47001 Fairway Drive, Sterling, VA 20165",
+      "state": "VA",
+      "county": "Loudoun County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11718?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Brambleton Golf Course",
+      "address": "42180 Ryan Road, Ashburn, VA 20148",
+      "state": "VA",
+      "county": "Loudoun County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11748?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Raspberry Falls Golf & Hunt Club",
+      "address": "41601 Raspberry Drive, Leesburg, VA 20176",
+      "state": "VA",
+      "county": "Loudoun County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11945?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Sterling Golf Club",
+      "address": "333 S. Sterling Boulevard, Sterling, VA 20164",
+      "state": "VA",
+      "county": "Loudoun County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/56005?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Auburn Hills Golf Club",
+      "address": "1581 Turnberry Lane, Riner, VA 24149",
+      "state": "VA",
+      "county": "Montgomery County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11725?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Blacksburg Municipal Golf Course",
+      "address": "800 Graves Avenue, Blacksburg, VA 24060",
+      "state": "VA",
+      "county": "Montgomery County",
+      "holes": 9,
+      "sources": [
+        "https://vsga.org/courselisting/12043?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Newport News Golf Club",
+      "address": "901 Clubhouse Way, Newport News, VA 23608",
+      "state": "VA",
+      "county": "Newport News city",
+      "holes": 36,
+      "sources": [
+        "https://vsga.org/courselisting/11915?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Ocean View Golf Course",
+      "address": "9610 Norfolk Avenue, Norfolk, VA 23503",
+      "state": "VA",
+      "county": "Norfolk city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11917?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Dogwood Trace Golf Course",
+      "address": "3108 Homestead Drive, Petersburg, VA 23805",
+      "state": "VA",
+      "county": "Petersburg city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11791?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Bide-A-Wee Golf Course",
+      "address": "1 Bide-A-Wee Drive, Portsmouth, VA 23701",
+      "state": "VA",
+      "county": "Portsmouth city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11737?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Independence Golf Club",
+      "address": "600 Founders Bridge Boulevard, Midlothian, VA 23113",
+      "state": "VA",
+      "county": "Powhatan County",
+      "holes": 27,
+      "sources": [
+        "https://vsga.org/courselisting/11860?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Forest Greens Golf Club",
+      "address": "4500 Poa Annua Lane, Triangle, VA 22172",
+      "state": "VA",
+      "county": "Prince William County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11812?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Prince William Golf Course",
+      "address": "14631 Vint Hill Road, Nokesville, VA 20181",
+      "state": "VA",
+      "county": "Prince William County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11938?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Draper Valley Golf Club",
+      "address": "2800 Big Valley Road, Draper, VA 24324",
+      "state": "VA",
+      "county": "Pulaski County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11794?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Thorn Spring Golf Course",
+      "address": "4360 Country Club Drive, Pulaski, VA 24301",
+      "state": "VA",
+      "county": "Pulaski County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11941?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Hanging Rock Golf Course",
+      "address": "1500 Red Lane, Salem, VA 24153",
+      "state": "VA",
+      "county": "Roanoke County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11839?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Holston Hills Golf Course",
+      "address": "1000 Country Club Road, Marion, VA 24354",
+      "state": "VA",
+      "county": "Smyth County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11855?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Lee's Hill Golf Club",
+      "address": "10200 Old Dominion Parkway, Fredericksburg, VA 22408",
+      "state": "VA",
+      "county": "Spotsylvania County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11891?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Gauntlet Golf Club",
+      "address": "18 Fairway Drive, Fredericksburg, VA 22406",
+      "state": "VA",
+      "county": "Stafford County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/12039?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Ingleside Golf Resort",
+      "address": "1410 Commerce Road, Staunton, VA 24401",
+      "state": "VA",
+      "county": "Staunton city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11862?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Fincastle",
+      "address": "1000 Country Club Drive, Bluefield, VA 24605",
+      "state": "VA",
+      "county": "Tazewell County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11808?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Honey Bee Golf Club",
+      "address": "2500 S Independence Boulevard, Virginia Beach, VA 23456",
+      "state": "VA",
+      "county": "Virginia Beach city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11857?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Kempsville Greens Golf Course",
+      "address": "4840 Princess Anne Road, Virginia Beach, VA 23462",
+      "state": "VA",
+      "county": "Virginia Beach city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11871?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Red Wing Lake Golf Course",
+      "address": "1144 Prosperity Road, Virginia Beach, VA 23451",
+      "state": "VA",
+      "county": "Virginia Beach city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11947?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Stumpy Lake Golf Course",
+      "address": "4797 Indian River Rd, Virginia Beach, VA 23456",
+      "state": "VA",
+      "county": "Virginia Beach city",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11982?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Blue Ridge Shadows Golf Club",
+      "address": "456 Shadows Drive, Front Royal, VA 22630",
+      "state": "VA",
+      "county": "Warren County",
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11743?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Castle Rock Golf & Recreation",
+      "address": "900 Castle Rock Road, Pembroke, VA 24135",
+      "state": "VA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/53994?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "First Tee - Greater Richmond",
+      "address": "Belmont: 1600 Hilliard Road, Richmond, VA 23228",
+      "state": "VA",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://vsga.org/courselisting/11810?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "First Tee - Hampton Roads",
+      "address": "2400 Tournament Drive, Virginia Beach, VA 23456",
+      "state": "VA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://vsga.org/courselisting/56017?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Gordon Trent Golf Club",
+      "address": "2160 Golf Course Road, Stuart, VA 24171",
+      "state": "VA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11830?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Gypsy Hill Golf Club",
+      "address": "1 Deaver Drive, Staunton, VA 24401",
+      "state": "VA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/54096?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Herndon Centennial Golf Course",
+      "address": "909 Ferndale Avenue, Herndon, VA 20170",
+      "state": "VA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11846?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Meadows Farms Golf Course",
+      "address": "Meadows Farms: 4300 Flat Run Road, Locust Grove, VA 22508",
+      "state": "VA",
+      "county": null,
+      "holes": 45,
+      "sources": [
+        "https://vsga.org/courselisting/11905?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Pendleton Golf Club",
+      "address": "6383 Declaration Drive, Ruther Glen, VA 22546",
+      "state": "VA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11927?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Potomac Shores Golf Club",
+      "address": "1750 Dunnington Place, Dumfries, VA 22026",
+      "state": "VA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11936?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Reston National Golf Course",
+      "address": "11875 Sunrise Valley Drive, Reston, VA 20190",
+      "state": "VA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11949?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Sleepy Hole Golf Course",
+      "address": "4700 Sleepy Hole Road, Suffolk, VA 23435",
+      "state": "VA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11970?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Suffolk Golf Course",
+      "address": "1227 Holland Road, Suffolk, VA 23454",
+      "state": "VA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://vsga.org/courselisting/11983?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "The Schoolhouse Nine",
+      "address": "12018 Lee Highway, Sperryville, VA 22740",
+      "state": "VA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://vsga.org/courselisting/12089?hsLang=en",
+        "https://vsga.org/member-clubs"
+      ]
+    },
+    {
+      "name": "Brown Deer Golf Course",
+      "address": "7625 N. Range Line Rd., Milwaukee, WI 53209",
+      "state": "WI",
+      "county": "Milwaukee County",
+      "holes": 18,
+      "sources": [
+        "https://mke.golf/browndeer"
+      ]
+    },
+    {
+      "name": "Royal Scot Golf Course",
+      "address": "4831 Church Road, New Franken, WI 54229",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.royalscotgolfclub.com/history/"
       ]
     }
   ],
@@ -7800,13 +13066,35 @@
       "state": "IA",
       "fips": "19001",
       "name": "Adair County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://visitadaircounty.org/2020/07/16/outdoor-fun/amp/",
+        "https://southerniowatourism.com/counties/adair-county/",
+        "https://5by80.com/calendar/",
+        "https://www.traveliowa.com/places/greenfield-golf-and-country-club/3784/"
+      ],
+      "queries": [
+        "Adair County Iowa public golf course Greenfield",
+        "Greenfield Golf Country Club Iowa open public 5x80",
+        "\"Greenfield Golf\" \"Iowa\""
+      ],
+      "outcome": "Found Greenfield and 5x80 candidates; unrestricted public golf access not verified. No additions yet; this is not evidence of no public courses."
     },
     {
       "state": "IA",
       "fips": "19003",
       "name": "Adams County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.adamscountyiowa.com/tourism/recreation/",
+        "https://happyhollowcc.my.canva.site/"
+      ],
+      "queries": [
+        "Adams County Iowa public golf course Corning"
+      ],
+      "outcome": "Happy Hollow candidate excluded after its current operator page states golf is members-only all year. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -7818,13 +13106,31 @@
       "state": "IA",
       "fips": "19007",
       "name": "Appanoose County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://pactiowa.org/recreation-in-appanoose-county/",
+        "https://appanoosecounty.iowa.gov/wp-content/uploads/2020/04/Appanoose-County-Resource-Directory-2020.pdf"
+      ],
+      "queries": [
+        "Appanoose County Iowa public golf course"
+      ],
+      "outcome": "Appanoose Country Club has local guest-play limits; not added as unrestricted public. The Preserve already appears in the input inventory. Search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19009",
       "name": "Audubon County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.audubongolfcc.com/",
+        "https://www.cityofauduboniowa.com/c/-/?p=audubongolfcountryclub.html"
+      ],
+      "queries": [
+        "Audubon County Iowa public golf course"
+      ],
+      "outcome": "Added Audubon Golf & Country Club with operator-confirmed public access, address, county and nine holes. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -7866,7 +13172,16 @@
       "state": "IA",
       "fips": "19023",
       "name": "Butler County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://beavermeadowsgolf.org/",
+        "https://beavermeadowsgolf.org/tournaments"
+      ],
+      "queries": [
+        "\"Butler County\" \"Iowa\" golf public"
+      ],
+      "outcome": "Added Beaver Meadows with current owner-confirmed public access, nine holes and street address. Existing Legend Trail not duplicated. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -7884,7 +13199,20 @@
       "state": "IA",
       "fips": "19029",
       "name": "Cass County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://nishnahillsgolf.com/",
+        "https://www.anitagolf.com/",
+        "https://theagcc.com/golf/",
+        "https://visitwesterniowa.com/wp-content/uploads/2024/05/Guide-1-84.pdf"
+      ],
+      "queries": [
+        "Cass County Iowa public golf course Atlantic Griswold",
+        "Cass County Iowa golf Nishna Hills Crestwood public",
+        "\"Crestwood Hills\" golf \"address\""
+      ],
+      "outcome": "Added Nishna Hills and Crestwood Hills. Atlantic Golf & Country Club playing-privilege conditions not resolved. County addresses await geographic matching. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -7902,13 +13230,40 @@
       "state": "IA",
       "fips": "19035",
       "name": "Cherokee County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://cherokeeiowa.com/find-a-business/name/cherokee-golf-country-club/",
+        "https://aureliaia.com/community/parks-recreation/",
+        "https://cherokeeiowa.com/attractions/"
+      ],
+      "queries": [
+        "Cherokee County Iowa golf course public official",
+        "\"Aurelia Golf\" \"public\"",
+        "\"Cherokee Golf Course\" \"Iowa\" \"public\"",
+        "\"Aurelia Golf Club\" Iowa"
+      ],
+      "outcome": "Found Cherokee and Aurelia courses but unrestricted public golf access not verified from an eligible source; no additions yet. Search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19037",
       "name": "Chickasaw County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.chickasawtourism.com/golf",
+        "https://www.fredericksburgiowa.com/recreation.html",
+        "https://newhamptongolfclub.com/meet-us/",
+        "https://newhamptongolfclub.com/fees/"
+      ],
+      "queries": [
+        "Chickasaw County Iowa golf public course official",
+        "\"Plum Creek\" \"Fredericksburg\" golf Iowa course",
+        "\"New Hampton Golf\" club public",
+        "\"Nashua\" golf \"public\""
+      ],
+      "outcome": "Added Plum Creek with explicit non-member access. New Hampton has inconsistent four/five annual non-member-play limits and is held for review. Nashua public access unresolved. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -7926,13 +13281,38 @@
       "state": "IA",
       "fips": "19043",
       "name": "Clayton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.claytoncountyiowa.com/business/woods-edge-golf-course",
+        "https://woodsedgegolf.com/"
+      ],
+      "queries": [
+        "Clayton County Iowa golf course public official",
+        "Woods Edge Golf Edgewood address public"
+      ],
+      "outcome": "Added Woods Edge with explicit public label and owner-confirmed address and nine holes; exact county awaits geographic matching. Search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19045",
       "name": "Clinton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.cityofclintoniowa.gov/DocumentCenter/View/458/Parks-Master-Plan---December-2017-PDF",
+        "https://wapsioaks.com/",
+        "https://wapsioaks.com/contact-us/"
+      ],
+      "queries": [
+        "Clinton County Iowa golf course public official",
+        "Valley Oaks Golf Clinton official public holes",
+        "\"Wapsi Oaks\" golf",
+        "\"Wapsi Oaks\" \"nine\" tourism",
+        "\"Valley Oaks\" \"public\" site:clintonia.com",
+        "\"Valley Oaks\" \"public\" site:visitclintoniowa.com"
+      ],
+      "outcome": "Added Wapsi Oaks Golf & Social with owner-confirmed unrestricted public golf, street address and municipal-study nine-hole corroboration. Valley Oaks remains unverified. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -7950,13 +13330,32 @@
       "state": "IA",
       "fips": "19051",
       "name": "Davis County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://bloomfieldcountryclub.com/"
+      ],
+      "queries": [
+        "\"Davis County\" Iowa golf public course",
+        "\"Bloomfield\" \"Iowa\" golf \"public\"",
+        "\"Bloomfield Country Club\" \"Iowa\" website"
+      ],
+      "outcome": "Bloomfield operator confirms nine holes and address but does not explicitly establish unrestricted public golf. Held, not added. Search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19053",
       "name": "Decatur County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://southerniowatourism.com/counties/decatur-county/",
+        "https://dcdciowa.org/why-decatur-county/communities/"
+      ],
+      "queries": [
+        "\"Decatur County\" Iowa golf public course"
+      ],
+      "outcome": "Added Leon with explicit public access except member-league times. Lamoni remains a candidate. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8040,13 +13439,42 @@
       "state": "IA",
       "fips": "19081",
       "name": "Hancock County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.garnergolfcourse.com/",
+        "https://www.garnergolfcourse.com/rates-memberships",
+        "https://garneriowa.org/community/economic-development/"
+      ],
+      "queries": [
+        "\"Hancock County\" \"Iowa\" golf public",
+        "Garner golf course official public",
+        "\"Garner Golf Course\" \"public\" -site:golfdigest.com -site:wowsome.com -site:foretee.com -site:fairwayradar.com",
+        "\"Garner Golf\" \"city\"",
+        "\"Slippery Elm\" \"Klemme\" city"
+      ],
+      "outcome": "Garner operator verifies nine holes and address, and city confirms municipal ownership; explicit unrestricted public-access wording still under review. Slippery Elm candidate unresolved. No additions yet; search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19083",
       "name": "Hardin County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://hardincountyiaecondev.org/wp-content/uploads/2026/04/Hardin-County-Tourism-Guide_3.2026.pdf",
+        "https://www.hubbardiowagolf.com/",
+        "https://www.traveliowa.com/places/south-hardin-recreation-area-golf-course/1337/",
+        "https://plccgolf.com/"
+      ],
+      "queries": [
+        "\"Hardin County\" Iowa golf public course",
+        "\"Hubbard Golf\" \"public\"",
+        "site:traveliowa.com golf \"Hardin\"",
+        "\"Pine Lake Country Club\" \"public\" \"Eldora\"",
+        "\"Meadow Hills\" \"Iowa Falls\" \"public\""
+      ],
+      "outcome": "Official 2026 tourism guide identifies seven candidates. Pine Lake explicitly opens clubhouse bar to public, insufficient to verify golf access. Other candidates remain unverified from eligible current primary sources. No additions yet; search remains incomplete."
     },
     {
       "state": "IA",
@@ -8058,25 +13486,67 @@
       "state": "IA",
       "fips": "19087",
       "name": "Henry County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://henrycounty.iowa.gov/community/",
+        "https://westpointiowa.com/local-golf-courses"
+      ],
+      "queries": [
+        "\"Henry County\" Iowa golf public course",
+        "\"Deerwood\" \"New London\" \"public\"",
+        "Deerwood Golf New London Iowa official"
+      ],
+      "outcome": "County lists Mount Pleasant, Deerwood and Twin Lakes candidates. Explicit public golf access not yet verified from eligible sources; no additions yet."
     },
     {
       "state": "IA",
       "fips": "19089",
       "name": "Howard County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.howard-county.com/business/riceville-country-club",
+        "https://howardcounty.iowa.gov/community/"
+      ],
+      "queries": [
+        "\"Howard County\" Iowa golf course public",
+        "\"Cresco\" golf \"public\"",
+        "\"Riceville Country Club\" \"public\""
+      ],
+      "outcome": "Riceville and Cresco candidates found. Current eligible source confirming public golf remains unresolved; no additions yet. Search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19091",
       "name": "Humboldt County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://golfhumboldt.com/",
+        "https://golfhumboldt.com/golf-leagues-1"
+      ],
+      "queries": [
+        "\"Humboldt County\" \"Iowa\" golf public",
+        "\"Humboldt Country Club\" \"public\""
+      ],
+      "outcome": "Added Humboldt Country Club on current operator evidence explicitly welcoming the public; nine holes and street address confirmed. Association private label does not reflect operator public-access statement. Search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19093",
       "name": "Ida County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://idagroveia.com/activities/"
+      ],
+      "queries": [
+        "\"Ida County\" Iowa golf course public",
+        "\"Ida Grove Golf\" \"public\"",
+        "\"Holstein\" \"golf\" \"public\""
+      ],
+      "outcome": "City identifies Ida Grove as private. Holstein is an unverified candidate; no additions yet. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8112,13 +13582,32 @@
       "state": "IA",
       "fips": "19105",
       "name": "Jones County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.traveljonescounty.com/connections/52869-coon-hunters-golf-course/"
+      ],
+      "queries": [
+        "\"Jones County\" Iowa golf course public",
+        "\"Coon Hunters\" \"golf\" address Iowa"
+      ],
+      "outcome": "Added Coon Hunters on explicit county tourism public-access and nine-hole evidence; street address remains missing. Search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19107",
       "name": "Keokuk County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://kcediowa.org/live-here/things-to-do/",
+        "https://keokukcounty.iowa.gov/business/entertainmentrecreation/lagos-acres-golf-country-club",
+        "https://sigourney.com/parks-leisure-facilities/"
+      ],
+      "queries": [
+        "\"Keokuk County\" Iowa golf course public"
+      ],
+      "outcome": "Lagos Acres sources conflict on public/private access and nine/eighteen holes; development page also repeats Sigourney address. Held rather than importing conflicting facts. Sigourney city source calls its club private. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8142,13 +13631,34 @@
       "state": "IA",
       "fips": "19115",
       "name": "Louisa County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.heritageoaks.golf/faqs",
+        "https://www.heritageoaks.golf/home-1",
+        "https://louisacountyia.gov/wp-content/uploads/2022/06/Louisa-County-Comprehensive-Plan-6.24.2022.pdf"
+      ],
+      "queries": [
+        "\"Louisa County\" Iowa golf public",
+        "\"Heritage Oaks\" \"Iowa\" \"public\"",
+        "site:heritageoaks.golf \"18\""
+      ],
+      "outcome": "Added Heritage Oaks with owner-confirmed public access, distinct front/back nines, street address and county planning evidence. Search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19117",
       "name": "Lucas County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.chariton.org/vertical/Sites/%7BA4F234CD-49D2-453F-B834-D4566EC7BDE3%7D/uploads/FINAL_Position_and_Community_Profile_2024.pdf"
+      ],
+      "queries": [
+        "\"Lucas County\" Iowa golf public",
+        "\"Chariton\" golf course \"public\""
+      ],
+      "outcome": "Found disc-golf material and unverified ball-golf candidates; none added. No claim that the county has no public courses. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8160,7 +13670,16 @@
       "state": "IA",
       "fips": "19121",
       "name": "Madison County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.exploremadisoncounty.com/play/lakeview_country_club/",
+        "https://www.madisoncounty.com/covered-bridges-scenic-byway-tearsheet-map-2/"
+      ],
+      "queries": [
+        "\"Madison County\" Iowa golf public"
+      ],
+      "outcome": "Lakeview candidate found; tourism source restricts non-member play to nonresidents. Held for unrestricted-public-access review. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8190,7 +13709,17 @@
       "state": "IA",
       "fips": "19131",
       "name": "Mitchell County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.sunnybraegolf.com/",
+        "https://www.sunnybraegolf.com/green-fee"
+      ],
+      "queries": [
+        "\"Mitchell County\" \"Iowa\" golf public",
+        "\"Sunny Brae\" golf public"
+      ],
+      "outcome": "Sunny Brae operator calls the course private; public access not established in reviewed material. No additions yet. This does not establish an absence of public courses; search remains incomplete."
     },
     {
       "state": "IA",
@@ -8202,13 +13731,33 @@
       "state": "IA",
       "fips": "19135",
       "name": "Monroe County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.traveliowa.com/places/albia-golf-club/1372/"
+      ],
+      "queries": [
+        "\"Monroe County\" Iowa golf public",
+        "\"Albia\" golf course \"public\"",
+        "\"Albia Golf\" \"public\" -site:foretee.com -site:golfdigest.com"
+      ],
+      "outcome": "Albia candidate found with nine holes and street address, but eligible explicit public-access source not yet verified. No additions yet; search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19137",
       "name": "Montgomery County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.redoakiowa.com/amenities/",
+        "https://redoakcountryclub.net/course/"
+      ],
+      "queries": [
+        "\"Montgomery County\" \"Iowa\" golf course",
+        "Red Oak Iowa Country Club public visitors"
+      ],
+      "outcome": "Red Oak owner welcomes guests but broad public access is not explicit and association labels private. Held; no additions yet. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8232,13 +13781,35 @@
       "state": "IA",
       "fips": "19145",
       "name": "Page County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://shenandoahiowagolf.com/",
+        "https://www.sciaiowa.com/pdfs/Shenandoah_Visitors_Guide.pdf",
+        "https://www.clarindacountryclub.com/news-letter"
+      ],
+      "queries": [
+        "\"Page County\" \"Iowa\" golf public",
+        "Shenandoah Iowa golf course official public",
+        "Clarinda Iowa golf municipal course official"
+      ],
+      "outcome": "Added Shenandoah with explicit public access in local visitor guide and owner layout/address. Clarinda imposes residency-related guest limits and is held. Search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19147",
       "name": "Palo Alto County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://emmetsburg.com/golf/",
+        "https://emmetsburg.com/parks-recreation/"
+      ],
+      "queries": [
+        "\"Palo Alto County\" \"Iowa\" golf course",
+        "Five Island Golf Emmetsburg official public"
+      ],
+      "outcome": "Added Five Island with city-confirmed public access, street address and nine holes. Other county candidates remain unchecked. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8250,7 +13821,20 @@
       "state": "IA",
       "fips": "19151",
       "name": "Pocahontas County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://visitwesterniowa.com/wp-content/uploads/2024/05/Guide-1-84.pdf",
+        "https://www.fonda.lib.ia.us/services/font-awesome"
+      ],
+      "queries": [
+        "\"Pocahontas County\" \"Iowa\" golf course public",
+        "Pocahontas Iowa golf club official public",
+        "Fonda golf Iowa official public",
+        "Laurens golf Iowa official public",
+        "site:discoverpoco.com \"golf\""
+      ],
+      "outcome": "Added Pocahontas and Fonda using regional tourism explicit public labels and public library address corroboration. Laurens and Rolfe require additional verification. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8274,13 +13858,37 @@
       "state": "IA",
       "fips": "19159",
       "name": "Ringgold County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://southerniowatourism.com/counties/ringgold-county/",
+        "https://mtayrgolf.com/index.html",
+        "https://svcc-golf.com/"
+      ],
+      "queries": [
+        "\"Ringgold County\" \"Iowa\" \"golf\"",
+        "\"Mount Ayr\" golf \"public\"",
+        "\"Sun Valley\" golf Ellston public"
+      ],
+      "outcome": "Mount Ayr only explicitly labels its driving range public. Sun Valley has non-member rates but unrestricted course access remains under review. No additions yet. Search remains incomplete."
     },
     {
       "state": "IA",
       "fips": "19161",
       "name": "Sac County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.golfspringlake.com/",
+        "https://saccountryclub.com/aboutSCC.html",
+        "https://www.lakeviewlifestyle.com/find-your-passion/parks-recreation/"
+      ],
+      "queries": [
+        "\"Sac County\" \"Iowa\" \"golf\"",
+        "\"Sac Country Club\" golf public Iowa",
+        "\"Spring Lake\" \"Lake View\" golf public Iowa"
+      ],
+      "outcome": "Added Spring Lake and Sac Country Club with explicit owner/city public-access evidence. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8310,7 +13918,18 @@
       "state": "IA",
       "fips": "19171",
       "name": "Tama County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://tamacounty.iowa.gov/about/communities/",
+        "https://www.traer.com/_files/ugd/88910d_7c9389f88b804333ad6e9693477e2757.pdf"
+      ],
+      "queries": [
+        "\"Tama County\" \"Iowa\" \"golf\"",
+        "\"Traer\" golf \"public\"",
+        "site:traer.com golf"
+      ],
+      "outcome": "Traer and Tama-Toledo candidates remain unverified for public golf access; no additions yet. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8322,7 +13941,17 @@
       "state": "IA",
       "fips": "19175",
       "name": "Union County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.unioncountyfairgrounds.com/union-county-amenities.html"
+      ],
+      "queries": [
+        "\"Union County\" \"Iowa\" \"golf\"",
+        "\"Crestmoor\" golf \"public\"",
+        "\"Crestmoor Golf\" official"
+      ],
+      "outcome": "Crestmoor and Lakeshore candidates identified. Public course access not verified; a public driving range alone is insufficient. No additions yet. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8352,7 +13981,19 @@
       "state": "IA",
       "fips": "19185",
       "name": "Wayne County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://waynecounty.iowa.gov/history/",
+        "https://cityofcorydoniowa.com/park-facilities-and-activities",
+        "https://cityofcorydoniowa.com/faq"
+      ],
+      "queries": [
+        "\"Wayne County\" \"Iowa\" \"golf\"",
+        "\"Corydon\" golf \"public\"",
+        "site:cityofcorydoniowa.com golf"
+      ],
+      "outcome": "Added Corydon Golf Course on city non-member fee and nine-hole evidence, street address still missing. Humeston is not yet researched. Search remains incomplete."
     },
     {
       "state": "IA",
@@ -8382,7 +14023,18 @@
       "state": "IA",
       "fips": "19195",
       "name": "Worth County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.winn-worthbetco.com/life/recreation",
+        "https://nwcountryclub.com/",
+        "https://nwcountryclub.com/contact-us/"
+      ],
+      "queries": [
+        "\"Worth County\" \"Iowa\" golf public",
+        "\"Pioneer Town\" \"public\" golf"
+      ],
+      "outcome": "Added Northwood with explicit regional tourism public-access evidence and owner-confirmed address/nine holes. Pioneer Town remains unverified for public access. Search remains incomplete."
     },
     {
       "state": "IA",
