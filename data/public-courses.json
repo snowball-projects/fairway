@@ -9,12 +9,12 @@
   "rights": "Bare facts and explicitly licensed source attributes with citations. No source prose, photographs, map geometry or scorecard artwork included. Applicable source-data licenses and adaptations are recorded below.",
   "coverage": {
     "national_complete": false,
-    "course_record_count": 2655,
-    "complete_essentials": 1571,
+    "course_record_count": 2762,
+    "complete_essentials": 1579,
     "state_record_counts": {
       "AK": 1,
       "AL": 105,
-      "AR": 1,
+      "AR": 11,
       "AZ": 1,
       "CA": 252,
       "CO": 6,
@@ -27,7 +27,7 @@
       "IA": 145,
       "ID": 1,
       "IL": 18,
-      "IN": 31,
+      "IN": 47,
       "KS": 117,
       "KY": 55,
       "LA": 27,
@@ -37,8 +37,8 @@
       "MI": 13,
       "MN": 11,
       "MO": 4,
-      "MS": 47,
-      "MT": 3,
+      "MS": 48,
+      "MT": 45,
       "NC": 160,
       "ND": 20,
       "NE": 127,
@@ -48,8 +48,8 @@
       "NV": 1,
       "NY": 25,
       "OH": 118,
-      "OK": 117,
-      "OR": 27,
+      "OK": 120,
+      "OR": 42,
       "PA": 84,
       "RI": 23,
       "SC": 99,
@@ -59,17 +59,17 @@
       "UT": 87,
       "VA": 65,
       "VT": 9,
-      "WA": 42,
+      "WA": 62,
       "WI": 14,
       "WV": 2,
       "WY": 2
     },
-    "counties_represented": 750,
-    "counties_searched": 362,
+    "counties_represented": 757,
+    "counties_searched": 453,
     "missing_fields": {
-      "address": 50,
-      "county": 847,
-      "holes": 341
+      "address": 51,
+      "county": 945,
+      "holes": 349
     },
     "states_represented": [
       "AK",
@@ -1385,6 +1385,109 @@
         "https://nlr.ar.gov/departments/parks-and-recreation/community-facilities/sports-complexes/burns-park-golf-course/golf-fees/"
       ],
       "access_note": "Tee times are required daily. Single players may book the Tournament Course, with possible transfer to the Championship Course if an opening is available."
+    },
+    {
+      "name": "Ben Geren Golf Course",
+      "address": "6471 Golf Course Loop, Fort Smith, AR 72903",
+      "state": "AR",
+      "county": "Sebastian County",
+      "holes": 27,
+      "sources": [
+        "https://sebastiancountyar.gov/Parks-Rec/Ben-Geren-Golf-Course"
+      ],
+      "access_note": "Closed Thanksgiving Day and Christmas Day."
+    },
+    {
+      "name": "Big Creek Golf and Country Club",
+      "address": "452 Country Club Drive Mountain Home, AR 72653",
+      "state": "AR",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.arkansas.com/experiences/discover/attraction-listings/big-creek-golf-and-country-club"
+      ]
+    },
+    {
+      "name": "Big Lake Country Club",
+      "address": "3194 Country Road 264 W Manila, AR 72442",
+      "state": "AR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.arkansas.com/experiences/discover/attraction-listings/big-lake-country-club"
+      ]
+    },
+    {
+      "name": "Cooper's Hawk Golf Course",
+      "address": "1324 Lacrosse Road, Melbourne, AR 72556",
+      "state": "AR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://coopershawkgolf.com/"
+      ]
+    },
+    {
+      "name": "DeGray Lake Resort State Park Golf Course",
+      "address": "2027 State Park Entrance Road Bismarck, AR 71929",
+      "state": "AR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.arkansas.com/experiences/discover/attraction-listings/degray-lake-resort-state-park",
+        "https://www.arkansas.com/experiences/discover/all-experiences/golfing"
+      ]
+    },
+    {
+      "name": "Deer Trails Golf Club",
+      "address": "11707 Custer Blvd Barling, AR 72923",
+      "state": "AR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.arkansas.com/experiences/discover/attraction-listings/deer-trails-golf-club"
+      ]
+    },
+    {
+      "name": "Lion's Den Golf Club",
+      "address": "11044 Bay Ridge Dr. Dardanelle, AR 72834",
+      "state": "AR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.arkansas.com/experiences/discover/attraction-listings/lions-den-golf-club"
+      ]
+    },
+    {
+      "name": "Ouachita Country Club",
+      "address": "123 Country Club Ln Mena, AR 71953",
+      "state": "AR",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.arkansas.com/experiences/discover/attraction-listings/ouachita-country-club"
+      ]
+    },
+    {
+      "name": "The Ridges at Village Creek",
+      "address": "4268 Highway 284 Wynne, AR 72396",
+      "state": "AR",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.arkansas.com/experiences/discover/attraction-listings/the-ridges-at-village-creek-state-park",
+        "https://www.arkansas.com/experiences/discover/attraction-listings/village-creek-state-park"
+      ]
+    },
+    {
+      "name": "Vache Grasse Golf Course",
+      "address": "891 Country Club Rd. Greenwood, AR 72936",
+      "state": "AR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.arkansas.com/experiences/discover/attraction-listings/vache-grasse-country-club"
+      ]
     },
     {
       "name": "Ken McDonald Golf Course",
@@ -12429,6 +12532,27 @@
       ]
     },
     {
+      "name": "Bridgewater Golf Club",
+      "address": "1818 Morningstar Road, Auburn, IN 46706",
+      "state": "IN",
+      "county": "DeKalb County",
+      "holes": 18,
+      "sources": [
+        "https://visitdekalb.org/wp-content/uploads/2025/05/2025-Visit-DeKalb-QOP-Guide-web-1.pdf",
+        "https://www.bridgewatergc.com/"
+      ]
+    },
+    {
+      "name": "Garrett Country Club",
+      "address": "401 N. Walsh St., Garrett, IN",
+      "state": "IN",
+      "county": "DeKalb County",
+      "holes": 18,
+      "sources": [
+        "https://visitdekalb.org/wp-content/uploads/2025/05/2025-Visit-DeKalb-QOP-Guide-web-1.pdf"
+      ]
+    },
+    {
       "name": "Bent Oak Golf Club",
       "address": "3610 Bent Oak Trl., Elkhart, IN 46517",
       "state": "IN",
@@ -12440,6 +12564,17 @@
       "access_note": "Pre-booked tee times required Friday–Sunday and encouraged Monday–Thursday."
     },
     {
+      "name": "Arbor Trace Golf Club",
+      "address": "2500 East 550 North, Marion, IN 46952",
+      "state": "IN",
+      "county": "Grant County",
+      "holes": null,
+      "sources": [
+        "https://www.arbortracegc.com/",
+        "https://www.arbortracegc.com/golf-club/about-us"
+      ]
+    },
+    {
       "name": "Forest Park Golf Course",
       "address": "701 Cicero Road, Noblesville, IN 46060",
       "state": "IN",
@@ -12448,6 +12583,26 @@
       "sources": [
         "https://www.noblesville.in.gov/717/Golf-Courses",
         "https://www.noblesville.in.gov/716/Recreation-Areas"
+      ]
+    },
+    {
+      "name": "Hawk's Tail Golf Course",
+      "address": "145 S Morristown Pike, Greenfield, IN 46140",
+      "state": "IN",
+      "county": "Hancock County",
+      "holes": 18,
+      "sources": [
+        "https://www.hawkstail.com/"
+      ]
+    },
+    {
+      "name": "West Chase Golf Club",
+      "address": "4 Hollaway Blvd, Brownsburg, IN 46112",
+      "state": "IN",
+      "county": "Hendricks County",
+      "holes": 18,
+      "sources": [
+        "https://www.west-chasegolf.com/"
       ]
     },
     {
@@ -12462,6 +12617,17 @@
       "access_note": "Tee times are required on weekends and recommended on weekdays."
     },
     {
+      "name": "Foxcliff Golf Club",
+      "address": "1970 E. Mapleturn Rd, Martinsville, IN 46151",
+      "state": "IN",
+      "county": "Morgan County",
+      "holes": 18,
+      "sources": [
+        "https://foxcliffgolfclub.com/",
+        "https://foxcliffgolfclub.com/about-us/"
+      ]
+    },
+    {
       "name": "Turkey Run Golf Club",
       "address": "7951 East State Road 47, Waveland, IN 47989",
       "state": "IN",
@@ -12472,6 +12638,17 @@
         "https://turkeyrungolf.com/golf/"
       ],
       "access_note": "Tee times required on weekends."
+    },
+    {
+      "name": "Battle Ground Golf Club",
+      "address": "5505 Pretty Prairie Rd., Battle Ground, IN 47920",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://golfbattleground.com/",
+        "https://golfbattleground.com/course-information/"
+      ]
     },
     {
       "name": "Black Squirrel Golf Club",
@@ -12519,6 +12696,18 @@
       ]
     },
     {
+      "name": "Chesapeake Run Golf Club",
+      "address": "6430 S 250 W, North Judson, IN 46366",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://chesapeakerungolfclub.com/",
+        "https://chesapeakerungolfclub.com/rates/"
+      ],
+      "access_note": "Walking is permitted only after 1 PM on Mondays, weekends and holidays. Owner header consistently gives S 250 W; older prose directions inconsistently mention 250 East."
+    },
+    {
       "name": "Coffin Golf Club",
       "address": "2401 Cold Spring Road, Indianapolis, IN 46222",
       "state": "IN",
@@ -12528,6 +12717,29 @@
         "https://coffingolf.com/",
         "https://parks.indy.gov/parks/coffin-golf-course/"
       ]
+    },
+    {
+      "name": "Coyote Crossing Golf Club",
+      "address": "5801 Augusta Blvd., West Lafayette, IN 47906",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.coyotecrossinggolf.com/"
+      ],
+      "access_note": "Owner booking-window statements differ between seven and 14 days; verify directly when booking."
+    },
+    {
+      "name": "Eagle Glen Golf Club",
+      "address": "129 S Eagle Glen Trail, Columbia City, IN 46725",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://eagleglengolfonline.com/about-us/course-information/",
+        "https://eagleglengolfonline.com/contact-us/"
+      ],
+      "access_note": "Owner contact page also abbreviates street as South Eagle Trail; full Eagle Glen Trail appears in owner-authored location label."
     },
     {
       "name": "Fendrich Golf Course",
@@ -12586,6 +12798,28 @@
       ]
     },
     {
+      "name": "Highland Lake Golf Course",
+      "address": "1972 Highland Rd, Richmond, IN 47374",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.richmondindiana.gov/resources/sports",
+        "https://www.richmondindiana.gov/resources/highland-lake-golf-course",
+        "https://www.richmondindiana.gov/location/highland-golf-course"
+      ]
+    },
+    {
+      "name": "Juday Creek Golf Course",
+      "address": "14770 Lindy Drive, Granger, IN 46530",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.judaycreek.com/"
+      ]
+    },
+    {
       "name": "McDonald Golf Course",
       "address": "2905 E Morgan Ave, Evansville, IN 47711",
       "state": "IN",
@@ -12604,6 +12838,17 @@
       "holes": 18,
       "sources": [
         "https://www.noblehawk.com/"
+      ]
+    },
+    {
+      "name": "North Branch Golf Course",
+      "address": "8492 E Base Rd, Greensburg, IN 47240",
+      "state": "IN",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://northbranchgc.com/",
+        "https://northbranchgc.com/course/"
       ]
     },
     {
@@ -12681,6 +12926,16 @@
       ]
     },
     {
+      "name": "Rozella Ford Golf Club",
+      "address": "1700 Rozella Road, Warsaw, IN 46580",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://rozellafordgolfclub.com/"
+      ]
+    },
+    {
       "name": "Sandy Pines Golf Club",
       "address": "10527 Bunker Drive, DeMotte, IN 46310",
       "state": "IN",
@@ -12715,6 +12970,16 @@
       ]
     },
     {
+      "name": "Twin Bridges Golf Club",
+      "address": "1001 Cartersburg Road, Danville, IN 46122",
+      "state": "IN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://twinbridgesgolfclub.com/"
+      ]
+    },
+    {
       "name": "Warren Golf Course",
       "address": "Douglas Road, Notre Dame, IN 46556",
       "state": "IN",
@@ -12726,6 +12991,17 @@
         "https://fightingirish.com/facilities/warren-golf-course"
       ],
       "access_note": "Owner publishes a Douglas Road entrance without a street number. Home football weekends have special rates and booking procedures."
+    },
+    {
+      "name": "Westwood Golf Club",
+      "address": "1742 W Country Club Drive, New Castle, IN 47362",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.westwoodgc.net/",
+        "https://www.westwoodgc.net/contact-us"
+      ]
     },
     {
       "name": "Winding Ridge Golf Club",
@@ -16544,6 +16820,19 @@
       ]
     },
     {
+      "name": "Bay Breeze Golf Course",
+      "address": "500 Ploesti Dr, Bldg 6732, Keesler AFB, MS 39534",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://keesler81fss.com/bay-breeze-golf-course/",
+        "https://keesler81fss.com/wp-content/uploads/2025/11/Discover-Keesler_1225_web.pdf",
+        "https://www.pga.com/play/ms/keesler-afb/bay-breeze-golf-course/0425470"
+      ],
+      "access_note": "Civilian access requires advance contact with the course and Visitor Center clearance/background check, with ID, vehicle registration and insurance. Weekend passes must be arranged during weekday Visitor Center hours. Street/building follows the operator December 2025 publication; base city/ZIP follows PGA listing, while the current operator web contact has a different ZIP and misspelled street."
+    },
+    {
       "name": "Bay Pointe Country Club",
       "address": "800 Bay Pointe Dr, Brandon, MS 39047",
       "state": "MS",
@@ -16925,6 +17214,525 @@
         "https://www.playoldworks.com/golf/golf-rates",
         "https://www.playoldworks.com/annual-passes"
       ]
+    },
+    {
+      "name": "Choteau Country Club",
+      "address": "1502 Airport Road, Choteau, MT 59422",
+      "state": "MT",
+      "county": "Teton County",
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/574",
+        "https://data.visitmt.com/data/json/site/574",
+        "https://www.msgagolf.org/courses/choteau-country-club",
+        "https://centralmontana.com/counties/teton/"
+      ],
+      "access_note": "Public access classification and street address from Montana tourism API; physical hole count independently stated by Montana State Golf Association. Regional 2026 travel-planner table lists 18, but the association explicitly describes nine physical holes; eighteen-hole round pricing is not a physical-hole total."
+    },
+    {
+      "name": "Harvest Hills Golf Course",
+      "address": "89 Old Hwy, Fairfield, MT 59436",
+      "state": "MT",
+      "county": "Teton County",
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/10234",
+        "https://data.visitmt.com/data/json/site/10234",
+        "https://www.msgagolf.org/courses/harvest-hills-golf-course",
+        "https://centralmontana.com/counties/teton/"
+      ],
+      "access_note": "Public access classification and street address from Montana tourism API; physical hole count independently stated by Montana State Golf Association. Regional 2026 travel-planner table lists 18, but the association explicitly describes nine physical holes; eighteen-hole round pricing is not a physical-hole total."
+    },
+    {
+      "name": "Anaconda Country Club",
+      "address": "1 Country Club Lane, Anaconda, MT 59711",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2104",
+        "https://data.visitmt.com/data/json/site/2104"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Arrowhead Meadows Golf Course",
+      "address": "4156 US Highway 12, White Sulphur Springs, MT 59645",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2286",
+        "https://data.visitmt.com/data/json/site/2286"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Bill Roberts Golf Course",
+      "address": "2201 North Benton Avenue, Helena, MT 59604",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/2123",
+        "https://data.visitmt.com/data/json/site/2123"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Bridger Creek Golf Course",
+      "address": "2710 McIlhattan Road, Bozeman, MT 59715",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/10022",
+        "https://data.visitmt.com/data/json/site/10022"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Buffalo Hill Golf Club",
+      "address": "1176 North Main Street, Kalispell, MT 59901",
+      "state": "MT",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://data.visitmt.com/data/site/79",
+        "https://data.visitmt.com/data/json/site/79"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts. Facility total combines separately described Cameron 9 and Championship 18."
+    },
+    {
+      "name": "Cabinet View Golf Club",
+      "address": "458 Cabinet View Road, Libby, MT 59923",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/842",
+        "https://data.visitmt.com/data/json/site/842"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Canyon River Golf Club",
+      "address": "1268 Bandmann Trail, Missoula, MT 59802",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/17973",
+        "https://data.visitmt.com/data/json/site/17973",
+        "https://canyonrivergolfclub.com/"
+      ],
+      "access_note": "Public status and inventory address from Montana tourism API; physical hole total confirmed by current operator."
+    },
+    {
+      "name": "Cottonwood Country Club",
+      "address": "508 Country Club Drive, Glendive, MT 59330",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2158",
+        "https://data.visitmt.com/data/json/site/2158"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Elks Pine Meadows",
+      "address": "320 Country Club Lane, Lewistown, MT 59457",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2125",
+        "https://data.visitmt.com/data/json/site/2125",
+        "https://centralmontana.com/pdfs/2026-Central-Montana-Travel-Planner.pdf",
+        "https://www.msgagolf.org/courses/pine-meadows-golf-course"
+      ],
+      "access_note": "Public classification from state API. Regional tourism’s 2026 course table and state golf association narrative describe nine holes; the association numeric summary instead shows 18/par 72. Retained the explicitly described physical nine, rather than a double-round total."
+    },
+    {
+      "name": "Fairmont Hot Springs Resort Golf Course",
+      "address": "1500 Fairmont Road, Fairmont, MT 59711",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/172",
+        "https://data.visitmt.com/data/json/site/172"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Forsyth Golf and Country Club",
+      "address": "47 Smith Creek Road, Forsyth, MT 59327",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2115",
+        "https://data.visitmt.com/data/json/site/2115"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts. Nine physical holes; the description says eighteen-hole rounds use different tee markers."
+    },
+    {
+      "name": "Glacier View Golf Club",
+      "address": "640 Riverbend Drive, West Glacier, MT 59936",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/215",
+        "https://data.visitmt.com/data/json/site/215"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Hamilton Golf Club",
+      "address": "1004 Golf Course Road, Hamilton, MT 59840",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/817",
+        "https://data.visitmt.com/data/json/site/817"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Headwaters Golf Course",
+      "address": "225 7th Avenue East, Three Forks, MT 59752",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2137",
+        "https://data.visitmt.com/data/json/site/2137"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Indian Springs Ranch Golf Course",
+      "address": "3082 Montana Highway 93 North, Eureka, MT 59917",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/19213",
+        "https://data.visitmt.com/data/json/site/19213"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Jawbone Creek Golf Course",
+      "address": "18 6th St NW, Harlowton, MT 59036",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2121",
+        "https://data.visitmt.com/data/json/site/2121"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "King Ranch Golf Course",
+      "address": "17775 Mullan Road, Frenchtown, MT 59834",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/2329",
+        "https://data.visitmt.com/data/json/site/2329"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Lake Hills Golf Course",
+      "address": "1930 Clubhouse Way, Billings, MT 59105",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/579",
+        "https://data.visitmt.com/data/json/site/579"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Lakeview Country Club",
+      "address": "51274 Airport Road, Baker, MT 59313",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2640",
+        "https://data.visitmt.com/data/json/site/2640"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Larchmont Golf Course",
+      "address": "3200 Fort Missoula Road, Missoula, MT 59804",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/2147",
+        "https://data.visitmt.com/data/json/site/2147"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Livingston Golf Course",
+      "address": "44 View Vista Drive, Livingston, MT 59047",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2126",
+        "https://data.visitmt.com/data/json/site/2126"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Madison Meadows Golf Course",
+      "address": "110 Golfcourse Road, Ennis, MT 59729",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2114",
+        "https://data.visitmt.com/data/json/site/2114"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Marian Hills Country Club",
+      "address": "1652 US Highway 191 South, Malta, MT 59538",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2127",
+        "https://data.visitmt.com/data/json/site/2127"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Marias Valley Golf Course",
+      "address": "1 Golfcourse Road, Shelby, MT 59474",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/580",
+        "https://data.visitmt.com/data/json/site/580"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Meadow Creek Golf Course",
+      "address": "205 1st St S, Fortine, MT 59918",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2641",
+        "https://data.visitmt.com/data/json/site/2641"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Mission Mountain Golf Club",
+      "address": "46664 Golf Course Way, Ronan, MT 59864",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/750",
+        "https://data.visitmt.com/data/json/site/750",
+        "https://www.msgagolf.org/courses/mission-mountain-golf-club"
+      ],
+      "access_note": "Public access classification and street address from Montana tourism API; physical hole count independently stated by Montana State Golf Association. Owner page returned 403; no data from that denied page used."
+    },
+    {
+      "name": "Old Baldy Golf Course",
+      "address": "99 Delger Lane, Townsend, MT 59644",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2138",
+        "https://data.visitmt.com/data/json/site/2138"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Plentywood Golf Club",
+      "address": "709 North Sheridan Street, Plentywood, MT 59254",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2642",
+        "https://data.visitmt.com/data/json/site/2642"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Polson Bay Golf Course",
+      "address": "111 Bay View Drive, Polson, MT 59860",
+      "state": "MT",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://data.visitmt.com/data/site/396",
+        "https://data.visitmt.com/data/json/site/396"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Pondera Golf and Country Club",
+      "address": "847 Conrad Dupuyer Rd, Conrad, MT 59425",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2145",
+        "https://data.visitmt.com/data/json/site/2145"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Ponderosa Butte Golf Course",
+      "address": "1 Long Drive, Colstrip, MT 59323",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2113",
+        "https://data.visitmt.com/data/json/site/2113"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Prairie Farms Golf Course",
+      "address": "4910 Shepherd Rd N, Havre, MT 59501",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/17964",
+        "https://data.visitmt.com/data/json/site/17964",
+        "https://www.prairiefarmsgolfcourse.com/"
+      ],
+      "access_note": "Public status and inventory address from Montana tourism API; physical hole total confirmed by current operator. Operator explicitly says nine holes are complete and back nine remains under construction; planned holes excluded. Street spelling follows operator."
+    },
+    {
+      "name": "Red Lodge Mountain Golf Course",
+      "address": "828 Upper Continental Drive, Red Lodge, MT 59068",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/2166",
+        "https://data.visitmt.com/data/json/site/2166",
+        "https://golf.redlodgemountain.com/wp-content/uploads/2026/08/Golf-Scorecard-2026-6.18.26.pdf"
+      ],
+      "access_note": "Public status and inventory address from Montana tourism API; physical hole total confirmed by current operator."
+    },
+    {
+      "name": "Scobey Golf Course",
+      "address": "800 Golf Course Road, Scobey, MT 59263",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2133",
+        "https://data.visitmt.com/data/json/site/2133"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts."
+    },
+    {
+      "name": "Signal Point Golf Club",
+      "address": "345 Signal Point Road, Fort Benton, MT 59442",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2116",
+        "https://data.visitmt.com/data/json/site/2116",
+        "https://www.msgagolf.org/courses/signal-point-golf-club"
+      ],
+      "access_note": "Public access classification and street address from Montana tourism API; physical hole count independently stated by Montana State Golf Association."
+    },
+    {
+      "name": "Sunnyside Golf Club",
+      "address": "95 Skylark Road, Glasgow, MT 59230",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2117",
+        "https://data.visitmt.com/data/json/site/2117"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts. Nine physical holes: the description explains eighteen-hole rounds reuse the nine with four changed tee positions."
+    },
+    {
+      "name": "Village Greens Golf Course",
+      "address": "135 Palmer Dr, Kalispell, MT 59901",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/2163",
+        "https://data.visitmt.com/data/json/site/2163",
+        "https://www.montanagolf.com/"
+      ],
+      "access_note": "Public status and inventory address from Montana tourism API; physical hole total confirmed by current operator. Physical contact address follows current operator rather than tourism’s 500 Palmer Drive."
+    },
+    {
+      "name": "Whitefish Lake Golf Club",
+      "address": "1200 US Highway 93 North, Whitefish, MT 59937",
+      "state": "MT",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://data.visitmt.com/data/site/540",
+        "https://data.visitmt.com/data/json/site/540"
+      ],
+      "access_note": "Source observed October 6, 2026. API DateCreated is not treated as the age of the underlying course facts. Facility total covers the North and South courses."
+    },
+    {
+      "name": "Wildhorse Plains Golf Course",
+      "address": "127 Old Hicks Road, Plains, MT 59859",
+      "state": "MT",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://data.visitmt.com/data/site/2130",
+        "https://data.visitmt.com/data/json/site/2130",
+        "https://www.msgagolf.org/courses/wild-horse-plains-golf-course"
+      ],
+      "access_note": "Public access classification and street address from Montana tourism API; physical hole count independently stated by Montana State Golf Association."
+    },
+    {
+      "name": "Yegen Golf Club",
+      "address": "1390 Zimmerman Trail, Billings, MT 59102",
+      "state": "MT",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://data.visitmt.com/data/site/10231",
+        "https://data.visitmt.com/data/json/site/10231",
+        "https://www.msgagolf.org/courses/yegen-golf-club",
+        "https://www.yegengolfclub.com/"
+      ],
+      "access_note": "Public access classification and street address from Montana tourism API; physical hole count independently stated by Montana State Golf Association. Name follows current operator; this is an all-ages public course, not a junior-only facility."
     },
     {
       "name": "The Valley Golf Course",
@@ -22599,6 +23407,18 @@
       ]
     },
     {
+      "name": "Jimmie Austin Municipal Golf Course",
+      "address": "1605 N Main Street, Seminole, OK 74868",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://golfjimmieaustin.com/about/",
+        "https://www.seminole-oklahoma.net/jimmie-austin-golf-course",
+        "https://www.travelok.com/listings/view.profile/id.3956"
+      ]
+    },
+    {
       "name": "Jimmie Austin OU Golf Club",
       "address": "4 Ransom Rd, Norman, OK 73019",
       "state": "OK",
@@ -23064,6 +23884,18 @@
       "access_note": "Closed Christmas Day."
     },
     {
+      "name": "Shangri-La Resort Golf",
+      "address": "31000 S Highway 125, Monkey Island, OK 74331",
+      "state": "OK",
+      "county": null,
+      "holes": 45,
+      "sources": [
+        "https://golfoklahoma.org/shangri-la-resort/",
+        "https://golfoklahoma.org/battlefield-at-shangri-la/",
+        "https://golfoklahoma.org/tom-clark-reflects-on-the-design-instant-popularity-of-the-battlefield-at-shangri-la-resort/"
+      ]
+    },
+    {
       "name": "Shattuck Golf and Country Club",
       "address": "P.O. Box 248, U.S. 283, Shattuck, OK 73858",
       "state": "OK",
@@ -23102,6 +23934,18 @@
       "holes": null,
       "sources": [
         "https://golfoklahoma.org/sunset-hills-golf-course/"
+      ]
+    },
+    {
+      "name": "Surrey Hills Golf Club",
+      "address": "11340 Surrey Hills Boulevard, Yukon, OK 73099",
+      "state": "OK",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://surreyhillsgolfclub.com/course-rules/",
+        "https://surreyhillsgolfclub.com/course-rates/",
+        "https://golfoklahoma.org/surrey-hills-golf-club/"
       ]
     },
     {
@@ -23339,6 +24183,28 @@
       ]
     },
     {
+      "name": "Cedar Bend Golf Course",
+      "address": "34391 Cedar Valley Road, Gold Beach OR 97444",
+      "state": "OR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://cedarbendgolf.com"
+      ]
+    },
+    {
+      "name": "Chehalem Glenn Golf Course",
+      "address": null,
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.chehalemglenn.com"
+      ]
+    },
+    {
       "name": "Christmas Valley Golf Course",
       "address": "57334 Christmas Tree Rd, Christmas Valley OR 97641",
       "state": "OR",
@@ -23361,6 +24227,39 @@
       ]
     },
     {
+      "name": "Crestview Golf Club",
+      "address": "1680 Crestline Drive, Waldport OR 97394",
+      "state": "OR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.crestviewgolfclub.com"
+      ]
+    },
+    {
+      "name": "Crooked River Ranch Golf Course",
+      "address": "5195 SW Clubhouse Rd, Crooked River Ranch, OR 97760",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://crookedriverranchgc.com/"
+      ]
+    },
+    {
+      "name": "Dallas Golf Club",
+      "address": "16845 Orrs Corner Rd, Dallas, OR 97338",
+      "state": "OR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://DallasGolfClub.wixsite.com/DallasGolfClub"
+      ]
+    },
+    {
       "name": "Desert Peaks Golf Club",
       "address": "565 N.W. Alder, Madras, OR 97741",
       "state": "OR",
@@ -23369,6 +24268,17 @@
       "sources": [
         "https://exploreoregongolf.oga.org/",
         "https://www.desertpeaksgolf.com"
+      ]
+    },
+    {
+      "name": "Evergreen Golf Course",
+      "address": "11694 W. Church Road NE, Mt. Angel, OR",
+      "state": "OR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.evergreenoregon.com"
       ]
     },
     {
@@ -23394,6 +24304,17 @@
       ]
     },
     {
+      "name": "Highlands Golf Club",
+      "address": "33260 Highlands Lane, Gearhart OR 97138",
+      "state": "OR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.highlandsgolfgearhart.com/"
+      ]
+    },
+    {
       "name": "Juniper Golf Course",
       "address": "1938 SW Elkhorn Ave, Redmond, OR 97756",
       "state": "OR",
@@ -23406,6 +24327,17 @@
       ]
     },
     {
+      "name": "Lost Tracks Golf Club",
+      "address": "60205 Sunset View Drive, Bend OR 97702",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.losttracks.com"
+      ]
+    },
+    {
       "name": "Mallard Creek Golf Course",
       "address": "31966 Bellinger Scale Road, Lebanon OR 97355",
       "state": "OR",
@@ -23414,6 +24346,28 @@
       "sources": [
         "https://exploreoregongolf.oga.org/",
         "https://www.mallardcreekgc.com"
+      ]
+    },
+    {
+      "name": "Manzanita Links",
+      "address": "908 Lakeview Drive, Manzanita OR 97130",
+      "state": "OR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.manzanitalinks.com/"
+      ]
+    },
+    {
+      "name": "Mckay Creek Golf Course",
+      "address": "1416 NW Jackson Street, Hillsboro OR 97124",
+      "state": "OR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://mckaycreekgolf.com"
       ]
     },
     {
@@ -23436,6 +24390,17 @@
       "sources": [
         "https://exploreoregongolf.oga.org/",
         "https://www.meadowlawngolf.net"
+      ]
+    },
+    {
+      "name": "OGA Golf Course",
+      "address": "2850 Hazelnut Drive, Woodburn OR 97071",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.ogagolfcourse.com"
       ]
     },
     {
@@ -23496,6 +24461,17 @@
       ]
     },
     {
+      "name": "Santiam Golf Club",
+      "address": "8724 Golf Club Road SE, Aumsville OR 97325",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.santiamgolfclub.com"
+      ]
+    },
+    {
       "name": "Seaside Golf Club",
       "address": "451 Avenue U, Seaside, OR 97138",
       "state": "OR",
@@ -23504,6 +24480,28 @@
       "sources": [
         "https://exploreoregongolf.oga.org/",
         "https://seasidegolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Shield Crest Golf Course",
+      "address": "3151 Shield Crest Drive, Klamath Falls OR 97603",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://shieldcrestgc.com"
+      ]
+    },
+    {
+      "name": "Stone Creek Golf Club",
+      "address": "14603 South Stoneridge Drive, Oregon City OR 97045-9447",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.stonecreekgolfclub.net"
       ]
     },
     {
@@ -23540,6 +24538,17 @@
         "https://www.reservegolf.com"
       ],
       "access_note": "Public access alternates between the two courses under a rotating format; verify the course available for the intended date."
+    },
+    {
+      "name": "Widgi Creek Golf Club",
+      "address": "18707 SW Century Drive, Bend OR 97702",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.widgi.com"
+      ]
     },
     {
       "name": "The Bridges Golf Club",
@@ -28950,6 +29959,17 @@
       "access_note": "The nine-hole par-three course accepts walk-ons only; the championship course advertises tee times."
     },
     {
+      "name": "Beacon Rock Golf Course",
+      "address": "102 Grenia Road, North Bonneville, WA 98639",
+      "state": "WA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.beaconrockgolf.com"
+      ]
+    },
+    {
       "name": "Bear Mountain Ranch Golf Course",
       "address": "1050 Bear Mountain Ranch Road, Chelan, WA 98816",
       "state": "WA",
@@ -29235,6 +30255,17 @@
       ]
     },
     {
+      "name": "Lewis River Golf Course",
+      "address": "3209 Old Lewis River Rd, Woodland, WA 98674",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.lewisrivergolf.com"
+      ]
+    },
+    {
       "name": "Loomis Trail Golf",
       "address": "4342 Loomis Trail Road, Blaine, WA 98230",
       "state": "WA",
@@ -29319,6 +30350,50 @@
       ]
     },
     {
+      "name": "North Bellingham Golf Course",
+      "address": "205 West Smith Road, Bellingham, WA 98226",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.northbellinghamgolf.com/-course-information",
+        "https://www.northbellinghamgolf.com/-contact-information"
+      ]
+    },
+    {
+      "name": "Oaksridge Golf Course",
+      "address": "1052 Monte Elma Road, Elma, WA 98541",
+      "state": "WA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://oaksridgegolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Orcas Island Golf Course",
+      "address": "2171 Orcas Road, Eastsound, WA 98245",
+      "state": "WA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.orcasgolf.com/",
+        "https://www.orcasgolf.com/rates.html",
+        "https://www.orcasgolf.com/course-info.html"
+      ]
+    },
+    {
+      "name": "Oroville Golf Club",
+      "address": "3468-B Loomis-Oroville Road, Oroville, WA 98844",
+      "state": "WA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://orovillegolfclub.com/"
+      ],
+      "access_note": "Children are welcome when accompanied by an adult."
+    },
+    {
       "name": "Palouse Ridge Golf Club",
       "address": "1260 Palouse Ridge Dr, Pullman, WA 99163",
       "state": "WA",
@@ -29329,6 +30404,161 @@
         "https://www.palouseridge.com/course-layout/hole-by-hole/",
         "https://www.courseco.com/washington-courses"
       ]
+    },
+    {
+      "name": "Peninsula Golf Club",
+      "address": "824 S. Lindberg Road, Port Angeles, WA 98362",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://golfinportangeles.com/"
+      ]
+    },
+    {
+      "name": "Port Townsend Golf Club at Camas Prairie Park",
+      "address": "1948 Blaine Street, Port Townsend, WA 98368",
+      "state": "WA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.ptgolfpark.org/",
+        "https://www.ptgolfpark.org/history",
+        "https://www.ptgolfpark.org/about-us",
+        "https://www.ptgolfpark.org/rates"
+      ]
+    },
+    {
+      "name": "Ritzville Golf Course",
+      "address": "104 E. 10th Avenue, Ritzville, WA 99169",
+      "state": "WA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.ritzvillegolf.com/",
+        "https://www.ritzvillegolf.com/teetime"
+      ]
+    },
+    {
+      "name": "River Ridge Golf Course",
+      "address": "295 Golf Course Loop Road, Selah, WA 98942",
+      "state": "WA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://riverridgeselah.com/",
+        "https://riverridgeselah.com/golf/"
+      ]
+    },
+    {
+      "name": "Riverbend Golf Complex",
+      "address": "2019 West Meeker Street, Kent, WA 98032",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.riverbendgolfcomplex.com/"
+      ]
+    },
+    {
+      "name": "Riverside Golf Club",
+      "address": "1451 NW Airport Road, Chehalis, WA 98532",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://playriversidegolf.com/"
+      ]
+    },
+    {
+      "name": "Rock Island Golf Course",
+      "address": "40 Hammond Lane, East Wenatchee, WA 98850",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://rockislandgolfcourse.com/",
+        "https://rockislandgolfcourse.com/contact/"
+      ]
+    },
+    {
+      "name": "Shuksan Golf Club",
+      "address": "1500 E. Axton Road, Bellingham, WA 98226",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://shuksangolf.com/"
+      ]
+    },
+    {
+      "name": "Snohomish Golf Course",
+      "address": "7805 147th Avenue SE, Snohomish, WA 98290",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.snohomishgolfcourse.com/",
+        "https://www.snohomishgolfcourse.com/family-owned"
+      ]
+    },
+    {
+      "name": "Snoqualmie Falls Golf Course",
+      "address": "35109 SE Fish Hatchery Road, Fall City, WA 98024",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://snoqualmiefallsgolf.com/",
+        "https://snoqualmiefallsgolf.com/course"
+      ]
+    },
+    {
+      "name": "Sudden Valley Golf Club",
+      "address": "4 Clubhouse Circle, Bellingham, WA 98229",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.suddenvalleygolfcourse.com/",
+        "https://suddenvalley.com/wp-content/uploads/Resident-Handbook-Version-4-29-2025-244pm.pdf",
+        "https://wagolf.org/courses/sudden-valley-golf-club"
+      ]
+    },
+    {
+      "name": "Suntides Golf Course",
+      "address": "231 Pence Road, Yakima, WA 98908",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://suntidesgolf.com/",
+        "https://suntidesgolf.com/about-us-golf-restaurant-rv-park/",
+        "https://suntidesgolf.com/contact-us/"
+      ]
+    },
+    {
+      "name": "Surfside Golf Course",
+      "address": "31508 J Place, Ocean Park, WA 98640",
+      "state": "WA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.surfsidegolfcourse.com/",
+        "https://www.surfsidegolfcourse.com/course-info-long-beach-wa-golf-course/"
+      ]
+    },
+    {
+      "name": "Tapps Island Golf Course",
+      "address": "20818 Island Parkway E, Sumner, WA 98390",
+      "state": "WA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.tappsislandgolf.com/",
+        "https://www.tappsislandgolf.com/faq/"
+      ],
+      "access_note": "Each arriving vehicle needs the tee-time confirmation QR code to pass security. Residential HOA amenities remain residents-only."
     },
     {
       "name": "Brown Deer Golf Course",
@@ -30211,451 +31441,903 @@
       "state": "AR",
       "fips": "05001",
       "name": "Arkansas County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Arkansas County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05003",
       "name": "Ashley County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Ashley County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05005",
       "name": "Baxter County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Baxter County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05007",
       "name": "Benton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Benton County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05009",
       "name": "Boone County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Boone County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05011",
       "name": "Bradley County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Bradley County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05013",
       "name": "Calhoun County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Calhoun County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05015",
       "name": "Carroll County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Carroll County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05017",
       "name": "Chicot County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Chicot County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05019",
       "name": "Clark County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Clark County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05021",
       "name": "Clay County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Clay County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05023",
       "name": "Cleburne County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Cleburne County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05025",
       "name": "Cleveland County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Cleveland County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05027",
       "name": "Columbia County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Columbia County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05029",
       "name": "Conway County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Conway County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05031",
       "name": "Craighead County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Craighead County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05033",
       "name": "Crawford County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Crawford County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05035",
       "name": "Crittenden County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Crittenden County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05037",
       "name": "Cross County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Cross County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05039",
       "name": "Dallas County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Dallas County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05041",
       "name": "Desha County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Desha County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05043",
       "name": "Drew County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Drew County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05045",
       "name": "Faulkner County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Faulkner County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05047",
       "name": "Franklin County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Franklin County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05049",
       "name": "Fulton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Fulton County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05051",
       "name": "Garland County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Garland County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05053",
       "name": "Grant County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Grant County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05055",
       "name": "Greene County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Greene County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05057",
       "name": "Hempstead County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Hempstead County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05059",
       "name": "Hot Spring County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Hot Spring County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05061",
       "name": "Howard County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Howard County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05063",
       "name": "Independence County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Independence County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05065",
       "name": "Izard County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Izard County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05067",
       "name": "Jackson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Jackson County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05069",
       "name": "Jefferson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Jefferson County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05071",
       "name": "Johnson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Johnson County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05073",
       "name": "Lafayette County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Lafayette County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05075",
       "name": "Lawrence County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Lawrence County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05077",
       "name": "Lee County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Lee County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05079",
       "name": "Lincoln County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Lincoln County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05081",
       "name": "Little River County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Little River County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05083",
       "name": "Logan County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Logan County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05085",
       "name": "Lonoke County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Lonoke County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05087",
       "name": "Madison County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Madison County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05089",
       "name": "Marion County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Marion County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05091",
       "name": "Miller County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Miller County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05093",
       "name": "Mississippi County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Mississippi County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05095",
       "name": "Monroe County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Monroe County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05097",
       "name": "Montgomery County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Montgomery County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05099",
       "name": "Nevada County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Nevada County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05101",
       "name": "Newton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Newton County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05103",
       "name": "Ouachita County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Ouachita County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05105",
       "name": "Perry County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Perry County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05107",
       "name": "Phillips County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Phillips County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05109",
       "name": "Pike County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Pike County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05111",
       "name": "Poinsett County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Poinsett County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05113",
       "name": "Polk County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Polk County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05115",
       "name": "Pope County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Pope County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05117",
       "name": "Prairie County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Prairie County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05119",
       "name": "Pulaski County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Pulaski County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05121",
       "name": "Randolph County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Randolph County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05123",
       "name": "St. Francis County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"St. Francis County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05125",
       "name": "Saline County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Saline County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05127",
       "name": "Scott County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Scott County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05129",
       "name": "Searcy County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Searcy County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05131",
       "name": "Sebastian County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://sebastiancountyar.gov/Parks-Rec/Ben-Geren-Golf-Course"
+      ],
+      "queries": [
+        "\"Sebastian County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05133",
       "name": "Sevier County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Sevier County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05135",
       "name": "Sharp County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Sharp County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05137",
       "name": "Stone County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Stone County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05139",
       "name": "Union County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Union County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05141",
       "name": "Van Buren County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Van Buren County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05143",
       "name": "Washington County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Washington County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05145",
       "name": "White County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"White County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05147",
       "name": "Woodruff County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Woodruff County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "AR",
       "fips": "05149",
       "name": "Yell County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Yell County\" Arkansas public golf courses official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results are not used as proof of a course's county or public access; eligible source pages require separate review. Search remains incomplete."
     },
     {
       "state": "CA",
@@ -33753,13 +35435,29 @@
       "state": "IN",
       "fips": "18005",
       "name": "Bartholomew County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.ottercreekgolf.com/"
+      ],
+      "queries": [
+        "Indiana public golf course Columbus"
+      ],
+      "outcome": "Otter Creek owner current closure for renovations: held. Other city/county courses remain unreviewed."
     },
     {
       "state": "IN",
       "fips": "18007",
       "name": "Benton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://bentoncountygc.com/"
+      ],
+      "queries": [
+        "Benton County Golf Course Fowler public owner"
+      ],
+      "outcome": "Benton County Golf Course9 verified from current owner public statement, address and explicit layout total. Other county courses unreviewed; inventory incomplete."
     },
     {
       "state": "IN",
@@ -33823,7 +35521,15 @@
       "state": "IN",
       "fips": "18023",
       "name": "Clinton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://angelhillgolfcourse.com/"
+      ],
+      "queries": [
+        "Angel Hill Golf Course Rossville public owner"
+      ],
+      "outcome": "Owner candidate found; robots403, domain stopped and no course facts imported. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -33847,7 +35553,15 @@
       "state": "IN",
       "fips": "18031",
       "name": "Decatur County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://northbranchgc.com/"
+      ],
+      "queries": [
+        "Indiana public golf course Greensburg"
+      ],
+      "outcome": "North Branch27 verified; county inventory remains incomplete."
     },
     {
       "state": "IN",
@@ -33911,7 +35625,15 @@
       "state": "IN",
       "fips": "18049",
       "name": "Fulton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.rochesterparkandrecreation.com/golf"
+      ],
+      "queries": [
+        "Round Barn golf Rochester public official"
+      ],
+      "outcome": "Round Barn18 verified through current municipal public-course statement. Other county courses unreviewed; inventory incomplete."
     },
     {
       "state": "IN",
@@ -33950,7 +35672,15 @@
       "state": "IN",
       "fips": "18059",
       "name": "Hancock County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.hawkstail.com/"
+      ],
+      "queries": [
+        "Indiana Public Golf Greenfield official"
+      ],
+      "outcome": "Hawks Tail verified; Arrowhead owner homepage403, stopped, not imported. Links New Palestine remains unreviewed."
     },
     {
       "state": "IN",
@@ -33962,13 +35692,29 @@
       "state": "IN",
       "fips": "18063",
       "name": "Hendricks County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.west-chasegolf.com/"
+      ],
+      "queries": [
+        "Indiana public golf course Hendricks"
+      ],
+      "outcome": "West Chase verified; other county facilities remain unreviewed."
     },
     {
       "state": "IN",
       "fips": "18065",
       "name": "Henry County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.westwoodgc.net/"
+      ],
+      "queries": [
+        "Indiana public golf course Richmond official"
+      ],
+      "outcome": "Westwood verified; Royal Hylands and other county facilities remain unreviewed."
     },
     {
       "state": "IN",
@@ -34153,7 +35899,15 @@
       "state": "IN",
       "fips": "18103",
       "name": "Miami County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://rockhollowgolf.com/"
+      ],
+      "queries": [
+        "Rock Hollow golf public official"
+      ],
+      "outcome": "Rock Hollow verified current public owner statement/address; physical hole total left null pending explicit statement. Other county courses unreviewed; inventory incomplete."
     },
     {
       "state": "IN",
@@ -34179,7 +35933,15 @@
       "state": "IN",
       "fips": "18109",
       "name": "Morgan County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://foxcliffgolfclub.com/about-us/"
+      ],
+      "queries": [
+        "Martinsville Golf Club public official"
+      ],
+      "outcome": "Foxcliff verified; Martinsville Golf Club current general-public evidence unresolved."
     },
     {
       "state": "IN",
@@ -34191,7 +35953,15 @@
       "state": "IN",
       "fips": "18113",
       "name": "Noble County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.noblehawk.com/"
+      ],
+      "queries": [
+        "Noble Hawk golf public official"
+      ],
+      "outcome": "Noble Hawk18 verified through current owner public statement. Other county courses unreviewed; inventory incomplete."
     },
     {
       "state": "IN",
@@ -34209,7 +35979,15 @@
       "state": "IN",
       "fips": "18119",
       "name": "Owen County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://visitindiana.in.gov/listing/rolling-meadows-golf-course/16267/"
+      ],
+      "queries": [
+        "site:visitindiana.in.gov/listing/ golf public"
+      ],
+      "outcome": "Rolling Meadows verified from state tourism public listing; county incomplete."
     },
     {
       "state": "IN",
@@ -34321,7 +36099,15 @@
       "state": "IN",
       "fips": "18147",
       "name": "Spencer County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://visitindiana.in.gov/listing/the-rustic-golf-course/20212/"
+      ],
+      "queries": [
+        "site:visitindiana.in.gov/listing/ golf public"
+      ],
+      "outcome": "Rustic verified from state tourism explicit public9; Christmas Lake and other county courses unreviewed."
     },
     {
       "state": "IN",
@@ -34333,7 +36119,17 @@
       "state": "IN",
       "fips": "18151",
       "name": "Steuben County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://glendarinhills.com/course-information/",
+        "https://zollnergc.com/"
+      ],
+      "queries": [
+        "Glendarin Hills golf official public",
+        "Zollner golf course Trine official public"
+      ],
+      "outcome": "Glendarin Hills18 daily-fee play and Zollner18 public access verified from owners. Zollner current owner street name is Thunder Ave, superseding older Park Avenue material. Other county courses unreviewed; inventory incomplete."
     },
     {
       "state": "IN",
@@ -34403,7 +36199,16 @@
       "state": "IN",
       "fips": "18169",
       "name": "Wabash County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://visitwabashcounty.com/outdoor-adventure/honeywell-golf-course/",
+        "https://www.honeywellgc.com/"
+      ],
+      "queries": [
+        "Honeywell golf Wabash public official"
+      ],
+      "outcome": "Honeywell discovered through official tourism. Owner robots allowed but homepage403; owner domain stopped, no row admitted. Other county courses unreviewed; inventory incomplete."
     },
     {
       "state": "IN",
@@ -34427,7 +36232,15 @@
       "state": "IN",
       "fips": "18177",
       "name": "Wayne County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.richmondindiana.gov/resources/sports"
+      ],
+      "queries": [
+        "Indiana public golf course Richmond"
+      ],
+      "outcome": "Highland Lake verified; city explicitly lists Forest Hills and Elks as private. Other facilities unreviewed."
     },
     {
       "state": "IN",
