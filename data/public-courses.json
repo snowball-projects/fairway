@@ -9,51 +9,63 @@
   "rights": "Bare facts and explicitly licensed source attributes with citations. No source prose, photographs, map geometry or scorecard artwork included. Applicable source-data licenses and adaptations are recorded below.",
   "coverage": {
     "national_complete": false,
-    "course_record_count": 1329,
-    "complete_essentials": 781,
+    "course_record_count": 1512,
+    "complete_essentials": 938,
     "state_record_counts": {
-      "AL": 40,
+      "AL": 70,
       "CA": 252,
+      "CO": 6,
       "CT": 80,
-      "FL": 111,
+      "DC": 3,
+      "FL": 192,
       "GA": 99,
+      "HI": 6,
       "IA": 145,
       "MA": 4,
+      "MD": 5,
       "ME": 85,
       "MN": 11,
-      "NC": 49,
+      "NC": 68,
       "ND": 20,
       "NE": 127,
       "NH": 4,
+      "OK": 5,
+      "OR": 5,
       "RI": 23,
-      "SC": 31,
+      "SC": 42,
       "TN": 85,
       "UT": 87,
       "VA": 65,
       "VT": 9,
-      "WI": 2
+      "WI": 14
     },
-    "counties_represented": 392,
+    "counties_represented": 439,
     "counties_searched": 35,
     "missing_fields": {
       "address": 18,
-      "county": 404,
-      "holes": 208
+      "county": 403,
+      "holes": 231
     },
     "inventory_search_states": [
       "AL",
       "CA",
+      "CO",
       "CT",
+      "DC",
       "FL",
       "GA",
+      "HI",
       "IA",
       "MA",
+      "MD",
       "ME",
       "MN",
       "NC",
       "ND",
       "NE",
       "NH",
+      "OK",
+      "OR",
       "RI",
       "SC",
       "TN",
@@ -105,6 +117,18 @@
       ]
     },
     {
+      "name": "GlenLakes Golf Club",
+      "address": "9530 Clubhouse Drive, Foley, AL 36535",
+      "state": "AL",
+      "county": "Baldwin County",
+      "holes": 27,
+      "sources": [
+        "https://www.gulfshores.com/things-to-do/glenlakes-golf-club/",
+        "https://www.gulfshores.com/things-to-do/golf/",
+        "https://www.gulfshores.com/media/media-kit/golf-news/"
+      ]
+    },
+    {
       "name": "Gulf Shores Golf Club",
       "address": "520 Clubhouse Drive, Gulf Shores, AL 36542",
       "state": "AL",
@@ -137,6 +161,16 @@
       ]
     },
     {
+      "name": "Orange Beach Golf Center",
+      "address": "4700 Easy Street, Orange Beach, AL 36561",
+      "state": "AL",
+      "county": "Baldwin County",
+      "holes": 9,
+      "sources": [
+        "https://www.orangebeachal.gov/239/Orange-Beach-Golf-Center"
+      ]
+    },
+    {
       "name": "Quail Creek Golf Course",
       "address": "19841 Quail Creek Drive, Fairhope, AL 36532",
       "state": "AL",
@@ -145,6 +179,16 @@
       "sources": [
         "https://www.alabamagolf.org/page/name/member-club-search",
         "https://www.easymapmaker.com/map/86e668d7a7cd80ad31707b7e6d22e2fa"
+      ]
+    },
+    {
+      "name": "The Preserve on Soldier's Creek",
+      "address": "28341 Preserve Trail, Elberta, AL 36530",
+      "state": "AL",
+      "county": "Baldwin County",
+      "holes": 18,
+      "sources": [
+        "https://www.soldierscreekgolfcourse.com/"
       ]
     },
     {
@@ -194,6 +238,17 @@
       ]
     },
     {
+      "name": "Indian Oaks Golf Course",
+      "address": "201 Cherokee Trail, Anniston, AL 36206",
+      "state": "AL",
+      "county": "Calhoun County",
+      "holes": null,
+      "sources": [
+        "https://indianoaksgolf.com/",
+        "https://www.alabamagolf.org/page/name/member-club-search"
+      ]
+    },
+    {
       "name": "Silver Lakes",
       "address": "1 Sunbelt Pkwy, Glencoe, AL 35905",
       "state": "AL",
@@ -204,6 +259,39 @@
         "https://www.easymapmaker.com/map/86e668d7a7cd80ad31707b7e6d22e2fa",
         "https://www.rtjgolf.com/silverlakes/"
       ]
+    },
+    {
+      "name": "The Hill Golf Course",
+      "address": "1341 Johnston Drive, Anniston, AL 36207",
+      "state": "AL",
+      "county": "Calhoun County",
+      "holes": 9,
+      "sources": [
+        "https://annistonal.gov/the-hill-golf-course/"
+      ]
+    },
+    {
+      "name": "Cherokee Pines Golf Club",
+      "address": "270 County Road 382, Centre, AL 35960",
+      "state": "AL",
+      "county": "Cherokee County",
+      "holes": 18,
+      "sources": [
+        "https://portal.cherokeepines.golf/"
+      ]
+    },
+    {
+      "name": "Cypress Lakes Golf Course",
+      "address": "1311 East 6th Street, Muscle Shoals, AL 35661",
+      "state": "AL",
+      "county": "Colbert County",
+      "holes": 18,
+      "sources": [
+        "https://cypresslakesgolfandtennis.com/",
+        "https://cypresslakesgolfandtennis.com/contact-us/",
+        "https://cypresslakesgolfandtennis.com/rates/"
+      ],
+      "access_note": "Closed Mondays for maintenance."
     },
     {
       "name": "Chesley Oaks Golf Club",
@@ -228,6 +316,16 @@
       ]
     },
     {
+      "name": "Terri Pines Country Club",
+      "address": "700 Pine Hill Drive, Cullman, AL 35057",
+      "state": "AL",
+      "county": "Cullman County",
+      "holes": 18,
+      "sources": [
+        "https://www.tpcountryclub.com/course"
+      ]
+    },
+    {
       "name": "Capitol Hill",
       "address": "2600 Constitution Avenue, Prattville, AL 36066",
       "state": "AL",
@@ -237,6 +335,16 @@
         "https://www.alabamagolf.org/page/name/member-club-search",
         "https://www.easymapmaker.com/map/86e668d7a7cd80ad31707b7e6d22e2fa",
         "https://www.rtjgolf.com/capitolhill/"
+      ]
+    },
+    {
+      "name": "The Pines Golf Club",
+      "address": "307 Deatsville Highway, Millbrook, AL 36054",
+      "state": "AL",
+      "county": "Elmore County",
+      "holes": 18,
+      "sources": [
+        "https://cityofmillbrook.org/the-pines-golf-course/"
       ]
     },
     {
@@ -264,6 +372,16 @@
       ]
     },
     {
+      "name": "Cumberland Lake Golf Course",
+      "address": "2150 Cumberland Lake Drive, Pinson, AL 35126",
+      "state": "AL",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://cumberlandlakegolf.com/"
+      ]
+    },
+    {
       "name": "Highland Park Golf",
       "address": "3300 Highland Avenue South, Birmingham, AL 35205",
       "state": "AL",
@@ -284,6 +402,28 @@
       "sources": [
         "https://www.alabamagolf.org/page/name/member-club-search",
         "https://www.easymapmaker.com/map/86e668d7a7cd80ad31707b7e6d22e2fa"
+      ]
+    },
+    {
+      "name": "Roebuck Hawkins Golf Course",
+      "address": "8920 Roebuck Boulevard, Birmingham, AL 35206",
+      "state": "AL",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://www.birminghamal.gov/government/city-departments/parks-recreation/golf",
+        "https://adem.alabama.gov/sites/default/files/2025-12/NPS2025.pdf"
+      ]
+    },
+    {
+      "name": "Ross Bridge",
+      "address": "4000 Grand Avenue, Hoover, AL 35226",
+      "state": "AL",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://www.rtjgolf.com/rossbridge/",
+        "https://alabama.travel/plan-your-trip/trails/robert-trent-jones/"
       ]
     },
     {
@@ -310,6 +450,60 @@
       ]
     },
     {
+      "name": "Pines Crossing Golf Course",
+      "address": "900 Country Club Drive, Auburn, AL 36830",
+      "state": "AL",
+      "county": "Lee County",
+      "holes": 18,
+      "sources": [
+        "https://pinescrossing.com/"
+      ]
+    },
+    {
+      "name": "Sunset Landing Golf Course",
+      "address": "346 James Record Road SW, Huntsville, AL 35824",
+      "state": "AL",
+      "county": "Madison County",
+      "holes": 18,
+      "sources": [
+        "https://portofhuntsville.com/airport/sunset-landing-golf-course/",
+        "https://www.sunsetlandinghsv.com/"
+      ]
+    },
+    {
+      "name": "Big Spring Lake Golf Club",
+      "address": "860 Country Club Road, Albertville, AL 35950",
+      "state": "AL",
+      "county": "Marshall County",
+      "holes": null,
+      "sources": [
+        "https://www.bigspringlakegolf.com/"
+      ]
+    },
+    {
+      "name": "Gunter's Landing Golf Course",
+      "address": "1000 Gunter's Landing Road, Guntersville, AL 35976",
+      "state": "AL",
+      "county": "Marshall County",
+      "holes": 18,
+      "sources": [
+        "https://www.gunterslanding.com/",
+        "https://www.northalabama.org/listing/gunters-landing-golf-inc/245/"
+      ],
+      "access_note": "Owner golf page lists tee times Tuesday–Sunday."
+    },
+    {
+      "name": "Cypress Creek Golf Course",
+      "address": "3700 Saint Andrews Lane North, Mobile, AL 36693",
+      "state": "AL",
+      "county": "Mobile County",
+      "holes": 18,
+      "sources": [
+        "https://www.mobilecountyparks.com/cypress-creek-golf-course/"
+      ],
+      "access_note": "Limited advance-reservation public tee times: Thursdays 10 a.m.–2 p.m.; Fridays–Sundays 9 a.m.–1 p.m.; foursomes and reservations required."
+    },
+    {
       "name": "Mill Creek Golf Course",
       "address": "18350 Lakeview Drive, Citronelle, AL 36522",
       "state": "AL",
@@ -329,6 +523,28 @@
       "sources": [
         "https://www.alabamagolf.org/page/name/member-club-search",
         "https://www.easymapmaker.com/map/86e668d7a7cd80ad31707b7e6d22e2fa"
+      ]
+    },
+    {
+      "name": "The Oaks Golf Course",
+      "address": "200 Terrace Drive, Pelham, AL 35124",
+      "state": "AL",
+      "county": "Shelby County",
+      "holes": 18,
+      "sources": [
+        "https://www.alapark.com/the-oaks-golf-course",
+        "https://inbirmingham.com/things-to-do/the-oaks-golf-course/"
+      ],
+      "access_note": "Children must be at least six years old to golf."
+    },
+    {
+      "name": "Timberline Golf Club",
+      "address": "300 Timberline Trail, Calera, AL 35040",
+      "state": "AL",
+      "county": "Shelby County",
+      "holes": null,
+      "sources": [
+        "https://timberlinegc.com/golf-information/"
       ]
     },
     {
@@ -411,6 +627,19 @@
       ]
     },
     {
+      "name": "Gulf Links Golf Course",
+      "address": "3901 South McKenzie Street, Foley, AL 36535",
+      "state": "AL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://gulflinksgolf.com/course-details/",
+        "https://www.gulfshores.com/things-to-do/gulf-links-golf-course/",
+        "https://www.gulfshores.com/things-to-do/golf/",
+        "https://www.gulfshores.com/media/media-kit/golf-news/"
+      ]
+    },
+    {
       "name": "Hampton Cove",
       "address": "450 Old Hwy. 431 South, Hampton Cove, AL 35763",
       "state": "AL",
@@ -420,6 +649,16 @@
         "https://www.alabamagolf.org/page/name/member-club-search",
         "https://www.easymapmaker.com/map/86e668d7a7cd80ad31707b7e6d22e2fa",
         "https://www.rtjgolf.com/hamptoncove/"
+      ]
+    },
+    {
+      "name": "Headland Country Club",
+      "address": "4175 Alabama State Highway 134 East, Headland, AL 36345",
+      "state": "AL",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://visitdothan.com/golf/"
       ]
     },
     {
@@ -479,6 +718,16 @@
       ]
     },
     {
+      "name": "Mountain View Golf Course",
+      "address": "3200 Mountain View Drive, Graysville, AL 35073",
+      "state": "AL",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://playmountainviewgolf.com/"
+      ]
+    },
+    {
       "name": "Ol' Colony Golf Complex",
       "address": "401 Old Colony Road, Tuscaloosa, AL 35406",
       "state": "AL",
@@ -499,6 +748,41 @@
         "https://www.alabamagolf.org/page/name/member-club-search",
         "https://www.easymapmaker.com/map/86e668d7a7cd80ad31707b7e6d22e2fa"
       ]
+    },
+    {
+      "name": "Point University Golf Club",
+      "address": "2001 Country Club Road, Lanett, AL 36863",
+      "state": "AL",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://pointgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Rock Creek Golf Club",
+      "address": "140 Clubhouse Drive, Fairhope, AL 36532",
+      "state": "AL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gulfshores.com/things-to-do/rock-creek-golf-club/",
+        "https://www.gulfshores.com/things-to-do/golf/",
+        "https://www.gulfshores.com/media/media-kit/golf-news/",
+        "https://rockcreekgolf.com/"
+      ]
+    },
+    {
+      "name": "Silver Wings Golf Club",
+      "address": "Combat Road, Building 20067, Fort Rucker, AL 36362",
+      "state": "AL",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://rucker.armymwr.com/programs/silver-wings-golf-club",
+        "https://visitdothan.com/golf/"
+      ],
+      "access_note": "Military-installation gate access requirements apply; check the current visitor-pass process before travel."
     },
     {
       "name": "Southern Gayles Golf Club",
@@ -523,6 +807,41 @@
       ]
     },
     {
+      "name": "The Dells Golf Club",
+      "address": "13000 Old Cove Road, Northport, AL 35476",
+      "state": "AL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.thedellsgolf.com/",
+        "https://www.thedellsgolf.com/about/at-the-dells-everything-old-is-new-again",
+        "https://www.alabamagolf.org/page/name/member-club-search"
+      ],
+      "access_note": "Formerly Hidden Meadows; open Tuesday–Sunday."
+    },
+    {
+      "name": "The General Golf Course",
+      "address": "4220 McLean Drive, Rogersville, AL 35652",
+      "state": "AL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.alapark.com/the-general-golf-course",
+        "https://www.deep-south-usa.com/images/downloads/alabama-2022.pdf"
+      ],
+      "access_note": "Children must be at least six years old to golf."
+    },
+    {
+      "name": "The Meadows Golf Course",
+      "address": "1 Water Oak Way, Harpersville, AL 35078",
+      "state": "AL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.themeadowsgolfcourse.org/"
+      ]
+    },
+    {
       "name": "The Shoals",
       "address": "990 Sunbelt Parkway, Muscle Shoals, AL 35661",
       "state": "AL",
@@ -535,6 +854,18 @@
       ]
     },
     {
+      "name": "The Silos Golf Club",
+      "address": "7905 Roper Road, Trussville, AL 35173",
+      "state": "AL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://silosgolfclub.com/golf-at-the-silos/",
+        "https://trussville.org/wp-content/uploads/2025/12/2025-09-23.pdf"
+      ],
+      "access_note": "Formerly Trussville Country Club."
+    },
+    {
       "name": "Timber Ridge Golf",
       "address": "101 Ironaton Road, Talladega, AL 35160",
       "state": "AL",
@@ -543,6 +874,17 @@
       "sources": [
         "https://www.alabamagolf.org/page/name/member-club-search",
         "https://www.easymapmaker.com/map/86e668d7a7cd80ad31707b7e6d22e2fa"
+      ]
+    },
+    {
+      "name": "Twin Bridges Golf Club",
+      "address": "901 Riverbend Drive, Gadsden, AL 35901",
+      "state": "AL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.twinbridgesgolf.com/rates/",
+        "https://greatergadsden.com/attractions/twin-bridges-golf-club/"
       ]
     },
     {
@@ -3200,6 +3542,72 @@
       ]
     },
     {
+      "name": "City Park Golf Course",
+      "address": "3181 E. 23rd Ave., Denver, CO 80205",
+      "state": "CO",
+      "county": "Denver County",
+      "holes": 18,
+      "sources": [
+        "https://www.cityofdenvergolf.com/city-park/",
+        "https://www.cityofdenvergolf.com/info/policies-regulations/"
+      ]
+    },
+    {
+      "name": "Harvard Gulch Golf Course",
+      "address": "660 E. Iliff Avenue, Denver, CO 80210",
+      "state": "CO",
+      "county": "Denver County",
+      "holes": 9,
+      "sources": [
+        "https://www.cityofdenvergolf.com/harvard-gulch/",
+        "https://www.cityofdenvergolf.com/info/policies-regulations/"
+      ]
+    },
+    {
+      "name": "Kennedy Golf Course",
+      "address": "10500 E. Hampden Avenue, Denver, CO 80014",
+      "state": "CO",
+      "county": "Denver County",
+      "holes": 36,
+      "sources": [
+        "https://www.cityofdenvergolf.com/kennedy-golf-course/",
+        "https://www.cityofdenvergolf.com/info/policies-regulations/"
+      ]
+    },
+    {
+      "name": "Overland Park Golf Course",
+      "address": "1801 S. Huron Street, Denver, CO 80223",
+      "state": "CO",
+      "county": "Denver County",
+      "holes": 18,
+      "sources": [
+        "https://www.cityofdenvergolf.com/overland-park/",
+        "https://www.cityofdenvergolf.com/info/policies-regulations/"
+      ]
+    },
+    {
+      "name": "Wellshire Golf Course",
+      "address": "3333 S. Colorado Boulevard, Denver, CO 80222",
+      "state": "CO",
+      "county": "Denver County",
+      "holes": 18,
+      "sources": [
+        "https://www.cityofdenvergolf.com/wellshire-golf-course/",
+        "https://www.cityofdenvergolf.com/info/policies-regulations/"
+      ]
+    },
+    {
+      "name": "Evergreen Golf Course",
+      "address": "29614 Upper Bear Creek Rd., Evergreen, CO 80439",
+      "state": "CO",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://www.cityofdenvergolf.com/wp-content/uploads/2025/03/Evergreen_CO_1.9.25_FINAL.pdf",
+        "https://www.cityofdenvergolf.com/info/policies-regulations/"
+      ]
+    },
+    {
       "name": "Airways Golf Course",
       "address": "1070 South Grand Street West Suffield, CT 06093",
       "state": "CT",
@@ -4024,6 +4432,65 @@
       ]
     },
     {
+      "name": "East Potomac Golf Links",
+      "address": "972 Ohio Dr. SW, Washington, DC 20024",
+      "state": "DC",
+      "county": "District of Columbia",
+      "holes": 36,
+      "sources": [
+        "https://www.playdcgolf.com/east-potomac-golf-links/",
+        "https://www.playdcgolf.com/",
+        "https://www.playdcgolf.com/facility-status/"
+      ]
+    },
+    {
+      "name": "Langston Golf Course",
+      "address": "2600 Benning Rd. NE, Washington, DC 20002",
+      "state": "DC",
+      "county": "District of Columbia",
+      "holes": 18,
+      "sources": [
+        "https://www.playdcgolf.com/langston-golf-course/",
+        "https://www.playdcgolf.com/",
+        "https://www.playdcgolf.com/facility-status/"
+      ]
+    },
+    {
+      "name": "Rock Creek Park Golf",
+      "address": "6100 16th St. NW, Washington, DC 20011",
+      "state": "DC",
+      "county": "District of Columbia",
+      "holes": null,
+      "sources": [
+        "https://www.playdcgolf.com/rock-creek-park-golf-course/",
+        "https://www.playdcgolf.com/",
+        "https://www.playdcgolf.com/facility-status/"
+      ],
+      "access_note": "The operator currently offers the front 9 plus a 5-hole loop on part of the back 9; the full back 9 is closed for safety renovations. Total hole count left null pending rehabilitation."
+    },
+    {
+      "name": "Ironwood Golf Course",
+      "address": "2100 NE 39th Ave, Gainesville, FL 32609",
+      "state": "FL",
+      "county": "Alachua County",
+      "holes": 18,
+      "sources": [
+        "https://www.ironwoodgolfcourse.org/aboutus/rates/",
+        "https://www.gainesvillefl.gov/Community-Pages/Community"
+      ]
+    },
+    {
+      "name": "Bay Point Golf Club - Nicklaus Course",
+      "address": "4701 Bay Point Road, Panama City Beach, FL 32408",
+      "state": "FL",
+      "county": "Bay County",
+      "holes": 18,
+      "sources": [
+        "https://www.baypointgolfclub.com/course_nicklaus/",
+        "https://www.baypointgolfclub.com/private-instruction/"
+      ]
+    },
+    {
       "name": "Cocoa Beach Country Club",
       "address": "5000 Tom Warriner Blvd, Cocoa Beach, FL 32931",
       "state": "FL",
@@ -4111,6 +4578,27 @@
       ]
     },
     {
+      "name": "Twisted Oaks Golf Club",
+      "address": "4801 North Forest Ridge Blvd, Beverly Hills, FL 34465",
+      "state": "FL",
+      "county": "Citrus County",
+      "holes": null,
+      "sources": [
+        "https://twistedoaksgc.com/",
+        "https://twistedoaksgc.com/wp-content/uploads/2021/06/Twisted-Oaks-Application-for-Membership-1.pdf"
+      ]
+    },
+    {
+      "name": "Eagle Harbor Golf Club",
+      "address": "2217 Eagle Harbor Pkwy, Fleming Island, FL 32003",
+      "state": "FL",
+      "county": "Clay County",
+      "holes": 18,
+      "sources": [
+        "https://www.eagleharborgc.com/book-a-tee-time"
+      ]
+    },
+    {
       "name": "Eagle Landing Golf Club",
       "address": "3989 Eagle Landing Pkwy, Orange Park, FL 32065",
       "state": "FL",
@@ -4134,6 +4622,37 @@
       "access_note": "Owner confirms public operation until April 2027; recheck access status after that period."
     },
     {
+      "name": "Panther Run Golf Club",
+      "address": "6005 Anthem Parkway, Ave Maria, FL 34142",
+      "state": "FL",
+      "county": "Collier County",
+      "holes": 18,
+      "sources": [
+        "https://www.pantherrungolfclub.com/"
+      ]
+    },
+    {
+      "name": "Tiburon Golf Club",
+      "address": "2620 Tiburon Drive, Naples, FL 34109",
+      "state": "FL",
+      "county": "Collier County",
+      "holes": 36,
+      "sources": [
+        "https://www.tiburonnaples.com/",
+        "https://www.tiburonnaples.com/public/outing-proposal?S=L"
+      ]
+    },
+    {
+      "name": "Quail Heights Country Club",
+      "address": "161 SW Quail Heights Terrace, Lake City, FL 32025",
+      "state": "FL",
+      "county": "Columbia County",
+      "holes": 18,
+      "sources": [
+        "https://www.quailheightscc.com/"
+      ]
+    },
+    {
       "name": "Bent Creek Golf Course",
       "address": "10440 Tournament Lane, Jacksonville, FL 32222",
       "state": "FL",
@@ -4142,6 +4661,40 @@
       "sources": [
         "https://www.jacksonville.gov/departments/parks-and-recreation/jaxparks/all-parks/bent-creek-golf-course-of-jacksonville",
         "https://www.florida-golf.org/directory/bent-creek-golf-course/"
+      ]
+    },
+    {
+      "name": "Blue Cypress Golf Course",
+      "address": "4012 University Blvd N, #5, Jacksonville, FL 32277",
+      "state": "FL",
+      "county": "Duval County",
+      "holes": null,
+      "sources": [
+        "https://www.florida-golf.org/courses/?categories=770296",
+        "https://www.florida-golf.org/directory/blue-cypress-golf-club/"
+      ]
+    },
+    {
+      "name": "Blue Sky Golf Club",
+      "address": "1700 Monument Road, Jacksonville, FL 32225",
+      "state": "FL",
+      "county": "Duval County",
+      "holes": null,
+      "sources": [
+        "https://golfbluesky.com/",
+        "https://hampton.golf/wp-content/uploads/2026/03/HG-Reciprocal-Program-March-2026-1.pdf"
+      ]
+    },
+    {
+      "name": "Brentwood Golf Course",
+      "address": "1157 Golfair Blvd, Jacksonville, FL 32209",
+      "state": "FL",
+      "county": "Duval County",
+      "holes": 9,
+      "sources": [
+        "https://www.florida-golf.org/courses/?categories=770296",
+        "https://www.florida-golf.org/directory/brentwood-golf-club/",
+        "https://www.jacksonville.gov/departments/finance/docs/budget/fy2026-2030-adopted-cip-book-corrected-1-8-26"
       ]
     },
     {
@@ -4177,6 +4730,17 @@
       "access_note": "Operator reports holes 5 and 6 closed from August 31, 2026 until further notice for the Central Water Basin Project; remaining golf is open."
     },
     {
+      "name": "Marcus Pointe Golf Club",
+      "address": "2500 Oak Pointe Drive, Pensacola, FL 32505",
+      "state": "FL",
+      "county": "Escambia County",
+      "holes": null,
+      "sources": [
+        "https://www.visitpensacola.com/blog/golfing-in-pensacola-swing-slice-repeat-and-laugh/",
+        "https://www.marcuspointegc.com/"
+      ]
+    },
+    {
       "name": "Osceola Golf Course",
       "address": "300 Tonawanda Drive, Pensacola, FL 32506",
       "state": "FL",
@@ -4188,6 +4752,90 @@
       ]
     },
     {
+      "name": "Perdido Bay Golf Club",
+      "address": "1 Doug Ford Dr, Pensacola, FL 32507",
+      "state": "FL",
+      "county": "Escambia County",
+      "holes": null,
+      "sources": [
+        "https://www.perdidobaygolf.com/"
+      ]
+    },
+    {
+      "name": "Scenic Hills Country Club",
+      "address": "8891 Burning Tree Road, Pensacola, FL 32514",
+      "state": "FL",
+      "county": "Escambia County",
+      "holes": 18,
+      "sources": [
+        "https://scenichills.com/tee-times/",
+        "https://scenichills.com/wp-content/uploads/2024/05/2024-SHCC-Catering-Menu.pdf"
+      ]
+    },
+    {
+      "name": "Cypress Knoll Golf & Country Club",
+      "address": "53 Easthampton Blvd, Palm Coast, FL 32164",
+      "state": "FL",
+      "county": "Flagler County",
+      "holes": null,
+      "sources": [
+        "https://www.cypressknollgolfandcountryclub.com/golf-fees/",
+        "https://www.cypressknollgolfandcountryclub.com/contact-us/"
+      ]
+    },
+    {
+      "name": "Grand Reserve Golf Club",
+      "address": "400 Grand Reserve Dr., Bunnell, FL 32110",
+      "state": "FL",
+      "county": "Flagler County",
+      "holes": 18,
+      "sources": [
+        "https://capstonegolf.net/grand-reserve-course-information/"
+      ]
+    },
+    {
+      "name": "Palm Harbor Golf Club",
+      "address": "20 Palm Harbor Drive, Palm Coast, FL 32137",
+      "state": "FL",
+      "county": "Flagler County",
+      "holes": 18,
+      "sources": [
+        "https://www.palmcoast.gov/events/home/details/f-1",
+        "https://www.palmcoast.gov/palm-harbor"
+      ]
+    },
+    {
+      "name": "Pine Lakes Golf Club",
+      "address": "400 Pine Lakes Pkwy N, Palm Coast, FL 32164",
+      "state": "FL",
+      "county": "Flagler County",
+      "holes": null,
+      "sources": [
+        "https://www.pinelakesgolfclubfl.com/rates/"
+      ]
+    },
+    {
+      "name": "St. James Bay Golf Resort",
+      "address": "151 Laughing Gull Lane, Carrabelle, FL 32322",
+      "state": "FL",
+      "county": "Franklin County",
+      "holes": 18,
+      "sources": [
+        "https://new.stjamesbay.com/faq",
+        "https://new.stjamesbay.com/golf"
+      ]
+    },
+    {
+      "name": "St. Joseph Bay Golf Club",
+      "address": "700 Country Club Road, Port St. Joe, FL 32456",
+      "state": "FL",
+      "county": "Gulf County",
+      "holes": 18,
+      "sources": [
+        "https://stjoebaygolf.com/"
+      ]
+    },
+    {
       "name": "Clewiston Municipal Golf Course",
       "address": "1201 San Luiz Avenue, Clewiston, FL 33440",
       "state": "FL",
@@ -4195,6 +4843,16 @@
       "holes": 18,
       "sources": [
         "https://www.clewiston-fl.gov/246/Location"
+      ]
+    },
+    {
+      "name": "Brooksville Country Club",
+      "address": "23446 Links Drive, Brooksville, FL 34601",
+      "state": "FL",
+      "county": "Hernando County",
+      "holes": null,
+      "sources": [
+        "https://brooksvillecc.com/golf-course/course-rates/"
       ]
     },
     {
@@ -4230,6 +4888,68 @@
       ]
     },
     {
+      "name": "Clerbrook Golf and RV Resort",
+      "address": "20005 US Highway 27, Clermont, FL 34715",
+      "state": "FL",
+      "county": "Lake County",
+      "holes": 18,
+      "sources": [
+        "https://www.clerbrook.com/about-us/",
+        "https://www.clerbrook.com/"
+      ]
+    },
+    {
+      "name": "Country Club of Mount Dora",
+      "address": "1900 Country Club Blvd, Mount Dora, FL 32757",
+      "state": "FL",
+      "county": "Lake County",
+      "holes": 18,
+      "sources": [
+        "https://ccofmtdora.com/about/"
+      ]
+    },
+    {
+      "name": "Green Valley Country Club",
+      "address": "14601 Green Valley Blvd, Clermont, FL 34711",
+      "state": "FL",
+      "county": "Lake County",
+      "holes": 18,
+      "sources": [
+        "https://gvcountryclub.net/"
+      ]
+    },
+    {
+      "name": "Swiss Fairways Country Club",
+      "address": "13149 Skiing Paradise Blvd, Clermont, FL 34711",
+      "state": "FL",
+      "county": "Lake County",
+      "holes": 18,
+      "sources": [
+        "https://www.swiss-fairways.com/aboutus/"
+      ]
+    },
+    {
+      "name": "The Plantation Golf Club",
+      "address": "4720 Plantation Boulevard, Leesburg, FL 34748",
+      "state": "FL",
+      "county": "Lake County",
+      "holes": 36,
+      "sources": [
+        "https://golfatplantation.com/faqs/"
+      ]
+    },
+    {
+      "name": "Bonita Fairways Golf Club",
+      "address": "26740 Sammoset Way, Bonita Springs, FL 34135",
+      "state": "FL",
+      "county": "Lee County",
+      "holes": null,
+      "sources": [
+        "https://bonitafairways.org/",
+        "https://www.visitfortmyers.com/media-central/media-kits/general-kit-golf"
+      ]
+    },
+    {
       "name": "Coral Oaks Golf Course",
       "address": "1800 NW 28th Avenue, Cape Coral, FL",
       "state": "FL",
@@ -4242,6 +4962,28 @@
       ]
     },
     {
+      "name": "Country Creek Golf Course",
+      "address": "21180 Country Creek Drive, Estero, FL 33928",
+      "state": "FL",
+      "county": "Lee County",
+      "holes": 18,
+      "sources": [
+        "https://www.villagesatcountrycreek.org/Golf"
+      ],
+      "access_note": "Seasonal public access only: May 1–October 31."
+    },
+    {
+      "name": "Eagle Ridge Golf Club",
+      "address": "14589 Eagle Ridge Drive, Fort Myers, FL 33912",
+      "state": "FL",
+      "county": "Lee County",
+      "holes": 18,
+      "sources": [
+        "https://www.playeagleridge.com/",
+        "https://www.visitfortmyers.com/media-central/media-kits/general-kit-golf"
+      ]
+    },
+    {
       "name": "Fort Myers Country Club",
       "address": "3591 McGregor Blvd., Fort Myers, FL 33901",
       "state": "FL",
@@ -4250,6 +4992,72 @@
       "sources": [
         "https://www.fortmyers.gov/1235/Golf",
         "https://www.fortmyers.gov/1421/Fort-Myers-Country-Club"
+      ]
+    },
+    {
+      "name": "Herons Glen Golf & Country Club",
+      "address": "2250 Herons Glen Blvd, North Fort Myers, FL 33917",
+      "state": "FL",
+      "county": "Lee County",
+      "holes": 18,
+      "sources": [
+        "https://hggcc.com/hghoa/pdfs/policies/security_policy.pdf",
+        "https://www.visitfortmyers.com/media-central/media-kits/general-kit-golf"
+      ],
+      "access_note": "Gated community; public golfers must be processed at the guardhouse under the community security policy."
+    },
+    {
+      "name": "Myerlee Country Club",
+      "address": "1380 Myerlee Country Club Blvd, Fort Myers, FL 33919",
+      "state": "FL",
+      "county": "Lee County",
+      "holes": 18,
+      "sources": [
+        "https://www.myerleecc.com/",
+        "https://www.visitfortmyers.com/media-central/media-kits/general-kit-golf"
+      ]
+    },
+    {
+      "name": "San Carlos Golf Club",
+      "address": "7420 Constitution Circle, Fort Myers, FL 33967",
+      "state": "FL",
+      "county": "Lee County",
+      "holes": 18,
+      "sources": [
+        "https://www.sancarlosgolfclub.com/course-info/"
+      ],
+      "access_note": "Closed Mondays June 1–October 12, 2026; otherwise public daily play."
+    },
+    {
+      "name": "Sanibel Island Golf Club",
+      "address": "1100 Par View Drive, Sanibel Island, FL 33957",
+      "state": "FL",
+      "county": "Lee County",
+      "holes": 18,
+      "sources": [
+        "https://sanibelislandgc.com/",
+        "https://www.visitfortmyers.com/media-central/media-kits/general-kit-golf"
+      ]
+    },
+    {
+      "name": "Shell Point Golf Club",
+      "address": "17500 On Par Blvd, Fort Myers, FL 33908",
+      "state": "FL",
+      "county": "Lee County",
+      "holes": 18,
+      "sources": [
+        "https://shellpointgolf.com/",
+        "https://www.visitfortmyers.com/media-central/media-kits/general-kit-golf"
+      ]
+    },
+    {
+      "name": "Stoneybrook Golf Club - Estero",
+      "address": "21251 Stoneybrook Golf Blvd, Estero, FL 33928",
+      "state": "FL",
+      "county": "Lee County",
+      "holes": null,
+      "sources": [
+        "https://stoneybrookgolfestero.com/rates/"
       ]
     },
     {
@@ -4294,6 +5102,38 @@
       ]
     },
     {
+      "name": "Juliette Falls Golf Club",
+      "address": "6933 SW 179th Avenue Road, Dunnellon, FL 34432",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": null,
+      "sources": [
+        "https://juliettefalls.com/",
+        "https://juliettefalls.com/recognition",
+        "https://juliettefalls.com/contact-1"
+      ]
+    },
+    {
+      "name": "Ocala National Golf Club",
+      "address": "4782 NW 80th Avenue, Ocala, FL 34482",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": null,
+      "sources": [
+        "https://ocalanational.com/-home"
+      ]
+    },
+    {
+      "name": "Stone Creek Golf Club",
+      "address": "9676 SW 62nd Loop, Ocala, FL 34481",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": 18,
+      "sources": [
+        "https://www.stonecreekgolfocala.com/golf"
+      ]
+    },
+    {
       "name": "Hammock Creek Golf Club",
       "address": "2400 SW Golden Bear Way, Palm City, FL 34990",
       "state": "FL",
@@ -4334,6 +5174,18 @@
       "sources": [
         "https://www.martin.fl.us/SSGC/about",
         "https://www.martin.fl.us/resource/fy26-adopted-capital-improvement-plan"
+      ]
+    },
+    {
+      "name": "Biltmore Golf Course",
+      "address": "1200 Anastasia Avenue, Coral Gables, FL 33134",
+      "state": "FL",
+      "county": "Miami-Dade County",
+      "holes": 18,
+      "sources": [
+        "https://www.coralgables.com/sites/default/files/2025-05/FY24-Adopted-Budget-CH.pdf",
+        "https://biltmorehotel.com/miami-golf-resort/",
+        "https://biltmorehotel.com/miami-golf-resort/course-info-practice-facility/"
       ]
     },
     {
@@ -4404,6 +5256,28 @@
       ]
     },
     {
+      "name": "Amelia River Club",
+      "address": "4477 Buccaneer Trail, Amelia Island, FL 32034",
+      "state": "FL",
+      "county": "Nassau County",
+      "holes": 18,
+      "sources": [
+        "https://www.florida-golf.org/courses/?categories=770296",
+        "https://www.florida-golf.org/directory/amelia-river-golf-club/"
+      ]
+    },
+    {
+      "name": "Fernandina Beach Golf Club",
+      "address": "2800 Bill Melton Road, Fernandina Beach, FL 32034",
+      "state": "FL",
+      "county": "Nassau County",
+      "holes": 27,
+      "sources": [
+        "https://www.fbfl.us/DocumentCenter/View/25521/FY2025-2026-Adopted-Budget-",
+        "https://www.florida-golf.org/directory/fernandina-beach-golf-club/"
+      ]
+    },
+    {
       "name": "Blackwater Golf Club",
       "address": "4927 Antioch Rd, Crestview, FL 32536",
       "state": "FL",
@@ -4426,6 +5300,49 @@
       ]
     },
     {
+      "name": "Kelly Plantation Golf Club",
+      "address": "307 Kelly Plantation Drive, Destin, FL 32541",
+      "state": "FL",
+      "county": "Okaloosa County",
+      "holes": 18,
+      "sources": [
+        "https://www.kellyplantationgolf.com/"
+      ]
+    },
+    {
+      "name": "Regatta Bay Golf & Yacht Club",
+      "address": "465 Regatta Bay Blvd, Destin, FL 32541",
+      "state": "FL",
+      "county": "Okaloosa County",
+      "holes": 18,
+      "sources": [
+        "https://www.regattabay.com/",
+        "https://www.regattabay.com/the-course/"
+      ]
+    },
+    {
+      "name": "Shalimar Pointe Golf Club",
+      "address": "302 Country Club Rd, Shalimar, FL 32579",
+      "state": "FL",
+      "county": "Okaloosa County",
+      "holes": 18,
+      "sources": [
+        "https://shalimarpointe.com/course/"
+      ]
+    },
+    {
+      "name": "Dubsdread Golf Course",
+      "address": "549 West Par Street, Orlando, FL 32804",
+      "state": "FL",
+      "county": "Orange County",
+      "holes": 18,
+      "sources": [
+        "https://www.orlando.gov/News/Press-Releases/2025-Press-Releases/City-of-Orlando-Announces-New-State-of-the-Art-Driving-Range",
+        "https://www.orlando.gov/Our-Government/Departments-Offices/Executive-Offices/CAO/Sustainability-Resilience/Green-Works-Focus-Areas/Alternative-Transportation/Expanding-Public-Electric-Vehicle-EV-Charging-Infrastructure/Dubsdread-Golf-Course-Station",
+        "https://www.visitorlando.com/blog/post/best-golf-courses-orlando/"
+      ]
+    },
+    {
       "name": "Eagle Creek Golf Club",
       "address": "10350 Emerson Lake Blvd, Orlando, FL 32832",
       "state": "FL",
@@ -4434,6 +5351,69 @@
       "sources": [
         "https://www.eaglecreekorlando.com/",
         "https://www.eaglecreekorlando.com/eagle-creek-golf-club-orlando-to-debut-new-wee-18-golf-course/"
+      ]
+    },
+    {
+      "name": "MetroWest Golf Club",
+      "address": "2100 S Hiawassee Road, Orlando, FL 32835",
+      "state": "FL",
+      "county": "Orange County",
+      "holes": 18,
+      "sources": [
+        "https://www.metrowestgolf.com/"
+      ]
+    },
+    {
+      "name": "Orange County National Golf Center and Lodge",
+      "address": "16301 Phil Ritson Way, Winter Garden, FL 34787",
+      "state": "FL",
+      "county": "Orange County",
+      "holes": null,
+      "sources": [
+        "https://www.ocngolf.com/wp-content/uploads/sites/8939/2023/11/Scorecards-CC-PL.pdf",
+        "https://www.ocngolf.com/shop/"
+      ]
+    },
+    {
+      "name": "Orange Lake Golf",
+      "address": "8505 W Irlo Bronson Memorial Hwy, Kissimmee, FL 34747",
+      "state": "FL",
+      "county": "Orange County",
+      "holes": 54,
+      "sources": [
+        "https://orangelakegolf.com/about-us/",
+        "https://orangelakegolf.com/faqs-orange-lake-golf/"
+      ]
+    },
+    {
+      "name": "Shingle Creek Golf Club",
+      "address": "9939 Universal Boulevard, Orlando, FL 32819",
+      "state": "FL",
+      "county": "Orange County",
+      "holes": 18,
+      "sources": [
+        "https://www.shinglecreekgolf.com/golf/",
+        "https://www.shinglecreekgolf.com/wp-content/uploads/2024/01/24-RSC-002_-RSC-Golf-Guide-Updates-Dec-2023_NC-Spreads.pdf"
+      ]
+    },
+    {
+      "name": "Stoneybrook West Golf Club",
+      "address": "15501 Town Commons Blvd., Winter Garden, FL 34787",
+      "state": "FL",
+      "county": "Orange County",
+      "holes": 18,
+      "sources": [
+        "https://stoneybrookwestgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Ventura Country Club",
+      "address": "3201 Woodgate Blvd., Orlando, FL 32822",
+      "state": "FL",
+      "county": "Orange County",
+      "holes": 18,
+      "sources": [
+        "https://venturacc.org/golf/"
       ]
     },
     {
@@ -4447,6 +5427,28 @@
       ]
     },
     {
+      "name": "Winter Park Pines Golf Club",
+      "address": "950 South Ranger Boulevard, Winter Park, FL 32792",
+      "state": "FL",
+      "county": "Orange County",
+      "holes": 18,
+      "sources": [
+        "https://cityofwinterpark.org/docs/departments/planning-zoning/comprehensive-plan/data-inventory-analysis/DIA-ch1-future-land-use.pdf",
+        "https://cityofwinterpark.org/government/about/contact/"
+      ]
+    },
+    {
+      "name": "Zellwood Station Golf Club",
+      "address": "2126 Spillman Drive, Zellwood, FL 32798-9799",
+      "state": "FL",
+      "county": "Orange County",
+      "holes": 18,
+      "sources": [
+        "https://www.zellwoodstationliving.com/",
+        "https://www.zellwoodstationgolfclub.com/contact-us/"
+      ]
+    },
+    {
       "name": "Celebration Golf Club",
       "address": "701 Golf Park Drive, Celebration, FL 34747",
       "state": "FL",
@@ -4455,6 +5457,72 @@
       "sources": [
         "https://www.celebrationgolf.com/",
         "https://www.experiencekissimmee.com/meetings/event-venues/celebration-golf-club"
+      ]
+    },
+    {
+      "name": "Falcon's Fire Golf Club",
+      "address": "3200 Seralago Blvd., Kissimmee, FL 34746",
+      "state": "FL",
+      "county": "Osceola County",
+      "holes": 18,
+      "sources": [
+        "https://www.experiencekissimmee.com/things-to-do/golf/falcons-fire-golf-club",
+        "https://www.experiencekissimmee.com/article/falcons-fire-golf-club"
+      ]
+    },
+    {
+      "name": "Harmony Golf Preserve",
+      "address": "7251 Five Oaks Drive, Harmony, FL 34773",
+      "state": "FL",
+      "county": "Osceola County",
+      "holes": 18,
+      "sources": [
+        "https://harmonygolfpreserve.com/contact/",
+        "https://www.experiencekissimmee.com/things-to-do/golf/harmony-golf-preserve"
+      ]
+    },
+    {
+      "name": "Mystic Dunes Golf Club",
+      "address": "7850 Shadow Tree Ln., Celebration, FL 34747",
+      "state": "FL",
+      "county": "Osceola County",
+      "holes": 18,
+      "sources": [
+        "https://www.mysticdunesgolf.com/",
+        "https://www.experiencekissimmee.com/article/mystic-dunes-golf-club"
+      ]
+    },
+    {
+      "name": "Oaks National Golf Club",
+      "address": "1500 The Oaks Blvd, Kissimmee, FL 34746",
+      "state": "FL",
+      "county": "Osceola County",
+      "holes": 18,
+      "sources": [
+        "https://oaksnationalgolfclub.com/",
+        "https://www.experiencekissimmee.com/things-to-do/golf/oaks-national-golf-club"
+      ]
+    },
+    {
+      "name": "Remington Golf Club",
+      "address": "2995 Remington Blvd., Kissimmee, FL 34744",
+      "state": "FL",
+      "county": "Osceola County",
+      "holes": 18,
+      "sources": [
+        "https://www.golfremington.com/",
+        "https://www.experiencekissimmee.com/things-to-do/golf/remington-golf-club"
+      ]
+    },
+    {
+      "name": "Royal St. Cloud Golf Links",
+      "address": "5310 Michigan Avenue, St. Cloud, FL 34772",
+      "state": "FL",
+      "county": "Osceola County",
+      "holes": 27,
+      "sources": [
+        "https://www.royalstcloudgolflinks.com/",
+        "https://www.royalstcloudgolflinks.com/amenities/"
       ]
     },
     {
@@ -4640,6 +5708,58 @@
       ]
     },
     {
+      "name": "Plantation Palms Golf Club",
+      "address": "23253 Plantation Palms Blvd., Land O' Lakes, FL 34639",
+      "state": "FL",
+      "county": "Pasco County",
+      "holes": null,
+      "sources": [
+        "https://www.plantationpalms.net/",
+        "https://www.plantationpalms.net/golfhome"
+      ]
+    },
+    {
+      "name": "Bardmoor Golf & Tennis Club",
+      "address": "8001 Cumberland Road, Seminole, FL 33777",
+      "state": "FL",
+      "county": "Pinellas County",
+      "holes": 18,
+      "sources": [
+        "https://www.visitstpeteclearwater.com/sports/profile/bardmoor-golf-tennis-club/138393"
+      ]
+    },
+    {
+      "name": "Chi Chi Rodriguez Golf Club",
+      "address": "3030 North McMullen Booth Road, Clearwater, FL 33761",
+      "state": "FL",
+      "county": "Pinellas County",
+      "holes": null,
+      "sources": [
+        "https://www.chichi.org/golf-club1",
+        "https://www.chichi.org/contact"
+      ]
+    },
+    {
+      "name": "Clearwater Country Club",
+      "address": "525 North Betty Lane, Clearwater, FL 33755",
+      "state": "FL",
+      "county": "Pinellas County",
+      "holes": 18,
+      "sources": [
+        "https://www.visitstpeteclearwater.com/profile/clearwater-country-club/138889"
+      ]
+    },
+    {
+      "name": "Crescent Oaks Golf Club",
+      "address": "3300 Crescent Oaks Blvd, Tarpon Springs, FL 34688",
+      "state": "FL",
+      "county": "Pinellas County",
+      "holes": 18,
+      "sources": [
+        "https://www.crescentoaksgolf.com/contact"
+      ]
+    },
+    {
       "name": "Cypress Links Golf Course",
       "address": "875 62nd Ave. NE., St. Petersburg, FL 33702",
       "state": "FL",
@@ -4661,6 +5781,36 @@
       ]
     },
     {
+      "name": "East Bay Golf Club",
+      "address": "702 Country Club Drive, Largo, FL 33771",
+      "state": "FL",
+      "county": "Pinellas County",
+      "holes": 18,
+      "sources": [
+        "https://www.eastbaygolfclub.com/"
+      ]
+    },
+    {
+      "name": "Largo Golf Course",
+      "address": "12500 Vonn Road, Largo, FL 33774",
+      "state": "FL",
+      "county": "Pinellas County",
+      "holes": 18,
+      "sources": [
+        "https://www.visitstpeteclearwater.com/profile/largo-golf-course/138909"
+      ]
+    },
+    {
+      "name": "Mainlands Golf Club",
+      "address": "9445 Mainlands Blvd. West, Pinellas Park, FL 33782",
+      "state": "FL",
+      "county": "Pinellas County",
+      "holes": 18,
+      "sources": [
+        "https://www.visitstpeteclearwater.com/profile/mainlands-golf-club/138898"
+      ]
+    },
+    {
       "name": "Mangrove Bay Golf Course",
       "address": "875 62nd Ave. NE., St. Petersburg, FL 33702",
       "state": "FL",
@@ -4669,6 +5819,16 @@
       "sources": [
         "https://golfstpete.com/",
         "https://golfstpete.com/mangrove-bay/"
+      ]
+    },
+    {
+      "name": "The Landings Golf Club",
+      "address": "1875 Airport Drive, Clearwater, FL 33765",
+      "state": "FL",
+      "county": "Pinellas County",
+      "holes": 18,
+      "sources": [
+        "https://www.visitstpeteclearwater.com/profile/the-landings-golf-club/138906"
       ]
     },
     {
@@ -4694,6 +5854,17 @@
       ]
     },
     {
+      "name": "Big Cypress Golf Club",
+      "address": "10000 US Highway 98 N, Lakeland, FL 33809",
+      "state": "FL",
+      "county": "Polk County",
+      "holes": 36,
+      "sources": [
+        "https://covecommunities.com/55-mh-communities/florida/cypress-lakes-village/golf-at-cypress-lakes-village/",
+        "https://covecommunities.com/55-mh-communities/florida/cypress-lakes-village/golf-at-cypress-lakes-village/club-hours-contact/"
+      ]
+    },
+    {
       "name": "Cleveland Heights Golf Course",
       "address": "2900 Buckingham Avenue, Lakeland, FL",
       "state": "FL",
@@ -4705,6 +5876,16 @@
       ]
     },
     {
+      "name": "Deer Creek RV Golf and Country Club",
+      "address": "42749 US Hwy 27, Davenport, FL 33837",
+      "state": "FL",
+      "county": "Polk County",
+      "holes": 18,
+      "sources": [
+        "https://deercreekrvonline.com/"
+      ]
+    },
+    {
       "name": "Highlands Reserve Golf Club",
       "address": "500 Highlands Reserve Blvd, Davenport, FL 33897",
       "state": "FL",
@@ -4712,6 +5893,78 @@
       "holes": 18,
       "sources": [
         "https://www.highlandsreservegolfclub.com/"
+      ]
+    },
+    {
+      "name": "Huntington Hills Golf Club",
+      "address": "6925 Hermitage Drive, Lakeland, FL 33810",
+      "state": "FL",
+      "county": "Polk County",
+      "holes": null,
+      "sources": [
+        "https://www.huntingtonhillsgolfclub.com/tee-times/"
+      ]
+    },
+    {
+      "name": "Lake Bess Golf Club",
+      "address": "218 Golf Aire Blvd., Winter Haven, FL 33884",
+      "state": "FL",
+      "county": "Polk County",
+      "holes": 9,
+      "sources": [
+        "https://www.lakebessgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Polo Park East Golf Club",
+      "address": "525 Polo Park E Blvd., Davenport, FL 33897",
+      "state": "FL",
+      "county": "Polk County",
+      "holes": null,
+      "sources": [
+        "https://www.poloparkeastgolf.com/about-us/"
+      ]
+    },
+    {
+      "name": "Polo Park Golf Course",
+      "address": "1744 Challenger Ave, Davenport, FL 33897",
+      "state": "FL",
+      "county": "Polk County",
+      "holes": 9,
+      "sources": [
+        "https://www.poloparkgolfcourse.com/course-details/"
+      ]
+    },
+    {
+      "name": "Providence Golf Club",
+      "address": "1518 Clubhouse Blvd., Davenport, FL 33837",
+      "state": "FL",
+      "county": "Polk County",
+      "holes": 18,
+      "sources": [
+        "https://www.providence-golf.com/"
+      ]
+    },
+    {
+      "name": "Stonegate Golf Club",
+      "address": "404 Village Drive, Kissimmee, FL 34759",
+      "state": "FL",
+      "county": "Polk County",
+      "holes": 36,
+      "sources": [
+        "https://www.stonegategolf.com/"
+      ]
+    },
+    {
+      "name": "Willowbrook Golf Course",
+      "address": "4200 FL-544, Winter Haven, FL 33881",
+      "state": "FL",
+      "county": "Polk County",
+      "holes": 18,
+      "sources": [
+        "https://www.mywinterhaven.com/Facilities/Facility/Details/Willowbrook-Golf-Course-8",
+        "https://www.mywinterhaven.com/ArchiveCenter/ViewFile/Item/51",
+        "https://events.mywinterhaven.com/winterhavenfl/260123303"
       ]
     },
     {
@@ -4726,6 +5979,16 @@
       ]
     },
     {
+      "name": "The Club at Hidden Creek",
+      "address": "3070 PGA Blvd, Navarre, FL 32566",
+      "state": "FL",
+      "county": "Santa Rosa County",
+      "holes": 18,
+      "sources": [
+        "https://www.theclubathiddencreek.com/"
+      ]
+    },
+    {
       "name": "Bobby Jones Golf Club",
       "address": "1000 Circus Blvd., Sarasota, FL 34232",
       "state": "FL",
@@ -4737,6 +6000,108 @@
       ]
     },
     {
+      "name": "Calusa Lakes Golf Club",
+      "address": "1995 Calusa Lakes Blvd., Nokomis, FL 34275",
+      "state": "FL",
+      "county": "Sarasota County",
+      "holes": 18,
+      "sources": [
+        "https://www.golfinvenice.com/",
+        "https://www.golfinvenice.com/contact",
+        "https://www.golfinvenice.com/golf"
+      ]
+    },
+    {
+      "name": "Capri Isles Golf Club",
+      "address": "849 Capri Isles Blvd., Venice, FL 34292",
+      "state": "FL",
+      "county": "Sarasota County",
+      "holes": 18,
+      "sources": [
+        "https://www.golfinvenice.com/",
+        "https://www.golfinvenice.com/contact",
+        "https://www.golfinvenice.com/golf"
+      ]
+    },
+    {
+      "name": "Serenoa Golf Club",
+      "address": "6773 Serenoa Drive, Sarasota, FL 34241",
+      "state": "FL",
+      "county": "Sarasota County",
+      "holes": null,
+      "sources": [
+        "https://www.serenoagc.com/"
+      ]
+    },
+    {
+      "name": "Waterford Golf Club",
+      "address": "1454 Gleneagles Drive, Venice, FL 34292",
+      "state": "FL",
+      "county": "Sarasota County",
+      "holes": 27,
+      "sources": [
+        "https://www.golfinvenice.com/",
+        "https://www.golfinvenice.com/contact",
+        "https://www.golfinvenice.com/golf"
+      ]
+    },
+    {
+      "name": "Casselberry Golf Club",
+      "address": "300 S. Triplet Lake Drive, Casselberry, FL 32707",
+      "state": "FL",
+      "county": "Seminole County",
+      "holes": 18,
+      "sources": [
+        "https://www.casselberrygolf.com/rates",
+        "https://www.seminolecountyfl.gov/docs/default-source/pdf/Deer-Run-BCC-WorkSession-7_27-compressed.pdf",
+        "https://publicrecords.casselberry.org/weblink/0/edoc/310509/Proposed%20FY%202020%20-%202021%20Budget.pdf"
+      ]
+    },
+    {
+      "name": "Twin Rivers Golf Club",
+      "address": "2100 Ekana Drive, Oviedo, FL 32765",
+      "state": "FL",
+      "county": "Seminole County",
+      "holes": 18,
+      "sources": [
+        "https://www.cityofoviedo.net/777/Twin-Rivers-Golf-Course",
+        "https://www.seminolecountyfl.gov/docs/default-source/pdf/Deer-Run-BCC-WorkSession-7_27-compressed.pdf"
+      ]
+    },
+    {
+      "name": "Wekiva Golf Club",
+      "address": "4100 Wekiva Club Court, Longwood, FL 32779",
+      "state": "FL",
+      "county": "Seminole County",
+      "holes": 18,
+      "sources": [
+        "https://www.wekivagc.com/",
+        "https://www.seminolecountyfl.gov/docs/default-source/pdf/Deer-Run-BCC-WorkSession-7_27-compressed.pdf"
+      ]
+    },
+    {
+      "name": "Cimarrone Golf Club",
+      "address": "2800 Cimarrone Blvd, St. Johns, FL 32259",
+      "state": "FL",
+      "county": "St. Johns County",
+      "holes": 18,
+      "sources": [
+        "https://www.florida-golf.org/courses/?categories=770296",
+        "https://www.florida-golf.org/directory/cimarrone-golf-club/"
+      ]
+    },
+    {
+      "name": "Golf Club at South Hampton",
+      "address": "315 South Hampton Club Way, St. Augustine, FL 32092",
+      "state": "FL",
+      "county": "St. Johns County",
+      "holes": null,
+      "sources": [
+        "https://www.florida-golf.org/courses/?categories=770296",
+        "https://www.florida-golf.org/directory/golf-club-at-south-hampton/"
+      ]
+    },
+    {
       "name": "Royal St. Augustine Golf and Country Club",
       "address": "301 Royal St Augustine Pkwy, St. Augustine, FL 32084",
       "state": "FL",
@@ -4744,6 +6109,17 @@
       "holes": 18,
       "sources": [
         "https://www.florida-golf.org/directory/royal-st-augustine-golf-club/"
+      ]
+    },
+    {
+      "name": "St. Johns Golf & Country Club",
+      "address": "205 St Johns Golf Drive, St. Augustine, FL 32092",
+      "state": "FL",
+      "county": "St. Johns County",
+      "holes": 18,
+      "sources": [
+        "https://www.florida-golf.org/courses/?categories=770296",
+        "https://www.florida-golf.org/directory/st-johns-golf-country-club/"
       ]
     },
     {
@@ -4766,6 +6142,16 @@
       "holes": 18,
       "sources": [
         "https://www.stlucieco.gov/Home/Components/FacilityDirectory/FacilityDirectory/108/3151?npage=4"
+      ]
+    },
+    {
+      "name": "Cypress Point Golf Club & RV Retreat",
+      "address": "650 Osteen Maytown Road, Osteen, FL 32764",
+      "state": "FL",
+      "county": "Volusia County",
+      "holes": 9,
+      "sources": [
+        "https://www.sportsvolusia.com/facilities/osteen/cypressrv.stml"
       ]
     },
     {
@@ -4852,14 +6238,23 @@
       ]
     },
     {
-      "name": "Amelia River Club",
-      "address": "4477 Buccaneer Trail, Amelia Island, FL 32034",
+      "name": "Sunny Hills Golf Club",
+      "address": "3634 Country Club Blvd., Sunny Hills, FL 32428",
+      "state": "FL",
+      "county": "Washington County",
+      "holes": 18,
+      "sources": [
+        "https://www.sunnyhillsgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Arlington Ridge Golf Club",
+      "address": "4463 Arlington Ridge Blvd, Leesburg, FL 34748",
       "state": "FL",
       "county": null,
       "holes": 18,
       "sources": [
-        "https://www.florida-golf.org/courses/?categories=770296",
-        "https://www.florida-golf.org/directory/amelia-river-golf-club/"
+        "https://www.arlingtonridgegolfclub.com/"
       ]
     },
     {
@@ -4874,59 +6269,35 @@
       ]
     },
     {
-      "name": "Bay Point Golf Club - Nicklaus Course",
-      "address": "4701 Bay Point Road, Panama City Beach, FL 32408",
+      "name": "ChampionsGate Country Club",
+      "address": "8950 Cliftons Draw Dr., ChampionsGate, FL 33896",
       "state": "FL",
       "county": null,
       "holes": 18,
       "sources": [
-        "https://www.baypointgolfclub.com/course_nicklaus/",
-        "https://www.baypointgolfclub.com/private-instruction/"
+        "https://www.championsgatecountryclub.com/",
+        "https://www.championsgatecountryclub.com/golf/about-the-club"
       ]
     },
     {
-      "name": "Biltmore Golf Course",
-      "address": "1200 Anastasia Avenue, Coral Gables, FL 33134",
+      "name": "ChampionsGate Golf Club",
+      "address": "8575 White Shark Blvd., ChampionsGate, FL 33896",
+      "state": "FL",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://www.experiencekissimmee.com/things-to-do/golf/championsgate-golf-club",
+        "https://www.experiencekissimmee.com/article/championsgate-golf-club"
+      ]
+    },
+    {
+      "name": "Clermont National",
+      "address": "2601 Clermont National Dr, Clermont, FL 34711",
       "state": "FL",
       "county": null,
       "holes": 18,
       "sources": [
-        "https://www.coralgables.com/sites/default/files/2025-05/FY24-Adopted-Budget-CH.pdf",
-        "https://biltmorehotel.com/miami-golf-resort/",
-        "https://biltmorehotel.com/miami-golf-resort/course-info-practice-facility/"
-      ]
-    },
-    {
-      "name": "Blue Cypress Golf Course",
-      "address": "4012 University Blvd N, #5, Jacksonville, FL 32277",
-      "state": "FL",
-      "county": null,
-      "holes": null,
-      "sources": [
-        "https://www.florida-golf.org/courses/?categories=770296",
-        "https://www.florida-golf.org/directory/blue-cypress-golf-club/"
-      ]
-    },
-    {
-      "name": "Brentwood Golf Course",
-      "address": "1157 MB01 Golfair Blvd, Jacksonville, FL 32209",
-      "state": "FL",
-      "county": null,
-      "holes": 9,
-      "sources": [
-        "https://www.florida-golf.org/courses/?categories=770296",
-        "https://www.florida-golf.org/directory/brentwood-golf-club/"
-      ]
-    },
-    {
-      "name": "Cimarrone Golf Club",
-      "address": "2800 Cimarrone Blvd, St. Johns, FL 32259",
-      "state": "FL",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.florida-golf.org/courses/?categories=770296",
-        "https://www.florida-golf.org/directory/cimarrone-golf-club/"
+        "https://www.clermontnational.com/course"
       ]
     },
     {
@@ -4937,17 +6308,6 @@
       "holes": 18,
       "sources": [
         "https://www.port-orange.org/Facilities/Facility/Details/Causeway-Park-9"
-      ]
-    },
-    {
-      "name": "Cypress Knoll Golf & Country Club",
-      "address": "53 Easthampton Blvd, Palm Coast, FL 32164",
-      "state": "FL",
-      "county": null,
-      "holes": null,
-      "sources": [
-        "https://www.cypressknollgolfandcountryclub.com/golf-fees/",
-        "https://www.cypressknollgolfandcountryclub.com/contact-us/"
       ]
     },
     {
@@ -4973,28 +6333,6 @@
       ]
     },
     {
-      "name": "Fernandina Beach Golf Club",
-      "address": "2800 Bill Melton Road, Fernandina Beach, FL 32034",
-      "state": "FL",
-      "county": null,
-      "holes": 27,
-      "sources": [
-        "https://www.fbfl.us/DocumentCenter/View/25521/FY2025-2026-Adopted-Budget-",
-        "https://www.florida-golf.org/directory/fernandina-beach-golf-club/"
-      ]
-    },
-    {
-      "name": "Golf Club at South Hampton",
-      "address": "315 South Hampton Club Way, St. Augustine, FL 32092",
-      "state": "FL",
-      "county": null,
-      "holes": null,
-      "sources": [
-        "https://www.florida-golf.org/courses/?categories=770296",
-        "https://www.florida-golf.org/directory/golf-club-at-south-hampton/"
-      ]
-    },
-    {
       "name": "Granada Golf Course",
       "address": "2001 Granada Blvd., Coral Gables, FL 33134",
       "state": "FL",
@@ -5004,26 +6342,6 @@
         "https://www.coralgables.com/sites/default/files/2025-05/FY24-Adopted-Budget-CH.pdf",
         "https://www.coralgables.com/department/community-recreation/granada-golf-course",
         "https://www.coralgables.com/index.php/community-recreation/parks-open-spaces/our-parks/all-parks-open-spaces"
-      ]
-    },
-    {
-      "name": "Grand Reserve Golf Club",
-      "address": "400 Grand Reserve Dr., Bunnell, FL 32110",
-      "state": "FL",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://capstonegolf.net/grand-reserve-course-information/"
-      ]
-    },
-    {
-      "name": "Kelly Plantation Golf Club",
-      "address": "307 Kelly Plantation Drive, Destin, FL 32541",
-      "state": "FL",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.kellyplantationgolf.com/"
       ]
     },
     {
@@ -5050,6 +6368,40 @@
       ]
     },
     {
+      "name": "Kissimmee Bay Country Club",
+      "address": "2801 Kissimmee Bay Blvd, Kissimmee, FL 34744",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfkissimmeebay.com/",
+        "https://www.experiencekissimmee.com/things-to-do/golf/kissimmee-bay-country-club"
+      ]
+    },
+    {
+      "name": "Lake Wales Country Club",
+      "address": "2925 E State Rd 60, Lake Wales, FL 33898",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://lakewalescountryclub.com/",
+        "https://lakewalescountryclub.com/course-details/",
+        "https://lakewalescountryclub.com/contact-us/"
+      ]
+    },
+    {
+      "name": "Lily Lake Golf Club",
+      "address": "6603 U.S. Hwy. 27 South, Frostproof, FL 33843",
+      "state": "FL",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.lilylake.com/golf.html",
+        "https://www.lilylakegolf.com/"
+      ]
+    },
+    {
       "name": "Lost Key Golf Club",
       "address": "625 Lost Key Drive, Pensacola, FL 32507",
       "state": "FL",
@@ -5058,17 +6410,6 @@
       "sources": [
         "https://www.visitpensacola.com/blog/golfing-in-pensacola-swing-slice-repeat-and-laugh/",
         "https://www.visitpensacola.com/directory/lost-key-golf-club/"
-      ]
-    },
-    {
-      "name": "Marcus Pointe Golf Club",
-      "address": "2500 Oak Pointe Drive, Pensacola, FL 32505",
-      "state": "FL",
-      "county": null,
-      "holes": null,
-      "sources": [
-        "https://www.visitpensacola.com/blog/golfing-in-pensacola-swing-slice-repeat-and-laugh/",
-        "https://www.marcuspointegc.com/"
       ]
     },
     {
@@ -5096,48 +6437,6 @@
       ]
     },
     {
-      "name": "Palm Harbor Golf Club",
-      "address": "20 Palm Harbor Drive, Palm Coast, FL 32137",
-      "state": "FL",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.palmcoast.gov/events/home/details/f-1",
-        "https://www.palmcoast.gov/palm-harbor"
-      ]
-    },
-    {
-      "name": "Perdido Bay Golf Club",
-      "address": "1 Doug Ford Dr, Pensacola, FL 32507",
-      "state": "FL",
-      "county": null,
-      "holes": null,
-      "sources": [
-        "https://www.perdidobaygolf.com/"
-      ]
-    },
-    {
-      "name": "Pine Lakes Golf Club",
-      "address": "400 Pine Lakes Pkwy N, Palm Coast, FL 32164",
-      "state": "FL",
-      "county": null,
-      "holes": null,
-      "sources": [
-        "https://www.pinelakesgolfclubfl.com/rates/"
-      ]
-    },
-    {
-      "name": "Regatta Bay Golf & Yacht Club",
-      "address": "465 Regatta Bay Blvd, Destin, FL 32541",
-      "state": "FL",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.regattabay.com/",
-        "https://www.regattabay.com/the-course/"
-      ]
-    },
-    {
       "name": "Rogers Park Golf Course",
       "address": "7911 N Willie Black Drive, Tampa, FL 33610",
       "state": "FL",
@@ -5146,17 +6445,6 @@
       "sources": [
         "https://www.tampa.gov/info/sports/personal-fitness",
         "https://rogersparkgolf.net/contact-us-1"
-      ]
-    },
-    {
-      "name": "Scenic Hills Country Club",
-      "address": "8891 Burning Tree Road, Pensacola, FL 32514",
-      "state": "FL",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://scenichills.com/tee-times/",
-        "https://scenichills.com/wp-content/uploads/2024/05/2024-SHCC-Catering-Menu.pdf"
       ]
     },
     {
@@ -5171,34 +6459,24 @@
       ]
     },
     {
-      "name": "Shalimar Pointe Golf Club",
-      "address": "302 Country Club Rd, Shalimar, FL 32579",
+      "name": "The Club at Westminster",
+      "address": "2199 Berkley Way, Lehigh Acres, FL 33973",
       "state": "FL",
       "county": null,
       "holes": 18,
       "sources": [
-        "https://shalimarpointe.com/course/"
+        "https://westminster-golf.com/"
       ]
     },
     {
-      "name": "St. Johns Golf & Country Club",
-      "address": "205 St Johns Golf Drive, St. Augustine, FL 32092",
+      "name": "The Golf Club at North Hampton",
+      "address": "22680 North Hampton Club Way, Fernandina Beach, FL 32034",
       "state": "FL",
       "county": null,
       "holes": 18,
       "sources": [
-        "https://www.florida-golf.org/courses/?categories=770296",
-        "https://www.florida-golf.org/directory/st-johns-golf-country-club/"
-      ]
-    },
-    {
-      "name": "The Club at Hidden Creek",
-      "address": "3070 PGA Blvd, Navarre, FL 32566",
-      "state": "FL",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.theclubathiddencreek.com/"
+        "https://gcnorthhampton.com/",
+        "https://gcnorthhampton.com/membership/"
       ]
     },
     {
@@ -5213,14 +6491,51 @@
       ]
     },
     {
-      "name": "Tiburon Golf Club",
-      "address": "2620 Tiburon Drive, Naples, FL 34109",
+      "name": "The Monarch at Royal Highlands",
+      "address": "5325 St. Andrews Arc, Leesburg, FL 34748-7964",
       "state": "FL",
       "county": null,
-      "holes": 36,
+      "holes": 18,
       "sources": [
-        "https://www.tiburonnaples.com/",
-        "https://www.tiburonnaples.com/public/outing-proposal?S=L"
+        "https://www.monarchgolfclub.com/",
+        "https://www.monarchgolfclub.com/wp-content/uploads/sites/9520/2025/03/2025-2-Limited-General-Plus-Membership-Flyer.pdf",
+        "https://www.monarchgolfclub.com/scorecard/"
+      ]
+    },
+    {
+      "name": "Walt Disney World Golf - Palm, Magnolia and Oak Trail",
+      "address": "1950 West Magnolia Palm Drive, Lake Buena Vista, FL 32830",
+      "state": "FL",
+      "county": null,
+      "holes": 45,
+      "sources": [
+        "https://www.golfwdw.com/courses/golf-rates",
+        "https://www.golfwdw.com/courses/disneys-magnolia-golf-course",
+        "https://www.golfwdw.com/courses/disneys-palm-golf-course",
+        "https://www.golfwdw.com/courses/disneys-oak-trail-golf-course"
+      ],
+      "access_note": "Photo identification is required for every golfer to enter the Shades of Green Resort. Oak Trail is walking-only. This record covers the three courses sharing this clubhouse, not the separate Lake Buena Vista course, which is closed for renovations as of the source check."
+    },
+    {
+      "name": "Wentworth Golf Club",
+      "address": "2990 Wentworth Way, Tarpon Springs, FL 34688",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://wentworthgolfclub.org/",
+        "https://wentworthgolfclub.org/contact/",
+        "https://wentworthgolfclub.org/course-details/"
+      ]
+    },
+    {
+      "name": "Whiskey Creek Country Club",
+      "address": "1449 Whiskey Creek Drive, Fort Myers, FL 33919",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://whiskeycreekcc.com/"
       ]
     },
     {
@@ -6302,6 +7617,78 @@
       ]
     },
     {
+      "name": "Ala Wai Golf Course",
+      "address": "404 Kapahulu Avenue, Honolulu, HI 96815",
+      "state": "HI",
+      "county": "Honolulu County",
+      "holes": 18,
+      "sources": [
+        "https://www.honolulu.gov/des/ala-wai-golf-course/",
+        "https://www.honolulu.gov/des/golf-courses/"
+      ],
+      "access_note": "No twilight play until further notice, as posted on the course page."
+    },
+    {
+      "name": "Ewa Villages Golf Course",
+      "address": "91-1760 Park Row, Ewa Beach, HI 96706",
+      "state": "HI",
+      "county": "Honolulu County",
+      "holes": 18,
+      "sources": [
+        "https://www.honolulu.gov/des/ewa-villages-golf-course/",
+        "https://www.honolulu.gov/des/golf-courses/"
+      ],
+      "access_note": "No twilight play until further notice, as posted on the course page."
+    },
+    {
+      "name": "Pali Golf Course",
+      "address": "45-050 Kamehameha Highway, Kaneohe, HI 96744",
+      "state": "HI",
+      "county": "Honolulu County",
+      "holes": 18,
+      "sources": [
+        "https://www.honolulu.gov/des/pali-golf-course/",
+        "https://www.honolulu.gov/des/golf-courses/"
+      ],
+      "access_note": "No twilight play until further notice, as posted on the course page."
+    },
+    {
+      "name": "West Loch Golf Course",
+      "address": "91-1126 Okupe Street, Ewa Beach, HI 96706",
+      "state": "HI",
+      "county": "Honolulu County",
+      "holes": 18,
+      "sources": [
+        "https://www.honolulu.gov/des/west-loch-golf-course/",
+        "https://www.honolulu.gov/des/golf-courses/"
+      ],
+      "access_note": "No twilight play until further notice, as posted on the course page."
+    },
+    {
+      "name": "Kahuku Golf Course",
+      "address": "56-501 Kamehameha Highway, Kahuku, HI 96731",
+      "state": "HI",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.honolulu.gov/des/kahuku-golf-course/",
+        "https://www.honolulu.gov/des/golf-courses/"
+      ],
+      "access_note": "No twilight play until further notice, as posted on the course page."
+    },
+    {
+      "name": "Ted Makalena Golf Course",
+      "address": "93-059 Waipio Point Access Road, Waipahu, HI 96797",
+      "state": "HI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.honolulu.gov/des/ted-makalena-golf-course/",
+        "https://www.honolulu.gov/des/golf-courses/"
+      ],
+      "access_note": "No twilight play until further notice, as posted on the course page."
+    },
+    {
       "name": "Waukon Golf & Country Club",
       "address": "308 1st Street SE, Waukon, IA 52172",
       "state": "IA",
@@ -6587,6 +7974,17 @@
       "sources": [
         "https://iowagolf.org/iga-member-club-directory/",
         "https://iowagolf.org/dir-pin-oak/"
+      ]
+    },
+    {
+      "name": "Woods Edge Golf Course",
+      "address": "504 W Union St, Edgewood, IA 52042-8156",
+      "state": "IA",
+      "county": "Delaware County",
+      "holes": 9,
+      "sources": [
+        "https://woodsedgegolf.com/",
+        "https://www.claytoncountyiowa.com/business/woods-edge-golf-course"
       ]
     },
     {
@@ -7168,6 +8566,17 @@
       "sources": [
         "https://iowagolf.org/iga-member-club-directory/",
         "https://iowagolf.org/dir-dodge-riverside/"
+      ]
+    },
+    {
+      "name": "Quail Run Golf Course",
+      "address": "29512 285th Street, Neola, IA 51559-4002",
+      "state": "IA",
+      "county": "Pottawattamie County",
+      "holes": 9,
+      "sources": [
+        "https://iowagolf.org/iga-member-club-directory/",
+        "https://iowagolf.org/dir-quail-run-golf-course-3/"
       ]
     },
     {
@@ -7755,17 +9164,6 @@
       ]
     },
     {
-      "name": "Quail Run Golf Course",
-      "address": "29512 285th Street, Neola, IA 51559-4002",
-      "state": "IA",
-      "county": null,
-      "holes": 9,
-      "sources": [
-        "https://iowagolf.org/iga-member-club-directory/",
-        "https://iowagolf.org/dir-quail-run-golf-course-3/"
-      ]
-    },
-    {
       "name": "Saddleback Ridge Golf Course",
       "address": "4646 East 180th Street, Solon, IA 52333",
       "state": "IA",
@@ -7900,17 +9298,6 @@
       ]
     },
     {
-      "name": "Woods Edge Golf Course",
-      "address": "504 W Union St, Edgewood, IA 52042-8156",
-      "state": "IA",
-      "county": null,
-      "holes": 9,
-      "sources": [
-        "https://woodsedgegolf.com/",
-        "https://www.claytoncountyiowa.com/business/woods-edge-golf-course"
-      ]
-    },
-    {
       "name": "Swansea Country Club",
       "address": "299 Market Street, Swansea, MA 02777",
       "state": "MA",
@@ -7950,6 +9337,61 @@
       "holes": 18,
       "sources": [
         "https://www.oldescotlandlinks.com/"
+      ]
+    },
+    {
+      "name": "Diamond Ridge Golf Course",
+      "address": "2309 Ridge Road, Windsor Mill, MD 21244",
+      "state": "MD",
+      "county": "Baltimore County",
+      "holes": 18,
+      "sources": [
+        "https://baltimoregolfing.com/course/diamond-ridge",
+        "https://baltimoregolfing.com/about/faqs"
+      ]
+    },
+    {
+      "name": "Fox Hollow Golf Course",
+      "address": "1 Cardigan Road, Timonium, MD 21093",
+      "state": "MD",
+      "county": "Baltimore County",
+      "holes": null,
+      "sources": [
+        "https://baltimoregolfing.com/course/fox-hollow",
+        "https://baltimoregolfing.com/about/faqs"
+      ]
+    },
+    {
+      "name": "Greystone Golf Course",
+      "address": "2115 White Hall Rd., White Hall, MD 21161",
+      "state": "MD",
+      "county": "Baltimore County",
+      "holes": null,
+      "sources": [
+        "https://baltimoregolfing.com/course/greystone",
+        "https://baltimoregolfing.com/about/faqs"
+      ]
+    },
+    {
+      "name": "Rocky Point Golf Course",
+      "address": "1935 Back River Neck Road, Essex, MD 21221",
+      "state": "MD",
+      "county": "Baltimore County",
+      "holes": 18,
+      "sources": [
+        "https://baltimoregolfing.com/course/rocky-point",
+        "https://baltimoregolfing.com/about/faqs"
+      ]
+    },
+    {
+      "name": "The Woodlands Golf Course",
+      "address": "2309 Ridge Road, Windsor Mill, MD 21244",
+      "state": "MD",
+      "county": "Baltimore County",
+      "holes": 18,
+      "sources": [
+        "https://baltimoregolfing.com/course/woodlands",
+        "https://baltimoregolfing.com/about/faqs"
       ]
     },
     {
@@ -8908,6 +10350,16 @@
       ]
     },
     {
+      "name": "Springfield Golf Course",
+      "address": "651 S O’Connell Ave, Springfield, MN 56087",
+      "state": "MN",
+      "county": "Brown County",
+      "holes": 9,
+      "sources": [
+        "https://springfieldgolfcourse.net/course-tour/"
+      ]
+    },
+    {
       "name": "Hidden Greens Golf Course",
       "address": "12977 200th Street East, Hastings, MN 55033",
       "state": "MN",
@@ -8988,16 +10440,6 @@
       ]
     },
     {
-      "name": "Springfield Golf Course",
-      "address": "651 S O’Connell Ave, Springfield, MN 56087",
-      "state": "MN",
-      "county": null,
-      "holes": 9,
-      "sources": [
-        "https://springfieldgolfcourse.net/course-tour/"
-      ]
-    },
-    {
       "name": "The Valley Golf Course",
       "address": "1005 Indian Valley Dr., Burlington, NC 27217",
       "state": "NC",
@@ -9005,6 +10447,16 @@
       "holes": 18,
       "sources": [
         "https://www.burlingtonnc.gov/1309/The-Valley-Golf-Course"
+      ]
+    },
+    {
+      "name": "Mountain Aire Golf Club",
+      "address": "1396 Fairway Ridge Drive, West Jefferson, NC 28694",
+      "state": "NC",
+      "county": "Ashe County",
+      "holes": 18,
+      "sources": [
+        "https://www.mountainaire.com/"
       ]
     },
     {
@@ -9018,6 +10470,28 @@
       ]
     },
     {
+      "name": "Brunswick Plantation Golf Resort",
+      "address": "380 Brunswick Drive NW, Calabash, NC 28467",
+      "state": "NC",
+      "county": "Brunswick County",
+      "holes": 27,
+      "sources": [
+        "https://www.brunswickplantation.com/golf/",
+        "https://xfer.services.ncdot.gov/pdea/EnvironmentalDocs/Documents/STIP_R-Projects/R-5876%20Carolina%20Bays%20Pkwy_EIS.pdf"
+      ],
+      "access_note": "Current operator confirms three nine-hole layouts, 27 total; this supersedes the DEIS hole-count error."
+    },
+    {
+      "name": "Carolina National Golf Club",
+      "address": "1643 Goley Hewett Rd SE, Bolivia, NC 28422",
+      "state": "NC",
+      "county": "Brunswick County",
+      "holes": 27,
+      "sources": [
+        "https://carolinanationalgolfclub.com/"
+      ]
+    },
+    {
       "name": "Crow Creek Golf Club",
       "address": "490 South Crow Creek Drive, Calabash, NC 28467",
       "state": "NC",
@@ -9027,6 +10501,16 @@
         "https://crowcreekgolf.com/",
         "https://crowcreekgolf.com/contact-us/",
         "https://xfer.services.ncdot.gov/pdea/EnvironmentalDocs/Documents/STIP_R-Projects/R-5876%20Carolina%20Bays%20Pkwy_EIS.pdf"
+      ]
+    },
+    {
+      "name": "Magnolia Greens Golf Club",
+      "address": "1800 Tommy Jacobs Drive, Leland, NC 28451",
+      "state": "NC",
+      "county": "Brunswick County",
+      "holes": 27,
+      "sources": [
+        "https://www.magnoliagreensgolf.com/"
       ]
     },
     {
@@ -9057,6 +10541,19 @@
       ]
     },
     {
+      "name": "Rivers Edge Golf Club",
+      "address": "2000 Arnold Palmer Drive, Shallotte, NC 28468",
+      "state": "NC",
+      "county": "Brunswick County",
+      "holes": 18,
+      "sources": [
+        "https://playriversedgegolf.com/book-online/",
+        "https://playriversedgegolf.com/faq/",
+        "https://playriversedgegolf.com/rivers-edge-garners-prestigious-title-as-the-2023-golf-course-of-the-year-chosen-by-the-mbagcoa/"
+      ],
+      "access_note": "Gatehouse check-in requires name and tee time. ZIP follows current operator footer."
+    },
+    {
       "name": "Sandpiper Bay Golf & Country Club",
       "address": "800 N. Sandpiper Club Drive, Sunset Beach, NC 28468",
       "state": "NC",
@@ -9069,6 +10566,28 @@
       ]
     },
     {
+      "name": "Thistle Golf Club",
+      "address": "1815 Olde Thistle Club Road, Sunset Beach, NC 28468",
+      "state": "NC",
+      "county": "Brunswick County",
+      "holes": 27,
+      "sources": [
+        "https://www.thistlegolf.com/"
+      ]
+    },
+    {
+      "name": "Asheville Municipal Golf Course",
+      "address": "226 Fairway Drive, Asheville, NC 28805",
+      "state": "NC",
+      "county": "Buncombe County",
+      "holes": 9,
+      "sources": [
+        "https://www.ashevillenc.gov/news/asheville-municipal-golf-course-recognized-by-guide-to-north-carolina-awards/",
+        "https://www.ashevillegc.com/"
+      ],
+      "access_note": "Nine holes are currently available for golf. The historical 18-hole facility lost its front nine to Hurricane Helene in September 2024; that area temporarily hosts disc golf pending restoration."
+    },
+    {
       "name": "Black Mountain Golf Course",
       "address": "17 Ross Drive, Black Mountain, NC 28711",
       "state": "NC",
@@ -9079,6 +10598,30 @@
         "https://www.blackmountaingolf.org/thecourse"
       ],
       "access_note": "Official course homepage confirms all 18 holes reopened by September 2026 following storm repairs."
+    },
+    {
+      "name": "Reems Creek Golf Club",
+      "address": "36 Pink Fox Cove Road, Weaverville, NC 28787",
+      "state": "NC",
+      "county": "Buncombe County",
+      "holes": 18,
+      "sources": [
+        "https://www.reemscreekgolf.com/membership",
+        "https://irp.cdn-website.com/d91e3d8b/files/uploaded/2025_Membership_Application.pdf",
+        "https://www.exploreasheville.com/article/wandering-weaverville-main-street-countryside"
+      ]
+    },
+    {
+      "name": "Chatuge Shores Golf Course",
+      "address": "260 Golf Course Road, Hayesville, NC 28904",
+      "state": "NC",
+      "county": "Clay County",
+      "holes": 18,
+      "sources": [
+        "https://www.chatugeshoresgolf.com/",
+        "https://www.chatugeshoresgolf.com/course-details/",
+        "https://www.chatugeshoresgolf.com/wp-content/uploads/sites/9971/2026/09/Accommodations-element109-1.jpg"
+      ]
     },
     {
       "name": "Lexington Golf Club",
@@ -9138,6 +10681,75 @@
       ]
     },
     {
+      "name": "Anderson Creek Golf Club",
+      "address": "125 Whispering Pines Dr., Spring Lake, NC 28390",
+      "state": "NC",
+      "county": "Harnett County",
+      "holes": 18,
+      "sources": [
+        "https://www.acgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Etowah Valley Golf Club",
+      "address": "470 Brickyard Road, Etowah, NC 28729",
+      "state": "NC",
+      "county": "Henderson County",
+      "holes": 18,
+      "sources": [
+        "https://www.etowahvalley.com/",
+        "https://www.etowahvalley.com/amenities/",
+        "https://www.etowahvalley.com/rates/"
+      ],
+      "access_note": "Current operator homepage and amenities describe 18 holes; older directories list 27."
+    },
+    {
+      "name": "Bayonet at Puppy Creek",
+      "address": "349 S Parker Church Rd, Raeford, NC 28376",
+      "state": "NC",
+      "county": "Hoke County",
+      "holes": 18,
+      "sources": [
+        "https://www.bayonetgolf.com/contact-us/",
+        "https://www.bayonetgolf.com/rates/",
+        "https://www.bayonetgolf.com/"
+      ]
+    },
+    {
+      "name": "The 500 Club",
+      "address": "175 Club House Drive, Statesville, NC 28677",
+      "state": "NC",
+      "county": "Iredell County",
+      "holes": 18,
+      "sources": [
+        "https://500-club.com/",
+        "https://500-club.com/Default.aspx?p=dynamicmodule&pageid=80&ssid=100090&vnf=1"
+      ],
+      "access_note": "Former Fox Den / Larkin Golf Club; record uses current operator name."
+    },
+    {
+      "name": "Reedy Creek Golf Course",
+      "address": "585 Reedy Creek Road, Four Oaks, NC 27524",
+      "state": "NC",
+      "county": "Johnston County",
+      "holes": 18,
+      "sources": [
+        "https://www.reedycreekgolf.com/golf/course-details"
+      ]
+    },
+    {
+      "name": "Riverwood Golf Club",
+      "address": "400 Riverwood Drive, Clayton, NC 27527",
+      "state": "NC",
+      "county": "Johnston County",
+      "holes": 27,
+      "sources": [
+        "https://www.riverwoodgolfnc.com/course-details/",
+        "https://www.fscsportsclub.com/2023/01/12/2023-tee-time-booking-policies/",
+        "https://www.fscsportsclub.com/golf/"
+      ]
+    },
+    {
       "name": "Birkdale Golf Club",
       "address": "16500 Birkdale Commons Parkway, Huntersville, NC 28078",
       "state": "NC",
@@ -9194,6 +10806,16 @@
       ]
     },
     {
+      "name": "Skybrook Golf Club",
+      "address": "14720 Northgreen Drive, Huntersville, NC 28078",
+      "state": "NC",
+      "county": "Mecklenburg County",
+      "holes": 18,
+      "sources": [
+        "https://skybrookgolf.com/contact-us/"
+      ]
+    },
+    {
       "name": "Sunset Hills Golf Course - Old Course",
       "address": "800 Radio Rd., Charlotte, NC 28216",
       "state": "NC",
@@ -9220,6 +10842,28 @@
       ]
     },
     {
+      "name": "The Tradition Golf Club",
+      "address": "3800 Prosperity Church Road, Charlotte, NC 28269",
+      "state": "NC",
+      "county": "Mecklenburg County",
+      "holes": 18,
+      "sources": [
+        "https://thetraditiongolfclub.com/",
+        "https://mecklenburg.legistar.com/LegislationDetail.aspx?GUID=945258F9-66A5-4836-82B0-51144EAC2DCA&ID=7941861&Options=&Search="
+      ]
+    },
+    {
+      "name": "Beau Rivage Golf & Resort",
+      "address": "649 Rivage Promenade, Wilmington, NC 28412",
+      "state": "NC",
+      "county": "New Hanover County",
+      "holes": 18,
+      "sources": [
+        "https://www.beaurivagegolf.com/",
+        "https://www.beaurivagegolf.com/golf"
+      ]
+    },
+    {
       "name": "Minnesott Golf & Country Club",
       "address": "806 Country Club Dr., Minnesott Beach, NC 28510",
       "state": "NC",
@@ -9227,6 +10871,40 @@
       "holes": 18,
       "sources": [
         "https://www.minnesottgolf.org/"
+      ]
+    },
+    {
+      "name": "Olde Point Country Club",
+      "address": "513 Country Club Drive, Hampstead, NC 28443",
+      "state": "NC",
+      "county": "Pender County",
+      "holes": 18,
+      "sources": [
+        "https://oldepointgolf.com/"
+      ]
+    },
+    {
+      "name": "Bradford Creek Public Golf Course",
+      "address": "4950 Old Pactolus Road, Greenville, NC 27834",
+      "state": "NC",
+      "county": "Pitt County",
+      "holes": 18,
+      "sources": [
+        "https://www.greenvillenc.gov/DocumentCenter/View/1481/2026-Citizens-Handbook",
+        "https://www.greenvillenc.gov/Facilities"
+      ],
+      "access_note": "ZIP follows the city facility record; operator website data was not reused because of restrictive website terms."
+    },
+    {
+      "name": "Warrior Golf Club",
+      "address": "1300 Lake Wright Road, China Grove, NC 28023",
+      "state": "NC",
+      "county": "Rowan County",
+      "holes": 18,
+      "sources": [
+        "https://warriorgolf.com/",
+        "https://warriorgolf.com/golf/",
+        "https://warriorgolf.com/rates/"
       ]
     },
     {
@@ -9240,6 +10918,17 @@
       ]
     },
     {
+      "name": "Emerald Lake Golf Club",
+      "address": "9750 Tournament Drive, Matthews, NC 28104",
+      "state": "NC",
+      "county": "Union County",
+      "holes": 18,
+      "sources": [
+        "https://www.emeraldlakegolfclub.com/course-information",
+        "https://www.stallingsnc.org/LinkClick.aspx?fileticket=7zYpOrZBo7w%3D&portalid=0"
+      ]
+    },
+    {
       "name": "Monroe Country Club",
       "address": "1680 Pageland Hwy, Monroe, NC 28112",
       "state": "NC",
@@ -9247,6 +10936,18 @@
       "holes": 18,
       "sources": [
         "https://monroenc.org/m/newsflash/Home/Detail/791"
+      ]
+    },
+    {
+      "name": "Eagle Ridge Golf Club",
+      "address": "565 Competition Rd, Raleigh, NC 27603",
+      "state": "NC",
+      "county": "Wake County",
+      "holes": 18,
+      "sources": [
+        "https://www.eagleridgegolfnc.com/course/",
+        "https://www.fscsportsclub.com/2023/01/12/2023-tee-time-booking-policies/",
+        "https://www.fscsportsclub.com/golf/"
       ]
     },
     {
@@ -9273,25 +10974,13 @@
       "access_note": "Only the 18 public holes are counted. The operator reports a course renovation in progress."
     },
     {
-      "name": "Anderson Creek Golf Club",
-      "address": "125 Whispering Pines Dr., Spring Lake, NC 28390",
+      "name": "River Ridge Golf Club",
+      "address": "3224 Auburn-Knightdale Rd, Raleigh, NC 27610",
       "state": "NC",
-      "county": null,
+      "county": "Wake County",
       "holes": 18,
       "sources": [
-        "https://www.acgolfclub.com/"
-      ]
-    },
-    {
-      "name": "Bayonet at Puppy Creek",
-      "address": "349 S Parker Church Rd, Raeford, NC 28376",
-      "state": "NC",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.bayonetgolf.com/contact-us/",
-        "https://www.bayonetgolf.com/rates/",
-        "https://www.bayonetgolf.com/"
+        "https://www.golfriverridge.com/"
       ]
     },
     {
@@ -9316,39 +11005,27 @@
       ]
     },
     {
-      "name": "Carolina National Golf Club",
-      "address": "1643 Goley Hewett Rd SE, Bolivia, NC 28422",
-      "state": "NC",
-      "county": null,
-      "holes": 27,
-      "sources": [
-        "https://carolinanationalgolfclub.com/"
-      ]
-    },
-    {
-      "name": "Eagle Ridge Golf Club",
-      "address": "565 Competition Rd, Raleigh, NC 27603",
+      "name": "Bryan Park Golf Club - Players Course",
+      "address": "6275 Bryan Park Road, Greensboro, NC 27214",
       "state": "NC",
       "county": null,
       "holes": 18,
       "sources": [
-        "https://www.eagleridgegolfnc.com/course/",
-        "https://www.fscsportsclub.com/2023/01/12/2023-tee-time-booking-policies/",
-        "https://www.fscsportsclub.com/golf/"
+        "https://bryanpark.com/",
+        "https://members.carolinasgcsa.org/jobopening/Details/head-equipment-manager-358226"
       ]
     },
     {
-      "name": "Etowah Valley Golf Club",
-      "address": "470 Brickyard Road, Etowah, NC 28729",
+      "name": "Goldsboro Municipal Golf Course",
+      "address": "1501-B S. Slocumb Street, Goldsboro, NC 27530",
       "state": "NC",
       "county": null,
       "holes": 18,
       "sources": [
-        "https://www.etowahvalley.com/",
-        "https://www.etowahvalley.com/amenities/",
-        "https://www.etowahvalley.com/rates/"
-      ],
-      "access_note": "Current operator homepage and amenities describe 18 holes; older directories list 27."
+        "https://www.goldsboroparksandrec.com/golf/",
+        "https://www.goldsboronc.gov/wp-content/uploads/cog_newsletter_1_3.pdf",
+        "https://www.goldsboronc.gov/wp-content/uploads/filebase/Finance/Budgets/FY20-21-Adopted-Budget.pdf"
+      ]
     },
     {
       "name": "Holly Ridge Golf Links",
@@ -9395,13 +11072,28 @@
       "access_note": "Physical address follows the contact page; the about page uses Linville, NC 28646 for the same street."
     },
     {
-      "name": "Magnolia Greens Golf Club",
-      "address": "1800 Tommy Jacobs Drive, Leland, NC 28451",
+      "name": "Lockwood Folly Country Club",
+      "address": "19 Clubhouse Drive SW, Holden Beach, NC 28462",
       "state": "NC",
       "county": null,
-      "holes": 27,
+      "holes": 18,
       "sources": [
-        "https://www.magnoliagreensgolf.com/"
+        "https://lockwoodfolly.com/",
+        "https://lockwoodfolly.com/golf-course/",
+        "https://lockwoodfolly.com/contact-us/"
+      ]
+    },
+    {
+      "name": "Mill Creek Golf Club",
+      "address": "1700 St. Andrews Drive, Mebane, NC 27302",
+      "state": "NC",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfmillcreek.com/",
+        "https://www.golfmillcreek.com/golf/rates-and-fees/",
+        "https://www.golfmillcreek.com/golf/score-card/",
+        "https://www.golfmillcreek.com/wp-content/uploads/2020/06/Complete-Member-Packet.pdf"
       ]
     },
     {
@@ -9412,16 +11104,6 @@
       "holes": 18,
       "sources": [
         "https://www.mooresvillegolfclub.com/Home"
-      ]
-    },
-    {
-      "name": "Mountain Aire Golf Club",
-      "address": "1396 Fairway Ridge Drive, West Jefferson, NC 28694",
-      "state": "NC",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.mountainaire.com/"
       ]
     },
     {
@@ -9437,35 +11119,14 @@
       ]
     },
     {
-      "name": "Reedy Creek Golf Course",
-      "address": "585 Reedy Creek Road, Four Oaks, NC 27524",
+      "name": "Red Bridge Golf Club",
+      "address": "6801 Gatehouse Road, Locust, NC 28097",
       "state": "NC",
       "county": null,
       "holes": 18,
       "sources": [
-        "https://www.reedycreekgolf.com/golf/course-details"
-      ]
-    },
-    {
-      "name": "River Ridge Golf Club",
-      "address": "3224 Auburn-Knightdale Rd, Raleigh, NC 27610",
-      "state": "NC",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.golfriverridge.com/"
-      ]
-    },
-    {
-      "name": "Riverwood Golf Club",
-      "address": "400 Riverwood Drive, Clayton, NC 27527",
-      "state": "NC",
-      "county": null,
-      "holes": 27,
-      "sources": [
-        "https://www.riverwoodgolfnc.com/course-details/",
-        "https://www.fscsportsclub.com/2023/01/12/2023-tee-time-booking-policies/",
-        "https://www.fscsportsclub.com/golf/"
+        "https://redbridgegolfclub.com/",
+        "https://nccga.org/pga-professional-recognition/"
       ]
     },
     {
@@ -9511,13 +11172,14 @@
       ]
     },
     {
-      "name": "Thistle Golf Club",
-      "address": "1815 Olde Thistle Club Road, Sunset Beach, NC 28468",
+      "name": "The Pearl Golf Links",
+      "address": "1300 Pearl Boulevard, Calabash, NC 28467",
       "state": "NC",
       "county": null,
       "holes": 27,
       "sources": [
-        "https://www.thistlegolf.com/"
+        "https://thepearlgolf.com/",
+        "https://thepearlgolf.com/contact-us/"
       ]
     },
     {
@@ -10415,6 +12077,17 @@
       ]
     },
     {
+      "name": "Pierce Community Golf Course",
+      "address": "85428 548 Ave., Pierce, NE 68767-3569",
+      "state": "NE",
+      "county": "Pierce County",
+      "holes": 9,
+      "sources": [
+        "https://www.nebgolf.org/course-directory/pierce-community-golf-course/",
+        "https://www.nebgolf.org/course-directory/?cd_club_type=Public&cd_holes=9"
+      ]
+    },
+    {
       "name": "Quail Run Golf Course",
       "address": "327 South 5th Street, Columbus, NE 68601",
       "state": "NE",
@@ -10990,17 +12663,6 @@
       ]
     },
     {
-      "name": "Pierce Community Golf Course",
-      "address": "85428 548 Ave., Pierce, NE 68767-3569",
-      "state": "NE",
-      "county": null,
-      "holes": 9,
-      "sources": [
-        "https://www.nebgolf.org/course-directory/pierce-community-golf-course/",
-        "https://www.nebgolf.org/course-directory/?cd_club_type=Public&cd_holes=9"
-      ]
-    },
-    {
       "name": "Prairie Pines Golf Course",
       "address": "402 Prairie Pine Dr, Potter, NE 69156",
       "state": "NE",
@@ -11181,6 +12843,114 @@
       "holes": 18,
       "sources": [
         "https://www.playamherst.com/"
+      ]
+    },
+    {
+      "name": "Earlywine Golf Course",
+      "address": "11600 S. Portland Avenue, Oklahoma City, OK 73170",
+      "state": "OK",
+      "county": "Cleveland County",
+      "holes": 36,
+      "sources": [
+        "https://www.okc.gov/Community-Recreation/Recreation-Activities/Public-Golf-Courses",
+        "https://www.okc.gov/News-articles/Earlywine-Golf-Club-Clubhouse-Grand-Opening-July-10"
+      ]
+    },
+    {
+      "name": "Lake Hefner Golf Course",
+      "address": "4491 S. Lake Hefner Drive, Oklahoma City, OK 73116",
+      "state": "OK",
+      "county": "Oklahoma County",
+      "holes": 36,
+      "sources": [
+        "https://www.okc.gov/Community-Recreation/Recreation-Activities/Public-Golf-Courses"
+      ]
+    },
+    {
+      "name": "Lincoln Park Golf Course",
+      "address": "4001 NE Grand Boulevard, Oklahoma City, OK 73111",
+      "state": "OK",
+      "county": "Oklahoma County",
+      "holes": null,
+      "sources": [
+        "https://www.okc.gov/Community-Recreation/Recreation-Activities/Public-Golf-Courses",
+        "https://www.okc.gov/Community-Recreation/OKC-Golf/Lincoln-Park-Golf-Course"
+      ]
+    },
+    {
+      "name": "Trosper Golf Course",
+      "address": "2301 SE 29th Street, Oklahoma City, OK 73129",
+      "state": "OK",
+      "county": "Oklahoma County",
+      "holes": 18,
+      "sources": [
+        "https://www.okc.gov/Community-Recreation/Recreation-Activities/Public-Golf-Courses",
+        "https://www.okc.gov/Community-Recreation/OKC-Golf/Trosper-Golf-Club"
+      ]
+    },
+    {
+      "name": "James E. Stewart Golf Course",
+      "address": "824 N. Frederick Douglass Avenue, Oklahoma City, OK 73117",
+      "state": "OK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.okc.gov/Community-Recreation/Recreation-Activities/Public-Golf-Courses"
+      ]
+    },
+    {
+      "name": "Colwood Golf Center",
+      "address": "7313 NE Columbia Blvd, Portland, OR 97218",
+      "state": "OR",
+      "county": "Multnomah County",
+      "holes": 9,
+      "sources": [
+        "https://www.portland.gov/parks/colwood-golf-center",
+        "https://www.portland.gov/parks/sports/golf"
+      ]
+    },
+    {
+      "name": "Eastmoreland Golf Course",
+      "address": "2425 SE Bybee Blvd, Portland, OR 97202",
+      "state": "OR",
+      "county": "Multnomah County",
+      "holes": null,
+      "sources": [
+        "https://www.portland.gov/parks/eastmoreland-golf-course",
+        "https://www.portland.gov/parks/sports/golf"
+      ]
+    },
+    {
+      "name": "Heron Lakes Golf Course",
+      "address": "3500 N. Victory Blvd, Portland, OR 97217",
+      "state": "OR",
+      "county": "Multnomah County",
+      "holes": 36,
+      "sources": [
+        "https://www.portland.gov/parks/heron-lakes-golf-course",
+        "https://www.portland.gov/parks/sports/golf"
+      ]
+    },
+    {
+      "name": "RedTail Golf Course",
+      "address": "8200 SW Scholls Ferry Road, Portland, OR 97005",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.portland.gov/parks/redtail-golf-course",
+        "https://www.portland.gov/parks/sports/golf"
+      ]
+    },
+    {
+      "name": "Rose City Golf Course",
+      "address": "2200 NE 71st Avenue, Portland, OR 97213",
+      "state": "OR",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.portland.gov/parks/rose-city-golf-course",
+        "https://www.portland.gov/parks/sports/golf"
       ]
     },
     {
@@ -11437,6 +13207,29 @@
       ]
     },
     {
+      "name": "Midland Valley Golf Club",
+      "address": "151 Midland Drive, Graniteville, SC 29829",
+      "state": "SC",
+      "county": "Aiken County",
+      "holes": 18,
+      "sources": [
+        "https://playmidlandvalley.com/rates/",
+        "https://playmidlandvalley.com/course-details/"
+      ]
+    },
+    {
+      "name": "The Aiken Golf Club",
+      "address": "555 Highland Park Ave., Aiken, SC 29801",
+      "state": "SC",
+      "county": "Aiken County",
+      "holes": 18,
+      "sources": [
+        "https://aikengolfclub.net/history/",
+        "https://aikengolfclub.net/daily-rates/",
+        "https://discoveraikencounty.com/wp-content/uploads/2023/04/Aiken-Co-PRT-Visitors-Guide-2023-FINAL.pdf"
+      ]
+    },
+    {
       "name": "The Club at Brookstone",
       "address": "100 River Club Drive, Anderson, SC 29621",
       "state": "SC",
@@ -11458,6 +13251,16 @@
       ]
     },
     {
+      "name": "Calhoun Hills Golf Complex",
+      "address": "200 Country Club Road, St. Matthews, SC 29135",
+      "state": "SC",
+      "county": "Calhoun County",
+      "holes": 18,
+      "sources": [
+        "https://calhounhills.com/"
+      ]
+    },
+    {
       "name": "Charleston Municipal Golf Course",
       "address": "2110 Maybank Highway, Charleston, SC 29412",
       "state": "SC",
@@ -11469,6 +13272,37 @@
       ]
     },
     {
+      "name": "Charleston National Golf Club",
+      "address": "1360 National Drive, Mount Pleasant, SC 29466",
+      "state": "SC",
+      "county": "Charleston County",
+      "holes": 18,
+      "sources": [
+        "https://www.charlestonnationalgolf.com/",
+        "https://www.charlestonnationalgolf.com/golf/course-layout"
+      ]
+    },
+    {
+      "name": "RiverTowne Country Club",
+      "address": "1700 RiverTowne Country Club Drive, Mount Pleasant, SC 29466",
+      "state": "SC",
+      "county": "Charleston County",
+      "holes": 18,
+      "sources": [
+        "https://www.rivertownecountryclub.com/-home"
+      ]
+    },
+    {
+      "name": "Shadowmoss Golf & Country Club",
+      "address": "21 Dunvegan Drive, Charleston, SC 29414",
+      "state": "SC",
+      "county": "Charleston County",
+      "holes": 18,
+      "sources": [
+        "https://www.shadowmossgolf.com/"
+      ]
+    },
+    {
       "name": "Chester Golf Club",
       "address": "770 Old Richburg Road, Chester, SC 29706",
       "state": "SC",
@@ -11477,6 +13311,39 @@
       "sources": [
         "https://playchester.com/",
         "https://playspringsgolf.com/"
+      ]
+    },
+    {
+      "name": "The Players Course at Wyboo",
+      "address": "1560 Players Course Drive, Manning, SC 29102",
+      "state": "SC",
+      "county": "Clarendon County",
+      "holes": 18,
+      "sources": [
+        "https://www.theplayerscourseatwyboo.com/",
+        "https://www.theplayerscourseatwyboo.com/golf/rates"
+      ]
+    },
+    {
+      "name": "Wyboo Golf Club",
+      "address": "2565 Players Course Dr, Manning, SC 29102",
+      "state": "SC",
+      "county": "Clarendon County",
+      "holes": 18,
+      "sources": [
+        "https://www.wyboogolfclub.com/",
+        "https://www.wyboogolfclub.com/golf/course-information"
+      ]
+    },
+    {
+      "name": "Golf Club at Wescott Plantation",
+      "address": "5000 Wescott Club Dr, Summerville, SC 29485",
+      "state": "SC",
+      "county": "Dorchester County",
+      "holes": 27,
+      "sources": [
+        "https://wescottgolf.com/",
+        "https://wescottgolf.com/course-details/"
       ]
     },
     {
@@ -11536,6 +13403,16 @@
       ]
     },
     {
+      "name": "Kershaw Golf Course",
+      "address": "301 Club House Drive, Kershaw, SC 29067",
+      "state": "SC",
+      "county": "Lancaster County",
+      "holes": 18,
+      "sources": [
+        "https://www.townofkershawsc.gov/golf"
+      ]
+    },
+    {
       "name": "Lancaster Golf Club",
       "address": "1821 Springs Club Road, Lancaster, SC 29720",
       "state": "SC",
@@ -11556,6 +13433,28 @@
         "https://www.chickasawpoint.com/golf-course-overview"
       ],
       "access_note": "Visitors must show ID at the community gate."
+    },
+    {
+      "name": "Hillcrest Golf Club",
+      "address": "1280 State A&M Road, Orangeburg, SC 29118",
+      "state": "SC",
+      "county": "Orangeburg County",
+      "holes": 18,
+      "sources": [
+        "https://hillcrestgolfsc.com/",
+        "https://hillcrestgolfsc.com/rates/"
+      ]
+    },
+    {
+      "name": "Santee National Golf Club",
+      "address": "8636 Old Number Six Highway, Santee, SC 29142",
+      "state": "SC",
+      "county": "Orangeburg County",
+      "holes": 18,
+      "sources": [
+        "https://www.bobbyjoneslinks.com/client-directory",
+        "https://santeenational.com/contact-us/"
+      ]
     },
     {
       "name": "LinRick Golf Course",
@@ -11579,6 +13478,18 @@
       ]
     },
     {
+      "name": "Beech Creek Golf Club",
+      "address": "1800 Sam Gillespie Boulevard, Sumter, SC 29154",
+      "state": "SC",
+      "county": "Sumter County",
+      "holes": 18,
+      "sources": [
+        "https://www.beechcreekgolfclub.com/greens-fees",
+        "https://www.beechcreekgolfclub.com/contact",
+        "https://www.beechcreekgolfclub.com/images/beech-creek-scorecard-final.png"
+      ]
+    },
+    {
       "name": "Fort Mill Golf Club",
       "address": "101 Country Club Drive, Fort Mill, SC 29715",
       "state": "SC",
@@ -11587,6 +13498,18 @@
       "sources": [
         "https://playfortmill.com/",
         "https://playspringsgolf.com/"
+      ]
+    },
+    {
+      "name": "Tega Cay Golf Club",
+      "address": "15083 Molokai Drive, Tega Cay, SC 29708",
+      "state": "SC",
+      "county": "York County",
+      "holes": 27,
+      "sources": [
+        "https://tegacaygolfclub.com/contact-us/",
+        "https://tegacaygolfclub.com/golf-courses/",
+        "https://tegacaygolfclub.com/golf-rates/"
       ]
     },
     {
@@ -11662,26 +13585,37 @@
       ]
     },
     {
-      "name": "Charleston National Golf Club",
-      "address": "1360 National Drive, Mount Pleasant, SC 29466",
+      "name": "Crowfield Golf Club",
+      "address": "300 Hamlet Circle, Goose Creek, SC 29445",
       "state": "SC",
       "county": null,
       "holes": 18,
       "sources": [
-        "https://www.charlestonnationalgolf.com/",
-        "https://www.charlestonnationalgolf.com/golf/course-layout"
+        "https://www.crowfieldgolf.com/contact"
       ]
     },
     {
-      "name": "Golf Club at Wescott Plantation",
-      "address": "5000 Wescott Club Dr, Summerville, SC 29485",
+      "name": "Edgewater Golf Club",
+      "address": "2375 Catawba Ridge Boulevard, Lancaster, SC 29720",
       "state": "SC",
       "county": null,
-      "holes": 27,
+      "holes": 18,
       "sources": [
-        "https://wescottgolf.com/",
-        "https://wescottgolf.com/course-details/"
+        "https://www.edgewatergc.com/",
+        "https://www.edgewatergc.com/about-us/"
       ]
+    },
+    {
+      "name": "Hickory Knob Golf Course",
+      "address": "1591 Resort Drive, McCormick, SC 29835",
+      "state": "SC",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://southcarolinaparks.com/hickory-knob/golf",
+        "https://southcarolinaparks.com/park-finder"
+      ],
+      "access_note": "State park main address. Current operator announcement confirms golf has reopened."
     },
     {
       "name": "Legends Golf Resort - Heathland Course",
@@ -11720,36 +13654,6 @@
       ]
     },
     {
-      "name": "Midland Valley Golf Club",
-      "address": "151 Midland Drive, Graniteville, SC 29829",
-      "state": "SC",
-      "county": null,
-      "holes": null,
-      "sources": [
-        "https://playmidlandvalley.com/rates/"
-      ]
-    },
-    {
-      "name": "RiverTowne Country Club",
-      "address": "1700 RiverTowne Country Club Drive, Mount Pleasant, SC 29466",
-      "state": "SC",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.rivertownecountryclub.com/-home"
-      ]
-    },
-    {
-      "name": "Shadowmoss Golf & Country Club",
-      "address": "21 Dunvegan Drive, Charleston, SC 29414",
-      "state": "SC",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.shadowmossgolf.com/"
-      ]
-    },
-    {
       "name": "Springfield Golf Club",
       "address": "639 Hambley House Lane, Fort Mill, SC 29715",
       "state": "SC",
@@ -11758,18 +13662,6 @@
       "sources": [
         "https://playspringfield.com/",
         "https://playspringsgolf.com/"
-      ]
-    },
-    {
-      "name": "The Aiken Golf Club",
-      "address": "555 Highland Park Ave., Aiken, SC 29801",
-      "state": "SC",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://aikengolfclub.net/history/",
-        "https://aikengolfclub.net/daily-rates/",
-        "https://discoveraikencounty.com/wp-content/uploads/2023/04/Aiken-Co-PRT-Visitors-Guide-2023-FINAL.pdf"
       ]
     },
     {
@@ -14528,7 +16420,130 @@
       "county": "Milwaukee County",
       "holes": 18,
       "sources": [
-        "https://mke.golf/browndeer"
+        "https://mke.golf/browndeer",
+        "https://mke.golf/browndeer/",
+        "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Currie Park Golf Course",
+      "address": "3535 N. Mayfair Rd., Wauwatosa, WI 53222",
+      "state": "WI",
+      "county": "Milwaukee County",
+      "holes": 18,
+      "sources": [
+        "https://mke.golf/currie/",
+        "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Dretzka Golf Course",
+      "address": "12020 W. Bradley Rd., Milwaukee, WI 53224",
+      "state": "WI",
+      "county": "Milwaukee County",
+      "holes": 18,
+      "sources": [
+        "https://mke.golf/dretzka/",
+        "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Grant Park Golf Course",
+      "address": "100 Hawthorne Ave., South Milwaukee, WI 53172",
+      "state": "WI",
+      "county": "Milwaukee County",
+      "holes": 18,
+      "sources": [
+        "https://mke.golf/grant/",
+        "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Greenfield Park Golf Course",
+      "address": "12035 W. Greenfield Ave., West Allis, WI 53214",
+      "state": "WI",
+      "county": "Milwaukee County",
+      "holes": 18,
+      "sources": [
+        "https://mke.golf/greenfield/",
+        "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Lake Park Golf Course",
+      "address": "3233 E. Kenwood Blvd., Milwaukee, WI 53211",
+      "state": "WI",
+      "county": "Milwaukee County",
+      "holes": 18,
+      "sources": [
+        "https://mke.golf/lake/",
+        "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Lincoln Park Golf Course",
+      "address": "1000 W. Hampton Ave., Glendale, WI 53209",
+      "state": "WI",
+      "county": "Milwaukee County",
+      "holes": 9,
+      "sources": [
+        "https://mke.golf/lincoln/",
+        "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Oakwood Park Golf Course",
+      "address": "3600 W. Oakwood Rd., Franklin, WI 53132",
+      "state": "WI",
+      "county": "Milwaukee County",
+      "holes": 18,
+      "sources": [
+        "https://mke.golf/oakwood/",
+        "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Warnimont Park Golf Course",
+      "address": "5400 S. Lake Dr., Cudahy, WI 53110",
+      "state": "WI",
+      "county": "Milwaukee County",
+      "holes": 18,
+      "sources": [
+        "https://mke.golf/warnimont/",
+        "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Zablocki Park Golf Course",
+      "address": "3717 W. Howard Ave., Greenfield, WI 53221",
+      "state": "WI",
+      "county": "Milwaukee County",
+      "holes": 9,
+      "sources": [
+        "https://mke.golf/zablocki/",
+        "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Hansen Park Golf Course",
+      "address": "9800 W. Underwood Creek Pkwy., Wauwatosa, WI 53226",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://mke.golf/hansen/",
+        "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Noyes Park Golf Course",
+      "address": "8235 Good Hope Rd., Milwaukee, WI 53223",
+      "state": "WI",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://mke.golf/noyes/",
+        "https://mke.golf/"
       ]
     },
     {
@@ -14540,6 +16555,17 @@
       "sources": [
         "https://www.royalscotgolfclub.com/history/",
         "https://www.royalscotgolfclub.com/course/"
+      ]
+    },
+    {
+      "name": "Whitnall Park Golf Course",
+      "address": "6751 S. 92nd St., Franklin, WI 53132",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://mke.golf/whitnall/",
+        "https://mke.golf/"
       ]
     }
   ],
