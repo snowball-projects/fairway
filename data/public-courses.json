@@ -9,8 +9,8 @@
   "rights": "Bare facts and explicitly licensed source attributes with citations. No source prose, photographs, map geometry or scorecard artwork included. Applicable source-data licenses and adaptations are recorded below.",
   "coverage": {
     "national_complete": false,
-    "course_record_count": 1908,
-    "complete_essentials": 1233,
+    "course_record_count": 2039,
+    "complete_essentials": 1341,
     "state_record_counts": {
       "AK": 1,
       "AL": 94,
@@ -21,41 +21,41 @@
       "CT": 80,
       "DC": 3,
       "DE": 2,
-      "FL": 281,
+      "FL": 340,
       "GA": 99,
       "HI": 6,
       "IA": 145,
       "ID": 1,
-      "IL": 7,
+      "IL": 13,
       "IN": 1,
-      "KS": 76,
+      "KS": 100,
       "KY": 13,
       "LA": 27,
       "MA": 4,
       "MD": 5,
       "ME": 85,
-      "MI": 10,
+      "MI": 12,
       "MN": 11,
       "MO": 4,
       "MS": 1,
       "MT": 3,
-      "NC": 110,
+      "NC": 137,
       "ND": 20,
       "NE": 127,
       "NH": 4,
       "NJ": 6,
       "NM": 1,
       "NV": 1,
-      "NY": 14,
-      "OH": 9,
+      "NY": 16,
+      "OH": 16,
       "OK": 5,
       "OR": 8,
-      "PA": 1,
+      "PA": 3,
       "RI": 23,
-      "SC": 74,
+      "SC": 75,
       "SD": 1,
       "TN": 85,
-      "TX": 12,
+      "TX": 13,
       "UT": 87,
       "VA": 65,
       "VT": 9,
@@ -64,12 +64,12 @@
       "WV": 2,
       "WY": 2
     },
-    "counties_represented": 583,
-    "counties_searched": 140,
+    "counties_represented": 615,
+    "counties_searched": 156,
     "missing_fields": {
       "address": 23,
-      "county": 468,
-      "holes": 266
+      "county": 486,
+      "holes": 271
     },
     "states_represented": [
       "AK",
@@ -4892,6 +4892,43 @@
       ]
     },
     {
+      "name": "Legacy Golf Club",
+      "address": "100 Fairway Blvd., Panama City Beach, FL 32407",
+      "state": "FL",
+      "county": "Bay County",
+      "holes": 27,
+      "sources": [
+        "https://www.legacygolfpcb.com/",
+        "https://www.legacygolfpcb.com/championship-course/",
+        "https://www.visitpanamacitybeach.com/blog/post/tee-time-in-pcb/",
+        "https://www.legacygolfpcb.com/par-3-course/"
+      ],
+      "access_note": "Championship course requires carts for players and spectators, with two people per cart and no walking. Par-three course is first come, first served, with 6:30 a.m.–6 p.m. play, cart rentals until 3 p.m., and card payments only."
+    },
+    {
+      "name": "Signal Hill Golf Course",
+      "address": "9615 N. Thomas Drive, Panama City Beach, FL",
+      "state": "FL",
+      "county": "Bay County",
+      "holes": 18,
+      "sources": [
+        "https://signalhillgolfcourse.com/",
+        "https://www.pcbfl.gov/home/showpublisheddocument/178/637757656977330000"
+      ]
+    },
+    {
+      "name": "Baytree National Golf Links",
+      "address": "8207 National Drive, Melbourne, FL 32940",
+      "state": "FL",
+      "county": "Brevard County",
+      "holes": null,
+      "sources": [
+        "https://www.baytreenational.com/",
+        "https://www.baytreenational.com/course/",
+        "https://www.foregolfpartners.com/default.asp?contentID=17"
+      ]
+    },
+    {
       "name": "Cocoa Beach Country Club",
       "address": "5000 Tom Warriner Blvd, Cocoa Beach, FL 32931",
       "state": "FL",
@@ -4986,6 +5023,29 @@
       ]
     },
     {
+      "name": "Bonaventure Golf Club",
+      "address": "200 Bonaventure Blvd, Weston, FL 33326",
+      "state": "FL",
+      "county": "Broward County",
+      "holes": 18,
+      "sources": [
+        "https://www.golfbonaventure.com/",
+        "https://www.golfbonaventure.com/wp-content/uploads/sites/8650/2022/11/Bonaventure_Country_Club_Golf__Tournaments_-_Shortened.pdf"
+      ]
+    },
+    {
+      "name": "Colony West Golf Club",
+      "address": "6850 NW 88th Avenue, Tamarac, FL 33321",
+      "state": "FL",
+      "county": "Broward County",
+      "holes": 36,
+      "sources": [
+        "https://www.tamarac.gov/DocumentCenter/View/1225",
+        "https://www.tamarac.gov/facilities/facility/details/colonywestgolfclub-13",
+        "https://www.tamarac.gov/Archive/ViewFile/Item/221"
+      ]
+    },
+    {
       "name": "Cooper Colony Golf Course",
       "address": "5050 SW 90th Ave, Cooper City, FL 33328",
       "state": "FL",
@@ -5029,6 +5089,17 @@
         "https://www.flamingolakescc.com/golf-course-policy/"
       ],
       "access_note": "Public play is limited to 7 AM–3 PM daily. After 3 PM only residents, members and their guests may play."
+    },
+    {
+      "name": "Grand Palms Hotel & Golf Resort",
+      "address": "110 Grand Palms Dr, Pembroke Pines, FL 33027",
+      "state": "FL",
+      "county": "Broward County",
+      "holes": 27,
+      "sources": [
+        "https://www.grandpalmshotel.com/services-1",
+        "https://www.pga.com/play/FL/pembroke-pines/grand-palms-hotel-golf-resort/0383760"
+      ]
     },
     {
       "name": "Hollywood Beach Golf Club",
@@ -5117,6 +5188,19 @@
         "https://www.pompanobeachfl.gov/events/dr-martin-luther-king-jr-golf-tournament",
         "https://cdn.pompanobeachfl.gov/city/pages/public_communications/Tradewinds_Vol15_2_October2015.pdf"
       ]
+    },
+    {
+      "name": "Woodmont Country Club",
+      "address": "7801 NW 80th Avenue, Tamarac, FL 33321",
+      "state": "FL",
+      "county": "Broward County",
+      "holes": 27,
+      "sources": [
+        "https://woodmontcountryclub.net/golf/",
+        "https://woodmontcountryclub.net/",
+        "https://woodmontcountryclub.net/membership-amenities/"
+      ],
+      "access_note": "Owner homepage still describes final nine-hole renovation planned for summer 2026, while its membership page calls all 27 holes renovated; current availability of every nine should be confirmed."
     },
     {
       "name": "Blue Heron Pines Golf Course",
@@ -5437,6 +5521,18 @@
       "access_note": "Operator reports holes 5 and 6 closed from August 31, 2026 until further notice for the Central Water Basin Project; remaining golf is open."
     },
     {
+      "name": "A.C. Read Golf Course",
+      "address": "1440 Murrays Rd, Bldg. 3495, Pensacola, FL 32508",
+      "state": "FL",
+      "county": "Escambia County",
+      "holes": 36,
+      "sources": [
+        "https://www.navymwrpensacola.com/programs/6e429faf-c74d-44dc-9690-b872b66401cc",
+        "https://www.visitpensacola.com/blog/spend-a-day-exploring-the-attractions-at-the-pensacola-naval-base/"
+      ],
+      "access_note": "Civilian golfers need a special-use day pass at NAS Pensacola's Front Gate visitor center, REAL ID or passport, and background check. Tourism guidance recommends arriving 1-1.5 hours before the tee time. Pass allows golf-course access only."
+    },
+    {
       "name": "Marcus Pointe Golf Club",
       "address": "2500 Oak Pointe Drive, Pensacola, FL 32505",
       "state": "FL",
@@ -5575,6 +5671,16 @@
       ]
     },
     {
+      "name": "Silverthorn Country Club",
+      "address": "4550 Golf Club Lane, Spring Hill, FL 34609",
+      "state": "FL",
+      "county": "Hernando County",
+      "holes": 18,
+      "sources": [
+        "https://www.silverthornclub.net/golf.php"
+      ]
+    },
+    {
       "name": "Golf Hammock Country Club",
       "address": "2222 Golf Hammock Dr, Sebring, FL 33872",
       "state": "FL",
@@ -5676,6 +5782,38 @@
       ]
     },
     {
+      "name": "Club Renaissance Golf Club",
+      "address": "2121 South Pebble Beach Blvd, Sun City Center, FL 33573",
+      "state": "FL",
+      "county": "Hillsborough County",
+      "holes": 18,
+      "sources": [
+        "https://clubrenaissance.clublink.com/daily-fee-golf/rates/",
+        "https://clubrenaissance.clublink.com/about/"
+      ]
+    },
+    {
+      "name": "Cypress Creek Golf Club",
+      "address": "1011 Cypress Village Blvd, Ruskin, FL 33573",
+      "state": "FL",
+      "county": "Hillsborough County",
+      "holes": null,
+      "sources": [
+        "https://www.cypresscreekgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Freedom Fairways Golf Course",
+      "address": "3932 Upper Creek Drive, Sun City Center, FL 33573",
+      "state": "FL",
+      "county": "Hillsborough County",
+      "holes": 18,
+      "sources": [
+        "https://freedomplazafl.com/freedom-fairways-golf-course/",
+        "https://www.suncitycenter.org/pdfs/scc-golf-cart-handbook-min.pdf"
+      ]
+    },
+    {
       "name": "Northdale Golf Club",
       "address": "4417 Northdale Blvd, Tampa, FL 33624",
       "state": "FL",
@@ -5694,6 +5832,18 @@
       "sources": [
         "https://www.tampa.gov/info/sports/personal-fitness",
         "https://www.rockypointgolf.net/contac-us"
+      ]
+    },
+    {
+      "name": "Summerfield Crossings Golf Club",
+      "address": "13050 Summerfield Blvd, Riverview, FL 33579",
+      "state": "FL",
+      "county": "Hillsborough County",
+      "holes": null,
+      "sources": [
+        "https://www.foregolfpartners.com/default.asp?contentID=17",
+        "https://www.pga.com/coach/ChanceLau",
+        "https://www.pga.com/play/fl/riverview/summerfield-crossings-golf-club/1100190"
       ]
     },
     {
@@ -5725,6 +5875,17 @@
       "holes": null,
       "sources": [
         "https://www.westchasegc.com/"
+      ]
+    },
+    {
+      "name": "Dogwood Lakes Golf Course",
+      "address": "1934 Country Club Drive, Bonifay, FL 32425",
+      "state": "FL",
+      "county": "Holmes County",
+      "holes": null,
+      "sources": [
+        "https://unexploredflorida.com/attractions/dogwood-lakes-golf-course/",
+        "https://dogwoodlakesgolfcourse.com/course/"
       ]
     },
     {
@@ -5771,6 +5932,29 @@
       ]
     },
     {
+      "name": "Deer Island Country Club",
+      "address": "18000 Eagles Way, Tavares, FL 32778",
+      "state": "FL",
+      "county": "Lake County",
+      "holes": 18,
+      "sources": [
+        "https://www.deerislandcc.com/",
+        "https://www.deerislandcc.com/course/"
+      ]
+    },
+    {
+      "name": "Eagle Dunes Golf Club",
+      "address": "24000 Marbella Drive, Sorrento, FL 32776",
+      "state": "FL",
+      "county": "Lake County",
+      "holes": null,
+      "sources": [
+        "https://eagledunes.com/",
+        "https://eagledunes.com/golf-course/",
+        "https://eagledunes.com/rates/"
+      ]
+    },
+    {
       "name": "Green Valley Country Club",
       "address": "14601 Green Valley Blvd, Clermont, FL 34711",
       "state": "FL",
@@ -5779,6 +5963,21 @@
       "sources": [
         "https://gvcountryclub.net/"
       ]
+    },
+    {
+      "name": "Orange Blossom Hills Country Club",
+      "address": "1548 Water Tower Circle, The Villages, FL 32159",
+      "state": "FL",
+      "county": "Lake County",
+      "holes": 18,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=ORANGE+BLOSSOM+HILLS",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
     },
     {
       "name": "Swiss Fairways Country Club",
@@ -5798,6 +5997,17 @@
       "holes": 36,
       "sources": [
         "https://golfatplantation.com/faqs/"
+      ]
+    },
+    {
+      "name": "Water Oak Golf Club",
+      "address": "645 Hickory Hill, Lady Lake, FL 32159",
+      "state": "FL",
+      "county": "Lake County",
+      "holes": 18,
+      "sources": [
+        "https://www.wateroakgolf.net/",
+        "https://www.wateroakgolf.net/about-the-course/"
       ]
     },
     {
@@ -5923,6 +6133,18 @@
       ]
     },
     {
+      "name": "Capital City Country Club",
+      "address": "1601 Golf Terrace Drive, Tallahassee, FL 32301",
+      "state": "FL",
+      "county": "Leon County",
+      "holes": 18,
+      "sources": [
+        "https://www.capitalcitycc.com/the-club/club-overview",
+        "https://www.capitalcitycc.com/the-club/course-rates"
+      ],
+      "access_note": "Public play offered Tuesday-Thursday and Friday before 11 a.m.; Saturday and Sunday unavailable. Practice facilities require a tee time. Monday public play is not listed."
+    },
+    {
       "name": "Hilaman Golf Course",
       "address": "2737 Blair Stone Road, Tallahassee, FL 32301",
       "state": "FL",
@@ -5942,6 +6164,28 @@
         "https://www.talgov.com/page/jakegaither",
         "https://www.talgov.com/uploads/public/documents/cotnews/insight/2501ns.pdf"
       ]
+    },
+    {
+      "name": "Southwood Golf Club",
+      "address": "3750 Grove Park Dr, Tallahassee, FL 32311",
+      "state": "FL",
+      "county": "Leon County",
+      "holes": null,
+      "sources": [
+        "https://southwoodgolfclub.com/",
+        "https://southwoodgolfclub.com/about/"
+      ]
+    },
+    {
+      "name": "Madison Golf & Country Club",
+      "address": "445 SW Country Club Road, Madison, FL 32340",
+      "state": "FL",
+      "county": "Madison County",
+      "holes": 9,
+      "sources": [
+        "https://madisonrvresort.com/madison-golf-country-club/"
+      ],
+      "access_note": "Golf course soft opening September 1, 2026 with limited amenities; pool and bar remain closed during clubhouse renovation."
     },
     {
       "name": "Buffalo Creek Golf Course",
@@ -6038,6 +6282,40 @@
       ]
     },
     {
+      "name": "Baseline Golf Course",
+      "address": "9000 SE 58th Ave, Ocala, FL 34480",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": 19,
+      "sources": [
+        "https://www.baselinegolfcourse.com/",
+        "https://www.ocalamarion.com/things-to-do/golf/"
+      ]
+    },
+    {
+      "name": "Broad Stripes Golf & Social Club",
+      "address": "11560 SE 176th Place Road, Summerfield, FL 34491",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": 18,
+      "sources": [
+        "https://www.ocalamarion.com/directory/broad-stripes-golf-social-club/"
+      ]
+    },
+    {
+      "name": "Candler Hills Golf Club",
+      "address": "8137 SW 90th Terr Rd, Ocala, FL 34481",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": 18,
+      "sources": [
+        "https://www.candlerhillsgolfclub.com/",
+        "https://ontopoftheworldcommunities.com/newsroom/candler-hills-golf-club-secures-coveted-9th-spot-on-golfpass-best-public-golf-courses-in-florida-list-for-2024/",
+        "https://candlerhillseastcdd.com/wp-content/uploads/2026/02/che_021726_agenda.pdf",
+        "https://fliphtml5.com/lcmmu/gebp/2250717_OTOW_Wellness_Guide_Connections_July-December_2025/20/"
+      ]
+    },
+    {
       "name": "Eagle Ridge Golf Club",
       "address": "13605 Del Webb Blvd, Summerfield, FL 34491",
       "state": "FL",
@@ -6045,6 +6323,17 @@
       "holes": 36,
       "sources": [
         "https://playeagleridgegolf.com/"
+      ]
+    },
+    {
+      "name": "Golf Central Golf Club",
+      "address": "20650 SW 80 Place Road, Dunnellon, FL 34431",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": 9,
+      "sources": [
+        "https://www.ocalamarion.com/things-to-do/golf/",
+        "https://www.ocalamarion.com/directory/golf-central-golf-club/"
       ]
     },
     {
@@ -6060,6 +6349,23 @@
       ]
     },
     {
+      "name": "Lopez Legacy Country Club",
+      "address": "17145 Buena Vista Boulevard, The Villages, FL 32162",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": 27,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=LOPEZ+LEGACY",
+        "https://www.golfthevillages.com/championship-golf/clubhouse.asp?course=LOPEZ+LEGACY",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf",
+        "https://www.golfthevillages.com/championship-golf/non-resident.asp"
+      ],
+      "access_note": "The operator's nonresident-special page lists phone booking up to 3 days ahead; confirm the offer and tee-time availability. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
+    },
+    {
       "name": "Ocala National Golf Club",
       "address": "4782 NW 80th Avenue, Ocala, FL 34482",
       "state": "FL",
@@ -6070,6 +6376,40 @@
       ]
     },
     {
+      "name": "Ocala Palms Golf & Country Club",
+      "address": "5174 NW 26th Street, Ocala, FL 34482",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": 18,
+      "sources": [
+        "https://ocalapalmsgolf.com/",
+        "https://www.ocalapalmsresidents.com/file/document/1474285276/YHitHCuUdfP3Ok7U.pdf"
+      ]
+    },
+    {
+      "name": "Rolling Greens Executive Golf Course",
+      "address": "1415 W Gleneagles Road, Ocala, FL 34472",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": null,
+      "sources": [
+        "https://www.ocalamarion.com/things-to-do/golf/",
+        "https://www.ocalamarion.com/directory/rolling-greens-executive-golf-course/"
+      ]
+    },
+    {
+      "name": "Royal Oaks Golf Club",
+      "address": "11220 SW 69th Circle, Ocala, FL 34476",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": 18,
+      "sources": [
+        "https://www.ocalamarion.com/things-to-do/golf/",
+        "https://www.ocalamarion.com/directory/royal-oaks-golf-club/",
+        "https://www.royaloaksgolfclub.com/golf/course-information"
+      ]
+    },
+    {
       "name": "Stone Creek Golf Club",
       "address": "9676 SW 62nd Loop, Ocala, FL 34481",
       "state": "FL",
@@ -6077,6 +6417,40 @@
       "holes": 18,
       "sources": [
         "https://www.stonecreekgolfocala.com/golf"
+      ]
+    },
+    {
+      "name": "SummerGlen Golf Club",
+      "address": "1450 SW 154th Street Road, Ocala, FL 34473",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": 18,
+      "sources": [
+        "https://www.ocalamarion.com/things-to-do/golf/",
+        "https://www.ocalamarion.com/directory/summerglen-golf-club/"
+      ]
+    },
+    {
+      "name": "The Club at Ocala Preserve",
+      "address": "4021 NW 53rd Avenue Road, Ocala, FL 34482",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": 18,
+      "sources": [
+        "https://theclubatocalapreserve.com/",
+        "https://theclubatocalapreserve.com/golf"
+      ],
+      "access_note": "Public play Tuesday–Sunday; Skills short-course format Tuesday–Thursday and Players long-course format Friday–Sunday. Owner says the club will eventually become members-and-guests-only, but currently welcomes public play."
+    },
+    {
+      "name": "The Country Club at Silver Springs Shores",
+      "address": "633 Silver Road, Ocala, FL 34472",
+      "state": "FL",
+      "county": "Marion County",
+      "holes": null,
+      "sources": [
+        "https://www.ocalamarion.com/things-to-do/golf/",
+        "https://www.ocalamarion.com/directory/the-country-club-at-silver-springs-shores/"
       ]
     },
     {
@@ -6329,6 +6703,17 @@
       ]
     },
     {
+      "name": "Gator Lakes Golf Course",
+      "address": "403 Walkup Way, Bldg. 91300, Hurlburt Field, FL",
+      "state": "FL",
+      "county": "Okaloosa County",
+      "holes": 18,
+      "sources": [
+        "https://myhurlburt.com/gator-lakes-golf-course/"
+      ],
+      "access_note": "Civilian visitors must obtain an approved base-access pass using the golf affidavit; operator says a 6-month pass may be issued. Approved golfers enter through Hurlburt Field's East Gate."
+    },
+    {
       "name": "Kelly Plantation Golf Club",
       "address": "307 Kelly Plantation Drive, Destin, FL 32541",
       "state": "FL",
@@ -6379,8 +6764,10 @@
       "holes": 18,
       "sources": [
         "https://www.eaglecreekorlando.com/",
-        "https://www.eaglecreekorlando.com/eagle-creek-golf-club-orlando-to-debut-new-wee-18-golf-course/"
-      ]
+        "https://www.eaglecreekorlando.com/blog/",
+        "https://www.eaglecreekorlando.com/policies/"
+      ],
+      "access_note": "Non-golfing spectators and extra riders are prohibited; golf carts are shared and single-rider carts are unavailable."
     },
     {
       "name": "MetroWest Golf Club",
@@ -6916,6 +7303,17 @@
       ]
     },
     {
+      "name": "Lansbrook Golf Club",
+      "address": "4605 Village Center Drive, Palm Harbor, FL 34685",
+      "state": "FL",
+      "county": "Pinellas County",
+      "holes": 18,
+      "sources": [
+        "https://www.lansbrook-golf.com/",
+        "https://www.foregolfpartners.com/default.asp?contentID=17"
+      ]
+    },
+    {
       "name": "Largo Golf Course",
       "address": "12500 Vonn Road, Largo, FL 33774",
       "state": "FL",
@@ -7111,6 +7509,17 @@
       "holes": 18,
       "sources": [
         "https://www.theclubathiddencreek.com/"
+      ]
+    },
+    {
+      "name": "Tiger Point Golf Club",
+      "address": "1255 Country Club Dr., Gulf Breeze, FL 32563",
+      "state": "FL",
+      "county": "Santa Rosa County",
+      "holes": 18,
+      "sources": [
+        "https://tigerpointgolf.com/",
+        "https://tigerpointgolf.com/best-golf-pensacola-area-tiger-point/"
       ]
     },
     {
@@ -7431,6 +7840,139 @@
       "access_note": "Published tee-time procedures require foursomes during the season."
     },
     {
+      "name": "Belle Glade Country Club",
+      "address": "434 Moyer Loop, The Villages, FL 32163",
+      "state": "FL",
+      "county": "Sumter County",
+      "holes": 27,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=BELLE+GLADE",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
+    },
+    {
+      "name": "Bonifay Country Club",
+      "address": "1033 Pinellas Place, The Villages, FL 32163",
+      "state": "FL",
+      "county": "Sumter County",
+      "holes": 27,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=BONIFAY",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
+    },
+    {
+      "name": "Cane Garden Country Club",
+      "address": "1728 Bailey Trail, The Villages, FL 32162",
+      "state": "FL",
+      "county": "Sumter County",
+      "holes": 27,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=CANE+GARDEN",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf",
+        "https://www.golfthevillages.com/championship-golf/pro.asp?course=CANE+GARDEN"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited. Owner also displays an undated summer notice of Hibiscus-nine renovation with temporary 18-hole operation; 27 is the facility total, not a claim that all holes are currently open."
+    },
+    {
+      "name": "Continental Country Club",
+      "address": "71 Continental Blvd, Wildwood, FL 34785",
+      "state": "FL",
+      "county": "Sumter County",
+      "holes": 18,
+      "sources": [
+        "https://www.continentalcountryclub.com/"
+      ]
+    },
+    {
+      "name": "Glenview Champions Country Club",
+      "address": "3190 Glenview Road, The Villages, FL 32162",
+      "state": "FL",
+      "county": "Sumter County",
+      "holes": 27,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=GLENVIEW+CHAMPIONS",
+        "https://www.golfthevillages.com/championship-golf/images/img_GV.jpg",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
+    },
+    {
+      "name": "Havana Country Club",
+      "address": "2488 O'Dell Circle, The Villages, FL 32162",
+      "state": "FL",
+      "county": "Sumter County",
+      "holes": 27,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=HAVANA",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
+    },
+    {
+      "name": "Mallory Hill Country Club",
+      "address": "1675 O'Dell Circle, The Villages, FL 32162",
+      "state": "FL",
+      "county": "Sumter County",
+      "holes": 27,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=MALLORY+HILL",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
+    },
+    {
+      "name": "Southern Oaks Golf Club",
+      "address": "766 Marilee Place, Suite 110, The Villages, FL 32163",
+      "state": "FL",
+      "county": "Sumter County",
+      "holes": 18,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=SOUTHERN+OAKS",
+        "https://www.golfthevillages.com/championship-golf/images/img_SO.jpg",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
+    },
+    {
+      "name": "Tierra Del Sol Country Club",
+      "address": "806 San Marino Drive, The Villages, FL 32159",
+      "state": "FL",
+      "county": "Sumter County",
+      "holes": 18,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=TIERRA+DEL+SOL",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
+    },
+    {
       "name": "Crane Lakes Golf & Country Club",
       "address": "1790 Crane Lakes Boulevard, Port Orange, FL 32128",
       "state": "FL",
@@ -7469,6 +8011,17 @@
       "holes": 18,
       "sources": [
         "https://www.sportsvolusia.com/facilities/new-smyrna/hidden.stml"
+      ]
+    },
+    {
+      "name": "LPGA International",
+      "address": "1000 Champions Drive, Daytona Beach, FL 32124",
+      "state": "FL",
+      "county": "Volusia County",
+      "holes": 36,
+      "sources": [
+        "https://www.lpgainternational.com/-home",
+        "https://www.foregolfpartners.com/default.asp?contentID=17"
       ]
     },
     {
@@ -7535,6 +8088,66 @@
       ]
     },
     {
+      "name": "Wakulla Sands Golf Club",
+      "address": "3876 Coastal Highway, Crawfordville, FL 32327",
+      "state": "FL",
+      "county": "Wakulla County",
+      "holes": 18,
+      "sources": [
+        "https://golfwakulla.com/rates",
+        "https://golfwakulla.com/contact-us"
+      ],
+      "access_note": "Junior rates and junior development cards are walking-only."
+    },
+    {
+      "name": "Eagle Springs Golf and Recreation Center",
+      "address": "171 Country Club Ln, DeFuniak Springs, FL 32435",
+      "state": "FL",
+      "county": "Walton County",
+      "holes": 18,
+      "sources": [
+        "https://www.eaglespringsgolf.com/",
+        "https://www.eaglespringsgolf.com/golf"
+      ],
+      "access_note": "Walking before noon requires prior approval from the pro shop."
+    },
+    {
+      "name": "Sandestin - Baytowne Golf Club",
+      "address": "1199 Troon Dr, Miramar Beach, FL 32550-4510",
+      "state": "FL",
+      "county": "Walton County",
+      "holes": null,
+      "sources": [
+        "https://www.sandestin.com/golf/baytowne-golf-club",
+        "https://www.sandestin.com/golf/memberships"
+      ],
+      "access_note": "Non-resort golfers may reserve up to 14 days in advance. Check published maintenance dates."
+    },
+    {
+      "name": "Sandestin - Raven Golf Club",
+      "address": "1199 Troon Dr, Miramar Beach, FL 32550-4510",
+      "state": "FL",
+      "county": "Walton County",
+      "holes": null,
+      "sources": [
+        "https://www.sandestin.com/golf/raven-golf-club",
+        "https://www.sandestin.com/golf/memberships"
+      ],
+      "access_note": "Non-resort golfers may reserve up to 14 days in advance. Owner course guide shows alternate holes 16a and 16b; exact total is left unset rather than inferred."
+    },
+    {
+      "name": "Sandestin - The Links Golf Club",
+      "address": "165 Sandestin Blvd N, Miramar Beach, FL 32550-4534",
+      "state": "FL",
+      "county": "Walton County",
+      "holes": null,
+      "sources": [
+        "https://www.sandestin.com/golf/the-links",
+        "https://www.sandestin.com/golf/memberships"
+      ],
+      "access_note": "Non-resort golfers may reserve up to 14 days in advance. Check published maintenance dates."
+    },
+    {
       "name": "Sunny Hills Golf Club",
       "address": "3634 Country Club Blvd., Sunny Hills, FL 32428",
       "state": "FL",
@@ -7543,6 +8156,17 @@
       "sources": [
         "https://www.sunnyhillsgolfclub.com/"
       ]
+    },
+    {
+      "name": "Aquarina Golf Club",
+      "address": "7500 S Hwy A1A, Melbourne Beach, FL 32951",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.aquarinacc.com/golf-course/course-club"
+      ],
+      "access_note": "Published last tee time is 3:50 p.m."
     },
     {
       "name": "Arlington Ridge Golf Club",
@@ -7563,17 +8187,6 @@
       "sources": [
         "https://www.tampa.gov/info/sports/personal-fitness",
         "https://babezahariasgolf.net/contact"
-      ]
-    },
-    {
-      "name": "Bonaventure Golf Club",
-      "address": "200 Bonaventure Blvd, Weston, FL 33326",
-      "state": "FL",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.golfbonaventure.com/",
-        "https://www.golfbonaventure.com/wp-content/uploads/sites/8650/2022/11/Bonaventure_Country_Club_Golf__Tournaments_-_Shortened.pdf"
       ]
     },
     {
@@ -7606,18 +8219,6 @@
       "holes": 18,
       "sources": [
         "https://www.clermontnational.com/course"
-      ]
-    },
-    {
-      "name": "Colony West Golf Club",
-      "address": "6850 NW 88th Avenue, Tamarac, FL 33321",
-      "state": "FL",
-      "county": null,
-      "holes": 36,
-      "sources": [
-        "https://www.tamarac.gov/DocumentCenter/View/1225",
-        "https://www.tamarac.gov/facilities/facility/details/colonywestgolfclub-13",
-        "https://www.tamarac.gov/Archive/ViewFile/Item/221"
       ]
     },
     {
@@ -7663,6 +8264,33 @@
       ]
     },
     {
+      "name": "Evans Prairie Country Club",
+      "address": "1824 Evans Prairie Trail, The Villages, FL 32163",
+      "state": "FL",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=EVANS+PRAIRIE",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf",
+        "https://www.golfthevillages.com/championship-golf/non-resident.asp"
+      ],
+      "access_note": "The operator's nonresident-special page lists phone booking up to 3 days ahead; confirm the offer and tee-time availability. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
+    },
+    {
+      "name": "Forest Lake Golf Club",
+      "address": "10521 Clarcona Ocoee Rd, Ocoee, FL 32703",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://forestlakegolf.com/",
+        "https://forestlakegolf.com/rates/"
+      ]
+    },
+    {
       "name": "Granada Golf Course",
       "address": "2001 Granada Blvd., Coral Gables, FL 33134",
       "state": "FL",
@@ -7675,15 +8303,29 @@
       ]
     },
     {
-      "name": "Grand Palms Hotel & Golf Resort",
-      "address": "110 Grand Palms Dr, Pembroke Pines, FL 33027",
+      "name": "Grand Lake Golf Course at Sun Retreats Ocala Orange Lake",
+      "address": "18545 Northwest 45th Avenue Road, Citra, FL 32113",
+      "state": "FL",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.sunoutdoors.com/florida/sun-retreats-ocala-orange-lake/amenities/golf"
+      ]
+    },
+    {
+      "name": "Hacienda Hills Golf Club",
+      "address": "1195 Morse Boulevard, The Villages, FL 32159",
       "state": "FL",
       "county": null,
       "holes": 27,
       "sources": [
-        "https://www.grandpalmshotel.com/services-1",
-        "https://www.pga.com/play/FL/pembroke-pines/grand-palms-hotel-golf-resort/0383760"
-      ]
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=HACIENDA+HILLS",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
     },
     {
       "name": "Key Colony Beach Golf Course",
@@ -7720,6 +8362,19 @@
       ]
     },
     {
+      "name": "La Cita Country Club",
+      "address": "777 Country Club Dr, Titusville, FL 32780",
+      "state": "FL",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.lacitacc.com/",
+        "https://www.lacitacc.com/golf-course-in-titusville/",
+        "https://www.lacitacc.com/september-21st/"
+      ],
+      "access_note": "Owner announces full-course public reopening October 6, 2026 following renovation; golf shop hours are published Tuesday–Sunday."
+    },
+    {
       "name": "Lake Wales Country Club",
       "address": "2925 E State Rd 60, Lake Wales, FL 33898",
       "state": "FL",
@@ -7754,6 +8409,18 @@
       ]
     },
     {
+      "name": "Ocala Golf Club",
+      "address": "3130 E Silver Springs Blvd, Ocala, FL 34470",
+      "state": "FL",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.ocalamarion.com/things-to-do/golf/",
+        "https://www.ocalamarion.com/directory/ocala-golf-club/",
+        "https://www.ocalafl.gov/Home/Components/FacilityDirectory/FacilityDirectory/70/182?npage=3"
+      ]
+    },
+    {
       "name": "Palm Beach National Golf & Country Club",
       "address": "7500 Saint Andrews Rd, West Palm Beach, FL 33467",
       "state": "FL",
@@ -7776,6 +8443,22 @@
         "https://www.golfontheocean.com/contact/",
         "https://www.golfontheocean.com/faqs-palm-beach-par-3/"
       ]
+    },
+    {
+      "name": "Palmer Legends Country Club",
+      "address": "1645 Palmer Way, The Villages, FL 32162",
+      "state": "FL",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=PALMER+LEGENDS",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf",
+        "https://www.golfthevillages.com/championship-golf/non-resident.asp"
+      ],
+      "access_note": "The operator's nonresident-special page lists phone booking up to 3 days ahead; confirm the offer and tee-time availability. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
     },
     {
       "name": "Poinciana Golf Club",
@@ -7810,6 +8493,33 @@
       ]
     },
     {
+      "name": "Shallow Creek Golf Club",
+      "address": "8007 Landstone Boulevard, The Villages, FL 33585",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=SHALLOW+CREEK",
+        "https://www.golfthevillages.com/championship-golf/images/img_SC.jpg",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
+    },
+    {
+      "name": "Spruce Creek Preserve Golf Club",
+      "address": "13601 SW 115th Ave, Dunnellon, FL 34432",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.ocalamarion.com/things-to-do/golf/",
+        "https://www.ocalamarion.com/directory/spruce-creek-preserve-golf-club/"
+      ]
+    },
+    {
       "name": "Tarpon Woods Golf Club",
       "address": "1100 Tarpon Woods Blvd, Palm Harbor, FL 34685",
       "state": "FL",
@@ -7818,6 +8528,18 @@
       "sources": [
         "https://www.tarponwoodsgc.com/directions"
       ]
+    },
+    {
+      "name": "The Bridges at Springtree Golf Club",
+      "address": "8150 Springtree Drive, Sunrise, FL 33351",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://online.flippingbook.com/view/674099386",
+        "https://www.sunrisefl.gov/departments-services/leisure-services/parks-recreation-facilities"
+      ],
+      "access_note": "On Thanksgiving and Christmas 2026, course hours are reduced to 6 a.m.–1 p.m."
     },
     {
       "name": "The Club at Westminster",
@@ -7909,6 +8631,22 @@
       "sources": [
         "https://whiskeycreekcc.com/"
       ]
+    },
+    {
+      "name": "Woodlands Golf Club",
+      "address": "1480 Craig Court, The Villages, FL 33585",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfthevillages.com/championship-golf/champDetail.asp?course=WOODLANDS",
+        "https://www.golfthevillages.com/championship-golf/images/img_WL.jpg",
+        "https://www.golfthevillages.com/images/telephonedirectory.pdf",
+        "https://www.golfthevillages.com/whatsnew/Current%20Rates.pdf",
+        "https://www.golfthevillages.com/championship-golf/",
+        "https://www.golfthevillages.com/golf-in-the-villages/goodgolfguide.pdf"
+      ],
+      "access_note": "Semi-private daily-fee access; confirm nonresident tee-time availability with the golf shop. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
     },
     {
       "name": "The Chimneys Golf Course",
@@ -10714,6 +11452,56 @@
       ]
     },
     {
+      "name": "Bergen Golf Course",
+      "address": "2900 Clearlake Avenue, Springfield, IL 62703",
+      "state": "IL",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.springfieldparks.org/locations/92/bergen-golf-course/springfield/facility-details",
+        "https://www.springfieldparks.org/c383ae0d-1b6f-4220-8b63-4dbbf74b9104/6e617e35-be1e-48b7-b7ce-43fd8bc5a4a6/golf-programs/",
+        "https://springfieldparks.org/Resources/c1096a74-d364-4bb6-838b-33d19427fd27/2024_SPD_general_use_ordinance_final.pdf"
+      ],
+      "access_note": "No one under age6 is allowed on the golf courses."
+    },
+    {
+      "name": "Bonnie Dundee Golf Club",
+      "address": "270 Kennedy Drive, Carpentersville, IL 60110",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.dtpd.org/bonnie-dundee-golf-course-info",
+        "https://www.dtpd.org/bonnie-dundee-golf-rates"
+      ]
+    },
+    {
+      "name": "Bunn Golf Course",
+      "address": "2500 S 11th Street, Springfield, IL 62703",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.springfieldparks.org/locations/49/bunn-golf-course/springfield/facility-details",
+        "https://www.springfieldparks.org/c383ae0d-1b6f-4220-8b63-4dbbf74b9104/6e617e35-be1e-48b7-b7ce-43fd8bc5a4a6/golf-programs/",
+        "https://springfieldparks.org/Resources/c1096a74-d364-4bb6-838b-33d19427fd27/2024_SPD_general_use_ordinance_final.pdf"
+      ],
+      "access_note": "No one under age6 is allowed on the golf courses."
+    },
+    {
+      "name": "Lincoln Greens Golf Course",
+      "address": "700 E Lake Shore Drive, Springfield, IL 62712",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.springfieldparks.org/locations/50/lincoln-greens-golf-course/springfield/facility-details",
+        "https://www.springfieldparks.org/c383ae0d-1b6f-4220-8b63-4dbbf74b9104/6e617e35-be1e-48b7-b7ce-43fd8bc5a4a6/golf-programs/",
+        "https://springfieldparks.org/Resources/c1096a74-d364-4bb6-838b-33d19427fd27/2024_SPD_general_use_ordinance_final.pdf"
+      ],
+      "access_note": "No one under age6 is allowed on the golf courses."
+    },
+    {
       "name": "Madison Golf Course",
       "address": "2735 W Dr. Martin Luther King Jr. Dr., Peoria, IL 61604",
       "state": "IL",
@@ -10734,6 +11522,33 @@
         "https://ppdgolf.org/courses/newman/",
         "https://ppdgolf.org/"
       ]
+    },
+    {
+      "name": "Pasfield Golf Course",
+      "address": "1700 W Lawrence Ave, Springfield, IL 62704",
+      "state": "IL",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.springfieldparks.org/locations/48/pasfield-golf-course/springfield/facility-details",
+        "https://www.springfieldparks.org/c383ae0d-1b6f-4220-8b63-4dbbf74b9104/6e617e35-be1e-48b7-b7ce-43fd8bc5a4a6/golf-programs/",
+        "https://springfieldparks.org/Resources/c1096a74-d364-4bb6-838b-33d19427fd27/2024_SPD_general_use_ordinance_final.pdf"
+      ],
+      "access_note": "No one under age6 is allowed on the golf courses."
+    },
+    {
+      "name": "Randall Oaks Golf Club",
+      "address": "4101 Binnie Road, West Dundee, IL 60118",
+      "state": "IL",
+      "county": null,
+      "holes": 25,
+      "sources": [
+        "https://www.dtpd.org/randall-oaks-golf-course-info",
+        "https://www.dtpd.org/randall-oaks-golf-rates",
+        "https://www.dtpd.org/randall-oaks-golf-acorn-course",
+        "https://www.dtpd.org/randall-oaks-links-course"
+      ],
+      "access_note": "Short courses are first-come, first-served and may be temporarily reserved for junior programs or team practice."
     },
     {
       "name": "Sandy Hollow Golf Course",
@@ -10780,6 +11595,16 @@
       "access_note": "Nonmembers: weekdays and weekends after 1 p.m., seasonally from April through October; some holidays are members-only. Confirm current hours with the club."
     },
     {
+      "name": "Humboldt Golf Association",
+      "address": "222 Franklin, Humboldt, KS 66748",
+      "state": "KS",
+      "county": "Allen County",
+      "holes": 9,
+      "sources": [
+        "https://www.travelks.com/listing/humboldt-golf-association/1347/"
+      ]
+    },
+    {
       "name": "Garnett Country Club",
       "address": "1201 North Lake Road, Garnett, KS 66032",
       "state": "KS",
@@ -10812,6 +11637,17 @@
       ]
     },
     {
+      "name": "Prairie Trails Public Golf Course",
+      "address": "1100 Country Club Ln., El Dorado, KS 67042",
+      "state": "KS",
+      "county": "Butler County",
+      "holes": 18,
+      "sources": [
+        "https://www.travelks.com/listing/prairie-trails-public-golf-course/4159/",
+        "https://www.prairietrailsgolf.com/our-course"
+      ]
+    },
+    {
       "name": "Baxter Springs Golf & Country Club",
       "address": "501 Hale Irwin Dr, Baxter Springs, KS 66713",
       "state": "KS",
@@ -10839,6 +11675,16 @@
       "holes": 9,
       "sources": [
         "https://www.travelks.com/listing/clay-center-public-golf-course/472/"
+      ]
+    },
+    {
+      "name": "Glasco Country Club",
+      "address": "628 Deer Rd, Glasco, KS 67445",
+      "state": "KS",
+      "county": "Cloud County",
+      "holes": 9,
+      "sources": [
+        "https://www.travelks.com/listing/glasco-country-club/2349/"
       ]
     },
     {
@@ -10881,6 +11727,16 @@
       "sources": [
         "https://www.pittks.org/visit/parks-recreation/facilities-golf/",
         "https://www.travelks.com/listing/four-oaks-golf-course/575/"
+      ]
+    },
+    {
+      "name": "Indian Hill Golf Course",
+      "address": "522 Golf Course Rd, Chapman, KS 67431",
+      "state": "KS",
+      "county": "Dickinson County",
+      "holes": 9,
+      "sources": [
+        "https://www.travelks.com/listing/indian-hill-golf-course/214/"
       ]
     },
     {
@@ -10971,6 +11827,16 @@
       ]
     },
     {
+      "name": "Crooked Creek Country Club",
+      "address": "201 E Geronimo, Montezuma, KS 67867",
+      "state": "KS",
+      "county": "Gray County",
+      "holes": 9,
+      "sources": [
+        "https://www.travelks.com/listing/crooked-creek-country-club/17925/"
+      ]
+    },
+    {
       "name": "Hesston Golf Course",
       "address": "520 Yost Drive, Hesston, KS 67062",
       "state": "KS",
@@ -11023,6 +11889,43 @@
       ]
     },
     {
+      "name": "Lake Perry Country Club",
+      "address": "6506 Cherokee Lane, Ozawkie, KS 66070",
+      "state": "KS",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://greatlifetopeka.com/locations/",
+        "https://greatlifetopeka.com/lake-perry/",
+        "https://greatlifetopeka.com/wp-content/uploads/2025/03/GL-Amenities-2024-editv2.0-1-1.pdf",
+        "https://greatlifetopeka.com/golf-leagues/"
+      ]
+    },
+    {
+      "name": "Falcon Valley Golf Course",
+      "address": "9801 Falcon Valley Drive, Lenexa, KS 66220",
+      "state": "KS",
+      "county": "Johnson County",
+      "holes": 9,
+      "sources": [
+        "https://www.travelks.com/listing/falcon-valley-golf-course/3547/",
+        "https://www.falconvalleygolf.com/"
+      ]
+    },
+    {
+      "name": "Gardner Golf Course",
+      "address": "15810 South Gardner Road, Gardner, KS 66030",
+      "state": "KS",
+      "county": "Johnson County",
+      "holes": 9,
+      "sources": [
+        "https://www.gardnerksgolf.com/teetimes/public-tee-times/",
+        "https://www.gardnerksgolf.com/",
+        "https://www.gardnerksgolf.com/flyover/"
+      ],
+      "access_note": "Operator requires weekend riders to book and pay as players."
+    },
+    {
       "name": "Ironhorse Golf Club",
       "address": "15400 Mission Rd., Leawood, KS 66224",
       "state": "KS",
@@ -11032,6 +11935,18 @@
         "https://www.ironhorsegolf.com/",
         "https://www.ironhorsegolf.com/course_details/"
       ]
+    },
+    {
+      "name": "Smiley's Executive Golf Course",
+      "address": "10195 Monticello Terrace, Lenexa, KS 66227",
+      "state": "KS",
+      "county": "Johnson County",
+      "holes": 18,
+      "sources": [
+        "https://www.smileysgolf.com/executive-golf-course",
+        "https://www.smileysgolf.com/"
+      ],
+      "access_note": "Walk-up play only; no tee times. Walking only, with no riding carts. Strollers, toddlers and babies are not allowed on the course."
     },
     {
       "name": "St. Andrews Golf Club",
@@ -11107,6 +12022,30 @@
       ]
     },
     {
+      "name": "Hillsboro Municipal Golf Course",
+      "address": "700 S. Ash St, Hillsboro, KS 67063",
+      "state": "KS",
+      "county": "Marion County",
+      "holes": 9,
+      "sources": [
+        "https://www.travelks.com/listing/hillsboro-municipal-golf-course/1335/"
+      ]
+    },
+    {
+      "name": "Lindsborg Golf Course",
+      "address": "1541 Svensk Rd., Lindsborg, KS 67456",
+      "state": "KS",
+      "county": "McPherson County",
+      "holes": 9,
+      "sources": [
+        "https://www.golflindsborg.com/",
+        "https://www.golflindsborg.com/contact",
+        "https://www.golflindsborg.com/weekly-specials",
+        "https://www.travelks.com/listing/lindsborg-golf-club/1681/"
+      ],
+      "access_note": "The course closes to the public at 6 p.m. on Tuesdays for men's night."
+    },
+    {
       "name": "Rolling Acres Golf Club",
       "address": "1461 Pioneer Road, McPherson, KS 67460",
       "state": "KS",
@@ -11125,6 +12064,27 @@
       "sources": [
         "https://www.osawatomieks.org/217/Golf-Course",
         "https://www.miamicountyks.gov/483/Recreation-and-Camping"
+      ]
+    },
+    {
+      "name": "Lakeside Park & Golf Course",
+      "address": null,
+      "state": "KS",
+      "county": "Mitchell County",
+      "holes": 9,
+      "sources": [
+        "https://www.cawkercitykansas.com/lakeside-golf-course",
+        "https://www.travelks.com/listing/lakeside-park-and-golf-course/58161/"
+      ]
+    },
+    {
+      "name": "Hillcrest Golf Course",
+      "address": "1509 N. Cline, Coffeyville, KS 67337",
+      "state": "KS",
+      "county": "Montgomery County",
+      "holes": 18,
+      "sources": [
+        "https://www.travelks.com/listing/hillcrest-golf-course/515/"
       ]
     },
     {
@@ -11170,6 +12130,16 @@
       ]
     },
     {
+      "name": "Cool Springs Golf Course",
+      "address": "20770 Kelley Creek Rd., Onaga, KS 66521",
+      "state": "KS",
+      "county": "Pottawatomie County",
+      "holes": 9,
+      "sources": [
+        "https://www.travelks.com/listing/cool-springs-golf-course/2086/"
+      ]
+    },
+    {
       "name": "Seidels Golf Course",
       "address": "30370 NE 30th St, Pratt, KS",
       "state": "KS",
@@ -11198,6 +12168,17 @@
       "holes": 6,
       "sources": [
         "https://www.travelks.com/listing/buffalo-park-golf-club-inc/372/"
+      ]
+    },
+    {
+      "name": "Lyons Public Golf Course",
+      "address": "1000 S. Terran Ave., Lyons, KS 67554",
+      "state": "KS",
+      "county": "Rice County",
+      "holes": 9,
+      "sources": [
+        "https://www.lyonsrec.org/lyons-public-golf-course",
+        "https://www.travelks.com/listing/lyons-public-golf-course/2149/"
       ]
     },
     {
@@ -11231,6 +12212,17 @@
       "sources": [
         "https://www.travelks.com/listing/russell-memorial-golf-course/11848/",
         "https://www.russellcity.org/163/Golf-Course"
+      ]
+    },
+    {
+      "name": "GreatLIFE Salina Golf Course",
+      "address": "1800 S. Marymount Rd., Salina, KS 67401",
+      "state": "KS",
+      "county": "Saline County",
+      "holes": 18,
+      "sources": [
+        "https://greatlifesalina.com/",
+        "https://greatlifesalina.com/golf-course/"
       ]
     },
     {
@@ -11287,6 +12279,16 @@
       ]
     },
     {
+      "name": "MacDonald Golf Course",
+      "address": "840 N. Yale, Wichita, KS 67208",
+      "state": "KS",
+      "county": "Sedgwick County",
+      "holes": 18,
+      "sources": [
+        "https://www.travelks.com/listing/macdonald-golf-course/1178/"
+      ]
+    },
+    {
       "name": "Tex Consolver Golf Course",
       "address": "1931 S. Tyler, Wichita, KS 67209",
       "state": "KS",
@@ -11305,6 +12307,20 @@
       "sources": [
         "https://visitliberal.com/golf-courses/",
         "https://www.cityofliberal.org/194/Willow-Tree-Golf-Course"
+      ]
+    },
+    {
+      "name": "Berkshire Golf Club",
+      "address": "3720 SW 45th St., Topeka, KS 66610",
+      "state": "KS",
+      "county": "Shawnee County",
+      "holes": 18,
+      "sources": [
+        "https://greatlifetopeka.com/locations/",
+        "https://greatlifetopeka.com/berkshire/",
+        "https://greatlifetopeka.com/wp-content/uploads/2025/03/GL-Amenities-2024-editv2.0-1-1.pdf",
+        "https://greatlifetopeka.com/golf-leagues/",
+        "https://www.travelks.com/listing/greatlife-golf-%26-fitness-berkshire/29088/"
       ]
     },
     {
@@ -11340,6 +12356,48 @@
       ]
     },
     {
+      "name": "Shawnee Country Club",
+      "address": "913 SE 29th St., Topeka, KS 66605",
+      "state": "KS",
+      "county": "Shawnee County",
+      "holes": 18,
+      "sources": [
+        "https://greatlifetopeka.com/locations/",
+        "https://greatlifetopeka.com/shawnee-country-club/",
+        "https://greatlifetopeka.com/wp-content/uploads/2025/03/GL-Amenities-2024-editv2.0-1-1.pdf",
+        "https://greatlifetopeka.com/golf-leagues/",
+        "https://www.travelks.com/listing/greatlife-golf-%26-fitness-shawnee-country-club/29091/"
+      ]
+    },
+    {
+      "name": "TopCITYGolf",
+      "address": "350 NE US 24 Hwy, Topeka, KS 66608",
+      "state": "KS",
+      "county": "Shawnee County",
+      "holes": 9,
+      "sources": [
+        "https://greatlifetopeka.com/locations/",
+        "https://topcitygolf.com/",
+        "https://greatlifetopeka.com/wp-content/uploads/2025/03/GL-Amenities-2024-editv2.0-1-1.pdf",
+        "https://greatlifetopeka.com/golf-leagues/",
+        "https://www.travelks.com/listing/greatlife-golf-%26-fitness-topcitygolf/30692/"
+      ]
+    },
+    {
+      "name": "Western Hills Golf Club",
+      "address": "8533 SW 21st St., Topeka, KS 66615",
+      "state": "KS",
+      "county": "Shawnee County",
+      "holes": 18,
+      "sources": [
+        "https://greatlifetopeka.com/locations/",
+        "https://greatlifetopeka.com/western-hills/",
+        "https://greatlifetopeka.com/wp-content/uploads/2025/03/GL-Amenities-2024-editv2.0-1-1.pdf",
+        "https://greatlifetopeka.com/golf-leagues/",
+        "https://www.travelks.com/listing/greatlife-golf-%26-fitness-western-hills/29095/"
+      ]
+    },
+    {
       "name": "Forewinds Golf Course",
       "address": "958 US-56, Hugoton, KS 67951",
       "state": "KS",
@@ -11347,6 +12405,17 @@
       "holes": 9,
       "sources": [
         "https://www.travelks.com/listing/forewinds-golf-course/38158/"
+      ]
+    },
+    {
+      "name": "Wellington Golf Club",
+      "address": "1500 W. Harvey Avenue, Wellington, KS 67152",
+      "state": "KS",
+      "county": "Sumner County",
+      "holes": 18,
+      "sources": [
+        "https://www.cityofwellington.net/files/documents/CityofWellingtonStrategicPlan1321123457082020PM.pdf",
+        "https://www.travelks.com/listing/wellington-golf-club/14641/"
       ]
     },
     {
@@ -11379,6 +12448,28 @@
       "sources": [
         "https://www.travelks.com/listing/cedar-hill-golf-course/2568/",
         "https://washingtonks.net/golf"
+      ]
+    },
+    {
+      "name": "Dub's Dread Golf Course",
+      "address": "12601 Hollingsworth Rd, Kansas City, KS 66109",
+      "state": "KS",
+      "county": "Wyandotte County",
+      "holes": 18,
+      "sources": [
+        "https://www.travelks.com/listing/dubs-dread-golf-course/1430/",
+        "https://dubsdreadgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Painted Hills Golf Club",
+      "address": "7101 Parallel Parkway, Kansas City, KS 66112",
+      "state": "KS",
+      "county": "Wyandotte County",
+      "holes": 18,
+      "sources": [
+        "https://paintedhillsgolf.com/",
+        "https://paintedhillsgolf.com/tee-times/"
       ]
     },
     {
@@ -11457,13 +12548,14 @@
       ]
     },
     {
-      "name": "Lakeside Park & Golf Course",
-      "address": null,
+      "name": "LaCrosse Country Club",
+      "address": "202 E. 1st Street, La Crosse, KS",
       "state": "KS",
       "county": null,
       "holes": 9,
       "sources": [
-        "https://www.cawkercitykansas.com/lakeside-golf-course"
+        "https://rushcounty.org/recreation.html",
+        "https://www.cityoflacrosseks.com/recreation"
       ]
     },
     {
@@ -11474,16 +12566,6 @@
       "holes": 9,
       "sources": [
         "https://www.phillipscountyks.org/attractions"
-      ]
-    },
-    {
-      "name": "Lyons Public Golf Course",
-      "address": "1000 S. Terran Ave., Lyons, KS 67554",
-      "state": "KS",
-      "county": null,
-      "holes": null,
-      "sources": [
-        "https://www.lyonsrec.org/lyons-public-golf-course"
       ]
     },
     {
@@ -11515,6 +12597,16 @@
       "sources": [
         "https://www.ottawaks.gov/336/Ottawa-Golf-Course",
         "https://www.ottawaks.gov/DocumentCenter/View/459"
+      ]
+    },
+    {
+      "name": "Palco Golf Course",
+      "address": "KS Hwy 18 & 6 Road, Palco, KS 67657",
+      "state": "KS",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.rookscounty.net/connections/52812-palco-golf-course/"
       ]
     },
     {
@@ -12096,10 +13188,11 @@
       "address": "1 Cardigan Road, Timonium, MD 21093",
       "state": "MD",
       "county": "Baltimore County",
-      "holes": null,
+      "holes": 18,
       "sources": [
         "https://baltimoregolfing.com/course/fox-hollow",
-        "https://baltimoregolfing.com/about/faqs"
+        "https://baltimoregolfing.com/about/faqs",
+        "https://baltimoregolfing.com/course/fox-hollow/fox-hollow-scorecard"
       ]
     },
     {
@@ -12107,10 +13200,11 @@
       "address": "2115 White Hall Rd., White Hall, MD 21161",
       "state": "MD",
       "county": "Baltimore County",
-      "holes": null,
+      "holes": 18,
       "sources": [
         "https://baltimoregolfing.com/course/greystone",
-        "https://baltimoregolfing.com/about/faqs"
+        "https://baltimoregolfing.com/about/faqs",
+        "https://baltimoregolfing.com/course/greystone/greystone-scorecard"
       ]
     },
     {
@@ -13117,6 +14211,17 @@
       "access_note": "Vehicles are subject to a park entry fee."
     },
     {
+      "name": "Katke Golf Course",
+      "address": "1003 Perry Ave, Big Rapids, MI 49307",
+      "state": "MI",
+      "county": "Mecosta County",
+      "holes": 21,
+      "sources": [
+        "https://www.ferris.edu/administration/adminandfinance/AuxiliaryEnterprises/services/katke/index.htm",
+        "https://www.ferris.edu/administration/adminandfinance/AuxiliaryEnterprises/services/katke/golfprices.htm"
+      ]
+    },
+    {
       "name": "Indian Springs Metropark Golf Course",
       "address": "5100 Indian Trail, White Lake, MI 48386",
       "state": "MI",
@@ -13127,6 +14232,19 @@
         "https://golf.metroparks.com/"
       ],
       "access_note": "Vehicles are subject to a park entry fee."
+    },
+    {
+      "name": "The Meadows Golf Course at Grand Valley State University",
+      "address": "4645 West Campus Dr., Allendale, MI 49401",
+      "state": "MI",
+      "county": "Ottawa County",
+      "holes": 18,
+      "sources": [
+        "https://www.gvsu.edu/meadows",
+        "https://www.gvsu.edu/meadows/score-card-7",
+        "https://www.gvsu.edu/meadows/practice-facility-37"
+      ],
+      "access_note": "Cashless facility. The separately restricted Laker team short-game complex is excluded from this public-course record."
     },
     {
       "name": "Hudson Mills Metropark Golf Course",
@@ -13422,6 +14540,31 @@
       "access_note": "Formerly Ole Still Golf Club."
     },
     {
+      "name": "Olde Beau Resort & Golf Club",
+      "address": "729 Olde Beau Boulevard, Roaring Gap, NC 28668",
+      "state": "NC",
+      "county": "Alleghany County",
+      "holes": 18,
+      "sources": [
+        "https://www.oldebeauresort.com/",
+        "https://www.oldebeauresort.com/copy-of-groups",
+        "https://www.oldebeauresort.com/par-3-course-the-pup"
+      ],
+      "access_note": "The Pup is a par-3 routing from alternate tees on the existing front nine, not nine additional physical holes."
+    },
+    {
+      "name": "Twin Valley Golf Club",
+      "address": "2305 Country Club Road, Wadesboro, NC 28170",
+      "state": "NC",
+      "county": "Anson County",
+      "holes": 18,
+      "sources": [
+        "https://www.twinvalleygolfclub.com/",
+        "https://www.twinvalleygolfclub.com/about-us/hole-description/",
+        "https://www.visitanson.com/recreation"
+      ]
+    },
+    {
       "name": "Mountain Aire Golf Club",
       "address": "1396 Fairway Ridge Drive, West Jefferson, NC 28694",
       "state": "NC",
@@ -13606,6 +14749,37 @@
       ]
     },
     {
+      "name": "Beaufort Club",
+      "address": "300 Links Drive, Beaufort, NC 28516",
+      "state": "NC",
+      "county": "Carteret County",
+      "holes": 18,
+      "sources": [
+        "https://www.beaufort-club.com/Golf"
+      ]
+    },
+    {
+      "name": "Brandywine Bay Golf Club",
+      "address": "177 Brandywine Boulevard, Morehead City, NC 28557",
+      "state": "NC",
+      "county": "Carteret County",
+      "holes": 18,
+      "sources": [
+        "https://www.brandywinegolf.com/"
+      ]
+    },
+    {
+      "name": "Star Hill Golf Club",
+      "address": "202 Club House Drive, Cape Carteret, NC 28584",
+      "state": "NC",
+      "county": "Carteret County",
+      "holes": 27,
+      "sources": [
+        "https://starhillgolfclub.com/about/"
+      ],
+      "access_note": "Members have priority for preferred tee times during peak season; visitors should call the golf shop."
+    },
+    {
       "name": "Glen Oaks Golf Club",
       "address": "245 Golf Course Road, Maiden, NC 28650",
       "state": "NC",
@@ -13613,6 +14787,29 @@
       "holes": 18,
       "sources": [
         "https://glenoaksgolf.com/"
+      ]
+    },
+    {
+      "name": "The Golf Club at Chapel Ridge",
+      "address": "1010 Chapel Ridge Drive, Pittsboro, NC 27312",
+      "state": "NC",
+      "county": "Chatham County",
+      "holes": 18,
+      "sources": [
+        "https://chapelridgegolfclub.com/",
+        "https://chapelridgegolfclub.com/contact/",
+        "https://chapelridgegolfclub.com/tee-times/"
+      ]
+    },
+    {
+      "name": "The Preserve at Jordan Lake",
+      "address": "840 The Preserve Trail, Chapel Hill, NC 27517",
+      "state": "NC",
+      "county": "Chatham County",
+      "holes": 18,
+      "sources": [
+        "https://thepreservegolfclub.com/",
+        "https://thepreservegolfclub.com/course-details/"
       ]
     },
     {
@@ -13734,6 +14931,30 @@
       ]
     },
     {
+      "name": "Falls Village Golf Club",
+      "address": "115 Falls Village Drive, Durham, NC 27703",
+      "state": "NC",
+      "county": "Durham County",
+      "holes": 18,
+      "sources": [
+        "https://fallsvillagegolfclub.com/",
+        "https://fallsvillagegolfclub.com/tee-times/",
+        "https://fallsvillagegolfclub.com/contact/"
+      ]
+    },
+    {
+      "name": "Hillandale Golf Course",
+      "address": "1600 Hillandale Road, Durham, NC 27705",
+      "state": "NC",
+      "county": "Durham County",
+      "holes": 18,
+      "sources": [
+        "https://hillandalegolf.com/golf-course/",
+        "https://hillandalegolf.com/golf-course/course-tour/",
+        "https://hillandalegolf.com/about/contact/"
+      ]
+    },
+    {
       "name": "The Links at Cotton Valley",
       "address": "2681 Highway 258 South, Tarboro, NC 27886",
       "state": "NC",
@@ -13828,6 +15049,17 @@
       ]
     },
     {
+      "name": "The River Golf Club at Lake Royale",
+      "address": "170 Clear Water Road, Louisburg, NC 27549",
+      "state": "NC",
+      "county": "Franklin County",
+      "holes": 18,
+      "sources": [
+        "https://lrpoa.org/golf",
+        "https://www.rivergolf.net/"
+      ]
+    },
+    {
       "name": "Blair Park Golf Course",
       "address": "1901 S. Main Street, High Point, NC 27262",
       "state": "NC",
@@ -13892,6 +15124,18 @@
       "sources": [
         "https://www.maggievalleyclub.com/",
         "https://www.maggievalleyclub.com/golf/"
+      ]
+    },
+    {
+      "name": "Springdale Resort Golf Course",
+      "address": "190 Golfwatch Road, Canton, NC 28716",
+      "state": "NC",
+      "county": "Haywood County",
+      "holes": 18,
+      "sources": [
+        "https://www.springdaleresortnc.com/springdale-golf-course",
+        "https://www.pga.com/story/incredible-golf-trip-destinations-north-carolinas-springdale-resort",
+        "https://www.springdalegolfnc.com/"
       ]
     },
     {
@@ -13972,6 +15216,16 @@
         "https://www.riverwoodgolfnc.com/course-details/",
         "https://www.fscsportsclub.com/2023/01/12/2023-tee-time-booking-policies/",
         "https://www.fscsportsclub.com/golf/"
+      ]
+    },
+    {
+      "name": "The Neuse Country Club",
+      "address": "918 Birkdale Drive, Clayton, NC 27527",
+      "state": "NC",
+      "county": "Johnston County",
+      "holes": 18,
+      "sources": [
+        "https://neusegolf.com/golf/"
       ]
     },
     {
@@ -14217,6 +15471,30 @@
       ]
     },
     {
+      "name": "Asheboro Country Club",
+      "address": "5105 Old Lexington Road, Asheboro, NC 27205",
+      "state": "NC",
+      "county": "Randolph County",
+      "holes": 18,
+      "sources": [
+        "https://www.asheboroccgolf.com/",
+        "https://www.asheboroccgolf.com/contact-us/",
+        "https://www.rcedc.com/quality-of-life/recreation-livability"
+      ]
+    },
+    {
+      "name": "Asheboro Municipal Golf Course",
+      "address": "421 Country Club Drive, Asheboro, NC 27205",
+      "state": "NC",
+      "county": "Randolph County",
+      "holes": 9,
+      "sources": [
+        "https://asheborocrs.recdesk.com/Community/Page?pageId=7767",
+        "https://www.ptrc.org/home/showpublisheddocument/15145/638995866975430000"
+      ],
+      "access_note": "Nine physical holes; 18-hole rounds repeat the layout."
+    },
+    {
       "name": "Tot Hill Farm Golf Club",
       "address": "3185 Tot Hill Farm Road, Asheboro, NC 27205",
       "state": "NC",
@@ -14308,14 +15586,58 @@
       ]
     },
     {
+      "name": "Cross Creek Country Club",
+      "address": "1129 Greenhill Road, Mount Airy, NC 27030",
+      "state": "NC",
+      "county": "Surry County",
+      "holes": 18,
+      "sources": [
+        "https://crosscreekcc.com/",
+        "https://crosscreekcc.com/rates/"
+      ]
+    },
+    {
+      "name": "Pilot Knob Park Golf Club",
+      "address": "450 Club House Drive, Pilot Mountain, NC 27041",
+      "state": "NC",
+      "county": "Surry County",
+      "holes": 18,
+      "sources": [
+        "https://www.visitmayberry.com/attractions/pilot-knob-park-country-club/",
+        "https://www.yadkinvalleync.com/attractions/pilot-knob-park-golf-club/"
+      ],
+      "access_note": "Public play is Monday through Friday. Uses county tourism authority’s address; municipal tourism listing gives 190 Club House Drive."
+    },
+    {
+      "name": "Pine Ridge Classic Golf Course",
+      "address": "562 Haystack Road, Mount Airy, NC",
+      "state": "NC",
+      "county": "Surry County",
+      "holes": 18,
+      "sources": [
+        "https://www.visitmayberry.com/attractions/pine-ridge-classic-golf-course/"
+      ]
+    },
+    {
+      "name": "White Pines Country Club",
+      "address": "280 George Street, Mount Airy, NC",
+      "state": "NC",
+      "county": "Surry County",
+      "holes": 9,
+      "sources": [
+        "https://www.visitmayberry.com/attractions/white-pines-country-club/"
+      ]
+    },
+    {
       "name": "Smoky Mountain Country Club",
       "address": "1300 Conleys Creek Road, Whittier, NC 28789",
       "state": "NC",
       "county": "Swain County",
-      "holes": null,
+      "holes": 18,
       "sources": [
         "https://smccgolf.com/rates/",
-        "https://smccgolf.com/course-details/"
+        "https://smccgolf.com/course-details/",
+        "https://www.smcclodging.com/golf-course/"
       ]
     },
     {
@@ -14340,6 +15662,29 @@
       ]
     },
     {
+      "name": "Kerr Lake Country Club",
+      "address": "600 Hedrick Drive, Henderson, NC 27537",
+      "state": "NC",
+      "county": "Vance County",
+      "holes": null,
+      "sources": [
+        "https://www.kerrlakecountryclub.com/"
+      ]
+    },
+    {
+      "name": "Brevofield Golf Links",
+      "address": "13601 Camp Kanata Road, Wake Forest, NC 27587",
+      "state": "NC",
+      "county": "Wake County",
+      "holes": 18,
+      "sources": [
+        "https://brevofieldgolf.com/tee-times/",
+        "https://brevofieldgolf.com/course-layout/",
+        "https://brevofieldgolf.com/green-fees/"
+      ],
+      "access_note": "First come, first served; no tee-time reservations."
+    },
+    {
       "name": "Eagle Ridge Golf Club",
       "address": "565 Competition Rd, Raleigh, NC 27603",
       "state": "NC",
@@ -14352,6 +15697,29 @@
       ]
     },
     {
+      "name": "Heritage Golf Club",
+      "address": "1250 Heritage Club Avenue, Wake Forest, NC 27587",
+      "state": "NC",
+      "county": "Wake County",
+      "holes": 18,
+      "sources": [
+        "https://playheritagegolf.com/PublicTeeTimes/TeeSheet.aspx",
+        "https://playheritagegolf.com/Golf/Course_Tour.aspx"
+      ]
+    },
+    {
+      "name": "Knights Play Golf Center",
+      "address": "2512 Ten Ten Road, Apex, NC 27539",
+      "state": "NC",
+      "county": "Wake County",
+      "holes": 27,
+      "sources": [
+        "https://www.knightsplay.com/",
+        "https://www.knightsplay.com/rates"
+      ],
+      "access_note": "Lighted par-3 golf course; excludes the separate driving range."
+    },
+    {
       "name": "Lonnie Poole Golf Course",
       "address": "1509 Main Campus Drive, Raleigh, NC 27606",
       "state": "NC",
@@ -14362,6 +15730,19 @@
         "https://lonniepoolegolfcourse.com/golf/",
         "https://lonniepoolegolfcourse.com/wp-content/uploads/sites/8/2021/08/2021-LPGC-Event-Agreement-MASTER.pdf"
       ]
+    },
+    {
+      "name": "Paschal Golf Club",
+      "address": "555 Stadium Drive, Wake Forest, NC 27587",
+      "state": "NC",
+      "county": "Wake County",
+      "holes": 9,
+      "sources": [
+        "https://paschalgolfclub.com/about/",
+        "https://paschalgolfclub.com/contact/",
+        "https://www.wakeforestnc.gov/sites/default/files/uploads/historic-preservation/hpc-agendas/1979-2020/final_wake_forest_report-revised_11_6_2020.pdf"
+      ],
+      "access_note": "Nine physical holes with alternate tee combinations for 18-hole rounds."
     },
     {
       "name": "Raleigh Golf Association - Public Course",
@@ -14385,6 +15766,18 @@
       ]
     },
     {
+      "name": "Warrenton Golf Club",
+      "address": "129 19th Hole Drive, Warrenton, NC 27589",
+      "state": "NC",
+      "county": "Warren County",
+      "holes": 9,
+      "sources": [
+        "https://warrentongolfclub.com/",
+        "https://warrentongolfclub.com/pro-shop/"
+      ],
+      "access_note": "Nine physical holes; 18-hole rounds use alternate tees."
+    },
+    {
       "name": "Bryan Park Golf Club - Champions Course",
       "address": "6275 Bryan Park Road, Greensboro, NC 27214",
       "state": "NC",
@@ -14403,6 +15796,17 @@
       "sources": [
         "https://bryanpark.com/",
         "https://members.carolinasgcsa.org/jobopening/Details/head-equipment-manager-358226"
+      ]
+    },
+    {
+      "name": "Caswell Pines Golf Club",
+      "address": "2380 County Home Road, Yanceyville, NC 27379",
+      "state": "NC",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://caswellpines.com/",
+        "https://caswellpines.com/contact-us/"
       ]
     },
     {
@@ -14461,6 +15865,18 @@
       "sources": [
         "https://www.keithhills.com/",
         "https://www.keithhills.com/play-golf/"
+      ]
+    },
+    {
+      "name": "Lake Junaluska Golf Course",
+      "address": "756 Golf Course Road, Lake Junaluska, NC 28745",
+      "state": "NC",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://lakejunaluska.com/activities/golf/",
+        "https://lakejunaluska.com/wp-content/uploads/2024/02/2024-Discover-Lake-Junaluska-Magazine-Visitor-Guide.pdf",
+        "https://lakejunaluska.com/wp-content/uploads/2025/10/1919-Grill-Menu-2025-8-1.pdf"
       ]
     },
     {
@@ -14621,6 +16037,16 @@
       "sources": [
         "https://thepearlgolf.com/",
         "https://thepearlgolf.com/contact-us/"
+      ]
+    },
+    {
+      "name": "Vineyard Golf at White Lake",
+      "address": "4723 US Highway 701 N, Elizabethtown, NC 28337",
+      "state": "NC",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.vineyardgolfatwhitelake.com/"
       ]
     },
     {
@@ -16304,10 +17730,11 @@
       "address": "101 Woodville Road, Millstone Township, NJ",
       "state": "NJ",
       "county": "Monmouth County",
-      "holes": null,
+      "holes": 36,
       "sources": [
         "https://www.monmouthcountyparks.com/page.aspx?Id=2482",
-        "https://www.monmouthcountyparks.com/page.aspx?ID=3859"
+        "https://www.monmouthcountyparks.com/page.aspx?ID=3859",
+        "https://www.monmouthcountyparks.com/page.aspx?Id=2580"
       ],
       "access_note": "Non-pass-holder bookings open two days ahead."
     },
@@ -16316,10 +17743,11 @@
       "address": "92 Mercer Road, Colts Neck, NJ",
       "state": "NJ",
       "county": "Monmouth County",
-      "holes": null,
+      "holes": 18,
       "sources": [
         "https://www.monmouthcountyparks.com/page.aspx?Id=2482",
-        "https://www.monmouthcountyparks.com/page.aspx?ID=3859"
+        "https://www.monmouthcountyparks.com/page.aspx?ID=3859",
+        "https://www.monmouthcountyparks.com/documents/129/Hominy%20Hill%20Golf%20Course.pdf"
       ],
       "access_note": "Non-pass-holder bookings open two days ahead."
     },
@@ -16489,6 +17917,18 @@
       ]
     },
     {
+      "name": "Silver Lake Golf Course",
+      "address": "915 Victory Blvd, Staten Island, NY 10301",
+      "state": "NY",
+      "county": "Richmond County",
+      "holes": 18,
+      "sources": [
+        "https://www.golfnyc.com/silver-lake-course/",
+        "https://www.golfnyc.com/contact/",
+        "https://www.golfnyc.com/silver-lake-scorecard/"
+      ]
+    },
+    {
       "name": "Fairways of Halfmoon - Main Course",
       "address": "17 Johnson Road, Mechanicville, NY 12118",
       "state": "NY",
@@ -16527,6 +17967,17 @@
       "holes": 18,
       "sources": [
         "https://www.fallsburgny.gov/269/Golf"
+      ]
+    },
+    {
+      "name": "Van Cortlandt Golf Course",
+      "address": "115 Van Cortland Park S, The Bronx, NY 10463",
+      "state": "NY",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.golfnyc.com/van-cortlandt-course/",
+        "https://www.golfnyc.com/contact/"
       ]
     },
     {
@@ -16597,6 +18048,99 @@
         "https://crpdgolf.com/golf-courses/wilson-road/",
         "https://crpdgolf.com/"
       ]
+    },
+    {
+      "name": "Little Miami Golf Center",
+      "address": "3811 Newtown Road, Newtown, OH 45244",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://www.greatparks.org/parks/little-miami-scenic-corridor/little-miami-golf-center",
+        "https://www.greatparks.org/recreation/golf",
+        "https://www.greatparks.org/about/policies/golf-rules-of-play"
+      ],
+      "access_note": "A valid Great Parks Motor Vehicle Permit is required to enter. Children under eight must be accompanied by an adult."
+    },
+    {
+      "name": "Meadow Links & Golf Academy",
+      "address": "10999 Mill Road, Cincinnati, OH 45240",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 9,
+      "sources": [
+        "https://www.greatparks.org/parks/winton-woods/meadow-links-golf-academy",
+        "https://www.greatparks.org/recreation/golf",
+        "https://www.greatparks.org/about/policies/golf-rules-of-play"
+      ],
+      "access_note": "A valid Great Parks Motor Vehicle Permit is required to enter. Children under eight must be accompanied by an adult."
+    },
+    {
+      "name": "Miami Whitewater Forest Golf Course",
+      "address": "8801 Mt. Hope Road, Harrison, OH 45030",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://www.greatparks.org/parks/miami-whitewater-forest/miami-whitewater-forest-golf-course",
+        "https://www.greatparks.org/recreation/golf",
+        "https://www.greatparks.org/about/policies/golf-rules-of-play",
+        "https://prod-greatparks.xperience-sites.com/getContentAsset/2f87593e-72b6-4371-a6b3-04a4b42bac4b/bfa9215c-2050-47cb-9579-864e5e94a158/Miami-Whitewater-Forest_0125_v2.pdf?language=en"
+      ],
+      "access_note": "A valid Great Parks Motor Vehicle Permit is required to enter. Children under eight must be accompanied by an adult."
+    },
+    {
+      "name": "Sharon Woods Golf Course",
+      "address": "11355 Swing Road, Sharonville, OH 45241",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://www.greatparks.org/parks/sharon-woods/sharon-woods-golf-course",
+        "https://www.greatparks.org/recreation/golf",
+        "https://www.greatparks.org/about/policies/golf-rules-of-play",
+        "https://prod-greatparks.xperience-sites.com/getContentAsset/597035a5-8784-4634-842e-8eb707080555/bfa9215c-2050-47cb-9579-864e5e94a158/Sharon-Woods_0125_v2.pdf?language=en"
+      ],
+      "access_note": "A valid Great Parks Motor Vehicle Permit is required to enter. Children under eight must be accompanied by an adult."
+    },
+    {
+      "name": "The Mill Course",
+      "address": "1515 W. Sharon Road, Cincinnati, OH 45240",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://www.greatparks.org/parks/winton-woods/the-mill-course",
+        "https://www.greatparks.org/recreation/golf",
+        "https://www.greatparks.org/about/policies/golf-rules-of-play",
+        "https://prod-greatparks.xperience-sites.com/getContentAsset/a70bcafc-34c8-4c38-a91c-a51c65e6e405/bfa9215c-2050-47cb-9579-864e5e94a158/The-Mill-Course_0125_v2.pdf?language=en"
+      ],
+      "access_note": "A valid Great Parks Motor Vehicle Permit is required to enter. Children under eight must be accompanied by an adult."
+    },
+    {
+      "name": "The Vineyard Golf Course",
+      "address": "600 Nordyke Road, Cincinnati, OH 45255",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://www.greatparks.org/parks/woodland-mound/the-vineyard-golf-course",
+        "https://www.greatparks.org/recreation/golf",
+        "https://www.greatparks.org/about/policies/golf-rules-of-play",
+        "https://prod-greatparks.xperience-sites.com/getContentAsset/a476677c-4b9a-4d5c-a9d2-943ceed6c2ea/bfa9215c-2050-47cb-9579-864e5e94a158/The-Vineyard_0125_v2.pdf?language=en"
+      ],
+      "access_note": "A valid Great Parks Motor Vehicle Permit is required to enter. Children under eight must be accompanied by an adult."
+    },
+    {
+      "name": "Pine Ridge Country Club",
+      "address": "30601 Ridge Rd, Wickliffe, OH 44092",
+      "state": "OH",
+      "county": "Lake County",
+      "holes": 18,
+      "sources": [
+        "https://lakemetroparks.com/parks-trails/pine-ridge-country-club/"
+      ],
+      "access_note": "Public play is for ages seven and older."
     },
     {
       "name": "Collins Park Golf Course",
@@ -16687,10 +18231,11 @@
       "address": "99040 South Bank Chetco River Rd, Brookings, OR 97415",
       "state": "OR",
       "county": "Curry County",
-      "holes": null,
+      "holes": 18,
       "sources": [
         "https://www.salmonrungolf.com/about-us/course",
-        "https://www.salmonrungolf.com/about-us/daily-rates"
+        "https://www.salmonrungolf.com/about-us/daily-rates",
+        "https://www.salmonrungolf.com/images/scorecard.jpeg"
       ]
     },
     {
@@ -16709,10 +18254,11 @@
       "address": "2425 SE Bybee Blvd, Portland, OR 97202",
       "state": "OR",
       "county": "Multnomah County",
-      "holes": null,
+      "holes": 18,
       "sources": [
         "https://www.portland.gov/parks/eastmoreland-golf-course",
-        "https://www.portland.gov/parks/sports/golf"
+        "https://www.portland.gov/parks/sports/golf",
+        "https://www.portland.gov/parks/news/2018/6/20/free-golf-mondays-kids-summer"
       ]
     },
     {
@@ -16765,10 +18311,36 @@
       "address": "2200 NE 71st Avenue, Portland, OR 97213",
       "state": "OR",
       "county": null,
-      "holes": null,
+      "holes": 18,
       "sources": [
         "https://www.portland.gov/parks/rose-city-golf-course",
-        "https://www.portland.gov/parks/sports/golf"
+        "https://www.portland.gov/parks/sports/golf",
+        "https://www.portland.gov/sites/default/files/2019-07/orcmp_discussiondraft_101717.pdf",
+        "https://www.portland.gov/parks/construction/rose-city-recreational-trail-project"
+      ]
+    },
+    {
+      "name": "Penn State Golf Courses",
+      "address": "1523 West College Avenue, State College, PA 16801",
+      "state": "PA",
+      "county": "Centre County",
+      "holes": 36,
+      "sources": [
+        "https://www.pennstategolfcourses.com/",
+        "https://www.pennstategolfcourses.com/amenities/general-policies",
+        "https://www.pennstategolfcourses.com/contact/faq"
+      ],
+      "access_note": "General public may reserve eight days in advance. Juniors under twelve must be accompanied by an adult."
+    },
+    {
+      "name": "Caledonia Golf Club",
+      "address": "9515 Golf Course Rd, Fayetteville, PA 17222-9684",
+      "state": "PA",
+      "county": "Franklin County",
+      "holes": 18,
+      "sources": [
+        "https://caledoniagolfclub.com/",
+        "https://www.pa.gov/agencies/dcnr/recreation/what-to-do/golfing"
       ]
     },
     {
@@ -17787,6 +19359,17 @@
       "access_note": "State park main address. Current operator announcement confirms golf has reopened."
     },
     {
+      "name": "Lake City Country Club",
+      "address": "140 S Country Club Road, Lake City, SC 29560",
+      "state": "SC",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.lakecitycountryclub.com/"
+      ],
+      "access_note": "Public access is limited to Monday through Friday and holidays under the owner’s published policy."
+    },
+    {
       "name": "Legends Golf Resort - Heathland Course",
       "address": "1500 Legends Dr., Myrtle Beach, SC 29579",
       "state": "SC",
@@ -18802,13 +20385,25 @@
       "address": "1001 E. Memorial Loop Drive, Houston, TX 77007",
       "state": "TX",
       "county": "Harris County",
-      "holes": null,
+      "holes": 18,
       "sources": [
         "https://www.memorialparkgolf.com/memorial-park-golf-course",
         "https://www.memorialparkgolf.com/contact",
-        "https://houstontx.gov/parks/golf.html"
+        "https://houstontx.gov/parks/golf.html",
+        "https://www.houstontx.gov/parks/pdfs/2018/2018WinterSpringCatalog.pdf"
       ],
       "access_note": "Course is closed Tuesdays according to the current course-hours page."
+    },
+    {
+      "name": "Meadowbrook Golf Club",
+      "address": "601 Municipal Dr, Lubbock, TX 79403",
+      "state": "TX",
+      "county": "Lubbock County",
+      "holes": 36,
+      "sources": [
+        "https://www.meadowbrooklubbock.com/home",
+        "https://www.meadowbrooklubbock.com/Contact"
+      ]
     },
     {
       "name": "Meadowbrook Golf Course",
@@ -18845,6 +20440,34 @@
         "https://www.fortworthgolf.org/contact/directions",
         "https://www.fortworthgolf.org/"
       ]
+    },
+    {
+      "name": "Texas Rangers Golf Club",
+      "address": "701 Brown Boulevard, Arlington, TX 76011",
+      "state": "TX",
+      "county": "Tarrant County",
+      "holes": 18,
+      "sources": [
+        "https://www.texasrangersgolfclub.com/",
+        "https://www.tierraverdegolfclub.com/faq/",
+        "https://www.tierraverdegolfclub.com/course-details/",
+        "https://www.texasrangersgolfclub.com/course-tour/"
+      ],
+      "access_note": "Minimum playing age is six. Players younger than ten must have knowledge of golf, participate, and be accompanied by an adult over eighteen."
+    },
+    {
+      "name": "Tierra Verde Golf Club",
+      "address": "7005 Golf Club Dr, Arlington, TX 76001",
+      "state": "TX",
+      "county": "Tarrant County",
+      "holes": 21,
+      "sources": [
+        "https://www.tierraverdegolfclub.com/",
+        "https://www.tierraverdegolfclub.com/faq/",
+        "https://www.tierraverdegolfclub.com/course-details/",
+        "https://www.tierraverdegolfclub.com/scorecard/"
+      ],
+      "access_note": "Minimum playing age is six. Players younger than ten must have knowledge of golf, participate, and be accompanied by an adult over eighteen."
     },
     {
       "name": "Lake Arlington Golf Course",
@@ -18893,34 +20516,6 @@
         "https://www.memorialparkgolf.com/sharpstown-park-golf-course",
         "https://houstontx.gov/parks/golf.html"
       ]
-    },
-    {
-      "name": "Texas Rangers Golf Club",
-      "address": "701 Brown Boulevard, Arlington, TX 76011",
-      "state": "TX",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.texasrangersgolfclub.com/",
-        "https://www.tierraverdegolfclub.com/faq/",
-        "https://www.tierraverdegolfclub.com/course-details/",
-        "https://www.texasrangersgolfclub.com/course-tour/"
-      ],
-      "access_note": "Minimum playing age is six. Players younger than ten must have knowledge of golf, participate, and be accompanied by an adult over eighteen."
-    },
-    {
-      "name": "Tierra Verde Golf Club",
-      "address": "7005 Golf Club Dr, Arlington, TX 76001",
-      "state": "TX",
-      "county": null,
-      "holes": 21,
-      "sources": [
-        "https://www.tierraverdegolfclub.com/",
-        "https://www.tierraverdegolfclub.com/faq/",
-        "https://www.tierraverdegolfclub.com/course-details/",
-        "https://www.tierraverdegolfclub.com/scorecard/"
-      ],
-      "access_note": "Minimum playing age is six. Players younger than ten must have knowledge of golf, participate, and be accompanied by an adult over eighteen."
     },
     {
       "name": "Canyon Breeze Golf Course",
@@ -26821,12 +28416,13 @@
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
       "sources": [
-        "https://www.travelks.com/listing/allen-county-country-club-and-golf-course/16171/"
+        "https://www.travelks.com/listing/allen-county-country-club-and-golf-course/16171/",
+        "https://www.travelks.com/listing/humboldt-golf-association/1347/"
       ],
       "queries": [
         "Allen County Kansas public golf course official"
       ],
-      "outcome": "Added Allen County Country Club using its explicit seasonal nonmember-play policy. County is now explicitly supported by state tourism listing data. Search remains incomplete; no claim that all public courses were found."
+      "outcome": "Added Allen County Country Club using its explicit seasonal nonmember-play policy. County is now explicitly supported by state tourism listing data. Search remains incomplete; no claim that all public courses were found. Follow-up added Humboldt Golf Association using independent state public-access and nine-hole evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -26865,7 +28461,10 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Barber County Kansas public golf course Medicine Lodge"
+        "Barber County Kansas public golf course Medicine Lodge",
+        "\"Medicine Lodge\" \"golf\" \"public\"",
+        "\"Medicine Lodge\" \"golf\" site:travelks.com",
+        "\"Medicine Lodge\" \"public\" site:medicinelodge.kansas.gov"
       ],
       "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
     },
@@ -26882,7 +28481,8 @@
       "queries": [
         "Barton County Kansas public golf course official",
         "Lake Barton Golf Club public address holes official",
-        "Lake Barton Golf Club Kansas official public"
+        "Lake Barton Golf Club Kansas official public",
+        "\"Lake Barton Golf\" \"public\" -site:golfdigest.com -site:golfthis.com"
       ],
       "outcome": "Found Lake Barton in an older city guide marked public, but did not add it without stronger current owner corroboration. Stone Ridge was labeled semi-private in that guide and was not assumed public. Search remains incomplete; no claim that all public courses were found."
     },
@@ -26926,13 +28526,16 @@
       "searched_on": "2026-10-06",
       "sources": [
         "https://andoverks.gov/611/Amenities",
-        "https://andovergolf.com/contact/"
+        "https://andovergolf.com/contact/",
+        "https://www.travelks.com/listing/prairie-trails-public-golf-course/4159/",
+        "https://www.prairietrailsgolf.com/our-course"
       ],
       "queries": [
         "\"Butler County\" Kansas golf public municipal",
-        "Andover Municipal Golf Course official address public"
+        "Andover Municipal Golf Course official address public",
+        "\"Prairie Trails\" \"El Dorado\" official golf"
       ],
-      "outcome": "Added Andover Municipal with explicit city public classification and owner address. Other clubs were not assumed public from ownership or booking availability. Course county left null pending address verification. Search remains incomplete; no claim that all public courses were found. A later state tourism listing assigns Andover to Sedgwick; this conflicts with the search context and was not used to infer a county. Exact address matching is required."
+      "outcome": "Added Andover Municipal with explicit city public classification and owner address. Other clubs were not assumed public from ownership or booking availability. Course county left null pending address verification. Search remains incomplete; no claim that all public courses were found. A later state tourism listing assigns Andover to Sedgwick; this conflicts with the search context and was not used to infer a county. Exact address matching is required. Follow-up added Prairie Trails Public Golf Course with state public classification and owner-confirmed 18 physical holes. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -26957,7 +28560,11 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Chautauqua County Kansas public golf course Sedan"
+        "Chautauqua County Kansas public golf course Sedan",
+        "\"Sedan\" \"Kansas\" \"golf\" public course",
+        "golf site:cityofsedan.com",
+        "\"Sedan\" \"golf\" \"public\" site:chautauquacountyks.com",
+        "\"Sedan Municipal Golf\" \"public\""
       ],
       "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
     },
@@ -26996,7 +28603,10 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Clark County Kansas public golf course Ashland"
+        "Clark County Kansas public golf course Ashland",
+        "\"Ashland\" \"Kansas\" \"golf\" public course",
+        "golf site:ashlandks.com",
+        "\"Ashland\" \"golf\" site:clarkcountyks.com"
       ],
       "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
     },
@@ -27022,13 +28632,17 @@
       "name": "Cloud County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelks.com/listing/glasco-country-club/2349/"
+      ],
       "queries": [
         "Cloud County Kansas public golf course Concordia",
         "Concordia Kansas golf wellness public official",
-        "Clyde Kansas golf course public official"
+        "Clyde Kansas golf course public official",
+        "\"Concordia\" Kansas golf \"public\" official",
+        "\"Concordia Golf & Wellness\""
       ],
-      "outcome": "Concordia Golf & Wellness and Clyde Golf Course surfaced as candidates, but public access was not established through a sufficient primary source in this pass. No addition. Search remains incomplete; no claim that all public courses were found."
+      "outcome": "Concordia Golf & Wellness and Clyde Golf Course surfaced as candidates, but public access was not established through a sufficient primary source in this pass. No addition. Search remains incomplete; no claim that all public courses were found. Follow-up added Glasco Country Club from explicit state public-course and hole-count evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -27097,7 +28711,9 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Decatur County Kansas public golf course Oberlin"
+        "Decatur County Kansas public golf course Oberlin",
+        "\"Oberlin\" Kansas golf public official",
+        "\"Oberlin Country Club\" Kansas"
       ],
       "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
     },
@@ -27109,13 +28725,15 @@
       "searched_on": "2026-10-06",
       "sources": [
         "https://www.drivingdickinsoncounty.org/post/abilene-golf-fitness-community-asset",
-        "https://www.dkcoks.gov/media/Document%20Center/Planning%20%26%20Zoning/Comprehensive%20Plan/Comp%20Plan%20Final%20Draft.pdf"
+        "https://www.dkcoks.gov/media/Document%20Center/Planning%20%26%20Zoning/Comprehensive%20Plan/Comp%20Plan%20Final%20Draft.pdf",
+        "https://www.travelks.com/listing/indian-hill-golf-course/214/"
       ],
       "queries": [
         "Dickinson County Kansas public golf course Abilene",
-        "Chisholm Trail Abilene golf public official"
+        "Chisholm Trail Abilene golf public official",
+        "\"Abilene\" \"golf\" \"public\" greatlife"
       ],
-      "outcome": "Abilene Golf & Fitness and other county courses surfaced, but current general public access was not sufficiently verified through owner or government evidence. No addition. Search remains incomplete; no claim that all public courses were found."
+      "outcome": "Abilene Golf & Fitness and other county courses surfaced, but current general public access was not sufficiently verified through owner or government evidence. No addition. Search remains incomplete; no claim that all public courses were found. Follow-up added Indian Hill Golf Course using independent state public-access and nine-hole evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -27173,7 +28791,9 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Elk County Kansas public golf course Howard"
+        "Elk County Kansas public golf course Howard",
+        "\"Elk County\" \"Kansas\" \"golf course\"",
+        "golf site:elkcountyks.org"
       ],
       "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
     },
@@ -27281,7 +28901,8 @@
         "https://www.travelks.com/listing/cow-paddy-golf-course/1940/"
       ],
       "queries": [
-        "Gove County Kansas public golf course Grainfield"
+        "Gove County Kansas public golf course Grainfield",
+        "\"Cow Paddy\" address golf -site:golfdigest.com -site:golfnow.com -site:golfthis.com"
       ],
       "outcome": "Added public nine-hole Cow Paddy Golf Course; address remains null because the state source gives only an unnumbered street. Source explicitly identifies Gove County. Search remains incomplete."
     },
@@ -27293,7 +28914,10 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Graham County Kansas public golf course Hill City"
+        "Graham County Kansas public golf course Hill City",
+        "\"Prairie Trails\" \"public\" \"Hill City\"",
+        "\"Prairie Trails\" \"non-members\" OR \"nonmembers\"",
+        "\"Prairie Trails\" \"public\" site:travelks.com"
       ],
       "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
     },
@@ -27317,11 +28941,13 @@
       "name": "Gray County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelks.com/listing/crooked-creek-country-club/17925/"
+      ],
       "queries": [
         "Gray County Kansas public golf course Cimarron"
       ],
-      "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
+      "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses. Follow-up added Crooked Creek Country Club from explicit state public-course and hole-count evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -27331,7 +28957,8 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Greeley County Kansas public golf course Tribune"
+        "Greeley County Kansas public golf course Tribune",
+        "\"Prairie Ridge\" \"Tribune\" golf"
       ],
       "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
     },
@@ -27343,7 +28970,11 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Greenwood County Kansas public golf course Eureka Madison"
+        "Greenwood County Kansas public golf course Eureka Madison",
+        "\"Madison\" \"Kansas\" golf course public",
+        "\"Eureka\" \"Kansas\" golf course public official",
+        "\"Eureka Country Club\" Kansas \"About\"",
+        "\"Madison\" golf site:madisonkansas.com"
       ],
       "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
     },
@@ -27442,15 +29073,22 @@
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
       "sources": [
-        "https://www.villagegreensks.com/"
+        "https://www.villagegreensks.com/",
+        "https://greatlifetopeka.com/locations/",
+        "https://greatlifetopeka.com/lake-perry/",
+        "https://greatlifetopeka.com/wp-content/uploads/2025/03/GL-Amenities-2024-editv2.0-1-1.pdf",
+        "https://greatlifetopeka.com/golf-leagues/"
       ],
       "queries": [
         "Jefferson County Kansas public golf course",
         "\"Jefferson County\" \"Kansas\" \"golf\" -site:reddit.com -site:wikipedia.org",
         "\"Jefferson County\" Kansas golf course",
-        "\"Village Greens\" \"Kansas\" \"public\""
+        "\"Village Greens\" \"Kansas\" \"public\"",
+        "\"Lake Perry\" \"public\" golf",
+        "\"Lake Perry\" site:travelks.com/listing golf",
+        "\"Lake Perry\" \"18\" site:greatlifetopeka.com"
       ],
-      "outcome": "Added The Village Greens Golf Course after explicit public-access and physical hole-count review from primary sources. Search remains incomplete; no claim of exhaustive county coverage."
+      "outcome": "Added The Village Greens Golf Course after explicit public-access and physical hole-count review from primary sources. Search remains incomplete; no claim of exhaustive county coverage. Follow-up added Lake Perry Country Club based on explicit operator general-public access and its physical-course amenities chart. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -27460,7 +29098,9 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Jewell County Kansas public golf course Mankato"
+        "Jewell County Kansas public golf course Mankato",
+        "\"Mankato\" \"Kansas\" golf public",
+        "\"Mankato Golf Course\" site:cityofmankatokansas.com"
       ],
       "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
     },
@@ -27477,14 +29117,22 @@
         "https://www.sycamoreridgegolf.com/",
         "https://golfop.com/",
         "https://www.ironhorsegolf.com/",
-        "https://www.ironhorsegolf.com/course_details/"
+        "https://www.ironhorsegolf.com/course_details/",
+        "https://www.gardnerksgolf.com/teetimes/public-tee-times/",
+        "https://www.gardnerksgolf.com/",
+        "https://www.smileysgolf.com/executive-golf-course",
+        "https://www.smileysgolf.com/",
+        "https://www.travelks.com/listing/falcon-valley-golf-course/3547/"
       ],
       "queries": [
         "Johnson County Kansas municipal public golf courses official",
         "site:golfop.com public Sykes Lady St Andrews",
-        "\"Ironhorse\" \"Leawood\" official golf"
+        "\"Ironhorse\" \"Leawood\" official golf",
+        "\"Gardner Golf Course\" \"public\"",
+        "\"Smiley\" \"golf\" \"public\" Lenexa",
+        "\"Gardner\" \"9-hole\" site:gardnerkansas.gov"
       ],
-      "outcome": "Added Heritage Park, Tomahawk Hills and Sycamore Ridge with explicit public access and 18-hole descriptions. Exact course counties left null pending address verification, including Sycamore Ridge near the Johnson/Miami boundary. Search remains incomplete; no claim that all public courses were found. Burning Tree state listing contains only a dated 2013 event, so it was not used as current public-play evidence. Follow-up added Sykes/Lady Overland Park Golf Club with explicit primary public/nonmember-play evidence. Search remains incomplete. Follow-up added St. Andrews Golf Club with explicit primary public/nonmember-play evidence. Search remains incomplete. Follow-up added owner-confirmed public 18-hole Ironhorse Golf Club. Search remains incomplete."
+      "outcome": "Added Heritage Park, Tomahawk Hills and Sycamore Ridge with explicit public access and 18-hole descriptions. Exact course counties left null pending address verification, including Sycamore Ridge near the Johnson/Miami boundary. Search remains incomplete; no claim that all public courses were found. Burning Tree state listing contains only a dated 2013 event, so it was not used as current public-play evidence. Follow-up added Sykes/Lady Overland Park Golf Club with explicit primary public/nonmember-play evidence. Search remains incomplete. Follow-up added St. Andrews Golf Club with explicit primary public/nonmember-play evidence. Search remains incomplete. Follow-up added owner-confirmed public 18-hole Ironhorse Golf Club. Search remains incomplete. Follow-up added Gardner Golf Course with explicit primary public/nonmember play evidence. Search remains incomplete. Follow-up added Smiley's Executive Golf Course with explicit primary public/nonmember play evidence. Search remains incomplete. Follow-up added Falcon Valley Golf Course from explicit state public-course and hole-count evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -27494,7 +29142,8 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Kearny County Kansas public golf course Lakin"
+        "Kearny County Kansas public golf course Lakin",
+        "\"Loucks\" \"golf\" Lakin"
       ],
       "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
     },
@@ -27518,7 +29167,9 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Kiowa County Kansas public golf course Greensburg"
+        "Kiowa County Kansas public golf course Greensburg",
+        "\"Cannonball\" \"Greensburg\" golf public",
+        "golf site:greensburgrec.org"
       ],
       "outcome": "Initial county-targeted query completed. Candidates await primary-source access, address and physical hole-count verification; no addition from this county in this checkpoint. Search is incomplete and is not evidence of no public courses."
     },
@@ -27545,7 +29196,9 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Lane County Kansas public golf course Dighton"
+        "Lane County Kansas public golf course Dighton",
+        "\"Lane County\" golf public official",
+        "\"Dighton\" \"Kansas\" \"golf\""
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -27599,7 +29252,8 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Logan County Kansas public golf course Oakley"
+        "Logan County Kansas public golf course Oakley",
+        "\"Oakley Kansas\" \"golf\" public official"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -27625,12 +29279,18 @@
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
       "sources": [
-        "https://mcpcity.com/392/Golf"
+        "https://mcpcity.com/392/Golf",
+        "https://www.golflindsborg.com/",
+        "https://www.golflindsborg.com/contact",
+        "https://www.golflindsborg.com/weekly-specials"
       ],
       "queries": [
-        "McPherson County Kansas public golf course"
+        "McPherson County Kansas public golf course",
+        "\"Turkey Creek\" \"McPherson\" golf public",
+        "\"Lindsborg\" \"golf\" \"public\"",
+        "\"Turkey Creek\" site:travelks.com/listing"
       ],
-      "outcome": "Added Rolling Acres Golf Club with explicit primary-source public access and published hole count. Exact course county remains null pending address verification. Search remains incomplete; no claim of exhaustive coverage."
+      "outcome": "Added Rolling Acres Golf Club with explicit primary-source public access and published hole count. Exact course county remains null pending address verification. Search remains incomplete; no claim of exhaustive coverage. Follow-up added Lindsborg Golf Course from explicit primary public/nonmember golf evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -27639,12 +29299,13 @@
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
       "sources": [
-        "https://www.cityofhillsboro.net/golf-course"
+        "https://www.cityofhillsboro.net/golf-course",
+        "https://www.travelks.com/listing/hillsboro-municipal-golf-course/1335/"
       ],
       "queries": [
         "Marion County Kansas public golf course official"
       ],
-      "outcome": "Hillsboro Municipal surfaced with published address and nine holes, but direct city page retrieval returned HTTP 403; no attempt to bypass it and no addition in this pass. Search remains incomplete; no claim that all public courses were found."
+      "outcome": "Hillsboro Municipal surfaced with published address and nine holes, but direct city page retrieval returned HTTP 403; no attempt to bypass it and no addition in this pass. Search remains incomplete; no claim that all public courses were found. Follow-up added Hillsboro Municipal Golf Course using independent state public-access and nine-hole evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -27654,7 +29315,8 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Marshall County Kansas public golf course Marysville"
+        "Marshall County Kansas public golf course Marysville",
+        "\"Blue Rapids\" \"golf\" public"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -27697,7 +29359,8 @@
         "https://www.cawkercitykansas.com/lakeside-golf-course"
       ],
       "queries": [
-        "Mitchell County Kansas public golf course Beloit"
+        "Mitchell County Kansas public golf course Beloit",
+        "\"Lakeside\" \"Cawker City\" \"golf\" official"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses. Follow-up added Lakeside Park & Golf Course from explicit primary public access evidence. Search remains incomplete."
     },
@@ -27707,11 +29370,14 @@
       "name": "Montgomery County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
-      "queries": [
-        "Montgomery County Kansas public golf course Independence Coffeyville"
+      "sources": [
+        "https://www.travelks.com/listing/hillcrest-golf-course/515/"
       ],
-      "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
+      "queries": [
+        "Montgomery County Kansas public golf course Independence Coffeyville",
+        "\"Hillcrest\" \"Coffeyville\" site:travelks.com"
+      ],
+      "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses. Follow-up added Hillcrest Golf Course with explicit primary public/nonmember play evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -27733,7 +29399,11 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Morton County Kansas public golf course Elkhart"
+        "Morton County Kansas public golf course Elkhart",
+        "\"Point Rock\" golf public",
+        "\"Point Rock\" site:mtcoks.com",
+        "\"Point Rock\" \"public\" site:travelks.com",
+        "\"Point Rock\" \"non-members\" OR \"nonmembers\" OR \"public\" site:mtcoks.com"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -27778,7 +29448,8 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Ness County Kansas public golf course Ness City"
+        "Ness County Kansas public golf course Ness City",
+        "\"Ness County Golf\" \"public\" site:travelks.com"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -27802,7 +29473,9 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Osage County Kansas public golf course Osage City"
+        "Osage County Kansas public golf course Osage City",
+        "\"Osage City\" \"golf\" \"public\" site:osagecity.com",
+        "\"golf\" site:osagecityks.gov"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -27816,7 +29489,8 @@
         "https://www.discoverosborne.com/osborne-golf-course/"
       ],
       "queries": [
-        "Osborne County Kansas public golf course"
+        "Osborne County Kansas public golf course",
+        "\"Osborne Country Club\" golf address"
       ],
       "outcome": "Added Osborne Country Club with explicit primary-source public access and physical hole totals. Missing/ambiguous physical addresses and exact course counties remain null. Search remains incomplete; this is not an exhaustive county inventory."
     },
@@ -27859,7 +29533,8 @@
         "https://www.phillipscountyks.org/attractions"
       ],
       "queries": [
-        "Phillips County Kansas public golf course Phillipsburg Logan"
+        "Phillips County Kansas public golf course Phillipsburg Logan",
+        "\"Logan Golf Course\" Kansas address -site:golfdigest.com -site:fullgolf.com -site:golfthis.com"
       ],
       "outcome": "Added Phillipsburg Golf Club, Logan Golf Course with explicit primary-source public access and physical hole totals. Missing/ambiguous physical addresses and exact course counties remain null. Search remains incomplete; this is not an exhaustive county inventory."
     },
@@ -27870,12 +29545,13 @@
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
       "sources": [
-        "https://wamegocountryclub.com/"
+        "https://wamegocountryclub.com/",
+        "https://www.travelks.com/listing/cool-springs-golf-course/2086/"
       ],
       "queries": [
         "Pottawatomie County Kansas public golf course Wamego"
       ],
-      "outcome": "Owner explicitly restricts the Wamego golf course to members and their guests. Its public driving range is not public course access, so the course was excluded. Search remains incomplete."
+      "outcome": "Wamego remains excluded because its owner restricts course play to members and guests. Follow-up added Cool Springs Golf Course using explicit state public-access and nine-hole classification. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -27887,7 +29563,8 @@
         "https://www.cityofprattks.com/193/Golf-Courses"
       ],
       "queries": [
-        "Pratt County Kansas public golf course"
+        "Pratt County Kansas public golf course",
+        "\"Park Hills\" golf \"public\" official Pratt"
       ],
       "outcome": "Added Seidels Golf Course with explicit primary-source public access and physical hole totals. Missing/ambiguous physical addresses and exact course counties remain null. Search remains incomplete; this is not an exhaustive county inventory."
     },
@@ -27899,7 +29576,8 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Rawlins County Kansas public golf course Atwood"
+        "Rawlins County Kansas public golf course Atwood",
+        "\"Atwood Country Club\" public official"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -27942,7 +29620,12 @@
         "https://www.lyonsrec.org/lyons-public-golf-course"
       ],
       "queries": [
-        "Rice County Kansas public golf course Lyons Sterling"
+        "Rice County Kansas public golf course Lyons Sterling",
+        "\"Lyons Public Golf Course\" holes address",
+        "\"Lyons\" \"golf course\" \"nine\" site:lyonsrec.org",
+        "\"Lyons Public\" \"9-hole\" -site:golfdigest.com",
+        "\"Lyons\" \"golf\" \"nine\" site:lyonsks.org",
+        "\"Lyons\" \"golf\" site:lyonsks.com"
       ],
       "outcome": "Added Sterling Country Club with explicit primary-source public access and physical hole totals. Missing/ambiguous physical addresses and exact course counties remain null. Search remains incomplete; this is not an exhaustive county inventory. Follow-up added Lyons Public Golf Course from explicit primary public access evidence. Search remains incomplete."
     },
@@ -27969,11 +29652,14 @@
       "name": "Rooks County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
-      "queries": [
-        "Rooks County Kansas public golf course Plainville Stockton"
+      "sources": [
+        "https://www.rookscounty.net/connections/52812-palco-golf-course/"
       ],
-      "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
+      "queries": [
+        "Rooks County Kansas public golf course Plainville Stockton",
+        "\"Palco Golf\" site:travelks.com"
+      ],
+      "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses. Follow-up added Palco Golf Course from explicit primary public/nonmember golf evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -27981,11 +29667,14 @@
       "name": "Rush County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://rushcounty.org/recreation.html",
+        "https://www.cityoflacrosseks.com/recreation"
+      ],
       "queries": [
         "Rush County Kansas public golf course La Crosse McCracken"
       ],
-      "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
+      "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses. Follow-up added LaCrosse Country Club from explicit primary public/nonmember golf evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -27999,7 +29688,11 @@
         "https://www.russellcity.org/163/Golf-Course"
       ],
       "queries": [
-        "Russell County Kansas public golf course"
+        "Russell County Kansas public golf course",
+        "\"Russell Municipal\" \"public\" golf",
+        "\"Russell\" \"golf\" \"public\" site:travelks.com",
+        "\"Luray\" \"golf course\" \"9\" -site:fairwayfinder.io -site:golfthis.com -site:golfdigest.com -site:golfnow.com -site:allgolfholes.com",
+        "\"Luray\" \"Kansas\" \"golf\" \"nine\" -site:nwk.usace.army.mil"
       ],
       "outcome": "Added Luray Golf Course with explicit Public classification and address; physical holes remain null because the state narrative and flags are inconsistent. Russell Municipal remains a candidate for additional primary public-access confirmation. Search remains incomplete. Follow-up added Russell Municipal Golf Course from explicit primary public access evidence. Search remains incomplete."
     },
@@ -28012,12 +29705,15 @@
       "sources": [
         "https://www.salinamuni.com/",
         "https://www.salinamuni.com/about-us/course-details",
-        "https://www.travelks.com/listing/salina-municipal-golf-course-%26-the-1st-tee/2181/"
+        "https://www.travelks.com/listing/salina-municipal-golf-course-%26-the-1st-tee/2181/",
+        "https://greatlifesalina.com/",
+        "https://greatlifesalina.com/golf-course/"
       ],
       "queries": [
-        "Saline County Kansas public golf course Salina"
+        "Saline County Kansas public golf course Salina",
+        "\"GreatLife\" \"Salina\" \"public\" golf"
       ],
-      "outcome": "Added Salina Municipal Golf Course & The First Tee with explicit primary-source public access and physical hole totals. Missing/ambiguous physical addresses and exact course counties remain null. Search remains incomplete; this is not an exhaustive county inventory."
+      "outcome": "Added Salina Municipal Golf Course & The First Tee with explicit primary-source public access and physical hole totals. Missing/ambiguous physical addresses and exact course counties remain null. Search remains incomplete; this is not an exhaustive county inventory. Follow-up added GreatLIFE Salina after explicit owner confirmation of daily-fee nonmember play and 18 holes. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -28027,7 +29723,8 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Scott County Kansas public golf course Scott City"
+        "Scott County Kansas public golf course Scott City",
+        "\"Scott Community\" \"public\" golf"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -28042,14 +29739,16 @@
         "https://www.travelks.com/listing/tex-consolver-golf-course/1176/",
         "https://www.travelks.com/listing/clearwater-golf-course/3060/",
         "https://www.travelks.com/listing/cherry-oaks-golf-course/437/",
-        "https://www.travelks.com/listing/arthur-b-sim-golf-course/34802/"
+        "https://www.travelks.com/listing/arthur-b-sim-golf-course/34802/",
+        "https://www.travelks.com/listing/macdonald-golf-course/1178/"
       ],
       "queries": [
         "Sedgwick County Kansas public golf course Wichita",
         "site:travelks.com \"Auburn Hills Golf Course\"",
-        "site:travelks.com \"Tex Consolver Golf Course\""
+        "site:travelks.com \"Tex Consolver Golf Course\"",
+        "\"MacDonald\" \"golf\" site:travelks.com/listing"
       ],
-      "outcome": "Reviewed additions in this pass include Auburn Hills Golf Course, Tex Consolver Golf Course, Clearwater Golf Course, Cherry Oaks Golf Course, Arthur B. Sim Golf Course. Public classification is explicit in primary state or owner sources. Any unresolved address or physical-hole-count field stays null. Search remains incomplete; no exhaustive county claim."
+      "outcome": "Reviewed additions in this pass include Auburn Hills Golf Course, Tex Consolver Golf Course, Clearwater Golf Course, Cherry Oaks Golf Course, Arthur B. Sim Golf Course. Public classification is explicit in primary state or owner sources. Any unresolved address or physical-hole-count field stays null. Search remains incomplete; no exhaustive county claim. Follow-up added MacDonald Golf Course from independent state public and 18-hole evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -28077,15 +29776,30 @@
         "https://lakeshawneegolf.com/",
         "https://www.travelks.com/listing/cypress-ridge-golf-course/28933/",
         "https://forbesgc.com/contact-us/",
-        "https://www.travelks.com/listing/forbes-golf-course/28993/"
+        "https://www.travelks.com/listing/forbes-golf-course/28993/",
+        "https://greatlifetopeka.com/locations/",
+        "https://greatlifetopeka.com/berkshire/",
+        "https://greatlifetopeka.com/wp-content/uploads/2025/03/GL-Amenities-2024-editv2.0-1-1.pdf",
+        "https://greatlifetopeka.com/golf-leagues/",
+        "https://www.travelks.com/listing/greatlife-golf-%26-fitness-berkshire/29088/",
+        "https://greatlifetopeka.com/shawnee-country-club/",
+        "https://www.travelks.com/listing/greatlife-golf-%26-fitness-shawnee-country-club/29091/",
+        "https://topcitygolf.com/",
+        "https://greatlifetopeka.com/western-hills/",
+        "https://www.travelks.com/listing/greatlife-golf-%26-fitness-western-hills/29095/"
       ],
       "queries": [
         "Shawnee County Kansas public golf course Topeka",
         "\"Lake Shawnee Golf Course\" \"Public\" site:travelks.com",
         "\"Cypress Ridge Golf Course\" \"Public\" site:travelks.com",
-        "Kansas Forbes Golf Course public official"
+        "Kansas Forbes Golf Course public official",
+        "\"Berkshire\" \"public\" \"Topeka\" golf",
+        "\"Shawnee Country Club\" site:travelks.com/listing",
+        "\"Berkshire\" site:travelks.com/listing golf",
+        "\"Western Hills\" site:travelks.com/listing",
+        "\"Shawnee\" \"18\" site:greatlifetopeka.com"
       ],
-      "outcome": "Added Lake Shawnee, Cypress Ridge and Forbes with explicit primary-source public access. Operator contact page resolves Forbes public classification; state tourism confirms nine holes and county. Search remains incomplete."
+      "outcome": "Added Lake Shawnee, Cypress Ridge and Forbes with explicit primary-source public access. Operator contact page resolves Forbes public classification; state tourism confirms nine holes and county. Search remains incomplete. Follow-up added Berkshire Golf Club based on explicit operator general-public access and its physical-course amenities chart. Search remains incomplete. Follow-up added Shawnee Country Club based on explicit operator general-public access and its physical-course amenities chart. Search remains incomplete. Follow-up added TopCITYGolf based on explicit operator general-public access and its physical-course amenities chart. Search remains incomplete. Follow-up added Western Hills Golf Club based on explicit operator general-public access and its physical-course amenities chart. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -28119,7 +29833,9 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Smith County Kansas public golf course Smith Center"
+        "Smith County Kansas public golf course Smith Center",
+        "\"Smith Center\" \"golf\" \"public\"",
+        "\"Smith Center Municipal Golf\" \"9\" site:smithcenterks.com"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -28131,7 +29847,11 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Stafford County Kansas public golf course St John"
+        "Stafford County Kansas public golf course St John",
+        "\"Stafford\" \"Kansas\" \"golf course\" public",
+        "\"golf course\" \"9\" site:staffordcounty.org",
+        "\"Stafford County Country Club\" \"holes\" -site:golfdigest.com -site:fullgolf.com -site:golfthis.com -site:golfstorageguide.com -site:golfpass.com -site:golfnow.com -site:opengolfapi.org",
+        "\"Stafford County Golf\" \"public\" site:travelks.com"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -28167,11 +29887,16 @@
       "name": "Sumner County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
-      "queries": [
-        "Sumner County Kansas public golf course Wellington"
+      "sources": [
+        "https://www.cityofwellington.net/files/documents/CityofWellingtonStrategicPlan1321123457082020PM.pdf",
+        "https://www.travelks.com/listing/wellington-golf-club/14641/"
       ],
-      "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
+      "queries": [
+        "Sumner County Kansas public golf course Wellington",
+        "\"Wellington Golf\" site:travelks.com",
+        "\"Wellington\" \"Golf\" \"public\" site:cityofwellington.net"
+      ],
+      "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses. Follow-up added Wellington Golf Club from explicit primary public/nonmember golf evidence. Search remains incomplete."
     },
     {
       "state": "KS",
@@ -28181,7 +29906,10 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Thomas County Kansas public golf course Colby"
+        "Thomas County Kansas public golf course Colby",
+        "\"Meadow Lake\" \"Colby\" \"public\"",
+        "\"Meadow Lake Golf Course\" Colby Kansas city",
+        "\"Meadow Lake\" site:cityofcolby.com"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -28251,7 +29979,8 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Wichita County Kansas public golf course Leoti"
+        "Wichita County Kansas public golf course Leoti",
+        "\"Wichita County\" golf course official Leoti"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -28278,7 +30007,8 @@
       "searched_on": "2026-10-06",
       "sources": [],
       "queries": [
-        "Woodson County Kansas public golf course Yates Center"
+        "Woodson County Kansas public golf course Yates Center",
+        "\"Lakeside\" \"Yates Center\" golf public official"
       ],
       "outcome": "County-targeted query completed. Candidates await primary-source verification; no addition from this county in this checkpoint. Search remains incomplete and is not evidence of no public courses."
     },
@@ -28290,12 +30020,16 @@
       "searched_on": "2026-10-06",
       "sources": [
         "https://www.sunflowerhillsgolfcourse.com/",
-        "https://bonnersprings.org/369/Bonner-Springs-Attractions-and-Events"
+        "https://bonnersprings.org/369/Bonner-Springs-Attractions-and-Events",
+        "https://paintedhillsgolf.com/",
+        "https://paintedhillsgolf.com/tee-times/",
+        "https://www.travelks.com/listing/dubs-dread-golf-course/1430/"
       ],
       "queries": [
-        "Wyandotte County Kansas public golf course Kansas City Bonner Springs"
+        "Wyandotte County Kansas public golf course Kansas City Bonner Springs",
+        "\"Painted Hills\" \"public\" golf official"
       ],
-      "outcome": "Added Sunflower Hills Golf Course with explicit primary-source public access and physical hole totals. Missing/ambiguous physical addresses and exact course counties remain null. Search remains incomplete; this is not an exhaustive county inventory."
+      "outcome": "Added Sunflower Hills Golf Course with explicit primary-source public access and physical hole totals. Missing/ambiguous physical addresses and exact course counties remain null. Search remains incomplete; this is not an exhaustive county inventory. Follow-up added Painted Hills Golf Club with explicit primary public/nonmember play evidence. Search remains incomplete. Follow-up added Dub's Dread Golf Course from explicit state public-course and hole-count evidence. Search remains incomplete."
     },
     {
       "state": "KY",
@@ -33323,7 +35057,16 @@
       "state": "NY",
       "fips": "36005",
       "name": "Bronx County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.mosholugolf.com/",
+        "https://www.pelhamsplitrock.com/"
+      ],
+      "queries": [
+        "Bronx County New York public golf courses official owner"
+      ],
+      "outcome": "Mosholu already verified independently. Other public-course candidates require further operator/source checks; inventory remains incomplete."
     },
     {
       "state": "NY",
@@ -33449,7 +35192,16 @@
       "state": "NY",
       "fips": "36047",
       "name": "Kings County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.golfmarinepark.com/home/"
+      ],
+      "queries": [
+        "Kings County New York public golf courses official owner",
+        "Brooklyn public golf Marine Park official"
+      ],
+      "outcome": "Marine Park owner candidate found. Other courses and source policies still need verification; no exhaustive coverage claim."
     },
     {
       "state": "NY",
@@ -33491,7 +35243,15 @@
       "state": "NY",
       "fips": "36061",
       "name": "New York County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://portal.311.nyc.gov/article/?kanumber=KA-02753"
+      ],
+      "queries": [
+        "New York County Manhattan public golf course regulation official"
+      ],
+      "outcome": "Initial search did not yield a verified physical golf course in this county. This is not evidence that no public course exists; search remains incomplete."
     },
     {
       "state": "NY",
@@ -33551,7 +35311,17 @@
       "state": "NY",
       "fips": "36081",
       "name": "Queens County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.golfnyc.com/",
+        "https://a856-cityrecord.nyc.gov/RequestDetail/20240528117"
+      ],
+      "queries": [
+        "Queens County New York public golf courses official owner",
+        "Queens public golf GolfNYC official courses"
+      ],
+      "outcome": "Found course-operator and municipal concession leads. Course data not imported from search snippets; further verification pending."
     },
     {
       "state": "NY",
@@ -33563,7 +35333,17 @@
       "state": "NY",
       "fips": "36085",
       "name": "Richmond County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.silverlakegolf.com/home/",
+        "https://www.richmondcountycc.org/about"
+      ],
+      "queries": [
+        "Richmond County New York public golf courses official owner",
+        "Staten Island public golf Silver Lake official"
+      ],
+      "outcome": "Found Silver Lake owner lead and a private-club lead that is not included. Public-course discovery and checks remain incomplete."
     },
     {
       "state": "NY",
@@ -33701,7 +35481,16 @@
       "state": "NC",
       "fips": "37007",
       "name": "Anson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.visitanson.com/recreation",
+        "https://www.twinvalleygolfclub.com/"
+      ],
+      "queries": [
+        "Anson County North Carolina public golf course official"
+      ],
+      "outcome": "Added Twin Valley Golf Club with owner-confirmed public golf and 18 physical holes. Search remains incomplete."
     },
     {
       "state": "NC",
@@ -33719,7 +35508,15 @@
       "state": "NC",
       "fips": "37013",
       "name": "Beaufort County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.co.beaufort.nc.us/315/Parks-Recreation"
+      ],
+      "queries": [
+        "Beaufort County North Carolina public golf course official"
+      ],
+      "outcome": "Government golf and tennis inventory located; individual public access verification pending. Search remains incomplete; no claim that all public courses were found."
     },
     {
       "state": "NC",
@@ -33731,7 +35528,17 @@
       "state": "NC",
       "fips": "37017",
       "name": "Bladen County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.vineyardgolfatwhitelake.com/"
+      ],
+      "queries": [
+        "Bladen County North Carolina public golf course official",
+        "Bladen County North Carolina golf Vineyard Landing Three Oaks official",
+        "Bladen County Vineyard golf White Lake official"
+      ],
+      "outcome": "Added Vineyard Golf at White Lake with explicit owner public daily-fee access and 18-hole layout. Search remains incomplete."
     },
     {
       "state": "NC",
@@ -33773,13 +35580,32 @@
       "state": "NC",
       "fips": "37031",
       "name": "Carteret County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.beaufort-club.com/Golf",
+        "https://starhillgolfclub.com/",
+        "https://www.brandywinegolf.com/"
+      ],
+      "queries": [
+        "Carteret County North Carolina public golf course official"
+      ],
+      "outcome": "Added Beaufort Club, Brandywine Bay and Star Hill using owner public/visitor play policies and physical hole counts. Search remains incomplete."
     },
     {
       "state": "NC",
       "fips": "37033",
       "name": "Caswell County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://caswellpines.com/",
+        "https://www.visitcaswell.com/play"
+      ],
+      "queries": [
+        "Caswell County North Carolina public golf course official"
+      ],
+      "outcome": "Added Caswell Pines with owner public-access and 18-hole evidence. Owner address retained over different county-tourism mailing city. Search remains incomplete."
     },
     {
       "state": "NC",
@@ -33845,7 +35671,15 @@
       "state": "NC",
       "fips": "37055",
       "name": "Dare County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.darenc.gov/departments/parks-recreation/"
+      ],
+      "queries": [
+        "Dare County North Carolina public golf course official"
+      ],
+      "outcome": "Government recreation and Seascape event sources found; owner evidence being checked. Search remains incomplete."
     },
     {
       "state": "NC",
@@ -33893,7 +35727,16 @@
       "state": "NC",
       "fips": "37071",
       "name": "Gaston County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.gaston.org/why-gaston-county/quality-of-life/",
+        "https://www.gogastonnc.org/places/catawba-creek-golf-course"
+      ],
+      "queries": [
+        "Gaston County North Carolina public golf course official"
+      ],
+      "outcome": "County sources identify Catawba Creek and Crowders Mountain; public access checks pending. Search remains incomplete."
     },
     {
       "state": "NC",
@@ -33911,7 +35754,13 @@
       "state": "NC",
       "fips": "37077",
       "name": "Granville County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Granville County North Carolina public golf course official"
+      ],
+      "outcome": "Initial results primarily discuss disc golf; traditional golf candidates still need owner verification. Search remains incomplete."
     },
     {
       "state": "NC",
@@ -34007,7 +35856,15 @@
       "state": "NC",
       "fips": "37109",
       "name": "Lincoln County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.golflcc.com/"
+      ],
+      "queries": [
+        "Lincoln County North Carolina public golf course official"
+      ],
+      "outcome": "Lincoln Country Club owner page is active but ordinary public golf access remains unverified. Westport owner source denied earlier; not retried. Search remains incomplete."
     },
     {
       "state": "NC",
@@ -34223,7 +36080,15 @@
       "state": "NC",
       "fips": "37181",
       "name": "Vance County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.kerrlakecountryclub.com/"
+      ],
+      "queries": [
+        "Vance County North Carolina public golf course official"
+      ],
+      "outcome": "Added Kerr Lake Country Club from owner public-play policy. About-page access denied, so no further access to that page; physical-hole count awaits independent primary confirmation. Search remains incomplete."
     },
     {
       "state": "NC",
@@ -34235,7 +36100,16 @@
       "state": "NC",
       "fips": "37185",
       "name": "Warren County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://warrentongolfclub.com/",
+        "https://warrentongolfclub.com/pro-shop/"
+      ],
+      "queries": [
+        "Warren County North Carolina public golf course official"
+      ],
+      "outcome": "Added Warrenton Golf Club with nine physical holes and explicit owner visitor-play invitation. Search remains incomplete."
     },
     {
       "state": "NC",
