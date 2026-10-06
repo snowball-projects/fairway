@@ -9,8 +9,8 @@
   "rights": "Bare facts and explicitly licensed source attributes with citations. No source prose, photographs, map geometry or scorecard artwork included. Applicable source-data licenses and adaptations are recorded below.",
   "coverage": {
     "national_complete": false,
-    "course_record_count": 3719,
-    "complete_essentials": 1664,
+    "course_record_count": 3742,
+    "complete_essentials": 1667,
     "state_record_counts": {
       "AK": 10,
       "AL": 105,
@@ -25,7 +25,7 @@
       "GA": 99,
       "HI": 18,
       "IA": 145,
-      "ID": 33,
+      "ID": 46,
       "IL": 69,
       "IN": 123,
       "KS": 117,
@@ -58,17 +58,17 @@
       "TX": 171,
       "UT": 87,
       "VA": 65,
-      "VT": 19,
+      "VT": 20,
       "WA": 80,
-      "WI": 23,
+      "WI": 32,
       "WV": 2,
       "WY": 30
     },
-    "counties_represented": 823,
+    "counties_represented": 826,
     "counties_searched": 1016,
     "missing_fields": {
-      "address": 75,
-      "county": 1818,
+      "address": 76,
+      "county": 1837,
       "holes": 395
     },
     "states_represented": [
@@ -13825,6 +13825,18 @@
       ]
     },
     {
+      "name": "Priest Lake Golf Course",
+      "address": "152 Fairway Drive, Priest Lake, ID 83856",
+      "state": "ID",
+      "county": "Bonner County",
+      "holes": 18,
+      "sources": [
+        "https://golfpriestlake.com/",
+        "https://www.bonnercountyid.gov/media/Planning/Comp%20Plan%20Update/AM0015-22%20Adopted%20Update%20%2812.07.2022%29%20-%20Recreation.pdf",
+        "https://golfpriestlake.com/rates-passes/"
+      ]
+    },
+    {
       "name": "Sand Creek Golf Course",
       "address": "5200 South 25 East, Idaho Falls, ID 83404",
       "state": "ID",
@@ -13836,6 +13848,20 @@
         "https://golfif.com/course-details/",
         "https://golfif.com/course-flyover/"
       ]
+    },
+    {
+      "name": "Jefferson Hills Golf Course",
+      "address": "4074 E 500 N, Rigby, ID 83442",
+      "state": "ID",
+      "county": "Jefferson County",
+      "holes": null,
+      "sources": [
+        "https://jeffersonhillsgolfcourse.com/contact/",
+        "https://jeffersonhillsgolfcourse.com/",
+        "https://jeffersonhillsgolfcourse.com/pricing/",
+        "https://jeffersonhillsgolfcourse.com/course-rules/"
+      ],
+      "access_note": "Children under 10 must be supervised by a responsible adult."
     },
     {
       "name": "Coeur d'Alene Golf Club",
@@ -13859,6 +13885,31 @@
         "https://americanfallsgolf.com/",
         "https://americanfallsgolf.com/green-fees/"
       ]
+    },
+    {
+      "name": "Shoshone Golf Club",
+      "address": "2000 Country Club Road, Kellogg, ID 83837",
+      "state": "ID",
+      "county": "Shoshone County",
+      "holes": 9,
+      "sources": [
+        "https://shoshonegolf.com/",
+        "https://shoshonegolf.com/contact/"
+      ],
+      "access_note": "Public play 8 a.m. to dusk; weekend tee-time reservations recommended."
+    },
+    {
+      "name": "93 Golf Ranch",
+      "address": "406 E 200 S, Jerome, ID 83338",
+      "state": "ID",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.93golfranch.com/",
+        "https://www.93golfranch.com/about-us",
+        "https://www.93golfranch.com/contact"
+      ],
+      "access_note": "Public play outside league windows. Men’s league Mondays and Tuesdays at 6 p.m.; women’s league Thursdays at 6 p.m. Ages 10–13 must play with a parent."
     },
     {
       "name": "BanBury Golf Course",
@@ -13932,6 +13983,17 @@
       ]
     },
     {
+      "name": "Desert Canyon Golf Course",
+      "address": "1880 East 8th North, Mountain Home, ID 83647",
+      "state": "ID",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.mountain-home.us/173/Golf-Course"
+      ],
+      "access_note": "Open year-round: sunrise to sunset March–October; 9 a.m.–4 p.m. November–February."
+    },
+    {
       "name": "Eagle Hills Golf Course",
       "address": "605 N Edgewood Lane, Eagle, ID 83616",
       "state": "ID",
@@ -13976,6 +14038,41 @@
       ]
     },
     {
+      "name": "Indian Lakes Golf Course",
+      "address": "4700 Umatilla Road, Boise, ID 83709",
+      "state": "ID",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.indianlakesgolfcourse.com/",
+        "https://visitboise.com/wp-content/uploads/2022/04/sports-marketing-doc-spread.pdf"
+      ]
+    },
+    {
+      "name": "Jug Mountain Ranch Golf Course",
+      "address": "13834 Farm to Market Road, McCall, ID 83638",
+      "state": "ID",
+      "county": null,
+      "holes": 24,
+      "sources": [
+        "https://jugmountainranch.com/golf/",
+        "https://jugmountainranch.com/contact/",
+        "https://jugmountainranch.com/wp-content/uploads/2014/03/scorecard.pdf"
+      ],
+      "access_note": "Includes the eighteen-hole championship course and six-hole Jug Junior par-three course."
+    },
+    {
+      "name": "Lakeview Golf Course",
+      "address": "4200 W Talamore Boulevard, Meridian, ID 83646",
+      "state": "ID",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://lakeview-golf.com/",
+        "https://visitboise.com/wp-content/uploads/2022/04/sports-marketing-doc-spread.pdf"
+      ]
+    },
+    {
       "name": "Lava Hot Springs Golf Course",
       "address": "9898 E Merrick Road, Lava Hot Springs, ID",
       "state": "ID",
@@ -14013,6 +14110,19 @@
       "access_note": "Children under five are not permitted on the golf course."
     },
     {
+      "name": "MeadowCreek Golf Resort",
+      "address": "2975 Kimberland Drive, New Meadows, ID 83654",
+      "state": "ID",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://meadowcreekgolfresort.com/",
+        "https://meadowcreekgolfresort.com/rates-membership/",
+        "https://meadowcreekgolfresort.com/wp-content/uploads/2025/11/2026-Membership-Packet.pdf"
+      ],
+      "access_note": "Seasonal operation. Private carts require an annual cart pass."
+    },
+    {
       "name": "Osprey Meadows Golf Course",
       "address": "75 Arling Court, Donnelly, ID 83615",
       "state": "ID",
@@ -14023,6 +14133,17 @@
         "https://tamarackidaho.com/wp-content/uploads/2026/04/Osprey-Meadows-Scorecard-2026.pdf"
       ],
       "access_note": "Seasonal mountain course. Physical count includes the bonus nineteenth par-three hole."
+    },
+    {
+      "name": "Pierce Park Greens",
+      "address": "5812 N Pierce Park Lane, Boise, ID 83714",
+      "state": "ID",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.pierceparkgreens.com/",
+        "https://visitboise.com/wp-content/uploads/2022/04/sports-marketing-doc-spread.pdf"
+      ]
     },
     {
       "name": "Pinecrest Golf Course",
@@ -14079,6 +14200,17 @@
         "https://www.quailhollowboise.com/course/course-policies/"
       ],
       "access_note": "Junior spectators who are not golfing are not permitted on the course."
+    },
+    {
+      "name": "Ridgecrest Golf Club",
+      "address": null,
+      "state": "ID",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.nampaparksandrecreation.org/280/Ridgecrest-Golf-Club",
+        "https://visitboise.com/wp-content/uploads/2022/04/sports-marketing-doc-spread.pdf"
+      ]
     },
     {
       "name": "River's Edge Golf Club at Burley",
@@ -14149,6 +14281,16 @@
       ]
     },
     {
+      "name": "Terrace Lakes Resort Golf Course",
+      "address": "101 Holiday Drive, Garden Valley, ID 83622",
+      "state": "ID",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://terracelakes.com/-golf-course"
+      ]
+    },
+    {
       "name": "Teton Lakes Golf Course",
       "address": "722 N 12th W, Rexburg, ID 83440",
       "state": "ID",
@@ -14172,6 +14314,18 @@
         "https://valorclubs.com/golf/rates"
       ],
       "access_note": "Currently open for public play. Owner announces eventual transition to a fully private club as amenities expand; no conversion date is published."
+    },
+    {
+      "name": "TimberStone Golf Course",
+      "address": "22500 Aura Vista Way, Caldwell, ID 83607",
+      "state": "ID",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://playtimberstone.com/",
+        "https://playtimberstone.com/about-the-course/",
+        "https://playtimberstone.com/contact-us/"
+      ]
     },
     {
       "name": "Twin Falls Golf Course",
@@ -20049,6 +20203,20 @@
       "access_note": "Season opens when spring weather permits. Wednesdays are set aside for men and Thursdays for women."
     },
     {
+      "name": "Young’s Golf, Recreation & Dining",
+      "address": "159 Young’s Lane, Crystal Falls, MI 49920",
+      "state": "MI",
+      "county": "Iron County",
+      "holes": 18,
+      "sources": [
+        "https://www.experienceyoungs.com/",
+        "https://www.experienceyoungs.com/about-us/",
+        "https://www.experienceyoungs.com/golf/about-the-course/",
+        "https://www.experienceyoungs.com/golf/membership-and-rates/"
+      ],
+      "access_note": "Seasonal; walking available. Must be at least 18 to rent a cart. Small groups may be paired at busy times."
+    },
+    {
       "name": "Ella Sharp Park Golf Course",
       "address": "2800 Fourth Street, Jackson, MI 49203",
       "state": "MI",
@@ -20385,6 +20553,16 @@
       "access_note": "2026 season April 1–October 31. Reservations recommended; walk-ons accommodated when possible. Own clubs and compliant golf attire required; no metal spikes, music, coolers or outside beverages. Players under 16 need parent/guardian. Full tee-time charge for cancellations inside 7 days for groups up to 11; larger groups have earlier deadlines."
     },
     {
+      "name": "Arrowhead Golf & Grill",
+      "address": "1201 Gun Club Road, Caro, MI 48723",
+      "state": "MI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://arrowheadgolfandgrill.com/"
+      ]
+    },
+    {
       "name": "Arrowhead Golf Course",
       "address": "2170 Alden Nash NE, Lowell, MI 49331",
       "state": "MI",
@@ -20405,18 +20583,6 @@
         "https://traversecitygolf.com/course-policies/"
       ],
       "access_note": "Closed October 6, 2026 for aeration; scheduled to reopen October 7 at noon. Collared shirts and golf attire required; no denim, T-shirts or cut-offs. Own clubs/bag required, no outside food, drinks or coolers; groups normally four or fewer. Call 24 hours ahead to cancel; no-show fee may apply."
-    },
-    {
-      "name": "Bay Harbor Golf Club",
-      "address": "5800 Coastal Ridge Drive, Bay Harbor, MI 49770",
-      "state": "MI",
-      "county": null,
-      "holes": 27,
-      "sources": [
-        "https://petoskeyarea.com/outdoor-recreation/golf/",
-        "https://petoskeyarea.com/places/bay-harbor-golf-club-links-quarry/",
-        "https://petoskeyarea.com/media/media-information/"
-      ]
     },
     {
       "name": "Bay Meadows Family Golf Course",
@@ -20532,6 +20698,22 @@
       "access_note": "Walk-ins welcome."
     },
     {
+      "name": "Black Lake Golf Club – Championship and Little Course",
+      "address": "2800 Maxon Road, Onaway, MI 49765",
+      "state": "MI",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://gaylordgolfmecca.com/courses/mecca-courses/",
+        "https://gaylordgolfmecca.com/member-detail/black-lake-golf-club/black-lake-golf-course/",
+        "https://gaylordgolfmecca.com/member-detail/black-lake-golf-club/the-little-course/",
+        "https://uawblacklake.com/golf/",
+        "https://uawblacklake.com/golf/little-course",
+        "https://uawblacklake.com/golf/rates/"
+      ],
+      "access_note": "Seasonal. Proper golf attire and soft spikes required; collared shirts, no cutoffs or gym shorts. UAW membership provides discounts rather than being required."
+    },
+    {
       "name": "Boulder Creek Golf Club",
       "address": "5750 Brewer Avenue NE, Belmont, MI 49306",
       "state": "MI",
@@ -20553,18 +20735,6 @@
         "https://boulderpointe.net/tee-time-policies-dress-code/"
       ],
       "access_note": "Proper golf attire required; no jeans, athletic attire or cargo pants/shorts. Cancellations inside 12 hours are nonrefundable; 12–24 hours receive a rain check."
-    },
-    {
-      "name": "Boyne Mountain Golf – The Alpine and The Monument",
-      "address": "450 E Deer Lake Road, Boyne City, MI 49712",
-      "state": "MI",
-      "county": null,
-      "holes": 36,
-      "sources": [
-        "https://petoskeyarea.com/outdoor-recreation/golf/",
-        "https://petoskeyarea.com/places/boyne-mountain-the-alpine/",
-        "https://petoskeyarea.com/places/boyne-mountain-the-monument/"
-      ]
     },
     {
       "name": "Bucks Run Golf Club",
@@ -20664,17 +20834,6 @@
       ]
     },
     {
-      "name": "Crooked Tree Golf Club",
-      "address": "600 Crooked Tree Drive, Petoskey, MI 49770",
-      "state": "MI",
-      "county": null,
-      "holes": null,
-      "sources": [
-        "https://petoskeyarea.com/outdoor-recreation/golf/",
-        "https://petoskeyarea.com/places/crooked-tree-golf-club/"
-      ]
-    },
-    {
       "name": "Crystal Mountain – Betsie Valley and Mountain Ridge",
       "address": "12500 Crystal Mountain Drive, Thompsonville, MI 49683",
       "state": "MI",
@@ -20720,7 +20879,7 @@
         "https://www.diamondspringsgolf.com/golf/accolades",
         "https://www.diamondspringsgolf.com/golf/rates"
       ],
-      "access_note": "Aeration October5–7,2026. Proper golf attire required; groups limited to four players and two carts. June–September Friday–Sunday before5pm bookings require18-hole rounds. Walking offered."
+      "access_note": "Aeration October 5–7, 2026. Proper golf attire required; groups limited to four players and two carts. June–September Friday–Sunday before 5 pm bookings require 18-hole rounds. Walking offered."
     },
     {
       "name": "Drummond Island Resort – The Rock",
@@ -21177,6 +21336,19 @@
       ]
     },
     {
+      "name": "Lakes of the North Golf Course",
+      "address": "8151 Pineview Drive, Mancelona, MI 49659",
+      "state": "MI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.lakesofthenorth.com/",
+        "https://www.lakesofthenorth.com/Golf",
+        "https://gaylordgolfmecca.com/member-detail/lakes-of-the-north-golf-course/"
+      ],
+      "access_note": "Seasonal. Public golf access does not include members-only community facilities."
+    },
+    {
       "name": "Lakeside Links Golf Club",
       "address": "5369 W. Chauvez Road, Ludington, MI",
       "state": "MI",
@@ -21359,6 +21531,17 @@
       "access_note": "Call ahead for tee times; owner does not accept tee-time requests by email."
     },
     {
+      "name": "Oak Crest Golf Course",
+      "address": "N1475 U.S. Highway 8, Norway, MI",
+      "state": "MI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.ironmountain.org/outdoors/warm-weather-fun/golf/"
+      ],
+      "access_note": "Seasonal."
+    },
+    {
       "name": "Ontonagon Golf Club",
       "address": "19906 S Firesteel Road, Ontonagon, MI 49953",
       "state": "MI",
@@ -21408,18 +21591,6 @@
       "access_note": "Seasonal operation. Reservations up to two weeks ahead; cancellations within 24 hours may incur a fee."
     },
     {
-      "name": "Pictured Rocks Golf Club",
-      "address": "E10240 County Road H-58, Munising, MI 49862",
-      "state": "MI",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.munising.org/planning-tools/parks-information/",
-        "https://www.munising.org/wp-content/uploads/2020/06/2020-Munising-VG.pdf"
-      ],
-      "source_note": "Address from complete indexed course advertisement in 2020 official Munising guide, observed 2026-10-06. Current tourism access and 18-hole narrative separately inspected."
-    },
-    {
       "name": "Pierce Lake Golf Course",
       "address": "1175 S. Main Street, Chelsea, MI 48118",
       "state": "MI",
@@ -21431,6 +21602,19 @@
         "https://www.piercelakegolf.com/wp-content/uploads/sites/7476/2026/01/Season-Pass-Application-2026.pdf"
       ],
       "access_note": "Season April 1–October 31, with weather-dependent extensions. Tee times required; drop-ins only when space permits. Children under 13 need a parent or guardian; maximum four per group."
+    },
+    {
+      "name": "Pine Grove Country Club",
+      "address": "1520 West Hughitt Street, Iron Mountain, MI",
+      "state": "MI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.pinegrovecc.org/",
+        "https://www.pinegrovecc.org/Play/Golf",
+        "https://www.pinegrovecc.org/About"
+      ],
+      "access_note": "Seasonal. Unaccompanied nonmembers may play Thursday through Monday; Tuesday and Wednesday play requires a member host."
     },
     {
       "name": "Pineview Highlands Golf Course",
@@ -21454,18 +21638,6 @@
       "sources": [
         "https://www.gogreat.com/directory/pleasant-view-golf-course-venues/"
       ]
-    },
-    {
-      "name": "PohlCat Golf Course",
-      "address": "6595 E. Airport Road, Mount Pleasant, MI 48858",
-      "state": "MI",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://meetmtp.com/blog/blog-your-golf-travel-guide-to-central-michigan/",
-        "https://meetmtp.com/places/pohlcat-golf-course/"
-      ],
-      "access_note": "Spikeless facility; no denim and collared shirt preferred."
     },
     {
       "name": "Portage Lake Golf Course",
@@ -21657,6 +21829,19 @@
       ]
     },
     {
+      "name": "Springbrook Golf Club",
+      "address": "6151 Springvale Road, Boyne Falls, MI 49713",
+      "state": "MI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://springbrookgolf.com/",
+        "https://springbrookgolf.com/contact/",
+        "https://petoskeyarea.com/places/springbrook-golf-club/"
+      ],
+      "access_note": "Seasonal; carts available but not required."
+    },
+    {
       "name": "St. Clair Shores Golf Club",
       "address": "22185 Masonic Blvd, St. Clair Shores, MI 48082",
       "state": "MI",
@@ -21668,7 +21853,7 @@
         "https://www.scsmi.net/AgendaCenter/ViewFile/Minutes/_05022022-1682"
       ],
       "access_note": "Tee times recommended.",
-      "source_note": "Nonresident open-play evidence comes from approved May2022 council minutes, corroborated by current municipal/owner operation and 2026 membership offerings; no assertion that 2022 prices remain current."
+      "source_note": "Nonresident open-play evidence comes from approved May 2022 council minutes, corroborated by current municipal/owner operation and 2026 membership offerings; no assertion that 2022 prices remain current."
     },
     {
       "name": "St. Ives Golf Club",
@@ -22003,19 +22188,6 @@
       ]
     },
     {
-      "name": "White Deer Country Club",
-      "address": "1309 Bright Angel Drive, Prudenville, MI 48651",
-      "state": "MI",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.whitedeercc.com/",
-        "https://www.whitedeercc.com/rates/",
-        "https://www.visithoughtonlake.com/white-deer-country-club/"
-      ],
-      "access_note": "Seasonal; walking available."
-    },
-    {
       "name": "White Lake Oaks Golf Course",
       "address": "991 Williams Lake Road, White Lake, MI 48386",
       "state": "MI",
@@ -22038,18 +22210,6 @@
         "https://whitepinenational.com/",
         "https://whitepinenational.com/golf-course/"
       ]
-    },
-    {
-      "name": "Wild Bluff Golf Course",
-      "address": "11335 W Lakeshore Drive, Brimley, MI 49715",
-      "state": "MI",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://saultstemarie.com/places/wild-bluff-golf-course/",
-        "https://saultstemarie.com/archive/superior-sites-inland-wonders/"
-      ],
-      "source_note": "Holes from complete indexed named-course paragraph in official CVB itinerary, observed 2026-10-06. Public access/address separately inspected in current tourism profile."
     },
     {
       "name": "Wyandotte Hills Golf Club",
@@ -37101,10 +37261,11 @@
       "holes": 18,
       "sources": [
         "https://www.pampachamber.com/shop-stay-play/",
-        "https://ecode360.com/39533374",
         "https://cms3.revize.com/revize/pampatx/Documents/Departments/Finance/Financial%20Services/Budgets/budget_2017-18.pdf",
-        "https://delta.creativecirclecdn.com/pampa/files/20250212-161246-057-02132025%20Thursday%20ALL%20Reduced.pdf"
-      ]
+        "https://delta.creativecirclecdn.com/pampa/files/20250212-161246-057-02132025%20Thursday%20ALL%20Reduced.pdf",
+        "https://cms3.revize.com/revize/pampatx/Documents/Departments/Finance/Financial%20Services/Budgets/2018-19_actual_budget.pdf"
+      ],
+      "access_note": "Public classification is supported by complete indexed primary municipal text observed October 6, 2026, with source vintage 2018–19; this budget was not live reverified. The independent chamber page was read live October 6, 2026."
     },
     {
       "name": "Highland Pines Golf Club",
@@ -37214,8 +37375,8 @@
       "holes": 18,
       "sources": [
         "https://www.herefordtexas.gov/187/Golf-Course",
-        "https://ecode360.com/HE6340/laws/LF2629522.pdf",
-        "https://www.spicergripp.com/golf-scramble"
+        "https://www.spicergripp.com/golf-scramble",
+        "https://txga.org/wp-content/uploads/2026/02/2025-TGA-Annual-Report_LoRes.pdf"
       ]
     },
     {
@@ -40166,6 +40327,18 @@
       ]
     },
     {
+      "name": "Cedar Knoll Country Club",
+      "address": "13020 Route 116, Hinesburg, VT 05461",
+      "state": "VT",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.cedarknollgolf.com/daily-rates",
+        "https://www.cedarknollgolf.com/_files/ugd/e2e559_a13163c7bdfa4201b76ff9f0e51aa2d0.pdf"
+      ],
+      "source_note": "Physical27-hole total supported by complete inspectable indexed owner2026membership-overview text; daily rates/address directly read October6,2026."
+    },
+    {
       "name": "Country Club of Barre",
       "address": "142 Drake Rd, East Montpelier, VT",
       "state": "VT",
@@ -41353,6 +41526,73 @@
       ]
     },
     {
+      "name": "Hawk’s View Golf Club",
+      "address": "7377 Krueger Road, Lake Geneva, WI 53147",
+      "state": "WI",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://www.hawksviewgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Lake Arrowhead - Lakes Course",
+      "address": "1472 Apache Avenue, Nekoosa, WI 54457",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.lakearrowheadgolf.com/",
+        "https://www.lakearrowheadgolf.com/golf"
+      ]
+    },
+    {
+      "name": "Lake Arrowhead - Pines Course",
+      "address": "1195 Apache Lane, Nekoosa, WI 54457",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.lakearrowheadgolf.com/",
+        "https://www.lakearrowheadgolf.com/golf"
+      ]
+    },
+    {
+      "name": "Mill Run Golf Course",
+      "address": "3905 Kane Road, Eau Claire, WI 54703",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.wildridgegolf.com/",
+        "https://www.wildridgegolf.com/mill-run/course",
+        "https://www.visiteauclaire.com/listing/mill-run-golf-course/838/"
+      ]
+    },
+    {
+      "name": "Moor Downs Golf Course",
+      "address": "438 Prospect Avenue, Waukesha, WI 53188",
+      "state": "WI",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.waukeshacounty.gov/"
+      ],
+      "access_note": "Caddies and nonplaying spectators are not permitted.",
+      "source_note": "County course page inspected on 2026-10-06: Moor Downs Golf Course. Homepage citation follows the county’s linking guidance; independently structured bare facts only."
+    },
+    {
+      "name": "Naga-Waukee War Memorial Golf Course",
+      "address": "W307 N1897 Maple Avenue, Pewaukee, WI 53072",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.waukeshacounty.gov/"
+      ],
+      "source_note": "County course page inspected on 2026-10-06: Naga-Waukee Golf Course. Homepage citation follows the county’s linking guidance; independently structured bare facts only."
+    },
+    {
       "name": "Noyes Park Golf Course",
       "address": "8235 Good Hope Rd., Milwaukee, WI 53223",
       "state": "WI",
@@ -41382,6 +41622,18 @@
       "holes": 9,
       "sources": [
         "https://www.mtpleasantwi.gov/2649/Golfing"
+      ]
+    },
+    {
+      "name": "St. Croix National Golf & Event Center",
+      "address": "1603 32nd Street, Somerset, WI 54025",
+      "state": "WI",
+      "county": null,
+      "holes": 19,
+      "sources": [
+        "https://www.scngolf.com/",
+        "https://www.scngolf.com/18-hole-course",
+        "https://www.scngolf.com/news-and-events"
       ]
     },
     {
@@ -41423,6 +41675,21 @@
       "access_note": "Typically played as a nine-hole round; the tenth physical playing hole allows rotation during improvements to other holes."
     },
     {
+      "name": "University Ridge Golf Course",
+      "address": "9002 County Road PD, Madison, WI 53593",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.universityridge.com/",
+        "https://www.universityridge.com/rates",
+        "https://www.universityridge.com/course-info/course-tour",
+        "https://universityridge.com/about-us/history"
+      ],
+      "access_note": "Public singles may reserve seven days ahead. A 2026 owner notice announced seventeen-hole play during rotating irrigation work; the current live rates page omits that notice, so current completion status is unconfirmed.",
+      "source_note": "The 2026 irrigation notice was observed in the full indexed primary rates page on 2026-10-06; the live page inspected the same day omits that paragraph. Other fields use inspected current owner pages."
+    },
+    {
       "name": "Washington Park Golf Course",
       "address": null,
       "state": "WI",
@@ -41441,6 +41708,18 @@
       "sources": [
         "https://mke.golf/whitnall/",
         "https://mke.golf/"
+      ]
+    },
+    {
+      "name": "Wild Ridge Golf Course",
+      "address": "3647 Kane Road, Eau Claire, WI 54703",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.wildridgegolf.com/",
+        "https://www.wildridgegolf.com/wild-ridge/course",
+        "https://www.visiteauclaire.com/listing/wild-ridge-golf-course-%26-event-center/840/"
       ]
     },
     {
@@ -46095,7 +46374,11 @@
       "name": "Bonner County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://golfpriestlake.com/",
+        "https://www.bonnercountyid.gov/media/Planning/Comp%20Plan%20Update/AM0015-22%20Adopted%20Update%20%2812.07.2022%29%20-%20Recreation.pdf",
+        "https://golfpriestlake.com/rates-passes/"
+      ],
       "queries": [
         "\"Bonner County\" \"Idaho\" golf public course"
       ],
@@ -46304,7 +46587,12 @@
       "name": "Jefferson County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://jeffersonhillsgolfcourse.com/contact/",
+        "https://jeffersonhillsgolfcourse.com/",
+        "https://jeffersonhillsgolfcourse.com/pricing/",
+        "https://jeffersonhillsgolfcourse.com/course-rules/"
+      ],
       "queries": [
         "\"Jefferson County\" \"Idaho\" golf public course"
       ],
@@ -46478,7 +46766,10 @@
       "name": "Shoshone County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://shoshonegolf.com/",
+        "https://shoshonegolf.com/contact/"
+      ],
       "queries": [
         "\"Shoshone County\" \"Idaho\" golf public course"
       ],
