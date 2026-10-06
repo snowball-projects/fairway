@@ -9,8 +9,8 @@
   "rights": "Bare facts and explicitly licensed source attributes with citations. No source prose, photographs, map geometry or scorecard artwork included. Applicable source-data licenses and adaptations are recorded below.",
   "coverage": {
     "national_complete": false,
-    "course_record_count": 2256,
-    "complete_essentials": 1419,
+    "course_record_count": 2521,
+    "complete_essentials": 1549,
     "state_record_counts": {
       "AK": 1,
       "AL": 105,
@@ -21,7 +21,7 @@
       "CT": 80,
       "DC": 3,
       "DE": 2,
-      "FL": 382,
+      "FL": 396,
       "GA": 99,
       "HI": 6,
       "IA": 145,
@@ -29,7 +29,7 @@
       "IL": 18,
       "IN": 1,
       "KS": 117,
-      "KY": 13,
+      "KY": 55,
       "LA": 27,
       "MA": 4,
       "MD": 5,
@@ -37,9 +37,9 @@
       "MI": 13,
       "MN": 11,
       "MO": 4,
-      "MS": 1,
+      "MS": 34,
       "MT": 3,
-      "NC": 159,
+      "NC": 160,
       "ND": 20,
       "NE": 127,
       "NH": 4,
@@ -47,10 +47,10 @@
       "NM": 1,
       "NV": 1,
       "NY": 25,
-      "OH": 16,
-      "OK": 15,
-      "OR": 18,
-      "PA": 63,
+      "OH": 111,
+      "OK": 49,
+      "OR": 27,
+      "PA": 84,
       "RI": 23,
       "SC": 99,
       "SD": 1,
@@ -59,17 +59,17 @@
       "UT": 87,
       "VA": 65,
       "VT": 9,
-      "WA": 10,
+      "WA": 26,
       "WI": 14,
       "WV": 2,
       "WY": 2
     },
-    "counties_represented": 653,
-    "counties_searched": 247,
+    "counties_represented": 735,
+    "counties_searched": 335,
     "missing_fields": {
-      "address": 27,
-      "county": 624,
-      "holes": 275
+      "address": 48,
+      "county": 735,
+      "holes": 295
     },
     "states_represented": [
       "AK",
@@ -5116,6 +5116,19 @@
       ]
     },
     {
+      "name": "Rockledge Country Club",
+      "address": "1591 South Fiske Blvd., Rockledge, FL 32955",
+      "state": "FL",
+      "county": "Brevard County",
+      "holes": 18,
+      "sources": [
+        "https://rockledgecc.com/",
+        "https://rockledgecc.com/about/",
+        "https://rockledgecc.com/membership-info/",
+        "https://rockledgecc.com/course-tour/"
+      ]
+    },
+    {
       "name": "Space Coast Golf Club",
       "address": "3915 Savannahs Trail, Merritt Island, FL 32953",
       "state": "FL",
@@ -7725,6 +7738,17 @@
       ]
     },
     {
+      "name": "Seminole Lake Country Club",
+      "address": "6100 Augusta Blvd., Seminole, FL 33777",
+      "state": "FL",
+      "county": "Pinellas County",
+      "holes": 18,
+      "sources": [
+        "https://seminolelake.net/",
+        "https://seminolelake.net/golf-course/"
+      ]
+    },
+    {
       "name": "Tarpon Springs Golf Course",
       "address": "1310 S. Pinellas Avenue, Tarpon Springs, FL 34689",
       "state": "FL",
@@ -8663,6 +8687,19 @@
       ]
     },
     {
+      "name": "Babcock National Golf & Country Club",
+      "address": "43111 Greenway Blvd, Punta Gorda, FL 33982",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.babcocknationalgc.com/",
+        "https://www.babcocknationalgc.com/golf/course-details",
+        "https://www.babcocknationalgc.com/golf/rates"
+      ],
+      "access_note": "Public access is limited: published ordinary public rates cover May and October; SFPGA pass rates cover May 1 through October 31. Public booking opens five days ahead. Golf course closed Tuesdays June-September. Outside memberships are not offered."
+    },
+    {
       "name": "Babe Zaharias Golf Course",
       "address": "11412 Forest Hills Dr, Tampa, FL 33612",
       "state": "FL",
@@ -8673,6 +8710,18 @@
         "https://babezahariasgolf.net/contact",
         "https://www.tampa.gov/news/2024-09/babe-zaharias-golf-course-renovation-complete-156941"
       ]
+    },
+    {
+      "name": "Black Bear Golf Club",
+      "address": "24505 Calusa Blvd, Eustis, FL 32736",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://blackbeargolfclub.com/",
+        "https://blackbeargolfclub.com/course-policies/"
+      ],
+      "access_note": "Children under five are not permitted on the golf course; supervised practice-area use with an adult is allowed."
     },
     {
       "name": "ChampionsGate Country Club",
@@ -8705,6 +8754,18 @@
       "sources": [
         "https://www.clermontnational.com/course"
       ]
+    },
+    {
+      "name": "Cross Creek Country Club",
+      "address": "13050 Cross Creek Blvd, Fort Myers, FL 33912",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://crosscreekfl.com/golf-course/",
+        "https://www.visitfortmyers.com/listing/cross-creek-country-club/39159"
+      ],
+      "access_note": "Closed Mondays from May 1 through October 31; current owner navigation states last tee time 3 PM and carts due back 6:30 PM."
     },
     {
       "name": "Cypress Head Golf Club",
@@ -8763,6 +8824,18 @@
         "https://www.golfthevillages.com/championship-golf/non-resident.asp"
       ],
       "access_note": "The operator's nonresident-special page lists phone booking up to 3 days ahead; confirm the offer and tee-time availability. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
+    },
+    {
+      "name": "Florida Keys Country Club",
+      "address": "4000 Sombrero Blvd, Marathon, FL 33050",
+      "state": "FL",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://floridakeyscc.com/",
+        "https://visitfloridakeys.com/business-directory/florida-keys-country-club"
+      ],
+      "access_note": "Nine physical holes are double-pinned to play an eighteen-hole round; an eighteen-hole price does not indicate eighteen distinct holes."
     },
     {
       "name": "Forest Lake Golf Club",
@@ -8824,6 +8897,39 @@
       ]
     },
     {
+      "name": "Ibis Landing Golf & Country Club",
+      "address": "20910 Copperhead Drive, Lehigh Acres, FL 33936",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.ibislandinggc.com/"
+      ]
+    },
+    {
+      "name": "Indian Lake Estates Golf & Country Club",
+      "address": "7510 Red Grange Blvd, Indian Lake Estates, FL 33855",
+      "state": "FL",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.indianlakeestatesinc.com/18-hole-course/"
+      ]
+    },
+    {
+      "name": "Indian River Preserve Golf Club",
+      "address": "3950 Clubhouse Drive, Mims, FL 32754",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.indianriverpreservegolfclub.com/",
+        "https://www.indianriverpreservegolfclub.com/the-course/",
+        "https://www.bobbyjoneslinks.com/we-are-bobby-jones"
+      ],
+      "access_note": "Owner also publishes a separate bonus par-three nineteenth hole; count records the standard eighteen-hole layout."
+    },
+    {
       "name": "Key Colony Beach Golf Course",
       "address": "460 8th Street, Key Colony Beach, FL 33050",
       "state": "FL",
@@ -8871,6 +8977,17 @@
       "access_note": "Owner announces full-course public reopening October 6, 2026 following renovation; golf shop hours are published Tuesday–Sunday."
     },
     {
+      "name": "Lake Diamond Golf & Country Club",
+      "address": "16 Golf View Dr., Ocala, FL 34472",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.lakediamondgolfcountryclub.com/"
+      ],
+      "access_note": "Owner May 18, 2026 operating update limits 18-hole starts to 7 AM–1 PM, with nine-hole-only starts from 1:08–3 PM; open seven days weekly."
+    },
+    {
       "name": "Lake Wales Country Club",
       "address": "2925 E State Rd 60, Lake Wales, FL 33898",
       "state": "FL",
@@ -8902,6 +9019,17 @@
       "sources": [
         "https://www.visitpensacola.com/blog/golfing-in-pensacola-swing-slice-repeat-and-laugh/",
         "https://www.visitpensacola.com/directory/lost-key-golf-club/"
+      ]
+    },
+    {
+      "name": "Magnolia Landing Golf & Country Club",
+      "address": "3501 Avenida Del Vera, North Fort Myers, FL 33917",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://magnolialandingclub.clubhouseonline-e3.net/Public_Homepage_%281%29/Golf_Course_Information",
+        "https://directory.pga.org/facility/detail/721703671"
       ]
     },
     {
@@ -8982,6 +9110,17 @@
       "access_note": "The operator's nonresident-special page lists phone booking up to 3 days ahead; confirm the offer and tee-time availability. Children under 10 need a golf professional's proficiency approval; spectators under 10 are prohibited."
     },
     {
+      "name": "Palmetto-Pine Country Club",
+      "address": "1940 SW 9th Court, Cape Coral, FL 33991",
+      "state": "FL",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://palmettopinecc.com/"
+      ],
+      "access_note": "Public tee times available up to seven days ahead."
+    },
+    {
       "name": "Pelican Bay Golf Club",
       "address": "350 Pelican Bay Drive, Daytona Beach, FL 32119",
       "state": "FL",
@@ -9011,6 +9150,18 @@
         "https://www.tampa.gov/info/sports/personal-fitness",
         "https://rogersparkgolf.net/contact-us-1"
       ]
+    },
+    {
+      "name": "Sabal Springs Golf & Racquet Club",
+      "address": "3410 Clubview Dr., Fort Myers, FL 33917",
+      "state": "FL",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.sabalspringsgolf.net/aboutus/rates/",
+        "https://www.sabalspringsgolf.net/"
+      ],
+      "access_note": "Published public rates cover May through October2026; public access outside that period is not established."
     },
     {
       "name": "Sebastian Municipal Golf Course",
@@ -9126,6 +9277,19 @@
         "https://gcnorthhampton.com/",
         "https://gcnorthhampton.com/membership/"
       ]
+    },
+    {
+      "name": "The Links of Naples",
+      "address": "16161 Tamiami Trl E, Naples, FL 34114",
+      "state": "FL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.linksofnaples.com/vacation/",
+        "https://www.linksofnaples.com/course/",
+        "https://www.linksofnaples.com/rates/"
+      ],
+      "access_note": "Current May/October rates page says course closed Mondays; seasonal night golf is Wednesday-Saturday November-April."
     },
     {
       "name": "The Monarch at Royal Highlands",
@@ -13569,6 +13733,16 @@
       ]
     },
     {
+      "name": "Wild Turkey Trace",
+      "address": null,
+      "state": "KY",
+      "county": "Anderson County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
       "name": "Barren River Lake State Park Golf Course",
       "address": "1149 State Park Road, Lucas, KY 42156",
       "state": "KY",
@@ -13580,6 +13754,160 @@
       ]
     },
     {
+      "name": "Fox Hollow Golf Club",
+      "address": null,
+      "state": "KY",
+      "county": "Barren County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Park Mammoth Golf Club",
+      "address": null,
+      "state": "KY",
+      "county": "Barren County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "World of Golf",
+      "address": "7400 Woodspoint Drive, Florence, KY 41042",
+      "state": "KY",
+      "county": "Boone County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://www.worldgolfky.com/"
+      ]
+    },
+    {
+      "name": "Diamond Links Golf Course",
+      "address": "200 Fairway Drive, Catlettsburg, KY 41129",
+      "state": "KY",
+      "county": "Boyd County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://www.diamondlinksgolf.com/"
+      ]
+    },
+    {
+      "name": "Heritage Hill Golf Club",
+      "address": null,
+      "state": "KY",
+      "county": "Bullitt County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "A.J. Jolly Golf Course",
+      "address": "11541 Alexandria Pike, Alexandria, KY 41001",
+      "state": "KY",
+      "county": "Campbell County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://www.ajjolly.com"
+      ]
+    },
+    {
+      "name": "Western Hills Golf Course",
+      "address": null,
+      "state": "KY",
+      "county": "Christian County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Ben Hawes Golf Course",
+      "address": null,
+      "state": "KY",
+      "county": "Daviess County",
+      "holes": null,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Hillcrest Golf Course",
+      "address": null,
+      "state": "KY",
+      "county": "Daviess County",
+      "holes": 9,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Gay Brewer, Jr. Course at Picadome",
+      "address": null,
+      "state": "KY",
+      "county": "Fayette County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Kearney Hill Golf Links",
+      "address": null,
+      "state": "KY",
+      "county": "Fayette County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Lakeside Golf Course",
+      "address": null,
+      "state": "KY",
+      "county": "Fayette County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Tates Creek Golf Course",
+      "address": null,
+      "state": "KY",
+      "county": "Fayette County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Juniper Hill Golf Course",
+      "address": "800 Louisville Rd, Frankfort, KY 40601",
+      "state": "KY",
+      "county": "Franklin County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://juniperhillfrankfort.com/"
+      ]
+    },
+    {
+      "name": "Heartland Golf Club",
+      "address": null,
+      "state": "KY",
+      "county": "Hardin County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
       "name": "John James Audubon Golf Course",
       "address": "3100 US Highway 41, Henderson, KY 42420",
       "state": "KY",
@@ -13588,6 +13916,139 @@
       "sources": [
         "https://parks.ky.gov/explore/john-james-audubon-golf-course-8027",
         "https://parks.ky.gov/info/faqs"
+      ]
+    },
+    {
+      "name": "Bobby Nichols Golf Course",
+      "address": "4301 East Pages Lane, Louisville, KY 40272",
+      "state": "KY",
+      "county": "Jefferson County",
+      "holes": 9,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://metroparksgolf.net/bobbynichols/contact-bobby-nichols-golf-course/"
+      ]
+    },
+    {
+      "name": "Charlie Vettiner Golf Course",
+      "address": "10207 Mary Dell Ln, Louisville, KY 40299",
+      "state": "KY",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://metroparksgolf.net/charlievettiner/contact-us/"
+      ]
+    },
+    {
+      "name": "Crescent Hill Golf Course",
+      "address": "3110 Brownsboro Rd, Louisville, KY 40207",
+      "state": "KY",
+      "county": "Jefferson County",
+      "holes": 9,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://metroparksgolf.net/crescenthill/contact-us/"
+      ]
+    },
+    {
+      "name": "Iroquois Golf Course",
+      "address": "1501 Rundill Road, Louisville, KY 40214",
+      "state": "KY",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://metroparksgolf.net/iroquois/contact-us/"
+      ]
+    },
+    {
+      "name": "Long Run Golf Course",
+      "address": "1605 Flat Rock Road, Louisville, KY 40245",
+      "state": "KY",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://metroparksgolf.net/longrun/contact-us/"
+      ]
+    },
+    {
+      "name": "Seneca Golf Course",
+      "address": "2300 Pee Wee Reese Road, Louisville, KY 40205-2316",
+      "state": "KY",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://metroparksgolf.net/seneca/contact-us/"
+      ]
+    },
+    {
+      "name": "Shawnee Golf Course",
+      "address": "460 Northwestern Parkway, Louisville, KY 40212",
+      "state": "KY",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://metroparksgolf.net/shawnee/contact-us/"
+      ]
+    },
+    {
+      "name": "Sun Valley Golf Club",
+      "address": "6505 Bethany Lane, Louisville, KY 40272",
+      "state": "KY",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://metroparksgolf.net/sunvalley/contact-us/"
+      ]
+    },
+    {
+      "name": "Connemara Golf Course",
+      "address": "2327 Lexington Road, Nicholasville, KY 40356",
+      "state": "KY",
+      "county": "Jessamine County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://www.connemaragolfcourse.com"
+      ]
+    },
+    {
+      "name": "Thoroughbred Golf Club",
+      "address": "1215 High Point Drive, Nicholasville, KY 40356",
+      "state": "KY",
+      "county": "Jessamine County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://thoroughbred.golf/"
+      ],
+      "access_note": "Owner prohibits walking and extra riders before 4 p.m. on Friday–Sunday and holidays."
+    },
+    {
+      "name": "Devou Park Golf Course",
+      "address": "1201 Park Drive, Covington, KY 41011",
+      "state": "KY",
+      "county": "Kenton County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://www.devouparkgolf.com"
+      ]
+    },
+    {
+      "name": "Raven Rock Golf Course",
+      "address": "586 Golf Course Lane, Jenkins, KY 41537",
+      "state": "KY",
+      "county": "Letcher County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://www.ravenrockgolfcourse.com/"
       ]
     },
     {
@@ -13603,6 +14064,88 @@
       ]
     },
     {
+      "name": "Boone's Trace National Golf Club",
+      "address": "175 Gleneagles Blvd, Richmond, KY 40475",
+      "state": "KY",
+      "county": "Madison County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://btngc.com/"
+      ]
+    },
+    {
+      "name": "Gibson Bay Golf Course",
+      "address": null,
+      "state": "KY",
+      "county": "Madison County",
+      "holes": null,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Benton Golf & Country Club",
+      "address": null,
+      "state": "KY",
+      "county": "Marshall County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Laurel Oaks Golf Club",
+      "address": null,
+      "state": "KY",
+      "county": "Mason County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Edwin J. Paxton Park Golf Course",
+      "address": "841 Berger Road, Paducah, KY 42003",
+      "state": "KY",
+      "county": "McCracken County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://www.paxtonpark.com"
+      ]
+    },
+    {
+      "name": "Doe Valley Golf Club",
+      "address": null,
+      "state": "KY",
+      "county": "Meade County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "River Trace Golf Course @ the Meade Activity Center",
+      "address": null,
+      "state": "KY",
+      "county": "Meade County",
+      "holes": 9,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Bardstown Country Club - Maywood",
+      "address": null,
+      "state": "KY",
+      "county": "Nelson County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
       "name": "My Old Kentucky Home State Park Golf Course",
       "address": "668 Loretto Road, Bardstown, KY 40004",
       "state": "KY",
@@ -13611,6 +14154,70 @@
       "sources": [
         "https://parks.ky.gov/parks/find-a-park/my-old-kentucky-home-state-park-golf-course-8101",
         "https://parks.ky.gov/info/faqs"
+      ]
+    },
+    {
+      "name": "Eagle Creek Golf Course",
+      "address": null,
+      "state": "KY",
+      "county": "Oldham County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
+      ]
+    },
+    {
+      "name": "Sleepy Hollow Golf Course",
+      "address": "4221 S Highway 1694, Prospect, KY 40059-9756",
+      "state": "KY",
+      "county": "Oldham County",
+      "holes": 9,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://sleepyhollowky.com/"
+      ]
+    },
+    {
+      "name": "Fairway Golf Course",
+      "address": "4940 Highway 227 N, Wheatley, KY 40359",
+      "state": "KY",
+      "county": "Owen County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://www.playfairwaygc.com/"
+      ]
+    },
+    {
+      "name": "Longview Golf Club",
+      "address": "3243 Frankfort Rd, Georgetown, KY 40324",
+      "state": "KY",
+      "county": "Scott County",
+      "holes": null,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://www.longviewgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Weissinger Hills Golf Course",
+      "address": "2240 Mt. Eden Road, Shelbyville, KY 40065",
+      "state": "KY",
+      "county": "Shelby County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs",
+        "https://www.weissingerhills.com"
+      ]
+    },
+    {
+      "name": "CrossWinds Golf Course",
+      "address": null,
+      "state": "KY",
+      "county": "Warren County",
+      "holes": 18,
+      "sources": [
+        "https://www.kygolf.org/clubs"
       ]
     },
     {
@@ -15386,7 +15993,398 @@
       "sources": [
         "https://www.petebrowngolffacility.com/",
         "https://www.petebrowngolffacility.com/rates/",
-        "https://www.petebrowngolffacility.com/blog/"
+        "https://www.petebrowngolffacility.com/blog/",
+        "https://jacksonms.gov/visit-jackson/golf/"
+      ]
+    },
+    {
+      "name": "Whispering Pines Golf Course",
+      "address": "18412 Highway 613, Moss Point, MS 39562",
+      "state": "MS",
+      "county": "Jackson County",
+      "holes": 18,
+      "sources": [
+        "https://www.wpgolfcourse.com/",
+        "https://www.co.jackson.ms.us/DocumentCenter/View/1128/20051-JACKSON-CO-REPORT-FINAL-081222"
+      ],
+      "access_note": "Address published in county 2022-2032 parks master plan; operator describes the course location as Hurley."
+    },
+    {
+      "name": "Pine Creek Golf Club",
+      "address": "61 Club House Drive, Purvis, MS 39475",
+      "state": "MS",
+      "county": "Lamar County",
+      "holes": 18,
+      "sources": [
+        "https://pinecreekatpurvis.com/",
+        "https://pinecreekatpurvis.com/contact-us/",
+        "https://www.peer.ms.gov/sites/default/files/peer_publications/rpt632.pdf"
+      ]
+    },
+    {
+      "name": "Lakeview Golf Course",
+      "address": "2633 Lakeview Golf Course Road, Meridian, MS 39301",
+      "state": "MS",
+      "county": "Lauderdale County",
+      "holes": 18,
+      "sources": [
+        "https://meridianms.org/government/parks-and-recreation/lakeview-golf-course/",
+        "https://visitmississippi.org/things-to-do/golf/lakeview-golf-course/",
+        "https://www.mfc.ms.gov/wp-content/uploads/2020/12/LauderdaleCountyCWPP.pdf"
+      ]
+    },
+    {
+      "name": "Bel Air Golf Course",
+      "address": "2107 Country Club Road, Tupelo, MS 38804",
+      "state": "MS",
+      "county": "Lee County",
+      "holes": 9,
+      "sources": [
+        "https://www.tupelo.net/directory/bel-air-golf-course/",
+        "https://tupeloparksandrec.org/parks-rentals/parks",
+        "https://tupeloparksandrec.org/wp-content/uploads/2022/02/1.22.2022-Leisure-Guide-Booklet_Rev.pdf"
+      ]
+    },
+    {
+      "name": "Dancing Rabbit Golf Club - The Azaleas",
+      "address": "13541 Mississippi Highway 16, Philadelphia, MS 39350",
+      "state": "MS",
+      "county": "Neshoba County",
+      "holes": 18,
+      "sources": [
+        "https://dancingrabbitgolf.com/the-azaleas/",
+        "https://visitmississippi.org/things-to-do/golf/dancing-rabbit-golf-club/",
+        "https://www.travelclick-websolutions.com/uploads/applications/documents/001/652/973/212332-drgc-azaleas-scorecards.pdf",
+        "https://www.peer.ms.gov/sites/default/files/peer_publications/rpt632.pdf"
+      ],
+      "access_note": "Shared clubhouse address published by the current operator."
+    },
+    {
+      "name": "Dancing Rabbit Golf Club - The Oaks",
+      "address": "13541 Mississippi Highway 16, Philadelphia, MS 39350",
+      "state": "MS",
+      "county": "Neshoba County",
+      "holes": 18,
+      "sources": [
+        "https://dancingrabbitgolf.com/the-oaks/",
+        "https://visitmississippi.org/things-to-do/golf/dancing-rabbit-golf-club/",
+        "https://www.travelclick-websolutions.com/uploads/applications/documents/001/652/973/213552-drgc-oaks-scorecards.pdf",
+        "https://www.peer.ms.gov/sites/default/files/peer_publications/rpt632.pdf"
+      ],
+      "access_note": "Shared clubhouse address published by the current operator."
+    },
+    {
+      "name": "Lake Hillsdale Golf Course",
+      "address": "14 Rault Drive, Lumberton, MS 39455",
+      "state": "MS",
+      "county": "Pearl River County",
+      "holes": 18,
+      "sources": [
+        "https://lakehillsdalegolf.com/"
+      ]
+    },
+    {
+      "name": "Quail Hollow Golf Course",
+      "address": "1102 Percy Quin Drive, McComb, MS 39648",
+      "state": "MS",
+      "county": "Pike County",
+      "holes": 18,
+      "sources": [
+        "https://www.mdwfp.com/parks-destinations/golf-courses/quail-hollow-golf-course",
+        "https://dev.mdwfp.com/parks-destinations/park/percy-quin-state-park",
+        "https://www.legislature.ms.gov/media/1135/2020_senate_summary.pdf"
+      ]
+    },
+    {
+      "name": "Bayou Vista Golf Course",
+      "address": "13756 Washington Avenue, Gulfport, MS 39503",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.bayouvistagolf.com/",
+        "https://www.coastalmississippi.com/directory/bayou-vista-golf-course/"
+      ]
+    },
+    {
+      "name": "Clear Creek Golf Course",
+      "address": "1566 Tiffentown Road, Vicksburg, MS 39183",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.visitvicksburg.com/things-to-do/sports/",
+        "https://www.visitvicksburg.com/directory/clear-creek-golf-club/",
+        "https://visitmississippi.org/things-to-do/golf/clear-creek-golf-course/"
+      ]
+    },
+    {
+      "name": "Eagle Ridge Golf Course",
+      "address": "1500 Raymond Lake Road, Raymond, MS 39154",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://eagleridge.hindscc.edu/eagle-ridge-golf-course",
+        "https://www.missgolf.org/club-membership"
+      ],
+      "access_note": "Published Eagle Ridge golf/conference-center contact address."
+    },
+    {
+      "name": "Elm Lake Golf Course",
+      "address": "1609 Taylor Thurston Road, Columbus, MS 39701",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.elmlakegolfcourse.com/",
+        "https://visitmississippi.org/things-to-do/golf/elm-lake-golf-course/"
+      ]
+    },
+    {
+      "name": "Grand Bear Golf Course",
+      "address": "12040 Grand Way Boulevard, Saucier, MS 39574",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.coastalmississippi.com/directory/grand-bear-golf-course/",
+        "https://www.missgolf.org/club-membership",
+        "https://visitmississippi.org/go/golf/"
+      ],
+      "access_note": "Facts sourced from state/regional tourism and the state golf association; restricted operator website is not used as a data source."
+    },
+    {
+      "name": "Gulf Hills Golf Club",
+      "address": "13700 Paso Road, Ocean Springs, MS 39564",
+      "state": "MS",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://gulfhillsgolfclub.com/",
+        "https://gulfhillsgolfclub.com/course-tour/"
+      ],
+      "access_note": "Current operator identifies a nine-hole layout; legacy eighteen-hole listings were not used."
+    },
+    {
+      "name": "Hickory Hill Country Club & Resort",
+      "address": "900 Hickory Hill Drive, Gautier, MS 39553",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.hhccr.com/"
+      ]
+    },
+    {
+      "name": "Hillandale Golf Course",
+      "address": "13 Oakland School Road, Corinth, MS 38834",
+      "state": "MS",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.missgolf.org/club-membership",
+        "https://visitmississippi.org/things-to-do/golf/hillandale-golf-course/",
+        "https://members.corinthalliance.com/list/member/hillandale-golf-course-1011"
+      ]
+    },
+    {
+      "name": "Lion Hills Golf Course",
+      "address": "2331 Military Road, Columbus, MS 39705",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://lionhills.eastms.edu/golf-course/",
+        "https://lionhills.eastms.edu/golf-course/green-fees/"
+      ]
+    },
+    {
+      "name": "Mississippi State University Golf Course",
+      "address": "14279 Old Highway 182, Starkville, MS 39759",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golf.msstate.edu/golf/history",
+        "https://www.golf.msstate.edu/golf/rates-tee-times",
+        "https://visitmississippi.org/things-to-do/golf/mississippi-state-university-golf-course/"
+      ]
+    },
+    {
+      "name": "Natchez Golf Club at Duncan Park",
+      "address": "57 Duncan Park Road, Natchez, MS 39120",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.natchezgolfclub.com/",
+        "https://natchez.ms.us/Facilities/Facility/Details/-21"
+      ]
+    },
+    {
+      "name": "Okatoma Golf Club",
+      "address": "25 Oak Hill Boulevard, Collins, MS 39428",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://okatomagolfclub.com/"
+      ]
+    },
+    {
+      "name": "River Bend Links",
+      "address": "1205 Nine Lakes Drive, Robinsonville, MS 38664",
+      "state": "MS",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.riverbendlinks.com/",
+        "https://www.riverbendlinks.com/course/rates/",
+        "https://visitmississippi.org/experiences/beloved-mississippi-golf-courses/"
+      ]
+    },
+    {
+      "name": "Shell Landing Golf Club",
+      "address": "3499 Shell Landing Boulevard, Gautier, MS 39553",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.shelllandinggolf.com/",
+        "https://visitmississippi.org/things-to-do/golf/shell-landing-golf-club/"
+      ]
+    },
+    {
+      "name": "Southaven Golf Center",
+      "address": "8925 Swinnea Road, Southaven, MS 38671",
+      "state": "MS",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.southaven.org/184/Facilities",
+        "https://southaven.org/Facilities/Facility/Details/32"
+      ]
+    },
+    {
+      "name": "The Bridges Golf Club",
+      "address": "711 Hollywood Boulevard, Bay St. Louis, MS 39520",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.coastalmississippi.com/directory/the-bridges-golf-club-at-hollywood-casino-gulf-coast/",
+        "https://www.missgolf.org/club-membership"
+      ]
+    },
+    {
+      "name": "The Club at Diamondhead - Cardinal Course",
+      "address": "7600 Country Club Circle, Diamondhead, MS 39525",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://theclubatdiamondhead.com/Golf",
+        "https://theclubatdiamondhead.com/Portals/42/Docs/Golf/2026%20Golf%20Membership%20Categories%20120325.pdf",
+        "https://hancockmsmyhome.com/activities-lifestyle/"
+      ],
+      "access_note": "Two separate eighteen-hole courses share the clubhouse address."
+    },
+    {
+      "name": "The Club at Diamondhead - Pine Course",
+      "address": "7600 Country Club Circle, Diamondhead, MS 39525",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://theclubatdiamondhead.com/Golf",
+        "https://theclubatdiamondhead.com/Portals/42/Docs/Golf/2026%20Golf%20Membership%20Categories%20120325.pdf",
+        "https://hancockmsmyhome.com/activities-lifestyle/"
+      ],
+      "access_note": "Two separate eighteen-hole courses share the clubhouse address."
+    },
+    {
+      "name": "The Dogwoods Golf Course",
+      "address": "2424 Hugh White State Park Road, Grenada, MS 38901",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.mdwfp.com/parks-destinations/golf-courses",
+        "https://www.mdwfp.com/parks-destinations/golf-courses/dogwoods-golf-course",
+        "https://www.mdwfp.com/parks-destinations/park/hugh-white-state-park"
+      ]
+    },
+    {
+      "name": "The Oaks Golf Club",
+      "address": "24384 Club House Drive, Pass Christian, MS 39571",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://theoaksgolfclub.com/",
+        "https://theoaksgolfclub.com/contact-the-oaks/",
+        "https://www.coastalmississippi.com/directory/the-oaks-golf-club/"
+      ]
+    },
+    {
+      "name": "The Ole Miss Golf Course",
+      "address": "147 Golf Club Drive, Oxford, MS 38655",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.theolemissgolfcourse.com/course-rates",
+        "https://www.theolemissgolfcourse.com/course-tour",
+        "https://eventcalendar.olemiss.edu/the_ole_miss_golf_course"
+      ]
+    },
+    {
+      "name": "The Preserve Golf Club",
+      "address": "8901 Highway 57 North, Vancleave, MS 39565",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.coastalmississippi.com/blog/golf-with-a-gulf-view/",
+        "https://www.coastalmississippi.com/directory/the-preserve-golf-club/",
+        "https://www.co.jackson.ms.us/255/Golf"
+      ],
+      "access_note": "Uses independent county and regional tourism facts; restricted operator website is not a data source."
+    },
+    {
+      "name": "Tupelo National Golf Club",
+      "address": "3481 Big Oaks Boulevard, Saltillo, MS 38866",
+      "state": "MS",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://tupelonational.com/",
+        "https://www.tupelo.net/blog/tupelos-great-outdoors-where-your-next-adventure-begins/"
+      ]
+    },
+    {
+      "name": "Windance Country Club",
+      "address": "19385 Champion Circle, Gulfport, MS 39503",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://windancecc.com/",
+        "https://windancecc.com/play-windance",
+        "https://windancecc.com/contact",
+        "https://www.missgolf.org/club-membership"
+      ]
+    },
+    {
+      "name": "Wolf Hollow Golf Club",
+      "address": "1028 J. C. Redd Drive, Wesson, MS 39191",
+      "state": "MS",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://wolfhollowgolfclub.com/golf-course/",
+        "https://wolfhollowgolfclub.com/contact-us/"
       ]
     },
     {
@@ -17156,6 +18154,18 @@
       "sources": [
         "https://sherwoodforestgolfcourse.com/",
         "https://sherwoodforestnc.com/amenities/"
+      ]
+    },
+    {
+      "name": "Stoney Creek Golf Club",
+      "address": "911 Golf House Road, Stoney Creek, NC 27377",
+      "state": "NC",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://stoneycreekgolf.com/course/",
+        "https://stoneycreekgolf.com/contact-us/",
+        "https://stoneycreekgolf.com/golf-rates/"
       ]
     },
     {
@@ -19258,6 +20268,226 @@
       ]
     },
     {
+      "name": "Bluffton Golf Club",
+      "address": "8575 N Dixie Hwy Bluffton, OH 45817",
+      "state": "OH",
+      "county": "Allen County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/bluffton-golf-club-bluffton-oh"
+      ]
+    },
+    {
+      "name": "Hidden Creek Golf Club",
+      "address": "6245 Sugar Creek Rd. Lima, OH 45801",
+      "state": "OH",
+      "county": "Allen County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/hidden-creek-golf-club-lima-oh"
+      ]
+    },
+    {
+      "name": "Ashland Golf Club",
+      "address": "1333 S Center St Ashland, OH 44805",
+      "state": "OH",
+      "county": "Ashland County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/ashland-golf-club-ashland-oh"
+      ]
+    },
+    {
+      "name": "Friendly Meadows Golf Course",
+      "address": "809 State Route 125 Hamersville, OH 45130",
+      "state": "OH",
+      "county": "Brown County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/friendly-meadows-golf-course-hamersville-oh"
+      ]
+    },
+    {
+      "name": "Beckett Ridge Country Club",
+      "address": "5595 Beckett Ridge Blvd West Chester, OH 45069",
+      "state": "OH",
+      "county": "Butler County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/beckett-ridge-country-club-west-chester-oh"
+      ]
+    },
+    {
+      "name": "Fairfield Greens South Trace",
+      "address": "2200 John Gray Rd Fairfield, OH 45014",
+      "state": "OH",
+      "county": "Butler County",
+      "holes": null,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/fairfield-greens-south-trace-fairfield-oh"
+      ]
+    },
+    {
+      "name": "Hueston Woods Golf Course",
+      "address": "6962 Brown Road Oxford , OH 45056",
+      "state": "OH",
+      "county": "Butler County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/hueston-woods-golf-course-oxford-oh-8b3f2740-ebdf-4109-95b1-c9d77e1b63b7"
+      ]
+    },
+    {
+      "name": "Indian Ridge Golf Club",
+      "address": "2600 Oxford Millville Rd Oxford, OH 45056",
+      "state": "OH",
+      "county": "Butler County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/indian-ridge-golf-club-oxford-oh"
+      ]
+    },
+    {
+      "name": "Lakeland Golf Course",
+      "address": "1772 Kiser Lake Road Saint Paris, OH 43072",
+      "state": "OH",
+      "county": "Champaign County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/lakeland-golf-course-saint-paris-oh"
+      ]
+    },
+    {
+      "name": "Eagles Nest Golf Course",
+      "address": "1540 State Route 28 Loveland, OH 45140",
+      "state": "OH",
+      "county": "Clermont County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/eagles-nest-golf-course-loveland-oh"
+      ]
+    },
+    {
+      "name": "Elks Run Golf Club",
+      "address": "2000 Elklick Rd Batavia, OH 45103",
+      "state": "OH",
+      "county": "Clermont County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/elks-run-golf-club-batavia-oh"
+      ]
+    },
+    {
+      "name": "Legendary Run Golf Course",
+      "address": "915 E Legendary Run Drive Cincinnati, OH 45245",
+      "state": "OH",
+      "county": "Clermont County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/legendary-run-golf-course-cincinnati-oh"
+      ]
+    },
+    {
+      "name": "Hickory Flat Greens Golf Course",
+      "address": "54188 Township Rd 155 West Lafayette, OH 43845",
+      "state": "OH",
+      "county": "Coshocton County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/hickory-flat-greens-golf-course-west-lafayette-oh"
+      ]
+    },
+    {
+      "name": "Big Met Golf Course",
+      "address": "4811 Valley Pkwy Fairview Park, OH 44126",
+      "state": "OH",
+      "county": "Cuyahoga County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/big-met-golf-course-fairview-park-oh"
+      ]
+    },
+    {
+      "name": "Briardale Greens Golf Course",
+      "address": "24131 Briardale Ave Euclid, OH 44123",
+      "state": "OH",
+      "county": "Cuyahoga County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/briardale-greens-golf-course-euclid-oh"
+      ]
+    },
+    {
+      "name": "Grantwood Golf Course",
+      "address": "38855 Aurora Rd Solon, OH 44139",
+      "state": "OH",
+      "county": "Cuyahoga County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/grantwood-golf-course-solon-oh"
+      ]
+    },
+    {
+      "name": "Beechwood Golf Course",
+      "address": "1476 State Route 503 Arcanum, OH 45304",
+      "state": "OH",
+      "county": "Darke County",
+      "holes": 27,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/beechwood-golf-course-arcanum-oh"
+      ]
+    },
+    {
+      "name": "Eagle Rock Golf Club",
+      "address": "211 Carpenter Rd Defiance, OH 43512",
+      "state": "OH",
+      "county": "Defiance County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/eagle-rock-golf-club-defiance-oh"
+      ]
+    },
+    {
+      "name": "Bent Tree Golf Club",
+      "address": "350 Bent Tree Rd Sunbury, OH 43074",
+      "state": "OH",
+      "county": "Delaware County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/bent-tree-golf-club-sunbury-oh"
+      ]
+    },
+    {
+      "name": "Delaware Golf Club",
+      "address": "3329 Columbus Pike Delaware, OH 43015",
+      "state": "OH",
+      "county": "Delaware County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/delaware-golf-club-delaware-oh"
+      ]
+    },
+    {
+      "name": "Glenross Golf Club",
+      "address": "231 Club House Drive Delaware, OH 43015",
+      "state": "OH",
+      "county": "Delaware County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/glenross-golf-club-delaware-oh"
+      ]
+    },
+    {
+      "name": "Lancaster Golf Club",
+      "address": "3100 Country Club Rd Lancaster, OH 43130",
+      "state": "OH",
+      "county": "Fairfield County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/lancaster-golf-club-lancaster-oh"
+      ]
+    },
+    {
       "name": "Turnberry Golf Course",
       "address": "1145 Clubhouse Lane, Pickerington, OH 43147",
       "state": "OH",
@@ -19267,6 +20497,16 @@
         "https://crpdgolf.com/golf-courses/turnberry-golf-course/",
         "https://crpdgolf.com/",
         "https://crpdgolf.com/wp-content/uploads/2022/02/Turnberry_Golf_Course_Scorecard_NoAds-2022-UPDATED-compressed_1.pdf"
+      ]
+    },
+    {
+      "name": "Greens of Fayette County",
+      "address": "703 State Route 41 Washington Courthouse, OH 43160",
+      "state": "OH",
+      "county": "Fayette County",
+      "holes": 9,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/greens-of-fayette-county-washington-courthouse-oh"
       ]
     },
     {
@@ -19282,6 +20522,16 @@
       ]
     },
     {
+      "name": "Blacklick Woods Golf Courses",
+      "address": "7309 E Livingston Ave Reynoldsburg, OH 43068",
+      "state": "OH",
+      "county": "Franklin County",
+      "holes": null,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/blacklick-woods-golf-courses-reynoldsburg-oh"
+      ]
+    },
+    {
       "name": "Champions Golf Course",
       "address": "3900 Westerville Road, Columbus, OH 43224",
       "state": "OH",
@@ -19290,6 +20540,36 @@
       "sources": [
         "https://crpdgolf.com/golf-courses/champions-golf-course/",
         "https://crpdgolf.com/"
+      ]
+    },
+    {
+      "name": "Golf Club of Dublin",
+      "address": "5805 Eiterman Road Dublin, OH 43016",
+      "state": "OH",
+      "county": "Franklin County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/golf-club-of-dublin-dublin-oh"
+      ]
+    },
+    {
+      "name": "Groveport Municipal GC",
+      "address": "1005 Richardson Rd Groveport, OH 43125",
+      "state": "OH",
+      "county": "Franklin County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/groveport-municipal-gc-groveport-oh"
+      ]
+    },
+    {
+      "name": "Homestead Springs Golf Course",
+      "address": "5888 London Lancaster Rd Groveport, OH 43125",
+      "state": "OH",
+      "county": "Franklin County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/homestead-springs-golf-course-groveport-oh"
       ]
     },
     {
@@ -19324,6 +20604,136 @@
       "sources": [
         "https://crpdgolf.com/golf-courses/wilson-road/",
         "https://crpdgolf.com/"
+      ]
+    },
+    {
+      "name": "Ironwood Golf Course",
+      "address": "1015 W Leggett St Wauseon, OH 43567",
+      "state": "OH",
+      "county": "Fulton County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/ironwood-golf-course-wauseon-oh"
+      ]
+    },
+    {
+      "name": "Cliffside Golf Club",
+      "address": "100 Cliffside Dr Gallipolis, OH 45631",
+      "state": "OH",
+      "county": "Gallia County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/cliffside-golf-club-gallipolis-oh"
+      ]
+    },
+    {
+      "name": "Chardon Lakes Golf Course",
+      "address": "470 South St Chardon, OH 44024",
+      "state": "OH",
+      "county": "Geauga County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/chardon-lakes-golf-course-chardon-oh"
+      ]
+    },
+    {
+      "name": "Fowler's Mill Golf Course",
+      "address": "13095 Rockhaven Rd Chesterland, OH 44026",
+      "state": "OH",
+      "county": "Geauga County",
+      "holes": 27,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/fowler-s-mill-golf-course-chesterland-oh"
+      ]
+    },
+    {
+      "name": "Legend Lake Golf Club",
+      "address": "11135 Auburn Rd Chardon, OH 44024",
+      "state": "OH",
+      "county": "Geauga County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/legend-lake-golf-club-chardon-oh"
+      ]
+    },
+    {
+      "name": "Beavercreek Golf Club",
+      "address": "2800 New Germany-Trebein Beavercreek, OH 45324",
+      "state": "OH",
+      "county": "Greene County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/beavercreek-golf-club-beavercreek-oh"
+      ]
+    },
+    {
+      "name": "Jasper Hills Golf Course",
+      "address": "1100 Knollhaven Rd. Xenia, OH 45385",
+      "state": "OH",
+      "county": "Greene County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/jasper-hills-golf-course-xenia-oh"
+      ]
+    },
+    {
+      "name": "Aston Oaks",
+      "address": "1 Aston Oaks Dr North Bend, OH 45052",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/aston-oaks-north-bend-oh"
+      ]
+    },
+    {
+      "name": "Avon Fields Golf Course",
+      "address": "4081 Reading Rd. Cincinnati, OH 45229",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/avon-fields-golf-course-cincinnati-oh"
+      ]
+    },
+    {
+      "name": "Blue Ash Golf Course",
+      "address": "4040 Cooper Rd Blue Ash, OH 45241",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/blue-ash-golf-course-blue-ash-oh"
+      ]
+    },
+    {
+      "name": "California Golf Course",
+      "address": "5920 Kellogg Ave Cincinnati, OH 45228",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/california-golf-course-cincinnati-oh"
+      ]
+    },
+    {
+      "name": "Circling Hills Golf Course",
+      "address": "10240 Carolina Trace Rd Harrison, OH 45030",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/circling-hills-golf-course-harrison-oh"
+      ]
+    },
+    {
+      "name": "Glenview Golf Course",
+      "address": "10965 Springfield Pike Cincinnati, OH 45246",
+      "state": "OH",
+      "county": "Hamilton County",
+      "holes": 27,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/glenview-golf-course-cincinnati-oh"
       ]
     },
     {
@@ -19409,6 +20819,76 @@
       "access_note": "A valid Great Parks Motor Vehicle Permit is required to enter. Children under eight must be accompanied by an adult."
     },
     {
+      "name": "Hillcrest Golf Club",
+      "address": "800 W Bigelow Ave Findlay, OH 45840",
+      "state": "OH",
+      "county": "Hancock County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/hillcrest-golf-club-findlay-oh"
+      ]
+    },
+    {
+      "name": "Hocking Hills Golf Club",
+      "address": "14405 Country Club Ln Logan, OH 43138",
+      "state": "OH",
+      "county": "Hocking County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/hocking-hills-golf-club-logan-oh"
+      ]
+    },
+    {
+      "name": "Eagle Creek Golf Club",
+      "address": "2406 New State Rd Norwalk, OH 44857",
+      "state": "OH",
+      "county": "Huron County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/eagle-creek-golf-club-norwalk-oh"
+      ]
+    },
+    {
+      "name": "Apple Valley Golf Club",
+      "address": "433 Club House Dr Howard, OH 43028",
+      "state": "OH",
+      "county": "Knox County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/apple-valley-golf-club-howard-oh"
+      ]
+    },
+    {
+      "name": "Chapel Hill Golf Course",
+      "address": "7516 Johnstown Rd Mount Vernon, OH 43050",
+      "state": "OH",
+      "county": "Knox County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/chapel-hill-golf-course-mount-vernon-oh"
+      ]
+    },
+    {
+      "name": "Irish Hills Golf Course",
+      "address": "7020 Newark Rd Mount Vernon, OH 43050",
+      "state": "OH",
+      "county": "Knox County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/irish-hills-golf-course-mount-vernon-oh"
+      ]
+    },
+    {
+      "name": "Black Brook Golf Course & Practice Center",
+      "address": "8900 Lake Shore Blvd Mentor, OH 44060",
+      "state": "OH",
+      "county": "Lake County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/black-brook-golf-course-practice-center-mentor-oh"
+      ]
+    },
+    {
       "name": "Pine Ridge Country Club",
       "address": "30601 Ridge Rd, Wickliffe, OH 44092",
       "state": "OH",
@@ -19418,6 +20898,87 @@
         "https://lakemetroparks.com/parks-trails/pine-ridge-country-club/"
       ],
       "access_note": "Public play is for ages seven and older."
+    },
+    {
+      "name": "Clover Valley Golf Club",
+      "address": "8644 Johnstown Alexandria Rd Johnstown, OH 43031",
+      "state": "OH",
+      "county": "Licking County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/clover-valley-golf-club-johnstown-oh"
+      ]
+    },
+    {
+      "name": "Cumberland Trail Golf Course",
+      "address": "8244 Columbia Rd SW Pataskala, OH 43062",
+      "state": "OH",
+      "county": "Licking County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/cumberland-trail-golf-course-pataskala-oh"
+      ]
+    },
+    {
+      "name": "Denison Golf Club",
+      "address": "555 Newark Granville Rd Granville, OH 43023",
+      "state": "OH",
+      "county": "Licking County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/denison-golf-club-granville-oh"
+      ]
+    },
+    {
+      "name": "Kyber Run Golf Course",
+      "address": "5261 Mink Rd Johnstown, OH 43031",
+      "state": "OH",
+      "county": "Licking County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/kyber-run-golf-course-johnstown-oh"
+      ]
+    },
+    {
+      "name": "Liberty Hills Golf Club",
+      "address": "665 Township Highway 190 West Bellefontaine, OH 43311",
+      "state": "OH",
+      "county": "Logan County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/liberty-hills-golf-club-bellefontaine-oh"
+      ]
+    },
+    {
+      "name": "Bob O' Link Golf Course",
+      "address": "4141 Center Rd Avon, OH 44011",
+      "state": "OH",
+      "county": "Lorain County",
+      "holes": 27,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/bob-o-link-golf-course-avon-oh",
+        "https://bobolinkgolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Creekwood Golf Course",
+      "address": "9691 N Reed Rd Columbia Station, OH 44028",
+      "state": "OH",
+      "county": "Lorain County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/creekwood-golf-course-columbia-station-oh"
+      ]
+    },
+    {
+      "name": "Fox Creek Golf & Racquet Club",
+      "address": "5445 Beavercrest Dr Lorain, OH 44053",
+      "state": "OH",
+      "county": "Lorain County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/fox-creek-golf-racquet-club-lorain-oh"
+      ]
     },
     {
       "name": "Collins Park Golf Course",
@@ -19440,6 +21001,16 @@
       ]
     },
     {
+      "name": "Eagle's Landing Golf Club",
+      "address": "5350 Bay Shore Rd Oregon, OH 43618",
+      "state": "OH",
+      "county": "Lucas County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/eagle-s-landing-golf-club-oregon-oh"
+      ]
+    },
+    {
       "name": "Ottawa Park Golf Course",
       "address": "2315 Walden Pond Dr., Toledo, OH 43606",
       "state": "OH",
@@ -19451,6 +21022,399 @@
       ]
     },
     {
+      "name": "Coppertop Golf Club",
+      "address": "5740 Center Rd Valley City, OH 44280",
+      "state": "OH",
+      "county": "Medina County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/coppertop-golf-club-valley-city-oh"
+      ]
+    },
+    {
+      "name": "Celina Lynx Golf Course",
+      "address": "1221 Irmscher Blvd Celina, OH 45822",
+      "state": "OH",
+      "county": "Mercer County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/celina-lynx-golf-course-celina-oh"
+      ]
+    },
+    {
+      "name": "Homestead Golf Course",
+      "address": "5327 Worley Rd Tipp City, OH 45371",
+      "state": "OH",
+      "county": "Miami County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/homestead-golf-course-tipp-city-oh"
+      ]
+    },
+    {
+      "name": "Cassel Hills Golf Club",
+      "address": "125 Clubhouse Vandalia, OH 45377",
+      "state": "OH",
+      "county": "Montgomery County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/cassel-hills-golf-club-vandalia-oh"
+      ]
+    },
+    {
+      "name": "Community Golf Course",
+      "address": "2917 Berkley St Dayton, OH 45409",
+      "state": "OH",
+      "county": "Montgomery County",
+      "holes": null,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/community-golf-course-dayton-oh"
+      ]
+    },
+    {
+      "name": "Graywolf Golf Club",
+      "address": "1 Club Dr Clayton, OH 45315",
+      "state": "OH",
+      "county": "Montgomery County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/graywolf-golf-club-clayton-oh"
+      ]
+    },
+    {
+      "name": "Jamaica Run Golf Club",
+      "address": "8781 Jamaica Rd Germantown, OH 45327",
+      "state": "OH",
+      "county": "Montgomery County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/jamaica-run-golf-club-germantown-oh"
+      ]
+    },
+    {
+      "name": "EagleSticks Golf Club",
+      "address": "2655 Maysville Pike Zanesville, OH 43701",
+      "state": "OH",
+      "county": "Muskingum County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/eaglesticks-golf-club-zanesville-oh"
+      ]
+    },
+    {
+      "name": "Auglaize Golf Club",
+      "address": "19062 State Route 111 Defiance, OH 43512",
+      "state": "OH",
+      "county": "Paulding County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/auglaize-golf-club-defiance-oh"
+      ]
+    },
+    {
+      "name": "Crown Hill Golf Club",
+      "address": "9500 US Rte 22 Williamsport, OH 43164",
+      "state": "OH",
+      "county": "Pickaway County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/crown-hill-golf-club-williamsport-oh"
+      ]
+    },
+    {
+      "name": "Boulder Creek Golf Club",
+      "address": "9700 Page Rd Streetsboro, OH 44241",
+      "state": "OH",
+      "county": "Portage County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/boulder-creek-golf-club-streetsboro-oh"
+      ]
+    },
+    {
+      "name": "Fairways at Twin Lakes, The",
+      "address": "1519 Overlook Rd Kent, OH 44240",
+      "state": "OH",
+      "county": "Portage County",
+      "holes": 9,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/fairways-at-twin-lakes-the-kent-oh"
+      ]
+    },
+    {
+      "name": "Delphos Country Club",
+      "address": "7055 Shenk Rd Delphos, OH 45833",
+      "state": "OH",
+      "county": "Putnam County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/delphos-country-club-delphos-oh"
+      ]
+    },
+    {
+      "name": "Deer Ridge Golf Club",
+      "address": "900 Comfort Plaza Dr Bellville, OH 44813",
+      "state": "OH",
+      "county": "Richland County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/deer-ridge-golf-club-bellville-oh"
+      ]
+    },
+    {
+      "name": "Chillicothe Jaycee Golf Course",
+      "address": "12100 Pleasant Valley Road Chillicothe, OH 45601",
+      "state": "OH",
+      "county": "Ross County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/chillicothe-jaycee-golf-course-chillicothe-oh"
+      ]
+    },
+    {
+      "name": "Dogwood Hills Golf Course",
+      "address": "1193 Debord Rd Chillicothe, OH 45601",
+      "state": "OH",
+      "county": "Ross County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/dogwood-hills-golf-course-chillicothe-oh"
+      ]
+    },
+    {
+      "name": "Green Hills Golf Course",
+      "address": "1959 S Main St Clyde, OH 43410",
+      "state": "OH",
+      "county": "Sandusky County",
+      "holes": 27,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/green-hills-golf-course-clyde-oh"
+      ]
+    },
+    {
+      "name": "Fostoria Country Club",
+      "address": "747 Independence Ave Fostoria, OH 44830",
+      "state": "OH",
+      "county": "Seneca County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/fostoria-country-club-fostoria-oh"
+      ]
+    },
+    {
+      "name": "Arrowhead Golf Club",
+      "address": "1500 Rogwin Cir SW North Canton, OH 44720",
+      "state": "OH",
+      "county": "Stark County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/arrowhead-golf-club-north-canton-oh"
+      ]
+    },
+    {
+      "name": "Legends of Massillon, The",
+      "address": "2700 Augusta Dr SE Massillon, OH 44646",
+      "state": "OH",
+      "county": "Stark County",
+      "holes": 27,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/legends-of-massillon-the-massillon-oh"
+      ]
+    },
+    {
+      "name": "Brookledge Golf Course",
+      "address": "1621 E Bailey Rd Cuyahoga Falls, OH 44221",
+      "state": "OH",
+      "county": "Summit County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/brookledge-golf-course-cuyahoga-falls-oh"
+      ]
+    },
+    {
+      "name": "Ellsworth Meadows Golf Club",
+      "address": "1101 Barlow Rd Hudson, OH 44236",
+      "state": "OH",
+      "county": "Summit County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/ellsworth-meadows-golf-club-hudson-oh"
+      ]
+    },
+    {
+      "name": "Firestone Nine",
+      "address": "600 Schwartz Rd Akron, OH 44319",
+      "state": "OH",
+      "county": "Summit County",
+      "holes": 9,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/firestone-nine-akron-oh"
+      ]
+    },
+    {
+      "name": "Fox Den Golf Course",
+      "address": "2770 Call Rd Stow, OH 44224",
+      "state": "OH",
+      "county": "Summit County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/fox-den-golf-course-stow-oh"
+      ]
+    },
+    {
+      "name": "Gleneagles Golf Club",
+      "address": "2615 Glenwood Dr Twinsburg, OH 44087",
+      "state": "OH",
+      "county": "Summit County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/gleneagles-golf-club-twinsburg-oh"
+      ]
+    },
+    {
+      "name": "Good Park Golf Course",
+      "address": "530 Nome Ave Akron, OH 44320",
+      "state": "OH",
+      "county": "Summit County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/good-park-golf-course-akron-oh"
+      ]
+    },
+    {
+      "name": "Henry Stambaugh Golf Course",
+      "address": "202 Gypsy Ln Youngstown, OH 44505",
+      "state": "OH",
+      "county": "Trumbull County",
+      "holes": 9,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/henry-stambaugh-golf-course-youngstown-oh"
+      ]
+    },
+    {
+      "name": "Blues Creek Golf Club",
+      "address": "20640 State Route 4, Marysville, OH 43040",
+      "state": "OH",
+      "county": "Union County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/blues-creek-golf-club-marysville-oh",
+        "https://www.bluescreekgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Darby Creek Golf Course",
+      "address": "19300 Orchard Rd Marysville, OH 43040",
+      "state": "OH",
+      "county": "Union County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/darby-creek-golf-course-marysville-oh"
+      ]
+    },
+    {
+      "name": "Hickory Sticks Golf Course",
+      "address": "12083 US 127 S Van Wert, OH 45891",
+      "state": "OH",
+      "county": "Van Wert County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/hickory-sticks-golf-course-van-wert-oh"
+      ]
+    },
+    {
+      "name": "Franklin Golf Club",
+      "address": "180 N Main St Franklin, OH 45005",
+      "state": "OH",
+      "county": "Warren County",
+      "holes": 9,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/franklin-golf-club-franklin-oh"
+      ]
+    },
+    {
+      "name": "Heatherwoode Golf Club",
+      "address": "88 Heatherwoode Circle Springboro, OH 45066",
+      "state": "OH",
+      "county": "Warren County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/heatherwoode-golf-club-springboro-oh"
+      ]
+    },
+    {
+      "name": "Lakeside Golf Club",
+      "address": "State Route 60 Beverly, OH 45715",
+      "state": "OH",
+      "county": "Washington County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/lakeside-golf-club-beverly-oh"
+      ]
+    },
+    {
+      "name": "Chippewa Golf Club",
+      "address": "12147 Shank Rd Doylestown, OH 44230",
+      "state": "OH",
+      "county": "Wayne County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/chippewa-golf-club-doylestown-oh"
+      ]
+    },
+    {
+      "name": "Birch Run Golf Club",
+      "address": "14451 Deshler Rd North Baltimore, OH 45872",
+      "state": "OH",
+      "county": "Wood County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/birch-run-golf-club-north-baltimore-oh"
+      ]
+    },
+    {
+      "name": "Crosswinds Golf Course",
+      "address": "8205 Fremont Pike Perrysburg, OH 43551",
+      "state": "OH",
+      "county": "Wood County",
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/crosswinds-golf-course-perrysburg-oh"
+      ]
+    },
+    {
+      "name": "Lincoln Hills Golf Club",
+      "address": "5377 County Highway 330 Upper Sandusky, OH 43351",
+      "state": "OH",
+      "county": "Wyandot County",
+      "holes": 9,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/lincoln-hills-golf-club-upper-sandusky-oh"
+      ]
+    },
+    {
+      "name": "Arrowhead Golf Club",
+      "address": "2211 Dirksen Rd, Minster, OH 45865",
+      "state": "OH",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/arrowhead-golf-club-minster-oh-87d7a6b4-01a2-4819-8510-1460df51a329",
+        "https://www.arrowhead-golf.com/contact",
+        "https://www.ohiogolf.org/clubs/arrowhead-golf-club-minster-oh"
+      ]
+    },
+    {
+      "name": "Deer Track Golf Course",
+      "address": "6160 State Rte 727 Goshen, OH 45122",
+      "state": "OH",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.ohiogolf.org/clubs/deer-track-golf-course-goshen-oh"
+      ]
+    },
+    {
       "name": "Earlywine Golf Course",
       "address": "11600 S. Portland Avenue, Oklahoma City, OK 73170",
       "state": "OK",
@@ -19459,6 +21423,44 @@
       "sources": [
         "https://www.okc.gov/Community-Recreation/Recreation-Activities/Public-Golf-Courses",
         "https://www.okc.gov/News-articles/Earlywine-Golf-Club-Clubhouse-Grand-Opening-July-10"
+      ]
+    },
+    {
+      "name": "Cedar Valley Golf Club",
+      "address": "210 Par Ave, Guthrie, OK 73044",
+      "state": "OK",
+      "county": "Logan County",
+      "holes": 36,
+      "sources": [
+        "https://www.cedarvalleygolfclub.com/",
+        "https://www.cedarvalleygolfclub.com/cedar-valley-golf-club-guthrie-ok",
+        "https://www.townofcedarvalley.com/"
+      ],
+      "access_note": "Closed Christmas Day."
+    },
+    {
+      "name": "Cimarron National Golf Club",
+      "address": "500 Duffy's Way, Guthrie, OK 73044",
+      "state": "OK",
+      "county": "Logan County",
+      "holes": 36,
+      "sources": [
+        "https://www.cedarvalleygolfclub.com/",
+        "https://www.cimarronnational.com/",
+        "https://www.townofcedarvalley.com/"
+      ],
+      "access_note": "Closed Christmas Day."
+    },
+    {
+      "name": "Buncombe Creek Golf Course",
+      "address": "16405 Brumley Dr, Kingston, OK 73439",
+      "state": "OK",
+      "county": "Marshall County",
+      "holes": 9,
+      "sources": [
+        "https://golfoklahoma.org/buncombe-creek-golf-course/",
+        "https://www.buncombecreekgolf.com/",
+        "https://marshall.okcounties.org/departments/economic-development-authority/marshall-county-quality-of-life"
       ]
     },
     {
@@ -19506,6 +21508,16 @@
       ]
     },
     {
+      "name": "FireLake Golf Course",
+      "address": "1901 S Gordon Cooper Dr, Shawnee, OK 74801",
+      "state": "OK",
+      "county": "Pottawatomie County",
+      "holes": 18,
+      "sources": [
+        "https://www.firelakegolf.com/about-firelake"
+      ]
+    },
+    {
       "name": "South Lakes Golf Course",
       "address": "9253 S. Elwood, Jenks, OK 74037",
       "state": "OK",
@@ -19514,6 +21526,96 @@
       "sources": [
         "https://southlakesgolf.com/",
         "https://southlakesgolf.com/course/"
+      ]
+    },
+    {
+      "name": "Alva Golf and Country Club",
+      "address": "44483 Jefferson Rd, Alva, OK 73717",
+      "state": "OK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.147",
+        "https://golfoklahoma.org/alva-golf-country-club/"
+      ]
+    },
+    {
+      "name": "Arrowhead State Park Golf Course",
+      "address": "3657 Main Park Rd, Canadian, OK 74425",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.294",
+        "https://golfoklahoma.org/arrowhead-state-park-golf-course/"
+      ],
+      "access_note": "Closed Christmas Day."
+    },
+    {
+      "name": "Atoka Trails Golf Club",
+      "address": "220 N City Lake Rd, Atoka, OK 74525",
+      "state": "OK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.316"
+      ]
+    },
+    {
+      "name": "Bailey Ranch Golf Club",
+      "address": "10105 Larkin Bailey Blvd, Owasso, OK 74055",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.baileyranchgolf.com/",
+        "https://golfoklahoma.org/bailey-ranch-golf-club/",
+        "https://www.travelok.com/articles/oklahoma-golf-trail"
+      ]
+    },
+    {
+      "name": "Battle Creek Golf Club",
+      "address": "3200 N. Battle Creek Dr, Broken Arrow, OK 74012",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.battlecreekgolf.net/",
+        "https://www.battlecreekgolf.net/course-overview/",
+        "https://golfoklahoma.org/battle-creek-golf-course/"
+      ]
+    },
+    {
+      "name": "Beaver Pioneer Park Golf Course",
+      "address": "Box 1214, Beaver, OK 73932",
+      "state": "OK",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://golfoklahoma.org/beaver-pioneer-park-golf-course/"
+      ]
+    },
+    {
+      "name": "Blackmer Municipal Golf Course",
+      "address": "401 West Panhandle Street, Hooker, OK 73945",
+      "state": "OK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://golfoklahoma.org/blackmer-municipal-golf-course/",
+        "https://www.hookeroklahoma.net/blackmer-municipal-golf-course"
+      ],
+      "access_note": "Golf carts are not provided."
+    },
+    {
+      "name": "Blackwell Golf Course",
+      "address": "333 Country Club Lane, Blackwell, OK 74631",
+      "state": "OK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://golfoklahoma.org/blackwell-golf-course/",
+        "https://www.blackwellgolfcourse.com/"
       ]
     },
     {
@@ -19527,6 +21629,83 @@
       ]
     },
     {
+      "name": "Boots Hollow Golf Course",
+      "address": "5801 E. Tuxedo Blvd, Bartlesville, OK 74006",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://golfoklahoma.org/boots-hollow-golf-course/",
+        "https://bootshollowgc.com/"
+      ]
+    },
+    {
+      "name": "Brent Bruehl Memorial Golf Course",
+      "address": "1400 Chandler Park Rd, Purcell, OK 73080",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://purcellok.gov/276/Golf-Course",
+        "https://www.travelok.com/listings/view.profile/id.825"
+      ]
+    },
+    {
+      "name": "Brier Creek Golf Course",
+      "address": "1304 NW Country Club Dr, Stigler, OK 74462",
+      "state": "OK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://golfoklahoma.org/brier-creek-golf-course/",
+        "https://www.travelok.com/listings/view.profile/id.835"
+      ]
+    },
+    {
+      "name": "Buffalo Rock Golf & Venue",
+      "address": "4615 E. Ninth St, Cushing, OK 74023",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://golfoklahoma.org/buffalo-rock-golf-venue/",
+        "https://www.buffalorockcushing.com/",
+        "https://buffalorockcushing.com/course-datails/"
+      ]
+    },
+    {
+      "name": "Canyons at Blackjack Ridge",
+      "address": "1801 N. McKinley Ave, Sand Springs, OK 74063",
+      "state": "OK",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://golfoklahoma.org/canyons-at-blackjack-ridge/"
+      ]
+    },
+    {
+      "name": "Cedar Creek Golf Course at Beavers Bend State Park",
+      "address": "3650 Golf Course Rd, Broken Bow, OK 74728",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.1168",
+        "https://golfoklahoma.org/cedar-creek-state-park-golf-course/"
+      ],
+      "access_note": "Closed Christmas Day."
+    },
+    {
+      "name": "Chandler Golf Course",
+      "address": "870426 S. 3420 Rd, Chandler, OK 74834",
+      "state": "OK",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://golfoklahoma.org/chandler-golf-course/"
+      ]
+    },
+    {
       "name": "Cherokee Hills Golf Club",
       "address": "777 W Cherokee St, Catoosa, OK 74015",
       "state": "OK",
@@ -19535,6 +21714,126 @@
       "sources": [
         "https://www.travelok.com/articles/top-public-golf-courses-across-oklahoma",
         "https://www.travelok.com/listings/view.profile/id.1284"
+      ]
+    },
+    {
+      "name": "Cherokee Springs Golf Club",
+      "address": "700 E. Ballentine Rd, Tahlequah, OK 74464",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://cherokeegolf.com/springs/",
+        "https://golfoklahoma.org/cherokee-springs-golf-club/"
+      ]
+    },
+    {
+      "name": "Cherokee Trails Golf Course",
+      "address": "22706 S 504 Rd, Tahlequah, OK 74464",
+      "state": "OK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://cherokeegolf.com/trails/",
+        "https://golfoklahoma.org/cherokee-trails-golf-course/"
+      ]
+    },
+    {
+      "name": "Choctaw Creek Golf Course",
+      "address": "2200 N. Hiwassee Rd, Choctaw, OK 73020",
+      "state": "OK",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://golfoklahoma.org/choctaw-creek-golf-course/"
+      ]
+    },
+    {
+      "name": "Cimarron County Golf Course",
+      "address": null,
+      "state": "OK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://golfoklahoma.org/cimarron-county-golf-course/"
+      ]
+    },
+    {
+      "name": "Cobblestone Creek Golf Club",
+      "address": "1350 Cobblestone Creek Dr, Norman, OK 73072",
+      "state": "OK",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.cobblestonecreekgolfclub.com/",
+        "https://golfoklahoma.org/cobblestone-creek-golf-course-norman/"
+      ]
+    },
+    {
+      "name": "Comanche Lake Golf Course",
+      "address": "286016 E. 1825 Rd, Comanche, OK 73529",
+      "state": "OK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.comanchegolf.com/",
+        "https://golfoklahoma.org/comanche-golf-course/"
+      ]
+    },
+    {
+      "name": "Crimson Creek Golf Course",
+      "address": "801 Babcock Drive, El Reno, OK 73036",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://crimsoncreekgolf.com/"
+      ],
+      "access_note": "Back nine closed for aerification on October 6, 2026; confirm current availability with the course."
+    },
+    {
+      "name": "Drover Hills Golf Course",
+      "address": "2900 South 16th Street, Chickasha, OK 73018",
+      "state": "OK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://droverhills.com/",
+        "https://golfoklahoma.org/donations-deharts-drive-result-in-new-moody-learning-center-in-chickasha/"
+      ],
+      "access_note": "Closed Mondays."
+    },
+    {
+      "name": "Falconhead Resort & Country Club",
+      "address": "115 Falconhead Drive, Burneyville, OK 73430",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.falconheadok.com/"
+      ]
+    },
+    {
+      "name": "Fort Cobb State Park Golf Course",
+      "address": "27046 Marina Bay Ln, Fort Cobb, OK 73005",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.2823",
+        "https://golfoklahoma.org/oklahoma-public-course-listings/"
+      ],
+      "access_note": "Closed Thanksgiving and Christmas Day."
+    },
+    {
+      "name": "Fountainhead Creek Golf Club",
+      "address": "112469 Hwy 150, Checotah, OK 74426",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.fountainheadgolf.com/",
+        "https://golfoklahoma.org/fountainhead-golf-course/"
       ]
     },
     {
@@ -19581,6 +21880,28 @@
       ]
     },
     {
+      "name": "LaFortune Park Golf Course",
+      "address": "5501 S. Yale, Tulsa, OK 74135",
+      "state": "OK",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://lafortuneparkgolf.com/course-details/",
+        "https://golfoklahoma.org/oklahoma-public-course-listings/"
+      ]
+    },
+    {
+      "name": "Lew Wentz Golf Course",
+      "address": "2928 L.A. Cann Drive, Ponca City, OK 74604",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.poncacityok.gov/235/Lew-Wentz-Golf-Course",
+        "https://golfoklahoma.org/oklahoma-public-course-listings/"
+      ]
+    },
+    {
       "name": "Mohawk Park Golf Course",
       "address": "5223 E. 41st St North, Tulsa, OK 74115",
       "state": "OK",
@@ -19603,6 +21924,29 @@
         "https://tulsagolf.org/tee-times/"
       ],
       "access_note": "Cashless facility."
+    },
+    {
+      "name": "Roman Nose State Park Golf Course",
+      "address": "3236 S Hwy 8A, Watonga, OK 73772",
+      "state": "OK",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.6458",
+        "https://golfoklahoma.org/oklahoma-public-course-listings/"
+      ]
+    },
+    {
+      "name": "Sequoyah State Park Golf Course",
+      "address": "19277 Park 10, Hulbert, OK 74441",
+      "state": "OK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.6732",
+        "https://golfoklahoma.org/oklahoma-public-course-listings/"
+      ],
+      "access_note": "Closed Christmas Day."
     },
     {
       "name": "Turkey Creek Golf Course",
@@ -19784,6 +22128,61 @@
       ]
     },
     {
+      "name": "Mallard Creek Golf Course",
+      "address": "31966 Bellinger Scale Road, Lebanon OR 97355",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.mallardcreekgc.com"
+      ]
+    },
+    {
+      "name": "Mcnary Golf Club",
+      "address": "155 McNary Estates Drive N, Keizer OR 97303",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.mcnarygolfclub.com"
+      ]
+    },
+    {
+      "name": "Meadowlawn Golf Club",
+      "address": "3898 Meadowlawn Loop SE, Salem OR 97317",
+      "state": "OR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.meadowlawngolf.net"
+      ]
+    },
+    {
+      "name": "Old Back Nine",
+      "address": "60650 China Hat Road, Bend, OR 97702",
+      "state": "OR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://oldbacknine.com/"
+      ]
+    },
+    {
+      "name": "Oregon City Golf Club",
+      "address": "20124 S Beavercreek Road, Oregon City OR 97045",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.ocgolfclub.com"
+      ]
+    },
+    {
       "name": "RedTail Golf Course",
       "address": "8200 SW Scholls Ferry Road, Portland, OR 97005",
       "state": "OR",
@@ -19816,6 +22215,62 @@
         "https://www.portland.gov/parks/sports/golf",
         "https://www.portland.gov/sites/default/files/2019-07/orcmp_discussiondraft_101717.pdf",
         "https://www.portland.gov/parks/construction/rose-city-recreational-trail-project"
+      ]
+    },
+    {
+      "name": "Seaside Golf Club",
+      "address": "451 Avenue U, Seaside, OR 97138",
+      "state": "OR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://seasidegolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Sunset Grove Golf Club",
+      "address": "41615 NW Osterman Road, Forest Grove OR 97116",
+      "state": "OR",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.sunsetgrovegolf.com/"
+      ]
+    },
+    {
+      "name": "The Reserve Vineyards - North Course",
+      "address": "4805 SE Century Blvd, Hillsboro, OR 97129",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.reservegolf.com"
+      ],
+      "access_note": "Public access alternates between the two courses under a rotating format; verify the course available for the intended date."
+    },
+    {
+      "name": "The Reserve Vineyards - South Course",
+      "address": "4805 SE Century Blvd, Hillsboro, OR 97129",
+      "state": "OR",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://exploreoregongolf.oga.org/",
+        "https://www.reservegolf.com"
+      ],
+      "access_note": "Public access alternates between the two courses under a rotating format; verify the course available for the intended date."
+    },
+    {
+      "name": "The Bridges Golf Club",
+      "address": "6729 York Road, Abbottstown, PA 17301",
+      "state": "PA",
+      "county": "Adams County",
+      "holes": 18,
+      "sources": [
+        "https://www.bridgesgc.com/"
       ]
     },
     {
@@ -19878,6 +22333,16 @@
       "access_note": "Walking only; pull carts and powered walking caddies are available."
     },
     {
+      "name": "The Bucks Club",
+      "address": "2600 York Road, Jamison, PA 18929",
+      "state": "PA",
+      "county": "Bucks County",
+      "holes": 18,
+      "sources": [
+        "https://www.thebucksclub.com/"
+      ]
+    },
+    {
       "name": "Penn State Golf Courses",
       "address": "1523 West College Avenue, State College, PA 16801",
       "state": "PA",
@@ -19926,6 +22391,19 @@
       ]
     },
     {
+      "name": "Pinecrest Country Club - Brookville",
+      "address": "29 W. Pinecrest Lane, Brookville, PA 15825",
+      "state": "PA",
+      "county": "Jefferson County",
+      "holes": 18,
+      "sources": [
+        "https://www.pinecrestcc.com/",
+        "https://www.pinecrestcc.com/golf",
+        "https://www.pinecrestcc.com/about"
+      ],
+      "access_note": "Public play is normally unavailable Tuesday 8–11 a.m., Thursday 11 a.m.–close, and Saturday/Sunday 7:30 a.m.–noon without prior permission. Availability is at pro-shop discretion. After a fifth guest round, the club invites guests to consider membership; the posted wording does not state a hard five-round limit."
+    },
+    {
       "name": "Foxchase Golf Club",
       "address": "300 Stevens Road, Stevens, PA 17578",
       "state": "PA",
@@ -19946,6 +22424,16 @@
         "https://www.pilgrimsoak.com/",
         "https://www.pilgrimsoak.com/golf/course",
         "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Tanglewood Manor Golf Club",
+      "address": "653 Scotland Road, Quarryville, PA 17566",
+      "state": "PA",
+      "county": "Lancaster County",
+      "holes": 18,
+      "sources": [
+        "https://www.twgolf.com/"
       ]
     },
     {
@@ -19983,6 +22471,16 @@
         "https://devarchive.bethlehem-pa.gov/pdf/2019/CITY%20OF%20BETHLEHEM%20spr%20sum%2019%20website.pdf"
       ],
       "access_note": "Children must be at least five years old to be on the golf course."
+    },
+    {
+      "name": "Tyoga Golf Course",
+      "address": "759 Route 660, Wellsboro, PA 16901",
+      "state": "PA",
+      "county": "Tioga County",
+      "holes": 18,
+      "sources": [
+        "https://tyogagolf.com/"
+      ]
     },
     {
       "name": "Irwin Country Club",
@@ -20308,6 +22806,18 @@
       ]
     },
     {
+      "name": "Knoebels Three Ponds Golf Course",
+      "address": "954 PA-487, Elysburg, PA 17824",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://knoebels.com/golf/",
+        "https://knoebels.com/golf/course-overview/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
       "name": "Lake Arthur Golf Club",
       "address": "255 Isle Road, Butler, PA 16001",
       "state": "PA",
@@ -20532,6 +23042,172 @@
       "sources": [
         "https://springhollowgolf.com/",
         "https://springhollowgolf.com/privacy-policy/"
+      ]
+    },
+    {
+      "name": "Spring Valley Golf and Lodge",
+      "address": "496 Bestwick Road, Mercer, PA 16137",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfspringvalley.com/",
+        "https://www.golfspringvalley.com/the-course/"
+      ]
+    },
+    {
+      "name": "Strawberry Ridge Golf Course",
+      "address": "135 McNulty Lane, Harmony, PA 16037",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.strawberryridgegolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Suncrest Golf and Grille",
+      "address": "137 Brownsdale Road, Butler, PA 16002",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://suncrestgolf.com/",
+        "https://suncrestgolf.com/hole-by-hole/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Sweet Water Golf Course",
+      "address": "2556 Geryville Pike, Pennsburg, PA 18073",
+      "state": "PA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.golfsweetwater.com/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Tall Pines Players Club",
+      "address": "628 Kinney Road, Friendsville, PA 18818",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://tallpinesplayersclubllc.com/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "The Abington Club",
+      "address": "300 Meetinghouse Road, Jenkintown, PA 19046",
+      "state": "PA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.abingtonclub.com/",
+        "https://www.abingtonclub.com/golf"
+      ]
+    },
+    {
+      "name": "The Club at Middlecreek",
+      "address": "227 Golfers Lane, Rockwood, PA 15557",
+      "state": "PA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.theclubatmiddlecreek.com/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "The Club at Twin Lakes",
+      "address": "3625 Shankweiler Road, Allentown, PA 18104",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.theclubattwinlakes.com/"
+      ]
+    },
+    {
+      "name": "The Madison Club",
+      "address": "519 Yukon Road, Madison, PA 15663",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.themadisonclub.com/",
+        "https://irp.cdn-website.com/07b65a9b/files/uploaded/The%20Madison%20Club%20Scorecard_Blue%20Proof_9UXjrzEeQ6GOuCIELc1Z.pdf",
+        "https://irp.cdn-website.com/07b65a9b/files/uploaded/Website%20Policies.pdf"
+      ],
+      "access_note": "Tee times are required daily."
+    },
+    {
+      "name": "Toftrees Golf Resort",
+      "address": "1 Country Club Lane, State College, PA 16803",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.toftrees.com/",
+        "https://www.toftrees.com/golf.htm",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Turtle Creek Golf Course",
+      "address": "303 W. Ridge Pike, Limerick, PA 19468",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.turtlecreekgolf.com/",
+        "https://www.turtlecreekgolf.com/the-course/stats-and-scorecard",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Victory Hills Golf Course",
+      "address": "357 Pineview Drive, Elizabeth, PA 15037",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://golfvictoryhills.com/"
+      ]
+    },
+    {
+      "name": "Wemberly Hills Golf Course",
+      "address": "66 Club House Lane, Olyphant, PA 18447",
+      "state": "PA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.wemberlyhillsgc.com/"
+      ]
+    },
+    {
+      "name": "Whitetail Golf Club",
+      "address": "2679 Klein Road, Bath, PA 18014",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.whitetailgc.com/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Wyncote Golf Club",
+      "address": "50 Wyncote Drive, Oxford, PA 19363",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://wyncote.com/",
+        "https://wyncote.com/course-details/"
       ]
     },
     {
@@ -24962,6 +27638,74 @@
       ]
     },
     {
+      "name": "Allenmore Golf Course",
+      "address": "2013 S. Cedar Street, Tacoma, WA 98405",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://allenmoregolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Avalon Golf Links",
+      "address": "19345 Kelleher Road, Burlington, WA 98233",
+      "state": "WA",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.avalonlinks.com/"
+      ]
+    },
+    {
+      "name": "Battle Creek Golf Course",
+      "address": "6006 Meridian Avenue N, Tulalip, WA 98271",
+      "state": "WA",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.battlecreekgolfwa.com/",
+        "https://www.battlecreekgolfwa.com/courses",
+        "https://wagolf.org/courses/battle-creek-golf-course",
+        "https://www.snohomishcountyam.com/eligible-men-s-clubs"
+      ],
+      "access_note": "The nine-hole par-three course accepts walk-ons only; the championship course advertises tee times."
+    },
+    {
+      "name": "Bear Mountain Ranch Golf Course",
+      "address": "1050 Bear Mountain Ranch Road, Chelan, WA 98816",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://bearmtgolf.com/"
+      ]
+    },
+    {
+      "name": "Bellevue Golf Course",
+      "address": "5500 140th Avenue NE, Bellevue, WA 98005",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.bellevuepgc.com/",
+        "https://www.bellevuepgc.com/course/"
+      ]
+    },
+    {
+      "name": "Camaloch Golf Course",
+      "address": "326 NE Camano Drive, Camano Island, WA 98282",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://camalochgolf.com/",
+        "https://camalochgolf.com/course-info/",
+        "https://camalochgolf.com/golf-course-rules/"
+      ],
+      "access_note": "Children under ten may play only while receiving golf instruction and with their own clubs."
+    },
+    {
       "name": "Camas Meadows Golf Club",
       "address": "4105 NW Camas Meadows Drive, Camas WA 98607",
       "state": "WA",
@@ -24970,6 +27714,39 @@
       "sources": [
         "https://exploreoregongolf.oga.org/",
         "https://www.camasmeadows.com"
+      ]
+    },
+    {
+      "name": "Canyon Lakes Golf Course",
+      "address": "3700 W. Canyon Lakes Drive, Kennewick, WA 99337",
+      "state": "WA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.canyonlakesgolfcourse.com/-home"
+      ],
+      "access_note": "Public tee times are advertised Friday–Sunday, 9 a.m.–noon, with reservations up to thirty days in advance."
+    },
+    {
+      "name": "Cedarcrest Golf Course",
+      "address": "6810 84th Street NE, Marysville, WA 98270",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.cedarcrestgc.com/",
+        "https://www.cedarcrestgc.com/course/",
+        "https://www.cedarcrestgc.com/wp-content/uploads/sites/9853/2026/03/2023-Cedarcrest-Scorecard_7038c7-pages-deleted.pdf"
+      ]
+    },
+    {
+      "name": "Chewelah Golf and Country Club",
+      "address": "2537 Sand Canyon Road, Chewelah, WA 99109",
+      "state": "WA",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://chewelahgolf.com/"
       ]
     },
     {
@@ -24994,6 +27771,85 @@
         "https://www.playcolumbiapoint.com/golf-course/course-information",
         "https://www.courseco.com/washington-courses"
       ]
+    },
+    {
+      "name": "Coyote Ridge Golf Course",
+      "address": "307 Ludolph Road, Electric City, WA 99123",
+      "state": "WA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.coyoteridgegolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Delphi Golf Course",
+      "address": "6340 Neylon Drive SW, Olympia, WA 98512",
+      "state": "WA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.delphigolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Desert Aire Golf Course",
+      "address": "504 Clubhouse Way SW, Desert Aire, WA 99349",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.daoa.org/",
+        "https://www.daoa.org/Golf/Pro_Shop"
+      ]
+    },
+    {
+      "name": "Dominion Meadows Golf Club",
+      "address": "1851 East Hawthorne Avenue, Colville, WA 99114",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://golfdominionmeadows.com/",
+        "https://golfdominionmeadows.com/about-us/",
+        "https://golfdominionmeadows.com/golf/"
+      ]
+    },
+    {
+      "name": "Gleneagle Golf Course",
+      "address": "7619 East Country Club Drive, Arlington, WA 98223",
+      "state": "WA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.gleneaglegc.com/",
+        "https://www.gleneaglegc.com/about",
+        "https://www.gleneaglegc.com/courseinfo"
+      ]
+    },
+    {
+      "name": "Grandview Golf Course",
+      "address": "7738 Portal Way, Custer, WA 98240",
+      "state": "WA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfatgrandview.com/",
+        "https://wagolf.org/courses/grandview-golf-course"
+      ]
+    },
+    {
+      "name": "Green Lake Pitch and Putt",
+      "address": "5701 E. Green Lake Way N., Seattle, WA 98103",
+      "state": "WA",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.greenlakepitchandputt.com/",
+        "https://www.greenlakepitchandputt.com/golf",
+        "https://www.greenlakepitchandputt.com/what-is-pitch-and-putt"
+      ],
+      "access_note": "Children under sixteen must always be accompanied by an adult; ages sixteen through eighteen require adult accompaniment on their first visit. Seasonal operation March 1–November 1."
     },
     {
       "name": "Palouse Ridge Golf Club",
@@ -35224,13 +38080,29 @@
       "state": "MS",
       "fips": "28001",
       "name": "Adams County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://natchez.ms.us/Facilities/Facility/Details/-21"
+      ],
+      "queries": [
+        "\"Adams County\" Mississippi public golf Duncan Natchez"
+      ],
+      "outcome": "Natchez Golf Club verified from city and operator sources. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28003",
       "name": "Alcorn County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://members.corinthalliance.com/list/member/hillandale-golf-course-1011"
+      ],
+      "queries": [
+        "\"Alcorn County\" Mississippi public golf course Hillandale"
+      ],
+      "outcome": "Hillandale public classification verified; other county candidates remain under review. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35308,25 +38180,59 @@
       "state": "MS",
       "fips": "28029",
       "name": "Copiah County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://wolfhollowgolfclub.com/golf-course/"
+      ],
+      "queries": [
+        "\"Copiah County\" Mississippi public golf Wolf Hollow"
+      ],
+      "outcome": "Wolf Hollow verified from college-course operator. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28031",
       "name": "Covington County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.covingtoncountyms.gov/visitors/local-attractions",
+        "https://okatomagolfclub.com/"
+      ],
+      "queries": [
+        "\"Covington County\" Mississippi \"golf\" public"
+      ],
+      "outcome": "Okatoma official public-golf site identified; final source review pending. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28033",
       "name": "DeSoto County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://desotocounty.com/living-in-desoto",
+        "https://olivebranchgolf.com/"
+      ],
+      "queries": [
+        "\"DeSoto County\" Mississippi public golf courses official"
+      ],
+      "outcome": "County economic-development page identifies several golf candidates; Cherokee Valley explicitly public on owner site; other access policies under review. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28035",
       "name": "Forrest County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://forrestcountyms.us/directory-listing/"
+      ],
+      "queries": [
+        "\"Forrest County\" Mississippi public golf courses"
+      ],
+      "outcome": "County recreation reviewed; named golf candidates require operator public-play verification. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35350,25 +38256,59 @@
       "state": "MS",
       "fips": "28043",
       "name": "Grenada County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.mdwfp.com/parks-destinations/golf-courses/dogwoods-golf-course"
+      ],
+      "queries": [
+        "\"Grenada County\" public golf courses official"
+      ],
+      "outcome": "Dogwoods verified from state operator; private and semi-private alternatives not assumed public. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28045",
       "name": "Hancock County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://theclubatdiamondhead.com/Golf",
+        "https://hancockmsmyhome.com/activities-lifestyle/"
+      ],
+      "queries": [
+        "\"Hancock County\" Mississippi public golf courses Diamondhead"
+      ],
+      "outcome": "Diamondhead Pine and Cardinal courses verified as ordinary public-access golf. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28047",
       "name": "Harrison County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://theoaksgolfclub.com/",
+        "https://windancecc.com/"
+      ],
+      "queries": [
+        "\"Harrison County\" Mississippi public golf courses official"
+      ],
+      "outcome": "The Oaks verified from operator; Windance and other candidates under review; Grand Bear owner terms restrict extraction. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28049",
       "name": "Hinds County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://eagleridge.hindscc.edu/eagle-ridge-golf-course"
+      ],
+      "queries": [
+        "\"Hinds County\" public golf courses official"
+      ],
+      "outcome": "Eagle Ridge verified from college operator and state golf association; other county candidates remain unreviewed. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35398,7 +38338,16 @@
       "state": "MS",
       "fips": "28059",
       "name": "Jackson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.shelllandinggolf.com/",
+        "https://thepreservems.com/course-details/"
+      ],
+      "queries": [
+        "\"Jackson County\" Mississippi public golf course official"
+      ],
+      "outcome": "Shell Landing verified; Preserve and county-owned Whispering Pines under review. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35416,7 +38365,15 @@
       "state": "MS",
       "fips": "28065",
       "name": "Jefferson Davis County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://discoverjeffdaviscounty.com/visit-jeff-davis-county/tourism/"
+      ],
+      "queries": [
+        "\"Jefferson Davis County\" Mississippi golf public Prentiss"
+      ],
+      "outcome": "Prentiss physical nine-hole course identified, with eighteen-hole rounds; ordinary public classification still unclear. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35434,19 +38391,44 @@
       "state": "MS",
       "fips": "28071",
       "name": "Lafayette County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://eventcalendar.olemiss.edu/the_ole_miss_golf_course"
+      ],
+      "queries": [
+        "\"Lafayette County\" Mississippi public golf course official"
+      ],
+      "outcome": "Ole Miss verified from university sources. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28073",
       "name": "Lamar County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://pinecreekatpurvis.com/",
+        "https://www.peer.ms.gov/sites/default/files/peer_publications/rpt632.pdf"
+      ],
+      "queries": [
+        "\"Lamar County\" Mississippi public golf course Pine Creek"
+      ],
+      "outcome": "Pine Creek verified from owner and county independently confirmed by state legislative PEER report. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28075",
       "name": "Lauderdale County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://meridianms.org/government/parks-and-recreation/lakeview-golf-course/"
+      ],
+      "queries": [
+        "\"Lauderdale County\" Mississippi public golf course Lakeview"
+      ],
+      "outcome": "Lakeview verified from city owner; state forestry plan independently places course in county. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35464,7 +38446,16 @@
       "state": "MS",
       "fips": "28081",
       "name": "Lee County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.tupelo.net/directory/bel-air-golf-course/",
+        "https://tupelonational.com/"
+      ],
+      "queries": [
+        "\"Lee County\" Mississippi public golf Bel Air Tupelo National"
+      ],
+      "outcome": "Bel Air public nine-hole course verified; Tupelo National public policy verified but physical holes pending. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35476,13 +38467,30 @@
       "state": "MS",
       "fips": "28085",
       "name": "Lincoln County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://theclubsatolebrook.com/the-ole-brook/"
+      ],
+      "queries": [
+        "\"Lincoln County\" Mississippi public golf courses"
+      ],
+      "outcome": "The Club at Ole Brook identified, but semi-private label alone is not used as proof of public play. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28087",
       "name": "Lowndes County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.elmlakegolfcourse.com/",
+        "https://visitmississippi.org/things-to-do/golf/elm-lake-golf-course/"
+      ],
+      "queries": [
+        "\"Lowndes County\" public golf courses Mississippi official"
+      ],
+      "outcome": "Elm Lake verified; Lion Hills is a further college-operated candidate; county query also returned similarly named counties in other states, which were excluded. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35500,13 +38508,31 @@
       "state": "MS",
       "fips": "28093",
       "name": "Marshall County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.marshallcoms.com/things-to-do/golf/",
+        "https://kirkwoodgolf.com/book-a-tee-time/"
+      ],
+      "queries": [
+        "\"Marshall County\" Mississippi public golf Kirkwood"
+      ],
+      "outcome": "Kirkwood explicit public daily-fee policy found; final terms review pending. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28095",
       "name": "Monroe County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gomonroe.org/recreation/",
+        "https://www.cityofamoryms.gov/print/pdf/node/86"
+      ],
+      "queries": [
+        "\"Monroe County\" Mississippi public golf Amory"
+      ],
+      "outcome": "Amory and River Birch identified from local primary sources; ordinary public access remains under review. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35518,7 +38544,16 @@
       "state": "MS",
       "fips": "28099",
       "name": "Neshoba County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://dancingrabbitgolf.com/",
+        "https://visitneshoba.com/things-to-do/outdoors/"
+      ],
+      "queries": [
+        "\"Neshoba County\" Mississippi public golf course official"
+      ],
+      "outcome": "Dancing Rabbit Azaleas and Oaks verified as distinct public courses. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35536,7 +38571,15 @@
       "state": "MS",
       "fips": "28105",
       "name": "Oktibbeha County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.golf.msstate.edu/golf/rates-tee-times"
+      ],
+      "queries": [
+        "\"Oktibbeha County\" Mississippi public golf university"
+      ],
+      "outcome": "Mississippi State University course verified from operator and state tourism. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35548,7 +38591,15 @@
       "state": "MS",
       "fips": "28109",
       "name": "Pearl River County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://lakehillsdalegolf.com/"
+      ],
+      "queries": [
+        "\"Pearl River County\" Mississippi \"golf\" public"
+      ],
+      "outcome": "Lake Hillsdale owner explicitly identifies a public eighteen-hole course with walk-ins welcome. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35560,7 +38611,16 @@
       "state": "MS",
       "fips": "28113",
       "name": "Pike County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.mdwfp.com/parks-destinations/golf-courses/quail-hollow-golf-course",
+        "https://www.legislature.ms.gov/media/1135/2020_senate_summary.pdf"
+      ],
+      "queries": [
+        "\"Pike County\" Mississippi golf public Quail Hollow"
+      ],
+      "outcome": "Quail Hollow verified; state legislature independently identifies Pike County. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35584,7 +38644,15 @@
       "state": "MS",
       "fips": "28121",
       "name": "Rankin County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://business.rankinchamber.com/list/category/golf-courses-128?dm=True&o="
+      ],
+      "queries": [
+        "\"Rankin County\" Mississippi public golf courses Patrick Farms"
+      ],
+      "outcome": "Patrick Farms and Castlewoods identified; exact public-play policies under review; Pearl municipal city-source reuse is held. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35602,7 +38670,15 @@
       "state": "MS",
       "fips": "28127",
       "name": "Simpson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.missgolf.org/club-membership"
+      ],
+      "queries": [
+        "\"Simpson County\" Mississippi \"golf\" public"
+      ],
+      "outcome": "Simpson County Country Club identified as semi-private, ordinary access not yet confirmed. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35614,7 +38690,15 @@
       "state": "MS",
       "fips": "28131",
       "name": "Stone County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.mfc.ms.gov/wp-content/uploads/2020/12/StoneCo-CWPP-Final.pdf"
+      ],
+      "queries": [
+        "\"Stone County\" Mississippi \"golf\" public"
+      ],
+      "outcome": "Pine Burr candidate identified; current public-play evidence remains missing. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35650,7 +38734,16 @@
       "state": "MS",
       "fips": "28143",
       "name": "Tunica County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.riverbendlinks.com/",
+        "https://tunicanational.com/course-details/"
+      ],
+      "queries": [
+        "\"Tunica County\" Mississippi public golf course official"
+      ],
+      "outcome": "River Bend Links public access verified with unknown physical hole total; Tunica National terms review pending. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -35668,13 +38761,31 @@
       "state": "MS",
       "fips": "28149",
       "name": "Warren County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://clearcreekgolfcourse.com/",
+        "https://www.visitvicksburg.com/things-to-do/sports/"
+      ],
+      "queries": [
+        "\"Warren County\" Mississippi public golf courses official"
+      ],
+      "outcome": "Clear Creek public course identified; county web page was excluded after returning unrelated gambling spam. Search remains incomplete."
     },
     {
       "state": "MS",
       "fips": "28151",
       "name": "Washington County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://visitmississippi.org/things-to-do/golf/greenville-municipal-golf-course/",
+        "https://visitgreenville.org/events/"
+      ],
+      "queries": [
+        "\"Washington County\" Mississippi public golf Greenville municipal"
+      ],
+      "outcome": "Greenville municipal course identified with current 2026 tourism event; address variants and ordinary access remain under review. Search remains incomplete."
     },
     {
       "state": "MS",
@@ -40071,7 +43182,17 @@
       "state": "OH",
       "fips": "39149",
       "name": "Shelby County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.co.shelby.oh.us/355/McLean",
+        "https://shelbycountyhealthdept.org/wp-content/uploads/2025/11/ARROWHEAD-GOLF-CLUB-10-09-2025.pdf"
+      ],
+      "queries": [
+        "site.shelbycountyohio.gov \"Arrowhead\" golf",
+        "site.shelbycountyohio.gov \"McLean\" Township"
+      ],
+      "outcome": "Targeted Arrowhead Minster county-conflict check; independent official leads found but county remains null pending direct verification. Incomplete county search."
     },
     {
       "state": "OH",
@@ -40155,13 +43276,25 @@
       "state": "OK",
       "fips": "40001",
       "name": "Adair County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Adair County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40003",
       "name": "Alfalfa County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Alfalfa County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40169,11 +43302,13 @@
       "name": "Atoka County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.316"
+      ],
       "queries": [
         "Atoka County Oklahoma public golf course Atoka Trails"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Atoka Trails Golf Club. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
@@ -40181,17 +43316,26 @@
       "name": "Beaver County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
-      "queries": [
-        "Beaver County Oklahoma public golf course Pioneer Park"
+      "sources": [
+        "https://golfoklahoma.org/beaver-pioneer-park-golf-course/"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "queries": [
+        "Beaver County Oklahoma public golf course Pioneer Park",
+        "Beaver Pioneer Park golf course nine holes official town"
+      ],
+      "outcome": "County-focused research reviewed Beaver Pioneer Park Golf Course. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40009",
       "name": "Beckham County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Beckham County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40199,17 +43343,26 @@
       "name": "Blaine County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.6458",
+        "https://golfoklahoma.org/oklahoma-public-course-listings/"
+      ],
       "queries": [
         "\"Blaine County\" \"Oklahoma\" golf public official"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Roman Nose State Park Golf Course. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40013",
       "name": "Bryan County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Bryan County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40217,23 +43370,38 @@
       "name": "Caddo County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.2823",
+        "https://golfoklahoma.org/oklahoma-public-course-listings/"
+      ],
       "queries": [
         "Caddo County Oklahoma public golf courses Fort Cobb"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Fort Cobb State Park Golf Course. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40017",
       "name": "Canadian County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Canadian County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40019",
       "name": "Carter County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Carter County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40241,23 +43409,38 @@
       "name": "Cherokee County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.6732",
+        "https://golfoklahoma.org/oklahoma-public-course-listings/"
+      ],
       "queries": [
         "\"Cherokee County\" \"Oklahoma\" golf public official"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Sequoyah State Park Golf Course. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40023",
       "name": "Choctaw County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Choctaw County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40025",
       "name": "Cimarron County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Cimarron County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40265,47 +43448,85 @@
       "name": "Cleveland County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.3957"
+      ],
       "queries": [
         "Cleveland County Oklahoma public golf courses official"
       ],
-      "outcome": "Initial actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Jimmie Austin OU Golf Club. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40029",
       "name": "Coal County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Coal County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40031",
       "name": "Comanche County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Comanche County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40033",
       "name": "Cotton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Cotton County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40035",
       "name": "Craig County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Craig County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40037",
       "name": "Creek County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Creek County Oklahoma Bristow Golf Club public official"
+      ],
+      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
     },
     {
       "state": "OK",
       "fips": "40039",
       "name": "Custer County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Custer County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40317,31 +43538,55 @@
       "queries": [
         "Delaware County Oklahoma public golf course official"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "Shangri-La championship and Battlefield candidates are being checked as distinct physical golf layouts. No duplicate or guessed aggregate hole total has been added. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40043",
       "name": "Dewey County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Dewey County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40045",
       "name": "Ellis County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Ellis County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40047",
       "name": "Garfield County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Garfield County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40049",
       "name": "Garvin County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Garvin County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40349,65 +43594,121 @@
       "name": "Grady County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://droverhills.com/"
+      ],
       "queries": [
         "Grady County Oklahoma public golf courses Chickasha"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Drover Hills Golf Course. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40053",
       "name": "Grant County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Grant County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40055",
       "name": "Greer County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Greer County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40057",
       "name": "Harmon County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Harmon County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40059",
       "name": "Harper County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Harper County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40061",
       "name": "Haskell County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Haskell County Oklahoma public golf Brier Creek Stigler"
+      ],
+      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
     },
     {
       "state": "OK",
       "fips": "40063",
       "name": "Hughes County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Hughes County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40065",
       "name": "Jackson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Jackson County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40067",
       "name": "Jefferson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Jefferson County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40069",
       "name": "Johnston County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Johnston County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40415,11 +43716,16 @@
       "name": "Kay County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
-      "queries": [
-        "Kay County Oklahoma public golf courses Blackwell Ponca City"
+      "sources": [
+        "https://golfoklahoma.org/blackwell-golf-course/",
+        "https://www.poncacityok.gov/235/Lew-Wentz-Golf-Course",
+        "https://golfoklahoma.org/oklahoma-public-course-listings/"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "queries": [
+        "Kay County Oklahoma public golf courses Blackwell Ponca City",
+        "Blackwell municipal golf course nine holes official city"
+      ],
+      "outcome": "County-focused research reviewed Blackwell Golf Course, Lew Wentz Golf Course. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
@@ -40427,41 +43733,79 @@
       "name": "Kingfisher County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/articles/top-public-golf-courses-across-oklahoma",
+        "https://www.travelok.com/listings/view.profile/id.20497"
+      ],
       "queries": [
         "Kingfisher County Oklahoma public golf course official"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Turkey Creek Golf Course. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40075",
       "name": "Kiowa County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Kiowa County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40077",
       "name": "Latimer County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Latimer County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40079",
       "name": "Le Flore County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Le Flore County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40081",
       "name": "Lincoln County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Lincoln County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40083",
       "name": "Logan County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.cedarvalleygolfclub.com/",
+        "https://www.cedarvalleygolfclub.com/cedar-valley-golf-club-guthrie-ok",
+        "https://www.townofcedarvalley.com/",
+        "https://www.cimarronnational.com/"
+      ],
+      "queries": [
+        "Logan County Oklahoma public golf Cedar Valley Cimarron"
+      ],
+      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
     },
     {
       "state": "OK",
@@ -40473,13 +43817,19 @@
       "queries": [
         "Love County Oklahoma public golf course official WinStar"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "WinStar identified, but its current renovation/physical-hole scope requires independent resolution. Owner terms restrict public reuse of site materials; owner source held. No new row yet. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40087",
       "name": "McClain County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "McClain County Oklahoma public golf Purcell Brent Bruehl"
+      ],
+      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
     },
     {
       "state": "OK",
@@ -40487,23 +43837,38 @@
       "name": "McCurtain County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.1168",
+        "https://golfoklahoma.org/cedar-creek-state-park-golf-course/"
+      ],
       "queries": [
         "McCurtain County Oklahoma public golf course Broken Bow Idabel"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Cedar Creek Golf Course at Beavers Bend State Park. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40091",
       "name": "McIntosh County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"McIntosh County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40093",
       "name": "Major County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Major County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40511,47 +43876,89 @@
       "name": "Marshall County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/articles/top-public-golf-courses-across-oklahoma",
+        "https://www.travelok.com/listings/view.profile/id.1350",
+        "https://marshall.okcounties.org/departments/economic-development-authority/marshall-county-quality-of-life",
+        "https://golfoklahoma.org/buncombe-creek-golf-course/",
+        "https://www.buncombecreekgolf.com/"
+      ],
       "queries": [
         "Marshall County Oklahoma public golf course official Chickasaw"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Chickasaw Pointe Golf Club, Buncombe Creek Golf Course. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40097",
       "name": "Mayes County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Mayes County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40099",
       "name": "Murray County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Murray County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40101",
       "name": "Muskogee County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Muskogee County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40103",
       "name": "Noble County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Noble County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40105",
       "name": "Nowata County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Nowata County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40107",
       "name": "Okfuskee County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Okfuskee County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40559,35 +43966,63 @@
       "name": "Oklahoma County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/articles/top-public-golf-courses-across-oklahoma",
+        "https://www.travelok.com/listings/view.profile/id.4175",
+        "https://golfoklahoma.org/choctaw-creek-golf-course/"
+      ],
       "queries": [
         "Oklahoma County public golf courses official"
       ],
-      "outcome": "Initial actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed KickingBird Golf Club, Choctaw Creek Golf Course. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40111",
       "name": "Okmulgee County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Okmulgee County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40113",
       "name": "Osage County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Osage County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40115",
       "name": "Ottawa County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Ottawa County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40117",
       "name": "Pawnee County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Pawnee County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40595,11 +44030,15 @@
       "name": "Payne County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
-      "queries": [
-        "Payne County Oklahoma public golf courses official"
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.4091",
+        "https://golfoklahoma.org/buffalo-rock-golf-venue/"
       ],
-      "outcome": "Initial actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "queries": [
+        "Payne County Oklahoma public golf courses official",
+        "Buffalo Rock Cushing golf public site:buffalorockcushing.com OR site:travelok.com"
+      ],
+      "outcome": "County-focused research reviewed Karsten Creek Golf Club, Buffalo Rock Golf & Venue. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
@@ -40607,35 +44046,64 @@
       "name": "Pittsburg County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.294",
+        "https://golfoklahoma.org/arrowhead-state-park-golf-course/"
+      ],
       "queries": [
         "\"Pittsburg County\" \"Oklahoma\" public golf"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Arrowhead State Park Golf Course. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40123",
       "name": "Pontotoc County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Pontotoc County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40125",
       "name": "Pottawatomie County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.firelakegolf.com/about-firelake"
+      ],
+      "queries": [
+        "\"Pottawatomie County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40127",
       "name": "Pushmataha County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Pushmataha County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40129",
       "name": "Roger Mills County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Roger Mills County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40643,41 +44111,74 @@
       "name": "Rogers County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/articles/top-public-golf-courses-across-oklahoma",
+        "https://www.travelok.com/listings/view.profile/id.1284"
+      ],
       "queries": [
         "Rogers County Oklahoma public golf courses Claremore Catoosa"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Cherokee Hills Golf Club. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40133",
       "name": "Seminole County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Seminole County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40135",
       "name": "Sequoyah County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Sequoyah County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40137",
       "name": "Stephens County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Stephens County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40139",
       "name": "Texas County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Texas County Oklahoma public golf Blackmer Hooker"
+      ],
+      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
     },
     {
       "state": "OK",
       "fips": "40141",
       "name": "Tillman County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Tillman County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40687,30 +44188,52 @@
       "searched_on": "2026-10-06",
       "sources": [
         "https://tulsagolf.org/",
-        "https://tulsagolf.org/tee-times/"
+        "https://tulsagolf.org/tee-times/",
+        "https://southlakesgolf.com/",
+        "https://southlakesgolf.com/course/",
+        "https://lafortuneparkgolf.com/course-details/",
+        "https://golfoklahoma.org/oklahoma-public-course-listings/"
       ],
       "queries": [
         "Tulsa County Oklahoma public golf courses official"
       ],
-      "outcome": "Added Page Belcher and Mohawk Park with owner-confirmed public access and thirty-six physical holes each. Exact course counties remain null; the county query does not establish a course location. Search remains incomplete."
+      "outcome": "County-focused research reviewed Page Belcher Golf Course, Mohawk Park Golf Course, South Lakes Golf Course, LaFortune Park Golf Course. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
       "fips": "40145",
       "name": "Wagoner County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Wagoner County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40147",
       "name": "Washington County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Washington County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
       "fips": "40149",
       "name": "Washita County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Washita County\" Oklahoma public golf course"
+      ],
+      "outcome": "Actual county query completed. Results require further primary-source review. Search remains incomplete; no assertion that the county lacks public courses."
     },
     {
       "state": "OK",
@@ -40718,11 +44241,14 @@
       "name": "Woods County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.147",
+        "https://golfoklahoma.org/alva-golf-country-club/"
+      ],
       "queries": [
         "Woods County Oklahoma public golf course Alva"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Alva Golf and Country Club. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OK",
@@ -40730,11 +44256,13 @@
       "name": "Woodward County",
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
-      "sources": [],
+      "sources": [
+        "https://www.travelok.com/listings/view.profile/id.671"
+      ],
       "queries": [
         "\"Woodward County\" \"Oklahoma\" public golf official"
       ],
-      "outcome": "Actual county query completed. Candidates await primary-source review; no exhaustive coverage claim."
+      "outcome": "County-focused research reviewed Boiling Springs Golf Club. A query association does not establish the exact course county; intake county fields remain null unless explicitly sourced. Search remains incomplete."
     },
     {
       "state": "OR",
