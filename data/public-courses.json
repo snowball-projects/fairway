@@ -4,13 +4,13 @@
   "record_unit": "One named source-listed course or golf facility. Holes are its published total, so 27/36 may comprise multiple layouts; totals are not invented rounds.",
   "public_access_basis": "Explicit Public classification or owner/government statement welcoming public/nonmember golf. Private and unverified semi-private/resort facilities are excluded.",
   "address_basis": "Published course or mailing address; city-only listings remain null. Not a verified driving entrance.",
-  "freshness": "Observed on updated_on; source publication dates are often unknown. No claim of real-time operating status.",
+  "freshness": "Sources reviewed during compilation beginning October 6, 2026. Source publication dates are often unknown; indexed and older evidence is noted where material. updated_on is the compilation date, not a fresh verification of every row. No claim of real-time operating status.",
   "county_basis": "County of a Census exact-match flag, normalized full-address match (allowing a ZIP-only correction when street, city and state agree), or explicit primary-source county statement, not proof of the entire course footprint. Missing/ambiguous matches remain null.",
   "rights": "Bare facts and explicitly licensed source attributes with citations. No source prose, photographs, map geometry or scorecard artwork included. Applicable source-data licenses and adaptations are recorded below.",
   "coverage": {
     "national_complete": false,
-    "course_record_count": 3742,
-    "complete_essentials": 1667,
+    "course_record_count": 3972,
+    "complete_essentials": 1692,
     "state_record_counts": {
       "AK": 10,
       "AL": 105,
@@ -25,16 +25,16 @@
       "GA": 99,
       "HI": 18,
       "IA": 145,
-      "ID": 46,
+      "ID": 59,
       "IL": 69,
-      "IN": 123,
+      "IN": 120,
       "KS": 117,
       "KY": 55,
       "LA": 27,
       "MA": 21,
       "MD": 13,
       "ME": 85,
-      "MI": 182,
+      "MI": 194,
       "MN": 54,
       "MO": 80,
       "MS": 48,
@@ -43,33 +43,33 @@
       "ND": 20,
       "NE": 127,
       "NH": 8,
-      "NJ": 16,
+      "NJ": 24,
       "NM": 45,
       "NV": 51,
       "NY": 25,
       "OH": 118,
       "OK": 120,
       "OR": 43,
-      "PA": 85,
+      "PA": 229,
       "RI": 23,
       "SC": 99,
       "SD": 24,
       "TN": 85,
-      "TX": 171,
+      "TX": 203,
       "UT": 87,
       "VA": 65,
       "VT": 20,
       "WA": 80,
-      "WI": 32,
+      "WI": 56,
       "WV": 2,
       "WY": 30
     },
-    "counties_represented": 826,
-    "counties_searched": 1016,
+    "counties_represented": 840,
+    "counties_searched": 1136,
     "missing_fields": {
-      "address": 76,
-      "county": 1837,
-      "holes": 395
+      "address": 153,
+      "county": 2030,
+      "holes": 520
     },
     "states_represented": [
       "AK",
@@ -13837,6 +13837,31 @@
       ]
     },
     {
+      "name": "StoneRidge Golf Course",
+      "address": "364 Stoneridge Road, Blanchard, ID 83804",
+      "state": "ID",
+      "county": "Bonner County",
+      "holes": 19,
+      "sources": [
+        "https://www.stoneridgeidaho.com/golf-course/course-information",
+        "https://www.bonnercountyid.gov/media/Planning/Comp%20Plan%20Update/AM0015-22%20Adopted%20Update%20%2812.07.2022%29%20-%20Recreation.pdf"
+      ],
+      "access_note": "Includes a nineteenth bonus hole."
+    },
+    {
+      "name": "The Idaho Club",
+      "address": "151 Clubhouse Way, Sandpoint, ID 83864",
+      "state": "ID",
+      "county": "Bonner County",
+      "holes": 18,
+      "sources": [
+        "https://theidahoclub.com/nicklaus-signature-course/",
+        "https://theidahoclub.com/contact/",
+        "https://www.bonnercountyid.gov/media/Planning/Comp%20Plan%20Update/AM0015-22%20Adopted%20Update%20%2812.07.2022%29%20-%20Recreation.pdf"
+      ],
+      "access_note": "Semi-private facility with designated public tee-time availability; check the owner’s public schedule."
+    },
+    {
       "name": "Sand Creek Golf Course",
       "address": "5200 South 25 East, Idaho Falls, ID 83404",
       "state": "ID",
@@ -13912,6 +13937,18 @@
       "access_note": "Public play outside league windows. Men’s league Mondays and Tuesdays at 6 p.m.; women’s league Thursdays at 6 p.m. Ages 10–13 must play with a parent."
     },
     {
+      "name": "Avondale Golf Club",
+      "address": "10745 N Avondale Loop, Hayden, ID 83835",
+      "state": "ID",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://avondalegolfcourse.com/the-course/",
+        "https://avondalegolfcourse.com/contact/"
+      ],
+      "access_note": "Golf hours 7 a.m. to dusk, except Mondays 9 a.m. to dusk."
+    },
+    {
       "name": "BanBury Golf Course",
       "address": "2626 South Marypost Place, Eagle, ID 83616",
       "state": "ID",
@@ -13922,6 +13959,18 @@
         "https://banburygolf.com/scorecard/",
         "https://banburygolf.com/wp-content/uploads/sites/56/2024/03/Score_02-1.png"
       ]
+    },
+    {
+      "name": "Bigwood Golf Course",
+      "address": "115 Thunder Trail, Ketchum, ID 83340",
+      "state": "ID",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://bigwoodsv.com/course/",
+        "https://bigwoodsv.com/visit/"
+      ],
+      "access_note": "Tee times 8 a.m.–6 p.m. Golf carts are not available for juniors."
     },
     {
       "name": "Blackfoot Golf Course",
@@ -13971,6 +14020,18 @@
       ]
     },
     {
+      "name": "Cascade Golf Course",
+      "address": "117 Lakeshore Drive, Cascade, ID 83642",
+      "state": "ID",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.golfcascade.net/",
+        "https://www.golfcascade.net/events/golfing-events"
+      ],
+      "access_note": "Seasonal operation; leagues and tournaments may limit public tee-time availability."
+    },
+    {
       "name": "Centennial Golf Course",
       "address": "2600 Centennial Drive, Nampa, ID 83687",
       "state": "ID",
@@ -13981,6 +14042,31 @@
         "https://www.centennialgolf.net/-course-information",
         "https://www.centennialgolf.net/-yardages"
       ]
+    },
+    {
+      "name": "Circling Raven Golf Club",
+      "address": "38530 South Nukwalqw, Worley, ID",
+      "state": "ID",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.cdacasino.com/golf/",
+        "https://www.cdacasino.com/wp-content/uploads/2022/12/Golf-Scorecard2022.pdf"
+      ],
+      "access_note": "All players must use the provided golf carts; private power and push carts are not allowed. Seasonal golf operation."
+    },
+    {
+      "name": "Council Greens Golf Course",
+      "address": "2250 Golf Lane, Council, ID 83612",
+      "state": "ID",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://councilgreensgolfcourse.com/about-us/",
+        "https://councilgreensgolfcourse.com/tee-times/",
+        "https://councilgreensgolfcourse.com/wp-content/uploads/2026/03/2026-Rates.pdf"
+      ],
+      "access_note": "Daily-fee play Wednesday–Sunday; Mondays and Tuesdays are limited to passholders walking or using their own cart. Thursdays close at 5 p.m. for league play. Seasonal weather-dependent operation."
     },
     {
       "name": "Desert Canyon Golf Course",
@@ -14002,6 +14088,17 @@
       "sources": [
         "https://eaglehillsgolfcourse.com/"
       ]
+    },
+    {
+      "name": "Elkhorn Golf Course",
+      "address": "100 Badeyana Drive, Sun Valley, ID 83353",
+      "state": "ID",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.sunvalley.com/things-to-do/golf/elkhorn/"
+      ],
+      "access_note": "Public play after 2 p.m. June 15–September 7, 2026; after noon during value season. Public/non-hotel guests may book three days ahead; seasonal weather-dependent operation."
     },
     {
       "name": "Fairview Golf Course",
@@ -14169,6 +14266,19 @@
       ]
     },
     {
+      "name": "Ponderosa Springs Golf Course",
+      "address": "1291 North Galena Drive, Coeur d’Alene, ID",
+      "state": "ID",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://ponderosaspringsgolf.com/",
+        "https://ponderosaspringsgolf.com/the-course/",
+        "https://ponderosaspringsgolf.com/contact/"
+      ],
+      "access_note": "Walk-in only. Children under six are not allowed; other children must be supervised and paid for. Closed Tuesdays from 5 p.m. and Thursdays 8–11 a.m. for leagues; call ahead for other events."
+    },
+    {
       "name": "Preston Golf & Country Club",
       "address": "1215 North 800 East, Preston, ID",
       "state": "ID",
@@ -14281,6 +14391,18 @@
       ]
     },
     {
+      "name": "Sun Valley Golf Club",
+      "address": "200 Trail Creek Road, Sun Valley, ID 83353",
+      "state": "ID",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.sunvalley.com/things-to-do/golf/trail-creek/",
+        "https://www.sunvalley.com/things-to-do/golf/white-clouds/"
+      ],
+      "access_note": "Includes Trail Creek (18) and White Clouds (9). Trail Creek currently closed for irrigation work; no reopening date published. Public booking up to 14 days ahead. White Clouds requires a golf cart."
+    },
+    {
       "name": "Terrace Lakes Resort Golf Course",
       "address": "101 Holiday Drive, Garden Valley, ID 83622",
       "state": "ID",
@@ -14301,6 +14423,29 @@
         "https://www.rexburg.id.gov/o/golf/page/daily-green-fees"
       ],
       "access_note": "Seasonal operation, weather permitting; courses normally open sunrise to sunset."
+    },
+    {
+      "name": "The Highlands Golf Course",
+      "address": "5600 E Mullan Avenue, Post Falls, ID 83854",
+      "state": "ID",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://thehighlandsgc.com/"
+      ],
+      "access_note": "Children under six are not allowed on the course. Spectator carts are not permitted; small groups may be paired and required to share a cart."
+    },
+    {
+      "name": "The Links Golf Club",
+      "address": "10623 North Chase Road, Post Falls, ID 83854",
+      "state": "ID",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.thelinkspostfalls.com/",
+        "https://www.thelinkspostfalls.com/contact"
+      ],
+      "access_note": "Owner posts separate age rules for younger players; confirm child eligibility before visiting."
     },
     {
       "name": "The Valor Club",
@@ -14335,6 +14480,16 @@
       "holes": 18,
       "sources": [
         "https://twinfallsgc.com/"
+      ]
+    },
+    {
+      "name": "Twin Lakes Village Golf Course",
+      "address": "5416 West Village Boulevard, Rathdrum, ID 83858",
+      "state": "ID",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://golftwinlakes.com/"
       ]
     },
     {
@@ -15199,18 +15354,6 @@
       "access_note": "Season published as March through November; repeated tees are not additional physical holes."
     },
     {
-      "name": "Country Oaks Golf Club",
-      "address": "5064 E US Highway 50, Montgomery, IN 47558",
-      "state": "IN",
-      "county": "Daviess County",
-      "holes": 18,
-      "sources": [
-        "https://www.visitdaviesscounty.com/recreation",
-        "https://www.visitdaviesscounty.com/_files/ugd/97cc5a_9511da3f11114d6a88d19fef3cbdb973.pdf",
-        "https://calendar.visitdaviesscounty.com/connections/56663-country-oaks-golf-club"
-      ]
-    },
-    {
       "name": "Bridgewater Golf Club",
       "address": "1818 Morningstar Road, Auburn, IN 46706",
       "state": "IN",
@@ -15402,11 +15545,13 @@
       "county": "Noble County",
       "holes": null,
       "sources": [
+        "https://cobblestonegc.com/cobblestone/",
         "https://www.visitnoblecounty.org/post/just-the-guys-a-noble-county-guide-for-men",
         "https://www.visitnoblecounty.org/partners/cobblestone-golf-course",
         "https://www.visitnoblecounty.org/kendallville"
       ],
-      "access_note": "Seasonal operation."
+      "access_note": "Seasonal operation.",
+      "source_note": "Public/day-play status comes from complete, unambiguous cached/indexed owner course-page text observed 2026-10-06. Live owner page and robots checks returned retrieval HTTP 502, not an access denial. Address is independently supported by inspected official tourism; no count inferred."
     },
     {
       "name": "Turkey Run Golf Club",
@@ -16022,19 +16167,6 @@
       ]
     },
     {
-      "name": "Lucas Oil Golf Course",
-      "address": "139 Boss Lane, English, IN 47118",
-      "state": "IN",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.discoversouthernindiana.com/things-to-do/attractions/",
-        "https://www.discoversouthernindiana.com/blog/post/discover-golf-in-southern-indiana/",
-        "https://www.discoversouthernindiana.com/listing/lucas-oil-golf-course/170/"
-      ],
-      "source_note": "Street address from complete indexed official regional tourism profile body, observed 2026-10-06 and rechecked at 23:07 UTC; named course, street address and physical 18 explicit. Public access and physical 18 independently inspected in tourism articles; direct profile lacked dynamic body."
-    },
-    {
       "name": "Maple Grove Golf Course",
       "address": "5961 W Maple Grove Rd., Huntington, IN 46750",
       "state": "IN",
@@ -16447,16 +16579,6 @@
       "holes": 18,
       "sources": [
         "https://www.valleyviewgolfclub.org/"
-      ]
-    },
-    {
-      "name": "Wabash Valley Golf Club",
-      "address": "207 N Dr., Geneva, IN",
-      "state": "IN",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://visitjaycounty.com/attractions/wabash-valley-golf-club/"
       ]
     },
     {
@@ -20136,6 +20258,20 @@
       "access_note": "2026 season spring–November 1; daily 8 a.m.–sunset, weather permitting. Cart drivers must be 18 or older with a valid driver’s license. Children require supervision; no metal spikes."
     },
     {
+      "name": "Champion Hill Golf Course",
+      "address": "501 N. Marshall Road, Beulah, MI 49617",
+      "state": "MI",
+      "county": "Benzie County",
+      "holes": 18,
+      "sources": [
+        "https://championhill.com/",
+        "https://championhill.com/rates/rates/",
+        "https://cms1files.revize.com/benzienew/July%2022%202025%20BOC%20Packet.pdf"
+      ],
+      "access_note": "Seasonal; walking permitted.",
+      "source_note": "Physical 18 and explicit public classification are from the county’s 2020–2024 recreation plan, adopted January 2020 and republished in its July 22, 2025 board packet, PDF page 115. PDF text and rendered table inspected on 2026-10-06; current owner 2026 standalone green fees corroborate ongoing day-play operation. Not presented as a newly surveyed 2025 count."
+    },
+    {
       "name": "Escanaba Country Club",
       "address": "1800 11th Avenue S, Escanaba, MI 49829",
       "state": "MI",
@@ -20597,6 +20733,18 @@
       ]
     },
     {
+      "name": "Beaver Island Golf Course",
+      "address": "35920 East Side Drive, Beaver Island, MI 49782",
+      "state": "MI",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.beaverislandgolf.com/",
+        "https://www.beaverislandgolf.com/beaver-island-golf-course/"
+      ],
+      "access_note": "Seasonal. Groups of six or more must call ahead; private parties must arrange with staff at least two weeks in advance. Shirts required."
+    },
+    {
       "name": "Bedford Hills Golf Club",
       "address": "6400 Jackman Road, Temperance, MI 48182",
       "state": "MI",
@@ -20822,6 +20970,18 @@
         "https://clearlakegolfclub.com/"
       ],
       "access_note": "Hours may change with weather; owner recommends checking ahead."
+    },
+    {
+      "name": "College Fields Golf Club",
+      "address": "3800 Hagadorn Road, Okemos, MI 48864",
+      "state": "MI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.collegefields.net/course/about-us",
+        "https://www.collegefields.net/rates/springfall-rates"
+      ],
+      "access_note": "Scheduled aeration October 12–13, 2026: entire course closed October 12, back nine closed October 13. Walking offered."
     },
     {
       "name": "Crooked Creek Golf Course",
@@ -21182,6 +21342,17 @@
       "access_note": "2026 public windows: May 8–June 14 and September 8–October 11. June 15–September 7 is members only. Advance reservations by phone; collared shirts required and jeans prohibited."
     },
     {
+      "name": "Hartland Glen Golf Course",
+      "address": "12400 Highland Road, Hartland, MI 48353",
+      "state": "MI",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.hartlandglen.com/golf/about/",
+        "https://tournaments.uskidsgolf.com/play-and-learn/courses/find-course/8390/hartland-glen-golf-course"
+      ]
+    },
+    {
       "name": "HawksHead Links",
       "address": "523 HawksNest Drive, South Haven, MI 49090",
       "state": "MI",
@@ -21386,6 +21557,18 @@
       "access_note": "Summer operation daily dawn to dusk; winter hours depend on weather and events."
     },
     {
+      "name": "Ledge Meadows Golf Course",
+      "address": "1801 E Grand Ledge Highway, Grand Ledge, MI 48837",
+      "state": "MI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ledgemeadowsgolfcourse.com/",
+        "https://ledgemeadowsgolfcourse.com/rates/"
+      ],
+      "access_note": "Seasonal; walking allowed."
+    },
+    {
       "name": "Les Cheneaux Club Golf Links",
       "address": "1407 W Club Road, Cedarville, MI 49719",
       "state": "MI",
@@ -21417,6 +21600,18 @@
         "https://pureludington.com/ludingtongolf/",
         "https://www.wmta.org/articles/post/golfing-in-central-west-michigan/"
       ]
+    },
+    {
+      "name": "Mallard Golf Club and Driving Range",
+      "address": "9569 Bailey Road, East Jordan, MI 49727",
+      "state": "MI",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://mallardgolf.com/",
+        "https://www.visitcharlevoix.com/Mallard_Golf_Club/"
+      ],
+      "access_note": "Seasonal; walk-ins welcome."
     },
     {
       "name": "Manistee Golf & Country Club",
@@ -21591,6 +21786,18 @@
       "access_note": "Seasonal operation. Reservations up to two weeks ahead; cancellations within 24 hours may incur a fee."
     },
     {
+      "name": "Pictured Rocks Golf Course",
+      "address": "E10240 County Road H-58, Munising, MI 49862",
+      "state": "MI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.picturedrocksgolfcourse.com/",
+        "https://www.picturedrocksgolfcourse.com/services-1"
+      ],
+      "access_note": "Seasonal; walking available."
+    },
+    {
       "name": "Pierce Lake Golf Course",
       "address": "1175 S. Main Street, Chelsea, MI 48118",
       "state": "MI",
@@ -21615,6 +21822,20 @@
         "https://www.pinegrovecc.org/About"
       ],
       "access_note": "Seasonal. Unaccompanied nonmembers may play Thursday through Monday; Tuesday and Wednesday play requires a member host."
+    },
+    {
+      "name": "Pinecroft Golf Course",
+      "address": "8260 Henry Road, Benzonia, MI 49616",
+      "state": "MI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://pinecroftgolf.com/",
+        "https://pinecroftgolf.com/rates/rates/",
+        "https://cms1files.revize.com/benzienew/July%2022%202025%20BOC%20Packet.pdf"
+      ],
+      "access_note": "Closed for the 2026 season after September 27; owner plans to reopen next spring. Walking permitted.",
+      "source_note": "Physical 18 and explicit public classification are from the county’s 2020–2024 recreation plan, adopted January 2020 and republished in its July 22, 2025 board packet, PDF page 111. PDF text and rendered table inspected on 2026-10-06; current owner 2026 standalone green fees corroborate ongoing day-play operation. Not presented as a newly surveyed 2025 count."
     },
     {
       "name": "Pineview Highlands Golf Course",
@@ -22188,6 +22409,19 @@
       ]
     },
     {
+      "name": "White Deer Country Club",
+      "address": "1309 Bright Angel Drive, Prudenville, MI 48651",
+      "state": "MI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.whitedeercc.com/",
+        "https://www.whitedeercc.com/rates/",
+        "https://www.visithoughtonlake.com/white-deer-country-club/"
+      ],
+      "access_note": "Seasonal; walking available."
+    },
+    {
       "name": "White Lake Oaks Golf Course",
       "address": "991 Williams Lake Road, White Lake, MI 48386",
       "state": "MI",
@@ -22212,6 +22446,31 @@
       ]
     },
     {
+      "name": "Wild Bluff Golf Course",
+      "address": "11335 W Lakeshore Drive, Brimley, MI 49715",
+      "state": "MI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.baymillscasinos.com/wild-bluff-golf-course/",
+        "https://www.baymillscasinos.com/wild-bluff-golf-course/rates/",
+        "https://saultstemarie.com/places/wild-bluff-golf-course/"
+      ],
+      "access_note": "Seasonal."
+    },
+    {
+      "name": "Woodland Hills Golf Club",
+      "address": "320 North Gates Road, Sandusky, MI 48471",
+      "state": "MI",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.woodlandhillsclub.com/",
+        "https://www.woodlandhillsclub.com/rates/"
+      ],
+      "access_note": "Seasonal; walking allowed."
+    },
+    {
       "name": "Wyandotte Hills Golf Club",
       "address": "5755 Poyhonen Road, Twin Lakes, MI 49965",
       "state": "MI",
@@ -22224,6 +22483,18 @@
       ],
       "access_note": "Tee times are not required.",
       "source_note": "Address and no-tee-time requirement from complete indexed CVB course profile, observed 2026-10-06; direct profile rendered navigation only. Public invitation and physical nine independently inspected in original tourism feature."
+    },
+    {
+      "name": "Ye Nyne Olde Holles Golf Course",
+      "address": "6386 Ferry Road, East Jordan, MI 49727",
+      "state": "MI",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.yenyneoldeholles.com/",
+        "https://www.yenyneoldeholles.com/the-course"
+      ],
+      "access_note": "Seasonal; walking available. A valid driver’s license is required to operate a golf cart."
     },
     {
       "name": "Green Haven Golf Course",
@@ -22847,28 +23118,6 @@
       ]
     },
     {
-      "name": "Betty Allison Junior Golf Course at Oscar Blom",
-      "address": "1825 E. Norton Road, Springfield, MO 65803",
-      "state": "MO",
-      "county": "Greene County",
-      "holes": 9,
-      "sources": [
-        "https://parkboardgolf.org/betty-allison/",
-        "https://parkboardgolf.org/fees/"
-      ]
-    },
-    {
-      "name": "Bill & Payne Stewart Golf Course",
-      "address": "1825 E. Norton Road, Springfield, MO 65802",
-      "state": "MO",
-      "county": "Greene County",
-      "holes": 18,
-      "sources": [
-        "https://parkboardgolf.org/bill-and-payne-stewart/",
-        "https://parkboardgolf.org/fees/"
-      ]
-    },
-    {
       "name": "Rivercut Golf Course",
       "address": "2850 W Farm Road 190, Springfield, MO 65810",
       "state": "MO",
@@ -23034,6 +23283,30 @@
         "https://www.berryhillgolf.com/tee-times/"
       ],
       "access_note": "Tee times open seven days ahead for all golfers, including nonresidents."
+    },
+    {
+      "name": "Betty Allison Junior Golf Course at Oscar Blom",
+      "address": "1825 E. Norton Road, Springfield, MO",
+      "state": "MO",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://parkboardgolf.org/betty-allison/",
+        "https://parkboardgolf.org/fees/"
+      ],
+      "source_note": "Owner publishes conflicting ZIP codes 65802 and 65803 for the two distinct layouts sharing 1825 E. Norton Road; ZIP omitted pending resolution. Observed October 6, 2026."
+    },
+    {
+      "name": "Bill & Payne Stewart Golf Course",
+      "address": "1825 E. Norton Road, Springfield, MO",
+      "state": "MO",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://parkboardgolf.org/bill-and-payne-stewart/",
+        "https://parkboardgolf.org/fees/"
+      ],
+      "source_note": "Owner publishes conflicting ZIP codes 65802 and 65803 for the two distinct layouts sharing 1825 E. Norton Road; ZIP omitted pending resolution. Observed October 6, 2026."
     },
     {
       "name": "Blue Springs Golf Club",
@@ -28434,6 +28707,56 @@
       ]
     },
     {
+      "name": "Francis A. Byrne Golf Course",
+      "address": "1100 Pleasant Valley Way, West Orange, NJ 07052",
+      "state": "NJ",
+      "county": "Essex County",
+      "holes": 18,
+      "sources": [
+        "https://essexcountyparks.org/golf",
+        "https://essexcountyparks.org/golf/francis-byrne-golf-course",
+        "https://essexcountyparks.org/golf/about",
+        "https://essexcountyparks.org/_media/FB%20Scorecard.jpg"
+      ]
+    },
+    {
+      "name": "Hendricks Field Golf Course",
+      "address": "220 Franklin Ave, Belleville, NJ 07109",
+      "state": "NJ",
+      "county": "Essex County",
+      "holes": 18,
+      "sources": [
+        "https://essexcountyparks.org/golf",
+        "https://essexcountyparks.org/golf/hendricks-field-golf-course",
+        "https://essexcountyparks.org/golf/about",
+        "https://essexcountyparks.org/_media/Golf/Hendricks%20Field%20Golf%20Course-Essex%20County%20scorecard.pdf"
+      ]
+    },
+    {
+      "name": "Weequahic Golf Course",
+      "address": "1 Thomas Carmichael Dr, Newark, NJ 07113",
+      "state": "NJ",
+      "county": "Essex County",
+      "holes": 18,
+      "sources": [
+        "https://essexcountyparks.org/golf",
+        "https://essexcountyparks.org/golf/weequahic-golf-course",
+        "https://essexcountyparks.org/golf/about",
+        "https://essexcountyparks.org/_media/Golf/Weequahic%20Golf%20Course-Essex%20County.pdf"
+      ]
+    },
+    {
+      "name": "Heron Glen Golf Course",
+      "address": "110 State Highway 202 & 31, Ringoes, NJ 08551",
+      "state": "NJ",
+      "county": "Hunterdon County",
+      "holes": 18,
+      "sources": [
+        "https://www.heronglen.com/",
+        "https://www.heronglen.com/course-info/"
+      ]
+    },
+    {
       "name": "Bel-Aire Golf Course",
       "address": "3120 Allaire Road, Wall, NJ",
       "state": "NJ",
@@ -28524,6 +28847,30 @@
       ]
     },
     {
+      "name": "Ocean County Golf Course at Atlantis",
+      "address": "261 Country Club Boulevard, Little Egg Harbor, NJ 08087",
+      "state": "NJ",
+      "county": "Ocean County",
+      "holes": 18,
+      "sources": [
+        "https://oceancountyparks.org/frmAtlantisGC",
+        "https://www.co.ocean.nj.us/WebContentFiles/ad51ce00-8c32-4699-8992-4385b19844f7.pdf",
+        "https://www.co.ocean.nj.us/frmHowDoI.aspx"
+      ]
+    },
+    {
+      "name": "Ocean County Golf Course at Forge Pond",
+      "address": "301 Chambers Bridge Road, Brick, NJ 08723",
+      "state": "NJ",
+      "county": "Ocean County",
+      "holes": 18,
+      "sources": [
+        "https://oceancountyparks.org/frmForgePondGC",
+        "https://www.co.ocean.nj.us/WebContentFiles/fd51c498-8d97-439b-b9bf-96ef46a52210.pdf",
+        "https://www.co.ocean.nj.us/frmHowDoI.aspx"
+      ]
+    },
+    {
       "name": "Berkshire Valley Golf Course",
       "address": "28 Cozy Lake Road, Oak Ridge, NJ 07438",
       "state": "NJ",
@@ -28544,6 +28891,18 @@
         "https://bergencountynj.gov/press-releases/bergen-county-golf-season-back-in-full-swing/",
         "https://bergencountynj.gov/tourism/outdoor-activities/bergen-county-golf-courses/"
       ]
+    },
+    {
+      "name": "Galloping Hill Golf Course",
+      "address": "3 Golf Drive, Kenilworth, NJ 07033",
+      "state": "NJ",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.gallopinghillgolfcourse.com/-home",
+        "https://ucnj.org/press-releases/public-info/2025/03/05/step-into-spring-at-union-countys-galloping-hill-golf-course-celebrate-the-grand-opening-of-the-new-swing-suite-at-galloping-hill-alongside-championship-golf-and-the-hill-tavern/"
+      ],
+      "access_note": "Facility total includes the nine-hole Learning Center course, whose separate contact address is 1 Golf Drive. Indoor simulators are excluded."
     },
     {
       "name": "Overpeck Golf Course",
@@ -28579,6 +28938,17 @@
         "https://www.monmouthcountyparks.com/page.aspx?ID=2583"
       ],
       "access_note": "Non-pass-holder bookings open two days ahead."
+    },
+    {
+      "name": "Preakness Valley Golf Course",
+      "address": "209 Totowa Road, Wayne, NJ 07470",
+      "state": "NJ",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://www.preaknessvalleygolf.com/",
+        "https://www.preaknessvalleygolf.com/our-courses/"
+      ]
     },
     {
       "name": "Rockleigh Golf Course",
@@ -33007,6 +33377,38 @@
       ]
     },
     {
+      "name": "Fox Run Golf Course",
+      "address": "4240 River Rd, Beaver Falls, PA",
+      "state": "PA",
+      "county": "Beaver County",
+      "holes": 18,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Ponderosa Golf Course",
+      "address": "2728 PA-168, Hookstown, PA",
+      "state": "PA",
+      "county": "Beaver County",
+      "holes": 18,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Flying Hills Golf Club",
+      "address": "10 Village Center Drive Reading, PA 19607",
+      "state": "PA",
+      "county": "Berks County",
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "Galen Hall Golf Club",
       "address": "645 N. Galen Hall Road, Wernersville, PA 19565",
       "state": "PA",
@@ -33020,6 +33422,27 @@
       "access_note": "Children must be at least twelve to ride in a golf cart. Friday–Sunday walking begins after 1 p.m."
     },
     {
+      "name": "Golden Oaks Golf Club",
+      "address": "10 Stonehedge Drive Fleetwood, PA 19522",
+      "state": "PA",
+      "county": "Berks County",
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Manor Golf Club",
+      "address": "153 Bran Rd Sinking Spring, PA 19608",
+      "state": "PA",
+      "county": "Berks County",
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
       "name": "Rich Maiden Golf Course",
       "address": "234 Richmaiden Road, Fleetwood, PA 19522",
       "state": "PA",
@@ -33031,6 +33454,26 @@
         "https://golfinpa.com/pennsylvania-member-golf-courses/"
       ],
       "access_note": "Players only; spectators are not permitted."
+    },
+    {
+      "name": "Willow Hollow Golf Course",
+      "address": "619 Prison Road Leesport, PA 19533",
+      "state": "PA",
+      "county": "Berks County",
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Bensalem Country Club",
+      "address": "2000 Brown Road Bensalem, PA 19020",
+      "state": "PA",
+      "county": "Bucks County",
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
     },
     {
       "name": "Five Ponds Golf Club",
@@ -33055,6 +33498,16 @@
       ]
     },
     {
+      "name": "Neshaminy Valley Golf Club",
+      "address": "440 Almshouse Road Jamison, PA 18929",
+      "state": "PA",
+      "county": "Bucks County",
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "Oxford Valley Golf Club",
       "address": "141 S. Oxford Valley Road, Fairless Hills, PA 19030",
       "state": "PA",
@@ -33073,6 +33526,17 @@
       "holes": 18,
       "sources": [
         "https://www.thebucksclub.com/"
+      ]
+    },
+    {
+      "name": "Jack Frost National Golf Club",
+      "address": "Rt. 940 and Jack Frost Mountain Rd Blakeslee, PA 18610",
+      "state": "PA",
+      "county": "Carbon County",
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
       ]
     },
     {
@@ -33101,6 +33565,17 @@
       "access_note": "Children under six are not permitted on the course; ages six through thirteen require adult supervision. Strollers and baby carriers are not allowed on the course."
     },
     {
+      "name": "Kimberton Golf Club",
+      "address": "162 Ridge Road Phoenixville, PA 19460",
+      "state": "PA",
+      "county": "Chester County",
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
       "name": "Moccasin Run Golf Club",
       "address": "402 Schoff Road, Atglen, PA 19310",
       "state": "PA",
@@ -33110,6 +33585,57 @@
         "https://www.moccasinrun.com/",
         "https://www.moccasinrun.com/golf/course",
         "https://www.moccasinrun.com/images/pictures/scorecard.png"
+      ]
+    },
+    {
+      "name": "Pickering Valley Golf Club",
+      "address": "South Whitehouse Road Phoenixville, PA 19460",
+      "state": "PA",
+      "county": "Chester County",
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Armitage Golf Club",
+      "address": "800 Orrs Bridge Road Mechanicsburg, PA 17050",
+      "state": "PA",
+      "county": "Cumberland County",
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Dauphin Highlands Golf Club",
+      "address": "650 S Harrisburg St Harrisburg, PA 17113",
+      "state": "PA",
+      "county": "Dauphin County",
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Lykens Valley Golf Resort",
+      "address": "1724 Route 25 Millersburg, PA 17061",
+      "state": "PA",
+      "county": "Dauphin County",
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Golf Course at Glen Mills",
+      "address": "221 Glen Mills Road Glen Mills, PA 19342",
+      "state": "PA",
+      "county": "Delaware County",
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
       ]
     },
     {
@@ -33135,6 +33661,27 @@
         "https://www.pinecrestcc.com/about"
       ],
       "access_note": "Public play is normally unavailable Tuesday 8–11 a.m., Thursday 11 a.m.–close, and Saturday/Sunday 7:30 a.m.–noon without prior permission. Availability is at pro-shop discretion. After a fifth guest round, the club invites guests to consider membership; the posted wording does not state a hard five-round limit."
+    },
+    {
+      "name": "Crossgates Golf Club",
+      "address": "1 Crossland Pass Millersville, PA 17551",
+      "state": "PA",
+      "county": "Lancaster County",
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Four Seasons Golf Club",
+      "address": "949 Church Street Landisville, PA 17538",
+      "state": "PA",
+      "county": "Lancaster County",
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
     },
     {
       "name": "Foxchase Golf Club",
@@ -33170,6 +33717,27 @@
       ]
     },
     {
+      "name": "Olde Homestead Golf Club",
+      "address": "6598 Rt 309 New Tripoli, PA 18066",
+      "state": "PA",
+      "county": "Lehigh County",
+      "holes": 27,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Bella Vista Golf Club",
+      "address": "2901 Fagleysville Road Gilbertsville, PA 19525",
+      "state": "PA",
+      "county": "Montgomery County",
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "Macoby Run Golf Course",
       "address": "5275 McLean Station Road, Green Lane, PA 18054",
       "state": "PA",
@@ -33182,6 +33750,16 @@
       ]
     },
     {
+      "name": "Mainland Golf Course",
+      "address": "2250 Rittenhouse Road Harleysville, PA 19438",
+      "state": "PA",
+      "county": "Montgomery County",
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "PineCrest Country Club",
       "address": "101 Country Club Drive, Lansdale, PA 19446",
       "state": "PA",
@@ -33189,6 +33767,26 @@
       "holes": 18,
       "sources": [
         "https://www.pcrestgolf.com/"
+      ]
+    },
+    {
+      "name": "Raven’s Claw Golf Club",
+      "address": "120 Masters Drive Pottstown, PA 19464",
+      "state": "PA",
+      "county": "Montgomery County",
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Skippack Golf Club at Evansburg State Park",
+      "address": "1146 Stump Hall Road Skippack, PA 19474",
+      "state": "PA",
+      "county": "Montgomery County",
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
       ]
     },
     {
@@ -33206,6 +33804,27 @@
       "access_note": "Children must be at least five years old to be on the golf course."
     },
     {
+      "name": "Corey Creek Golf Club",
+      "address": "18795 Route 6 Mansfield, PA 16933",
+      "state": "PA",
+      "county": "Tioga County",
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "River Valley Golf Club",
+      "address": "80 Bailey Burrows Ave, Westfield, PA",
+      "state": "PA",
+      "county": "Tioga County",
+      "holes": 18,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
       "name": "Tyoga Golf Course",
       "address": "759 Route 660, Wellsboro, PA 16901",
       "state": "PA",
@@ -33213,6 +33832,28 @@
       "holes": 18,
       "sources": [
         "https://tyogagolf.com/"
+      ]
+    },
+    {
+      "name": "Bucknell Golf Club",
+      "address": "366 Smoketown Road Lewisburg, PA 17837",
+      "state": "PA",
+      "county": "Union County",
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Lindenwood Golf Club",
+      "address": "360 Galley Rd, Canonsburg, PA",
+      "state": "PA",
+      "county": "Washington County",
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
       ]
     },
     {
@@ -33228,6 +33869,26 @@
       ]
     },
     {
+      "name": "Shadowbrook Resort",
+      "address": "RD # 6 Tunkhannock, PA 18657",
+      "state": "PA",
+      "county": "Wyoming County",
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Bridgewater Golf Club",
+      "address": "601 Chesnut Hill Road York, PA 17402",
+      "state": "PA",
+      "county": "York County",
+      "holes": 9,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "Hickory Heights Golf Club",
       "address": "5158 Lehman Road, Spring Grove, PA 17362",
       "state": "PA",
@@ -33236,6 +33897,26 @@
       "sources": [
         "https://golfhickoryheights.com/",
         "https://golfhickoryheights.com/scorecard/"
+      ]
+    },
+    {
+      "name": "1781 Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "3 Lakes Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33251,6 +33932,26 @@
       ]
     },
     {
+      "name": "American Legion Country Club",
+      "address": "1 Country Club Road Mt. Union, PA 17066",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Apollo Elks Country Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Arrowhead Golf Course",
       "address": "1539 Weavertown Rd, Douglassville, PA 19518",
       "state": "PA",
@@ -33260,6 +33961,46 @@
         "https://arrowheadgolf.net/",
         "https://arrowheadgolf.net/about",
         "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Aubrey's Dubbs Dred Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Bavarian Hills Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Beaver Valley Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Beech Woods Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33274,6 +34015,16 @@
       ]
     },
     {
+      "name": "Belles Springs Golf Club",
+      "address": "417 Fairground Road Mill Hall, PA 17751",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "Berkleigh Golf Club",
       "address": "14623 Kutztown Road, Kutztown, PA 19530",
       "state": "PA",
@@ -33284,6 +34035,26 @@
       ]
     },
     {
+      "name": "Berkley Hills Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Birdsfoot Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Black Hawk Golf Course",
       "address": "644 Blackhawk Rd, Beaver Falls, PA 15010",
       "state": "PA",
@@ -33291,6 +34062,16 @@
       "holes": 36,
       "sources": [
         "https://blackhawkgolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Blackwood Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33311,6 +34092,26 @@
       "holes": 27,
       "sources": [
         "https://blueridgetrail.com/"
+      ]
+    },
+    {
+      "name": "Blue Shamrock Golf Club",
+      "address": "2230 Fireline Road Palmerton, PA 18071",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Blueberry Hill Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33360,6 +34161,16 @@
       ]
     },
     {
+      "name": "Buhl Park Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Butler's Golf Course",
       "address": "800 Rock Run Road, Elizabeth, PA 15037",
       "state": "PA",
@@ -33380,6 +34191,16 @@
       ]
     },
     {
+      "name": "Cable Hollow Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Cedarbrook Golf Course",
       "address": "215 State Route 981, Rostraver Township, PA 15012",
       "state": "PA",
@@ -33387,6 +34208,16 @@
       "holes": 36,
       "sources": [
         "https://www.cedarbrookgolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Champion Lakes Golf Resort",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33402,6 +34233,36 @@
       ]
     },
     {
+      "name": "Chippewa Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Clinton Country Club",
+      "address": "41 Fairway View Drive, Mill Hall, PA 17751",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://clintoncountryclub.com/"
+      ]
+    },
+    {
+      "name": "Club at the Highlands",
+      "address": "2700 Highland Boulevard South Archbald, PA 18433",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "Conley Resort & Golf Club",
       "address": "740 Pittsburgh Rd, Butler, PA 16002",
       "state": "PA",
@@ -33411,6 +34272,26 @@
         "https://conleyresort.com/",
         "https://conleyresort.com/course/",
         "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Cool Creek Golf Club",
+      "address": "300 Cool Creek Road Wrightville, PA 17368",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Cranberry Highlands Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33427,6 +34308,16 @@
       "access_note": "Public golf starts after 10:30 a.m. on Mondays. Tee times required Friday–Sunday. No twilight golf or spectators."
     },
     {
+      "name": "Culbertson Hills Golf Resort",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Cumberland Golf Club",
       "address": "2395 Ritner Highway, Carlisle, PA 17015",
       "state": "PA",
@@ -33438,6 +34329,26 @@
       ]
     },
     {
+      "name": "Deer Valley Golf Course",
+      "address": "101 Stoudt Rd Hummelstown, PA 17036",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Down River Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Downingtown Country Club",
       "address": "93 Country Club Drive, Downingtown, PA 19335",
       "state": "PA",
@@ -33446,6 +34357,26 @@
       "sources": [
         "https://golfdowningtown.com/",
         "https://golfdowningtown.com/course-details/"
+      ]
+    },
+    {
+      "name": "Duck Hollow Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Eagles Ridge Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33472,6 +34403,26 @@
       ]
     },
     {
+      "name": "Fort Cherry Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Fox Hollow Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Foxburg Country Club",
       "address": "369 Harvey Road, Foxburg, PA 16036",
       "state": "PA",
@@ -33483,6 +34434,46 @@
       ]
     },
     {
+      "name": "Gettysburg National Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Glen Brook Golf Club",
+      "address": "1044 Hickory Valley Road Stroudsburg, PA 18360",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Glengarry Golf Links",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Grandview Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Great Bear Golf Club",
       "address": "1 Great Bear Court, East Stroudsburg, PA 18302",
       "state": "PA",
@@ -33491,6 +34482,36 @@
       "sources": [
         "https://golfgreatbear.com/",
         "https://golfgreatbear.com/course-details/"
+      ]
+    },
+    {
+      "name": "Great Cove Golf & Recreation Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Green Meadows Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Hickory Valley Golf Club",
+      "address": "1921 Ludwig Road Gilbertsville, PA 19525",
+      "state": "PA",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
       ]
     },
     {
@@ -33516,6 +34537,46 @@
       ]
     },
     {
+      "name": "Huntingdon Country Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Immergrun Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Indian Run Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Ingleside Golf Club",
+      "address": "104 Horseshoe Drive Thorndale, PA 19372",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "Inniscrone Golf Club",
       "address": "15 Athelone Way, Avondale, PA 19311",
       "state": "PA",
@@ -33524,6 +34585,16 @@
       "sources": [
         "https://www.inniscronegolfclub.com/",
         "https://www.inniscronegolfclub.com/course/course-facts/"
+      ]
+    },
+    {
+      "name": "Iron Masters Country Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33539,6 +34610,16 @@
       ]
     },
     {
+      "name": "Jackson Valley Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Jeffersonville Golf Club",
       "address": "2400 W. Main Street, Jeffersonville, PA 19403",
       "state": "PA",
@@ -33546,6 +34627,46 @@
       "holes": 18,
       "sources": [
         "https://jeffersonvillegolfclub.org/"
+      ]
+    },
+    {
+      "name": "John F. Byrne Golf Club",
+      "address": "9500 Leon Street Philadelphia, PA 19114",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Kane Country Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Kenterra Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "King Valley Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33617,6 +34738,86 @@
       ]
     },
     {
+      "name": "Lost Creek Golf Course",
+      "address": "Route 35 Oakland Mills, PA 17076",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Manada Golf Club",
+      "address": "609 Golf Lane Grantville, PA 17028",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Mannitto Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Manor Valley Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Mayapple Golf Club",
+      "address": "1 Mayapple Dr. Carlisle, PA 17015-9254",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Meadow Lane Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Meadowink Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Mon Valley Country Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Moon Golf Club",
       "address": "505 McCormick Road, Moon Township, PA 15108",
       "state": "PA",
@@ -33624,6 +34825,46 @@
       "holes": 18,
       "sources": [
         "https://www.moongolfclub.com/"
+      ]
+    },
+    {
+      "name": "Morgan Hill Golf Course",
+      "address": "100 Clubhouse Drive Easton, PA 18042",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Mountain View Country Club",
+      "address": "310 Elks Club Rd Boalsburg, PA 16827",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Mt. Lebanon Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Mt. Odin Park Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33639,6 +34880,16 @@
       ]
     },
     {
+      "name": "Northwinds Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Norvelt Golf Club",
       "address": "168 Holly Place, Mt. Pleasant, PA 15666",
       "state": "PA",
@@ -33650,6 +34901,36 @@
         "https://www.norveltgolfclub.com/rates-membership"
       ],
       "access_note": "Tee times are required."
+    },
+    {
+      "name": "Oakbrook Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Oakland Beach Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Olde Stonewall Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
     },
     {
       "name": "Overlook Golf Course",
@@ -33676,6 +34957,26 @@
       ]
     },
     {
+      "name": "Peninsula Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Pheasant Ridge Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Pine Acres Golf and RV Resort",
       "address": "1503 Pine Acres Golf Course, Bradford, PA 16701",
       "state": "PA",
@@ -33699,6 +35000,36 @@
       ]
     },
     {
+      "name": "Pine Meadows Golf Complex",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Pittsburgh National Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Pittsburgh North Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Pocono Manor Golf Course",
       "address": "395 Manor Drive, Pocono Manor, PA 18349",
       "state": "PA",
@@ -33718,6 +35049,36 @@
       "sources": [
         "https://www.quailvalleygc.com/",
         "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Quicksilver Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Range End Golf Club",
+      "address": "303 Golf Club Avenue Dillsburg, PA 17019",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Raystown Golf Resort",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33746,6 +35107,46 @@
       "access_note": "The three-hole beginner course is walking only; six- and nine-hole options repeat the same three physical holes."
     },
     {
+      "name": "River Forest Country Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Riverside Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Riverview Country Club",
+      "address": "1 Riverview Place Easton, PA 18040",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Rohanna's Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Rolling Acres Golf Course",
       "address": "350 Achortown Road, Beaver Falls, PA 15010",
       "state": "PA",
@@ -33753,6 +35154,16 @@
       "holes": 27,
       "sources": [
         "https://www.rollingacresgolf.com/"
+      ]
+    },
+    {
+      "name": "Rolling Fields Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33767,6 +35178,16 @@
       ]
     },
     {
+      "name": "Royal Oaks Golf Club",
+      "address": "3350 West Oak Street Lebanon, PA 17042",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "Sawmill Golf Course",
       "address": "5630 Sullivan Trail, Easton, PA 18040",
       "state": "PA",
@@ -33775,6 +35196,86 @@
       "sources": [
         "https://www.sawmillgolfcourse.com/",
         "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Saxon Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Scott Greens Golf Club",
+      "address": "455 Green Grove Rd Scott, PA 18447",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Scottish Heights Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Shade Mountain Golf Course",
+      "address": "State Route 104 Middleburg, PA 17842",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Shepherd Hills Golf Club",
+      "address": "1160 S. Krocks Road Wescosville, PA 18106",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Slippery Rock Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "South Hills Golf Club",
+      "address": "925 Westminster Avenue Hanover, PA 17331",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Southmoore Golf Course",
+      "address": "235 Moorestown Dr Bath, PA 18014",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
       ]
     },
     {
@@ -33800,6 +35301,16 @@
       ]
     },
     {
+      "name": "StoneHedge Golf Course",
+      "address": "4 Hollowcrest Corners Tunkhannock, PA 18657",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "Strawberry Ridge Golf Course",
       "address": "135 McNulty Lane, Harmony, PA 16037",
       "state": "PA",
@@ -33807,6 +35318,16 @@
       "holes": 18,
       "sources": [
         "https://www.strawberryridgegolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Summit Country Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33822,6 +35343,16 @@
       ]
     },
     {
+      "name": "Sunset Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Sweet Water Golf Course",
       "address": "2556 Geryville Pike, Pennsburg, PA 18073",
       "state": "PA",
@@ -33833,6 +35364,16 @@
       ]
     },
     {
+      "name": "Sylvan Hills Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Tall Pines Players Club",
       "address": "628 Kinney Road, Friendsville, PA 18818",
       "state": "PA",
@@ -33841,6 +35382,16 @@
       "sources": [
         "https://tallpinesplayersclubllc.com/",
         "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Tam O'Shanter Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33866,6 +35417,26 @@
       ]
     },
     {
+      "name": "The Club at Shadow Lakes",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "The Club at Shannondell",
+      "address": "2750 Egypt Road Norristown, PA 19403",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "The Club at Twin Lakes",
       "address": "3625 Shankweiler Road, Allentown, PA 18104",
       "state": "PA",
@@ -33873,6 +35444,36 @@
       "holes": 18,
       "sources": [
         "https://www.theclubattwinlakes.com/"
+      ]
+    },
+    {
+      "name": "The Golf Course at Paupack Hills",
+      "address": "125 Country Club Drive Greentown, PA 18426",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "The Links At Gettysburg",
+      "address": "601 Mason-Dixon Rd. Gettysburg, PA 17325",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "The Links at Spring Church",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33889,6 +35490,16 @@
       "access_note": "Tee times are required daily."
     },
     {
+      "name": "The Ridge Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Toftrees Golf Resort",
       "address": "1 Country Club Lane, State College, PA 16803",
       "state": "PA",
@@ -33898,6 +35509,36 @@
         "https://www.toftrees.com/",
         "https://www.toftrees.com/golf.htm",
         "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ]
+    },
+    {
+      "name": "Totteridge Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Towanda Golf Club",
+      "address": "645 Golden Mile Rd Towanda, PA 18848",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Treasure Lake Golf Courses",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33913,6 +35554,46 @@
       ]
     },
     {
+      "name": "Twin Woods Golf Course",
+      "address": "2924 E. Orvilla Road Hatfield, PA 19440",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Uniontown Country Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Valley Green Golf Course",
+      "address": "1227 Valley Green Road Etters, PA",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Venango Valley Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
       "name": "Victory Hills Golf Course",
       "address": "357 Pineview Drive, Elizabeth, PA 15037",
       "state": "PA",
@@ -33923,6 +35604,46 @@
       ]
     },
     {
+      "name": "Walnut Lane Golf Club",
+      "address": "800 Walnut Lane Philadelphia, PA 19128",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Wanango Country Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Washington Country Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Wedgewood Golf Course",
+      "address": "4875 Limeport Pike Coopersburg, PA 18036",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "Wemberly Hills Golf Course",
       "address": "66 Club House Lane, Olyphant, PA 18447",
       "state": "PA",
@@ -33930,6 +35651,66 @@
       "holes": 9,
       "sources": [
         "https://www.wemberlyhillsgc.com/"
+      ]
+    },
+    {
+      "name": "Westover Golf Club",
+      "address": "401 S. Schuykill Avenue Norristown, PA 19403",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Westwood Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "Whispering Woods Golf Club",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
+      ]
+    },
+    {
+      "name": "White Birch Golf Course",
+      "address": "660 Tuscarora Park Rd Barnesville, PA 18214",
+      "state": "PA",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "White Deer Golf Club",
+      "address": "352 Allenwood Camp Lane Montgomery, PA 17752",
+      "state": "PA",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "White Oaks Farms Golf Course",
+      "address": null,
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/"
       ]
     },
     {
@@ -33944,6 +35725,36 @@
       ]
     },
     {
+      "name": "Wilkes-Barre Golf Club",
+      "address": "1001 Fairway Drive Wilkes-Barre, PA 18702",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Woodloch Springs",
+      "address": "731 Welcome Lake Rd Hawley, PA 18428",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
+      "name": "Worcester Golf Club",
+      "address": "1600 Green Hill Road Collegeville, PA 19426",
+      "state": "PA",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ]
+    },
+    {
       "name": "Wyncote Golf Club",
       "address": "50 Wyncote Drive, Oxford, PA 19363",
       "state": "PA",
@@ -33952,6 +35763,16 @@
       "sources": [
         "https://wyncote.com/",
         "https://wyncote.com/course-details/"
+      ]
+    },
+    {
+      "name": "Wynding Brook Golf Club",
+      "address": "201 Harveys Lane Milton, PA 17847",
+      "state": "PA",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
       ]
     },
     {
@@ -36510,6 +38331,17 @@
       ]
     },
     {
+      "name": "Lamesa Municipal Golf Course",
+      "address": "201 N. Ave. S, Lamesa, TX 79331",
+      "state": "TX",
+      "county": "Dawson County",
+      "holes": 9,
+      "sources": [
+        "https://www.lamesagolfcourse.com/"
+      ],
+      "access_note": "Complete primary homepage text was inspectable October 6, 2026 before a later direct read returned 403. Facts are indexed evidence, not live-verified; no denied-source retry was made."
+    },
+    {
       "name": "Ascarate Golf Course",
       "address": "6900 Delta Drive, El Paso, TX 79905",
       "state": "TX",
@@ -36802,6 +38634,31 @@
       ]
     },
     {
+      "name": "Battle Lake Golf Course",
+      "address": "4443 Battle Lake Rd, Mart, TX 76664",
+      "state": "TX",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.battlelakegolf.com/",
+        "https://www.battlelakegolf.com/2019-green-fees",
+        "https://static.wixstatic.com/media/8abd63_72cd631b4e08492faa137176412f6e1e~mv2.jpg/v1/fill/w_721,h_861,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2026%20Prices.jpg"
+      ],
+      "access_note": "The operator prices both nine- and eighteen-hole rounds, but physical hole count remains unverified in the fully read primary material."
+    },
+    {
+      "name": "Bear Ridge Golf Club",
+      "address": "1000 Bear Ridge Drive, Waco, TX 76712",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://bearridgewaco.com/",
+        "https://bearridgewaco.com/golf/course-info/course-yardage"
+      ],
+      "access_note": "Complete indexed primary content was inspectable October 6, 2026 before later direct403 responses. These are indexed facts, not live-verified; no retry was made."
+    },
+    {
       "name": "Birmingham Golf Club",
       "address": "875 Copeland St, Rusk, TX 75785",
       "state": "TX",
@@ -36856,6 +38713,17 @@
         "https://www.sanantonio.gov/Portals/0/Files/CityAuditor/Reports/FY2020/AU20-024.pdf"
       ],
       "access_note": "Hole total is supported by the February 24, 2020 city audit; public municipal status is supported by the TGA’s 2025 report. Independently sourced without using the Alamo City Golf Trail website. Street address held pending a permitted primary source-page read."
+    },
+    {
+      "name": "Brady Municipal Golf Course",
+      "address": "Hwy 87 North, Brady, TX 76825",
+      "state": "TX",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.bradytx.us/883/Brady-Municipal-Golf-Course"
+      ],
+      "access_note": "Mondays are members-only except listed holiday exceptions. The city provides only a highway-level address."
     },
     {
       "name": "Bridlewood Golf Club",
@@ -36964,6 +38832,17 @@
       ]
     },
     {
+      "name": "Coleman Country Club",
+      "address": "Highway 206, Coleman, TX",
+      "state": "TX",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://colemanedc.squarespace.com/quality-of-life"
+      ],
+      "access_note": "The primary source locates the club five miles south of Coleman on Highway 206; street number and postal code remain unverified."
+    },
+    {
       "name": "ColoVista Golf Club",
       "address": "100 Country Club Drive, Bastrop, TX 78602",
       "state": "TX",
@@ -36973,6 +38852,17 @@
         "https://colovistagolf.com/",
         "https://colovistagolf.com/rates/"
       ]
+    },
+    {
+      "name": "Columbus Municipal Golf Course",
+      "address": "141 Veterans Drive, Columbus, TX 78934",
+      "state": "TX",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.columbusgolfcourse.com/"
+      ],
+      "access_note": "Closed Tuesdays. Complete indexed primary homepage was inspectable October 6, 2026 before a later direct read returned 403; not live-verified and not retried."
     },
     {
       "name": "Comanche Trail Golf Complex",
@@ -37033,6 +38923,17 @@
       ]
     },
     {
+      "name": "Coyote Ridge Golf Club",
+      "address": "1640 West Hebron Parkway, Carrollton, TX 75010",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.coyoteridgegolfclub.com/",
+        "https://www.coyoteridgegolfclub.com/scorecard-virtual-tour/"
+      ]
+    },
+    {
       "name": "Cross Timbers Golf Course",
       "address": "1181 South Stewart Street, Azle, TX 76020",
       "state": "TX",
@@ -37042,6 +38943,18 @@
         "https://www.crosstimbersgc.com/",
         "https://www.crosstimbersgc.com/golf/course-rates"
       ]
+    },
+    {
+      "name": "Cuero Park Municipal Golf Course",
+      "address": "1200 E Main St, Cuero, TX 77954",
+      "state": "TX",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://cueroparkgolf.net/",
+        "https://www.cityofcuero.com/341/Cuero-Municipal-Park"
+      ],
+      "access_note": "Mondays and city holidays are members-only. Weekend tee times are required. Temporary October 2026 tournament/festival closures are posted by the operator; check its calendar."
     },
     {
       "name": "Cypresswood Golf Club",
@@ -37127,6 +39040,17 @@
       ]
     },
     {
+      "name": "Flatonia Golf Course",
+      "address": "1245 US-90, Flatonia, TX 78941",
+      "state": "TX",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.flatoniatx.gov/page/attractions",
+        "https://www.flatoniatx.gov/page/parks_golfcourse"
+      ]
+    },
+    {
       "name": "Forest Creek Golf Club",
       "address": "99 Twin Ridge Parkway, Round Rock, TX 78664",
       "state": "TX",
@@ -37172,6 +39096,18 @@
       ]
     },
     {
+      "name": "Gainesville Municipal Golf Course",
+      "address": "2240 Weber, Gainesville, TX 76240",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://gainesville.tx.us/110/Golf-Course",
+        "https://www.gainesville.tx.us/Directory/Home/DepartmentListing?DID=43",
+        "https://gainesville.tx.us/DocumentCenter/View/8560/Final-Fee-Schedule"
+      ]
+    },
+    {
       "name": "Garden Valley Golf Club - Dogwood Course",
       "address": "22049 FM Road 1995, Lindale, TX 75771",
       "state": "TX",
@@ -37195,6 +39131,19 @@
       ]
     },
     {
+      "name": "Gonzales Independence Golf Course",
+      "address": "Hwy 183 South, Gonzales, TX 78629",
+      "state": "TX",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.gonzales.texas.gov/p/departments/parks--recreation/the-gonzales-independence-golf-course",
+        "https://www.gonzales.texas.gov/p/residents/master-rate-and-fee-schedule",
+        "https://cdn.saffire.com/files.ashx?t=fg&rid=CityOfGonzales&f=Rates_in_Excel_2026-2027_FINAL(1).pdf&cb=E0369B5B"
+      ],
+      "access_note": "City source supplies only a highway-level course address."
+    },
+    {
       "name": "Grapevine Golf Course",
       "address": "3800 Fairway Drive, Grapevine, TX 76051",
       "state": "TX",
@@ -37216,6 +39165,17 @@
         "https://hancockparkgolfcourse.com/",
         "https://hancockparkgolfcourse.com/fees/"
       ]
+    },
+    {
+      "name": "Hatch Bend Country Club",
+      "address": "579 Meadowview Lane, Port Lavaca, TX 77979",
+      "state": "TX",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://hatchbendcc.com/"
+      ],
+      "access_note": "Closed Mondays."
     },
     {
       "name": "Hawks Creek Golf Club",
@@ -37254,6 +39214,17 @@
       "access_note": "Minimum age to play or ride along on the golf course is six."
     },
     {
+      "name": "Hidden Falls Golf Club",
+      "address": "220 Meadowlakes Drive, Meadowlakes, TX 78654",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.hiddenfallsgolfcourse.com/",
+        "https://www.hiddenfallsgolfcourse.com/rates/"
+      ]
+    },
+    {
       "name": "Hidden Hills Public Golf Course",
       "address": "901 Hidden Hills Drive, Pampa, TX 79065",
       "state": "TX",
@@ -37288,6 +39259,30 @@
         "https://www.copperascovetx.gov/206/Golf-Course"
       ],
       "access_note": "City primary text observed October 6, 2026 as indexed content before a later direct403, which was not retried. Not live-page verified. The separately restricted parks-registration website is not a source."
+    },
+    {
+      "name": "Hillsboro Country Club",
+      "address": "600 Country Club Drive, Hillsboro, TX 76645",
+      "state": "TX",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://hillsborocountryclub.com/rates/",
+        "https://www.explorehillsborotexas.com/places/hillsboro-country-club/"
+      ],
+      "access_note": "Complete indexed primary pages were inspectable October 6, 2026. Owner fee page is dated 2017, so no prices are imported as current. Tourism later returned 406 and was not retried. Closed Mondays."
+    },
+    {
+      "name": "Hondo Municipal Golf Course",
+      "address": "703 Disoway Road, Hondo, TX 78861",
+      "state": "TX",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://hondo-tx.org/175/Golf-Course",
+        "https://www.hondo-tx.org/Facilities/Facility/Details/Golf-Course-2"
+      ],
+      "access_note": "Closed Mondays except holidays. Eighteen-hole fees represent repeat play of the nine-hole course."
     },
     {
       "name": "Houston National Golf Club",
@@ -37391,6 +39386,16 @@
       ]
     },
     {
+      "name": "Kissing Tree Golf Club",
+      "address": "201 Kissing Tree Lane, San Marcos, TX 78666",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.kissingtreegolfclub.com/"
+      ]
+    },
+    {
       "name": "Lady Bird Golf Course",
       "address": "341 Golfers Loop, Fredericksburg, TX 78624",
       "state": "TX",
@@ -37426,6 +39431,17 @@
       "access_note": "Minimum playing age is six. Players younger than ten must have knowledge of golf, participate, and be accompanied by an adult over eighteen."
     },
     {
+      "name": "Lake Waco Golf Club",
+      "address": "5608 Flat Rock Road, Waco, TX 76708",
+      "state": "TX",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://lakewacogc.com/"
+      ],
+      "access_note": "Combined physical facility total: eighteen regulation holes plus eighteen executive par-three holes."
+    },
+    {
       "name": "Landa Park Golf Course at Comal Springs",
       "address": "180 Golf Course Road, New Braunfels, TX 78130",
       "state": "TX",
@@ -37450,6 +39466,17 @@
       "access_note": "Monday opening is limited to holidays and special events; confirm current hours."
     },
     {
+      "name": "Legends Golf Course and Villas",
+      "address": "105 Rangeway Cir, Kingsland, TX 78639",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://legendslbj.com/",
+        "https://legendslbj.com/hole-by-hole-flyover-and-strategy-guide/"
+      ]
+    },
+    {
       "name": "Liberty Municipal Golf Course",
       "address": "100 Magnolia Ridge Drive, Liberty, TX 77575",
       "state": "TX",
@@ -37459,6 +39486,18 @@
         "https://www.cityofliberty.org/municipal-golf-course"
       ],
       "access_note": "City primary text observed October 6, 2026 as indexed content before a later direct403, which was not retried. Not live-page verified."
+    },
+    {
+      "name": "Llano Grande Golf Club",
+      "address": "2215 E W Blvd, Mercedes, TX 78570",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://llanogranderesort.com/golfing",
+        "https://mercedesedc.com/live-in-mercedes/fun-things-to-see-and-do"
+      ],
+      "access_note": "Owner golf page was inspectable in full indexed form October 6, 2026 before a later direct 403. Owner facts are not live-verified; no retry was made. Public golf is separately available from the age-qualified resort residency."
     },
     {
       "name": "Llano River Golf Course",
@@ -37719,6 +39758,17 @@
       "access_note": "Nonmember walking rates are unavailable; public fees include a shared cart."
     },
     {
+      "name": "Pecan Lakes Golf Club",
+      "address": "2001 Fairway Dr, Navasota, TX 77868",
+      "state": "TX",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.pecanlakesgolfclub.net/"
+      ],
+      "access_note": "Closed Mondays except holidays. Single players and twosomes may be paired, especially on weekends."
+    },
+    {
       "name": "Pine Dunes Resort and Golf Club",
       "address": "159 Private Road 7019, Frankston, TX 75763",
       "state": "TX",
@@ -37754,6 +39804,17 @@
       ]
     },
     {
+      "name": "Pleasanton Country Club",
+      "address": "1801 McGuffin Drive, Pleasanton, TX 78064",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.southtxgolf.com/",
+        "https://www.southtxgolf.com/pleasanton-course-info-photos/"
+      ]
+    },
+    {
       "name": "Plum Creek Golf Course",
       "address": "4301 Benner Rd, Kyle, TX 78640",
       "state": "TX",
@@ -37784,6 +39845,17 @@
         "https://www.prairielakesgolf.com/",
         "https://www.prairielakesgolf.com/course/rates/"
       ]
+    },
+    {
+      "name": "Pyote Golf Course",
+      "address": "11th & Ward, Pyote, TX",
+      "state": "TX",
+      "county": null,
+      "holes": 4,
+      "sources": [
+        "https://www.co.ward.tx.us/page/ward.Recreation.PyoteGolfCourse"
+      ],
+      "access_note": "Primary county source gives only an intersection-level address. Four physical holes are the county’s published total; Wednesday maintenance can affect play."
     },
     {
       "name": "Quail Valley Golf Club",
@@ -37820,6 +39892,17 @@
       ]
     },
     {
+      "name": "Raymondville Golf Course",
+      "address": null,
+      "state": "TX",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://raymondvilletx.us/edc/"
+      ],
+      "access_note": "The full relevant primary city section was inspectable October 6, 2026 before a later direct 403; no retry. Street address remains unverified."
+    },
+    {
       "name": "Ridgeview Ranch Golf Club",
       "address": "2701 Ridgeview Drive, Plano, TX 75025",
       "state": "TX",
@@ -37829,6 +39912,27 @@
         "https://www.ridgeviewgc.com/",
         "https://www.ridgeviewgc.com/greens",
         "https://www.swcclub.com/about"
+      ]
+    },
+    {
+      "name": "River Bend Golf Club",
+      "address": "101 Club Drive, Floresville, TX 78114",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.southtxgolf.com/",
+        "https://www.southtxgolf.com/riverbend-course-info-photos/"
+      ]
+    },
+    {
+      "name": "River Creek Golf Course",
+      "address": "1605 FM 1177, Wichita Falls, TX 76305",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.burkburnett.org/Facilities/Facility/Details/River-Creek-Golf-Course-3"
       ]
     },
     {
@@ -38118,6 +40222,27 @@
       ]
     },
     {
+      "name": "Stuart Place Golf Course",
+      "address": "155 Highland Drive, Harlingen, TX 78552",
+      "state": "TX",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.stuartplacegolfcourse.com/"
+      ]
+    },
+    {
+      "name": "Sweetwater Municipal Golf Course",
+      "address": "22125 FM 1856, Sweetwater, TX 79556",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.sweetwatertx.gov/Facilities/Facility/Details/Sweetwater-Municipal-Golf-Course-3"
+      ],
+      "access_note": "Complete primary city text was inspectable on October 6, 2026 before a later direct read returned 403. Facts are indexed evidence, not live-verified; no denied-source retry was made."
+    },
+    {
       "name": "Tangle Ridge Golf Club",
       "address": "818 Tangle Ridge Drive, Grand Prairie, TX 75052",
       "state": "TX",
@@ -38326,6 +40451,18 @@
       ]
     },
     {
+      "name": "The Trails of Frisco Golf Club",
+      "address": "10411 Teel Pkwy, Frisco, TX 75034",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.thetrailsoffriscogc.com/",
+        "https://www.thetrailsoffriscogc.com/golf/",
+        "https://www.thetrailsoffriscogc.com/wp-content/uploads/sites/6806/2023/01/Screenshot_20230106_023634.png?w=764"
+      ]
+    },
+    {
       "name": "The Wilderness at Lake Jackson",
       "address": "501 W Highway 332, Lake Jackson, TX 77566",
       "state": "TX",
@@ -38359,6 +40496,17 @@
       ]
     },
     {
+      "name": "Tierra Santa Golf Course",
+      "address": "1901 Club de Amistad, Weslaco, TX 78596",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.tierrasantaweslaco.com/about-us/course-info",
+        "https://www.tierrasantaweslaco.com/media/widgetkit/TS-ScoreCard-2023_1-1-238002dd1245ed0091f86b81f9209979.png"
+      ]
+    },
+    {
       "name": "Tony Butler Golf Course",
       "address": "2640 South M Street, Harlingen, TX 78550",
       "state": "TX",
@@ -38379,6 +40527,31 @@
       "sources": [
         "https://www.tour18golf.com/course"
       ]
+    },
+    {
+      "name": "Vaaler Creek Golf Club",
+      "address": "228 Jeff Vaughn, Blanco, TX 78606",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.vaalercreekgolfclub.com/",
+        "https://www.vaalercreekgolfclub.com/golf/course",
+        "https://www.vaalercreekgolfclub.com/golf/tee-times"
+      ],
+      "access_note": "Complete indexed primary pages were inspectable October 6, 2026; direct course-page access returned an unresolved 307 redirect and was not rerouted. Public tee times may be booked fourteen days ahead, with a credit card required for the booking profile; singles book available open slots."
+    },
+    {
+      "name": "Ward County Golf Course",
+      "address": "2028 N Hwy 18, Monahans, TX 79756",
+      "state": "TX",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.co.ward.tx.us/page/ward.recreation.monahansgolfcourse",
+        "https://wardcountygolf.com/"
+      ],
+      "access_note": "Operator homepage text was inspectable in full indexed form October 6, 2026 before a later direct 403; no retry. County information was independently read live. Closed Mondays and county holidays."
     },
     {
       "name": "Waterchase Golf Club",
@@ -38467,6 +40640,17 @@
         "https://www.greenvilletx.fun/167/Daily-Fees"
       ],
       "access_note": " Address held pending an independently read primary source; search-only PGA fields removed."
+    },
+    {
+      "name": "Yoakum Municipal Golf Course",
+      "address": "703 S. Park Rd., Yoakum, TX 77995",
+      "state": "TX",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.cityofyoakum.org/departments/parks_and_recreations/index.php"
+      ],
+      "access_note": "Closed Mondays, Easter, Thanksgiving and Christmas. Physical hole count remains unverified in the fully read source."
     },
     {
       "name": "Canyon Breeze Golf Course",
@@ -40336,7 +42520,7 @@
         "https://www.cedarknollgolf.com/daily-rates",
         "https://www.cedarknollgolf.com/_files/ugd/e2e559_a13163c7bdfa4201b76ff9f0e51aa2d0.pdf"
       ],
-      "source_note": "Physical27-hole total supported by complete inspectable indexed owner2026membership-overview text; daily rates/address directly read October6,2026."
+      "source_note": "Physical 27-hole total supported by complete inspectable indexed owner 2026 membership-overview text; daily rates and address directly read October 6, 2026."
     },
     {
       "name": "Country Club of Barre",
@@ -41472,6 +43656,30 @@
       ]
     },
     {
+      "name": "Hawthorne Hills Golf Course",
+      "address": "4720 County Highway I, Saukville, WI 53080",
+      "state": "WI",
+      "county": "Ozaukee County",
+      "holes": 18,
+      "sources": [
+        "https://www.ozaukeecountygolf.com/",
+        "https://www.ozaukeecountygolf.com/hawthorne-hills/rates"
+      ],
+      "access_note": "Children must be at least seven years old to be on the golf course."
+    },
+    {
+      "name": "Mee-Kwon Park Golf Course",
+      "address": "6333 West Bonniwell Road, Mequon, WI 53097",
+      "state": "WI",
+      "county": "Ozaukee County",
+      "holes": 18,
+      "sources": [
+        "https://www.ozaukeecountygolf.com/",
+        "https://www.ozaukeecountygolf.com/mee-kwon-park/rates"
+      ],
+      "access_note": "Children must be at least seven years old to be on the golf course."
+    },
+    {
       "name": "Johnson Park Golf Course",
       "address": "6200 Northwestern Ave, Racine, WI 53406",
       "state": "WI",
@@ -41479,6 +43687,16 @@
       "holes": 18,
       "sources": [
         "https://www.johnsonparkgc.com/"
+      ]
+    },
+    {
+      "name": "Abbey Springs Golf Course",
+      "address": "1 Country Club Drive, Fontana, WI 53125",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.abbeysprings.org/Golf"
       ]
     },
     {
@@ -41493,6 +43711,16 @@
       ]
     },
     {
+      "name": "Broadlands Golf Club",
+      "address": "18 Augusta Way, North Prairie, WI 53153",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.broadlandsgolfclub.com/"
+      ]
+    },
+    {
       "name": "Brown County Golf Course",
       "address": "897 Riverdale Drive, Hobart, WI 54155",
       "state": "WI",
@@ -41502,6 +43730,30 @@
         "https://www.browncountygc.com/",
         "https://www.browncountywi.gov/community/golf-course/general-information/about/"
       ]
+    },
+    {
+      "name": "Chaska Golf Course",
+      "address": "W6755 Wisconsin 96, Greenville, WI 54942",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://chaskagolf.com/",
+        "https://chaskagolf.com/course/"
+      ],
+      "access_note": "Closed October 11, 2026 for a university outing."
+    },
+    {
+      "name": "Fire Ridge Golf Club",
+      "address": "2241 County Road W, Grafton, WI 53024",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://fireridgegc.com/",
+        "https://fireridgegc.com/course/"
+      ],
+      "access_note": "Cashless facility."
     },
     {
       "name": "Forest Hills Golf Course - La Crosse",
@@ -41536,6 +43788,16 @@
       ]
     },
     {
+      "name": "Hayward Golf Course",
+      "address": "16005 W. Radio Hill Road, Hayward, WI 54843",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://haywardgolf.com/"
+      ]
+    },
+    {
       "name": "Lake Arrowhead - Lakes Course",
       "address": "1472 Apache Avenue, Nekoosa, WI 54457",
       "state": "WI",
@@ -41555,6 +43817,16 @@
       "sources": [
         "https://www.lakearrowheadgolf.com/",
         "https://www.lakearrowheadgolf.com/golf"
+      ]
+    },
+    {
+      "name": "Mascoutin Golf Club",
+      "address": "W1635 County Trunk A, Berlin, WI 54923",
+      "state": "WI",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.mascoutingolf.com/golf-course/history"
       ]
     },
     {
@@ -41604,6 +43876,76 @@
       ]
     },
     {
+      "name": "Old Hickory Golf Club",
+      "address": "W7596 Highway 33 East, Beaver Dam, WI 53916",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://oldhickorygolfclub.com/",
+        "https://oldhickorygolfclub.com/course-details/"
+      ]
+    },
+    {
+      "name": "Peninsula State Park Golf Course",
+      "address": "9890 Shore Road, Ephraim, WI 54211",
+      "state": "WI",
+      "county": null,
+      "holes": 24,
+      "sources": [
+        "https://www.peninsulagolf.org/",
+        "https://www.peninsulagolf.org/golf/short-course",
+        "https://www.peninsulagolf.org/tee-times"
+      ],
+      "access_note": "Main-course players must be at least eight years old; the short course welcomes all ages. Same-day reservations require calling the clubhouse. Seasonal closing is advertised for November 1, 2026."
+    },
+    {
+      "name": "Quit Qui Oc Golf Club",
+      "address": "500 Quit Qui Oc Lane, Elkhart Lake, WI 53020",
+      "state": "WI",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.quitquiocgolf.com/",
+        "https://www.quitquiocgolf.com/golf/golf-courses-driving-ranges/",
+        "https://www.quitquiocgolf.com/golf/daily-golf-course-rates-specials/",
+        "https://www.quitquiocgolf.com/golf/request-a-tee-time/"
+      ],
+      "access_note": "Single golfers must request reservations by phone and are paired on weekends and holidays."
+    },
+    {
+      "name": "Reedsburg Country Club",
+      "address": "3003 E. Main Street, Reedsburg, WI 53959",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://reedsburgcountryclub.com/"
+      ]
+    },
+    {
+      "name": "Rivermoor Golf Club",
+      "address": "30802 Waterford Drive, Waterford, WI 53185",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://rivermoorgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Rolling Meadows Golf Course",
+      "address": "560 W. Rolling Meadows Drive, Fond du Lac, WI 54935",
+      "state": "WI",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://rollingmeadowsgolfcourse.com/",
+        "https://rollingmeadowsgolfcourse.com/golf-faqs/",
+        "https://rollingmeadowsgolfcourse.com/course-information/"
+      ]
+    },
+    {
       "name": "Royal Scot Golf Course",
       "address": "4831 Church Road, New Franken, WI 54229",
       "state": "WI",
@@ -41637,6 +43979,27 @@
       ]
     },
     {
+      "name": "The Bog",
+      "address": "3121 County Road I, Saukville, WI 53080",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfthebog.com/"
+      ]
+    },
+    {
+      "name": "The Club at Lac La Belle",
+      "address": "6996 Pennsylvania Street, Oconomowoc, WI 53066",
+      "state": "WI",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://clubatlaclabelle.com/",
+        "https://clubatlaclabelle.com/golf/uncle-henrys-backyard/"
+      ]
+    },
+    {
       "name": "The Golf Courses of Lawsonia",
       "address": "W2615 S. Valley View Drive, Green Lake, WI 54941",
       "state": "WI",
@@ -41649,6 +44012,37 @@
         "https://www.lawsonia.com/book-golf"
       ],
       "access_note": "Reservations require a credit-card hold."
+    },
+    {
+      "name": "The Oaks Golf Course",
+      "address": "4740 Pierceville Road, Cottage Grove, WI 53527",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://golftheoaks.com/",
+        "https://golftheoaks.com/golf-course/"
+      ]
+    },
+    {
+      "name": "The Orchards at Egg Harbor",
+      "address": "8125 Heritage Lake Road, Egg Harbor, WI 54209",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.orchardsateggharbor.com/"
+      ]
+    },
+    {
+      "name": "Timber Ridge Golf Club",
+      "address": "10030 Timber Ridge Road, Minocqua, WI 54548",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://timberridgegolfclub.com/"
+      ]
     },
     {
       "name": "Trapp River Golf Course",
@@ -41675,6 +44069,19 @@
       "access_note": "Typically played as a nine-hole round; the tenth physical playing hole allows rotation during improvements to other holes."
     },
     {
+      "name": "Troy Burne Golf Club",
+      "address": "295 Lindsay Road, Hudson, WI 54016",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://troyburne.com/policies/",
+        "https://troyburne.com/fact-sheet/",
+        "https://troyburne.com/the-course/",
+        "https://troyburne.com/wp-content/uploads/sites/75/2025/03/troy-burne-6.17-converted-merged-2-2.webp"
+      ]
+    },
+    {
       "name": "University Ridge Golf Course",
       "address": "9002 County Road PD, Madison, WI 53593",
       "state": "WI",
@@ -41690,6 +44097,31 @@
       "source_note": "The 2026 irrigation notice was observed in the full indexed primary rates page on 2026-10-06; the live page inspected the same day omits that paragraph. Other fields use inspected current owner pages."
     },
     {
+      "name": "Wander Springs Golf Course",
+      "address": "4342 Wayside Drive, Greenleaf, WI 54126",
+      "state": "WI",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://wandersprings.com/",
+        "https://wandersprings.com/course-details/",
+        "https://wandersprings.com/outings-and-events/"
+      ]
+    },
+    {
+      "name": "Washington County Golf Course - Main Course",
+      "address": "1365 Clover Road, Hartford, WI 53027",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfwcgc.com/contact/",
+        "https://www.golfwcgc.com/course-details/",
+        "https://www.golfwcgc.com/rates/",
+        "https://www.golfwcgc.com/wp-content/uploads/sites/8194/2026/01/Rates-May-18-Nov-1st-2026.pdf"
+      ]
+    },
+    {
       "name": "Washington Park Golf Course",
       "address": null,
       "state": "WI",
@@ -41698,6 +44130,33 @@
       "sources": [
         "https://www.mtpleasantwi.gov/2649/Golfing"
       ]
+    },
+    {
+      "name": "Western Lakes Golf Club",
+      "address": "W287 N1963 Oakton Road, Pewaukee, WI 53072",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://westernlakes.com/",
+        "https://westernlakes.com/golf-rates/golf-course/",
+        "https://westernlakes.com/new-irrigation-system-installation/"
+      ],
+      "access_note": "Fall 2026 irrigation installation is expected through Thanksgiving, with possible temporary weekday routing changes."
+    },
+    {
+      "name": "Whispering Springs Golf Club",
+      "address": "380 Whispering Springs Drive, Fond du Lac, WI 54937",
+      "state": "WI",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://whisperingspringsgolf.com/",
+        "https://whisperingspringsgolf.com/about",
+        "https://whisperingspringsgolf.com/membership",
+        "https://whisperingspringsgolf.com/golf-course-policies"
+      ],
+      "access_note": "Scheduled aeration closure October 5–6, 2026."
     },
     {
       "name": "Whitnall Park Golf Course",
@@ -46377,7 +48836,10 @@
       "sources": [
         "https://golfpriestlake.com/",
         "https://www.bonnercountyid.gov/media/Planning/Comp%20Plan%20Update/AM0015-22%20Adopted%20Update%20%2812.07.2022%29%20-%20Recreation.pdf",
-        "https://golfpriestlake.com/rates-passes/"
+        "https://golfpriestlake.com/rates-passes/",
+        "https://www.stoneridgeidaho.com/golf-course/course-information",
+        "https://theidahoclub.com/nicklaus-signature-course/",
+        "https://theidahoclub.com/contact/"
       ],
       "queries": [
         "\"Bonner County\" \"Idaho\" golf public course"
@@ -58436,7 +60898,13 @@
       "state": "NJ",
       "fips": "34001",
       "name": "Atlantic County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Atlantic County New Jersey public golf courses official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
@@ -58456,61 +60924,121 @@
       "state": "NJ",
       "fips": "34005",
       "name": "Burlington County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Burlington County New Jersey public golf courses official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34007",
       "name": "Camden County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Camden County New Jersey public golf course official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34009",
       "name": "Cape May County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Cape May County New Jersey public golf course official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34011",
       "name": "Cumberland County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Cumberland County New Jersey public golf course official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34013",
       "name": "Essex County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Essex County New Jersey public golf courses nonresident official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34015",
       "name": "Gloucester County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Gloucester County New Jersey public golf course official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34017",
       "name": "Hudson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Hudson County New Jersey public golf course official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34019",
       "name": "Hunterdon County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Hunterdon County New Jersey public golf course official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34021",
       "name": "Mercer County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "New Jersey Mercer County public golf courses official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34023",
       "name": "Middlesex County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Middlesex County New Jersey public golf course official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
@@ -58544,43 +61072,85 @@
       "state": "NJ",
       "fips": "34029",
       "name": "Ocean County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Ocean County New Jersey public golf course official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34031",
       "name": "Passaic County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Passaic County New Jersey public golf courses official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34033",
       "name": "Salem County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Salem County New Jersey public golf course official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34035",
       "name": "Somerset County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "New Jersey Somerset County golf courses public official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34037",
       "name": "Sussex County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Sussex County New Jersey public golf course official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34039",
       "name": "Union County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Union county New Jersey public golf courses official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NJ",
       "fips": "34041",
       "name": "Warren County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Warren County New Jersey public golf course official"
+      ],
+      "outcome": "Initial county query identified government and owner leads. Sources still require course-level verification; no result does not establish absence of courses."
     },
     {
       "state": "NM",
@@ -62572,403 +65142,848 @@
       "state": "PA",
       "fips": "42001",
       "name": "Adams County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Adams County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a four-query discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42003",
       "name": "Allegheny County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Allegheny County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a four-query discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42005",
       "name": "Armstrong County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Armstrong County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a four-query discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42007",
       "name": "Beaver County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ],
+      "queries": [
+        "\"Beaver County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a four-query discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42009",
       "name": "Bedford County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Bedford County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42011",
       "name": "Berks County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ],
+      "queries": [
+        "\"Berks County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42013",
       "name": "Blair County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Blair County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42015",
       "name": "Bradford County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Bradford County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42017",
       "name": "Bucks County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ],
+      "queries": [
+        "\"Bucks County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42019",
       "name": "Butler County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Butler County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42021",
       "name": "Cambria County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Cambria County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42023",
       "name": "Cameron County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Cameron County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42025",
       "name": "Carbon County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ],
+      "queries": [
+        "\"Carbon County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42027",
       "name": "Centre County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Centre County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42029",
       "name": "Chester County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ],
+      "queries": [
+        "\"Chester County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42031",
       "name": "Clarion County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Clarion County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42033",
       "name": "Clearfield County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Clearfield County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42035",
       "name": "Clinton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Clinton County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42037",
       "name": "Columbia County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Columbia County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42039",
       "name": "Crawford County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Crawford County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42041",
       "name": "Cumberland County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ],
+      "queries": [
+        "\"Cumberland County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42043",
       "name": "Dauphin County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ],
+      "queries": [
+        "\"Dauphin County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42045",
       "name": "Delaware County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ],
+      "queries": [
+        "\"Delaware County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42047",
       "name": "Elk County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Elk County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42049",
       "name": "Erie County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Erie County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42051",
       "name": "Fayette County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Fayette County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42053",
       "name": "Forest County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Forest County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42055",
       "name": "Franklin County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Franklin County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42057",
       "name": "Fulton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Fulton County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42059",
       "name": "Greene County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Greene County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42061",
       "name": "Huntingdon County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Huntingdon County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42063",
       "name": "Indiana County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Indiana County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42065",
       "name": "Jefferson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Jefferson County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42067",
       "name": "Juniata County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Juniata County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42069",
       "name": "Lackawanna County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Lackawanna County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42071",
       "name": "Lancaster County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ],
+      "queries": [
+        "\"Lancaster County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42073",
       "name": "Lawrence County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Lawrence County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42075",
       "name": "Lebanon County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Lebanon County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42077",
       "name": "Lehigh County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ],
+      "queries": [
+        "\"Lehigh County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42079",
       "name": "Luzerne County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Luzerne County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42081",
       "name": "Lycoming County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Lycoming County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42083",
       "name": "McKean County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"McKean County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42085",
       "name": "Mercer County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Mercer County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42087",
       "name": "Mifflin County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Mifflin County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42089",
       "name": "Monroe County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Monroe County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42091",
       "name": "Montgomery County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ],
+      "queries": [
+        "\"Montgomery County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42093",
       "name": "Montour County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Montour County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42095",
       "name": "Northampton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Northampton County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42097",
       "name": "Northumberland County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Northumberland County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42099",
       "name": "Perry County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Perry County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42101",
       "name": "Philadelphia County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Philadelphia County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42103",
       "name": "Pike County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Pike County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42105",
       "name": "Potter County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Potter County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42107",
       "name": "Schuylkill County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Schuylkill County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42109",
       "name": "Snyder County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Snyder County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42111",
       "name": "Somerset County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Somerset County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42113",
       "name": "Sullivan County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Sullivan County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42115",
       "name": "Susquehanna County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Susquehanna County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42117",
       "name": "Tioga County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://www.wpga.org/resources/member-club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ],
+      "queries": [
+        "\"Tioga County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42119",
       "name": "Union County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ],
+      "queries": [
+        "\"Union County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42121",
       "name": "Venango County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Venango County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42123",
       "name": "Warren County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Warren County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42125",
       "name": "Washington County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.wpga.org/resources/member-club-directory/",
+        "https://golfinpa.com/pennsylvania-member-golf-courses/"
+      ],
+      "queries": [
+        "\"Washington County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42127",
       "name": "Wayne County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Wayne County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42129",
       "name": "Westmoreland County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Westmoreland County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42131",
       "name": "Wyoming County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ],
+      "queries": [
+        "\"Wyoming County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "PA",
       "fips": "42133",
       "name": "York County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gapgolf.org/play/club-directory/"
+      ],
+      "queries": [
+        "\"York County\" \"Pennsylvania\" public golf course"
+      ],
+      "outcome": "Actual county query submitted in a discovery batch. Search results do not establish course facts or completeness; permitted primary sources require separate review."
     },
     {
       "state": "RI",
@@ -64477,7 +67492,15 @@
       "state": "TX",
       "fips": "48013",
       "name": "Atascosa County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.southtxgolf.com/"
+      ],
+      "queries": [
+        "Wilson Atascosa county River Bend Pleasanton golf public"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -64489,7 +67512,8 @@
         "https://texas.twoguyswhogolf.com/alpha/riverridge.html"
       ],
       "queries": [
-        "River Ridge Sealy golf official"
+        "River Ridge Sealy golf official",
+        "Bellville golf course public official Texas"
       ],
       "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
@@ -64511,7 +67535,15 @@
       "state": "TX",
       "fips": "48019",
       "name": "Bandera County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://flyingl.com/rates/"
+      ],
+      "queries": [
+        "Flying L golf public official Bandera"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -64529,7 +67561,13 @@
       "state": "TX",
       "fips": "48023",
       "name": "Baylor County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Seymour golf public Texas"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -64569,7 +67607,15 @@
       "state": "TX",
       "fips": "48031",
       "name": "Blanco County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.vaalercreekgolfclub.com/"
+      ],
+      "queries": [
+        "Vaaler Creek golf public official Blanco"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -64696,7 +67742,13 @@
       "state": "TX",
       "fips": "48057",
       "name": "Calhoun County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Hatch Bend golf public official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -64807,7 +67859,13 @@
       "state": "TX",
       "fips": "48083",
       "name": "Coleman County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Coleman country club public golf official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -64839,7 +67897,8 @@
         "https://www.visiteaglelake.com/eagle-lake-golf"
       ],
       "queries": [
-        "Eagle Lake golf course Texas official public"
+        "Eagle Lake golf course Texas official public",
+        "Columbus Texas municipal golf course public official"
       ],
       "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
@@ -64861,7 +67920,13 @@
       "state": "TX",
       "fips": "48093",
       "name": "Comanche County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Comanche Par country club public golf official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -64873,7 +67938,15 @@
       "state": "TX",
       "fips": "48097",
       "name": "Cooke County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://gainesville.tx.us/110/Golf-Course"
+      ],
+      "queries": [
+        "Gainesville municipal golf course Texas public 18 holes official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -64947,7 +68020,13 @@
       "state": "TX",
       "fips": "48115",
       "name": "Dawson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Lamesa golf public official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -64983,7 +68062,13 @@
       "state": "TX",
       "fips": "48123",
       "name": "DeWitt County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Cuero municipal golf course public official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65013,7 +68098,13 @@
       "state": "TX",
       "fips": "48133",
       "name": "Eastland County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Eastland lakeside golf course public official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65057,7 +68148,16 @@
       "state": "TX",
       "fips": "48143",
       "name": "Erath County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://visitstephenville.com/wp-content/uploads/2022/10/Stephenville-Visitor-Guide_2022.pdf",
+        "https://legendsccstephenville.com/"
+      ],
+      "queries": [
+        "Legends Tejas golf Stephenville public official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65083,7 +68183,13 @@
       "state": "TX",
       "fips": "48149",
       "name": "Fayette County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Flatonia golf public"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65197,7 +68303,13 @@
       "state": "TX",
       "fips": "48177",
       "name": "Gonzales County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Gonzales Independence golf course official public"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65241,7 +68353,13 @@
       "state": "TX",
       "fips": "48185",
       "name": "Grimes County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Pecan Lakes Navasota golf public official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65347,7 +68465,13 @@
       "state": "TX",
       "fips": "48207",
       "name": "Haskell County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Haskell golf country club public official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65391,7 +68515,13 @@
       "state": "TX",
       "fips": "48217",
       "name": "Hill County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Hillsboro Texas country club public golf official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65494,7 +68624,13 @@
       "state": "TX",
       "fips": "48239",
       "name": "Jackson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Edna golf country club public official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65553,7 +68689,13 @@
       "state": "TX",
       "fips": "48253",
       "name": "Jones County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Anson golf course public Texas"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65627,7 +68769,13 @@
       "state": "TX",
       "fips": "48275",
       "name": "Knox County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Munday Lake Creek golf official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65669,7 +68817,8 @@
         "https://txga.org/wp-content/uploads/2026/02/2025-TGA-Annual-Report_LoRes.pdf"
       ],
       "queries": [
-        "Hallettsville municipal golf official nine"
+        "Hallettsville municipal golf official nine",
+        "Yoakum golf course city official"
       ],
       "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
@@ -65695,7 +68844,13 @@
       "state": "TX",
       "fips": "48293",
       "name": "Limestone County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Mexia golf course public official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65751,7 +68906,13 @@
       "state": "TX",
       "fips": "48307",
       "name": "McCulloch County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Brady municipal golf course public official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65931,7 +69092,13 @@
       "state": "TX",
       "fips": "48349",
       "name": "Navarro County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Corsicana golf public Indian"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -65943,7 +69110,13 @@
       "state": "TX",
       "fips": "48353",
       "name": "Nolan County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Sweetwater municipal golf course Texas public"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -66152,7 +69325,13 @@
       "state": "TX",
       "fips": "48399",
       "name": "Runnels County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Ballinger golf course city public"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -66182,7 +69361,13 @@
       "state": "TX",
       "fips": "48409",
       "name": "San Patricio County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Sinton golf public official course"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -66269,7 +69454,13 @@
       "state": "TX",
       "fips": "48429",
       "name": "Stephens County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Breckenridge golf public Texas"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -66325,13 +69516,25 @@
       "state": "TX",
       "fips": "48445",
       "name": "Terry County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Terry county golf course Brownfield official public"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
       "fips": "48447",
       "name": "Throckmorton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Throckmorton golf course public"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -66477,13 +69680,25 @@
       "state": "TX",
       "fips": "48475",
       "name": "Ward County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Monahans Ward county golf course official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
       "fips": "48477",
       "name": "Washington County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Brenham country club public golf official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -66532,13 +69747,27 @@
       "state": "TX",
       "fips": "48487",
       "name": "Wilbarger County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Vernon golf course public Texas official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
       "fips": "48489",
       "name": "Willacy County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://raymondvilletx.us/edc/"
+      ],
+      "queries": [
+        "Raymondville golf course official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
@@ -66556,13 +69785,27 @@
       "state": "TX",
       "fips": "48493",
       "name": "Wilson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.southtxgolf.com/"
+      ],
+      "queries": [
+        "Wilson Atascosa county River Bend Pleasanton golf public"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
       "fips": "48495",
       "name": "Winkler County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Winkler county golf course Kermit public official"
+      ],
+      "outcome": "Primary municipal/operator leads identified. Search remains incomplete."
     },
     {
       "state": "TX",
