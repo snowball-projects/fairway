@@ -9,12 +9,12 @@
   "rights": "Bare facts and explicitly licensed source attributes with citations. No source prose, photographs, map geometry or scorecard artwork included. Applicable source-data licenses and adaptations are recorded below.",
   "coverage": {
     "national_complete": false,
-    "course_record_count": 2871,
-    "complete_essentials": 1591,
+    "course_record_count": 2988,
+    "complete_essentials": 1609,
     "state_record_counts": {
-      "AK": 7,
+      "AK": 10,
       "AL": 105,
-      "AR": 32,
+      "AR": 34,
       "AZ": 1,
       "CA": 252,
       "CO": 6,
@@ -26,8 +26,8 @@
       "HI": 6,
       "IA": 145,
       "ID": 1,
-      "IL": 22,
-      "IN": 72,
+      "IL": 42,
+      "IN": 110,
       "KS": 117,
       "KY": 55,
       "LA": 27,
@@ -44,13 +44,13 @@
       "NE": 127,
       "NH": 4,
       "NJ": 6,
-      "NM": 31,
-      "NV": 1,
+      "NM": 45,
+      "NV": 23,
       "NY": 25,
       "OH": 118,
       "OK": 120,
       "OR": 43,
-      "PA": 84,
+      "PA": 85,
       "RI": 23,
       "SC": 99,
       "SD": 1,
@@ -62,13 +62,13 @@
       "WA": 80,
       "WI": 14,
       "WV": 2,
-      "WY": 2
+      "WY": 19
     },
-    "counties_represented": 760,
-    "counties_searched": 482,
+    "counties_represented": 775,
+    "counties_searched": 542,
     "missing_fields": {
-      "address": 52,
-      "county": 1050,
+      "address": 53,
+      "county": 1147,
       "holes": 356
     },
     "states_represented": [
@@ -189,6 +189,19 @@
       ]
     },
     {
+      "name": "Fairbanks Golf Course",
+      "address": "1735 Farmers Loop Rd, Fairbanks, AK 99709",
+      "state": "AK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.fairbanksgolfcourse.com/",
+        "https://www.fairbanksgolfcourse.com/rates",
+        "https://www.fairbanksgolfcourse.com/contact-us"
+      ],
+      "access_note": "Seasonal course; owner reports closed for the 2026 season."
+    },
+    {
       "name": "Fireweed Meadows Golf Course",
       "address": "72749 Milo Fritz Ave, Anchor Point, AK 99556",
       "state": "AK",
@@ -221,6 +234,28 @@
         "https://kenaigolfcourse.com/"
       ],
       "access_note": "Seasonal course; operator lists May through September."
+    },
+    {
+      "name": "Mendenhall Golf Course",
+      "address": "2101 Industrial Blvd, Juneau, AK 99801",
+      "state": "AK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://akgolf.org/mendenhall/",
+        "https://www.juneaugolf.com/events/2026-summer-junior-golf-program"
+      ]
+    },
+    {
+      "name": "Sea Mountain Golf Course",
+      "address": "301 Granite Creek Rd, Sitka, AK 99835",
+      "state": "AK",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.seamountaingolf.org/",
+        "https://akgolf.org/sea-mountain/"
+      ]
     },
     {
       "name": "Sleepy Hollow Golf Course",
@@ -1560,6 +1595,18 @@
       ]
     },
     {
+      "name": "Harbor Oaks Golf Club",
+      "address": "1 Harbor Oaks Drive, Pine Bluff, AR 71601",
+      "state": "AR",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.harboroaksgolfclub.com/",
+        "https://www.harboroaksgolfclub.com/terms-and-conditions"
+      ],
+      "access_note": "Closed Mondays. Nonmembers may reserve tee times up to seven days ahead."
+    },
+    {
       "name": "Hickory Creek Golf Course",
       "address": "8933 Arrington Road, Jacksonville, AR 72076",
       "state": "AR",
@@ -1691,6 +1738,17 @@
       "holes": null,
       "sources": [
         "https://www.arkansas.com/experiences/discover/attraction-listings/ouachita-country-club"
+      ]
+    },
+    {
+      "name": "Rebsamen Golf Course",
+      "address": "3400 Rebsamen Park Road, Little Rock, AR 72202",
+      "state": "AR",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://rebsamengolf.com/",
+        "https://www.arkansas.com/experiences/discover/attraction-listings/rebsamen-park-golf-course"
       ]
     },
     {
@@ -12614,6 +12672,28 @@
       ]
     },
     {
+      "name": "Hughes Creek Golf Club",
+      "address": "1749 Spring Valley Drive, Elburn, IL 60119",
+      "state": "IL",
+      "county": "Kane County",
+      "holes": 18,
+      "sources": [
+        "https://www.kaneforestgolf.com/"
+      ],
+      "access_note": "Tee-time booking is online only. Weekend singles must join an existing twosome or threesome."
+    },
+    {
+      "name": "Settler's Hill Golf Course",
+      "address": "919 E. Fabyan Parkway, Batavia, IL 60510",
+      "state": "IL",
+      "county": "Kane County",
+      "holes": 18,
+      "sources": [
+        "https://www.kaneforestgolf.com/"
+      ],
+      "access_note": "Tee-time booking is online only. Weekend singles must join an existing twosome or threesome."
+    },
+    {
       "name": "Kellogg Golf Course",
       "address": "7716 N. Radnor Rd, Peoria, IL 61615",
       "state": "IL",
@@ -12647,6 +12727,17 @@
       ]
     },
     {
+      "name": "Apple Orchard Golf Course",
+      "address": "692 W. Stearns Road, Bartlett, IL 60103",
+      "state": "IL",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://bartlettparks.org/apple-orchard-golf-course/general-information/"
+      ],
+      "access_note": "Walking course; a SoloRider golf cart is available for golfers with disabilities."
+    },
+    {
       "name": "Arlington Lakes Golf Club",
       "address": "1211 New Wilke Road, Arlington Heights, IL 60005",
       "state": "IL",
@@ -12655,6 +12746,16 @@
       "sources": [
         "https://www.ahpd.org/location/arlington-lakes-golf-club/",
         "https://www.ahpd.org/facilities/golf-clubs/"
+      ]
+    },
+    {
+      "name": "Bartlett Hills Golf Club",
+      "address": "800 W. Oneida Avenue, Bartlett, IL 60103",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.bartletthills.com/"
       ]
     },
     {
@@ -12671,6 +12772,18 @@
       "access_note": "No one under age 6 is allowed on the golf courses."
     },
     {
+      "name": "Bloomingdale Golf Club",
+      "address": "181 N. Glen Ellyn Road, Bloomingdale, IL 60108",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.bloomingdalegc.com/",
+        "https://www.bloomingdalegc.com/play"
+      ],
+      "access_note": "Non-golfing ride-along spectators are not permitted."
+    },
+    {
       "name": "Bonnie Dundee Golf Club",
       "address": "270 Kennedy Drive, Carpentersville, IL 60110",
       "state": "IL",
@@ -12679,6 +12792,17 @@
       "sources": [
         "https://www.dtpd.org/bonnie-dundee-golf-course-info",
         "https://www.dtpd.org/bonnie-dundee-golf-rates"
+      ]
+    },
+    {
+      "name": "Bridges of Poplar Creek Country Club",
+      "address": "1400 Poplar Creek Drive, Hoffman Estates, IL 60169",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://bridgesofpoplarcreek.com/",
+        "https://bridgesofpoplarcreek.com/course-details/"
       ]
     },
     {
@@ -12693,6 +12817,61 @@
         "https://springfieldparks.org/Resources/c1096a74-d364-4bb6-838b-33d19427fd27/2024_SPD_general_use_ordinance_final.pdf"
       ],
       "access_note": "No one under age 6 is allowed on the golf courses."
+    },
+    {
+      "name": "Cog Hill Golf and Country Club",
+      "address": "12294 Archer Avenue, Lemont, IL 60439",
+      "state": "IL",
+      "county": null,
+      "holes": 72,
+      "sources": [
+        "https://coghillgolf.com/"
+      ]
+    },
+    {
+      "name": "Deerfield Golf Club and Learning Center",
+      "address": "1201 Saunders Road, Riverwoods, IL 60015",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.deerfieldgolf.org/",
+        "https://www.deerfieldgolf.org/163/Course-Rates-Passes",
+        "https://www.deerfieldgolf.org/170/Contact-Us"
+      ],
+      "access_note": "Golfers must be at least twelve except during family fun day or golf camps. Tee times require online booking and a credit-card authorization."
+    },
+    {
+      "name": "Glencoe Golf Club",
+      "address": "621 Westley Road, Glencoe, IL 60022",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://glencoegolfclub.com/",
+        "https://glencoegolfclub.com/history/"
+      ]
+    },
+    {
+      "name": "Glenview Park Golf Club",
+      "address": "800 Shermer Road, Glenview, IL 60025",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://glenviewparks.org/facilities/glenview-park-golf-club/"
+      ],
+      "access_note": "Golfers must be at least eight. Children eleven and younger need an adult unless they pass a playability test."
+    },
+    {
+      "name": "Glenview Prairie Club",
+      "address": "2800 W. Lake Avenue, Glenview, IL 60026",
+      "state": "IL",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://glenviewparks.org/facilities/glenview-prairie-club/"
+      ]
     },
     {
       "name": "Green Meadows Golf Club",
@@ -12804,6 +12983,37 @@
       "access_note": "No one under age 6 is allowed on the golf courses."
     },
     {
+      "name": "Pine Meadow Golf Club",
+      "address": "1 Pine Meadow Lane, Mundelein, IL 60060-9635",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://pinemeadowgc.com/"
+      ]
+    },
+    {
+      "name": "Pinecrest Golf Club - Huntley",
+      "address": "11220 W. Algonquin Road, Huntley, IL 60142",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.pinecresthuntley.com/"
+      ]
+    },
+    {
+      "name": "Pottawatomie Golf Course",
+      "address": "845 N. Second Avenue, St. Charles, IL 60174",
+      "state": "IL",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.pottawatomiegc.com/",
+        "https://www.pottawatomiegc.com/history-improvements/"
+      ]
+    },
+    {
       "name": "Randall Oaks Golf Club",
       "address": "4101 Binnie Road, West Dundee, IL 60118",
       "state": "IL",
@@ -12863,6 +13073,45 @@
       ]
     },
     {
+      "name": "Sugar Creek Golf Course",
+      "address": "500 E. Van Buren Street, Villa Park, IL 60181",
+      "state": "IL",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://sugarcreekgolfcourse.org/general-info/about-sugar-creek",
+        "https://sugarcreekgolfcourse.org/general-info/hours-location",
+        "https://sugarcreekgolfcourse.org/golf/fees",
+        "https://sugarcreekgolfcourse.org/sites/default/files/pdf/board-minutes/2018-07-24%20SCGC%20Board%20Packet.pdf"
+      ]
+    },
+    {
+      "name": "Sunset Valley Golf Club",
+      "address": "1390 Sunset Road, Highland Park, IL 60035",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://sunsetvalleygolfclub.org/",
+        "https://sunsetvalleygolfclub.org/course-layout/",
+        "https://sunsetvalleygolfclub.org/course-policies/",
+        "https://sunsetvalleygolfclub.org/wp-content/uploads/2026/01/2026-Permanent-Tee-Time-Application.pdf"
+      ],
+      "access_note": "Children twelve and under require an adult unless the head professional approves an exception. Spectators require prior approval and a waiver and must walk."
+    },
+    {
+      "name": "Sycamore Golf Club",
+      "address": "940 East State Street, Sycamore, IL 60178",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://playgolfsycamore.com/",
+        "https://playgolfsycamore.com/leagues/",
+        "https://sycparks.org/golf-events/"
+      ]
+    },
+    {
       "name": "The Preserve at Oak Meadows",
       "address": "900 N. Wood Dale Road, Addison, IL 60101",
       "state": "IL",
@@ -12873,6 +13122,41 @@
       ]
     },
     {
+      "name": "Villa Olivia Golf Club",
+      "address": "1401 W. Lake Street, Bartlett, IL 60103",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://bartlettparks.org/villa-olivia/golf/",
+        "https://bartlettparks.org/villa-olivia/golf/golf-rates/",
+        "https://bartlettparks.org/wp-content/uploads/2021/03/Golf-Outing-2021.pdf"
+      ]
+    },
+    {
+      "name": "Village Greens of Woodridge",
+      "address": "1575 West 75th Street, Woodridge, IL 60517",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://villagegreensgolf.com/",
+        "https://villagegreensgolf.com/course-rates/"
+      ]
+    },
+    {
+      "name": "Wilmette Golf Club",
+      "address": "3900 Fairway Drive, Wilmette, IL 60091",
+      "state": "IL",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfwilmette.com/",
+        "https://www.golfwilmette.com/scorecard-and-policies/",
+        "https://golfwilmette.com/wp-content/uploads/sites/8709/2023/01/Scorecard.pdf"
+      ]
+    },
+    {
       "name": "Benton County Golf Course",
       "address": "602 W 4th St., Fowler, IN 47944",
       "state": "IN",
@@ -12880,6 +13164,18 @@
       "holes": 9,
       "sources": [
         "https://bentoncountygc.com/"
+      ]
+    },
+    {
+      "name": "Salt Creek Golf Retreat",
+      "address": "2359 State Road 46 East, Nashville, IN 47448",
+      "state": "IN",
+      "county": "Brown County",
+      "holes": null,
+      "sources": [
+        "https://www.saltcreekgolf.com/",
+        "https://www.saltcreekgolf.com/course/rates",
+        "https://www.saltcreekgolf.com/course"
       ]
     },
     {
@@ -12979,6 +13275,17 @@
       ]
     },
     {
+      "name": "Legacy Hills Golf Club",
+      "address": "299 W. Johnson Rd., LaPorte, IN 46350",
+      "state": "IN",
+      "county": "LaPorte County",
+      "holes": 18,
+      "sources": [
+        "https://www.legacyhillsgc.com/",
+        "https://www.legacyhillsgc.com/rates/"
+      ]
+    },
+    {
       "name": "Grandview Golf Course",
       "address": "1907 Northshore Exd, Anderson, IN 46011",
       "state": "IN",
@@ -13001,6 +13308,17 @@
       "access_note": "Tee times are required on weekends and recommended on weekdays."
     },
     {
+      "name": "Rocky Ridge Golf Course",
+      "address": "3965 N 625 E, Crawfordsville, IN 47933",
+      "state": "IN",
+      "county": "Montgomery County",
+      "holes": 18,
+      "sources": [
+        "https://www.visitmoco.com/place/rocky-ridge-golf-course/",
+        "https://www.visitmoco.com/2024/05/golf-in-montgomery-county/"
+      ]
+    },
+    {
       "name": "Foxcliff Golf Club",
       "address": "1970 E. Mapleturn Rd, Martinsville, IN 46151",
       "state": "IN",
@@ -13010,6 +13328,19 @@
         "https://foxcliffgolfclub.com/",
         "https://foxcliffgolfclub.com/about-us/"
       ]
+    },
+    {
+      "name": "Cobblestone Golf Course",
+      "address": "2702 Cobblestone Lane, Kendallville, IN",
+      "state": "IN",
+      "county": "Noble County",
+      "holes": null,
+      "sources": [
+        "https://www.visitnoblecounty.org/post/just-the-guys-a-noble-county-guide-for-men",
+        "https://www.visitnoblecounty.org/partners/cobblestone-golf-course",
+        "https://www.visitnoblecounty.org/kendallville"
+      ],
+      "access_note": "Seasonal operation."
     },
     {
       "name": "Turkey Run Golf Club",
@@ -13022,6 +13353,72 @@
         "https://turkeyrungolf.com/golf/"
       ],
       "access_note": "Tee times required on weekends."
+    },
+    {
+      "name": "Antler Pointe Golf Club",
+      "address": "3510 N 150 E, Rushville, IN 46173",
+      "state": "IN",
+      "county": "Rush County",
+      "holes": 18,
+      "sources": [
+        "https://www.antlerpointegolf.com/",
+        "https://www.visitrushcounty.com/business-directory"
+      ]
+    },
+    {
+      "name": "Whispering Pines Golf Course",
+      "address": "32280 IN-4, Walkerton, IN 46574",
+      "state": "IN",
+      "county": "St. Joseph County",
+      "holes": 18,
+      "sources": [
+        "https://whisperingpinesgolf.wixsite.com/whisperingpinesgolf"
+      ],
+      "access_note": "Open year-round weather permitting; call clubhouse for weekend/holiday tee times."
+    },
+    {
+      "name": "Hidden Valley Golf Course",
+      "address": "5370 E. Metz Road, Angola, IN 46703",
+      "state": "IN",
+      "county": "Steuben County",
+      "holes": 18,
+      "sources": [
+        "https://visitsteubencounty.com/outdoors/golf/"
+      ]
+    },
+    {
+      "name": "Sullivan County Park & Lake Golf Course",
+      "address": "990 East Picnic Rd, Sullivan, IN 47882",
+      "state": "IN",
+      "county": "Sullivan County",
+      "holes": 9,
+      "sources": [
+        "https://sullivanparkandlake.com/",
+        "https://sullivanparkandlake.com/wp-content/uploads/2024/01/park-rules-and-regulations-Reformatted-by-Suncast-2024-Updated.pdf",
+        "https://discoversullivan.com/attraction/sullivan-elks-country-club-and-golf-course/"
+      ],
+      "access_note": "Park season is March 1–October 31. Daily or annual golf fees apply; privately brought golf carts require a daily or annual gate pass. Separate 18-hole disc-golf layout is excluded."
+    },
+    {
+      "name": "Sullivan Elks Country Club Golf Course",
+      "address": "600 W. Wolfe St., Sullivan, IN 47882",
+      "state": "IN",
+      "county": "Sullivan County",
+      "holes": 18,
+      "sources": [
+        "https://discoversullivan.com/attraction/sullivan-elks-country-club-and-golf-course/"
+      ],
+      "access_note": "Season published as March 1–November 30."
+    },
+    {
+      "name": "Arbor Crossing Golf Club",
+      "address": "1982 W Country Club Rd, Connersville, IN 47331",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://arborcrossinggc.com/"
+      ]
     },
     {
       "name": "Arlington Park Golf Course",
@@ -13057,6 +13454,31 @@
       ]
     },
     {
+      "name": "Bear Slide Golf Club",
+      "address": "6770 East 231st Street, Cicero, IN 46034",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.bearslide.com/"
+      ]
+    },
+    {
+      "name": "Birck Boilermaker Golf Complex",
+      "address": "1300 Cherry Lane, West Lafayette, IN 47906",
+      "state": "IN",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://purduesports.com/facilities/birck-boilermaker-golf-complex",
+        "https://purduesports.com/news/2020/09/14/birck-boilermaker-golf-complex-announces-new-membership-benefits",
+        "https://www.homeofpurdue.com/plan/vacation-guides-and-brochures/digital-guides/",
+        "https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/westlafayettein/golf_page_b17a9c6d-de6f-4800-923a-c381d1a1b295.pdf",
+        "https://www.homeofpurdue.com/listing/kampen-cosler-course/9/"
+      ],
+      "access_note": "University facility page says campus parking lots require a visitor or daily parking pass; check current golf-visitor parking arrangements."
+    },
+    {
       "name": "Black Squirrel Golf Club",
       "address": "1017 Larimer Dr., Goshen, IN 46526",
       "state": "IN",
@@ -13066,6 +13488,17 @@
         "https://blacksquirrelgolf.com/",
         "https://business.goshen.org/list/member/black-squirrel-golf-club-4174"
       ]
+    },
+    {
+      "name": "Blackford Golf Club",
+      "address": "1605 W Water St, Hartford City, IN 47348",
+      "state": "IN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://www.blackfordgolfclub.com/"
+      ],
+      "access_note": "Call ahead in frost or questionable weather."
     },
     {
       "name": "Brookshire Golf Club",
@@ -13090,6 +13523,16 @@
       ]
     },
     {
+      "name": "Buffer Park Golf Course",
+      "address": "3825 Foltz Street, Indianapolis, IN 46221",
+      "state": "IN",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.bufferpark.com/about-us/"
+      ]
+    },
+    {
       "name": "Burke Golf Course",
       "address": "Dorr Road, Notre Dame, IN 46556",
       "state": "IN",
@@ -13100,6 +13543,26 @@
         "https://burkegolfcourse.nd.edu/location-parking/"
       ],
       "access_note": "Closed Tuesdays. Access is via Dorr Road off Highway 933; visitors pay for Dorr Road parking Monday–Friday 8 AM–4 PM. Golf carts may be limited or unavailable. Separate practice hole closed for 2026."
+    },
+    {
+      "name": "Cambridge Golf Course",
+      "address": "1034 Beacon Hill, Evansville, IN 47725",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://cambridgegc.com/"
+      ]
+    },
+    {
+      "name": "Cardinal Hills Golf Course",
+      "address": "3900 S Whitney Rd, Selma, IN 47383",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.cardinalhills.com/"
+      ]
     },
     {
       "name": "Champions Pointe Golf Club",
@@ -13169,6 +13632,17 @@
       "access_note": "Physical hole total not verified; reference to an 18-hole round is not used as a physical-layout count."
     },
     {
+      "name": "Covered Bridge Golf Club",
+      "address": "12510 Covered Bridge Rd, Sellersburg, IN 47172",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gosoin.com/things-to-do/outdoor-recreation/golf-courses/",
+        "https://www.gosoin.com/listing/covered-bridge-golf-club/25/"
+      ]
+    },
+    {
       "name": "Coyote Crossing Golf Club",
       "address": "5801 Augusta Blvd., West Lafayette, IN 47906",
       "state": "IN",
@@ -13180,6 +13654,28 @@
       "access_note": "Owner booking-window statements differ between seven and 14 days; verify directly when booking."
     },
     {
+      "name": "Crawfordsville Golf Course",
+      "address": "1000 E South Blvd, Crawfordsville, IN 47933",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.crawfordsvillegolf.com/the-course/",
+        "https://www.crawfordsvillegolf.com/rates/"
+      ]
+    },
+    {
+      "name": "Cypress Hills Golf Club",
+      "address": "2715 Washington Ave, Vincennes, IN 47591",
+      "state": "IN",
+      "county": null,
+      "holes": null,
+      "sources": [
+        "https://cypresshillsgolf.com/",
+        "https://cypresshillsgolf.com/rates/"
+      ]
+    },
+    {
       "name": "Deer Track Golf Club",
       "address": "775 N Co Rd 700 W, Frankfort, IN 46041",
       "state": "IN",
@@ -13188,6 +13684,19 @@
       "sources": [
         "https://www.deertrackgolfclub.net/"
       ]
+    },
+    {
+      "name": "Dogwood Glen Golf Course",
+      "address": "753 E 900 S, Warren, IN 46792",
+      "state": "IN",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.dogwoodglengolfcourse.com/",
+        "https://www.dogwoodglengolfcourse.com/golf",
+        "https://www.dogwoodglengolfcourse.com/golf/our-fees"
+      ],
+      "access_note": "Outdoor pro-shop season is March through November, with indoor golf December through February."
     },
     {
       "name": "Donald Ross Golf Club",
@@ -13223,6 +13732,17 @@
         "https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/fortwayne/Golf_Course_Flyer_and_Map_e76edd9d-dc28-4d17-bc20-2383137f0815.pdf"
       ],
       "access_note": "Address retained as tourism publishes it; no directional suffix or ZIP supplied."
+    },
+    {
+      "name": "Elk Run Golf Club",
+      "address": "1820 Charlestown Pike, Jeffersonville, IN 47130",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.gosoin.com/things-to-do/outdoor-recreation/golf-courses/",
+        "https://www.gosoin.com/listing/elk-run-golf-club/30/"
+      ]
     },
     {
       "name": "Etna Acres Golf Club",
@@ -13300,6 +13820,18 @@
         "https://www.hickorystickgolf.com/home",
         "https://www.hickorystickgolf.com/course/course-and-player-policies"
       ]
+    },
+    {
+      "name": "Hidden Creek Golf Club",
+      "address": "4975 Utica Sellersburg Road, Sellersburg, IN 47172",
+      "state": "IN",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://hiddencreekgolfclub.com/",
+        "https://hiddencreekgolfclub.com/teetimes/"
+      ],
+      "access_note": "Turning Point nine-hole tee times must be booked by telephone."
     },
     {
       "name": "Highland Lake Golf Course",
@@ -13419,6 +13951,28 @@
       ]
     },
     {
+      "name": "Oak Knoll Golf Course",
+      "address": "11200 Whitcomb St., Crown Point, IN 46307",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfoakknoll.com/",
+        "https://www.golfoakknoll.com/about-us/"
+      ],
+      "access_note": "Some tee-time restrictions apply to small children; call the course for details."
+    },
+    {
+      "name": "Old Capital Golf Club",
+      "address": "1605 Hwy 62 NE, Corydon, IN 47112",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://oldcapitalgolf.com/"
+      ]
+    },
+    {
       "name": "Pebble Brook Golf Course & Grill",
       "address": "3110 Westfield Road, Noblesville, IN 46062",
       "state": "IN",
@@ -13427,6 +13981,27 @@
       "sources": [
         "https://pebblebrookgolfclub.com/",
         "https://pebblebrookgolfclub.com/contact-us/"
+      ]
+    },
+    {
+      "name": "Peru Municipal Golf Course",
+      "address": "1863 Strawtown Pike, Peru, IN 46970",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://theperumuni.com/golf-course/"
+      ],
+      "access_note": "Dawn-to-dusk operation; call ahead for tee time."
+    },
+    {
+      "name": "Phil Harris Golf Course",
+      "address": "9659 W SR 54, Linton, IN 47441",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.philharrisgolfcourse.com/"
       ]
     },
     {
@@ -13453,6 +14028,17 @@
       ]
     },
     {
+      "name": "Portland Golf Club",
+      "address": "124 W 200 S, Portland, IN 47371",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://portlandgc.com/",
+        "https://visitjaycounty.com/see/sports-recreation/"
+      ]
+    },
+    {
       "name": "Prairie View Golf Club",
       "address": "7000 Longest Drive, Carmel, IN 46033",
       "state": "IN",
@@ -13461,6 +14047,16 @@
       "sources": [
         "https://www.carmel.in.gov/our-city/experience/attractions/golf-courses",
         "https://www.carmel.in.gov/Facilities/Facility/Details/Prairie-View-13"
+      ]
+    },
+    {
+      "name": "River Pointe Country Club",
+      "address": "6700 Country Club Road, Hobart, IN 46342",
+      "state": "IN",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://riverpointecountryclub.com/"
       ]
     },
     {
@@ -13559,6 +14155,68 @@
       ]
     },
     {
+      "name": "Southern Dunes Golf Course",
+      "address": "8220 South Tibbs Ave, Indianapolis, IN 46217",
+      "state": "IN",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://southerndunesgolfcourse.com/",
+        "https://southerndunesgolfcourse.com/coursedetails/",
+        "https://southerndunesgolfcourse.com/tee-times/"
+      ],
+      "access_note": "Weekend tee times from 6–11 AM must be booked online. Regulation nine-hole play is offered after 1 PM on weekends/holidays. Eagle Dunes Par 3 needs no tee time."
+    },
+    {
+      "name": "Stonehenge Golf Course",
+      "address": "2850 East Pierceton Road, Winona Lake, IN 46590",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.stonehenge.golf/",
+        "https://www.stonehenge.golf/new/home",
+        "https://www.stonehenge.golf/golf/rates"
+      ],
+      "access_note": "Owner public-rates page restricts walking to members or golfers accompanied by a member; public visitors should plan to use a cart. Men must wear sleeves."
+    },
+    {
+      "name": "Sultan’s Run",
+      "address": "1490 N. Meridian Rd., Jasper, IN 47546",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.sultansrun.com/",
+        "https://www.sultansrun.com/golf/",
+        "https://www.sultansrun.com/about-us/"
+      ]
+    },
+    {
+      "name": "Sycamore Golf Club",
+      "address": "6002 E. State Rd. 114, North Manchester, IN 46962",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://golfatsycamore.com/"
+      ],
+      "access_note": "Published season March 1 through December 15, weather permitting; open daily until dark."
+    },
+    {
+      "name": "The Golf Club at Eagle Pointe",
+      "address": "2250 E. Pointe Road, Bloomington, IN 47401",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.visitbloomington.com/things-to-do/outdoor-recreation/golf/",
+        "https://www.visitbloomington.com/meetings/unique-venues/",
+        "https://www.visitbloomington.com/listing/eagle-pointe-restaurant-%26-bar/860/"
+      ],
+      "access_note": "Tourism bureau publishes daily visitor golf hours of 9 AM–9 PM."
+    },
+    {
       "name": "The Golf Club at Swan Lake Resort",
       "address": "5203 Plymouth Laporte Trail, Plymouth, IN 46563",
       "state": "IN",
@@ -13567,6 +14225,27 @@
       "sources": [
         "https://www.swanlakeresort.com/",
         "https://www.swanlakeresort.com/book-a-tee-time.htm"
+      ]
+    },
+    {
+      "name": "The Players Club at Woodland Trails",
+      "address": "6610 W River Rd, Yorktown, IN",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://destinationmuncie.org/experience/the-players-club/",
+        "https://destinationmuncie.org/inside-the-2026-delaware-county-indiana-experience-guide/"
+      ]
+    },
+    {
+      "name": "The Ravines Golf Course",
+      "address": "8525 Division Road, West Lafayette, IN 47906",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.homeofpurdue.com/listing/ravines-golf-course/1478/"
       ]
     },
     {
@@ -13587,6 +14266,26 @@
       "holes": null,
       "sources": [
         "https://twinbridgesgolfclub.com/"
+      ]
+    },
+    {
+      "name": "Valley View Golf Club",
+      "address": "3748 Lawrence Banet Rd, Floyds Knobs, IN 47119",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.valleyviewgolfclub.org/"
+      ]
+    },
+    {
+      "name": "Wabash Valley Golf Club",
+      "address": "207 N Dr., Geneva, IN",
+      "state": "IN",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://visitjaycounty.com/attractions/wabash-valley-golf-club/"
       ]
     },
     {
@@ -13622,6 +14321,17 @@
       "sources": [
         "https://www.visitfortwayne.com/blog/stories/post/visitor-friendly-golf-courses-in-fort-wayne/",
         "https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/fortwayne/Golf_Course_Flyer_and_Map_e76edd9d-dc28-4d17-bc20-2383137f0815.pdf"
+      ]
+    },
+    {
+      "name": "White Hawk Country Club",
+      "address": "1001 White Hawk Drive, Crown Point, IN 46307",
+      "state": "IN",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://www.whitehawkcountryclub.com/",
+        "https://www.whitehawkcountryclub.com/contact/"
       ]
     },
     {
@@ -21953,6 +22663,18 @@
       "access_note": "Non-pass-holder bookings open two days ahead."
     },
     {
+      "name": "Ladera Golf Course",
+      "address": "3401 Ladera Drive NW, Albuquerque, NM 87120",
+      "state": "NM",
+      "county": "Bernalillo County",
+      "holes": 27,
+      "sources": [
+        "https://www.laderagolfcourse.com/",
+        "https://www.nmlegis.gov/Sessions/26%20Regular/final/SB0240.PDF"
+      ],
+      "access_note": "Operator identifies 27 distinct golf holes across two courses. Its additional 18-hole disc-golf layout is excluded."
+    },
+    {
       "name": "Nancy Lopez Golf Course at Spring River",
       "address": "1612 W 8th Street, Roswell, NM 88201",
       "state": "NM",
@@ -21985,6 +22707,96 @@
       "sources": [
         "https://creemeadowsruidoso.com/index.php"
       ]
+    },
+    {
+      "name": "Gene Torres Golf Course",
+      "address": "1 Country Club Drive, Las Vegas, NM 87701",
+      "state": "NM",
+      "county": "San Miguel County",
+      "holes": 9,
+      "sources": [
+        "https://genetorresgolf.com/",
+        "https://www.nmhu.edu/nmhus-gene-torres-golf-course-resumes-operation/",
+        "https://www.nmlegis.gov/Sessions/26%20Regular/bills/senate/SB0240FCS.HTML"
+      ],
+      "access_note": "The course reopened in June 2022 after an earlier closure. Eighteen-hole rounds play the nine-hole layout twice."
+    },
+    {
+      "name": "Santa Ana Golf Club",
+      "address": "288 Prairie Star Rd, Santa Ana Pueblo, NM 87004",
+      "state": "NM",
+      "county": "Sandoval County",
+      "holes": 27,
+      "sources": [
+        "https://www.santaana.mynewmexicogolf.com/golf-course/course-details",
+        "https://www.santaana.mynewmexicogolf.com/golf-course/rates",
+        "https://www.santaana.mynewmexicogolf.com/images/SAGC_Rate_Sheet_Oct_2024.pdf",
+        "https://sea-nm.com/culture-recreation/",
+        "https://seesandoval.org/outdoor-adventures/golf/"
+      ],
+      "access_note": "Combined physical total for the three nine-hole layouts; Twin Warriors is a separate facility."
+    },
+    {
+      "name": "The Pueblo de Cochiti Golf Course",
+      "address": "5200 Cochiti Highway, Cochiti Lake, NM 87083",
+      "state": "NM",
+      "county": "Sandoval County",
+      "holes": 18,
+      "sources": [
+        "https://www.golfcochiti.com/home",
+        "https://sea-nm.com/culture-recreation/",
+        "https://seesandoval.org/outdoor-adventures/golf/"
+      ]
+    },
+    {
+      "name": "Twin Warriors Golf Club",
+      "address": "1301 Tuyuna Trail, Santa Ana Pueblo, NM 87004",
+      "state": "NM",
+      "county": "Sandoval County",
+      "holes": 18,
+      "sources": [
+        "https://www.twin.mynewmexicogolf.com/golf/twin-course",
+        "https://www.twin.mynewmexicogolf.com/images/Twin_Warriors_Membership_Brochure_32024_web.pdf",
+        "https://sea-nm.com/culture-recreation/",
+        "https://seesandoval.org/outdoor-adventures/golf/"
+      ],
+      "access_note": "General-public tee booking window is one week ahead according to the operator membership brochure; members receive earlier booking priority."
+    },
+    {
+      "name": "Truth or Consequences Municipal Golf Course",
+      "address": "685 Marie Street, Truth or Consequences, NM 87901",
+      "state": "NM",
+      "county": "Sierra County",
+      "holes": 9,
+      "sources": [
+        "https://www.torcnm.gov/explore-play/recreation-facilities/golf-course/"
+      ],
+      "access_note": "Nine physical holes; an 18-hole round repeats the layout. Disc-golf baskets and the practice range are excluded."
+    },
+    {
+      "name": "12 Shores Golf Club",
+      "address": "7509 Eagle Drive, Tucumcari, NM 88401",
+      "state": "NM",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.jcgolf.com/san-diego-tee-times/new-mexico-golf-courses",
+        "https://www.12shores.com/teetimes",
+        "https://www.jcgolf.com/golf-loyalty-programs/golf-course-deals"
+      ],
+      "access_note": "Nine physical holes; different tee positions create an 18-hole round. Separate putting course is excluded. Seasonal operation; confirm current open days."
+    },
+    {
+      "name": "Angel Fire Resort Golf Course",
+      "address": "100 Country Club Drive, Angel Fire, NM 87710",
+      "state": "NM",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.angelfireresort.com/activities/summer-activities/golf/",
+        "https://www.angelfireresort.com/event/golf-course-opens-2/"
+      ],
+      "access_note": "Seasonal mountain course. Hotel guests and members receive booking advantages; lodging is not required for public golf."
     },
     {
       "name": "Black Mesa Golf Club",
@@ -22052,16 +22864,17 @@
       "access_note": "Nine physical holes; 18-hole green fees cover an extended round."
     },
     {
-      "name": "Gene Torres Golf Course",
-      "address": "1 Country Club Drive, Las Vegas, NM 87701",
+      "name": "Inn of the Mountain Gods Championship Golf Course",
+      "address": "287 Carrizo Canyon Road, Mescalero, NM 88340",
       "state": "NM",
       "county": null,
-      "holes": 9,
+      "holes": 18,
       "sources": [
-        "https://genetorresgolf.com/",
-        "https://www.nmhu.edu/nmhus-gene-torres-golf-course-resumes-operation/"
+        "https://mescaleroapachetribe.com/tribal-enterprise/",
+        "https://www.innofthemountaingods.com/news/discover-championship-ruidoso-golf-at-inn-of-the-mountain-gods/",
+        "https://www.innofthemountaingods.com/experiences/championship-golf-course/"
       ],
-      "access_note": "The course reopened in June 2022 after an earlier closure. Eighteen-hole rounds play the nine-hole layout twice."
+      "access_note": "Golf cart required; operator does not allow walking. Hotel stay is not required."
     },
     {
       "name": "Jal Country Club",
@@ -22072,17 +22885,6 @@
       "sources": [
         "https://jalcountryclub.com/golf-course/"
       ]
-    },
-    {
-      "name": "Ladera Golf Course",
-      "address": "3401 Ladera Drive NW, Albuquerque, NM 87120",
-      "state": "NM",
-      "county": null,
-      "holes": 27,
-      "sources": [
-        "https://www.laderagolfcourse.com/"
-      ],
-      "access_note": "Operator identifies 27 distinct golf holes across two courses. Its additional 18-hole disc-golf layout is excluded."
     },
     {
       "name": "Lake Carlsbad Golf Course",
@@ -22107,7 +22909,43 @@
         "https://www.visitlosalamos.org/News-articles/Los-Alamos-Golf-Course-2026-Spring-Update-and-Opening-Schedule",
         "https://www.visitlosalamos.org/News-articles/Los-Alamos-County-Golf-Course-Re-Grand-Opening-Event-set-for-Sept.-12"
       ],
-      "access_note": "Nominal 18-hole layout retained. Spring 2026 warranty work restricted play temporarily; a subsequent official reopening announcement supersedes the older closure notice still visible on the facilities page. Current facilities page publishes 4244 Diamond Drive; older documents use 4250."
+      "access_note": "Nominal 18-hole layout retained. Spring 2026 warranty work restricted play temporarily; a subsequent official reopening announcement supersedes the older closure notice still visible on the facilities page. Current facilities page publishes 4244 Diamond Drive; older documents use 4250. A September 24, 2026 operator update states walking-only play; confirm cart availability before visiting."
+    },
+    {
+      "name": "Los Altos Golf Course",
+      "address": "9717 Copper NE, Albuquerque, NM 87123",
+      "state": "NM",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://losaltosgolfcourse.com/",
+        "https://losaltosgolfcourse.com/golf-rates/"
+      ],
+      "access_note": "Combined facility total includes the main 18-hole course and separate nine-hole executive course."
+    },
+    {
+      "name": "Marty Sanchez Links de Santa Fe",
+      "address": "205 Caja del Rio Road, Santa Fe, NM 87507",
+      "state": "NM",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://santafenm.gov/public-works/parks-and-open-space/municipal-recreation-sports-complex",
+        "https://santafenm.gov/FY25_Proposed_Budget_Book.pdf"
+      ],
+      "access_note": "Combined facility total includes the 18-hole championship course and nine-hole Great 28 executive course."
+    },
+    {
+      "name": "New Mexico Military Institute Golf Course",
+      "address": "201 W 19th St, Roswell, NM 88201",
+      "state": "NM",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://seeroswell.com/new-mexico-military-institute-golf-course/",
+        "https://www.roswell-nm.gov/DocumentCenter/View/1176/Adopted-Wayfinding-Plan-7-14-16"
+      ],
+      "access_note": "Explicit public-access statement is in the city 2016 plan; current tourism listing continues to promote the course to visitors."
     },
     {
       "name": "New Mexico State University Golf Course",
@@ -22143,6 +22981,17 @@
       ]
     },
     {
+      "name": "Paradise Hills Golf Course",
+      "address": "10035 Country Club Ln NW, Albuquerque, NM 87114-4201",
+      "state": "NM",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.paradisehills.golf/",
+        "https://www.paradisehills.golf/course-details/"
+      ]
+    },
+    {
       "name": "Piñon Hills Golf Course",
       "address": "2101 Sunrise Parkway, Farmington, NM 87401",
       "state": "NM",
@@ -22153,6 +23002,19 @@
         "https://www.farmingtonnm.gov/DocumentCenter/View/20842/gateways-winter-2020-golf",
         "https://farmingtonnm.gov/m/directory/department?did=20"
       ]
+    },
+    {
+      "name": "Rainmakers Resort and Club",
+      "address": "250 Rainmaker Dr, Alto, NM 88312",
+      "state": "NM",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.newmexico.org/listing/rainmakers-resort-and-club/14606/",
+        "https://rainmakersusa.com/",
+        "https://rainmakersusa.com/course-details/"
+      ],
+      "access_note": "Members receive tee-time booking priority; ordinary nonmember bookings are offered."
     },
     {
       "name": "Raton Golf Course",
@@ -22190,6 +23052,28 @@
       "access_note": "Physical hole count is from the county 2015–16 recreation guide; public operation is independently confirmed in the January 2025 city agreement. Current chamber directory confirms the full street address."
     },
     {
+      "name": "Riverview Golf Course",
+      "address": "64 County Road 6520, Kirtland, NM 87417",
+      "state": "NM",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.riverviewgolfnm.com/",
+        "https://www.riverviewgolfnm.com/course-information/"
+      ]
+    },
+    {
+      "name": "Rockwind Community Links",
+      "address": "5001 Jack Gomez Blvd, Hobbs, NM 88240",
+      "state": "NM",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.newmexico.org/listing/rockwind-community-links/8900/"
+      ],
+      "access_note": "Combined physical total includes the 18-hole championship course and separate nine-hole par-3 course."
+    },
+    {
       "name": "Sandia Golf Club",
       "address": "30 Rainbow Rd NE, Albuquerque, NM 87113",
       "state": "NM",
@@ -22202,17 +23086,16 @@
       ]
     },
     {
-      "name": "Santa Ana Golf Club",
-      "address": "288 Prairie Star Rd, Santa Ana Pueblo, NM 87004",
+      "name": "Santa Fe Country Club",
+      "address": "3950 Country Club Road, Santa Fe, NM 87507",
       "state": "NM",
       "county": null,
-      "holes": 27,
+      "holes": 18,
       "sources": [
-        "https://www.santaana.mynewmexicogolf.com/golf-course/course-details",
-        "https://www.santaana.mynewmexicogolf.com/golf-course/rates",
-        "https://www.santaana.mynewmexicogolf.com/images/SAGC_Rate_Sheet_Oct_2024.pdf"
+        "https://www.santafecountryclub.com/",
+        "https://www.santafecountryclub.com/golf-course/course-information"
       ],
-      "access_note": "Combined physical total for the three nine-hole layouts; Twin Warriors is a separate facility."
+      "access_note": "Golf access is public; the operator distinguishes member-only clubhouse and pool privileges."
     },
     {
       "name": "Scott Park Golf Links",
@@ -22269,18 +23152,6 @@
       ]
     },
     {
-      "name": "Twin Warriors Golf Club",
-      "address": "1301 Tuyuna Trail, Santa Ana Pueblo, NM 87004",
-      "state": "NM",
-      "county": null,
-      "holes": 18,
-      "sources": [
-        "https://www.twin.mynewmexicogolf.com/golf/twin-course",
-        "https://www.twin.mynewmexicogolf.com/images/Twin_Warriors_Membership_Brochure_32024_web.pdf"
-      ],
-      "access_note": "General-public tee booking window is one week ahead according to the operator membership brochure; members receive earlier booking priority."
-    },
-    {
       "name": "University of New Mexico Championship Golf Course",
       "address": "3601 University SE, Albuquerque, NM 87106",
       "state": "NM",
@@ -22306,6 +23177,125 @@
       ]
     },
     {
+      "name": "Valle Escondido Golf Course",
+      "address": "28 Lodge Rd, Taos, NM 87571",
+      "state": "NM",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://taosgolf.org/"
+      ],
+      "access_note": "Walking course; tee times are not required. Seasonal operation, with end-of-season rates posted October 2026."
+    },
+    {
+      "name": "Aliante Golf Club",
+      "address": "3100 West Elkhorn Road, North Las Vegas, NV 89084",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.cityofnorthlasvegas.com/Home/Components/FacilityDirectory/FacilityDirectory/71/715?toggle=all",
+        "https://www.cityofnorthlasvegas.com/home/showpublisheddocument/6096/638657351028170000"
+      ]
+    },
+    {
+      "name": "Carson Valley Golf Course",
+      "address": "1027 Riverview Drive, Gardnerville, NV 89460",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en",
+        "https://carsonvalleygolf.com/"
+      ]
+    },
+    {
+      "name": "Chimera Golf Club",
+      "address": "901 Olivia Parkway, Henderson, NV 89011",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://chimeragolfclub.com/"
+      ]
+    },
+    {
+      "name": "Eagle Valley Golf Course",
+      "address": "3999 Centennial Park Drive, Carson City, NV 89706",
+      "state": "NV",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en"
+      ]
+    },
+    {
+      "name": "Edgewood Tahoe Golf Course",
+      "address": "180 Lake Parkway, Stateline, NV 89449",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en"
+      ]
+    },
+    {
+      "name": "Empire Ranch Golf Course",
+      "address": "1875 Fair Way, Carson City, NV 89701",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en",
+        "https://www.empireranchgolf.com/"
+      ],
+      "access_note": "Current owner 18-hole description supersedes an older 27-hole total retained in the NCGA directory."
+    },
+    {
+      "name": "Genoa Golf Club - Lakes Course",
+      "address": "1 Genoa Lakes Drive, Genoa, NV 89411",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://genoagolf.com/about-lakes-golf-course/",
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en"
+      ],
+      "access_note": "Genoa operates two courses at separate addresses. The owner confirms the Ranch Course has reopened to members and the public after maintenance."
+    },
+    {
+      "name": "Genoa Golf Club - Ranch Course",
+      "address": "488 Mountain Meadow Drive, Carson City, NV 89705",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://genoagolf.com/about-ranch-golf-course/",
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en"
+      ],
+      "access_note": "Genoa operates two courses at separate addresses. The owner confirms the Ranch Course has reopened to members and the public after maintenance."
+    },
+    {
+      "name": "Incline Village Championship Golf Course",
+      "address": "955 Fairway Boulevard, Incline Village, NV 89451",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en"
+      ]
+    },
+    {
+      "name": "Incline Village Mountain Golf Course",
+      "address": "690 Wilson Way, Incline Village, NV 89451",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en"
+      ]
+    },
+    {
       "name": "Lake View Executive Golf Course",
       "address": "1471 East Mount Charleston Drive South, Pahrump, NV 89048",
       "state": "NV",
@@ -22314,6 +23304,150 @@
       "sources": [
         "https://www.lakeviewgolfpahrump.com/about-us"
       ]
+    },
+    {
+      "name": "Lakeridge Golf Course",
+      "address": "1218 Golf Club Drive, Reno, NV 89519",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en"
+      ]
+    },
+    {
+      "name": "Las Vegas National Golf Club",
+      "address": "1911 E Desert Inn Road, Las Vegas, NV 89169",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://lasvegasnational.com/",
+        "https://lasvegasnational.com/rates/"
+      ]
+    },
+    {
+      "name": "Las Vegas Paiute Golf Resort",
+      "address": "10325 Nu-Wav Kaiv Blvd, Las Vegas, NV 89124",
+      "state": "NV",
+      "county": null,
+      "holes": 54,
+      "sources": [
+        "https://www.lvpaiutegolf.com/teetimes",
+        "https://www.lvpaiutegolf.com/snowmountain",
+        "https://www.lvpaiutegolf.com/sunmountain",
+        "https://www.lvpaiutegolf.com/thewolf"
+      ],
+      "access_note": "Combined facility total: Snow Mountain, Sun Mountain, and Wolf each have 18 physical holes."
+    },
+    {
+      "name": "North Las Vegas Municipal Par 3 Golf Course",
+      "address": "324 East Brooks Avenue, North Las Vegas, NV 89030",
+      "state": "NV",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.cityofnorthlasvegas.com/Home/Components/FacilityDirectory/FacilityDirectory/71/715?toggle=all",
+        "https://www.cityofnorthlasvegas.com/home/showdocument?id=10046&t=638827328653382026"
+      ],
+      "access_note": "Nine physical ball-golf holes; the separate 18-hole disc-golf course is excluded."
+    },
+    {
+      "name": "Red Hawk Golf and Resort",
+      "address": "6600 North Wingfield Parkway, Sparks, NV 89436",
+      "state": "NV",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://www.redhawkgolfandresort.com/faqs/",
+        "https://www.redhawkgolfandresort.com/book-tee-times/",
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en"
+      ],
+      "access_note": "Combined facility total for the Lakes and Hills courses."
+    },
+    {
+      "name": "Sierra Sage Golf Course",
+      "address": "6355 Silver Lake Road, Reno, NV 89506",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.washoecounty.gov/parks/specialty_facilities/golf_courses/index.php",
+        "https://sierrasagegolf.org/",
+        "https://sierrasagegolf.org/course-details/"
+      ]
+    },
+    {
+      "name": "Silver Oak Golf Course",
+      "address": "1251 Country Club Drive, Carson City, NV 89703",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en"
+      ]
+    },
+    {
+      "name": "Sunridge Golf and Recreations",
+      "address": "1000 Long Drive, Carson City, NV 89705",
+      "state": "NV",
+      "county": null,
+      "holes": 19,
+      "sources": [
+        "https://www.playsunridge.com/",
+        "https://www.playsunridge.com/about/",
+        "https://www.playsunridge.com/throw-a-tournament/"
+      ],
+      "access_note": "Physical facility total of 19: 18 championship holes plus a separate 19th playoff hole, explicitly described by the operator."
+    },
+    {
+      "name": "The Ranch at Desert Lakes",
+      "address": "50 Desert Lakes Drive, Fernley, NV 89408",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://ncga.org/hubfs/NCGA_2026%20Directory.pdf?hsLang=en",
+        "https://www.ranchgolffernley.com/",
+        "https://www.cityoffernley.org/DocumentCenter/View/21947/City-of-Fernley-Comprehensive-Master-Plan"
+      ]
+    },
+    {
+      "name": "The Revere Golf Club",
+      "address": "2600 Hampton Road, Henderson, NV 89052",
+      "state": "NV",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://reveregolf.com/",
+        "https://reveregolf.com/las-vegas-tee-time/",
+        "https://reveregolf.com/contact-us/"
+      ],
+      "access_note": "Combined facility total for the Lexington and Concord courses."
+    },
+    {
+      "name": "Washoe Golf Course",
+      "address": "2601 Foley Way, Reno, NV 89509",
+      "state": "NV",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.washoecounty.gov/parks/specialty_facilities/golf_courses/index.php",
+        "https://www.washoecounty.gov/bcc/board_committees/2016/files/agendas/2016-10-25/13.pdf"
+      ]
+    },
+    {
+      "name": "Wildcreek Golf Course",
+      "address": "3500 Sullivan Lane, Sparks, NV 89431",
+      "state": "NV",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://wildcreekgolf.org/",
+        "https://wildcreekgolf.org/course-details/",
+        "https://wildcreekgolf.org/rates/"
+      ],
+      "access_note": "The current operator confirms the existing nine-hole par-3 course is open. A new nine-hole championship course is under redevelopment with rates still TBD as observed October 6, 2026; those planned holes are excluded."
     },
     {
       "name": "Mosholu Golf Course",
@@ -24398,9 +25532,10 @@
       "address": "4041 SW 149th Street, Oklahoma City, OK 73170",
       "state": "OK",
       "county": null,
-      "holes": null,
+      "holes": 9,
       "sources": [
-        "https://golfoklahoma.org/jrs-nite-light-par-3/"
+        "https://golfoklahoma.org/jrs-nite-light-par-3/",
+        "https://jrspubandgrill.com"
       ]
     },
     {
@@ -24547,9 +25682,10 @@
       "address": "3905 N. Commerce St., Ardmore, OK 73401",
       "state": "OK",
       "county": null,
-      "holes": null,
+      "holes": 18,
       "sources": [
-        "https://golfoklahoma.org/lakeview-golf-course/"
+        "https://golfoklahoma.org/lakeview-golf-course/",
+        "https://www.ardmorecity.org/133/Lakeview-Golf"
       ]
     },
     {
@@ -24567,9 +25703,10 @@
       "address": "940 Colorado St., Laverne, OK 73848",
       "state": "OK",
       "county": null,
-      "holes": null,
+      "holes": 9,
       "sources": [
-        "https://golfoklahoma.org/laverne-golf-course/"
+        "https://golfoklahoma.org/laverne-golf-course/",
+        "https://www.lavernegolfandcountryclub.com"
       ]
     },
     {
@@ -24820,9 +25957,10 @@
       "address": "10329 N. 2265 Rd., Clinton, OK 73601",
       "state": "OK",
       "county": null,
-      "holes": null,
+      "holes": 18,
       "sources": [
-        "https://golfoklahoma.org/riverside-golf-course/"
+        "https://golfoklahoma.org/riverside-golf-course/",
+        "https://clintonok.gov/parks-rec/riverside-golf-course/"
       ]
     },
     {
@@ -25021,9 +26159,10 @@
       "address": "700 NE 122nd St., Oklahoma City, OK 73114",
       "state": "OK",
       "county": null,
-      "holes": null,
+      "holes": 9,
       "sources": [
-        "https://golfoklahoma.org/links-at-oklahoma-city/"
+        "https://golfoklahoma.org/links-at-oklahoma-city/",
+        "https://www.lindseygolf.com/links-at-oklahoma-city"
       ]
     },
     {
@@ -25930,6 +27069,16 @@
       "sources": [
         "https://buffalogolfpa.com/",
         "https://buffalogolfpa.com/course-details/"
+      ]
+    },
+    {
+      "name": "Butler's Golf Course",
+      "address": "800 Rock Run Road, Elizabeth, PA 15037",
+      "state": "PA",
+      "county": null,
+      "holes": 36,
+      "sources": [
+        "https://www.butlersgolf.com/"
       ]
     },
     {
@@ -31972,6 +33121,32 @@
       ]
     },
     {
+      "name": "Rochelle Ranch Golf Course",
+      "address": "2808 East Rochelle Drive, Rawlins, WY 82301",
+      "state": "WY",
+      "county": "Carbon County",
+      "holes": 18,
+      "sources": [
+        "https://www.carboncountywy.com/things-to-do/golf-courses",
+        "https://www.carboncountywy.com/things-to-do/golf-courses/rochelle-ranch-golf-course",
+        "https://www.rawlinswy.gov/158/Rochelle-Ranch-Golf-Course"
+      ]
+    },
+    {
+      "name": "Saratoga Public Golf Course",
+      "address": "601 East Pic Pike Road, Saratoga, WY 82331",
+      "state": "WY",
+      "county": "Carbon County",
+      "holes": 9,
+      "sources": [
+        "https://www.carboncountywy.com/things-to-do/golf-courses",
+        "https://www.carboncountywy.com/things-to-do/golf-courses/saratoga-hot-springs-resort-golf-course",
+        "https://wyomingoutdooradventures.com/saratoga-public-golf-course/",
+        "https://wyomingoutdooradventures.com/contact/"
+      ],
+      "access_note": "Season generally runs April to mid-October, weather permitting. Check in at the Wyoming Outdoor Adventure Base Camp pro shop."
+    },
+    {
       "name": "Airport Golf Club",
       "address": "4801 Central Avenue, Cheyenne, WY 82009",
       "state": "WY",
@@ -31996,6 +33171,170 @@
         "https://airportgolfclub.com/policies-faq/"
       ],
       "access_note": "Children under three are not allowed on the courses; ages three through eight must be accompanied by a paying adult."
+    },
+    {
+      "name": "Rendezvous Meadows Golf Course",
+      "address": "1581 Club House Road, Pinedale, WY 82941",
+      "state": "WY",
+      "county": "Sublette County",
+      "holes": 9,
+      "sources": [
+        "https://www.golfpinedale.com/",
+        "https://www.visitsublettecounty.org/golf"
+      ],
+      "access_note": "Current owner notice says the course closes for the season October 15; the pro shop and bar remain open."
+    },
+    {
+      "name": "Bell Nob Golf Course",
+      "address": "4600 Overdale Drive, Gillette, WY 82718",
+      "state": "WY",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://www.campbellcountywy.gov/Facilities/Facility/Details/Bell-Nob-Golf-Course-25?mobile=ON",
+        "https://www.campbellcountywy.gov/1805/Hours",
+        "https://www.campbellcountywy.gov/CivicAlerts.asp?AID=1252&ARC=2349"
+      ],
+      "access_note": "2026 season is April 1-October 31, dawn to dusk, weather permitting; delayed openings can occur."
+    },
+    {
+      "name": "Buffalo Golf Club",
+      "address": "500 W Hart Street, Buffalo, WY 82834",
+      "state": "WY",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.buffalowygolf.com/"
+      ]
+    },
+    {
+      "name": "Cottonwood at Torrington Golf Course",
+      "address": "W 15th Avenue and Golf Course Road, Torrington, WY 82240",
+      "state": "WY",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.torringtonwy.gov/264/Cottonwood-Golf-Course"
+      ],
+      "access_note": "Open year-round, weather permitting."
+    },
+    {
+      "name": "Douglas Community Club and Golf Course",
+      "address": "64 Golf Course Road, Douglas, WY 82633",
+      "state": "WY",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.golfdouglas.com/membership-and-greens-fees",
+        "https://conversecountytourism.com/play/golf/douglas-golf-course"
+      ]
+    },
+    {
+      "name": "Fossil Island Golf Course",
+      "address": "107 Highway 233, Kemmerer, WY 83101",
+      "state": "WY",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://www.kemmerer.org/fossil-island-golf-course/"
+      ]
+    },
+    {
+      "name": "Gillette Golf Club",
+      "address": "1800 Country Club Road, Gillette, WY 82718",
+      "state": "WY",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://gillettegolfclub.com/"
+      ]
+    },
+    {
+      "name": "Green Hills Golf Club",
+      "address": "1455 Airport Road, Worland, WY 82401",
+      "state": "WY",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.cityofworlandwy.gov/golfcourse"
+      ]
+    },
+    {
+      "name": "Jacoby Golf Course",
+      "address": "3501 Willett Drive, Laramie, WY 82071",
+      "state": "WY",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.uwyo.edu/jacobygc/"
+      ]
+    },
+    {
+      "name": "Kendrick Golf Course",
+      "address": "65 Golf Course Road, Sheridan, WY 82801",
+      "state": "WY",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://golfkendrick.com/"
+      ]
+    },
+    {
+      "name": "Lusk Municipal Golf Course",
+      "address": "34 WY-273, Lusk, WY 82225",
+      "state": "WY",
+      "county": null,
+      "holes": 9,
+      "sources": [
+        "https://townofluskwy.gov/municipal-golf-course"
+      ],
+      "access_note": "Winter play is at the golf superintendent’s discretion."
+    },
+    {
+      "name": "Olive Glenn Golf Club",
+      "address": "802 Meadow Lane Avenue, Cody, WY 82414",
+      "state": "WY",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.oliveglenngolfclub.com/",
+        "https://www.oliveglenngolfclub.com/membership"
+      ]
+    },
+    {
+      "name": "Purple Sage Golf Course",
+      "address": "401 Kindler Drive, Evanston, WY 82930",
+      "state": "WY",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://purplesagegc.com/rates/",
+        "https://www.businesswyoming.com/news/p/item/67817/purple-sage-golf-course-is-a-public-amenity-that-serves-the-region"
+      ],
+      "access_note": "Season generally runs from early April into fall."
+    },
+    {
+      "name": "Three Crowns Golf Club",
+      "address": "1601 King Boulevard, Casper, WY 82604",
+      "state": "WY",
+      "county": null,
+      "holes": 18,
+      "sources": [
+        "https://www.threecrownsgolfclub.com/",
+        "https://www.threecrownsgolfclub.com/tee-times"
+      ],
+      "access_note": "Public tee times may be reserved up to fourteen days ahead."
+    },
+    {
+      "name": "White Mountain Golf Course",
+      "address": null,
+      "state": "WY",
+      "county": null,
+      "holes": 27,
+      "sources": [
+        "https://rswy.net/parks_recreation/facilities/white_mountain_golf_course.php"
+      ],
+      "access_note": "Season runs late March to early November, weather permitting. Mondays from June 1 through Labor Day open at 10am."
     }
   ],
   "county_checklist": [
@@ -36649,7 +37988,17 @@
       "state": "IN",
       "fips": "18001",
       "name": "Adams County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://crosscreekdecatur.com/robots.txt",
+        "https://visitjaycounty.com/attractions/wabash-valley-golf-club/"
+      ],
+      "queries": [
+        "Cross Creek Decatur official public",
+        "Wabash Valley golf Geneva official"
+      ],
+      "outcome": "Cross Creek robots403 held. Wabash Valley18 accepted on independent official Jay County tourism visitor invitation/address; owner site appears compromised by unrelated gambling links, no owner facts used. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -36666,7 +38015,7 @@
       "queries": [
         "Fort Wayne parks golf Foster Shoaff McMillen official"
       ],
-      "outcome": "City owner robots returned403; domain stopped. Search-only facts not admitted. Other county courses unreviewed. Autumn Ridge18 and Cherry Hill18 added with2026 official tourism public corroboration and owner physical facts. Chestnut Hills held due copying terms."
+      "outcome": "City owner robots returned403; domain stopped. Search-only facts not admitted. Other county courses unreviewed. Autumn Ridge18 and Cherry Hill18 added with2026 official tourism public corroboration and owner physical facts. Chestnut Hills held due copying terms. Added Riverbend18, Pond-A-River18, Colonial Oaks holes-null; nine independent tourism-only rows have holes-null because physical layout totals unresolved."
     },
     {
       "state": "IN",
@@ -36700,7 +38049,15 @@
       "state": "IN",
       "fips": "18009",
       "name": "Blackford County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.blackfordgolfclub.com/"
+      ],
+      "queries": [
+        "Hartford City Blackford public golf owner"
+      ],
+      "outcome": "Blackford accepted owner Public Golf Course title; physical holes null, round prices not inferred. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -36720,7 +38077,16 @@
       "state": "IN",
       "fips": "18013",
       "name": "Brown County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.saltcreekgolf.com/"
+      ],
+      "queries": [
+        "Brown County Indiana public golf official",
+        "Salt Creek Golf Retreat public course"
+      ],
+      "outcome": "Salt Creek accepted, physical holes unresolved; inventory incomplete."
     },
     {
       "state": "IN",
@@ -36745,13 +38111,14 @@
       "searched_on": "2026-10-06",
       "sources": [
         "https://www.logansportgolfclub.com/",
-        "https://dykemanparkgc.com/robots.txt"
+        "https://dykemanparkgc.com/robots.txt",
+        "https://visit-casscounty.com/robots.txt"
       ],
       "queries": [
         "Logansport golf official public",
         "Logans Run family golf official"
       ],
-      "outcome": "Logansport18 verified owner no-membership public access. Dykeman robots403 held. Inventory incomplete."
+      "outcome": "Logansport18 verified owner no-membership public access. Dykeman robots403 held. Inventory incomplete. Official county tourism robots502held."
     },
     {
       "state": "IN",
@@ -36839,13 +38206,33 @@
       "state": "IN",
       "fips": "18035",
       "name": "Delaware County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.cardinalhills.com/",
+        "https://www.crestviewgolf.net/",
+        "https://www.theplayersclubgolfcourse.com/robots.txt"
+      ],
+      "queries": [
+        "Muncie public golf owner Cardinal Hills Players Club Crestview",
+        "Albany Golf Club Indiana owner"
+      ],
+      "outcome": "Cardinal Hills18 accepted owner explicit no membership needed/public. Crestview27 owner physical layout but public proof pending. Players Club owner firstcontent inaccessible held. Inventory incomplete."
     },
     {
       "state": "IN",
       "fips": "18037",
       "name": "Dubois County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.sultansrun.com/about-us/"
+      ],
+      "queries": [
+        "Sultan Run golf public official",
+        "Jasper Buffalo Trace golf public"
+      ],
+      "outcome": "Sultans Run18 accepted. Buffalo Trace lead not yet fully verified; inventory incomplete."
     },
     {
       "state": "IN",
@@ -36874,25 +38261,60 @@
       "state": "IN",
       "fips": "18041",
       "name": "Fayette County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://arborcrossinggc.com/"
+      ],
+      "queries": [
+        "Connersville public golf official"
+      ],
+      "outcome": "Arbor Crossing18 accepted under current name, former Willowbrook/Connersville not duplicated. Inventory incomplete."
     },
     {
       "state": "IN",
       "fips": "18043",
       "name": "Floyd County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.valleyviewgolfclub.org/"
+      ],
+      "queries": [
+        "Floyds Knobs golf public official"
+      ],
+      "outcome": "Valley View18 accepted. Inventory incomplete."
     },
     {
       "state": "IN",
       "fips": "18045",
       "name": "Fountain County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://rivercrestgc.com/",
+        "https://harrisonhills.com/robots.txt"
+      ],
+      "queries": [
+        "Rivercrest Covington golf public",
+        "Harrison Hills Attica public golf"
+      ],
+      "outcome": "Rivercrest18 accepted; Harrison Hills firstrobots403 held. Inventory incomplete."
     },
     {
       "state": "IN",
       "fips": "18047",
       "name": "Franklin County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://franklincountyin.com/attractions/"
+      ],
+      "queries": [
+        "Brook Hill golf official public",
+        "Batesville golf official public"
+      ],
+      "outcome": "Brook Hill and Cricket Ridge candidates; Hillcrest owner private conflicts with tourism certain-day public claim, held pending clarification. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -36935,7 +38357,15 @@
       "state": "IN",
       "fips": "18055",
       "name": "Greene County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.philharrisgolfcourse.com/"
+      ],
+      "queries": [
+        "Linton Indiana public golf official"
+      ],
+      "outcome": "Phil Harris18 accepted. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -36970,7 +38400,15 @@
       "state": "IN",
       "fips": "18061",
       "name": "Harrison County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://oldcapitalgolf.com/"
+      ],
+      "queries": [
+        "Corydon public golf official"
+      ],
+      "outcome": "Old Capital18 accepted; ChariotRun ownerrobots403 held earlier. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -37020,13 +38458,33 @@
       "state": "IN",
       "fips": "18069",
       "name": "Huntington County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://visithuntington.org/directory/maple-grove-golf-course",
+        "https://visithuntington.org/directory/etna-acres-golf-course-18-holes",
+        "https://www.dogwoodglengolfcourse.com/"
+      ],
+      "queries": [
+        "Huntington golf public official",
+        "Dogwood Glen golf official",
+        "Norwood golf Huntington official"
+      ],
+      "outcome": "Maple Grove18, Etna Acres18, Dogwood Glen9 accepted; Norwood appears same renamed Maple Grove property. Clear Creek owner502 and assets.visithuntington.org403 held; live tourism lacks explicit public access. Inventory incomplete."
     },
     {
       "state": "IN",
       "fips": "18071",
       "name": "Jackson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.shadowoodgolf.com/robots.txt"
+      ],
+      "queries": [
+        "Shadowood Seymour golf public official"
+      ],
+      "outcome": "Shadowood homepage403 after permissive robots held. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -37046,13 +38504,31 @@
       "state": "IN",
       "fips": "18075",
       "name": "Jay County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://portlandgc.com/",
+        "https://visitjaycounty.com/see/sports-recreation/"
+      ],
+      "queries": [
+        "Portland Indiana Golf Club public owner"
+      ],
+      "outcome": "Portland18 accepted public owner title/invitation and independent tourism physical layout. Inventory incomplete."
     },
     {
       "state": "IN",
       "fips": "18077",
       "name": "Jefferson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.madison-in.gov/robots.txt",
+        "https://visitmadison.org/robots.txt"
+      ],
+      "queries": [
+        "Sunrise golf course Madison Indiana official public"
+      ],
+      "outcome": "Sunrise candidate; city and tourism firstrobots403 held, no intake. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -37078,7 +38554,15 @@
       "state": "IN",
       "fips": "18083",
       "name": "Knox County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://cypresshillsgolf.com/"
+      ],
+      "queries": [
+        "Vincennes golf public official"
+      ],
+      "outcome": "Cypress Hills accepted, physical holes unresolved. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -37089,13 +38573,14 @@
       "sources": [
         "https://rozellafordgolfclub.com/",
         "https://www.maxweltongolf.com/",
-        "https://www.wawaseegolfclub.com/"
+        "https://www.wawaseegolfclub.com/",
+        "https://www.stonehenge.golf/"
       ],
       "queries": [
         "Maxwelton Wawasee golf Syracuse official",
         "Rozella Ford golf Warsaw public owner"
       ],
-      "outcome": "Rozella Ford public18 verified. Maxwelton and Wawasee owner operating pages read but explicit ordinary nonmember proof not resolved. Inventory incomplete."
+      "outcome": "Rozella Ford public18 verified. Maxwelton and Wawasee owner operating pages read but explicit ordinary nonmember proof not resolved. Inventory incomplete. Stonehenge18 current owner public accepted. Kosciusko government robots403 and Raccoon Run first owner content inaccessible held."
     },
     {
       "state": "IN",
@@ -37104,13 +38589,15 @@
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
       "sources": [
-        "https://www.heroncreekgolfclub.com/"
+        "https://www.heroncreekgolfclub.com/",
+        "https://visitshipshewana.org/robots.txt",
+        "https://www.cedarlakegc.com/robots.txt"
       ],
       "queries": [
         "Heron Creek Golf Club official Indiana",
         "LaGrange golf public Indiana official"
       ],
-      "outcome": "Heron Creek current owner operation/address confirmed but explicit public/nonmember proof still unresolved. Inventory incomplete."
+      "outcome": "Heron Creek current owner operation/address confirmed but explicit public/nonmember proof still unresolved. Inventory incomplete. VisitShipshewana firstcontent403held; CedarLake old owner redirect to unrelated retailer refused."
     },
     {
       "state": "IN",
@@ -37122,14 +38609,18 @@
         "https://www.lakecountyparks.com/248/Turkey-Creek-Golf-Course",
         "https://www.lakecountyparks.com/150/Cedar-Creek-Family-Golf-Center",
         "https://www.lostmarshgolf.com/",
-        "https://palmiragolf.com/"
+        "https://palmiragolf.com/",
+        "https://www.whitehawkcountryclub.com/",
+        "https://scherwood.com/",
+        "https://www.golfoakknoll.com/about-us/",
+        "https://riverpointecountryclub.com/"
       ],
       "queries": [
         "Lake County Indiana parks golf Turkey Creek Cedar Creek official",
         "Hammond Lost Marsh golf official website",
         "Palmira Golf Saint John public owner"
       ],
-      "outcome": "County current2026 fees/address and Cedar Creek9hole layout verified, but public/copyright policy follow-up interrupted. Lost Marsh owner discovery and robots checked; course page pending. Inventory incomplete. Palmira robots allows content but homepage web open inaccessible; no alternate-route retry or import."
+      "outcome": "County current2026 fees/address and Cedar Creek9hole layout verified, but public/copyright policy follow-up interrupted. Lost Marsh owner discovery and robots checked; course page pending. Inventory incomplete. Palmira robots allows content but homepage web open inaccessible; no alternate-route retry or import. White Hawk36 accepted public owner. Scherwood27 held missing explicit nonmember proof; Innsbrook private excluded; Summertree current operation unresolved. Oak Knoll18 and River Pointe27 accepted ownerexplicitpublic; River Pointe optional external policy robots disallowed and remains uninspected, not a known reuse ban."
     },
     {
       "state": "IN",
@@ -37138,13 +38629,16 @@
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
       "sources": [
-        "https://parks.michigancityin.gov/parks-and-facilities/michigan-city-municipal-golf-course/"
+        "https://parks.michigancityin.gov/parks-and-facilities/michigan-city-municipal-golf-course/",
+        "https://www.legacyhillsgc.com/",
+        "https://briarleaf.com/robots.txt",
+        "https://michigancitylaporte.com/robots.txt"
       ],
       "queries": [
         "Michigan City Municipal Golf Course official website",
         "La Porte Beechwood golf official"
       ],
-      "outcome": "City course page discovered with explicit public access and36hole facility; robots allowed, direct verification interrupted by cancelled review. Beechwood still pending. Separate LaPorteParkAndRec.com robots403, domain stopped."
+      "outcome": "City course page discovered with explicit public access and36hole facility; robots allowed, direct verification interrupted by cancelled review. Beechwood still pending. Separate LaPorteParkAndRec.com robots403, domain stopped. Legacy Hills18 accepted on2026 owner daily non-member rates. BriarLeaf robots500 and local tourism robots403 held."
     },
     {
       "state": "IN",
@@ -37218,12 +38712,13 @@
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
       "sources": [
-        "https://rockhollowgolf.com/"
+        "https://rockhollowgolf.com/",
+        "https://theperumuni.com/golf-course/"
       ],
       "queries": [
         "Rock Hollow golf public official"
       ],
-      "outcome": "Rock Hollow verified current public owner statement/address; physical hole total left null pending explicit statement. Other county courses unreviewed; inventory incomplete."
+      "outcome": "Rock Hollow verified current public owner statement/address; physical hole total left null pending explicit statement. Other county courses unreviewed; inventory incomplete. Peru Municipal18 accepted current owner visitor invitation/physical18."
     },
     {
       "state": "IN",
@@ -37243,7 +38738,17 @@
       "state": "IN",
       "fips": "18107",
       "name": "Montgomery County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.crawfordsvillegolf.com/rates/",
+        "https://www.visitmoco.com/2024/05/golf-in-montgomery-county/"
+      ],
+      "queries": [
+        "Crawfordsville golf public official",
+        "Rocky Ridge golf official"
+      ],
+      "outcome": "Crawfordsville Municipal and Rocky Ridge accepted18. Country Club current visitor-access ambiguity held; inventory incomplete."
     },
     {
       "state": "IN",
@@ -37281,12 +38786,13 @@
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
       "sources": [
-        "https://www.noblehawk.com/"
+        "https://www.noblehawk.com/",
+        "https://www.visitnoblecounty.org/partners/cobblestone-golf-course"
       ],
       "queries": [
         "Noble Hawk golf public official"
       ],
-      "outcome": "Noble Hawk18 verified through current owner public statement. Other county courses unreviewed; inventory incomplete."
+      "outcome": "Noble Hawk18 verified through current owner public statement. Other county courses unreviewed; inventory incomplete. Cobblestone holes-null added via current official tourism visitor itinerary/address, owner hold retained."
     },
     {
       "state": "IN",
@@ -37338,7 +38844,16 @@
       "state": "IN",
       "fips": "18125",
       "name": "Pike County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.pridescreekgolf.com/robots.txt",
+        "https://www.southernindiana.org/destination/prides-creek-golf-course/"
+      ],
+      "queries": [
+        "Prides Creek golf official public"
+      ],
+      "outcome": "Owner robots disallows all; independent regional tourism public9 candidate not accepted because publisher robots unresolved. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -37347,18 +38862,27 @@
       "search_status": "searched_incomplete",
       "searched_on": "2026-10-06",
       "sources": [
-        "https://www.valpoparksgolf.com/"
+        "https://www.valpoparksgolf.com/",
+        "https://www.thebrassie.com/robots.txt",
+        "https://www.robbinhurst.com/robots.txt",
+        "https://duckcreekgolfcourse.com/"
       ],
       "queries": [
         "Valparaiso parks golf Forest Park Creekside official"
       ],
-      "outcome": "Municipal golf homepage read after allowed robots; individual course and linked policy follow-up interrupted by cancelled review. Inventory incomplete."
+      "outcome": "Municipal golf homepage read after allowed robots; individual course and linked policy follow-up interrupted by cancelled review. Inventory incomplete. Brassie403 and Robbinhurst502 held. Duck Creek public/layout proof unresolved."
     },
     {
       "state": "IN",
       "fips": "18129",
       "name": "Posey County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Mount Vernon Indiana public golf official"
+      ],
+      "outcome": "Discovery incomplete, no row verified."
     },
     {
       "state": "IN",
@@ -37386,7 +38910,17 @@
       "state": "IN",
       "fips": "18135",
       "name": "Randolph County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://winchestergc.com/robots.txt",
+        "https://www.hickoryhillsgolfclub.net/"
+      ],
+      "queries": [
+        "Winchester Indiana public golf owner",
+        "Hickory Hills Farmland official owner"
+      ],
+      "outcome": "Winchester robots403 held. Hickory Hills old2019 operating page public18 found; current operation/address verification pending. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -37398,7 +38932,16 @@
       "state": "IN",
       "fips": "18139",
       "name": "Rush County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.visitrushcounty.com/business-directory",
+        "https://www.antlerpointegolf.com/"
+      ],
+      "queries": [
+        "Antler Pointe Rushville public golf official"
+      ],
+      "outcome": "Antler Pointe18 accepted. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -37413,20 +38956,32 @@
         "https://mishawaka.in.gov/things-to-do/eberhart-petro-golf-course/",
         "https://burkegolfcourse.nd.edu/",
         "https://warrengolfcourse.com/the-course/rates/",
-        "https://fightingirish.com/facilities/warren-golf-course"
+        "https://fightingirish.com/facilities/warren-golf-course",
+        "https://whisperingpinesgolf.wixsite.com/whisperingpinesgolf",
+        "https://www.blackthorngolf.com/robots.txt",
+        "https://www.visitsouthbend.com/privacy-policy/terms-of-use/"
       ],
       "queries": [
         "South Bend municipal golf Elbel Erskine Studebaker official",
         "Mishawaka Eberhart Petro municipal golf official",
         "Warren Burke golf Notre Dame public official"
       ],
-      "outcome": "Burke9 and Warren18 verified with current2026 general-public play from university. Both street-level physical access addresses retained from owner directions. Elbel, Erskine, Studebaker and Eberhart-Petro remain paused after cancelled tool reviews; no retry or alternate route. Other county courses unreviewed; inventory incomplete."
+      "outcome": "Burke9 and Warren18 verified with current2026 general-public play from university. Both street-level physical access addresses retained from owner directions. Elbel, Erskine, Studebaker and Eberhart-Petro remain paused after cancelled tool reviews; no retry or alternate route. Other county courses unreviewed; inventory incomplete. Whispering Pines18 added owner public/county/address. Blackthorn owner403 held; VisitSouthBend actual copy/republication restriction, no tourism intake."
     },
     {
       "state": "IN",
       "fips": "18143",
       "name": "Scott County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.visitscottcounty.org/index.php/visit/parks-recreation/81-westwood-golf-club/print",
+        "https://golfwestwood.com/"
+      ],
+      "queries": [
+        "Scottsburg public golf official"
+      ],
+      "outcome": "Westwood current tourism public9 lead; linked old owner domain parked, current operation unresolved. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -37470,25 +39025,47 @@
       "searched_on": "2026-10-06",
       "sources": [
         "https://glendarinhills.com/course-information/",
-        "https://zollnergc.com/"
+        "https://zollnergc.com/",
+        "https://visitsteubencounty.com/outdoors/golf/",
+        "https://www.golflakejames.com/robots.txt",
+        "https://www.golfcountrymeadows.com/robots.txt"
       ],
       "queries": [
         "Glendarin Hills golf official public",
         "Zollner golf course Trine official public"
       ],
-      "outcome": "Glendarin Hills18 daily-fee play and Zollner18 public access verified from owners. Zollner current owner street name is Thunder Ave, superseding older Park Avenue material. Other county courses unreviewed; inventory incomplete."
+      "outcome": "Glendarin Hills18 daily-fee play and Zollner18 public access verified from owners. Zollner current owner street name is Thunder Ave, superseding older Park Avenue material. Other county courses unreviewed; inventory incomplete. Hidden Valley18 accepted official tourism. Lake James currentoperation unresolved after2026auction and owner400redirectloop. CountryMeadows stale domain redirect refused. Cold Springs owner inaccessible held."
     },
     {
       "state": "IN",
       "fips": "18153",
       "name": "Sullivan County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://sullivanparkandlake.com/",
+        "https://discoversullivan.com/attraction/sullivan-elks-country-club-and-golf-course/"
+      ],
+      "queries": [
+        "Sullivan County Park Lake golf official",
+        "Sullivan Elks public golf official"
+      ],
+      "outcome": "Park and Lake9 and Elks18 accepted; separate disc-golf course excluded. Later optional policy403s stopped both domains. Inventory incomplete."
     },
     {
       "state": "IN",
       "fips": "18155",
       "name": "Switzerland County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://switzcotourism.com/golf-1"
+      ],
+      "queries": [
+        "Vineyard golf Indiana official",
+        "Switzerland County public golf official"
+      ],
+      "outcome": "Current tourism golf page empty; old golf-old404 not used. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -37500,7 +39077,9 @@
         "https://www.coyotecrossinggolf.com/",
         "https://golfbattleground.com/",
         "https://ravinesgolfcourse.com/",
-        "https://wlgcc.com/"
+        "https://wlgcc.com/",
+        "https://purduesports.com/facilities/birck-boilermaker-golf-complex",
+        "https://www.homeofpurdue.com/plan/vacation-guides-and-brochures/digital-guides/"
       ],
       "queries": [
         "Coyote Crossing golf public official",
@@ -37508,19 +39087,35 @@
         "West Lafayette Golf Country Club official public",
         "Ravines Golf Course West Lafayette official"
       ],
-      "outcome": "Coyote Crossing18 and Battle Ground18 verified public from current owners. WLGCC robots502 held. Ravines public18 candidate held because linked GetTerms policy became403 before full terms could be inspected. Inventory incomplete."
+      "outcome": "Coyote Crossing18 and Battle Ground18 verified public from current owners. WLGCC robots502 held. Ravines public18 candidate held because linked GetTerms policy became403 before full terms could be inspected. Inventory incomplete. University physical36/address verified for Birck; current ordinary-public confirmation pending before intake. Birck36 accepted on explicit2020 university public statement plus current both-layout tourism invitation/university facts; Ravines18 accepted independent tourism profile."
     },
     {
       "state": "IN",
       "fips": "18159",
       "name": "Tipton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.tipton.in.gov/robots.txt"
+      ],
+      "queries": [
+        "Tipton municipal golf official public"
+      ],
+      "outcome": "First municipal robots403 held, no intake. Inventory incomplete."
     },
     {
       "state": "IN",
       "fips": "18161",
       "name": "Union County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.harborlinksgc.com/"
+      ],
+      "queries": [
+        "Harbor Links Brookville Liberty golf public official"
+      ],
+      "outcome": "Harbor Links18 owner current partial flood closure; explicit ordinary public proof unresolved. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -37564,12 +39159,13 @@
       "searched_on": "2026-10-06",
       "sources": [
         "https://visitwabashcounty.com/outdoor-adventure/honeywell-golf-course/",
-        "https://www.honeywellgc.com/"
+        "https://www.honeywellgc.com/",
+        "https://golfatsycamore.com/"
       ],
       "queries": [
         "Honeywell golf Wabash public official"
       ],
-      "outcome": "Honeywell discovered through official tourism. Owner robots allowed but homepage403; owner domain stopped, no row admitted. Other county courses unreviewed; inventory incomplete."
+      "outcome": "Honeywell discovered through official tourism. Owner robots allowed but homepage403; owner domain stopped, no row admitted. Other county courses unreviewed; inventory incomplete. Sycamore18 accepted explicitpublic owner."
     },
     {
       "state": "IN",
@@ -37581,13 +39177,27 @@
       "state": "IN",
       "fips": "18173",
       "name": "Warrick County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://quailcrossing.com/"
+      ],
+      "queries": [
+        "Quail Crossing Boonville official public golf"
+      ],
+      "outcome": "Quail Crossing owner/address discovered, access unresolved. No robots check yet. Inventory incomplete."
     },
     {
       "state": "IN",
       "fips": "18175",
       "name": "Washington County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "Western Hills Salem Indiana public golf official"
+      ],
+      "outcome": "Western Hills candidate, primary current public access not verified. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -37607,7 +39217,18 @@
       "state": "IN",
       "fips": "18179",
       "name": "Wells County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.visitwellscounty.com/sports-recreation-centers",
+        "https://www.thetimberridge.com/"
+      ],
+      "queries": [
+        "Wells County public golf official",
+        "Timber Ridge Bluffton public owner",
+        "Green Valley Bluffton public tourism"
+      ],
+      "outcome": "Green Valley9 public confirmed by official tourism but eligible physical address unresolved. Timber Ridge18/current2026 owner operation verified, explicit nonmember/public invitation unresolved. Inventory incomplete."
     },
     {
       "state": "IN",
@@ -45594,7 +47215,16 @@
       "state": "NM",
       "fips": "35001",
       "name": "Bernalillo County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.laderagolfcourse.com/",
+        "https://www.nmlegis.gov/Sessions/26%20Regular/final/SB0240.PDF"
+      ],
+      "queries": [
+        "\"Bernalillo County\" New Mexico public golf courses official"
+      ],
+      "outcome": "Independent operator rows cover Ladera, Los Altos, UNM, and other metro facilities; primary capital-outlay source explicitly locates Ladera in Bernalillo County. Search remains incomplete."
     },
     {
       "state": "NM",
@@ -45632,7 +47262,16 @@
       "state": "NM",
       "fips": "35007",
       "name": "Colfax County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.ratongolfcourse.com/",
+        "https://www.angelfireresort.com/activities/summer-activities/golf/"
+      ],
+      "queries": [
+        "\"Colfax County\" New Mexico public golf courses official"
+      ],
+      "outcome": "Raton and Angel Fire verified with public/nonmember golf; similarly named Nebraska results excluded. Search remains incomplete."
     },
     {
       "state": "NM",
@@ -45692,7 +47331,15 @@
       "state": "NM",
       "fips": "35019",
       "name": "Guadalupe County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://visitsantarosanm.com/things-do/sports-recreation/"
+      ],
+      "queries": [
+        "Guadalupe County New Mexico public golf course official"
+      ],
+      "outcome": "Tres Lagunas identified as a nine-hole municipal visitor course; street address and direct public-play evidence still being checked. Search remains incomplete."
     },
     {
       "state": "NM",
@@ -45704,7 +47351,15 @@
       "state": "NM",
       "fips": "35023",
       "name": "Hidalgo County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://visitlordsburg.com/recreation"
+      ],
+      "queries": [
+        "Hidalgo County New Mexico public golf course official"
+      ],
+      "outcome": "Current chamber recreation page identifies disc golf, which is excluded. No conclusion about absence of conventional golf. Search remains incomplete."
     },
     {
       "state": "NM",
@@ -45819,13 +47474,32 @@
       "state": "NM",
       "fips": "35043",
       "name": "Sandoval County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://seesandoval.org/outdoor-adventures/golf/",
+        "https://sea-nm.com/culture-recreation/",
+        "https://www.golfcochiti.com/home"
+      ],
+      "queries": [
+        "Sandoval County New Mexico public golf course Cochiti official"
+      ],
+      "outcome": "Cochiti, Santa Ana, and Twin Warriors have explicit county evidence; Sandia county remains null because regional lists disagree in coverage. Search remains incomplete."
     },
     {
       "state": "NM",
       "fips": "35045",
       "name": "San Juan County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.riverviewgolfnm.com/",
+        "https://www.farmingtonnm.gov/197/Golf-Courses"
+      ],
+      "queries": [
+        "\"San Juan County\" New Mexico public golf courses official"
+      ],
+      "outcome": "Riverview, Civitan and Pinon Hills verified from current primary sources; no county inferred merely from municipal ownership. Search remains incomplete."
     },
     {
       "state": "NM",
@@ -45845,7 +47519,16 @@
       "state": "NM",
       "fips": "35049",
       "name": "Santa Fe County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://santafenm.gov/public-works/parks-and-open-space/municipal-recreation-sports-complex",
+        "https://www.santafecountryclub.com/"
+      ],
+      "queries": [
+        "\"Santa Fe County\" New Mexico public golf courses official"
+      ],
+      "outcome": "Marty Sanchez recovered from independent municipal public-access and budget sources; Santa Fe Country Club permits public golf. Towa held for rehabilitation closure until anticipated summer 2027. Search remains incomplete."
     },
     {
       "state": "NM",
@@ -45878,7 +47561,16 @@
       "state": "NM",
       "fips": "35055",
       "name": "Taos County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://taosgolf.org/",
+        "https://www.taoscountryclub.com/"
+      ],
+      "queries": [
+        "Taos County New Mexico public golf course official Valle Escondido"
+      ],
+      "outcome": "Valle Escondido and Taos Country Club verified from current operator sources. Search remains incomplete."
     },
     {
       "state": "NM",
@@ -54902,139 +56594,287 @@
       "state": "WY",
       "fips": "56001",
       "name": "Albany County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Albany County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56003",
       "name": "Big Horn County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Big Horn County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56005",
       "name": "Campbell County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Campbell County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56007",
       "name": "Carbon County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.carboncountywy.com/things-to-do/golf-courses",
+        "https://www.carboncountywy.com/things-to-do/golf-courses/rochelle-ranch-golf-course",
+        "https://www.carboncountywy.com/things-to-do/golf-courses/saratoga-hot-springs-resort-golf-course",
+        "https://www.rawlinswy.gov/158/Rochelle-Ranch-Golf-Course",
+        "https://wyomingoutdooradventures.com/saratoga-public-golf-course/",
+        "https://wyomingoutdooradventures.com/contact/"
+      ],
+      "queries": [
+        "\"Carbon County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56009",
       "name": "Converse County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Converse County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56011",
       "name": "Crook County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Crook County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56013",
       "name": "Fremont County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Fremont County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56015",
       "name": "Goshen County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Goshen County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56017",
       "name": "Hot Springs County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Hot Springs County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56019",
       "name": "Johnson County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Johnson County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56021",
       "name": "Laramie County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Laramie County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56023",
       "name": "Lincoln County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Lincoln County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56025",
       "name": "Natrona County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Natrona County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56027",
       "name": "Niobrara County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Niobrara County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56029",
       "name": "Park County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Park County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56031",
       "name": "Platte County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Platte County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56033",
       "name": "Sheridan County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Sheridan County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56035",
       "name": "Sublette County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [
+        "https://www.golfpinedale.com/",
+        "https://www.visitsublettecounty.org/golf"
+      ],
+      "queries": [
+        "\"Sublette County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56037",
       "name": "Sweetwater County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Sweetwater County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56039",
       "name": "Teton County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Teton County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56041",
       "name": "Uinta County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Uinta County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56043",
       "name": "Washakie County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Washakie County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     },
     {
       "state": "WY",
       "fips": "56045",
       "name": "Weston County",
-      "search_status": "unsearched"
+      "search_status": "searched_incomplete",
+      "searched_on": "2026-10-06",
+      "sources": [],
+      "queries": [
+        "\"Weston County\" \"Wyoming\" golf public course official"
+      ],
+      "outcome": "Actual county search completed for discovery. Search results alone do not establish a course's county or public access; eligible primary pages require separate review. Search remains incomplete."
     }
   ]
 }
