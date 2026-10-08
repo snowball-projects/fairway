@@ -58,7 +58,7 @@ function filters() {
   };
 }
 function color(c) {
-  if (!c) return "#e2e8dc";
+  if (!c) return "url(#unknown-county)";
   if (c.confirmed) return "#15483c";
   if (c.records.length && c.searched) return "#668a63";
   if (c.records.length) return "#83b9a1";
@@ -93,7 +93,7 @@ function buildMap() {
         : county?.status === "unsearched"
           ? "unsearched"
           : "search status unknown";
-    title.textContent = `${shape.name}, ${shape.state}: ${county?.records.length || 0} facilities; ${search}; ${county?.confirmed ? "confirmed complete" : "completeness unconfirmed"}`;
+    title.textContent = `${shape.name}, ${shape.state}: ${county ? county.records.length : "unknown"} facilities; ${search}; ${county?.confirmed ? "confirmed complete" : "completeness unconfirmed"}`;
     path.append(title);
     path.addEventListener("click", () => selectCounty(shape.id));
     countyPaths.set(shape.id, path);
@@ -278,6 +278,8 @@ function renderDetail(override, heading) {
     aggregate.append(list([...states].sort()));
     node.append(aggregate);
   }
+  if (selectedCounty && !countyPaths.has(selectedCounty.id))
+    node.append(element("p", "Boundary unavailable · included in counts."));
   renderFacilities();
   const showFacilities = Boolean(
     override ||
@@ -479,6 +481,17 @@ async function init() {
       $("state").append(option);
     }
     buildMap();
+    const unmapped = model.counties.filter(
+      (c) => !countyPaths.has(c.id),
+    ).length;
+    const unmatched = boundaries.counties.filter(
+      (c) => !model.byId.has(c.id),
+    ).length;
+    if (unmapped || unmatched) {
+      $("map-coverage-warning").hidden = false;
+      $("map-coverage-warning").textContent =
+        `${number(unmapped)} county boundaries unavailable · ${number(unmatched)} shapes without checklist matches. Unknown areas are not zero coverage.`;
+    }
     render();
     loadProgress();
     $("filters").addEventListener("submit", (event) => event.preventDefault());

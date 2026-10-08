@@ -75,6 +75,17 @@
               role="img"
               aria-label="County research map. The county list and filters provide the same information."
             >
+              <defs>
+                <pattern
+                  id="unknown-county"
+                  width="6"
+                  height="6"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <rect width="6" height="6" fill="#f3f3ee" />
+                  <path d="M0,0L6,6" stroke="#9e8ba6" stroke-width="1" />
+                </pattern>
+              </defs>
               <g id="counties"></g>
               <g id="states"></g>
               <g id="focus-regions"></g>
@@ -92,12 +103,14 @@
             ><span><i class="confirmed"></i>Confirmed complete</span
             ><span><i class="unsearched"></i>Unsearched</span>
             <span><i class="focus-key"></i>Research focus</span>
+            <span><i class="unknown-key"></i>Unknown / unmapped</span>
           </div>
           <p class="map-note">
             County equivalents included. Insets use different scales. Markers
             are address estimates unless explicitly marked as verified
             entrances.
           </p>
+          <p id="map-coverage-warning" hidden></p>
           <div class="county-head">
             <h2>Counties <span id="county-count"></span></h2>
             <p id="county-summary" aria-live="polite"></p>

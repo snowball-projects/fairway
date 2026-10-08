@@ -177,11 +177,10 @@ export function buildModel(catalog) {
   const byName = new Map(counties.map((c) => [`${c.state}|${c.name}`, c]));
   const assigned = new Map();
   for (const record of catalog.facilities) {
-    const evidence = byId.get(record.county_evidence?.county_fips);
     const county =
-      evidence?.state === record.state
-        ? evidence
-        : byName.get(`${record.state}|${record.county}`);
+      typeof record.county === "string" && record.county.trim()
+        ? byName.get(`${record.state}|${record.county}`)
+        : undefined;
     if (county) {
       county.records.push(record);
       assigned.set(record, county.id);

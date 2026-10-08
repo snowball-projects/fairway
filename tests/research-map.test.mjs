@@ -145,3 +145,25 @@ test("missing fields and unverified totals do not imply course counts or complet
   assert.equal(totals.five, 0);
   assert.equal(totals.located, 0);
 });
+test("null counties are never assigned from coordinates or auxiliary evidence", () => {
+  const record = {
+    name: "Unassigned",
+    state: "MN",
+    county: null,
+    county_evidence: { county_fips: "27053" },
+    coordinates: { latitude: 44.98, longitude: -93.27 },
+  };
+  const fixture = buildModel({
+    facilities: [record],
+    county_checklist: [
+      {
+        state: "MN",
+        fips: "27053",
+        name: "Hennepin County",
+        search_status: "unsearched",
+      },
+    ],
+  });
+  assert.equal(fixture.assigned.has(record), false);
+  assert.equal(fixture.counties[0].records.length, 0);
+});

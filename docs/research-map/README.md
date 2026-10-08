@@ -30,7 +30,7 @@ Data remains a deployment snapshot until the next existing Render build.
 - Four fields are name, address, county and holes. Five adds website. These
   describe record completeness, not national completeness.
 - Represented means at least one catalog facility joins to the county through
-  retained FIPS evidence or an exact state/county name. Unmatched records stay
+  an exact state/county name. Null and unmatched county records stay
   in state/region totals and are not assigned a county by coordinates.
 - `searched_incomplete` is searched and explicitly unconfirmed. Only an
   explicit future `searched_complete` checklist status counts as confirmed
@@ -77,6 +77,9 @@ package a substitute sidecar or publish status data.
 `boundaries.json` contains SVG paths derived from Census Bureau 2025 county and
 state cartographic boundaries, small-scale 1:20,000,000. All 3,144 checklist
 county equivalents match by FIPS. Puerto Rico is outside the catalog scope.
+Future unmatched shapes are hatched and labeled unknown, never zero. Checklist
+counties without geometry stay in the table and counts, with an explicit
+unmapped warning and a boundary-unavailable label in their detail panel.
 Lower 48 coordinates use a spherical Albers equal-area projection (parallels
 29.5 and 45.5, central meridian -96). Alaska and Hawaii use labeled insets at
 different scales. Rounded paths are thematic display geometry, not survey or

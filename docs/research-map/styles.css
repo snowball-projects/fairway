@@ -514,3 +514,17 @@ details dl {
   max-height: 300px;
   overflow: auto;
 }
+.legend .unknown-key {
+  background: repeating-linear-gradient(
+    45deg,
+    #f3f3ee,
+    #f3f3ee 3px,
+    #9e8ba6 3px,
+    #9e8ba6 4px
+  );
+}
+#map-coverage-warning {
+  font-size: 12px;
+  color: #734d98;
+  margin-top: 10px;
+}
