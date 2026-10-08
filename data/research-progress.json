@@ -1,22 +1,70 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-08T18:28:13Z",
-  "catalog_commit": "cd4c181a9f3a44f69d071cfd3bf7b58e689570ba",
+  "updated_at": "2026-10-08T18:54:14Z",
+  "catalog_commit": "28353d0332088caa72c32a9356e1360a5848cad7",
   "active_regions": [
     {
       "state": "MN",
       "county_fips": null,
       "stage": "verification",
-      "note": "Regional review of five owner/municipal candidates; missing fields remain unknown."
+      "note": "Checking the next Minnesota owner/municipal candidates after the completed first regional batch."
     },
     {
       "state": "WI",
       "county_fips": null,
-      "stage": "verification",
-      "note": "First five candidates from the 32-course queue are being checked against operator sources."
+      "stage": "review",
+      "note": "Preparing the next five Wisconsin candidates against source holds and existing entries."
     }
   ],
   "recent_batches": [
+    {
+      "published_at": "2026-10-08T18:54:14Z",
+      "commit": "28353d0332088caa72c32a9356e1360a5848cad7",
+      "facilities_added": 8,
+      "facilities_updated": 0,
+      "added_facilities": [
+        {
+          "name": "Hibbing Municipal Golf Course",
+          "state": "MN",
+          "address": "1524 7th Ave E, Hibbing, MN 55746"
+        },
+        {
+          "name": "Madison Country Club",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Riverside Town and Country Club",
+          "state": "MN",
+          "address": "36259 150th St, Blue Earth, MN 56013"
+        },
+        {
+          "name": "Whitetail Run Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Tagalong Golf Resort",
+          "state": "WI",
+          "address": "2853 29th Ave, Birchwood, WI 54817"
+        },
+        {
+          "name": "Voyager Village",
+          "state": "WI",
+          "address": "28851 Kilkare Rd, Danbury, WI 54830"
+        },
+        {
+          "name": "Lynndale's Golf Course",
+          "state": "WI",
+          "address": "2369 20 1/2 St, Rice Lake, WI 54868"
+        },
+        {
+          "name": "Turtleback Golf Course",
+          "state": "WI",
+          "address": "1985 18 1/2 Street, Rice Lake, WI 54868"
+        }
+      ]
+    },
     {
       "published_at": "2026-10-08T18:19:48Z",
       "commit": "cd4c181a9f3a44f69d071cfd3bf7b58e689570ba",
