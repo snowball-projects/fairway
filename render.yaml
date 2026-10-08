@@ -3,7 +3,7 @@ services:
     name: fairway
     runtime: python
     plan: free
-    buildCommand: pip install uv==0.12.15 && python scripts/publish_research_map.py && uv sync --locked --no-dev && .venv/bin/python scripts/fetch_snapshot.py
+    buildCommand: bash scripts/build.sh
     startCommand: .venv/bin/gunicorn --preload --workers 1 --threads 4 fairway.app:application
     healthCheckPath: /health
     envVars:
