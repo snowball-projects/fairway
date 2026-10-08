@@ -64,6 +64,58 @@ const utc = (value) =>
   Number.isFinite(Date.parse(value))
     ? value
     : null;
+export function parseAdditions(value) {
+  if (
+    !value ||
+    value.schema_version !== 1 ||
+    value.time_basis !== "git_commit_time" ||
+    value.count_unit !== "provisional_facility_entry" ||
+    !Array.isArray(value.batches)
+  )
+    throw new Error("Unsupported additions log");
+  const batches = value.batches.map((batch) => {
+    const redacted =
+      batch?.redacted_entries === undefined ? 0 : count(batch.redacted_entries);
+    const removed =
+      batch?.facilities_removed === undefined
+        ? 0
+        : count(batch.facilities_removed);
+    if (
+      !batch ||
+      !sha(batch.commit) ||
+      !utc(batch.committed_at) ||
+      typeof batch.initial_baseline !== "boolean" ||
+      count(batch.facilities_added) === null ||
+      !Array.isArray(batch.added_facilities) ||
+      redacted === null ||
+      removed === null ||
+      batch.facilities_added !== batch.added_facilities.length + redacted ||
+      batch.added_facilities.some(
+        (r) =>
+          !r ||
+          typeof r.name !== "string" ||
+          !r.name.trim() ||
+          !states.has(r.state) ||
+          (r.address != null && typeof r.address !== "string"),
+      )
+    )
+      throw new Error("Invalid additions batch");
+    return {
+      commit: batch.commit,
+      committedAt: batch.committed_at,
+      baseline: batch.initial_baseline,
+      added: batch.facilities_added,
+      redacted,
+      removed,
+      facilities: batch.added_facilities.map((r) => ({
+        name: r.name,
+        state: r.state,
+        address: r.address ?? null,
+      })),
+    };
+  });
+  return { completeFrom: utc(value.history_complete_from), batches };
+}
 export function parseProgress(value, now = Date.now()) {
   if (!value || value.schema_version !== 1)
     throw new Error("Unsupported progress snapshot");
@@ -156,8 +208,23 @@ export function summarize(records) {
 }
 export function buildModel(catalog) {
   if (
+    !catalog ||
     !Array.isArray(catalog.facilities) ||
-    !Array.isArray(catalog.county_checklist)
+    !Array.isArray(catalog.county_checklist) ||
+    catalog.facilities.some(
+      (r) =>
+        !r ||
+        typeof r.name !== "string" ||
+        !r.name.trim() ||
+        !states.has(r.state),
+    ) ||
+    catalog.county_checklist.some(
+      (c) =>
+        !c ||
+        !/^\d{5}$/.test(c.fips) ||
+        !states.has(c.state) ||
+        typeof c.name !== "string",
+    )
   ) {
     throw new Error("Unsupported catalog");
   }
@@ -187,6 +254,33 @@ export function buildModel(catalog) {
     }
   }
   return { records: catalog.facilities, counties, byId, assigned };
+}
+export function addedFacilities(previous, next) {
+  const identities = new Set(previous.map(facilityIdentity));
+  const uniqueKeys = (records, key) => {
+    const counts = new Map();
+    for (const record of records) {
+      const value = key(record);
+      if (value) counts.set(value, (counts.get(value) || 0) + 1);
+    }
+    return counts;
+  };
+  const name = (r) => JSON.stringify([r.state, r.name]);
+  const address = (r) =>
+    r.address ? JSON.stringify([r.state, r.address]) : null;
+  const keys = [name, address].map((key) => [
+    key,
+    uniqueKeys(previous, key),
+    uniqueKeys(next, key),
+  ]);
+  return next.filter(
+    (r) =>
+      !identities.has(facilityIdentity(r)) &&
+      !keys.some(
+        ([key, before, after]) =>
+          before.get(key(r)) === 1 && after.get(key(r)) === 1,
+      ),
+  );
 }
 export function selectCounties(model, filters) {
   return model.counties.filter(

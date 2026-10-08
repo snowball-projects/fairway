@@ -33,6 +33,9 @@ their own service policies.
   requests and collects no personal data. Region focus is dated snapshot status,
   not live activity. This larger research catalog does not expand the ranking
   catalog or routing coverage.
+  Visible pages check a small publication manifest every minute and fetch new
+  JSON only when its hash changes. Hidden pages pause; errors back off. These
+  are deployed catalog updates, not in-progress research activity.
 
 - Address text goes directly from the browser to the public Photon demo
   service. Suggestion requests are restricted to the active road snapshot's

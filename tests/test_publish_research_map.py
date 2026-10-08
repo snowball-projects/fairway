@@ -52,13 +52,52 @@ def test_publication_preserves_inputs_and_serves_under_existing_handler(
     assert json.loads(body)["schema_version"] == 1
 
 
-def test_missing_progress_prevents_publication_instead_of_inventing_status(tmp_path):
+@pytest.mark.parametrize("status", [None, "not JSON", '{"schema_version":2}'])
+def test_optional_status_failure_does_not_block_catalog_publication(tmp_path, status):
     root = tmp_path / "source"
     (root / "data").mkdir(parents=True)
     (root / "data/public-courses.json").write_text(
         '{"facilities":[],"county_checklist":[]}'
     )
+    (root / "docs/research-map").mkdir(parents=True)
+    for name in publisher.ASSETS:
+        (root / "docs/research-map" / name).write_bytes(
+            (ROOT / "docs/research-map" / name).read_bytes()
+        )
+    if status is not None:
+        (root / "data/research-progress.json").write_text(status)
     output = tmp_path / "output"
-    with pytest.raises(FileNotFoundError):
-        publisher.publish(root, output)
-    assert not output.exists()
+    result = publisher.publish(root, output)
+    assert result["progress_sha256"] is None
+    assert (output / "data/public-courses.json").is_file()
+    assert not (output / "data/research-progress.json").exists()
+
+
+def test_optional_additions_log_is_published_unchanged_with_its_hash(tmp_path):
+    root = tmp_path / "source"
+    (root / "data").mkdir(parents=True)
+    (root / "docs/research-map").mkdir(parents=True)
+    (root / "data/public-courses.json").write_text(
+        '{"facilities":[],"county_checklist":[]}'
+    )
+    (root / "data/research-progress.json").write_text('{"schema_version":1}')
+    for name in publisher.ASSETS:
+        (root / "docs/research-map" / name).write_bytes(
+            (ROOT / "docs/research-map" / name).read_bytes()
+        )
+    log = {
+        "schema_version": 1,
+        "time_basis": "git_commit_time",
+        "count_unit": "provisional_facility_entry",
+        "history_complete_from": None,
+        "batches": [],
+    }
+    body = json.dumps(log).encode()
+    (root / "data/catalog-additions.json").write_bytes(body)
+    output = tmp_path / "output"
+    publisher.publish(root, output)
+    assert (output / "data/catalog-additions.json").read_bytes() == body
+    assert (root / "data/catalog-additions.json").read_bytes() == body
+    manifest = json.loads((output / "research-map/publication.json").read_bytes())
+    assert manifest["additions_sha256"] == sha256(body).hexdigest()
+    assert (output / "research-map/refresh.mjs").is_file()

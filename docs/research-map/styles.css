@@ -71,6 +71,39 @@ header p {
   font-weight: 750;
   letter-spacing: -0.5px;
 }
+.snapshot-state {
+  display: grid;
+  gap: 4px;
+}
+#refresh-status {
+  font-variant-numeric: tabular-nums;
+}
+#counties path.fresh {
+  stroke: #946416;
+  stroke-width: 2;
+}
+#points circle.fresh {
+  stroke: #946416;
+  stroke-width: 2;
+}
+tr.fresh,
+.facility.fresh {
+  background: #f4e7b9;
+}
+#additions-log {
+  max-height: 360px;
+  overflow: auto;
+}
+#additions-log time {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+}
+#additions-log > a {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 12px;
+}
 .brand span {
   font-weight: 400;
   font-size: 15px;

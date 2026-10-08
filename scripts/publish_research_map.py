@@ -10,19 +10,39 @@ from hashlib import sha256
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ("index.html", "styles.css", "app.mjs", "model.mjs", "boundaries.json")
+ASSETS = (
+    "index.html",
+    "styles.css",
+    "app.mjs",
+    "model.mjs",
+    "refresh.mjs",
+    "boundaries.json",
+)
+
+
+def optional_snapshot(path, required):
+    try:
+        body = path.read_bytes()
+        value = json.loads(body)
+        if isinstance(value, dict) and all(
+            value.get(key) == expected for key, expected in required.items()
+        ):
+            return body
+    except (OSError, ValueError):
+        pass
+    return None
 
 
 def publish(root, output):
     catalog = (root / "data/public-courses.json").read_bytes()
-    progress = (root / "data/research-progress.json").read_bytes()
-    catalog_data, progress_data = json.loads(catalog), json.loads(progress)
+    progress = optional_snapshot(
+        root / "data/research-progress.json", {"schema_version": 1}
+    )
+    catalog_data = json.loads(catalog)
     if not isinstance(catalog_data.get("facilities"), list) or not isinstance(
         catalog_data.get("county_checklist"), list
     ):
         raise TypeError("unsupported public catalog")
-    if progress_data.get("schema_version") != 1:
-        raise ValueError("unsupported public progress snapshot")
     payloads = {
         Path("research-map") / name: (root / "docs/research-map" / name).read_bytes()
         for name in ASSETS
@@ -31,12 +51,30 @@ def publish(root, output):
         Path("research-map/index.html")
     ].replace(b"../../src/fairway/static/favicon.png", b"/favicon.png")
     payloads[Path("data/public-courses.json")] = catalog
-    payloads[Path("data/research-progress.json")] = progress
+    if progress is not None:
+        payloads[Path("data/research-progress.json")] = progress
+    additions = optional_snapshot(
+        root / "data/catalog-additions.json",
+        {
+            "schema_version": 1,
+            "time_basis": "git_commit_time",
+            "count_unit": "provisional_facility_entry",
+        },
+    )
+    if additions is not None:
+        additions_data = json.loads(additions)
+        if isinstance(additions_data.get("batches"), list):
+            payloads[Path("data/catalog-additions.json")] = additions
+        else:
+            additions = None
     payloads[Path("research-map/publication.json")] = (
         json.dumps(
             {
                 "catalog_sha256": sha256(catalog).hexdigest(),
-                "progress_sha256": sha256(progress).hexdigest(),
+                "progress_sha256": sha256(progress).hexdigest() if progress else None,
+                "additions_sha256": sha256(additions).hexdigest()
+                if additions
+                else None,
             },
             separators=(",", ":"),
         )
@@ -51,7 +89,7 @@ def publish(root, output):
     return {
         "facilities": len(catalog_data["facilities"]),
         "catalog_sha256": sha256(catalog).hexdigest(),
-        "progress_sha256": sha256(progress).hexdigest(),
+        "progress_sha256": sha256(progress).hexdigest() if progress else None,
     }
 
 
