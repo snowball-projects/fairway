@@ -4,12 +4,13 @@ A buildless, read-only page separate from the hosted ranking application.
 Run from the repository root:
 
 ```sh
-python -m http.server 8765 --bind 127.0.0.1
+python scripts/publish_research_map.py
+python -m http.server 8765 --bind 127.0.0.1 --directory src/fairway/static
 ```
 
-Open `http://127.0.0.1:8765/docs/research-map/`. It reads
-`data/public-courses.json` from this checkout on each page load. It does not
-poll, contact external map services or change WSGI routes, ranking inputs or
+Open `http://127.0.0.1:8765/research-map/index.html`. It reads
+public JSON prepared from this checkout. It does not
+contact external map services or change WSGI routes, ranking inputs or
 catalog/checklist files. The page and public inputs are included in the source
 archive for reproducibility.
 
@@ -19,7 +20,8 @@ catalog/status bytes into generated, ignored static directories, also included
 in the wheel. The existing static handler serves `/research-map/index.html`
 and `/data/` JSON, using its existing security headers; no route or CSP change
 is needed. `publication.json` binds the served inputs to their SHA-256 digests.
-The script requires the published progress sidecar and performs no network
+Status and additions sidecars are optional; unavailable or unsupported files
+do not block catalog publication. The script performs no network
 calls or source-data writes. No hosting migration or additional service is used.
 Data remains a deployment snapshot until the next existing Render build.
 
@@ -53,7 +55,46 @@ unsupported sidecars show unavailable without breaking the catalog view.
 `updated_at` is the UTC snapshot time; snapshots older than two days, with
 unknown times or implausibly future times are labeled stale. Stale region
 status remains labeled as a historical snapshot and loses the focus outline.
-There is no polling or claim of live researcher activity.
+There is no claim of live researcher activity.
+
+## Published updates and additions
+
+The visible page checks the existing same-origin `publication.json` every
+60 seconds. Its hashes avoid downloading the full catalog when unchanged.
+Changed JSON is verified against SHA-256 before adoption, protecting against a
+deployment switching between manifest and data requests. Filters, selected
+county/facility, zoom, keyboard focus, expanded details and scroll positions
+survive refresh. New facility identities receive a static 30-second highlight.
+The first loaded snapshot is a baseline, never announced as new additions.
+Name/state/address identity comparisons ignore unique name or address corrections;
+without permanent facility IDs, ambiguous identity changes cannot be classified
+perfectly. There are no fuzzy matches or invented IDs.
+
+Hidden tabs abort requests and pause checks. Requests have a 15-second timeout,
+never overlap, and errors retain the working view with retries from 2 to 10
+minutes. Optional log or research-status errors do not block catalog counts.
+Render publishes a new snapshot after its automatic GitHub commit deployment;
+an open visible page normally sees it within 60 seconds after deploy completes.
+The observed deployment took about a minute, so the ordinary commit-to-view
+latency is roughly 1 to 2 minutes plus download time, not a delivery guarantee.
+Uncommitted work cannot appear through this mechanism.
+
+The data worker owns `data/catalog-additions.json`, a small durable commit log.
+Its exact contract is `schema_version: 1`, `time_basis: git_commit_time`,
+`count_unit: provisional_facility_entry`, `history_complete_from` (UTC time or
+null), and `batches` with `commit`, `committed_at`, `initial_baseline`,
+`facilities_added`, `facilities_removed`, and `added_facilities`
+(name/state/address). The optional
+`redacted_entries` count retains batch totals when historical identities are
+omitted; the page reports the number omitted without inventing their names.
+Batch totals may therefore exceed the named entries. The optional
+file is copied unchanged by the publisher and bound by `additions_sha256`.
+The page labels times **Committed**, displays the browser's local timezone,
+and labels unknown coverage **Partial history**. The initial baseline is
+excluded from addition pace totals. It shows up to 12 recent batches and 20
+names per batch, with the complete JSON linked. Counts are facility entries;
+they do not assert course-layout totals. Existing research-status batch history
+is separately labeled partial. The page never backfills or writes the log.
 
 The agreed contract is `schema_version`, `updated_at`, `catalog_commit`,
 `active_regions` (`state`, `county_fips` or null, `stage`, `note`) and
@@ -102,7 +143,8 @@ boundaries are public domain; existing catalog source licenses remain applicable
 ```sh
 node --check docs/research-map/app.mjs
 node --check docs/research-map/model.mjs
-node --test tests/research-map.test.mjs
+node --check docs/research-map/refresh.mjs
+node --test tests/research-map.test.mjs tests/research-refresh.test.mjs
 ```
 
 Also run the repository's Python lint, format, tests and build. Browser review
@@ -113,6 +155,6 @@ through labeled filters, a semantic county table and facility lists. SVG paths
 are not thousands of keyboard tab stops. The page uses safe text DOM insertion
 for catalog fields and validates outbound website URL protocols.
 
-No runtime dependencies, external fonts, tiles, analytics, backend or polling.
+No runtime dependencies, external fonts, tiles, analytics or new backend.
 The existing full catalog dominates payload size; compression is useful if a
 separate static host is approved later. Nothing here enables deployment.

@@ -18,7 +18,10 @@
       <a href="https://github.com/snowball-projects/fairway" class="brand"
         >fairway<span> / research coverage</span></a
       >
-      <p id="snapshot">Loading catalog snapshot…</p>
+      <div class="snapshot-state">
+        <p id="snapshot">Loading catalog snapshot…</p>
+        <p id="refresh-status" role="status">Checking published updates…</p>
+      </div>
     </header>
     <main>
       <div id="error" role="alert" hidden></div>
@@ -136,6 +139,11 @@
         </section>
         <aside aria-label="Research details">
           <section class="panel">
+            <h2>Additions</h2>
+            <p id="additions-summary">History unavailable.</p>
+            <div id="additions-log"></div>
+          </section>
+          <section class="panel">
             <h2>Research focus</h2>
             <p id="progress-status" role="status">
               Status snapshot unavailable.
@@ -157,7 +165,7 @@
             </p>
           </section>
           <section class="panel">
-            <h2>Recent additions</h2>
+            <h2>Research batches</h2>
             <p id="recent-status">
               Addition history is not published in this catalog snapshot.
             </p>

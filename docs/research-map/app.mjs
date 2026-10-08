@@ -8,7 +8,10 @@ import {
   regions,
   parseProgress,
   facilityIdentity,
+  addedFacilities,
+  parseAdditions,
 } from "./model.mjs";
+import { watchSnapshots } from "./refresh.mjs";
 
 const $ = (id) => document.getElementById(id);
 const number = (value) => value.toLocaleString("en-US");
@@ -17,13 +20,18 @@ let model,
   catalog,
   boundaries,
   progress = null,
+  additions = null,
   selectedCounty = null,
+  selectedFacility = null,
   countyLimit = 80,
   facilityLimit = 20;
 let filteredCounties = [],
   filteredRecords = [],
   detailRecords = [];
 const countyPaths = new Map();
+let freshIdentities = new Set(),
+  freshTimer,
+  lastAdded = 0;
 
 function element(tag, text, className) {
   const node = document.createElement(tag);
@@ -67,6 +75,7 @@ function color(c) {
 }
 function selectCounty(id, focus = false) {
   selectedCounty = model.byId.get(id);
+  selectedFacility = null;
   facilityLimit = 20;
   renderMap();
   renderDetail();
@@ -74,6 +83,12 @@ function selectCounty(id, focus = false) {
     $("selection-heading").tabIndex = -1;
     $("selection-heading").focus();
   }
+}
+function selectFacility(record) {
+  selectedCounty = null;
+  selectedFacility = facilityIdentity(record);
+  facilityLimit = 20;
+  renderDetail();
 }
 function svg(tag, attributes) {
   const node = document.createElementNS(ns, tag);
@@ -95,6 +110,7 @@ function buildMap() {
           : "search status unknown";
     title.textContent = `${shape.name}, ${shape.state}: ${county ? county.records.length : "unknown"} facilities; ${search}; ${county?.confirmed ? "confirmed complete" : "completeness unconfirmed"}`;
     path.append(title);
+    path.dataset.label = `${shape.name}, ${shape.state}`;
     path.addEventListener("click", () => selectCounty(shape.id));
     countyPaths.set(shape.id, path);
     $("counties").append(path);
@@ -102,20 +118,30 @@ function buildMap() {
   for (const shape of boundaries.states)
     $("states").append(svg("path", { d: shape.d }));
 }
-function renderMap() {
+function renderMap(preserveView = false) {
   const ids = new Set(filteredCounties.map((c) => c.id));
   for (const [id, path] of countyPaths) {
+    const county = model.byId.get(id);
+    path.setAttribute("fill", color(county));
+    path.querySelector("title").textContent =
+      `${path.dataset.label}: ${county ? county.records.length : "unknown"} facilities; ${county?.searched ? "searched" : county?.status === "unsearched" ? "unsearched" : "search status unknown"}; ${county?.confirmed ? "confirmed complete" : "completeness unconfirmed"}`;
+    path.classList.toggle(
+      "fresh",
+      Boolean(
+        county?.records.some((r) => freshIdentities.has(facilityIdentity(r))),
+      ),
+    );
     path.classList.toggle("dim", !ids.has(id));
     path.classList.toggle("selected", selectedCounty?.id === id);
   }
   const state = boundaries.states.find((s) => s.id === $("state").value);
-  if (state) {
+  if (!preserveView && state) {
     const [x1, y1, x2, y2] = state.bounds;
     $("map").setAttribute(
       "viewBox",
       `${x1 - 15} ${y1 - 15} ${x2 - x1 + 30} ${y2 - y1 + 30}`,
     );
-  } else $("map").setAttribute("viewBox", "0 0 1000 600");
+  } else if (!preserveView) $("map").setAttribute("viewBox", "0 0 1000 600");
   $("focus-regions").replaceChildren();
   if (progress && !progress.stale)
     for (const target of progress.activeRegions) {
@@ -150,6 +176,10 @@ function renderMap() {
               ? "estimate"
               : "other",
       });
+      marker.classList.toggle(
+        "fresh",
+        freshIdentities.has(facilityIdentity(record)),
+      );
       const title = svg("title", {});
       title.textContent = `${record.name}: ${kind}`;
       marker.append(title);
@@ -158,7 +188,7 @@ function renderMap() {
         if (id) selectCounty(id);
         else {
           selectedCounty = null;
-          renderDetail([record], record.name);
+          selectFacility(record);
         }
       });
       $("points").append(marker);
@@ -168,9 +198,14 @@ function renderCounties() {
   const rows = document.createDocumentFragment();
   for (const county of filteredCounties.slice(0, countyLimit)) {
     const row = element("tr");
+    row.classList.toggle(
+      "fresh",
+      county.records.some((r) => freshIdentities.has(facilityIdentity(r))),
+    );
     const name = element("td");
     const button = element("button", `${county.name}, ${county.state}`);
     button.type = "button";
+    button.dataset.focusKey = `county:${county.id}`;
     button.addEventListener("click", () => selectCounty(county.id, true));
     name.append(button);
     row.append(
@@ -198,6 +233,10 @@ function renderFacilities() {
   const nodes = document.createDocumentFragment();
   for (const record of detailRecords.slice(0, facilityLimit)) {
     const item = element("article", undefined, "facility");
+    item.classList.toggle(
+      "fresh",
+      freshIdentities.has(facilityIdentity(record)),
+    );
     item.append(
       element("h3", record.name),
       element("p", record.address || "Address unknown"),
@@ -226,6 +265,7 @@ function renderFacilities() {
     if (typeof url === "string" && /^https?:\/\//i.test(url)) {
       const link = element("a", "Official website");
       link.href = url;
+      link.dataset.focusKey = `website:${facilityIdentity(record)}`;
       link.rel = "noreferrer";
       item.append(link);
     }
@@ -235,6 +275,13 @@ function renderFacilities() {
   $("more-facilities").hidden = facilityLimit >= detailRecords.length;
 }
 function renderDetail(override, heading) {
+  const selected =
+    selectedFacility &&
+    model.records.find((r) => facilityIdentity(r) === selectedFacility);
+  if (selected) {
+    override = [selected];
+    heading = selected.name;
+  } else selectedFacility = null;
   detailRecords =
     override || (selectedCounty ? selectedCounty.records : filteredRecords);
   const totals = summarize(detailRecords);
@@ -274,6 +321,7 @@ function renderDetail(override, heading) {
     for (const r of detailRecords.filter((r) => !located(r)))
       states.set(r.state, (states.get(r.state) || 0) + 1);
     const aggregate = element("details");
+    aggregate.dataset.detailKey = "unlocated";
     aggregate.append(element("summary", "Unlocated facilities by state"));
     aggregate.append(list([...states].sort()));
     node.append(aggregate);
@@ -291,7 +339,7 @@ function renderDetail(override, heading) {
   $("facilities").hidden = !showFacilities;
   if (!showFacilities) $("more-facilities").hidden = true;
 }
-function render() {
+function render(preserveView = false) {
   const f = filters();
   filteredCounties = selectCounties(model, f);
   filteredRecords = selectRecords(model, f, filteredCounties);
@@ -336,7 +384,7 @@ function render() {
     ]),
   );
   renderCounties();
-  renderMap();
+  renderMap(preserveView);
   renderDetail();
 }
 function utcLabel(value) {
@@ -365,12 +413,14 @@ function renderProgress() {
           : `${target.state} · county unavailable`;
     const button = element("button", `${label} · ${target.stage}`, "target");
     button.type = "button";
+    button.dataset.focusKey = `target:${target.state}:${target.countyFips}:${target.stage}`;
     button.addEventListener("click", () => {
       $("region").value = "";
       $("state").value = target.state;
       $("query").value = "";
       $("status").value = "all";
       selectedCounty = county?.state === target.state ? county : null;
+      selectedFacility = null;
       countyLimit = 80;
       facilityLimit = 20;
       render();
@@ -380,7 +430,7 @@ function renderProgress() {
   if (!progress.activeRegions.length)
     $("targets").append(element("p", "No region status published."));
   $("recent-status").textContent = progress.recentBatches.length
-    ? "Published batches · all regions"
+    ? "Partial status history"
     : "No recent batches published.";
   const byIdentity = new Map();
   for (const record of model.records) {
@@ -399,6 +449,7 @@ function renderProgress() {
       element("p", utcLabel(batch.publishedAt)),
     );
     const details = element("details");
+    details.dataset.detailKey = `research:${batch.commit || batch.publishedAt}`;
     details.append(
       element(
         "summary",
@@ -415,10 +466,9 @@ function renderProgress() {
           "addition",
         );
         button.type = "button";
+        button.dataset.focusKey = `research:${facilityIdentity(record)}`;
         button.addEventListener("click", () => {
-          selectedCounty = null;
-          facilityLimit = 20;
-          renderDetail([record], record.name);
+          selectFacility(record);
         });
         details.append(button);
       } else
@@ -443,16 +493,154 @@ function renderProgress() {
     $("targets").append(link);
   }
 }
-async function loadProgress() {
-  try {
-    progress = parseProgress(
-      await loadJSON("../../data/research-progress.json"),
-    );
-  } catch {
-    progress = null;
+function renderAdditions() {
+  $("additions-log").replaceChildren();
+  if (!additions) {
+    $("additions-summary").textContent = "History unavailable.";
+    return;
   }
-  renderProgress();
-  renderMap();
+  const batches = additions.batches.filter((b) => !b.baseline);
+  const localTime = (value) =>
+    new Date(value).toLocaleString(undefined, {
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZoneName: "short",
+    });
+  $("additions-summary").textContent =
+    `${number(batches.reduce((n, b) => n + b.added, 0))} facilities added · ${number(batches.reduce((n, b) => n + b.removed, 0))} removed · ${number(batches.length)} logged batches · ${additions.completeFrom ? `History from ${localTime(additions.completeFrom)}` : "Partial history"}`;
+  const byIdentity = new Map();
+  for (const record of model.records) {
+    const identity = facilityIdentity(record);
+    byIdentity.set(identity, byIdentity.has(identity) ? null : record);
+  }
+  for (const batch of [...additions.batches]
+    .sort((a, b) => Date.parse(b.committedAt) - Date.parse(a.committedAt))
+    .slice(0, 12)) {
+    const article = element("article", undefined, "batch");
+    article.append(
+      element(
+        "h3",
+        batch.baseline
+          ? `Initial catalog · ${number(batch.added)} entries`
+          : `${number(batch.added)} facilities added${batch.removed ? ` · ${number(batch.removed)} removed` : ""}`,
+      ),
+    );
+    const time = element("time", `Committed ${localTime(batch.committedAt)}`);
+    time.dateTime = batch.committedAt;
+    time.title = batch.committedAt;
+    article.append(time);
+    const details = element("details");
+    details.dataset.detailKey = `log:${batch.commit}`;
+    details.append(
+      element(
+        "summary",
+        `${number(batch.facilities.length)} facility names${batch.redacted ? ` · ${number(batch.redacted)} omitted` : ""}`,
+      ),
+    );
+    for (const facility of batch.facilities.slice(0, 20)) {
+      const record = byIdentity.get(facilityIdentity(facility));
+      if (record) {
+        const button = element(
+          "button",
+          `${facility.name}, ${facility.state}`,
+          "addition",
+        );
+        button.type = "button";
+        button.dataset.focusKey = `log:${batch.commit}:${facilityIdentity(facility)}`;
+        button.addEventListener("click", () => selectFacility(record));
+        details.append(button);
+      } else
+        details.append(element("p", `${facility.name}, ${facility.state}`));
+    }
+    if (batch.facilities.length > 20)
+      details.append(element("p", "More names in the full log."));
+    article.append(details);
+    const change = element("a", "Committed change");
+    change.href = `https://github.com/snowball-projects/fairway/commit/${batch.commit}`;
+    article.append(change);
+    $("additions-log").append(article);
+  }
+  const full = element("a", "Full additions log");
+  full.href = "../../data/catalog-additions.json";
+  $("additions-log").append(full);
+}
+function preserveView(update) {
+  const focused = document.activeElement?.dataset.focusKey;
+  const scrolls = [
+    ...document.querySelectorAll(
+      ".table-wrap, #facilities, #recent, #additions-log",
+    ),
+  ].map((node) => [node, node.scrollTop]);
+  const expanded = new Map(
+    [...document.querySelectorAll("details[data-detail-key]")].map((node) => [
+      node.dataset.detailKey,
+      node.open,
+    ]),
+  );
+  const scroll = [window.scrollX, window.scrollY];
+  update();
+  for (const node of document.querySelectorAll("details[data-detail-key]"))
+    node.open = expanded.get(node.dataset.detailKey) || false;
+  for (const [node, top] of scrolls) node.scrollTop = top;
+  if (focused)
+    [...document.querySelectorAll("[data-focus-key]")]
+      .find((node) => node.dataset.focusKey === focused)
+      ?.focus({ preventScroll: true });
+  window.scrollTo(...scroll);
+}
+function applyCatalog(next) {
+  const nextModel = buildModel(next); // Validate before replacing a working view.
+  const first = !model;
+  const added = first ? [] : addedFacilities(model.records, nextModel.records);
+  const previousFacility = model?.records.find(
+    (r) => facilityIdentity(r) === selectedFacility,
+  );
+  preserveView(() => {
+    catalog = next;
+    model = nextModel;
+    selectedCounty = selectedCounty
+      ? model.byId.get(selectedCounty.id) || null
+      : null;
+    if (previousFacility) {
+      const matches = model.records.filter(
+        (r) =>
+          r.state === previousFacility.state &&
+          r.name === previousFacility.name,
+      );
+      if (matches.length === 1) selectedFacility = facilityIdentity(matches[0]);
+    }
+    freshIdentities = new Set(added.map(facilityIdentity));
+    lastAdded = added.length;
+    clearTimeout(freshTimer);
+    freshTimer = setTimeout(() => {
+      freshIdentities.clear();
+      for (const node of document.querySelectorAll(".fresh"))
+        node.classList.remove("fresh");
+    }, 30000);
+    const age =
+      (Date.now() - Date.parse(`${catalog.updated_on}T00:00:00Z`)) / 86400000;
+    $("snapshot").textContent =
+      `Catalog ${catalog.updated_on || "date unknown"} · incomplete snapshot${age > 2 ? " · stale" : ""}`;
+    $("snapshot").classList.toggle("stale", age > 2);
+    if (first) buildMap();
+    const unmapped = model.counties.filter(
+      (c) => !countyPaths.has(c.id),
+    ).length;
+    const unmatched = boundaries.counties.filter(
+      (c) => !model.byId.has(c.id),
+    ).length;
+    $("map-coverage-warning").hidden = !(unmapped || unmatched);
+    $("map-coverage-warning").textContent =
+      `${number(unmapped)} county boundaries unavailable · ${number(unmatched)} shapes without checklist matches. Unknown areas are not zero coverage.`;
+    render(!first);
+    renderProgress();
+    renderAdditions();
+    $("error").hidden = true;
+    for (const input of $("filters").elements) input.disabled = false;
+    $("markers").disabled = false;
+  });
 }
 async function loadJSON(path) {
   const response = await fetch(path, {
@@ -465,37 +653,17 @@ async function loadJSON(path) {
 }
 async function init() {
   try {
-    [catalog, boundaries] = await Promise.all([
-      loadJSON("../../data/public-courses.json"),
-      loadJSON("./boundaries.json"),
-    ]);
-    model = buildModel(catalog);
-    const age =
-      (Date.now() - Date.parse(`${catalog.updated_on}T00:00:00Z`)) / 86400000;
-    $("snapshot").textContent =
-      `Catalog ${catalog.updated_on || "date unknown"} · incomplete snapshot${age > 2 ? " · stale" : ""}`;
-    $("snapshot").classList.toggle("stale", age > 2);
+    for (const input of $("filters").elements) input.disabled = true;
+    $("markers").disabled = true;
+    boundaries = await loadJSON("./boundaries.json");
     for (const s of boundaries.states) {
       const option = element("option", `${s.name} (${s.id})`);
       option.value = s.id;
       $("state").append(option);
     }
-    buildMap();
-    const unmapped = model.counties.filter(
-      (c) => !countyPaths.has(c.id),
-    ).length;
-    const unmatched = boundaries.counties.filter(
-      (c) => !model.byId.has(c.id),
-    ).length;
-    if (unmapped || unmatched) {
-      $("map-coverage-warning").hidden = false;
-      $("map-coverage-warning").textContent =
-        `${number(unmapped)} county boundaries unavailable · ${number(unmatched)} shapes without checklist matches. Unknown areas are not zero coverage.`;
-    }
-    render();
-    loadProgress();
     $("filters").addEventListener("submit", (event) => event.preventDefault());
     $("filters").addEventListener("input", () => {
+      selectedFacility = null;
       countyLimit = 80;
       facilityLimit = 20;
       render();
@@ -510,12 +678,13 @@ async function init() {
     });
     $("filters").addEventListener("reset", () => {
       selectedCounty = null;
+      selectedFacility = null;
       countyLimit = 80;
       facilityLimit = 20;
       $("markers").checked = false;
       setTimeout(render, 0);
     });
-    $("markers").addEventListener("change", renderMap);
+    $("markers").addEventListener("change", () => renderMap());
     $("more-counties").addEventListener("click", () => {
       countyLimit += 80;
       renderCounties();
@@ -524,10 +693,43 @@ async function init() {
       facilityLimit += 20;
       renderFacilities();
     });
+    watchSnapshots({
+      onCatalog: applyCatalog,
+      onProgress: (value) => {
+        const next = value ? parseProgress(value) : null;
+        preserveView(() => {
+          progress = next;
+          renderProgress();
+          renderMap(true);
+        });
+      },
+      onAdditions: (value) => {
+        const next = value ? parseAdditions(value) : null;
+        preserveView(() => {
+          additions = next;
+          renderAdditions();
+        });
+      },
+      onStatus: ({ state, changed }) => {
+        const time = new Date().toLocaleTimeString(undefined, {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        $("refresh-status").textContent =
+          state === "paused"
+            ? "Paused · tab hidden"
+            : state === "delayed"
+              ? "Updates delayed · retrying"
+              : `${changed ? "Updated" : "Checked"} ${time}${changed && lastAdded ? ` · ${number(lastAdded)} added` : ""}`;
+        if (!model && state === "delayed") {
+          $("error").hidden = false;
+          $("error").textContent = "Catalog unavailable · retrying.";
+        }
+      },
+    });
   } catch {
     $("error").hidden = false;
-    $("error").textContent =
-      "Catalog or map snapshot unavailable. Reload to retry. Serve this page from the repository root over HTTP.";
+    $("error").textContent = "Map snapshot unavailable. Reload to retry.";
     $("snapshot").textContent = "Snapshot unavailable";
     for (const input of $("filters").elements) input.disabled = true;
     $("markers").disabled = true;

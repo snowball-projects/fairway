@@ -32,7 +32,8 @@ jobs:
       - run: node --check src/fairway/static/leaflet.js
       - run: node --check docs/research-map/app.mjs
       - run: node --check docs/research-map/model.mjs
-      - run: node --test tests/research-map.test.mjs
+      - run: node --check docs/research-map/refresh.mjs
+      - run: node --test tests/research-map.test.mjs tests/research-refresh.test.mjs
       - run: uv run --locked python -m pytest
       - run: uv build
       - name: Smoke-test installed wheel command
@@ -48,7 +49,7 @@ jobs:
           bash scripts/build.sh
           uv sync --extra test --locked
           env -u PYTHONPATH uv run --locked python -m pytest
-          node --test tests/research-map.test.mjs
+          node --test tests/research-map.test.mjs tests/research-refresh.test.mjs
       - if: matrix.python-version == '3.13'
         run: uv run --locked python scripts/validate_snapshot.py
       - if: matrix.python-version == '3.13'

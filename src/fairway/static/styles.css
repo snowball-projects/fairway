@@ -45,6 +45,9 @@ a { color: inherit; }
 }
 
 .masthead { padding-bottom: 1.4rem; border-bottom: 1px solid var(--line); }
+.brand-row { display: flex; align-items: center; justify-content: space-between; gap: .7rem; }
+.explore-link { display: inline-flex; align-items: center; min-height: 40px; text-decoration: none; }
+.explore-link:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
 .brand {
   display: inline-flex;
   align-items: center;

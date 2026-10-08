@@ -3,6 +3,7 @@ include .env.example render.yaml uv.lock
 include data/README.md
 include data/public-courses.json
 include data/research-progress.json
+include data/catalog-additions.json
 recursive-include docs *.md
 recursive-include docs *.png
 recursive-include docs/research-map *.html *.mjs *.css *.json
