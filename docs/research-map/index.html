@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Dated US golf catalog coverage and county research snapshots for fairway."
+    />
+    <title>fairway · research coverage</title>
+    <link rel="icon" href="../../src/fairway/static/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.mjs"></script>
+  </head>
+  <body>
+    <a class="skip" href="#county-table">Skip to county list</a>
+    <header>
+      <a href="https://github.com/snowball-projects/fairway" class="brand"
+        >fairway<span> / research coverage</span></a
+      >
+      <p id="snapshot">Loading catalog snapshot…</p>
+    </header>
+    <main>
+      <div id="error" role="alert" hidden></div>
+      <section
+        class="metrics"
+        id="metrics"
+        aria-label="Filtered catalog counts"
+      ></section>
+      <form class="filters" id="filters">
+        <label
+          >Region<select id="region">
+            <option value="">United States</option>
+            <option>Northeast</option>
+            <option>Midwest</option>
+            <option>South</option>
+            <option>West</option>
+          </select></label
+        >
+        <label
+          >State<select id="state">
+            <option value="">All states + DC</option>
+          </select></label
+        >
+        <label
+          >County status<select id="status">
+            <option value="all">All counties</option>
+            <option value="represented">Represented</option>
+            <option value="searched">Searched</option>
+            <option value="unsearched">Unsearched</option>
+            <option value="confirmed">Confirmed complete</option>
+          </select></label
+        >
+        <label class="search"
+          >County search<input
+            id="query"
+            type="search"
+            placeholder="County name"
+            autocomplete="off"
+        /></label>
+        <button type="reset">Reset</button>
+      </form>
+      <div class="workspace">
+        <section class="geography" aria-labelledby="map-heading">
+          <div class="section-head">
+            <h1 id="map-heading">US coverage</h1>
+            <label class="toggle"
+              ><input type="checkbox" id="markers" /> Facility estimates</label
+            >
+          </div>
+          <div class="map-wrap">
+            <svg
+              id="map"
+              viewBox="0 0 1000 600"
+              role="img"
+              aria-label="County research map. The county list and filters provide the same information."
+            >
+              <g id="counties"></g>
+              <g id="states"></g>
+              <g id="points"></g>
+              <g class="insets">
+                <text x="50" y="570">Alaska</text>
+                <text x="260" y="570">Hawaii</text>
+              </g>
+            </svg>
+          </div>
+          <div class="legend">
+            <span><i class="represented"></i>Represented</span
+            ><span><i class="searched"></i>Searched, incomplete</span
+            ><span><i class="both"></i>Both</span
+            ><span><i class="confirmed"></i>Confirmed complete</span
+            ><span><i class="unsearched"></i>Unsearched</span>
+          </div>
+          <p class="map-note">
+            County equivalents included. Insets use different scales. Markers
+            are address estimates unless explicitly marked as verified
+            entrances.
+          </p>
+          <div class="county-head">
+            <h2>Counties <span id="county-count"></span></h2>
+            <p id="county-summary" aria-live="polite"></p>
+          </div>
+          <div class="table-wrap">
+            <table id="county-table">
+              <caption class="sr-only">
+                Filtered counties and research coverage; select a county for
+                facility details.
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">County</th>
+                  <th scope="col">Facilities</th>
+                  <th scope="col">Search</th>
+                  <th scope="col">Complete</th>
+                </tr>
+              </thead>
+              <tbody id="county-rows"></tbody>
+            </table>
+          </div>
+          <button id="more-counties" hidden>Show more counties</button>
+        </section>
+        <aside aria-label="Research details">
+          <section class="panel" id="selection">
+            <h2 id="selection-heading">United States</h2>
+            <div id="selection-detail"></div>
+            <div id="facilities" tabindex="0" aria-label="Facility list"></div>
+            <button id="more-facilities" hidden>Show more facilities</button>
+          </section>
+          <section class="panel">
+            <h2>Remaining work</h2>
+            <div id="remaining"></div>
+            <p class="muted">
+              National facility remainder unknown. Facility grouping is
+              provisional.
+            </p>
+          </section>
+          <section class="panel">
+            <h2>Research focus</h2>
+            <p id="progress-status" role="status">
+              Status snapshot unavailable.
+            </p>
+            <div id="targets"></div>
+          </section>
+          <section class="panel">
+            <h2>Recent additions</h2>
+            <p id="recent-status">
+              Addition history is not published in this catalog snapshot.
+            </p>
+            <div id="recent"></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+    <footer>
+      <span>Software by snowball · Snapshot data, no live telemetry</span
+      ><span
+        ><a
+          href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html"
+          >US Census Bureau boundaries, 2025</a
+        >
+        · <a href="../../data/public-courses.json">Catalog + sources</a></span
+      >
+    </footer>
+    <noscript
+      ><p class="panel">
+        JavaScript is required for filters and the map.
+        <a href="../../data/public-courses.json">Read the catalog JSON</a>.
+      </p></noscript
+    >
+  </body>
+</html>
