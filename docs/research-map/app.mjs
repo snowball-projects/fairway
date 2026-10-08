@@ -279,6 +279,15 @@ function renderDetail(override, heading) {
     node.append(aggregate);
   }
   renderFacilities();
+  const showFacilities = Boolean(
+    override ||
+    selectedCounty ||
+    $("state").value ||
+    $("region").value ||
+    $("query").value.trim(),
+  );
+  $("facilities").hidden = !showFacilities;
+  if (!showFacilities) $("more-facilities").hidden = true;
 }
 function render() {
   const f = filters();
