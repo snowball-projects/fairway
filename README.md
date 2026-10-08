@@ -45,6 +45,12 @@ lockfile, maintenance scripts, tests, and operating documentation. CI extracts
 it into a separate directory, installs its locked dependencies, and runs its
 tests so validation does not depend on files from the original checkout.
 
+Render and CI use `bash scripts/build.sh` from the repository root. It installs
+the project's pinned uv version, prepares the public map snapshots, installs
+locked runtime dependencies, and fetches the verified road artifact. Future
+build steps belong in this script, so the saved Render Build Command stays
+`bash scripts/build.sh`.
+
 ## App icon
 
 Keep the full-resolution artwork in `docs/icon.png` and use the same artwork

@@ -24,8 +24,7 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "24"
-      - run: python -m pip install uv==0.12.15
-      - run: python scripts/publish_research_map.py
+      - run: bash scripts/build.sh
       - run: uv sync --extra test --locked
       - run: uv run --locked ruff check .
       - run: uv run --locked ruff format --check .
@@ -46,12 +45,10 @@ jobs:
           mkdir "$RUNNER_TEMP/fairway-source"
           tar -xzf dist/fairway-*.tar.gz -C "$RUNNER_TEMP/fairway-source" --strip-components=1
           cd "$RUNNER_TEMP/fairway-source"
-          python scripts/publish_research_map.py
+          bash scripts/build.sh
           uv sync --extra test --locked
           env -u PYTHONPATH uv run --locked python -m pytest
           node --test tests/research-map.test.mjs
-      - if: matrix.python-version == '3.13'
-        run: uv run --locked python scripts/fetch_snapshot.py
       - if: matrix.python-version == '3.13'
         run: uv run --locked python scripts/validate_snapshot.py
       - if: matrix.python-version == '3.13'
