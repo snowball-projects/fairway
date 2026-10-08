@@ -135,6 +135,13 @@ fairway. No database or hosted modo service is required.
 
 ## Research
 
+The [public research coverage map](https://fairway-n29h.onrender.com/research-map/index.html)
+shows dated US facility records, county searches, completeness and research
+focus. It is separate from the bounded eight-course ranking catalog. Public
+catalog and progress snapshots refresh with deployments; searched counties are
+not necessarily complete. See [review-map documentation](docs/research-map/README.md)
+for the local preview, counts and publication method.
+
 The isolated [catalog expansion experiment](https://github.com/snowball-projects/fairway/tree/main/experiments/catalog-expansion)
 preserves earlier OSM catalog-generation and candidate-selection research.
 It is not used by the hosted app; its historical benchmark did not establish

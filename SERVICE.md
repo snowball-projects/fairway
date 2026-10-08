@@ -28,6 +28,12 @@ their own service policies.
 
 ## Browser services
 
+- The read-only research coverage page uses public catalog/status snapshots
+  served by fairway, plus locally served Census boundaries. It makes no map-tile
+  requests and collects no personal data. Region focus is dated snapshot status,
+  not live activity. This larger research catalog does not expand the ranking
+  catalog or routing coverage.
+
 - Address text goes directly from the browser to the public Photon demo
   service. Suggestion requests are restricted to the active road snapshot's
   supported core. Photon receives the query and ordinary request metadata such

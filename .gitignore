@@ -7,4 +7,6 @@ __pycache__/
 .env.*
 !.env.example
 build/
+src/fairway/static/research-map/
+src/fairway/static/data/
 data/*.npz
