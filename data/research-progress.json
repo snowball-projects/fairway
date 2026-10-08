@@ -1,22 +1,65 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-08T18:54:14Z",
-  "catalog_commit": "28353d0332088caa72c32a9356e1360a5848cad7",
+  "updated_at": "2026-10-08T19:31:36.855114+00:00",
+  "catalog_commit": "8c3754aebe464a5e5c112ce8378fb9942cc7d434",
   "active_regions": [
     {
       "state": "MN",
       "county_fips": null,
       "stage": "verification",
-      "note": "Checking the next Minnesota owner/municipal candidates after the completed first regional batch."
+      "note": "Reviewing public-play evidence and researching remaining owner sources."
     },
     {
       "state": "WI",
       "county_fips": null,
-      "stage": "review",
-      "note": "Preparing the next five Wisconsin candidates against source holds and existing entries."
+      "stage": "discovery",
+      "note": "Selecting the next public-course candidates; restricted sources remain excluded."
     }
   ],
   "recent_batches": [
+    {
+      "published_at": "2026-10-08T19:31:36.855114+00:00",
+      "commit": "8c3754aebe464a5e5c112ce8378fb9942cc7d434",
+      "facilities_added": 7,
+      "facilities_updated": 0,
+      "added_facilities": [
+        {
+          "name": "Big Lake Golf Resort",
+          "state": "MN",
+          "address": "780 Cary Road, Cloquet, MN 55720"
+        },
+        {
+          "name": "Minnesota National Golf Club & Resort",
+          "state": "MN",
+          "address": "23247 480th St., McGregor, MN 55760"
+        },
+        {
+          "name": "Moose Lake Golf Club",
+          "state": "MN",
+          "address": "35311 Parkview Drive, Sturgeon Lake 55783"
+        },
+        {
+          "name": "Amery Golf Club",
+          "state": "WI",
+          "address": "601 Deronda Street, Amery, WI 54001"
+        },
+        {
+          "name": "Apostle Highlands Golf Course",
+          "state": "WI",
+          "address": "34745 Madeline Trail, Bayfield, WI 54814"
+        },
+        {
+          "name": "Eagle Bluff Golf Course",
+          "state": "WI",
+          "address": "13509N Cty Trk D, Hurley, WI 54534"
+        },
+        {
+          "name": "Spooner Golf Club",
+          "state": "WI",
+          "address": "W6120 County Highway H, Spooner, WI 54801"
+        }
+      ]
+    },
     {
       "published_at": "2026-10-08T18:54:14Z",
       "commit": "28353d0332088caa72c32a9356e1360a5848cad7",
