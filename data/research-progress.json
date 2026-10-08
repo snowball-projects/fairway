@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-08T18:19:48Z",
+  "catalog_commit": "cd4c181a9f3a44f69d071cfd3bf7b58e689570ba",
+  "active_regions": [
+    {
+      "state": "MN",
+      "county_fips": null,
+      "stage": "verification",
+      "note": "Checking remaining municipal and owner sources in the Minnesota queue."
+    },
+    {
+      "state": "WI",
+      "county_fips": null,
+      "stage": "queued",
+      "note": "32 discovered operator candidates across 24 county search areas await source verification."
+    }
+  ],
+  "recent_batches": [
+    {
+      "published_at": "2026-10-08T18:19:48Z",
+      "commit": "cd4c181a9f3a44f69d071cfd3bf7b58e689570ba",
+      "facilities_added": 2,
+      "facilities_updated": 42,
+      "added_facilities": [
+        {
+          "name": "Rose Lake Golf Club",
+          "state": "MN",
+          "address": "2456 104th Street, Fairmont, MN"
+        },
+        {
+          "name": "St. James Golf Course",
+          "state": "MN",
+          "address": "77818 Hwy 60 East, Saint James, MN 56081"
+        }
+      ]
+    },
+    {
+      "published_at": "2026-10-08T17:36:40Z",
+      "commit": "137d71c0d06db9714cf44f3c4edfd1fafbf8f216",
+      "facilities_added": 10,
+      "facilities_updated": 5,
+      "added_facilities": [
+        {
+          "name": "Benson Golf Club",
+          "state": "MN",
+          "address": "2222 Atlantic Ave, Benson, MN 56215"
+        },
+        {
+          "name": "Oakcrest Golf Course",
+          "state": "MN",
+          "address": "310 5th St SE, Roseau, MN 56751"
+        },
+        {
+          "name": "Olivia Golf Club",
+          "state": "MN",
+          "address": "512 S 6th Street, Olivia, MN 56277-1500"
+        },
+        {
+          "name": "Ortonville Municipal Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Pipestone Country Club",
+          "state": "MN",
+          "address": "1003 8th Ave SE, Pipestone, MN 56164"
+        },
+        {
+          "name": "Redwood Falls Golf Club",
+          "state": "MN",
+          "address": "101 East Oak Street, Redwood Falls, MN 56283"
+        },
+        {
+          "name": "Slayton Country Club",
+          "state": "MN",
+          "address": "1075 US Hwy 59, Slayton, MN 56172"
+        },
+        {
+          "name": "Superior National at Lutsen",
+          "state": "MN",
+          "address": "5731 Highway 61, Lutsen, MN 55612"
+        },
+        {
+          "name": "Thief River Golf Club",
+          "state": "MN",
+          "address": "13697 188th St NE, Thief River Falls, MN 56701"
+        },
+        {
+          "name": "Warroad Estates Golf Course",
+          "state": "MN",
+          "address": "37293 Elm Drive, Warroad, MN 56763"
+        }
+      ]
+    }
+  ]
+}
