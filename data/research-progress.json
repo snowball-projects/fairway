@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-08T18:19:48Z",
+  "updated_at": "2026-10-08T18:28:13Z",
   "catalog_commit": "cd4c181a9f3a44f69d071cfd3bf7b58e689570ba",
   "active_regions": [
     {
       "state": "MN",
       "county_fips": null,
       "stage": "verification",
-      "note": "Checking remaining municipal and owner sources in the Minnesota queue."
+      "note": "Regional review of five owner/municipal candidates; missing fields remain unknown."
     },
     {
       "state": "WI",
       "county_fips": null,
-      "stage": "queued",
-      "note": "32 discovered operator candidates across 24 county search areas await source verification."
+      "stage": "verification",
+      "note": "First five candidates from the 32-course queue are being checked against operator sources."
     }
   ],
   "recent_batches": [
