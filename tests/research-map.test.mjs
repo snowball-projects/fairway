@@ -7,6 +7,8 @@ import {
   selectRecords,
   summarize,
   located,
+  parseProgress,
+  facilityIdentity,
 } from "../docs/research-map/model.mjs";
 
 const catalog = JSON.parse(
@@ -29,6 +31,83 @@ test("derived metrics agree with published catalog totals without inferring cour
     model.counties.filter((c) => c.records.length).length,
     catalog.coverage.counties_represented,
   );
+});
+test("public progress contract retains only region, stage, counts, time and exact identity", () => {
+  const now = Date.parse("2026-10-08T12:00:00Z");
+  const source = {
+    schema_version: 1,
+    updated_at: "2026-10-08T11:00:00Z",
+    catalog_commit: "a".repeat(40),
+    active_regions: [
+      {
+        state: "MN",
+        county_fips: "27053",
+        stage: "verification",
+        note: "Do not display research notes",
+        extra: "internal",
+      },
+      { state: "XX", stage: "discovery" },
+      { state: "WI", county_fips: null, stage: "queued" },
+    ],
+    recent_batches: [
+      {
+        published_at: "2026-10-08T10:00:00Z",
+        commit: "b".repeat(40),
+        facilities_added: 1,
+        facilities_updated: 0,
+        added_facilities: [{ name: "Example", state: "MN", address: null }],
+      },
+    ],
+  };
+  const parsed = parseProgress(source, now);
+  assert.equal(parsed.stale, false);
+  assert.deepEqual(parsed.activeRegions, [
+    { state: "MN", countyFips: "27053", stage: "verification" },
+    { state: "WI", countyFips: null, stage: "queued" },
+  ]);
+  assert.equal(parsed.recentBatches[0].updated, 0);
+  assert.ok(!JSON.stringify(parsed).includes("research notes"));
+  assert.notEqual(
+    facilityIdentity({ name: "Example", state: "MN", address: "1 Main St" }),
+    facilityIdentity({ name: "Example", state: "MN", address: null }),
+  );
+});
+test("missing, stale, future and malformed progress is conservative", () => {
+  assert.throws(() => parseProgress({ schema_version: 2 }));
+  const now = Date.parse("2026-10-08T12:00:00Z");
+  const missing = parseProgress({ schema_version: 1 }, now);
+  assert.equal(missing.stale, true);
+  assert.deepEqual(missing.activeRegions, []);
+  for (const updated_at of [
+    "2026-10-01T00:00:00Z",
+    "2026-10-09T00:00:00Z",
+    "2026-10-08T11:00:00",
+    "not a time",
+  ])
+    assert.equal(
+      parseProgress({ schema_version: 1, updated_at }, now).stale,
+      true,
+    );
+  const malformed = parseProgress(
+    {
+      schema_version: 1,
+      active_regions: [null, { state: "MN", stage: "unknown" }],
+      recent_batches: [
+        null,
+        {
+          facilities_added: -1,
+          facilities_updated: "12",
+          added_facilities: [null, { name: "Example", state: "XX" }],
+          commit: "javascript:alert(1)",
+        },
+      ],
+    },
+    now,
+  );
+  assert.equal(malformed.recentBatches[0].added, null);
+  assert.equal(malformed.recentBatches[0].updated, null);
+  assert.equal(malformed.recentBatches[0].commit, null);
+  assert.deepEqual(malformed.recentBatches[0].facilities, []);
 });
 test("geometry covers every current county equivalent with no invented joins", () => {
   assert.deepEqual(

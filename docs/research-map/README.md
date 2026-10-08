@@ -37,11 +37,30 @@ the page and its inputs are included in the source archive for reproducibility.
   Snapshots older than two UTC days are labeled stale. Missing catalog data
   fails visibly and disables filters.
 
-Research focus and recent additions currently show unavailable states. The
-catalog does not publish current tasks or facility addition timestamps. A
-separate public snapshot contract must be coordinated before enabling those
-panels. Do not infer current activity from source notes, array order, county
-search dates or compilation dates, and do not expose researcher notes/prompts.
+Research focus and recent additions independently load the public
+`data/research-progress.json` version 1 sidecar on page load. Missing or
+unsupported sidecars show unavailable without breaking the catalog view.
+`updated_at` is the UTC snapshot time; snapshots older than two days, with
+unknown times or implausibly future times are labeled stale. Stale region
+status remains labeled as a historical snapshot and loses the focus outline.
+There is no polling or claim of live researcher activity.
+
+The agreed contract is `schema_version`, `updated_at`, `catalog_commit`,
+`active_regions` (`state`, `county_fips` or null, `stage`, `note`) and
+`recent_batches` (`published_at`, `commit`, `facilities_added`,
+`facilities_updated`, `added_facilities` with `name`, `state`, `address`). The
+page only displays valid US regions, the stages discovery/verification/review/
+queued, explicit nonnegative integer counts and times. It omits `note` and
+unknown extra fields. Missing counts stay unknown. Batch totals are explicitly
+all-region totals and are not altered by geographic filters.
+
+Addition identities are exact name/state/address tuples; no invented facility
+IDs, fuzzy matches or additions inferred from array order. An addition absent
+from the loaded catalog remains labeled absent. Catalog and status snapshots
+can refer to different revisions; the status catalog commit is linked
+separately without claiming that it matches the loaded catalog. Only valid
+40-character commit hashes receive change links. The page does not write,
+package a substitute sidecar or publish status data.
 
 ## Geography
 

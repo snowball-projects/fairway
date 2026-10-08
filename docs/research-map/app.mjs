@@ -6,6 +6,8 @@ import {
   located,
   project,
   regions,
+  parseProgress,
+  facilityIdentity,
 } from "./model.mjs";
 
 const $ = (id) => document.getElementById(id);
@@ -14,6 +16,7 @@ const ns = "http://www.w3.org/2000/svg";
 let model,
   catalog,
   boundaries,
+  progress = null,
   selectedCounty = null,
   countyLimit = 80,
   facilityLimit = 20;
@@ -113,6 +116,18 @@ function renderMap() {
       `${x1 - 15} ${y1 - 15} ${x2 - x1 + 30} ${y2 - y1 + 30}`,
     );
   } else $("map").setAttribute("viewBox", "0 0 1000 600");
+  $("focus-regions").replaceChildren();
+  if (progress && !progress.stale)
+    for (const target of progress.activeRegions) {
+      const county = model.byId.get(target.countyFips);
+      const shape =
+        county?.state === target.state
+          ? boundaries.counties.find((c) => c.id === county.id)
+          : target.countyFips === null
+            ? boundaries.states.find((s) => s.id === target.state)
+            : null;
+      if (shape) $("focus-regions").append(svg("path", { d: shape.d }));
+    }
   $("points").replaceChildren();
   if ($("markers").checked)
     for (const record of filteredRecords.filter(located)) {
@@ -313,6 +328,121 @@ function render() {
   renderMap();
   renderDetail();
 }
+function utcLabel(value) {
+  return value
+    ? new Date(value).toISOString().slice(0, 16).replace("T", " ") + " UTC"
+    : "Time unknown";
+}
+function renderProgress() {
+  $("targets").replaceChildren();
+  $("recent").replaceChildren();
+  $("progress-status").classList.toggle("stale", Boolean(progress?.stale));
+  if (!progress) {
+    $("progress-status").textContent = "Status snapshot unavailable.";
+    $("recent-status").textContent = "Addition snapshot unavailable.";
+    return;
+  }
+  $("progress-status").textContent =
+    `${progress.stale ? "Stale snapshot" : "Snapshot"} · ${utcLabel(progress.updatedAt)}`;
+  for (const target of progress.activeRegions) {
+    const county = model.byId.get(target.countyFips);
+    const label =
+      county?.state === target.state
+        ? `${county.name}, ${target.state}`
+        : target.countyFips === null
+          ? target.state
+          : `${target.state} · county unavailable`;
+    const button = element("button", `${label} · ${target.stage}`, "target");
+    button.type = "button";
+    button.addEventListener("click", () => {
+      $("region").value = "";
+      $("state").value = target.state;
+      $("query").value = "";
+      $("status").value = "all";
+      selectedCounty = county?.state === target.state ? county : null;
+      countyLimit = 80;
+      facilityLimit = 20;
+      render();
+    });
+    $("targets").append(button);
+  }
+  if (!progress.activeRegions.length)
+    $("targets").append(element("p", "No region status published."));
+  $("recent-status").textContent = progress.recentBatches.length
+    ? "Published batches · all regions"
+    : "No recent batches published.";
+  const byIdentity = new Map();
+  for (const record of model.records) {
+    const identity = facilityIdentity(record);
+    const records = byIdentity.get(identity) || [];
+    records.push(record);
+    byIdentity.set(identity, records);
+  }
+  for (const batch of progress.recentBatches) {
+    const item = element("article", undefined, "batch");
+    item.append(
+      element(
+        "h3",
+        `${batch.added ?? "?"} added · ${batch.updated ?? "?"} updated`,
+      ),
+      element("p", utcLabel(batch.publishedAt)),
+    );
+    const details = element("details");
+    details.append(
+      element(
+        "summary",
+        `${number(batch.facilities.length)} published addition names`,
+      ),
+    );
+    for (const addition of batch.facilities) {
+      const matches = byIdentity.get(facilityIdentity(addition)) || [];
+      const record = matches.length === 1 ? matches[0] : null;
+      if (record) {
+        const button = element(
+          "button",
+          `${addition.name}, ${addition.state}`,
+          "addition",
+        );
+        button.type = "button";
+        button.addEventListener("click", () => {
+          selectedCounty = null;
+          facilityLimit = 20;
+          renderDetail([record], record.name);
+        });
+        details.append(button);
+      } else
+        details.append(
+          element(
+            "p",
+            `${addition.name}, ${addition.state} · ${matches.length > 1 ? "identity ambiguous in loaded catalog" : "absent from loaded catalog"}`,
+          ),
+        );
+    }
+    item.append(details);
+    if (batch.commit) {
+      const link = element("a", "Published change");
+      link.href = `https://github.com/snowball-projects/fairway/commit/${batch.commit}`;
+      item.append(link);
+    }
+    $("recent").append(item);
+  }
+  if (progress.catalogCommit) {
+    const link = element("a", "Status catalog revision");
+    link.href = `https://github.com/snowball-projects/fairway/commit/${progress.catalogCommit}`;
+    $("targets").append(link);
+  }
+}
+async function loadProgress() {
+  try {
+    progress = parseProgress(
+      await loadJSON("../../data/research-progress.json"),
+    );
+  } catch {
+    progress = null;
+  }
+  renderProgress();
+  renderMap();
+}
 async function loadJSON(path) {
   const response = await fetch(path, {
     cache: "no-cache",
@@ -341,6 +471,7 @@ async function init() {
     }
     buildMap();
     render();
+    loadProgress();
     $("filters").addEventListener("submit", (event) => event.preventDefault());
     $("filters").addEventListener("input", () => {
       countyLimit = 80;

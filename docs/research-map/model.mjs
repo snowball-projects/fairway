@@ -50,6 +50,74 @@ export const regions = {
   ],
 };
 export const essentials = ["name", "address", "county", "holes"];
+const states = new Set(Object.values(regions).flat());
+const stages = new Set(["discovery", "verification", "review", "queued"]);
+export const facilityIdentity = (record) =>
+  JSON.stringify([record.name, record.state, record.address ?? null]);
+const sha = (value) =>
+  typeof value === "string" && /^[a-f0-9]{40}$/i.test(value) ? value : null;
+const count = (value) =>
+  Number.isSafeInteger(value) && value >= 0 ? value : null;
+const utc = (value) =>
+  typeof value === "string" &&
+  /(?:Z|\+00:00)$/.test(value) &&
+  Number.isFinite(Date.parse(value))
+    ? value
+    : null;
+export function parseProgress(value, now = Date.now()) {
+  if (!value || value.schema_version !== 1)
+    throw new Error("Unsupported progress snapshot");
+  const updatedAt = utc(value.updated_at);
+  return {
+    updatedAt,
+    stale:
+      !updatedAt ||
+      now - Date.parse(updatedAt) > 2 * 86400000 ||
+      Date.parse(updatedAt) - now > 600000,
+    catalogCommit: sha(value.catalog_commit),
+    activeRegions: (Array.isArray(value.active_regions)
+      ? value.active_regions
+      : []
+    )
+      .filter((r) => r && states.has(r.state) && stages.has(r.stage))
+      .map((r) => ({
+        state: r.state,
+        countyFips:
+          typeof r.county_fips === "string" && /^\d{5}$/.test(r.county_fips)
+            ? r.county_fips
+            : null,
+        stage: r.stage,
+      })),
+    recentBatches: (Array.isArray(value.recent_batches)
+      ? value.recent_batches
+      : []
+    )
+      .filter((b) => b && typeof b === "object")
+      .map((b) => ({
+        publishedAt: utc(b.published_at),
+        commit: sha(b.commit),
+        added: count(b.facilities_added),
+        updated: count(b.facilities_updated),
+        facilities: (Array.isArray(b.added_facilities)
+          ? b.added_facilities
+          : []
+        )
+          .filter(
+            (r) =>
+              r &&
+              typeof r.name === "string" &&
+              r.name.trim() &&
+              states.has(r.state) &&
+              (r.address == null || typeof r.address === "string"),
+          )
+          .map((r) => ({
+            name: r.name,
+            state: r.state,
+            address: r.address ?? null,
+          })),
+      })),
+  };
+}
 export const complete = (record, fields = essentials) =>
   fields.every((key) =>
     key === "holes"

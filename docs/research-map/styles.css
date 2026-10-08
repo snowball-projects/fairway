@@ -474,3 +474,43 @@ details dl {
 .panel > button {
   margin-top: 10px;
 }
+#focus-regions path {
+  fill: none;
+  stroke: #754599;
+  stroke-width: 2.5;
+  stroke-dasharray: 5 3;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+.legend .focus-key {
+  background: transparent;
+  border: 2px dashed #754599;
+}
+.target,
+.addition {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 5px 0;
+  font-size: 12px;
+}
+.batch {
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+.batch h3 {
+  font-size: 13px;
+}
+.batch a,
+#targets > a {
+  font-size: 11px;
+}
+#targets > a {
+  display: inline-block;
+  margin-top: 8px;
+}
+#recent {
+  max-height: 300px;
+  overflow: auto;
+}
