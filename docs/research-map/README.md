@@ -9,9 +9,19 @@ python -m http.server 8765 --bind 127.0.0.1
 
 Open `http://127.0.0.1:8765/docs/research-map/`. It reads
 `data/public-courses.json` from this checkout on each page load. It does not
-poll, publish updates, contact external map services or change Render, the
-WSGI routes, ranking inputs or catalog/checklist files. The wheel is unchanged;
-the page and its inputs are included in the source archive for reproducibility.
+poll, contact external map services or change WSGI routes, ranking inputs or
+catalog/checklist files. The page and public inputs are included in the source
+archive for reproducibility.
+
+The existing Render build runs `scripts/publish_research_map.py` before the
+locked installation. This copies the reviewed browser files and exact public
+catalog/status bytes into generated, ignored static directories, also included
+in the wheel. The existing static handler serves `/research-map/index.html`
+and `/data/` JSON, using its existing security headers; no route or CSP change
+is needed. `publication.json` binds the served inputs to their SHA-256 digests.
+The script requires the published progress sidecar and performs no network
+calls or source-data writes. No hosting migration or additional service is used.
+Data remains a deployment snapshot until the next existing Render build.
 
 ## Counts and limits
 

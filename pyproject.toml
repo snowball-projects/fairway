@@ -29,7 +29,7 @@ fairway-fetch-snapshot = "fairway.fetch:main"
 Repository = "https://github.com/snowball-projects/fairway"
 
 [tool.setuptools.package-data]
-fairway = ["data/*.json", "static/*"]
+fairway = ["data/*.json", "static/*", "static/research-map/*", "static/data/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
