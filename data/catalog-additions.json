@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4610,
+  "current_facility_count": 4620,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -4754,6 +4754,26 @@
         {"name":"Forest Ridges Golf Course","state":"WI","address":null},
         {"name":"New Richmond Golf Club","state":"WI","address":"1226 George Norman Dr, New Richmond, WI 54017"},
         {"name":"Quail Run Golf Links","state":"WI","address":"25275 County Highway Y, Richland Center, WI 53581"}
+      ]
+    },
+    {
+      "commit": "32970d9a4cab0cd7138cbc839e946e3dce1b084e",
+      "committed_at": "2026-10-08T22:42:58Z",
+      "initial_baseline": false,
+      "facilities_added": 10,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Elk River Golf Club","state":"MN","address":"20015 Elk Lake Road, Elk River, MN 55330"},
+        {"name":"Faribault Golf Club","state":"MN","address":"1700 NW 17th Street, Faribault, MN 55021"},
+        {"name":"Hastings Golf Club","state":"MN","address":"2015 Westview Drive, Hastings, MN 55033"},
+        {"name":"Island View Golf Club","state":"MN","address":"7795 Laketown Parkway, Waconia, MN 55387"},
+        {"name":"Loggers Trail Golf Course","state":"MN","address":"11950 80th St N, Stillwater, MN 55082"},
+        {"name":"Pokegama Golf Course","state":"MN","address":"3910 Golf Course Road, Grand Rapids, Minnesota 55744"},
+        {"name":"Timber Creek Golf Course","state":"MN","address":"9750 County Road 24, Watertown, MN 55388"},
+        {"name":"Big Fish Golf Club","state":"WI","address":"14122 W True North Lane, Hayward, WI 54843"},
+        {"name":"Lake Hallie Golf Club","state":"WI","address":"2196 110th Street, Chippewa Falls, WI 54729"},
+        {"name":"Whispering Pines Golf Course","state":"WI","address":"24700 County Highway X, Cadott, WI 54727"}
       ]
     }
   ]
