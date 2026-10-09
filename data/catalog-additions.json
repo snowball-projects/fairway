@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4739,
+  "current_facility_count": 4746,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -4983,6 +4983,23 @@
         {"name":"Lander Golf Course","state":"WY","address":"1 Golf Course Dr, Lander, WY 82520"},
         {"name":"Targhee Village Golf Course","state":"WY","address":"530 Perimeter Dr, Alta, WY 83414"},
         {"name":"Thermopolis Golf Course","state":"WY","address":"143 Airport Road, Thermopolis, WY 82443"}
+      ]
+    },
+    {
+      "commit": "209625873759ac32dfef402564537abfc7b5d63f",
+      "committed_at": "2026-10-09T04:39:50Z",
+      "initial_baseline": false,
+      "facilities_added": 7,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Galena Ridge Golf Course","state":"ID","address":null},
+        {"name":"The Captains Golf Course","state":"MA","address":"1000 Freemans Way, Brewster, MA 02631"},
+        {"name":"The Ranch Golf Club","state":"MA","address":"65 Sunnyside Rd, Southwick, MA 01077"},
+        {"name":"Conklin Players Club","state":"NY","address":null},
+        {"name":"Traditions at the Glen","state":"NY","address":null},
+        {"name":"Riceland Golf Course","state":"OH","address":null},
+        {"name":"The Pines Golf Club","state":"OH","address":null}
       ]
     }
   ]
