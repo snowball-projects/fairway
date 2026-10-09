@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4709,
+  "current_facility_count": 4723,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -4933,6 +4933,30 @@
         {"name":"Liberty Lake Golf Course","state":"WA","address":null},
         {"name":"MeadowWood Golf Course","state":"WA","address":null},
         {"name":"The Creek at Qualchan Golf Course","state":"WA","address":null}
+      ]
+    },
+    {
+      "commit": "f8af0d3cb8d49cba7b37b6c136c70946d8391ebb",
+      "committed_at": "2026-10-09T04:00:33Z",
+      "initial_baseline": false,
+      "facilities_added": 14,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"West Woods Golf Club","state":"CO","address":"6655 Quaker Street, Arvada, CO 80007"},
+        {"name":"Berlin Country Club","state":"MA","address":null},
+        {"name":"Gannon Municipal Golf Course","state":"MA","address":"60 Great Woods Rd, Lynn, MA"},
+        {"name":"Red Farm Golf","state":"MA","address":null},
+        {"name":"Touisset Country Club","state":"MA","address":null},
+        {"name":"Wahconah Country Club","state":"MA","address":"20 Orchard Rd, Dalton, MA"},
+        {"name":"Wayland Country Club","state":"MA","address":"121 Old Sudbury Rd, Wayland, MA"},
+        {"name":"The Ridge Country Club","state":"NH","address":null},
+        {"name":"South Shore Village Golf Club","state":"RI","address":null},
+        {"name":"West Warwick Country Club","state":"RI","address":null},
+        {"name":"Lava Links Desert Golf","state":"WA","address":"2nd and Canna SE, Soap Lake, WA 98851"},
+        {"name":"McCormick Woods Golf Club","state":"WA","address":"5155 McCormick Woods Dr SW, Port Orchard, WA 98367"},
+        {"name":"Sage Hills Golf Club RV Park","state":"WA","address":"10400 Sage Hills Road, Warden, WA 98857"},
+        {"name":"Vic Meyers Golf Course at Sun Lakes","state":"WA","address":"34228 Park Lake Road NE, Coulee City, WA 99115"}
       ]
     }
   ]
