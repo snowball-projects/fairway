@@ -1,37 +1,31 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T13:15:00Z",
-  "catalog_commit": "8bfd01e0612c89848695f79852b5bab46e4e6727",
+  "updated_at": "2026-10-09T13:34:00Z",
+  "catalog_commit": "6d5f6c0d2131301f8a9139a3afd0f057ffea6b5e",
   "active_regions": [
     {
-      "state": "MN",
+      "state": "SD",
       "county_fips": null,
       "stage": "verification",
-      "note": "Reviewing regional public-course inventory evidence."
+      "note": "Reviewing regional public-course inventory evidence and remaining candidates."
     },
     {
-      "state": "WI",
+      "state": "IA",
       "county_fips": null,
       "stage": "verification",
-      "note": "Reviewing regional public-course inventory evidence."
-    },
-    {
-      "state": "NY",
-      "county_fips": null,
-      "stage": "verification",
-      "note": "Resolving a small retained-source review."
+      "note": "Reviewing regional public-course inventory evidence and remaining candidates."
     },
     {
       "state": "FL",
       "county_fips": null,
-      "stage": "discovery",
-      "note": "Checking existing coverage and selecting additional public-course inventories."
+      "stage": "verification",
+      "note": "Reviewing regional public-course inventory evidence and remaining candidates."
     },
     {
       "state": "GA",
       "county_fips": null,
-      "stage": "discovery",
-      "note": "Checking existing coverage and selecting additional public-course inventories."
+      "stage": "verification",
+      "note": "Reviewing regional public-course inventory evidence and remaining candidates."
     }
   ],
   "recent_batches": [
