@@ -1,45 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T03:49:00Z",
-  "catalog_commit": "3622f91351c098df040312d40111bb79db1344cf",
-  "active_regions": [
-    {
-      "state": "MA",
-      "county_fips": null,
-      "stage": "verification",
-      "note": "Reviewing public-labelled association records and independent tourism golf inventories."
-    },
-    {
-      "state": "WA",
-      "county_fips": null,
-      "stage": "verification",
-      "note": "Checking independent regional tourism inventories and owner evidence for net-new facilities."
-    },
-    {
-      "state": "OR",
-      "county_fips": null,
-      "stage": "verification",
-      "note": "Confirming new candidates from a retained association inventory with current owner evidence."
-    },
-    {
-      "state": "OH",
-      "county_fips": null,
-      "stage": "verification",
-      "note": "Reviewing operator portfolios and independent public-play evidence."
-    },
-    {
-      "state": "NY",
-      "county_fips": null,
-      "stage": "verification",
-      "note": "Checking municipal and regional candidates for ordinary public access."
-    },
-    {
-      "state": "PA",
-      "county_fips": null,
-      "stage": "discovery",
-      "note": "Screening regional golf inventories and removing already listed facilities."
-    }
-  ],
+  "updated_at": "2026-10-09T12:50:00Z",
+  "catalog_commit": "584bd4d2a5b057f76c2b20945f6c4113187df493",
+  "active_regions": [],
   "recent_batches": [
     {
       "published_at": "2026-10-08T19:31:36.855114+00:00",
@@ -210,4 +173,3 @@
     }
   ]
 }
-
