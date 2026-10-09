@@ -1,31 +1,31 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T13:34:00Z",
-  "catalog_commit": "6d5f6c0d2131301f8a9139a3afd0f057ffea6b5e",
+  "updated_at": "2026-10-09T14:14:00Z",
+  "catalog_commit": "5c122c1ac84b2a6feb492930bb3f505b6b6e7712",
   "active_regions": [
     {
       "state": "SD",
       "county_fips": null,
       "stage": "verification",
-      "note": "Reviewing regional public-course inventory evidence and remaining candidates."
+      "note": "Reviewing retained evidence and preparing candidates. New source requests are paused by a temporary execution issue."
     },
     {
       "state": "IA",
       "county_fips": null,
       "stage": "verification",
-      "note": "Reviewing regional public-course inventory evidence and remaining candidates."
+      "note": "Reviewing retained evidence and preparing candidates. New source requests are paused by a temporary execution issue."
     },
     {
-      "state": "FL",
+      "state": "KY",
       "county_fips": null,
-      "stage": "verification",
-      "note": "Reviewing regional public-course inventory evidence and remaining candidates."
+      "stage": "discovery",
+      "note": "Reviewing retained evidence and preparing candidates. New source requests are paused by a temporary execution issue."
     },
     {
-      "state": "GA",
+      "state": "MO",
       "county_fips": null,
-      "stage": "verification",
-      "note": "Reviewing regional public-course inventory evidence and remaining candidates."
+      "stage": "discovery",
+      "note": "Reviewing retained evidence and preparing candidates. New source requests are paused by a temporary execution issue."
     }
   ],
   "recent_batches": [
