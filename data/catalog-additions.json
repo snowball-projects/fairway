@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5082,
+  "current_facility_count": 5105,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -5356,6 +5356,39 @@
         {"name":"The Cedars at Dungeness","state":"WA","address":null},
         {"name":"Wine Valley Golf Club","state":"WA","address":null},
         {"name":"Zintel Creek Golf Club","state":"WA","address":null}
+      ]
+    },
+    {
+      "commit": "8bfd01e0612c89848695f79852b5bab46e4e6727",
+      "committed_at": "2026-10-09T13:13:27Z",
+      "initial_baseline": false,
+      "facilities_added": 23,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Recreation Park 18","state":"CA","address":"5001 Deukmejian Dr., Long Beach, CA"},
+        {"name":"The Golf Club at Copper Valley","state":"CA","address":"1001 Saddle Creek Drive, Copperopolis, CA 95228"},
+        {"name":"Eastwood Golf Course","state":"MN","address":null},
+        {"name":"Hadley Creek Golf Course","state":"MN","address":null},
+        {"name":"Maple Valley Golf & Country Club","state":"MN","address":null},
+        {"name":"Oak Summit Golf Course","state":"MN","address":null},
+        {"name":"Soldiers Field Golf Course","state":"MN","address":null},
+        {"name":"Swan Lake Country Club","state":"MN","address":null},
+        {"name":"Willow Creek Golf & Events","state":"MN","address":null},
+        {"name":"Sea Trail Golf Resort","state":"NC","address":"75 Clubhouse Rd, Sunset Beach, NC"},
+        {"name":"The Links at Brick Landing","state":"NC","address":"1882 Goose Creek Rd SW, Ocean Isle Beach, NC"},
+        {"name":"Crown Park Golf Club","state":"SC","address":"2225 Hwy 9 W, Longs, SC"},
+        {"name":"Indigo Creek","state":"SC","address":"9480 Indigo Club Dr, Murrells Inlet, SC"},
+        {"name":"Man O War","state":"SC","address":"5601 Leeshire Blvd, Myrtle Beach, SC"},
+        {"name":"Shaftesbury Glen","state":"SC","address":"951 Shaftesbury Ln, Conway, SC"},
+        {"name":"The Wizard","state":"SC","address":"4601 Leeshire Blvd, Myrtle Beach, SC"},
+        {"name":"Wachesaw East","state":"SC","address":"911 Riverwood Dr, Murrells Inlet, SC"},
+        {"name":"Wedgefield Country Club","state":"SC","address":"129 Club House Ln, Georgetown, SC"},
+        {"name":"Caverns Country Club Resort - Golf","state":"VA","address":"296 TC Northcott Blvd, Luray, VA 22835"},
+        {"name":"Golden Horseshoe Golf Club","state":"VA","address":null},
+        {"name":"Mariner’s Landing Golf Course","state":"VA","address":null},
+        {"name":"Skyline Golf Course","state":"WA","address":"20 Randal Dr, Cathlamet, WA"},
+        {"name":"Bridge Haven Golf Club on the Gorge","state":"WV","address":"295 Browns Rd., Fayetteville, WV 25840"}
       ]
     }
   ]
