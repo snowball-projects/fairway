@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4690,
+  "current_facility_count": 4709,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -4904,6 +4904,35 @@
         {"name":"Legion Memorial Golf Course","state":"WA","address":"144 W Marine View Dr, Everett, WA 98201"},
         {"name":"Meadow Park Golf Course","state":"WA","address":"7108 Lakewood Dr, Tacoma, WA 98467"},
         {"name":"Walter Hall Golf Course","state":"WA","address":"1226 Casino Rd, Everett, WA 98204"}
+      ]
+    },
+    {
+      "commit": "3622f91351c098df040312d40111bb79db1344cf",
+      "committed_at": "2026-10-09T03:47:22Z",
+      "initial_baseline": false,
+      "facilities_added": 19,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Glenwood Country Club","state":"AR","address":"584 Highway 70 East, Glenwood, AR 71943"},
+        {"name":"Crumpin-Fox Club","state":"MA","address":null},
+        {"name":"Far Corner Golf Course","state":"MA","address":null},
+        {"name":"Miacomet Golf Course","state":"MA","address":null},
+        {"name":"Pinehills Golf Club","state":"MA","address":null},
+        {"name":"Red Tail Golf Club","state":"MA","address":null},
+        {"name":"Briarwood Golf Club","state":"OH","address":null},
+        {"name":"Lyons Den Golf Course","state":"OH","address":"6347 Manchester Ave. NW, Canal Fulton, OH 44614"},
+        {"name":"The Quarry Golf Club & Venue","state":"OH","address":"Sandstone Drive, 5650 Quarry Lake Dr., Canton, OH 44730"},
+        {"name":"Ashley Plantation Country Club","state":"VA","address":"919 Greenfield Street, Daleville, VA 24083"},
+        {"name":"Prince George Golf Course","state":"VA","address":"8399 Golf Course Dr, Disputanta, VA 23842"},
+        {"name":"Westfields Golf Club","state":"VA","address":"13940 Balmoral Greens Avenue, Clifton, VA 20124"},
+        {"name":"Downriver Golf Course","state":"WA","address":null},
+        {"name":"Esmeralda Golf Course","state":"WA","address":null},
+        {"name":"Indian Canyon Golf Course","state":"WA","address":null},
+        {"name":"Latah Creek Golf Course","state":"WA","address":null},
+        {"name":"Liberty Lake Golf Course","state":"WA","address":null},
+        {"name":"MeadowWood Golf Course","state":"WA","address":null},
+        {"name":"The Creek at Qualchan Golf Course","state":"WA","address":null}
       ]
     }
   ]
