@@ -1,19 +1,43 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-08T19:31:36.855114+00:00",
-  "catalog_commit": "8c3754aebe464a5e5c112ce8378fb9942cc7d434",
+  "updated_at": "2026-10-09T01:49:22Z",
+  "catalog_commit": "d1e18a9c185ec16dbd2eb8db3ca7b2ceba71b4fe",
   "active_regions": [
     {
-      "state": "MN",
+      "state": "OH",
       "county_fips": null,
       "stage": "verification",
-      "note": "Reviewing public-play evidence and researching remaining owner sources."
+      "note": "Reviewing municipal and regional public-play evidence for net-new facilities."
     },
     {
-      "state": "WI",
+      "state": "PA",
       "county_fips": null,
       "stage": "discovery",
-      "note": "Selecting the next public-course candidates; restricted sources remain excluded."
+      "note": "Checking regional public-course inventories and removing already listed identities."
+    },
+    {
+      "state": "TX",
+      "county_fips": null,
+      "stage": "verification",
+      "note": "Adding explicitly public facilities from independent operator and tourism inventories."
+    },
+    {
+      "state": "CA",
+      "county_fips": null,
+      "stage": "verification",
+      "note": "Reviewing permitted operator portfolios and independent public-play evidence."
+    },
+    {
+      "state": "VA",
+      "county_fips": null,
+      "stage": "discovery",
+      "note": "Screening broader public-course inventories."
+    },
+    {
+      "state": "HI",
+      "county_fips": null,
+      "stage": "discovery",
+      "note": "Checking identities from a dated state GIS public-course inventory against current owner evidence."
     }
   ],
   "recent_batches": [
