@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4673,
+  "current_facility_count": 4690,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -4877,6 +4877,33 @@
         {"name":"Lake Monticello Golf Course","state":"VA","address":"51 Bunker Blvd., Palmyra, VA 22963"},
         {"name":"Old Trail Golf Club","state":"VA","address":"5494 Golf Drive, Crozet, VA 22932"},
         {"name":"Skyland Lakes Golf Club","state":"VA","address":"49 Skyland Lakes Drive, Fancy Gap, VA 24328"}
+      ]
+    },
+    {
+      "commit": "93b6db29f72cd290fb08e80fa7028ca8a0c231fa",
+      "committed_at": "2026-10-09T03:33:17Z",
+      "initial_baseline": false,
+      "facilities_added": 17,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Sinaloa Golf Course","state":"CA","address":"980 Madera Road, Simi Valley, CA 93065"},
+        {"name":"Makani Golf Club","state":"HI","address":"71-1420 Mamalahoa Highway, Kailua-Kona, HI 96740"},
+        {"name":"Pukalani Country Club","state":"HI","address":"360 Pukalani Street, Pukalani, HI 96768"},
+        {"name":"The Dunes at Maui Lani","state":"HI","address":"1333 Maui Lani Parkway, Kahului, HI 96732"},
+        {"name":"Cobleskill Golf & Country Club","state":"NY","address":"2322 Rt-7, Cobleskill, NY 12043"},
+        {"name":"Leatherstocking Golf Course","state":"NY","address":"60 Lake St, Cooperstown, NY 13326"},
+        {"name":"Ontario Golf Club","state":"NY","address":"2101 Country Club Lane, Ontario, NY 14519"},
+        {"name":"The Links at Ivy Ridge","state":"NY","address":"12221 Main Road, Akron, NY 14001"},
+        {"name":"Meadowlake Golf & Swim","state":"OH","address":"1211 39th St. NE, Canton, OH 44714"},
+        {"name":"Brookwoods Golf Club","state":"VA","address":"7325 Club Drive, Quinton, VA 23141"},
+        {"name":"Colonial Heritage Golf Club","state":"VA","address":null},
+        {"name":"Lynnwood Municipal Golf Course","state":"WA","address":"20200 68th Ave W, Lynnwood, WA 98036"},
+        {"name":"Crossroads Par-3 Golf Course","state":"WA","address":"15801 NE 15th Street, Bellevue, WA"},
+        {"name":"Lake Padden Golf Course","state":"WA","address":"4882 Samish Way, Bellingham, WA 98229"},
+        {"name":"Legion Memorial Golf Course","state":"WA","address":"144 W Marine View Dr, Everett, WA 98201"},
+        {"name":"Meadow Park Golf Course","state":"WA","address":"7108 Lakewood Dr, Tacoma, WA 98467"},
+        {"name":"Walter Hall Golf Course","state":"WA","address":"1226 Casino Rd, Everett, WA 98204"}
       ]
     }
   ]
