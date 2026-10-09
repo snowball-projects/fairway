@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4723,
+  "current_facility_count": 4739,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -4957,6 +4957,32 @@
         {"name":"McCormick Woods Golf Club","state":"WA","address":"5155 McCormick Woods Dr SW, Port Orchard, WA 98367"},
         {"name":"Sage Hills Golf Club RV Park","state":"WA","address":"10400 Sage Hills Road, Warden, WA 98857"},
         {"name":"Vic Meyers Golf Course at Sun Lakes","state":"WA","address":"34228 Park Lake Road NE, Coulee City, WA 99115"}
+      ]
+    },
+    {
+      "commit": "24f85853e14b1688e8d67599cc4790e1c43d251f",
+      "committed_at": "2026-10-09T04:14:55Z",
+      "initial_baseline": false,
+      "facilities_added": 16,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Charlie Yates Golf Club","state":"GA","address":null},
+        {"name":"Murphy's Garrison Golf Center","state":"MA","address":"654 Hilldale Avenue, Haverhill, MA 01830"},
+        {"name":"Hillcrest Golf","state":"ME","address":"77 Western Avenue (Route 9), Kennebunk, ME 04043"},
+        {"name":"Sugarbush Golf Club","state":"MI","address":null},
+        {"name":"Cameron Memorial Golf Course","state":"MO","address":"1000 Park Avenue, Cameron, MO 64429"},
+        {"name":"Eagle Springs Golf Course","state":"MO","address":"2575 Redman Road, St. Louis, MO 63136"},
+        {"name":"Warrenton Golf Course","state":"MO","address":"24805 S Hwy 47, Warrenton, MO 63383"},
+        {"name":"Flatbush Golf Course","state":"PA","address":"940 Littlestown Rd, Littlestown, PA"},
+        {"name":"Omni Bedford Springs Resort & Spa","state":"PA","address":"2198 Sweet Root Rd, Bedford, PA"},
+        {"name":"Heritage Creek Golf Club","state":"PA","address":"1949 Meetinghouse Rd, Jamison, PA"},
+        {"name":"Sportsman’s Golf Course","state":"PA","address":"3800 Linglestown Rd, Harrisburg, PA"},
+        {"name":"Mound Grove Golf Course","state":"PA","address":"10760 Donation Rd, Waterford, PA"},
+        {"name":"The Shawnee Inn and Golf Resort","state":"PA","address":"100 Shawnee Inn Dr, Shawnee on Delaware, PA"},
+        {"name":"Lander Golf Course","state":"WY","address":"1 Golf Course Dr, Lander, WY 82520"},
+        {"name":"Targhee Village Golf Course","state":"WY","address":"530 Perimeter Dr, Alta, WY 83414"},
+        {"name":"Thermopolis Golf Course","state":"WY","address":"143 Airport Road, Thermopolis, WY 82443"}
       ]
     }
   ]
