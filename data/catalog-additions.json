@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5113,
+  "current_facility_count": 5123,
   "redaction_note": "Historical counts are retained. Six withdrawn entries are omitted from the initial baseline details, and two withdrawn addresses are null. Added counts include redacted entries.",
   "batches": [
     {
@@ -5407,6 +5407,26 @@
         {"name":"Irish Waters","state":"WI","address":null},
         {"name":"Reid Golf Course","state":"WI","address":null},
         {"name":"Winagamie Golf Course","state":"WI","address":null}
+      ]
+    },
+    {
+      "commit": "5c122c1ac84b2a6feb492930bb3f505b6b6e7712",
+      "committed_at": "2026-10-09T14:12:33Z",
+      "initial_baseline": false,
+      "facilities_added": 10,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Bloomfield Country Club","state":"IA","address":null},
+        {"name":"Crestmoor Golf Club","state":"IA","address":null},
+        {"name":"Fawn Creek Country Club","state":"IA","address":null},
+        {"name":"Holstein Country Club","state":"IA","address":null},
+        {"name":"Ida Grove Country Club","state":"IA","address":null},
+        {"name":"Stone Creek Golf Club","state":"IA","address":null},
+        {"name":"Sunny Brae Golf and Country Club","state":"IA","address":null},
+        {"name":"West Liberty Golf & Country Club","state":"IA","address":null},
+        {"name":"Brookings Country Club","state":"SD","address":null},
+        {"name":"Edgebrook Golf Course","state":"SD","address":null}
       ]
     }
   ]
