@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4650,
+  "current_facility_count": 4660,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -4834,6 +4834,26 @@
         {"name":"Lions Municipal Golf Course","state":"TX","address":null},
         {"name":"Morris Williams Golf Course","state":"TX","address":null},
         {"name":"Stone River Golf Club","state":"TX","address":null}
+      ]
+    },
+    {
+      "commit": "053fb81992f0cdcdca4ed6caa7afde29075626ca",
+      "committed_at": "2026-10-09T02:16:26Z",
+      "initial_baseline": false,
+      "facilities_added": 10,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Indian Wells Golf Resort","state":"CA","address":null},
+        {"name":"The Lights at Indio Golf Course","state":"CA","address":null},
+        {"name":"Brentwood Country Club","state":"NY","address":"100 Pennsylvania Avenue, Brentwood, NY 11717"},
+        {"name":"Dix Hills Park Golf Course","state":"NY","address":"575 Vanderbilt Pkwy, Dix Hills, NY 11746"},
+        {"name":"Gull Haven Golf Club","state":"NY","address":"1 Gullhaven Dr, Central Islip, NY 11722-4644"},
+        {"name":"Holbrook Country Club","state":"NY","address":"700 Patchogue-Holbrook Road, Holbrook, NY 11741"},
+        {"name":"Erie Shores Golf Course","state":"OH","address":null},
+        {"name":"Fields Ranch at Omni PGA Frisco Resort","state":"TX","address":null},
+        {"name":"The Club at Frisco Farms","state":"TX","address":"4701 Plantation Lane, Frisco, TX 75034"},
+        {"name":"The Manor Golf Club","state":"VA","address":"872 Manor House Dr, Farmville, VA 23901"}
       ]
     }
   ]
