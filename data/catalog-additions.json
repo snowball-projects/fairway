@@ -3,8 +3,8 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5105,
-  "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
+  "current_facility_count": 5113,
+  "redaction_note": "Historical counts are retained. Six withdrawn entries are omitted from the initial baseline details, and two withdrawn addresses are null. Added counts include redacted entries.",
   "batches": [
     {
       "commit": "2feede0417b9a766bc6b4f874e3f485e2ad27065",
@@ -12,7 +12,7 @@
       "initial_baseline": true,
       "facilities_added": 4326,
       "facilities_removed": 0,
-      "redacted_entries": 5,
+      "redacted_entries": 6,
       "added_facilities": [
         {"name":"Anchorage Golf Course","state":"AK","address":"3651 O'Malley Road, Anchorage, AK 99507"},
         {"name":"Fox Hollow Golf Course","state":"AK","address":"11801 Brayton Drive, Anchorage, AK 99516"},
@@ -1081,7 +1081,7 @@
         {"name":"Fairfield Plantation G & CC","state":"GA","address":"7500 Monticello Drive, Villa Rica, GA 30180"},
         {"name":"Fairways of Canton","state":"GA","address":"400 Laurel Canyon Parkway, Canton, GA 30114"},
         {"name":"Georgia Veterans Golf Course","state":"GA","address":"2315 US 280 West, Cordele, GA 31015"},
-        {"name":"International City Golf Club","state":"GA","address":"72 Play Golf Drive, Warner Robins, GA 31088"},
+        {"name":"International City Golf Club","state":"GA","address":null},
         {"name":"John A. White Golf Course","state":"GA","address":"1053 Cascade  Circle, Atlanta, GA 30311"},
         {"name":"Lafayette Golf Course","state":"GA","address":"1 Fred Henry Drive, Lafayette, GA 30728"},
         {"name":"Laurel Island Links","state":"GA","address":"233 Marsh Harbour Parkway, Kingsland, GA 31548"},
@@ -1089,7 +1089,6 @@
         {"name":"Mary Calder Golf Club","state":"GA","address":"1 Mary Calder Drive, Savannah, GA 31415"},
         {"name":"Nob North Golf Course","state":"GA","address":"298 Nob North Drive, Cohutta, GA 30710"},
         {"name":"Oxbow Creek Golf Club","state":"GA","address":"3491 Lumpkin Road, Columbus, GA 31903"},
-        {"name":"Quitman Country Club","state":"GA","address":"8305 Empress Road, Quitman, GA 31643"},
         {"name":"Rincon Golf Course","state":"GA","address":"1 Clubhouse Drive, Rincon, GA 31326"},
         {"name":"Riverview Park Golf Course","state":"GA","address":"300 Riverview Drive, Dublin, GA 31021"},
         {"name":"St. Andrews Golf Club","state":"GA","address":"8799 Edinburg Dr, Winston, GA 30187"},
@@ -5389,6 +5388,25 @@
         {"name":"Mariner’s Landing Golf Course","state":"VA","address":null},
         {"name":"Skyline Golf Course","state":"WA","address":"20 Randal Dr, Cathlamet, WA"},
         {"name":"Bridge Haven Golf Club on the Gorge","state":"WV","address":"295 Browns Rd., Fayetteville, WV 25840"}
+      ]
+    },
+    {
+      "commit": "6d5f6c0d2131301f8a9139a3afd0f057ffea6b5e",
+      "committed_at": "2026-10-09T13:32:49Z",
+      "initial_baseline": false,
+      "facilities_added": 9,
+      "facilities_removed": 1,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Barrington Hall Golf Club","state":"GA","address":"104 Stoney Creek Dr, Macon, GA 31220"},
+        {"name":"Goshen Golf Club","state":"GA","address":null},
+        {"name":"Jones Creek Golf Course","state":"GA","address":"4087 Hammonds Ferry, Evans, GA 30809"},
+        {"name":"Pointe South Golf Club","state":"GA","address":null},
+        {"name":"Southbridge Savannah Golf Club","state":"GA","address":null},
+        {"name":"Alexandria Bay Municipal Golf Course","state":"NY","address":null},
+        {"name":"Irish Waters","state":"WI","address":null},
+        {"name":"Reid Golf Course","state":"WI","address":null},
+        {"name":"Winagamie Golf Course","state":"WI","address":null}
       ]
     }
   ]
