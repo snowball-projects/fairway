@@ -1,8 +1,39 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T12:50:00Z",
-  "catalog_commit": "584bd4d2a5b057f76c2b20945f6c4113187df493",
-  "active_regions": [],
+  "updated_at": "2026-10-09T13:15:00Z",
+  "catalog_commit": "8bfd01e0612c89848695f79852b5bab46e4e6727",
+  "active_regions": [
+    {
+      "state": "MN",
+      "county_fips": null,
+      "stage": "verification",
+      "note": "Reviewing regional public-course inventory evidence."
+    },
+    {
+      "state": "WI",
+      "county_fips": null,
+      "stage": "verification",
+      "note": "Reviewing regional public-course inventory evidence."
+    },
+    {
+      "state": "NY",
+      "county_fips": null,
+      "stage": "verification",
+      "note": "Resolving a small retained-source review."
+    },
+    {
+      "state": "FL",
+      "county_fips": null,
+      "stage": "discovery",
+      "note": "Checking existing coverage and selecting additional public-course inventories."
+    },
+    {
+      "state": "GA",
+      "county_fips": null,
+      "stage": "discovery",
+      "note": "Checking existing coverage and selecting additional public-course inventories."
+    }
+  ],
   "recent_batches": [
     {
       "published_at": "2026-10-08T19:31:36.855114+00:00",
