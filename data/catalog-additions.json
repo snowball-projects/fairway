@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4623,
+  "current_facility_count": 4637,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -4787,6 +4787,30 @@
         {"name":"Cardinal Hills Golf Course","state":"NY","address":"78 Conewango Road, Randolph, NY 14772"},
         {"name":"Elkdale Country Club","state":"NY","address":"4676 Route 353, Salamanca, NY 14779"},
         {"name":"Dodge Point Country Club","state":"WI","address":"1771 County Rd YD, Mineral Point, WI 53565"}
+      ]
+    },
+    {
+      "commit": "05f3135a99bdfbdd755083c5ecc2e29f58358bfb",
+      "committed_at": "2026-10-09T01:35:01Z",
+      "initial_baseline": false,
+      "facilities_added": 14,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Cottonwood Country Club","state":"AK","address":"Kishka Road, Mile 32 Spur Highway, Nikiski, AK 99635"},
+        {"name":"Mount Fairweather Golf Course","state":"AK","address":"1 Mile Dock Road, Gustavus, AK 99826"},
+        {"name":"Muskeg Meadows Golf Course","state":"AK","address":null},
+        {"name":"Palmer Golf Course","state":"AK","address":"1000 Lepak Ave, Palmer, AK 99645"},
+        {"name":"Russian Jack Springs Golf Course","state":"AK","address":"1600 Lidia Selkregg Lane, Anchorage, AK 99508"},
+        {"name":"Valley of the Eagles Golf Links","state":"AK","address":"Mile 1.5 Haines Highway, Haines, AK 99827"},
+        {"name":"Meadow Links Golf Course at George T. Bagby","state":"GA","address":"330 Bagby Pkwy, Fort Gaines, GA 39851"},
+        {"name":"North Woodmere Park Golf Course","state":"NY","address":null},
+        {"name":"Bay Park Golf Course","state":"NY","address":null},
+        {"name":"Cantiague Park Golf Course","state":"NY","address":null},
+        {"name":"Christopher Morley Park Golf Course","state":"NY","address":null},
+        {"name":"Eisenhower Park Golf Courses","state":"NY","address":null},
+        {"name":"Mill Creek Golf Course","state":"OH","address":"1 West Golf Dr., Boardman, OH 44512"},
+        {"name":"Wick Recreation Area Par 3 Golf Course","state":"OH","address":"1861 McCollum Rd., Youngstown, OH 44509"}
       ]
     }
   ]
