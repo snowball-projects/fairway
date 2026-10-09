@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4637,
+  "current_facility_count": 4650,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -4811,6 +4811,29 @@
         {"name":"Eisenhower Park Golf Courses","state":"NY","address":null},
         {"name":"Mill Creek Golf Course","state":"OH","address":"1 West Golf Dr., Boardman, OH 44512"},
         {"name":"Wick Recreation Area Par 3 Golf Course","state":"OH","address":"1861 McCollum Rd., Youngstown, OH 44509"}
+      ]
+    },
+    {
+      "commit": "d1e18a9c185ec16dbd2eb8db3ca7b2ceba71b4fe",
+      "committed_at": "2026-10-09T01:47:27Z",
+      "initial_baseline": false,
+      "facilities_added": 13,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"River View Golf Course","state":"CA","address":null},
+        {"name":"Boone Links","state":"KY","address":"19 Clubhouse Dr., Florence, KY 41042"},
+        {"name":"Lassing Pointe Golf Course","state":"KY","address":"2266 Double Eagle Dr., Union, KY 41091"},
+        {"name":"Golf Courses at Kenton County","state":"KY","address":"3908 Richardson Road, Independence, KY 41051"},
+        {"name":"Buck Hill Golf Club","state":"PA","address":null},
+        {"name":"Hideaway Hills Golf Club","state":"PA","address":null},
+        {"name":"Terra Greens Golf Course","state":"PA","address":null},
+        {"name":"Grey Rock Golf Club","state":"TX","address":null},
+        {"name":"Harvey Penick Golf Campus","state":"TX","address":null},
+        {"name":"Jimmy Clay / Roy Kizer Golf Complex","state":"TX","address":null},
+        {"name":"Lions Municipal Golf Course","state":"TX","address":null},
+        {"name":"Morris Williams Golf Course","state":"TX","address":null},
+        {"name":"Stone River Golf Club","state":"TX","address":null}
       ]
     }
   ]
