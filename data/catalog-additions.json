@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4660,
+  "current_facility_count": 4673,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -4854,6 +4854,29 @@
         {"name":"Fields Ranch at Omni PGA Frisco Resort","state":"TX","address":null},
         {"name":"The Club at Frisco Farms","state":"TX","address":"4701 Plantation Lane, Frisco, TX 75034"},
         {"name":"The Manor Golf Club","state":"VA","address":"872 Manor House Dr, Farmville, VA 23901"}
+      ]
+    },
+    {
+      "commit": "8eae1048e69069c6272e0f930045edf0331380b4",
+      "committed_at": "2026-10-09T02:58:06Z",
+      "initial_baseline": false,
+      "facilities_added": 13,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Wallace Adams Golf Course","state":"GA","address":null},
+        {"name":"Elm Tree Golf Course","state":"NY","address":null},
+        {"name":"Maple Hill Golf Club","state":"NY","address":null},
+        {"name":"Walden Oaks Country Club","state":"NY","address":null},
+        {"name":"Willowbrook Golf Club","state":"NY","address":null},
+        {"name":"Oneonta Country Club","state":"NY","address":"9 Country Club Drive, Oneonta, NY 13820"},
+        {"name":"Peek’n Peak Upper Golf Course","state":"NY","address":null},
+        {"name":"Saratoga National Golf Club","state":"NY","address":null},
+        {"name":"Seneca Hickory Stick Golf Course","state":"NY","address":null},
+        {"name":"Front Royal Golf Club","state":"VA","address":"902 Country Club Rd, Front Royal, VA 22630"},
+        {"name":"Lake Monticello Golf Course","state":"VA","address":"51 Bunker Blvd., Palmyra, VA 22963"},
+        {"name":"Old Trail Golf Club","state":"VA","address":"5494 Golf Drive, Crozet, VA 22932"},
+        {"name":"Skyland Lakes Golf Club","state":"VA","address":"49 Skyland Lakes Drive, Fancy Gap, VA 24328"}
       ]
     }
   ]
