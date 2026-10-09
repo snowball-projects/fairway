@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4620,
+  "current_facility_count": 4623,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -4774,6 +4774,19 @@
         {"name":"Big Fish Golf Club","state":"WI","address":"14122 W True North Lane, Hayward, WI 54843"},
         {"name":"Lake Hallie Golf Club","state":"WI","address":"2196 110th Street, Chippewa Falls, WI 54729"},
         {"name":"Whispering Pines Golf Course","state":"WI","address":"24700 County Highway X, Cadott, WI 54727"}
+      ]
+    },
+    {
+      "commit": "33ed140cd3a0ccd300289c21b08fbc09c057f243",
+      "committed_at": "2026-10-09T00:50:06Z",
+      "initial_baseline": false,
+      "facilities_added": 3,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Cardinal Hills Golf Course","state":"NY","address":"78 Conewango Road, Randolph, NY 14772"},
+        {"name":"Elkdale Country Club","state":"NY","address":"4676 Route 353, Salamanca, NY 14779"},
+        {"name":"Dodge Point Country Club","state":"WI","address":"1771 County Rd YD, Mineral Point, WI 53565"}
       ]
     }
   ]
