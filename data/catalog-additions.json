@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 4746,
+  "current_facility_count": 4754,
   "redaction_note": "Historical counts are retained. Five withdrawn entries are omitted from the initial baseline details, and one withdrawn address is null. Added counts include redacted entries.",
   "batches": [
     {
@@ -5000,6 +5000,24 @@
         {"name":"Traditions at the Glen","state":"NY","address":null},
         {"name":"Riceland Golf Course","state":"OH","address":null},
         {"name":"The Pines Golf Club","state":"OH","address":null}
+      ]
+    },
+    {
+      "commit": "6b652225fe985f1dcd055808cf0fdad135b4d8a5",
+      "committed_at": "2026-10-09T12:37:39Z",
+      "initial_baseline": false,
+      "facilities_added": 8,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {"name":"Longhills Golf Club","state":"AR","address":"327 Hwy. 5 North, Benton, AR 72019-8554"},
+        {"name":"The Creeks Golf & RV Resort","state":"AR","address":null},
+        {"name":"Black Canyon Golf Course","state":"CO","address":"1350 Birch Street, Montrose, CO 81401"},
+        {"name":"Boomerang Links","state":"CO","address":"7309 W. 4th Street, Greeley, CO 80634"},
+        {"name":"Royal Hawaiian Golf Club","state":"HI","address":"770 Auloa Rd, Kailua, HI 96734"},
+        {"name":"Bristow Manor Golf Club","state":"VA","address":"11507 Valley View Drive, Bristow, VA 20136"},
+        {"name":"Apple Tree Golf Course","state":"WA","address":"8804 Occidental, Yakima, WA 98908"},
+        {"name":"Beckley’s Historic Black Knight","state":"WV","address":"2400 South Kanawha St, Beckley, WV 25801"}
       ]
     }
   ]
