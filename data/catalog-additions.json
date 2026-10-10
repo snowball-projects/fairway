@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5546,
+  "current_facility_count": 5570,
   "redaction_note": "Historical counts are retained. Six withdrawn entries are omitted from the initial baseline details, and two withdrawn addresses are null. Added counts include redacted entries.",
   "batches": [
     {
@@ -28083,6 +28083,136 @@
           "name": "Potsdam Town & Country Club",
           "state": "NY",
           "address": "6194 State Highway 56, Potsdam, NY 13676"
+        }
+      ]
+    },
+    {
+      "commit": "e4b90f85083651d840b1c4462085729174b25238",
+      "committed_at": "2026-10-10T05:26:58Z",
+      "initial_baseline": false,
+      "facilities_added": 24,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "name": "Bullseye Golf Club",
+          "state": "WI",
+          "address": "2800 Ridgewood Trail, Wisconsin Rapids, WI 54494"
+        },
+        {
+          "name": "Wisconsin River Golf Club",
+          "state": "WI",
+          "address": "705 West River Dr W, Stevens Point, WI 54481"
+        },
+        {
+          "name": "RiverEdge Golf Course",
+          "state": "WI",
+          "address": "10191 Mill Creek Drive, Marshfield, WI"
+        },
+        {
+          "name": "TriCity Golf Course",
+          "state": "WI",
+          "address": "3010 Golf Course Road, Wisconsin Rapids, WI 54494"
+        },
+        {
+          "name": "Homestead Golf Course",
+          "state": "WI",
+          "address": "3372 Highway 73, Wisconsin Rapids, WI 54495"
+        },
+        {
+          "name": "Hiawatha Golf Club",
+          "state": "WI",
+          "address": "10229 Ellsworth Road, Tomah, WI 54660"
+        },
+        {
+          "name": "Hickory Hills Golf Course",
+          "state": "WI",
+          "address": "E4080 Hickory Road, Eau Claire, WI 54701"
+        },
+        {
+          "name": "Coulee Golf Bowl",
+          "state": "WI",
+          "address": "100 Green Coulee Rd, Onalaska, WI 54650"
+        },
+        {
+          "name": "Osseo Golf Club",
+          "state": "WI",
+          "address": "13600 2nd St, Osseo, WI 54758"
+        },
+        {
+          "name": "Princeton Valley Golf Course",
+          "state": "WI",
+          "address": "2300 W Princeton Ave, Eau Claire, WI 54703"
+        },
+        {
+          "name": "Ettrick Golf Club",
+          "state": "WI",
+          "address": "22952 Fairway Avenue, Ettrick, WI 54627"
+        },
+        {
+          "name": "Drugan’s Castle Mound",
+          "state": "WI",
+          "address": "W7665 Sylvester Rd, Holmen, WI 54636"
+        },
+        {
+          "name": "Mile Square Golf Course",
+          "state": "CA",
+          "address": "10401 Warner Ave, Fountain Valley, CA 92708"
+        },
+        {
+          "name": "The Ranch at Laguna Beach Golf Course",
+          "state": "CA",
+          "address": "31106 Coast Highway, Laguna Beach, CA"
+        },
+        {
+          "name": "Oso Creek Golf Course",
+          "state": "CA",
+          "address": "27601 Casta Del Sol, Mission Viejo, CA 92692"
+        },
+        {
+          "name": "Palm Desert Country Club",
+          "state": "CA",
+          "address": "77-200 California Drive, Palm Desert, CA 92211"
+        },
+        {
+          "name": "Indian Canyons Golf Resort",
+          "state": "CA",
+          "address": "1097 E Murray Canyon Dr, Palm Springs, CA 92264"
+        },
+        {
+          "name": "Palm Desert Resort Country Club",
+          "state": "CA",
+          "address": "77-333 Country Club Drive, Palm Desert, CA 92211"
+        },
+        {
+          "name": "Emerald Greens Golf Course",
+          "state": "NY",
+          "address": "1485 U.S. 11, Gouverneur, NY 13642"
+        },
+        {
+          "name": "Gouverneur Country Club",
+          "state": "NY",
+          "address": "90 Country Club Road, Gouverneur, NY 13642"
+        },
+        {
+          "name": "Meadowbrook Golf Course",
+          "state": "NY",
+          "address": "9757 US-11, Winthrop, NY 13697"
+        },
+        {
+          "name": "Madrid Golf Course",
+          "state": "NY",
+          "address": "3662 County Rte 14, Madrid, NY 13660"
+        },
+        {
+          "name": "Partridge Run Golf & Country Club",
+          "state": "NY",
+          "address": "70 Sullivan Dr., Canton, NY 13617"
+        },
+        {
+          "name": "Clifton-Fine Municipal Golf Course",
+          "state": "NY",
+          "address": "4173 Main St., Star Lake, NY 13690"
         }
       ]
     }
