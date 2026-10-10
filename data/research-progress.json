@@ -1,16 +1,300 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-10T04:39:19Z",
-  "catalog_commit": "ffebb3a014cb0d18d16995cff069c1441f96d870",
+  "updated_at": "2026-10-10T04:57:51Z",
+  "catalog_commit": "9195eceebb904ab631fce79a1b4888a6bbfc4862",
   "active_regions": [
     {
-      "state": "MN",
+      "state": "WI",
       "county_fips": null,
       "stage": "verification",
-      "note": "Additional primary-source verification is continuing. Published state inventories and county searches remain incomplete nationwide."
+      "note": "New public-course owner verification is continuing. Separate national source discovery, independent review and retained-field enrichment are also underway; county coverage remains incomplete."
+    },
+    {
+      "state": "CA",
+      "county_fips": null,
+      "stage": "verification",
+      "note": "New public-course owner verification is continuing. Separate national source discovery, independent review and retained-field enrichment are also underway; county coverage remains incomplete."
     }
   ],
   "recent_batches": [
+    {
+      "published_at": "2026-10-10T04:57:51Z",
+      "commit": "9195eceebb904ab631fce79a1b4888a6bbfc4862",
+      "facilities_added": 54,
+      "facilities_updated": 0,
+      "added_facilities": [
+        {
+          "name": "Monte Vista Golf Course",
+          "state": "CO",
+          "address": "101 Country Club Drive, Monte Vista, CO 81144"
+        },
+        {
+          "name": "Mountain Vista Greens Golf Course",
+          "state": "CO",
+          "address": "2808 NE Frontage Rd., Fort Collins, CO 80524"
+        },
+        {
+          "name": "Dalton Ranch Golf Club",
+          "state": "CO",
+          "address": "589 County Rd 252, Durango, CO 81301"
+        },
+        {
+          "name": "Pagosa Springs Golf Club",
+          "state": "CO",
+          "address": "1 Pines Club Place, Pagosa Springs, CO 81147"
+        },
+        {
+          "name": "Rio Grande Club & Resort",
+          "state": "CO",
+          "address": "0285 Rio Grande Club Trail, South Fork, CO 81154"
+        },
+        {
+          "name": "Conquistador Golf Course",
+          "state": "CO",
+          "address": "2018 N. Dolores Rd., Cortez, CO"
+        },
+        {
+          "name": "Collegiate Peaks Golf Course",
+          "state": "CO",
+          "address": "28775 Fairway Drive, Buena Vista, CO 81211"
+        },
+        {
+          "name": "Walsenburg Golf Course",
+          "state": "CO",
+          "address": null
+        },
+        {
+          "name": "King's Deer Golf Club",
+          "state": "CO",
+          "address": "19255 Royal Troon Dr., Monument, CO 80132"
+        },
+        {
+          "name": "Colorado National Golf Club",
+          "state": "CO",
+          "address": "2700 Vista Parkway, Erie, CO 80516"
+        },
+        {
+          "name": "The Golf Club at Bear Dance",
+          "state": "CO",
+          "address": "6630 Bear Dance Road, Larkspur, CO 80118"
+        },
+        {
+          "name": "Sky Ranch Golf Course",
+          "state": "CO",
+          "address": "17408 CO-14, Sterling, CO 80751"
+        },
+        {
+          "name": "Simi Hills Golf Course",
+          "state": "CA",
+          "address": "5031 Alamo Street, Simi Valley, CA 93063"
+        },
+        {
+          "name": "Santa Barbara Golf Club",
+          "state": "CA",
+          "address": "3500 McCaw Ave, Santa Barbara, CA 93105"
+        },
+        {
+          "name": "Costa Mesa Country Club",
+          "state": "CA",
+          "address": "1701 Golf Course Drive, Costa Mesa, CA 92626"
+        },
+        {
+          "name": "Oak Quarry Golf Club",
+          "state": "CA",
+          "address": "7151 Sierra Ave, Jurupa Valley, CA 92509"
+        },
+        {
+          "name": "Yucaipa Valley Golf Club",
+          "state": "CA",
+          "address": "33725 Chapman Heights Road, Yucaipa, CA 92399"
+        },
+        {
+          "name": "San Clemente Golf Club",
+          "state": "CA",
+          "address": "150 E Avenida Magdalena, San Clemente, CA 92672"
+        },
+        {
+          "name": "San Juan Hills Golf Club",
+          "state": "CA",
+          "address": "32120 San Juan Creek Road, San Juan Capistrano, CA 92675"
+        },
+        {
+          "name": "Green River Golf Club",
+          "state": "CA",
+          "address": "5215 Green River Road, Corona, CA 92878"
+        },
+        {
+          "name": "Colton Golf Club",
+          "state": "CA",
+          "address": "1901 W Valley Blvd, Colton, CA 92324"
+        },
+        {
+          "name": "Coronado Golf Course",
+          "state": "CA",
+          "address": "2000 Visalia Row, Coronado, CA 92118"
+        },
+        {
+          "name": "Riverdale Country Club",
+          "state": "WI",
+          "address": "5008 South 12th St, Sheboygan, WI 53081"
+        },
+        {
+          "name": "Sunset Hills Golf Course",
+          "state": "WI",
+          "address": "W3634 Sunset Rd, Sheboygan Falls, WI 53085"
+        },
+        {
+          "name": "Evergreen Golf Course",
+          "state": "WI",
+          "address": "1776 Eastern Avenue, Plymouth, WI 53073"
+        },
+        {
+          "name": "Autumn Ridge Golf Club",
+          "state": "WI",
+          "address": "One Straight Drive, Valders, WI 54245"
+        },
+        {
+          "name": "Evergreen Golf Club",
+          "state": "WI",
+          "address": "N6246 Hwy 12/67, Elkhorn, WI 53121"
+        },
+        {
+          "name": "Delbrook Golf Club",
+          "state": "WI",
+          "address": "700 S 2nd St, Delavan, WI 53115"
+        },
+        {
+          "name": "Destination Geneva National",
+          "state": "WI",
+          "address": "1221 Geneva National Avenue South, Lake Geneva, WI 53147"
+        },
+        {
+          "name": "Alpine Valley Resort Golf Course",
+          "state": "WI",
+          "address": "W2501 County Road D, Elkhorn, WI 53121"
+        },
+        {
+          "name": "Osage City Golf Course",
+          "state": "KS",
+          "address": "1401 S. 4th St., Osage City, KS"
+        },
+        {
+          "name": "Point Rock Golf Club",
+          "state": "KS",
+          "address": "619 Airport Road, Elkhart, KS 67950"
+        },
+        {
+          "name": "Black Bear Golf Course",
+          "state": "MN",
+          "address": "1791 Highway 210, Carlton, MN 55718"
+        },
+        {
+          "name": "Boulder Ridge Golf Course",
+          "state": "MN",
+          "address": "2750 County Road 74, St. Cloud, MN 56301"
+        },
+        {
+          "name": "Gem Lake Hills Golf Course",
+          "state": "MN",
+          "address": "4039 Scheuneman Rd, White Bear Lake, MN 55110"
+        },
+        {
+          "name": "San Pedro Golf Course",
+          "state": "AZ",
+          "address": "926 North Madison Ave, Benson, AZ 85602"
+        },
+        {
+          "name": "Douglas Golf Club and RV Park",
+          "state": "AZ",
+          "address": "1372 E Fairway Dr, Douglas, AZ 85607"
+        },
+        {
+          "name": "Hidden Cove Golf Course",
+          "state": "AZ",
+          "address": "1500 Golf Course Road, Holbrook, AZ 86025"
+        },
+        {
+          "name": "Cerbat Cliffs Golf Course",
+          "state": "AZ",
+          "address": "1001 Gates Ave, Kingman, AZ 86401"
+        },
+        {
+          "name": "Valle Vista Golf Course",
+          "state": "AZ",
+          "address": "9686 Concho Drive, Kingman, AZ 86401"
+        },
+        {
+          "name": "Lake Powell National Golf Course",
+          "state": "AZ",
+          "address": "400 Clubhouse Dr., Page, AZ 86040"
+        },
+        {
+          "name": "Dave White Golf Course",
+          "state": "AZ",
+          "address": "2121 N Thornton Road, Casa Grande, AZ 85122"
+        },
+        {
+          "name": "Longleaf Golf & Family Club",
+          "state": "NC",
+          "address": "10 N. Knoll Road, Southern Pines, NC 28387"
+        },
+        {
+          "name": "Mid Pines Inn & Golf Club",
+          "state": "NC",
+          "address": "1010 Midland Road, Southern Pines, NC 28387"
+        },
+        {
+          "name": "Pine Needles Lodge & Golf Club",
+          "state": "NC",
+          "address": "1005 Midland Road, Southern Pines, NC 28387"
+        },
+        {
+          "name": "Southern Pines Golf Club",
+          "state": "NC",
+          "address": "290 Country Club Circle, Southern Pines, NC 28387"
+        },
+        {
+          "name": "Seven Lakes Golf Club",
+          "state": "NC",
+          "address": "124 East Devonshire Avenue, West End, NC 27376"
+        },
+        {
+          "name": "Pine Hollow Golf Club",
+          "state": "NC",
+          "address": "3300 Garner Road, Clayton, NC 27520"
+        },
+        {
+          "name": "Wendell Country Club",
+          "state": "NC",
+          "address": "180 Jake May Drive, Wendell, NC 27591"
+        },
+        {
+          "name": "Zebulon Country Club",
+          "state": "NC",
+          "address": "2424 Pearces Road, Zebulon, NC 27597"
+        },
+        {
+          "name": "Pinehurst Resort",
+          "state": "NC",
+          "address": null
+        },
+        {
+          "name": "Oak Island Golf Club",
+          "state": "NC",
+          "address": "928 Caswell Beach Road, Caswell Beach, NC 28465"
+        },
+        {
+          "name": "Oak Island Par 3 Golf Course",
+          "state": "NC",
+          "address": "4188 Vanessa Drive, Oak Island, NC 28461"
+        },
+        {
+          "name": "North Shore Country Club",
+          "state": "NC",
+          "address": "101 North Shore Drive, Sneads Ferry, NC 28460"
+        }
+      ]
+    },
     {
       "published_at": "2026-10-10T04:39:19Z",
       "commit": "ffebb3a014cb0d18d16995cff069c1441f96d870",
