@@ -1,22 +1,130 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-10T05:49:44Z",
-  "catalog_commit": "8539aeb61d66115188801dc9c25e7a3886e1b5c9",
+  "updated_at": "2026-10-10T05:58:03Z",
+  "catalog_commit": "7063d5d8157e74e2dbfcedea439e41cc69d1a363",
   "active_regions": [
     {
-      "state": "WI",
+      "state": "IA",
       "county_fips": null,
       "stage": "verification",
-      "note": "New public-course owner verification is continuing. Separate national source discovery, independent review and retained-field enrichment are also underway; county coverage remains incomplete."
+      "note": "Reviewing a statewide public-golf directory against existing facilities, source holds and known conflicts; older profiles retain freshness warnings. County completeness is not established."
     },
     {
-      "state": "MA",
+      "state": "MS",
       "county_fips": null,
       "stage": "verification",
-      "note": "Owner verification of a screened independent discovery roster is underway. Public eligibility is checked per facility; county coverage remains incomplete."
+      "note": "Checking current owner evidence for ordinary public play among missing discovery candidates. Separate inventory discovery, independent review and retained-field enrichment continue."
     }
   ],
   "recent_batches": [
+    {
+      "published_at": "2026-10-10T05:58:03Z",
+      "commit": "7063d5d8157e74e2dbfcedea439e41cc69d1a363",
+      "facilities_added": 20,
+      "facilities_updated": 16,
+      "added_facilities": [
+        {
+          "name": "Settlers Crossing Golf Course",
+          "state": "MA",
+          "address": "994 Northfield Road, Lunenburg, MA 01462"
+        },
+        {
+          "name": "Stow Acres Country Club",
+          "state": "MA",
+          "address": "58 Randall Road, Stow, MA 01775"
+        },
+        {
+          "name": "The Links at Worthington",
+          "state": "MA",
+          "address": null
+        },
+        {
+          "name": "Wachusett Country Club",
+          "state": "MA",
+          "address": "187 Prospect St, West Boylston, MA 01583"
+        },
+        {
+          "name": "Waubeeka Golf Links",
+          "state": "MA",
+          "address": "137 New Ashford Road, Williamstown, MA 01267"
+        },
+        {
+          "name": "The Course at Tree House",
+          "state": "MA",
+          "address": "1880 Main St, Tewksbury, MA 01876"
+        },
+        {
+          "name": "Wentworth Hills Country Club",
+          "state": "MA",
+          "address": "27 Bow Street, Plainville, MA 02762"
+        },
+        {
+          "name": "Evansville Golf Club",
+          "state": "WI",
+          "address": "8501 Cemetery Road, Evansville, WI 53536"
+        },
+        {
+          "name": "Glen Erin Golf Club",
+          "state": "WI",
+          "address": "1417 W Airport Road, Janesville, WI 53546"
+        },
+        {
+          "name": "Coachman’s Golf Resort",
+          "state": "WI",
+          "address": "984 County Road A, Edgerton, WI 53534"
+        },
+        {
+          "name": "Edelweiss Chalet Country Club",
+          "state": "WI",
+          "address": "W4764 Edelweiss Road, New Glarus, WI"
+        },
+        {
+          "name": "Towne Country Club",
+          "state": "WI",
+          "address": "115 Jenson Street, Edgerton, WI 53534"
+        },
+        {
+          "name": "Prairie Woods Golf Course",
+          "state": "WI",
+          "address": "12601 E County Road A, Avalon, WI 53505"
+        },
+        {
+          "name": "Breda Golf Club",
+          "state": "IA",
+          "address": "16323 120th St., Breda, IA"
+        },
+        {
+          "name": "Britt Country Club",
+          "state": "IA",
+          "address": "2360 James Ave., Britt, IA"
+        },
+        {
+          "name": "Brooklyn-Victor Country Club",
+          "state": "IA",
+          "address": null
+        },
+        {
+          "name": "Buffalo Run Golf Club",
+          "state": "IA",
+          "address": "23342 265th St., Nora Springs, IA"
+        },
+        {
+          "name": "CARD, Inc. Golf Course",
+          "state": "IA",
+          "address": "20303 Hwy. 188, Clarksville, IA"
+        },
+        {
+          "name": "Cedarcrest Golf & Country Club",
+          "state": "IA",
+          "address": "14547 County Road X17, Columbus Junction, IA 52738"
+        },
+        {
+          "name": "Cherokee Golf and Country Club",
+          "state": "IA",
+          "address": "800 N 11th St., Cherokee, IA"
+        }
+      ]
+    },
     {
       "published_at": "2026-10-10T05:49:44Z",
       "commit": "8539aeb61d66115188801dc9c25e7a3886e1b5c9",
