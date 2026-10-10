@@ -1,22 +1,100 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-10T06:53:21Z",
-  "catalog_commit": "d16bfc9e3ef15c65217b069cd0829bb0eec533ea",
+  "updated_at": "2026-10-10T07:02:29Z",
+  "catalog_commit": "172fe09514c6501fd67b96e11786e53eea71ba05",
   "active_regions": [
     {
-      "state": "AR",
+      "state": "VT",
       "county_fips": null,
       "stage": "verification",
-      "note": "Checking missing facilities through independent owner and municipal public-play evidence; county completeness remains unestablished."
+      "note": "Checking missing association-roster identities through independent owner public-play evidence; membership alone does not establish public access."
     },
     {
-      "state": "IL",
+      "state": "SC",
       "county_fips": null,
       "stage": "verification",
-      "note": "Researching missing public municipal and operator facilities. Separate source discovery, review and retained-field enrichment continue."
+      "note": "Verifying a bounded set of missing owner and municipal candidates. Separate source discovery, review and essential-field enrichment continue."
     }
   ],
   "recent_batches": [
+    {
+      "published_at": "2026-10-10T07:02:29Z",
+      "commit": "172fe09514c6501fd67b96e11786e53eea71ba05",
+      "facilities_added": 14,
+      "facilities_updated": 18,
+      "added_facilities": [
+        {
+          "name": "Marlboro County Golf Course",
+          "state": "SC",
+          "address": "404 Country Club Drive, Bennettsville, SC 29512"
+        },
+        {
+          "name": "Oak Terrace Golf Course",
+          "state": "IL",
+          "address": null
+        },
+        {
+          "name": "The Oaks at River's Edge",
+          "state": "IL",
+          "address": "429 Elks Club Road, Pontiac, IL 61764"
+        },
+        {
+          "name": "Willow Pond Golf Club",
+          "state": "IL",
+          "address": "808 Golf Course Road, Rantoul, IL 61866"
+        },
+        {
+          "name": "The Course at Eagle Mountain",
+          "state": "AR",
+          "address": "800 Gap Road, Batesville, AR 72501"
+        },
+        {
+          "name": "Diamondhead Golf & Country Club",
+          "state": "AR",
+          "address": "245 Independence Drive, Hot Springs, AR 71913"
+        },
+        {
+          "name": "El Paso Golf Club",
+          "state": "IL",
+          "address": "2860 County Road 600 North, El Paso, IL 61738-1743"
+        },
+        {
+          "name": "Ironhorse Golf Club",
+          "state": "IL",
+          "address": "2000 Ironhorse Drive, Tuscola, IL 61953"
+        },
+        {
+          "name": "Emerald Hill Golf Course",
+          "state": "IL",
+          "address": "16802 Prairieville Road, Sterling, IL 61081"
+        },
+        {
+          "name": "Big Sugar Golf Club",
+          "state": "AR",
+          "address": "1101 Sugar Creek Road, Pea Ridge, AR 72751"
+        },
+        {
+          "name": "Galla Creek Golf Course and Country Club",
+          "state": "AR",
+          "address": "141 Golf Club Lane, Pottsville, AR 72858"
+        },
+        {
+          "name": "Pine Hills Golf Course",
+          "state": "AR",
+          "address": "111 E Winds Lane, Mountain View, AR 72560-6197"
+        },
+        {
+          "name": "Bakersfield Country Club",
+          "state": "VT",
+          "address": "7595 Boston Post Rd, Bakersfield, VT 05441"
+        },
+        {
+          "name": "Barton Golf Club",
+          "state": "VT",
+          "address": "548 Telfer Hill Road, Barton, VT 05822"
+        }
+      ]
+    },
     {
       "published_at": "2026-10-10T06:53:21Z",
       "commit": "d16bfc9e3ef15c65217b069cd0829bb0eec533ea",
