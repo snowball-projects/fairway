@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5663,
+  "current_facility_count": 5710,
   "redaction_note": "Historical counts are retained. Six withdrawn entries are omitted from the initial baseline details, and two withdrawn addresses are null. Added counts include redacted entries.",
   "batches": [
     {
@@ -28730,6 +28730,262 @@
           "address": "5614 Hwy. V37, Dysart, IA"
         }
       ]
+    },
+    {
+      "commit": "ce8334cb5b4eab47cc84374987e2160665a8d41a",
+      "committed_at": "2026-10-10T06:33:04Z",
+      "initial_baseline": false,
+      "facilities_added": 49,
+      "facilities_removed": 2,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "name": "Pass Christian Isles Golf Club",
+          "state": "MS",
+          "address": "150 Fairway Drive, Pass Christian, MS 39571"
+        },
+        {
+          "name": "Millbrook Golf & Country Club",
+          "state": "MS",
+          "address": "600 Golf Course Dr, Picayune, MS 39466"
+        },
+        {
+          "name": "Elkader Golf and Country Club",
+          "state": "IA",
+          "address": "24361 Gunder Rd., Elkader, IA"
+        },
+        {
+          "name": "Emerald Hills Golf Club",
+          "state": "IA",
+          "address": "808 Hwy. 71 S, Arnolds Park, IA"
+        },
+        {
+          "name": "Essex Golf Course",
+          "state": "IA",
+          "address": "1232 140th St., Essex, IA"
+        },
+        {
+          "name": "Floyd Park Golf Course",
+          "state": "IA",
+          "address": "2810 Ordway Ave., Sioux City, IA"
+        },
+        {
+          "name": "Garner Golf and Country Club",
+          "state": "IA",
+          "address": "205 Country Club Dr., Garner, IA"
+        },
+        {
+          "name": "Gateway Recreation",
+          "state": "IA",
+          "address": "111 S Taylor St., Monroe, IA"
+        },
+        {
+          "name": "Gowrie Golf & Country Club",
+          "state": "IA",
+          "address": "601 4th St., Gowrie, IA"
+        },
+        {
+          "name": "Green Acres Country Club",
+          "state": "IA",
+          "address": "925 State St., Donnellson, IA"
+        },
+        {
+          "name": "Greenfield Golf & Country Club",
+          "state": "IA",
+          "address": "2116 State Hwy. 92, Greenfield, IA"
+        },
+        {
+          "name": "Griswold Golf Course",
+          "state": "IA",
+          "address": "67777 560th St., Griswold, IA"
+        },
+        {
+          "name": "Guthrie Center Golf Course and Club",
+          "state": "IA",
+          "address": "2604 State St., Guthrie Center, IA"
+        },
+        {
+          "name": "Guttenberg Golf Club",
+          "state": "IA",
+          "address": "28126 Hwy. 52 N, Guttenberg, IA"
+        },
+        {
+          "name": "Hampton Country Club",
+          "state": "IA",
+          "address": "1620 Country Club Ln., Hampton, IA"
+        },
+        {
+          "name": "Happy Hollow Golf Course",
+          "state": "IA",
+          "address": "2068 Valley Rd., Corning, IA"
+        },
+        {
+          "name": "Hillcrest Golf Course",
+          "state": "IA",
+          "address": "601 S Cedar Ave., Graettinger, IA"
+        },
+        {
+          "name": "Homewood Golf Course",
+          "state": "IA",
+          "address": "401 East 20th St and Duff Ave, Ames, IA"
+        },
+        {
+          "name": "Hubbard Golf and Recreation Club",
+          "state": "IA",
+          "address": "21251 County D55, Hubbard, IA"
+        },
+        {
+          "name": "Indian Creek Country Club",
+          "state": "IA",
+          "address": "2401 Indian Creek Rd., Marion, IA"
+        },
+        {
+          "name": "Poplar Grove Golf Club",
+          "state": "VA",
+          "address": "129 Tavern Lane, Amherst, VA 24521"
+        },
+        {
+          "name": "Lake Ridge Golf Course",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Indian Creek Country Club",
+          "state": "IA",
+          "address": "63012 260th St., Nevada, IA"
+        },
+        {
+          "name": "Indian Hills Golf Club",
+          "state": "IA",
+          "address": "2159 Hwy. 9, Spirit Lake, IA"
+        },
+        {
+          "name": "Jesup Golf and Country Club",
+          "state": "IA",
+          "address": "530 North St. W, Jesup, IA"
+        },
+        {
+          "name": "Jewell Golf and Country Club",
+          "state": "IA",
+          "address": "1225 Main St., Jewell, IA"
+        },
+        {
+          "name": "Kalona Golf Club",
+          "state": "IA",
+          "address": "1376 Hwy. 1, Kalona, IA"
+        },
+        {
+          "name": "Kernoustie Golf Club",
+          "state": "IA",
+          "address": "203 Country Club Drive SE, Mount Vernon, IA 52314"
+        },
+        {
+          "name": "Knoll Ridge Country Club",
+          "state": "IA",
+          "address": "746 W Washington St., North English, IA"
+        },
+        {
+          "name": "La Porte City Golf Club",
+          "state": "IA",
+          "address": "9699 Bishop Rd., La Porte City, IA"
+        },
+        {
+          "name": "Lagos Acres Golf and County Club",
+          "state": "IA",
+          "address": "2010 Keokuk Washington Rd., Keota, IA"
+        },
+        {
+          "name": "Lake City Country Club",
+          "state": "IA",
+          "address": "1300 E Main St., Lake City, IA"
+        },
+        {
+          "name": "Lake Cooper Golf Course",
+          "state": "IA",
+          "address": "3318 Middle Rd., Keokuk, IA"
+        },
+        {
+          "name": "Lake Creek Country Club",
+          "state": "IA",
+          "address": "1 Club House Dr., Storm Lake, IA"
+        },
+        {
+          "name": "Lake MacBride Golf and Country Club",
+          "state": "IA",
+          "address": "3891 Pro Rd. NE, Solon, IA"
+        },
+        {
+          "name": "Lakeshore Golf & Country Club",
+          "state": "IA",
+          "address": "1857 Golf Club Dr., Afton, IA"
+        },
+        {
+          "name": "Lakeview Country Club",
+          "state": "IA",
+          "address": "3724 Lakeview Ln., Winterset, IA"
+        },
+        {
+          "name": "Lakeview Golf & Country Club",
+          "state": "IA",
+          "address": "21897 480th St., Chariton, IA"
+        },
+        {
+          "name": "Latimer Golf Course",
+          "state": "IA",
+          "address": "125 E St., Latimer, IA"
+        },
+        {
+          "name": "Lincoln Valley Golf Course",
+          "state": "IA",
+          "address": "1538 235th St., State Center, IA"
+        },
+        {
+          "name": "Linn Grove Country Club",
+          "state": "IA",
+          "address": "216 Madison St. W, Rockwell, IA"
+        },
+        {
+          "name": "Cypress Creek Golfers' Club",
+          "state": "VA",
+          "address": "600 Cypress Creek Parkway, Smithfield, VA 23430"
+        },
+        {
+          "name": "Ford's Colony Country Club",
+          "state": "VA",
+          "address": "240 Fords Colony Drive, Williamsburg, VA 23188"
+        },
+        {
+          "name": "Pleasant Valley Golf Club",
+          "state": "VA",
+          "address": "4715 Pleasant Valley Road, Chantilly, VA 20151"
+        },
+        {
+          "name": "Quinton Oaks Golf Course",
+          "state": "VA",
+          "address": "262 Quinton Oaks Lane, Callao, VA 22435"
+        },
+        {
+          "name": "The Hamptons Golf Course",
+          "state": "VA",
+          "address": "320 Butler Farm Road, Hampton, VA 23666"
+        },
+        {
+          "name": "The Woodlands Golf Course",
+          "state": "VA",
+          "address": "9 Woodland Road, Hampton, VA 23663"
+        },
+        {
+          "name": "Augustine Golf Club",
+          "state": "VA",
+          "address": "76 Monument Drive, Stafford, VA 22554"
+        },
+        {
+          "name": "Beaver Creek Golf Course",
+          "state": "VA",
+          "address": "325 Beaver Hills Club Drive, Martinsville, VA 24112"
+        }
+      ],
+      "correction_note": "Two Iowa entries temporarily removed because conflicting public-access evidence remains unresolved. This is not a finding that they are definitively private."
     }
   ]
 }
