@@ -56,7 +56,9 @@ receive a 30-second highlight; the first snapshot is a baseline.
 History and progress derive from the same reviewed source. Batches retain original
 commit times, counts, corrections, redactions and historical identity snapshots.
 Linked historical entries carry facility IDs; unmatched historical rows explicitly
-retain null IDs and are displayed as absent, without fuzzy joins. The initial
+retain null IDs and are labeled historical identity unlinked, without fuzzy joins.
+An unlinked old address/name can belong to a corrected current facility; it is
+not an assertion that the facility is absent. The initial
 baseline is excluded from pace totals; recent batches remain independent of
 geographic filters. Historical counts exclude the eight existing bounded ranking
 facilities imported during migration, as explained in the log metadata and

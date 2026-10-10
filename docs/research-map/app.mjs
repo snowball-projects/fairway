@@ -8,6 +8,7 @@ import {
   regions,
   parseProgress,
   facilityIdentity,
+  historicalIdentityLabel,
   addedFacilities,
   parseAdditions,
 } from "./model.mjs";
@@ -502,7 +503,7 @@ function renderProgress() {
         details.append(
           element(
             "p",
-            `${addition.name}, ${addition.state} · ${matches.length > 1 ? "identity ambiguous in loaded catalog" : "absent from loaded catalog"}`,
+            `${addition.name}, ${addition.state} · ${historicalIdentityLabel(addition)}`,
           ),
         );
     }
@@ -579,7 +580,12 @@ function renderAdditions() {
         button.addEventListener("click", () => selectFacility(record));
         details.append(button);
       } else
-        details.append(element("p", `${facility.name}, ${facility.state}`));
+        details.append(
+          element(
+            "p",
+            `${facility.name}, ${facility.state} · ${historicalIdentityLabel(facility)}`,
+          ),
+        );
     }
     if (batch.facilities.length > 20)
       details.append(element("p", "More names in the full log."));

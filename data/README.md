@@ -199,3 +199,63 @@ counts and correction notes are retained. Historical totals predate the eight
 bounded imports; `pre_migration_facility_count` explains that difference.
 Withdrawn facilities remain excluded; recoverable pre-correction facts stay in
 Git at their original revisions. No private controls or raw captures are imported.
+
+### Existing ranking records preserved during migration
+
+The frozen research catalog and bounded app catalog were separate inputs. The
+following eight records occur in the frozen app catalog, with retained facts
+review dates of August 30, 2026. Comparing the frozen Illinois research records
+found no normalized name/address match or shared course-specific operator/source
+host. Name-token checks likewise found no candidate except Indian Mounds/Indian
+Oaks and Highland Springs, which have different towns, addresses and operators.
+This does not certify national deduplication; it supports preserving these eight
+existing app records in the single foundation without a guessed identity merge.
+No operator or OSM source was re-requested and expansion remains paused.
+
+| Existing record | Holes | Retained operator fact source | Retained OSM point |
+| --- | ---: | --- | --- |
+| Columbus Park | 9 | [Chicago Park District](https://columbuspark.cpdgolf.com/) | way/162517919 |
+| Sydney R. Marovitz | 9 | [Chicago Park District](https://sydneymarovitz.cpdgolf.com/) | way/53582240 |
+| Robert A. Black | 9 | [Chicago Park District](https://robertblack.cpdgolf.com/) | way/209952284 |
+| Billy Caldwell | 9 | [Forest Preserve Golf](https://billycaldwell.forestpreservegolf.com/the-course/) | way/162836507 |
+| Edgebrook | 18 | [Forest Preserve Golf](https://edgebrook.forestpreservegolf.com/the-course/) | way/677597973 |
+| Chick Evans | 18 | [Forest Preserve Golf](https://chickevans.forestpreservegolf.com/the-course/) | way/202762135 |
+| Indian Boundary | 18 | [Forest Preserve Golf](https://indianboundary.forestpreservegolf.com/) | way/163450051 |
+| Highland Woods | 18 | [Forest Preserve Golf](https://highlandwoods.forestpreservegolf.com/the-course/) | way/29116340 |
+
+Their course access is explicitly public based on the existing operator review,
+not directory membership. Their physical single-course inventories and routing
+coordinates preserve the existing app inputs exactly. They have no newly inferred
+county. Map/routing precision is `reviewed_osm_point`: the original review covered
+OSM clubhouses or published-address objects, and did not establish verified
+entrances. The app keeps using these dated reviewed endpoints with an explicit
+label; it does not guarantee a currently usable entrance or newly verified public
+operation. Census estimates, mailing/contact addresses and unknown arrivals cannot
+enter the ranking projection. The import is app-data preservation, not eight newly
+researched public facilities or eight new navigation verifications.
+
+Lake of Isles' retained owner qualification explicitly names North 18 public and
+South 18 members-only. South is a nested private physical course, never a public
+candidate; the whole-property 36 remains. Inventory completeness stays conservative.
+The access support cites the retained qualification, with null field-scoped source
+and date rather than inferring a missing per-field verification. Original owner
+links and the October 10 review wording remain available in accompanying evidence.
+
+Winagamie's owner qualification names TWIGS as an additional junior course but
+does not establish its physical hole count or inclusion in the reported main 27.
+TWIGS therefore has null holes and unknown access. Highlands, Woodlands and Pines
+also retain null component counts; no divisions of 27, playing options, or junior
+league round lengths become physical counts. Full-property holes are null and
+inventory completeness remains false; reported main holes 27 stays in research.
+
+The 45 unlinked history rows are 45 distinct retained name/state/address snapshots:
+11 in the initial baseline and 34 in later batches. They remain included in the
+original batch `facilities_added` totals and name lists, are not additional active
+facilities, and are not redactions. The complete log totals still reconcile to
+6,173 pre-migration facilities (6,185 added including baseline, less 12 removed).
+Non-baseline pace remains 1,859 added and 12 removed. UI entries without an ID are
+non-clickable and labeled **historical identity unlinked**, because an old spelling
+or address may correspond to a corrected current facility. Recent-log display
+limits remain 12 batches and 20 names per batch; the complete generated JSON
+retains every row. The separate eight existing-app imports explain why current
+catalog totals are 6,181 without changing or inventing a historical batch.

@@ -127,6 +127,36 @@ def location(value, arrival=False):
         require(text(value.get("reference")), "arrival needs a retained reference")
 
 
+def ranking_support(supports, course_id):
+    """Resolve the same evidence contract for validation and export.
+
+    The primary facts link supports public access. Its scope remains in metadata;
+    a source link does not independently certify other fields.
+    """
+    facts = next(
+        (
+            s
+            for s in supports
+            if s["source"] is not None
+            and (
+                "courses" in s["fields"] or f"courses.{course_id}.access" in s["fields"]
+            )
+        ),
+        None,
+    )
+    routing = next(
+        (
+            s
+            for s in supports
+            if s["source"] is not None and f"courses.{course_id}.arrival" in s["fields"]
+        ),
+        None,
+    )
+    require(facts is not None, "ranking access lacks a scoped source")
+    require(routing is not None, "ranking arrival lacks a scoped source")
+    return facts, routing
+
+
 def validate(value):
     """The small schema contract, including cross-record and evidence checks."""
     require(value.get("schema_version") == VERSION, "unsupported catalog schema")
@@ -343,6 +373,7 @@ def validate(value):
     for cid in ranking["course_ids"]:
         require(cid in course_records, "dangling ranking course")
         facility, course = course_records[cid]
+        ranking_support(value["research"][facility["id"]]["support"], cid)
         require(
             course["access"] == "public" and course["holes"] in {9, 18},
             "ineligible ranking course",
@@ -472,8 +503,7 @@ def exports(value):
     for cid in value["metadata"]["ranking"]["course_ids"]:
         facility, course = by_course[cid]
         supports = value["research"][facility["id"]]["support"]
-        facts = next(s for s in supports if "courses" in s["fields"])
-        routing = next(s for s in supports if f"courses.{cid}.arrival" in s["fields"])
+        facts, routing = ranking_support(supports, cid)
         used_sources.update([facts["source"], routing["source"]])
         address = course.get("address", facility["address"])
         ranking["courses"].append(

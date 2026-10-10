@@ -9,6 +9,7 @@ import {
   located,
   parseProgress,
   facilityIdentity,
+  historicalIdentityLabel,
 } from "../docs/research-map/model.mjs";
 
 const catalog = JSON.parse(
@@ -180,4 +181,21 @@ test("null counties are never assigned from coordinates or auxiliary evidence", 
   });
   assert.equal(fixture.assigned.has(record), false);
   assert.equal(fixture.counties[0].records.length, 0);
+});
+
+test("unlinked historical identities are not mistaken for absent facilities", () => {
+  const corrected = {
+    id: null,
+    name: "Farmlinks Golf Club",
+    state: "AL",
+    address: "Historical spelling",
+  };
+  assert.equal(
+    historicalIdentityLabel(corrected),
+    "historical identity unlinked",
+  );
+  assert.equal(
+    historicalIdentityLabel({ ...corrected, id: "known-id" }),
+    "absent from loaded catalog",
+  );
 });

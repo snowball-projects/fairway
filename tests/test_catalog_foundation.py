@@ -219,3 +219,33 @@ def test_import_refuses_accidental_facility_identity_replacement(tmp_path, sourc
     assert result.returncode != 0
     assert "existing IDs removed" in result.stderr
     assert current.read_bytes() == body
+
+
+def test_ranking_export_accepts_field_specific_course_support(source):
+    value = copy.deepcopy(source)
+    facility = value["facilities"][-1]
+    cid = facility["courses"][0]["id"]
+    supports = value["research"][facility["id"]]["support"]
+    original = supports.pop(0)
+    broad_fields = [field for field in original["fields"] if field != "courses"]
+    supports.extend(
+        [
+            {**original, "fields": broad_fields},
+            {**original, "fields": [f"courses.{cid}.holes", f"courses.{cid}.name"]},
+            {**original, "fields": [f"courses.{cid}.access"]},
+        ]
+    )
+    foundation.validate(value)
+    exported = foundation.exports(value)["course-catalog.json"]["courses"][-1]
+    assert exported["id"] == cid
+    assert exported["facts_source"] == original["source"]
+    assert exported["access"] == "public"
+    assert supports[-1]["observed_on"] == original["observed_on"]
+
+
+def test_ranking_validation_rejects_null_arrival_source_before_export(source):
+    value = copy.deepcopy(source)
+    facility = value["facilities"][-1]
+    value["research"][facility["id"]]["support"][1]["source"] = None
+    with pytest.raises(ValueError, match="arrival lacks a scoped source"):
+        foundation.validate(value)

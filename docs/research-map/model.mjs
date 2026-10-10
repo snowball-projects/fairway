@@ -53,6 +53,10 @@ export const essentials = ["name", "address", "county", "physical_holes"];
 const states = new Set(Object.values(regions).flat());
 const stages = new Set(["discovery", "verification", "review", "queued"]);
 export const facilityIdentity = (record) => record.id;
+export const historicalIdentityLabel = (record) =>
+  record.id == null
+    ? "historical identity unlinked"
+    : "absent from loaded catalog";
 const sha = (value) =>
   typeof value === "string" && /^[a-f0-9]{40}$/i.test(value) ? value : null;
 const count = (value) =>
