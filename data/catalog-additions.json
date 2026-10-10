@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5570,
+  "current_facility_count": 5586,
   "redaction_note": "Historical counts are retained. Six withdrawn entries are omitted from the initial baseline details, and two withdrawn addresses are null. Added counts include redacted entries.",
   "batches": [
     {
@@ -28213,6 +28213,96 @@
           "name": "Clifton-Fine Municipal Golf Course",
           "state": "NY",
           "address": "4173 Main St., Star Lake, NY 13690"
+        }
+      ]
+    },
+    {
+      "commit": "61b46e3da73dee7821c1f30575fc5249e05d63d5",
+      "committed_at": "2026-10-10T05:35:43Z",
+      "initial_baseline": false,
+      "facilities_added": 16,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "name": "River Run Golf Course",
+          "state": "WI",
+          "address": "1210 E Montgomery St, Sparta, WI 54656"
+        },
+        {
+          "name": "Rolling Greens Golf Course",
+          "state": "WI",
+          "address": "1324 3rd Avenue West, Durand, WI 54736"
+        },
+        {
+          "name": "Whitetail Golf Course",
+          "state": "WI",
+          "address": "E8414 760th Avenue, Colfax, WI 54730"
+        },
+        {
+          "name": "The Valley Golf Course",
+          "state": "WI",
+          "address": "S80 Golf Rd, Mondovi, WI 54755"
+        },
+        {
+          "name": "Pinewood Golf Course",
+          "state": "WI",
+          "address": "N4545 440th St, Menomonie, WI 54751"
+        },
+        {
+          "name": "Cottonwood Golf Club",
+          "state": "CA",
+          "address": "3121 Willow Glen Drive, El Cajon, CA 92019"
+        },
+        {
+          "name": "Carlton Oaks Golf Club",
+          "state": "CA",
+          "address": "9200 Inwood Dr, Santee, CA"
+        },
+        {
+          "name": "La Contenta Golf Club",
+          "state": "CA",
+          "address": "1653 State Rte 26, Valley Springs, CA 95252"
+        },
+        {
+          "name": "Evergreen Hills Golf Course",
+          "state": "NY",
+          "address": "285 Co Rte 20, Oswego, NY 13126"
+        },
+        {
+          "name": "Tamarack Golf Club",
+          "state": "NY",
+          "address": "2021 County Rte 1, Oswego, NY 13126"
+        },
+        {
+          "name": "The Elms Golf Club",
+          "state": "NY",
+          "address": null
+        },
+        {
+          "name": "Greenview Country Club",
+          "state": "NY",
+          "address": null
+        },
+        {
+          "name": "Apple Valley Golf Course",
+          "state": "CA",
+          "address": "15200 Rancherias Rd, Apple Valley, CA 92307"
+        },
+        {
+          "name": "Reidy Creek Golf Course",
+          "state": "CA",
+          "address": "2300 North Broadway, Escondido, CA 92026"
+        },
+        {
+          "name": "The Links at Lakehouse",
+          "state": "CA",
+          "address": "1750 San Pablo Drive, San Marcos, CA 92078"
+        },
+        {
+          "name": "The Exec at Lakehouse",
+          "state": "CA",
+          "address": "1556 Camino Del Arroyo, San Marcos, CA 92078"
         }
       ]
     }
