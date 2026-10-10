@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5840,
+  "current_facility_count": 5857,
   "redaction_note": "Historical counts are retained. Six withdrawn entries are omitted from the initial baseline details, and two withdrawn addresses are null. Added counts include redacted entries.",
   "batches": [
     {
@@ -29684,6 +29684,101 @@
           "name": "Ryder Brook Golf Club",
           "state": "VT",
           "address": "3266 Laporte Road, Morrisville, VT 05661"
+        }
+      ]
+    },
+    {
+      "commit": "cb494df31ef6359b44abe8376e9ed7d952283717",
+      "committed_at": "2026-10-10T07:23:41Z",
+      "initial_baseline": false,
+      "facilities_added": 17,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "name": "Governors Run Golf Club",
+          "state": "SC",
+          "address": null
+        },
+        {
+          "name": "National Golf Club of Louisiana",
+          "state": "LA",
+          "address": "1400 National Dr., Westlake, LA 70669"
+        },
+        {
+          "name": "Orleans Country Club",
+          "state": "VT",
+          "address": "316 Country Club Lane, Orleans, VT 05860"
+        },
+        {
+          "name": "Richford Country Club",
+          "state": "VT",
+          "address": "249 Golf Course Road, Richford, VT"
+        },
+        {
+          "name": "Rocky Ridge Golf Club",
+          "state": "VT",
+          "address": "7470 Route 116, St. George, VT 05495"
+        },
+        {
+          "name": "St. Johnsbury Country Club",
+          "state": "VT",
+          "address": "4357 Memorial Drive, St. Johnsbury, VT 05819"
+        },
+        {
+          "name": "Querbes Park Golf Course",
+          "state": "LA",
+          "address": "3500 Beverly Place, Shreveport, LA 71104"
+        },
+        {
+          "name": "The Club at Huntington Park",
+          "state": "LA",
+          "address": "8300 Pines Road, Shreveport, LA 71129"
+        },
+        {
+          "name": "Carter Plantation Golf Course",
+          "state": "LA",
+          "address": null
+        },
+        {
+          "name": "Chasing Aces",
+          "state": "LA",
+          "address": null
+        },
+        {
+          "name": "The Golf Club at Equinox",
+          "state": "VT",
+          "address": null
+        },
+        {
+          "name": "Sugarbush Resort Golf Club",
+          "state": "VT",
+          "address": "1091 Golf Course Road, Warren, VT 05674"
+        },
+        {
+          "name": "West Bolton Golf Club",
+          "state": "VT",
+          "address": null
+        },
+        {
+          "name": "Thousand Acres Golf Club",
+          "state": "MD",
+          "address": "500 Lakeside Club Dr., Swanton, MD 21561"
+        },
+        {
+          "name": "Oakland Golf Club",
+          "state": "MD",
+          "address": "433 North Bradley Lane, Oakland, MD 21550"
+        },
+        {
+          "name": "The Greens at Hamilton Run",
+          "state": "MD",
+          "address": "2 South Cleveland Avenue, Hagerstown, MD 21740"
+        },
+        {
+          "name": "Black Rock Golf Course",
+          "state": "MD",
+          "address": "20025 Mt. Aetna Road, Hagerstown, MD 21742"
         }
       ]
     }
