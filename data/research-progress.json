@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-10T07:02:29Z",
-  "catalog_commit": "172fe09514c6501fd67b96e11786e53eea71ba05",
+  "updated_at": "2026-10-10T07:08:59Z",
+  "catalog_commit": "b7352b21a0238fa6cc4682460ee3fe27ac598c4e",
   "active_regions": [
     {
       "state": "VT",
@@ -17,6 +17,89 @@
     }
   ],
   "recent_batches": [
+    {
+      "published_at": "2026-10-10T07:08:59Z",
+      "commit": "b7352b21a0238fa6cc4682460ee3fe27ac598c4e",
+      "facilities_added": 15,
+      "facilities_updated": 1,
+      "added_facilities": [
+        {
+          "name": "Indian Oaks Golf Club",
+          "state": "IL",
+          "address": "603 Preserve Road, Shabbona, IL 60550"
+        },
+        {
+          "name": "Shady Oaks Country Club",
+          "state": "IL",
+          "address": "577 U.S. Route 52, Sublette, IL 61367"
+        },
+        {
+          "name": "Carroll County Country Club",
+          "state": "AR",
+          "address": "365 Highway 62 West, Berryville, AR 72616"
+        },
+        {
+          "name": "Red Apple Inn Golf Course",
+          "state": "AR",
+          "address": null
+        },
+        {
+          "name": "The Freeport Club",
+          "state": "IL",
+          "address": "1614 South Park Boulevard, Freeport, IL 61032"
+        },
+        {
+          "name": "River Heights Golf Course",
+          "state": "IL",
+          "address": null
+        },
+        {
+          "name": "Buena Vista Golf Course",
+          "state": "IL",
+          "address": "131 Buena Vista Drive, DeKalb, IL 60115"
+        },
+        {
+          "name": "Bradford Golf Club",
+          "state": "VT",
+          "address": "150 Memorial Field, Bradford, VT 05033"
+        },
+        {
+          "name": "Copley Country Club",
+          "state": "VT",
+          "address": "441 Copley Country Club Road, Morrisville, VT 05661"
+        },
+        {
+          "name": "Enosburg Falls Country Club",
+          "state": "VT",
+          "address": "53 Elm Street, Enosburg Falls, VT 05450"
+        },
+        {
+          "name": "Timberlake Country Club",
+          "state": "SC",
+          "address": "222 Timberlake Drive, Chapin, SC 29036"
+        },
+        {
+          "name": "Essex Country Club",
+          "state": "VT",
+          "address": "332 Old Stage Road, Essex Junction, VT 05451"
+        },
+        {
+          "name": "Lake St. Catherine Country Club",
+          "state": "VT",
+          "address": null
+        },
+        {
+          "name": "Newport Country Club",
+          "state": "VT",
+          "address": "590 Mount Vernon Street, Newport, VT 05855"
+        },
+        {
+          "name": "Ryder Brook Golf Club",
+          "state": "VT",
+          "address": "3266 Laporte Road, Morrisville, VT 05661"
+        }
+      ]
+    },
     {
       "published_at": "2026-10-10T07:02:29Z",
       "commit": "172fe09514c6501fd67b96e11786e53eea71ba05",
