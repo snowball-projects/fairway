@@ -5,7 +5,7 @@ from pathlib import Path
 
 PACKAGE_DATA = Path(__file__).with_name("data")
 SNAPSHOT_CATALOG_PATH = PACKAGE_DATA / "snapshots.json"
-COURSE_CATALOG_PATH = PACKAGE_DATA / "course-catalog-v1.json"
+COURSE_CATALOG_PATH = PACKAGE_DATA / "course-catalog.json"
 REPOSITORY_DATA = Path(__file__).resolve().parents[2] / "data"
 
 

@@ -8,7 +8,7 @@ from fairway.paths import COURSE_CATALOG_PATH
 
 def test_loads_published_course_catalog():
     catalog = load_course_catalog(COURSE_CATALOG_PATH)
-    assert catalog.identifier == "chicago-public-courses-v1"
+    assert catalog.identifier == "chicago-public-courses-v2"
     assert catalog.as_of == "2026-08-30"
     assert len(catalog.sha256) == 64
     assert len(catalog.courses) == 8
@@ -17,7 +17,9 @@ def test_loads_published_course_catalog():
     assert len({course.identifier for course in catalog.courses}) == 8
     assert all(course.routing_reference for course in catalog.courses)
     indian_boundary = next(
-        course for course in catalog.courses if course.identifier == "indian-boundary"
+        course
+        for course in catalog.courses
+        if course.name == "Indian Boundary Golf Course"
     )
     assert indian_boundary.address == (
         "8600 W Forest Preserve Avenue, Chicago, IL 60634"
@@ -26,7 +28,7 @@ def test_loads_published_course_catalog():
 
 def valid_catalog():
     return {
-        "schema_version": 1,
+        "schema_version": 3,
         "id": "test-v1",
         "title": "Test courses",
         "as_of": "2026-08-30",
@@ -40,7 +42,10 @@ def valid_catalog():
         ],
         "courses": [
             {
-                "id": "one",
+                "id": "c-00000000-0000-4000-8000-000000000001",
+                "facility_id": "f-00000000-0000-4000-8000-000000000001",
+                "destination_kind": "reviewed_osm_point",
+                "address_purpose": "course",
                 "name": "Course One",
                 "address": "1 Test Way",
                 "routing_coordinate": [41.9, -87.7],
@@ -76,6 +81,10 @@ def test_rejects_invalid_catalog_roots(tmp_path, change):
 @pytest.mark.parametrize(
     ("field", "value"),
     [
+        ("destination_kind", "address_range_estimate"),
+        ("destination_kind", "unknown"),
+        ("address_purpose", "mailing"),
+        ("address_purpose", "contact"),
         ("holes", 12),
         ("access", "unknown"),
         ("routing_coordinate", [91, 0]),

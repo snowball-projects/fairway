@@ -12,7 +12,9 @@ import {
 } from "../docs/research-map/model.mjs";
 
 const catalog = JSON.parse(
-  readFileSync(new URL("../data/public-courses.json", import.meta.url)),
+  readFileSync(
+    new URL("../src/fairway/static/data/public-courses.json", import.meta.url),
+  ),
 );
 const boundaries = JSON.parse(
   readFileSync(
@@ -35,7 +37,7 @@ test("derived metrics agree with published catalog totals without inferring cour
 test("public progress contract retains only region, stage, counts, time and exact identity", () => {
   const now = Date.parse("2026-10-08T12:00:00Z");
   const source = {
-    schema_version: 1,
+    schema_version: 3,
     updated_at: "2026-10-08T11:00:00Z",
     catalog_commit: "a".repeat(40),
     active_regions: [
@@ -67,15 +69,25 @@ test("public progress contract retains only region, stage, counts, time and exac
   ]);
   assert.equal(parsed.recentBatches[0].updated, 0);
   assert.ok(!JSON.stringify(parsed).includes("research notes"));
-  assert.notEqual(
-    facilityIdentity({ name: "Example", state: "MN", address: "1 Main St" }),
-    facilityIdentity({ name: "Example", state: "MN", address: null }),
+  assert.equal(
+    facilityIdentity({
+      id: "same",
+      name: "Example",
+      state: "MN",
+      address: "1 Main St",
+    }),
+    facilityIdentity({
+      id: "same",
+      name: "Renamed",
+      state: "MN",
+      address: null,
+    }),
   );
 });
 test("missing, stale, future and malformed progress is conservative", () => {
   assert.throws(() => parseProgress({ schema_version: 2 }));
   const now = Date.parse("2026-10-08T12:00:00Z");
-  const missing = parseProgress({ schema_version: 1 }, now);
+  const missing = parseProgress({ schema_version: 3 }, now);
   assert.equal(missing.stale, true);
   assert.deepEqual(missing.activeRegions, []);
   for (const updated_at of [
@@ -85,12 +97,12 @@ test("missing, stale, future and malformed progress is conservative", () => {
     "not a time",
   ])
     assert.equal(
-      parseProgress({ schema_version: 1, updated_at }, now).stale,
+      parseProgress({ schema_version: 3, updated_at }, now).stale,
       true,
     );
   const malformed = parseProgress(
     {
-      schema_version: 1,
+      schema_version: 3,
       active_regions: [null, { state: "MN", stage: "unknown" }],
       recent_batches: [
         null,
@@ -131,12 +143,12 @@ test("missing fields and unverified totals do not imply course counts or complet
   const records = [
     {
       name: "Example",
-      address: "1 Main St",
+      address: { text: "1 Main St", purpose: "published_unspecified" },
       state: "CA",
       county: "Example County",
-      holes: 36,
+      physical_holes: 36,
       courses: [],
-      coordinates: { latitude: NaN, longitude: 1 },
+      map_location: { latitude: NaN, longitude: 1 },
     },
   ];
   const totals = summarize(records);
@@ -147,13 +159,15 @@ test("missing fields and unverified totals do not imply course counts or complet
 });
 test("null counties are never assigned from coordinates or auxiliary evidence", () => {
   const record = {
+    id: "f-00000000-0000-4000-8000-000000000001",
     name: "Unassigned",
     state: "MN",
     county: null,
     county_evidence: { county_fips: "27053" },
-    coordinates: { latitude: 44.98, longitude: -93.27 },
+    map_location: { latitude: 44.98, longitude: -93.27 },
   };
   const fixture = buildModel({
+    schema_version: 3,
     facilities: [record],
     county_checklist: [
       {

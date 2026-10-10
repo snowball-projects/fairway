@@ -61,7 +61,7 @@ def build_inputs(tmp_path):
     courses.write_text(
         json.dumps(
             {
-                "schema_version": 1,
+                "schema_version": 3,
                 "id": "test-courses-v1",
                 "title": "Test courses",
                 "as_of": "2026-08-31",
@@ -78,7 +78,10 @@ def build_inputs(tmp_path):
                 ],
                 "courses": [
                     {
-                        "id": "test-course",
+                        "id": "c-00000000-0000-4000-8000-000000000001",
+                        "facility_id": "f-00000000-0000-4000-8000-000000000001",
+                        "destination_kind": "reviewed_osm_point",
+                        "address_purpose": "course",
                         "name": "Test Course",
                         "address": "1 Test Road",
                         "routing_coordinate": [0, 1],

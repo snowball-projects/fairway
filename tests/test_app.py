@@ -93,8 +93,8 @@ def course(identifier, name, coordinate, holes):
         holes,
         "public",
         f"https://example.com/{identifier}",
-        "cpd-columbus",
-        "openstreetmap-2026-08-30",
+        app.COURSES[0].facts_source,
+        app.COURSES[0].routing_source,
         f"node/{identifier}",
     )
 
@@ -424,7 +424,7 @@ def test_ranks_by_shortest_longest_drive(ranked_courses):
     ]
     assert result["origin_snap_distances_kilometers"] == [0.0, 0.0]
     assert result["unranked_courses"] == []
-    assert result["provenance"]["course_catalog"] == "chicago-public-courses-v1"
+    assert result["provenance"]["course_catalog"] == "chicago-public-courses-v2"
     assert result["provenance"]["matrix_provider"] == "modo-static"
     assert result["provenance"]["matrix_strategy"] == "sequential-dijkstra"
     assert result["provenance"]["traffic_basis"] == "traffic-unaware"

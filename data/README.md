@@ -57,11 +57,10 @@ released pair in place.
 
 ## Course catalog
 
-`src/fairway/data/course-catalog-v1.json` contains eight public courses whose
+The generated `src/fairway/data/course-catalog.json` contains eight public courses whose
 reviewed routing points fall inside the road snapshot's supported core: three
 operated by Chicago Park District Golf and five by Forest Preserve Golf. It
-includes four 9-hole and four 18-hole courses. The JSON file is the canonical
-list of entries and sources.
+includes four 9-hole and four 18-hole courses. The reviewed foundation below generates this bounded projection.
 
 Names, public access, street addresses, hole counts, and official course links
 were checked against the operator page identified by each course's
@@ -80,7 +79,7 @@ and courses beyond the current road core. In particular, the current snapshot
 cannot honestly route to the Chicago Park District courses south of its core.
 Unknown or unverified fields are omitted instead of inferred.
 
-To update the catalog:
+To update reviewed ranking facts in the foundation:
 
 1. Verify each fact against an owner or operator page.
 2. Review a drivable clubhouse, entrance, or published-address point in
@@ -95,3 +94,108 @@ the exact local file.
 
 Copyright OpenStreetMap contributors. OpenStreetMap data is available under the
 [Open Database License](https://www.openstreetmap.org/copyright).
+
+## Reviewed facility foundation
+
+`data/catalog.json` is the single editable source of truth (schema 3). It owns
+facility facts, nested physical courses, evidence, county research, correction
+history and the bounded ranking selection. `scripts/catalog.py` is a standard
+library command; it makes no source requests. Source and note tables deduplicate
+repeated URLs and qualifications. Note references are ordered fragments whose
+concatenation retains the original text exactly. This reduces retained facility
+qualification text from 1,088,975 to 578,267 bytes without discarding conflicts.
+
+Each facility has a persisted random `f-UUID`; each physical course has a
+persisted random `c-UUID`. Mint an ID once with `mint-id` and retain it through
+renames, address corrections and reordering. IDs are never derived during export.
+Unnamed courses retain `name: null`; empty and partial inventories stay honest.
+`physical_holes` is the whole-facility total when supported, including private
+courses. `inventory_complete` does not assert access, current operation or
+national completeness. Course `access` is public/private/restricted/unknown.
+Source-list membership alone establishes neither field support nor course access.
+
+An address is null or `{text, purpose}`. Purposes are `published_unspecified`,
+`mailing`, `contact`, `course`, `clubhouse`, and `arrival`. Purpose is unknown
+unless the retained evidence distinguishes it. A map location is independent
+of arrival: all 1,931 migrated Census points remain `address_range_estimate`,
+with unchanged numeric values and retained method/date/address-match evidence.
+They are never routing destinations. A course may override a shared facility
+address and may have an explicit `arrival` with latitude, longitude, kind and
+source reference. Missing arrival stays missing; it never falls back to an
+address, map estimate or another course's clubhouse.
+
+Ranking exports require explicit public access, 9/18 holes, an applicable course,
+clubhouse or arrival address, and a supported arrival. The eight existing Chicago
+points remain `reviewed_osm_point`, identifying reviewed OSM clubhouses or
+published-address objects as of August 30, 2026. They are not newly verified
+entrances. `verified_entrance` requires actual retained verification. This change
+does not expand road/ranking coverage. Changing these IDs invalidates any old
+course index, which already checks destination IDs and the catalog digest.
+
+`research` is keyed by facility ID. `listed_sources` retain unscoped source lists;
+`support` records field paths, source IDs (or null for a retained qualification
+without a field-scoped source), observed dates or null, and optional
+shared notes. A field-specific date is retained only when originally recorded.
+`courses.<course ID>.<field>` scopes an individual course. `county_match` retains
+accepted match methods, addresses, FIPS and corroboration separately from facts.
+Grouping review, source qualifications and unresolved reported totals live here.
+Meaningful access qualifications also accompany the compact public records.
+
+The validator in `scripts/catalog.py` is the schema contract: it checks required
+facts, IDs, source/note links, field paths, coordinates, inventory sums when known,
+history counts and ranking eligibility. It accepts only schema 3. Normal use:
+
+```sh
+python scripts/catalog.py validate
+python scripts/catalog.py mint-id --kind facility
+python scripts/catalog.py mint-id --kind course
+python scripts/catalog.py export --output /tmp/fairway-catalog
+# Review a full candidate document; guard against overwriting a changed source.
+python scripts/catalog.py import --proposal /tmp/reviewed-catalog.json \
+  --expected-sha256 <sha256-of-reviewed-current-source>
+python scripts/publish_research_map.py
+```
+
+Import retains the reviewed file bytes and refuses to discard existing IDs unless
+`--allow-removals` explicitly permits the reviewed change. Keep correction history
+and qualifications when withdrawing a record.
+
+Publication validates the source and generates the lean public catalog, accessible
+`catalog-metadata.json` (sources, evidence, qualifications and reuse terms),
+research progress, history, and `src/fairway/data/course-catalog.json`. The last
+file is a committed generated ranking projection for application imports and
+source installs. Never edit a projection independently. Run publication before
+tests, packaging or deployment; `scripts/build.sh` does this before installation.
+The public manifest hashes all snapshots. License/attribution information,
+including Utah CC-BY-4.0 and OSM ODbL, remains in accompanying metadata.
+
+### One-time migration accounting
+
+The integrator confirmed checkpoint 26 frozen at
+`300660608ba3c58fc997fa25ecc50ec9b4170eea`, public-catalog SHA-256
+`8a7ac64ea4875fa60437adac63fa3063270e0851a361a4a241e4b69ee024c595`.
+`data/migration-accounting.json` persists the exact ID assignment and per-record
+original digest. `python scripts/audit_migration.py` checks this migration
+against that Git snapshot; it is a one-time audit, not an old-schema importer.
+Future facts may intentionally differ after review.
+
+All 6,173 original facilities, 656 course entries, 1,931 estimates, 103 history
+batches, 77 progress batches, county research, sources, qualifications, nulls and
+correction notes are accounted for. Eight retained reviewed OSM points from the bounded catalog are also available
+as labeled map points, giving 1,939 located facilities (1,931 estimates plus eight
+reviewed routing points). The eight existing ranking facilities were
+absent from the research catalog and are imported, giving 6,181 facilities.
+Representing Lake of Isles' private South and Winagamie's unresolved TWIGS adds
+two physical course records, giving 666. North is public, South private, and the
+other 656 research-course access values remain unknown. Winagamie's whole-property
+total becomes null; its reported 27-hole main facility remains in evidence.
+Riverwood's separate clubhouse qualification and incomplete totals remain.
+The 380 originally complete inventories and eight ranking inventories give 388.
+
+History snapshots resolve to IDs only on an exact one-time name/state/address
+match. Forty-five historical rows remain unlinked (`id: null`) rather than
+being assigned a guessed current identity. Original names, dates, redactions,
+counts and correction notes are retained. Historical totals predate the eight
+bounded imports; `pre_migration_facility_count` explains that difference.
+Withdrawn facilities remain excluded; recoverable pre-correction facts stay in
+Git at their original revisions. No private controls or raw captures are imported.

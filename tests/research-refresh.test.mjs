@@ -9,19 +9,25 @@ import {
   parseAdditions,
 } from "../docs/research-map/model.mjs";
 
+let nextId = 0;
 const record = (name, address = null) => ({
+  id: `f-00000000-0000-4000-8000-${String(++nextId).padStart(12, "0")}`,
   name,
   state: "MN",
   address,
   county: null,
   holes: 18,
 });
-const catalog = (...facilities) => ({ facilities, county_checklist: [] });
+const catalog = (...facilities) => ({
+  schema_version: 3,
+  facilities,
+  county_checklist: [],
+});
 const json = (value) => JSON.stringify(value);
 const hash = (body) => createHash("sha256").update(body).digest("hex");
 const response = (body, status = 200) => new Response(body, { status });
 const log = {
-  schema_version: 1,
+  schema_version: 3,
   time_basis: "git_commit_time",
   count_unit: "provisional_facility_entry",
   history_complete_from: null,

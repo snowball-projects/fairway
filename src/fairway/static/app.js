@@ -196,7 +196,10 @@ function popupContent(course) {
   heading.textContent = course.name;
   const details = document.createElement("p");
   details.textContent = `${course.holes} holes · ${course.access} · ${course.address}`;
-  content.append(heading, details);
+  const destination = document.createElement("p");
+  destination.textContent = course.destination_kind === "verified_entrance"
+    ? "Verified entrance" : "Reviewed OSM routing point · entrance unverified";
+  content.append(heading, details, destination);
   if (result) {
     const times = document.createElement("ul");
     times.className = "popup-times";
@@ -562,7 +565,7 @@ function courseCard(course, objective) {
   const footer = document.createElement("div");
   footer.className = "card-footer";
   const address = document.createElement("span");
-  address.textContent = course.address;
+  address.textContent = `${course.address} · ${course.destination_kind === "verified_entrance" ? "verified entrance" : "reviewed OSM routing point"}`;
   const link = document.createElement("a");
   link.href = course.website;
   link.target = "_blank";
