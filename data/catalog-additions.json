@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5495,
+  "current_facility_count": 5520,
   "redaction_note": "Historical counts are retained. Six withdrawn entries are omitted from the initial baseline details, and two withdrawn addresses are null. Added counts include redacted entries.",
   "batches": [
     {
@@ -27808,6 +27808,141 @@
           "name": "North Shore Country Club",
           "state": "NC",
           "address": "101 North Shore Drive, Sneads Ferry, NC 28460"
+        }
+      ]
+    },
+    {
+      "commit": "ab8d4d23f6e3a86c80733c7b355d20c99d63090b",
+      "committed_at": "2026-10-10T05:11:24Z",
+      "initial_baseline": false,
+      "facilities_added": 25,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "name": "Northwood Golf Club",
+          "state": "WI",
+          "address": "3131 Golf Course Rd, Rhinelander, WI 54501"
+        },
+        {
+          "name": "St. Germain Golf Club",
+          "state": "WI",
+          "address": "9041 Hwy 70 West, St Germain, WI 54558"
+        },
+        {
+          "name": "Plum Lake Golf Club",
+          "state": "WI",
+          "address": null
+        },
+        {
+          "name": "Eagle River Golf Course",
+          "state": "WI",
+          "address": "457 McKinley Boulevard, Eagle River, WI 54521"
+        },
+        {
+          "name": "Bass Lake Golf Club",
+          "state": "WI",
+          "address": "W10650 Bass Lake Rd, Deerbrook, WI 54424"
+        },
+        {
+          "name": "Club X to C Golf Course",
+          "state": "WI",
+          "address": "W890 County Rd. C, Gleason, WI 54435"
+        },
+        {
+          "name": "X to C’s Riverview Golf Course",
+          "state": "WI",
+          "address": "W11817 Highland Road, Antigo, WI"
+        },
+        {
+          "name": "Pinewood Golf Club",
+          "state": "WI",
+          "address": "9000 Pinewood Valley Road, Harshaw, WI 54529"
+        },
+        {
+          "name": "Inshalla Country Club",
+          "state": "WI",
+          "address": "N11060 Clear Lake Rd., Tomahawk, WI 54487"
+        },
+        {
+          "name": "Shandin Hills Golf Club",
+          "state": "CA",
+          "address": "3380 Little Mountain Dr, San Bernardino, CA 92405"
+        },
+        {
+          "name": "Arroyo Trabuco Golf Club",
+          "state": "CA",
+          "address": "26772 Avery Parkway, Mission Viejo, CA 92692"
+        },
+        {
+          "name": "Shorecliffs Golf Club",
+          "state": "CA",
+          "address": "501 Avenida Vaquero, San Clemente, CA 92672"
+        },
+        {
+          "name": "Talega Golf Club",
+          "state": "CA",
+          "address": "990 Avenida Talega, San Clemente, CA 92673"
+        },
+        {
+          "name": "Hawk's Landing Golf Club",
+          "state": "CA",
+          "address": "55100 Martinez Trail, Yucca Valley, CA 92284"
+        },
+        {
+          "name": "Palm Royale Country Club",
+          "state": "CA",
+          "address": "78-259 Indigo Dr., La Quinta, CA 92253"
+        },
+        {
+          "name": "Woodhaven Country Club",
+          "state": "CA",
+          "address": "41555 Woodhaven Drive East, Palm Desert, CA 92211"
+        },
+        {
+          "name": "Plumas Pines Golf Resort",
+          "state": "CA",
+          "address": "402 Poplar Valley Rd., Graeagle, CA 96103"
+        },
+        {
+          "name": "Mount Shasta Resort",
+          "state": "CA",
+          "address": "1000 Siskiyou Lake Boulevard, Mount Shasta, CA 96067"
+        },
+        {
+          "name": "Alta Sierra Country Club",
+          "state": "CA",
+          "address": "11897 Tammy Way, Grass Valley, CA 95949"
+        },
+        {
+          "name": "Mallard Pointe Golf & Villas",
+          "state": "MS",
+          "address": "3037 State Park Road, Sardis, MS 38666"
+        },
+        {
+          "name": "Pearl Municipal Golf Course",
+          "state": "MS",
+          "address": null
+        },
+        {
+          "name": "Batavia Country Club",
+          "state": "NY",
+          "address": "7909 Batavia-Byron Rd, Batavia, NY 14020"
+        },
+        {
+          "name": "Caledonia Country Club",
+          "state": "NY",
+          "address": "303 Park Place, Caledonia, NY 14423"
+        },
+        {
+          "name": "The Links at Oxford Golf & Country Club",
+          "state": "MS",
+          "address": "44 PR 3151, Oxford, MS 38655"
+        },
+        {
+          "name": "The Links of Madison County",
+          "state": "MS",
+          "address": "147 Links Dr, Bldg. 33, Canton, MS 39046"
         }
       ]
     }
