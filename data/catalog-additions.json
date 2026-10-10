@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5520,
+  "current_facility_count": 5546,
   "redaction_note": "Historical counts are retained. Six withdrawn entries are omitted from the initial baseline details, and two withdrawn addresses are null. Added counts include redacted entries.",
   "batches": [
     {
@@ -27943,6 +27943,146 @@
           "name": "The Links of Madison County",
           "state": "MS",
           "address": "147 Links Dr, Bldg. 33, Canton, MS 39046"
+        }
+      ]
+    },
+    {
+      "commit": "40a86598aa719490ad8b27bbea65da98a236e841",
+      "committed_at": "2026-10-10T05:20:55Z",
+      "initial_baseline": false,
+      "facilities_added": 26,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "name": "Mid Vallee Golf Course",
+          "state": "WI",
+          "address": "3850 Mid Valley Drive, De Pere, WI 54115"
+        },
+        {
+          "name": "High Cliff Golf Course",
+          "state": "WI",
+          "address": "N5095 Golf Course Road, Sherwood, WI 54169"
+        },
+        {
+          "name": "Crystal Springs Golf Course",
+          "state": "WI",
+          "address": "N8055 French Road, Seymour, WI 54165"
+        },
+        {
+          "name": "Hickory Hills Country Club",
+          "state": "WI",
+          "address": "W3095 Hickory Hills Rd, Chilton, WI 53014"
+        },
+        {
+          "name": "Utica Golf Course",
+          "state": "WI",
+          "address": "2330 Knott Rd, Oshkosh, WI 54904"
+        },
+        {
+          "name": "Ledgeview Golf Course",
+          "state": "WI",
+          "address": "3149 Dickinson Road, De Pere, WI 54115"
+        },
+        {
+          "name": "Twin Oaks Golf Course",
+          "state": "WI",
+          "address": "4871 County Rd R, Denmark, WI 54208"
+        },
+        {
+          "name": "Westhaven Golf Club",
+          "state": "WI",
+          "address": "1400 S Westhaven Drive, Oshkosh, WI"
+        },
+        {
+          "name": "Far Vu Golf Course",
+          "state": "WI",
+          "address": "4985 County Road R, Oshkosh, WI 54902"
+        },
+        {
+          "name": "Lake Breeze Golf Club",
+          "state": "WI",
+          "address": "6333 Ball Prairie Rd, Winneconne, WI"
+        },
+        {
+          "name": "Oshkosh Country Club",
+          "state": "WI",
+          "address": null
+        },
+        {
+          "name": "Tahoe Donner Golf Course",
+          "state": "CA",
+          "address": "12850 Northwoods Blvd., Truckee, CA 96161"
+        },
+        {
+          "name": "Dragon Golf at Nakoma Resort",
+          "state": "CA",
+          "address": null
+        },
+        {
+          "name": "Old Greenwood Golf Course",
+          "state": "CA",
+          "address": "12915 Fairway Drive, Truckee, CA"
+        },
+        {
+          "name": "Gray's Crossing Golf Course",
+          "state": "CA",
+          "address": "11406 Henness Road, Truckee, CA"
+        },
+        {
+          "name": "Valley of the Moon Club",
+          "state": "CA",
+          "address": "7025 Oakmont Drive, Santa Rosa, CA 95409"
+        },
+        {
+          "name": "Soule Park Golf Course",
+          "state": "CA",
+          "address": "1033 East Ojai Ave, Ojai, CA 93023"
+        },
+        {
+          "name": "Rustic Canyon Golf Course",
+          "state": "CA",
+          "address": "15100 Happy Camp Canyon Rd, Moorpark, CA 93021"
+        },
+        {
+          "name": "Olivas Links",
+          "state": "CA",
+          "address": "3750 Olivas Park Drive, Ventura, CA 93001"
+        },
+        {
+          "name": "Buenaventura Golf Course",
+          "state": "CA",
+          "address": "5882 Olivas Park Drive, Ventura, CA 93003"
+        },
+        {
+          "name": "La Purisima Golf Course",
+          "state": "CA",
+          "address": "3455 E Highway 246, Lompoc, CA 93436"
+        },
+        {
+          "name": "Cypress Ridge Golf Course",
+          "state": "CA",
+          "address": "780 Cypress Ridge Parkway, Arroyo Grande, CA 93420"
+        },
+        {
+          "name": "Langbrook Meadows Golf and Country Club",
+          "state": "NY",
+          "address": "95 Hamel Road, Brier Hill, NY 13614"
+        },
+        {
+          "name": "Cedar View Golf Club",
+          "state": "NY",
+          "address": "462 State Hwy 37c, Massena, NY 13662"
+        },
+        {
+          "name": "The River Course at Louisville Landing Recreation",
+          "state": "NY",
+          "address": "829 State Highway 131, Massena, NY 13662"
+        },
+        {
+          "name": "Potsdam Town & Country Club",
+          "state": "NY",
+          "address": "6194 State Highway 56, Potsdam, NY 13676"
         }
       ]
     }
