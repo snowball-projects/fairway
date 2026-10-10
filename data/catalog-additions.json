@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5586,
+  "current_facility_count": 5599,
   "redaction_note": "Historical counts are retained. Six withdrawn entries are omitted from the initial baseline details, and two withdrawn addresses are null. Added counts include redacted entries.",
   "batches": [
     {
@@ -28303,6 +28303,81 @@
           "name": "The Exec at Lakehouse",
           "state": "CA",
           "address": "1556 Camino Del Arroyo, San Marcos, CA 92078"
+        }
+      ]
+    },
+    {
+      "commit": "4d32a7e59fe08f55644f8ea3745c749be7c9e5ef",
+      "committed_at": "2026-10-10T05:42:11Z",
+      "initial_baseline": false,
+      "facilities_added": 13,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "name": "Wanaki Golf Course",
+          "state": "WI",
+          "address": "N50 W20830 Lisbon Road, Menomonee Falls, WI 53051"
+        },
+        {
+          "name": "Ironwood Golf Course",
+          "state": "WI",
+          "address": "W270 N6166 Moraine Drive, Sussex, WI"
+        },
+        {
+          "name": "Brookfield Hills Golf Course",
+          "state": "WI",
+          "address": "16075 Pinehurst Drive, Brookfield, WI 53005"
+        },
+        {
+          "name": "Edgewood Golf Course",
+          "state": "WI",
+          "address": "W240 S10050 Castle Road, Big Bend, WI 53103"
+        },
+        {
+          "name": "Muskego Lakes Country Club",
+          "state": "WI",
+          "address": "S100 W14020 Loomis Rd, Muskego, WI 53150"
+        },
+        {
+          "name": "Lake Lindero Golf Course",
+          "state": "CA",
+          "address": "5719 Lake Lindero Dr, Agoura Hills, CA 91301"
+        },
+        {
+          "name": "El Prado Golf Courses",
+          "state": "CA",
+          "address": "6555 Pine Ave, Chino, CA 91708"
+        },
+        {
+          "name": "Whispering Lakes Golf Course",
+          "state": "CA",
+          "address": "2525 E Riverside Dr, Ontario, CA 91761"
+        },
+        {
+          "name": "The Meadows of Sixmile Creek",
+          "state": "WI",
+          "address": "800 N Century Ave, Waunakee, WI 53597"
+        },
+        {
+          "name": "Foxboro Golf Club",
+          "state": "WI",
+          "address": "990 Clubhouse Dr, Oregon, WI 53575"
+        },
+        {
+          "name": "Pleasant View Golf Course",
+          "state": "WI",
+          "address": "1322 Pleasant View Road, Middleton, WI 53562"
+        },
+        {
+          "name": "Kestrel Ridge Golf Course",
+          "state": "WI",
+          "address": "900 Avalon Road, Columbus, WI 53925"
+        },
+        {
+          "name": "Deer Valley Golf Course",
+          "state": "WI",
+          "address": "7899 Hwy 18 & 151, Barneveld, WI 53507"
         }
       ]
     }
