@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-10T05:42:11Z",
-  "catalog_commit": "4d32a7e59fe08f55644f8ea3745c749be7c9e5ef",
+  "updated_at": "2026-10-10T05:49:44Z",
+  "catalog_commit": "8539aeb61d66115188801dc9c25e7a3886e1b5c9",
   "active_regions": [
     {
       "state": "WI",
@@ -13,10 +13,148 @@
       "state": "MA",
       "county_fips": null,
       "stage": "verification",
-      "note": "New owner-source requests are paused for a focused source-scope review; independently retained proposals are being checked. County coverage remains incomplete."
+      "note": "Owner verification of a screened independent discovery roster is underway. Public eligibility is checked per facility; county coverage remains incomplete."
     }
   ],
   "recent_batches": [
+    {
+      "published_at": "2026-10-10T05:49:44Z",
+      "commit": "8539aeb61d66115188801dc9c25e7a3886e1b5c9",
+      "facilities_added": 26,
+      "facilities_updated": 30,
+      "added_facilities": [
+        {
+          "name": "Bedrock Golf Club",
+          "state": "MA",
+          "address": "87 Barre Paxton Road, Rutland, MA 01543"
+        },
+        {
+          "name": "Black Swan Country Club",
+          "state": "MA",
+          "address": "258 Andover Street, Georgetown, MA 01833"
+        },
+        {
+          "name": "Blue Rock Golf Course",
+          "state": "MA",
+          "address": "48 Todd Road, South Yarmouth, MA 02664"
+        },
+        {
+          "name": "Bradford Country Club",
+          "state": "MA",
+          "address": "201 Chadwick Road, Haverhill, MA 01835"
+        },
+        {
+          "name": "Cape Cod Country Club",
+          "state": "MA",
+          "address": "48 Theatre Drive, East Falmouth, MA 02536"
+        },
+        {
+          "name": "Blissful Meadows Golf Club",
+          "state": "MA",
+          "address": "801 Chockalog Rd, Uxbridge, MA 01569"
+        },
+        {
+          "name": "Cyprian Keyes Golf Club",
+          "state": "MA",
+          "address": "284 East Temple Street, Boylston, MA 01505"
+        },
+        {
+          "name": "Easton Country Club",
+          "state": "MA",
+          "address": "265 Purchase St, South Easton, MA 02375"
+        },
+        {
+          "name": "Green Harbor Golf Club",
+          "state": "MA",
+          "address": "624 Webster Street, Marshfield, MA 02050"
+        },
+        {
+          "name": "GEAA Golf Course",
+          "state": "MA",
+          "address": "303 Crane Ave, Pittsfield, MA"
+        },
+        {
+          "name": "Ohio County Community Golf Course",
+          "state": "KY",
+          "address": "1153 Country Club Lane, Hartford, KY 42347"
+        },
+        {
+          "name": "Sag Hollow Golf Club",
+          "state": "KY",
+          "address": "1205 Sag Hollow Road, Booneville, KY 41314"
+        },
+        {
+          "name": "Holly Ridge Golf Club",
+          "state": "MA",
+          "address": null
+        },
+        {
+          "name": "Juniper Hill Golf Course",
+          "state": "MA",
+          "address": null
+        },
+        {
+          "name": "Kettle Brook Golf Club",
+          "state": "MA",
+          "address": "136 Marshall St, Paxton, MA 01612"
+        },
+        {
+          "name": "Reedy Meadow Golf Course",
+          "state": "MA",
+          "address": "195 Summer Street, Lynnfield, MA 01940"
+        },
+        {
+          "name": "King Rail Reserve Golf Course",
+          "state": "MA",
+          "address": "1 King Rail Dr, Lynnfield, MA 01940"
+        },
+        {
+          "name": "Pine Oaks Golf Course",
+          "state": "MA",
+          "address": "68 Prospect Street, South Easton, MA 02375"
+        },
+        {
+          "name": "Pinecrest Golf Club",
+          "state": "MA",
+          "address": "212 Prentice Street, Holliston, MA 01746"
+        },
+        {
+          "name": "Rowley Country Club",
+          "state": "MA",
+          "address": "235 Dodge Road, Rowley, MA 01969"
+        },
+        {
+          "name": "Baraboo Country Club",
+          "state": "WI",
+          "address": "401 Mine Road, Baraboo, WI 53913"
+        },
+        {
+          "name": "Castle Rock Golf Course",
+          "state": "WI",
+          "address": "W6285 Welch Prairie Road, New Lisbon, WI 53950"
+        },
+        {
+          "name": "Devil’s Head Resort Golf",
+          "state": "WI",
+          "address": "S6330 Bluff Road, Merrimac, WI 53561"
+        },
+        {
+          "name": "Portage Golf Club",
+          "state": "WI",
+          "address": "W7245 Country Club Rd, Portage, WI 53901"
+        },
+        {
+          "name": "The House on the Rock Resort Golf Course",
+          "state": "WI",
+          "address": "400 Springs Drive, Spring Green, WI 53588"
+        },
+        {
+          "name": "Spring Green Municipal Golf Course",
+          "state": "WI",
+          "address": "Hwy 23 & Hoxie Street, Spring Green, WI 53588"
+        }
+      ]
+    },
     {
       "published_at": "2026-10-10T05:42:11Z",
       "commit": "4d32a7e59fe08f55644f8ea3745c749be7c9e5ef",
