@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-10T06:33:04Z",
-  "catalog_commit": "ce8334cb5b4eab47cc84374987e2160665a8d41a",
+  "updated_at": "2026-10-10T06:40:20Z",
+  "catalog_commit": "2e97b1ca824d05f97be9f64bec4087a6bb659f70",
   "active_regions": [
     {
       "state": "IA",
@@ -17,6 +17,234 @@
     }
   ],
   "recent_batches": [
+    {
+      "published_at": "2026-10-10T06:40:20Z",
+      "commit": "2e97b1ca824d05f97be9f64bec4087a6bb659f70",
+      "facilities_added": 44,
+      "facilities_updated": 1,
+      "added_facilities": [
+        {
+          "name": "Blue Ridge Country Club",
+          "state": "VA",
+          "address": "211 Blue Ridge Country Club Lane, Galax, VA"
+        },
+        {
+          "name": "Cliff View Golf Course",
+          "state": "VA",
+          "address": "410 Friels Drive, Covington, VA 24426"
+        },
+        {
+          "name": "Eastern Shore Yacht & Country Club",
+          "state": "VA",
+          "address": "14421 Country Club Rd, Melfa, VA 23410"
+        },
+        {
+          "name": "Hunting Hawk Golf Club",
+          "state": "VA",
+          "address": "15201 Ashland Rd, Glen Allen, VA 23059"
+        },
+        {
+          "name": "Kinderton Country Club",
+          "state": "VA",
+          "address": "799 Kinderton Drive, Clarksville, VA 23927"
+        },
+        {
+          "name": "Montclair Golf Club",
+          "state": "VA",
+          "address": "16500 Edgewood Drive, Montclair, VA 22025"
+        },
+        {
+          "name": "Piankatank River Golf Club",
+          "state": "VA",
+          "address": "6198 Stormont Rd, Hartfield, VA 23071"
+        },
+        {
+          "name": "Little Sioux Golf & Country Club",
+          "state": "IA",
+          "address": "4251 US Highway 71, Sioux Rapids, IA"
+        },
+        {
+          "name": "Logan-Missouri Valley Country Club",
+          "state": "IA",
+          "address": "2455 US 30, Logan, IA"
+        },
+        {
+          "name": "Lone Pine Golf & County Club",
+          "state": "IA",
+          "address": "550 Country Club Blvd., Colesburg, IA"
+        },
+        {
+          "name": "Lost Island Golf Club",
+          "state": "IA",
+          "address": "3567 320th St., Ruthven, IA"
+        },
+        {
+          "name": "Manhattan Golf Club",
+          "state": "IA",
+          "address": "24256 Hwy. 5 S, Centerville, IA"
+        },
+        {
+          "name": "Manson Golf and Country Club",
+          "state": "IA",
+          "address": "1500 Country Club Ln., Manson, IA"
+        },
+        {
+          "name": "Maple Heights Golf & Country Club",
+          "state": "IA",
+          "address": "200 E Wood St., Elma, IA"
+        },
+        {
+          "name": "Maple Hills Country Club",
+          "state": "IA",
+          "address": "2568 170th St., Tripoli, IA"
+        },
+        {
+          "name": "Marcus Community Golf Club",
+          "state": "IA",
+          "address": "700 S Highway 143, Marcus, IA"
+        },
+        {
+          "name": "Meadow Acres Golf Course",
+          "state": "IA",
+          "address": "1871 135th St., Larchwood, IA"
+        },
+        {
+          "name": "Meadowbrook Golf Course",
+          "state": "IA",
+          "address": "900 Meadowbrook Ln., Wellsburg, IA"
+        },
+        {
+          "name": "Saltville Golf Course",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Scott County Park & Golf Course",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Southern Hills Golf Course",
+          "state": "VA",
+          "address": "188 Stokesland Avenue Ext, Danville, VA 24541"
+        },
+        {
+          "name": "Waynesboro Golf & Games",
+          "state": "VA",
+          "address": "2296 Jefferson Highway, Suite A, Waynesboro, Virginia 22980"
+        },
+        {
+          "name": "Winton Farm Golf Course",
+          "state": "VA",
+          "address": "599 Patrick Henry Highway, Amherst, VA 24521"
+        },
+        {
+          "name": "Olde Mill Golf Resort",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Montezuma Country Club",
+          "state": "IA",
+          "address": "700 W Main St., Montezuma, IA"
+        },
+        {
+          "name": "Monticello Golf Club",
+          "state": "IA",
+          "address": "712 N Maple St., Monticello, IA"
+        },
+        {
+          "name": "Mount Ayr Golf and Country Club",
+          "state": "IA",
+          "address": "2343 230th Ave., Mount Ayr, IA"
+        },
+        {
+          "name": "Nashua Town and Country Club",
+          "state": "IA",
+          "address": "2898 Asherton Ave., Nashua, IA"
+        },
+        {
+          "name": "New Hampton Golf and Country Club",
+          "state": "IA",
+          "address": "2074 Panora Ave., New Hampton, IA"
+        },
+        {
+          "name": "Newell Municipal Golf Course",
+          "state": "IA",
+          "address": "220 Leroy Poulson Rd., Newell, IA"
+        },
+        {
+          "name": "North Kossuth Golf Course",
+          "state": "IA",
+          "address": "505 E Ramsey St., Bancroft, IA"
+        },
+        {
+          "name": "Oak Hills Golf Course",
+          "state": "IA",
+          "address": "518 27th Ave. S, Clear Lake, IA"
+        },
+        {
+          "name": "Oak Leaf Country Club",
+          "state": "IA",
+          "address": "29275 Diagonal Rd., Reinbeck, IA"
+        },
+        {
+          "name": "Oakland Acres Golf Club",
+          "state": "IA",
+          "address": "13476 Highway 6 E, Grinnell, IA"
+        },
+        {
+          "name": "Paullina Golf Club",
+          "state": "IA",
+          "address": "5630 460th S., Paullina, IA"
+        },
+        {
+          "name": "Pine Creek Golf Club",
+          "state": "IA",
+          "address": "15566 317th St., Mason City, IA"
+        },
+        {
+          "name": "Pine Knolls Country Club",
+          "state": "IA",
+          "address": "1202 S Attica Rd., Knoxville, IA"
+        },
+        {
+          "name": "Pioneer Town & Country Club",
+          "state": "IA",
+          "address": "410 Club Terrace, Manly, IA"
+        },
+        {
+          "name": "Pleasantville Golf and Country Club",
+          "state": "IA",
+          "address": "957 N Old Hwy. 5, Pleasantville, IA"
+        },
+        {
+          "name": "Prairie Knolls Country Club",
+          "state": "IA",
+          "address": "509 E Walnut St., New Sharon, IA"
+        },
+        {
+          "name": "Prairie Links Golf & Event Center",
+          "state": "IA",
+          "address": "19 Eagle Ridge Dr., Waverly, IA"
+        },
+        {
+          "name": "Prairie Rose Golf Club",
+          "state": "IA",
+          "address": "600 Oak St., Brunsville, IA"
+        },
+        {
+          "name": "Primghar Golf and Country Club",
+          "state": "IA",
+          "address": "815 2nd St NE, Primghar, IA"
+        },
+        {
+          "name": "Timber Ridge Golf Course",
+          "state": "IN",
+          "address": "2330 E 250 N, Bluffton, IN 46714"
+        }
+      ]
+    },
     {
       "published_at": "2026-10-10T06:33:04Z",
       "commit": "ce8334cb5b4eab47cc84374987e2160665a8d41a",
