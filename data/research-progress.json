@@ -1,34 +1,690 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-09T14:14:00Z",
-  "catalog_commit": "5c122c1ac84b2a6feb492930bb3f505b6b6e7712",
+  "updated_at": "2026-10-10T04:30:00Z",
+  "catalog_commit": "db2cb623453dfc3b39c7cfda781def49b8609da6",
   "active_regions": [
     {
-      "state": "SD",
+      "state": "MN",
       "county_fips": null,
       "stage": "verification",
-      "note": "Reviewing retained evidence and preparing candidates. New source requests are paused by a temporary execution issue."
+      "note": "Primary-source research and review of new public-course proposals; statewide and county coverage remain incomplete."
     },
     {
-      "state": "IA",
+      "state": "NE",
       "county_fips": null,
       "stage": "verification",
-      "note": "Reviewing retained evidence and preparing candidates. New source requests are paused by a temporary execution issue."
+      "note": "Primary-source research and review of new public-course proposals; statewide and county coverage remain incomplete."
     },
     {
-      "state": "KY",
+      "state": "KS",
       "county_fips": null,
-      "stage": "discovery",
-      "note": "Reviewing retained evidence and preparing candidates. New source requests are paused by a temporary execution issue."
+      "stage": "verification",
+      "note": "Primary-source research and review of new public-course proposals; statewide and county coverage remain incomplete."
+    },
+    {
+      "state": "NJ",
+      "county_fips": null,
+      "stage": "verification",
+      "note": "Primary-source research and review of new public-course proposals; statewide and county coverage remain incomplete."
+    },
+    {
+      "state": "MI",
+      "county_fips": null,
+      "stage": "verification",
+      "note": "Primary-source research and review of new public-course proposals; statewide and county coverage remain incomplete."
+    },
+    {
+      "state": "VA",
+      "county_fips": null,
+      "stage": "verification",
+      "note": "Primary-source research and review of new public-course proposals; statewide and county coverage remain incomplete."
     },
     {
       "state": "MO",
       "county_fips": null,
-      "stage": "discovery",
-      "note": "Reviewing retained evidence and preparing candidates. New source requests are paused by a temporary execution issue."
+      "stage": "verification",
+      "note": "Primary-source research and review of new public-course proposals; statewide and county coverage remain incomplete."
     }
   ],
   "recent_batches": [
+    {
+      "published_at": "2026-10-10T04:29:38Z",
+      "commit": "db2cb623453dfc3b39c7cfda781def49b8609da6",
+      "facilities_added": 126,
+      "facilities_updated": 0,
+      "added_facilities": [
+        {
+          "name": "The Ridge Golf Club",
+          "state": "IA",
+          "address": "2595 Ridge Rd., Sioux Center, IA"
+        },
+        {
+          "name": "Bent Tree Golf Course",
+          "state": "IA",
+          "address": "23579 Highway 6, Council Bluffs, IA"
+        },
+        {
+          "name": "Spencer Golf & Country Club",
+          "state": "IA",
+          "address": "2200 W 18th St., Spencer, IA"
+        },
+        {
+          "name": "3/30 Golf & Country Club",
+          "state": "IA",
+          "address": "101 Country Club Ln., Lowden, IA"
+        },
+        {
+          "name": "5x80 Golf and Country Club",
+          "state": "IA",
+          "address": "1086 IA-25, Menlo, IA"
+        },
+        {
+          "name": "Ackley Country Club",
+          "state": "IA",
+          "address": "902 8th Ave., Ackley, IA"
+        },
+        {
+          "name": "Albia Golf Club",
+          "state": "IA",
+          "address": "300 N Country Club Rd., Albia, IA"
+        },
+        {
+          "name": "Anthon Golf Club",
+          "state": "IA",
+          "address": "2238 Hwy. 31, Anthon, IA"
+        },
+        {
+          "name": "Aurelia Golf Club",
+          "state": "IA",
+          "address": "601 Valor Rd., Aurelia, IA"
+        },
+        {
+          "name": "Backbone Golf and Country Club",
+          "state": "IA",
+          "address": "1244 400th St., Strawberry Point, IA"
+        },
+        {
+          "name": "Bedford Country Club & Golf Course",
+          "state": "IA",
+          "address": "2510 State Highway 148, Bedford, IA"
+        },
+        {
+          "name": "Belle Plaine Country Club",
+          "state": "IA",
+          "address": "1911 13th Ave., Belle Plaine, IA"
+        },
+        {
+          "name": "Bellevue Golf Club",
+          "state": "IA",
+          "address": "32292 395th Ave., Bellevue, IA"
+        },
+        {
+          "name": "Riverview Country Club",
+          "state": "IA",
+          "address": "217 Riverview Dr., Keosauqua, IA"
+        },
+        {
+          "name": "Little Bear Country Club",
+          "state": "IA",
+          "address": "9036 Highway 136, Wyoming, IA"
+        },
+        {
+          "name": "Silver Springs Golf & Country Club",
+          "state": "IA",
+          "address": "1392 CR-W42, Ossian, IA"
+        },
+        {
+          "name": "Edgewater Golf Course",
+          "state": "IA",
+          "address": "1432 Q Ave., Oelwein, IA"
+        },
+        {
+          "name": "Silver Lake Country Club",
+          "state": "IA",
+          "address": "165 Country Club Dr., Lake Park, IA"
+        },
+        {
+          "name": "Estherville Golf Course",
+          "state": "IA",
+          "address": "3625 170th St., Estherville, IA"
+        },
+        {
+          "name": "Fort Dodge Country Club",
+          "state": "IA",
+          "address": "370 Country Club Dr., Fort Dodge, IA"
+        },
+        {
+          "name": "Boulder Canyon Golf Club",
+          "state": "SD",
+          "address": "12281 Stagecoach Trail, Sturgis, SD 57785"
+        },
+        {
+          "name": "Tomahawk Lake Country Club",
+          "state": "SD",
+          "address": "21496 US Highway 385, Deadwood, SD 57732"
+        },
+        {
+          "name": "Meadow Creek Golf Course",
+          "state": "SD",
+          "address": "825 E. 6th Street, Volga, SD 57071"
+        },
+        {
+          "name": "Castlewood Community Golf Course",
+          "state": "SD",
+          "address": null
+        },
+        {
+          "name": "Gate City Golf Course",
+          "state": "SD",
+          "address": "48692 181st St, Gary, SD 57237"
+        },
+        {
+          "name": "Central Valley Golf Club",
+          "state": "SD",
+          "address": "700 East Highway 38, Hartford, SD 57033"
+        },
+        {
+          "name": "Rocky Run Golf Course",
+          "state": "SD",
+          "address": "47364 Golf View Drive, Dell Rapids, SD 57022"
+        },
+        {
+          "name": "Fox Run Golf Course",
+          "state": "SD",
+          "address": "600 W 27th Street, Yankton, SD 57078"
+        },
+        {
+          "name": "Sunrise Ridge Golf Course",
+          "state": "SD",
+          "address": null
+        },
+        {
+          "name": "The Bluffs Golf Course",
+          "state": "SD",
+          "address": "2021 East Main Street, Vermillion, SD 57069"
+        },
+        {
+          "name": "The Pointe Golf Course",
+          "state": "SD",
+          "address": "100 Truman Lane, Elk Point, SD 57025"
+        },
+        {
+          "name": "Lenkota Country Club",
+          "state": "SD",
+          "address": "27853 SD Highway 44, Lennox, SD 57039"
+        },
+        {
+          "name": "Whetstone Creek Golf Course",
+          "state": "SD",
+          "address": "14626 SD Highway 15, Milbank, SD 57252"
+        },
+        {
+          "name": "McCook Country Club",
+          "state": "SD",
+          "address": "501 S Douglas St, Salem, SD 57058"
+        },
+        {
+          "name": "Clear Lake Golf Club",
+          "state": "SD",
+          "address": "603 Highway 22 West, Clear Lake, SD 57226"
+        },
+        {
+          "name": "Kingsbury County Country Club",
+          "state": "SD",
+          "address": "611 7th St SW, De Smet, SD 57231"
+        },
+        {
+          "name": "Belle Fourche Country Club",
+          "state": "SD",
+          "address": "10941 SD Highway 34, Belle Fourche, SD 57717"
+        },
+        {
+          "name": "Spearfish Canyon Golf Club",
+          "state": "SD",
+          "address": "120 Spearfish Canyon Road, Spearfish, SD 57783"
+        },
+        {
+          "name": "Wall Golf Course",
+          "state": "SD",
+          "address": null
+        },
+        {
+          "name": "Lead Country Club",
+          "state": "SD",
+          "address": "11208 Ironwood Lane, Lead, SD 57754"
+        },
+        {
+          "name": "Chamberlain Country Club",
+          "state": "SD",
+          "address": "33848 Golf Course Rd, Oacoma, SD 57365"
+        },
+        {
+          "name": "Two Rivers Golf Club",
+          "state": "SD",
+          "address": "150 Oak Tree Lane, Dakota Dunes, SD 57049"
+        },
+        {
+          "name": "Wild Oak Golf Course",
+          "state": "SD",
+          "address": "2500 E 1st Ave, Mitchell, SD 57301"
+        },
+        {
+          "name": "Rocky Knolls Golf Course",
+          "state": "SD",
+          "address": "25153 Wazi Lane, Custer, SD"
+        },
+        {
+          "name": "Burke Golf Club",
+          "state": "SD",
+          "address": "Highway 18, Burke, SD"
+        },
+        {
+          "name": "Gregory Golf Course",
+          "state": "SD",
+          "address": "33830 288th St, Gregory, SD 57533"
+        },
+        {
+          "name": "Bon Homme Golf Course",
+          "state": "SD",
+          "address": null
+        },
+        {
+          "name": "Lakeside Country Club",
+          "state": "SD",
+          "address": "111 Lake Drive, Faulkton, SD 57438"
+        },
+        {
+          "name": "Northern Links Golf Course",
+          "state": "SD",
+          "address": "7701 N Cliff Ave, Sioux Falls, SD 57104"
+        },
+        {
+          "name": "River Ridge Golf Course",
+          "state": "SD",
+          "address": "25412 485th Ave, Garretson, SD 57030"
+        },
+        {
+          "name": "Wessington Springs Country Club",
+          "state": "SD",
+          "address": "702 NE 2nd St, Wessington Springs, SD 57382"
+        },
+        {
+          "name": "The Creek Golf Course",
+          "state": "SD",
+          "address": "27122 480th Ave, Harrisburg, SD 57032"
+        },
+        {
+          "name": "Fish Lake Country Club",
+          "state": "SD",
+          "address": "39051 253rd Street, Plankinton, SD 57368"
+        },
+        {
+          "name": "Howard Golf Course",
+          "state": "SD",
+          "address": null
+        },
+        {
+          "name": "Split Rock Country Club",
+          "state": "SD",
+          "address": null
+        },
+        {
+          "name": "Dakota Trails Golf Course",
+          "state": "SD",
+          "address": "39522 274th Street, Armour, SD 57313"
+        },
+        {
+          "name": "Kadoka Golf Course",
+          "state": "SD",
+          "address": "Kadoka Airport, Airport Road, Kadoka, SD"
+        },
+        {
+          "name": "Glenridge Golf Course",
+          "state": "SD",
+          "address": "45157 296th Street, Irene, SD 57037"
+        },
+        {
+          "name": "Huron Country Club",
+          "state": "SD",
+          "address": "304 22nd St NW, Huron, SD 57350"
+        },
+        {
+          "name": "Robert T. Lynch Municipal Golf Course",
+          "state": "MA",
+          "address": "1281 West Roxbury Parkway, Brookline, MA 02467"
+        },
+        {
+          "name": "Beverly Golf & Tennis Club",
+          "state": "MA",
+          "address": "134 McKay Street, Beverly, MA"
+        },
+        {
+          "name": "Chicopee Country Club",
+          "state": "MA",
+          "address": "1290 Burnett Road, Chicopee, MA 01020"
+        },
+        {
+          "name": "Dennis Pines Golf Course",
+          "state": "MA",
+          "address": "50 Golf Course Road, East Dennis, MA 02641"
+        },
+        {
+          "name": "Dennis Highlands Golf Course",
+          "state": "MA",
+          "address": "825 Old Bass River Road, Dennis, MA 02638"
+        },
+        {
+          "name": "Amesbury Golf & Country Club",
+          "state": "MA",
+          "address": "3 Country Club Road, Amesbury, MA"
+        },
+        {
+          "name": "Country Club of Billerica",
+          "state": "MA",
+          "address": "51 Baldwin Road, Billerica, MA"
+        },
+        {
+          "name": "Chatham Seaside Links",
+          "state": "MA",
+          "address": "209 Seaview Street, Chatham, MA 02633"
+        },
+        {
+          "name": "Pine Meadows Golf Club",
+          "state": "MA",
+          "address": "255 Cedar Street, Lexington, MA 02421"
+        },
+        {
+          "name": "Fresh Pond Golf Course",
+          "state": "MA",
+          "address": "691 Huron Avenue, Cambridge, MA 02138"
+        },
+        {
+          "name": "Westborough Golf Club",
+          "state": "MA",
+          "address": "121 West Main Street, Westborough, MA 01581"
+        },
+        {
+          "name": "Sassamon Trace Golf Course",
+          "state": "MA",
+          "address": "233 South Main Street, Natick, MA 01760"
+        },
+        {
+          "name": "Hillview Golf Course",
+          "state": "MA",
+          "address": "149 North Street, North Reading, MA 01864"
+        },
+        {
+          "name": "Bayberry Hills Golf Course",
+          "state": "MA",
+          "address": "635 West Yarmouth Road, West Yarmouth, MA 02673"
+        },
+        {
+          "name": "Bass River Golf Course",
+          "state": "MA",
+          "address": "62 Highbank Road, South Yarmouth, MA 02664"
+        },
+        {
+          "name": "Cranberry Valley Golf Course",
+          "state": "MA",
+          "address": "183 Oak Street, Harwich, MA 02645"
+        },
+        {
+          "name": "Acushnet River Valley Golf Course",
+          "state": "MA",
+          "address": "685 Main Street, Acushnet, MA 02743"
+        },
+        {
+          "name": "Whaling City Golf Course",
+          "state": "MA",
+          "address": "581 Hathaway Road, New Bedford, MA 02740"
+        },
+        {
+          "name": "Holden Hills Country Club",
+          "state": "MA",
+          "address": "1800 Main Street, Holden, MA 01522"
+        },
+        {
+          "name": "Northampton Country Club",
+          "state": "MA",
+          "address": null
+        },
+        {
+          "name": "Southborough Golf Club",
+          "state": "MA",
+          "address": "36 Cordaville Road, Southborough, MA 01772"
+        },
+        {
+          "name": "Shaker Hills Country Club",
+          "state": "MA",
+          "address": null
+        },
+        {
+          "name": "Ellinwood Country Club",
+          "state": "MA",
+          "address": "1928 Pleasant St, Athol, MA 01331"
+        },
+        {
+          "name": "Westminster Golf Club",
+          "state": "MA",
+          "address": "Ellis Road, Westminster, MA 01473"
+        },
+        {
+          "name": "Birdwood Golf Course",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Botetourt Golf & Swim Club",
+          "state": "VA",
+          "address": "2414 Country Club Road, Troutville, VA 24175"
+        },
+        {
+          "name": "Hobbs Hole Golf Course",
+          "state": "VA",
+          "address": "1267 Hobbs Hole Drive, Tappahannock, VA 22560"
+        },
+        {
+          "name": "Pete Dye River Course of Virginia Tech",
+          "state": "VA",
+          "address": "8400 River Course Drive, Radford, VA 24141"
+        },
+        {
+          "name": "Kiskiack Golf Club",
+          "state": "VA",
+          "address": "8104 Club Drive, Williamsburg, VA 23188"
+        },
+        {
+          "name": "Briery Country Club",
+          "state": "VA",
+          "address": "395 Country Club Road, Keysville, VA 23947"
+        },
+        {
+          "name": "Cypress Point Country Club",
+          "state": "VA",
+          "address": "5340 Club Head Road, Virginia Beach, VA 23455"
+        },
+        {
+          "name": "Chesapeake Golf Club",
+          "state": "VA",
+          "address": "1201 Clubhouse Drive, Chesapeake, VA 23320"
+        },
+        {
+          "name": "Stonewall Golf Club",
+          "state": "VA",
+          "address": "15601 Turtle Point Drive, Gainesville, VA 20155"
+        },
+        {
+          "name": "Bull Run Golf Club",
+          "state": "VA",
+          "address": "15000 Bull Run Estates Drive, Haymarket, VA 20169"
+        },
+        {
+          "name": "Lonesome Pine Country Club",
+          "state": "VA",
+          "address": "2706 Country Club Road, Big Stone Gap, VA 24219"
+        },
+        {
+          "name": "The Cardinal Golf Club",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Eaglewood Golf Course",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "The Pines Golf Course",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Medal of Honor Golf Course",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Sewells Point Golf Course",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Mill Quarter Plantation",
+          "state": "VA",
+          "address": "1525 Mill Quarter Road, Powhatan, VA 23139"
+        },
+        {
+          "name": "Virginia Beach National Golf Club",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Shenandoah Valley Golf Club",
+          "state": "VA",
+          "address": "134 Golf Club Circle, Front Royal, VA 22630"
+        },
+        {
+          "name": "Sly Fox Golf Club",
+          "state": "VA",
+          "address": "65 Jacksons Chase Dr, Middletown, VA 22645-3977"
+        },
+        {
+          "name": "South Riding Golf Club",
+          "state": "VA",
+          "address": "43237 Golf View Drive, South Riding, VA"
+        },
+        {
+          "name": "Williamsburg National Golf Club",
+          "state": "VA",
+          "address": "3700 Centerville Rd, Williamsburg, VA 23188"
+        },
+        {
+          "name": "Ivy Hill Golf Club",
+          "state": "VA",
+          "address": "1148 Ivy Hill Dr, Forest, VA 24551"
+        },
+        {
+          "name": "Kiln Creek Golf Club & Resort",
+          "state": "VA",
+          "address": "1003 Brick Kiln Blvd, Newport News, VA 23602"
+        },
+        {
+          "name": "Riverfront Golf Club",
+          "state": "VA",
+          "address": "5200 River Club Drive, Suffolk, VA 23435"
+        },
+        {
+          "name": "Hell's Point Golf Club",
+          "state": "VA",
+          "address": "2700 Atwoodtown Road, Virginia Beach, VA 23456"
+        },
+        {
+          "name": "Heron Ridge Golf Club",
+          "state": "VA",
+          "address": "2973 Heron Ridge Dr, Virginia Beach, VA 23456"
+        },
+        {
+          "name": "Southwind Golf Course",
+          "state": "KY",
+          "address": "2480 New Boonesboro Road, Winchester, KY 40391"
+        },
+        {
+          "name": "Nevel Meade Golf Club",
+          "state": "KY",
+          "address": "3123 Nevel Meade Drive, Prospect, KY 40059"
+        },
+        {
+          "name": "Norman K Probstein Golf Course",
+          "state": "MO",
+          "address": null
+        },
+        {
+          "name": "The Highlands Golf and Tennis Center",
+          "state": "MO",
+          "address": null
+        },
+        {
+          "name": "Miller Memorial Golf Course",
+          "state": "KY",
+          "address": "2814 Pottertown Road, Murray, KY"
+        },
+        {
+          "name": "Sullivan's Par 3 Golf",
+          "state": "KY",
+          "address": "2107 Brinn Road, Murray, KY"
+        },
+        {
+          "name": "Houston Oaks Golf Course",
+          "state": "KY",
+          "address": "555 Houston Oaks Drive, Paris, KY 40361"
+        },
+        {
+          "name": "Panther Creek Golf Club",
+          "state": "KY",
+          "address": "4641 State Route 1514, Utica, KY 42376"
+        },
+        {
+          "name": "The Golf Course at Williamsburg",
+          "state": "KY",
+          "address": "690 Airport Road, Williamsburg, KY 40769"
+        },
+        {
+          "name": "Campbellsville Country Club",
+          "state": "KY",
+          "address": "3064 Hodgenville Road, Campbellsville, KY 42718"
+        },
+        {
+          "name": "Adams Pointe Golf Club",
+          "state": "MO",
+          "address": "1601 R.D. Mize Road, Blue Springs, MO 64015"
+        },
+        {
+          "name": "Minor Park Golf Course",
+          "state": "MO",
+          "address": "11215 Holmes Road, Kansas City, MO 64131"
+        },
+        {
+          "name": "Birch Creek Golf Club",
+          "state": "MO",
+          "address": "499 N Service Rd, Union, MO 63084"
+        },
+        {
+          "name": "Innsbrook Resort Golf Course",
+          "state": "MO",
+          "address": null
+        },
+        {
+          "name": "Kenny Perry's Country Creek Golf Course",
+          "state": "KY",
+          "address": "1075 Kenny Perry Dr., Franklin, KY 42134"
+        },
+        {
+          "name": "Shawnee Bend Golf Course",
+          "state": "MO",
+          "address": null
+        }
+      ]
+    },
     {
       "published_at": "2026-10-08T19:31:36.855114+00:00",
       "commit": "8c3754aebe464a5e5c112ce8378fb9942cc7d434",
