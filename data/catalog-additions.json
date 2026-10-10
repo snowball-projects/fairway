@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5249,
+  "current_facility_count": 5441,
   "redaction_note": "Historical counts are retained. Six withdrawn entries are omitted from the initial baseline details, and two withdrawn addresses are null. Added counts include redacted entries.",
   "batches": [
     {
@@ -26558,6 +26558,976 @@
           "name": "Shawnee Bend Golf Course",
           "state": "MO",
           "address": null
+        }
+      ]
+    },
+    {
+      "commit": "ffebb3a014cb0d18d16995cff069c1441f96d870",
+      "committed_at": "2026-10-10T04:39:19Z",
+      "initial_baseline": false,
+      "facilities_added": 192,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "name": "Bryce Resort",
+          "state": "VA",
+          "address": "16 Straton Way, Basye, VA 22810"
+        },
+        {
+          "name": "Shenvalee Golf Resort",
+          "state": "VA",
+          "address": "9660 Fairway Dr, New Market, VA 22844"
+        },
+        {
+          "name": "Massanutten Resort",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Packsaddle Ridge Golf Club",
+          "state": "VA",
+          "address": "3067 Pack Saddle Trail, Keezletown, VA 22832"
+        },
+        {
+          "name": "Forest Park Country Club",
+          "state": "VA",
+          "address": "1821 Mulberry Road, Martinsville, VA"
+        },
+        {
+          "name": "Stonehouse Golf Club",
+          "state": "VA",
+          "address": "9700 Mill Pond Run, Toano, VA 23168"
+        },
+        {
+          "name": "Stoney Creek Golf Course at Wintergreen Resort",
+          "state": "VA",
+          "address": null
+        },
+        {
+          "name": "Hanover Golf Club",
+          "state": "VA",
+          "address": "14314 Country Club Dr, Ashland, VA 23005"
+        },
+        {
+          "name": "Birkdale Golf Club",
+          "state": "VA",
+          "address": "8511 Royal Birkdale Drive, Chesterfield, VA 23832"
+        },
+        {
+          "name": "Oak Country Golf Course",
+          "state": "KS",
+          "address": "8800 Scott Drive, DeSoto, KS 66018"
+        },
+        {
+          "name": "Valley Point Golf Course",
+          "state": "KS",
+          "address": "820 N Emporia St, Valley Center, KS 67147"
+        },
+        {
+          "name": "Medicine Lodge Golf Course",
+          "state": "KS",
+          "address": null
+        },
+        {
+          "name": "Burning Tree Golf Course",
+          "state": "KS",
+          "address": "7909 Wyandotte St, De Soto, KS 66018"
+        },
+        {
+          "name": "Ballyowen Golf Club",
+          "state": "NJ",
+          "address": "137 Wheatsworth Rd, Hamburg, NJ 07419"
+        },
+        {
+          "name": "Black Bear Golf Club",
+          "state": "NJ",
+          "address": "138 State Route 23, Franklin, NJ 07416"
+        },
+        {
+          "name": "Crystal Springs Resort - Crystal Springs, Wild Turkey and Cascades",
+          "state": "NJ",
+          "address": "1 Wild Turkey Way, Hamburg, NJ 07419"
+        },
+        {
+          "name": "Minerals Golf Club",
+          "state": "NJ",
+          "address": "2 Chamonix Dr, Vernon, NJ 07462"
+        },
+        {
+          "name": "John F. Gaffney Green Tree Golf Course",
+          "state": "NJ",
+          "address": "1030 Somers Point-Mays Landing Road, Egg Harbor Township, NJ"
+        },
+        {
+          "name": "Farmstead Golf & Country Club",
+          "state": "NJ",
+          "address": "88 Lawrence Road, Lafayette, NJ 07848"
+        },
+        {
+          "name": "Rock Spring Golf Club",
+          "state": "NJ",
+          "address": "90 Rock Spring Rd, West Orange, NJ 07052"
+        },
+        {
+          "name": "Paramus Golf Course",
+          "state": "NJ",
+          "address": "314 Paramus Road, Paramus, NJ 07652"
+        },
+        {
+          "name": "Knoll Country Club",
+          "state": "NJ",
+          "address": null
+        },
+        {
+          "name": "Rancocas Golf Club",
+          "state": "NJ",
+          "address": "12 Club Ridge Lane, Willingboro, NJ 08046"
+        },
+        {
+          "name": "Blue Heron Pines Golf Club",
+          "state": "NJ",
+          "address": "550 Country Club Drive, Galloway Township, NJ 08215"
+        },
+        {
+          "name": "Deerwood Country Club",
+          "state": "NJ",
+          "address": "845 Woodlane Road, Mount Holly, NJ 08060"
+        },
+        {
+          "name": "Rutgers University Golf Course",
+          "state": "NJ",
+          "address": "777 Hoes Lane West, Piscataway, NJ 08854-8022"
+        },
+        {
+          "name": "Twisted Dune Golf Club",
+          "state": "NJ",
+          "address": "2101 Ocean Heights Avenue, Egg Harbor Township, NJ 08234"
+        },
+        {
+          "name": "Harbor Pines Golf Club",
+          "state": "NJ",
+          "address": "500 St. Andrews Drive, Egg Harbor Township, NJ 08234"
+        },
+        {
+          "name": "SkyView Golf Club",
+          "state": "NJ",
+          "address": "226 Lafayette Road, Sparta, NJ 07871"
+        },
+        {
+          "name": "Bowling Green Golf Club",
+          "state": "NJ",
+          "address": "53 Schoolhouse Road, Oak Ridge, NJ 07438"
+        },
+        {
+          "name": "Town & Country Golf Links",
+          "state": "NJ",
+          "address": "197 East Avenue, Woodstown, NJ 08098"
+        },
+        {
+          "name": "Meadows Golf Club",
+          "state": "NJ",
+          "address": "79 Two Bridges Road, Lincoln Park, NJ 07035"
+        },
+        {
+          "name": "Cape May National Golf Club",
+          "state": "NJ",
+          "address": "Route 9 & Florence Avenue, Erma, NJ"
+        },
+        {
+          "name": "Joachim Creek Golf Club",
+          "state": "MO",
+          "address": "959 Scenic Drive, Herculaneum, MO 63048"
+        },
+        {
+          "name": "Bogey Creek Golf Club",
+          "state": "MO",
+          "address": null
+        },
+        {
+          "name": "Incline Village Golf Course",
+          "state": "MO",
+          "address": "10220 Fairway Dr., Foristell, MO 63348"
+        },
+        {
+          "name": "The Falls Golf Club",
+          "state": "MO",
+          "address": "1170 Turtle Creek Drive, O'Fallon, MO 63366"
+        },
+        {
+          "name": "Raintree Country Club",
+          "state": "MO",
+          "address": "5925 Plantation Dr, Hillsboro, MO 63050"
+        },
+        {
+          "name": "The Quarry at Crystal Springs",
+          "state": "MO",
+          "address": "1 Crystal Springs Quarry Dr., Maryland Heights, MO 63043"
+        },
+        {
+          "name": "Wild Horse Golf Club",
+          "state": "NE",
+          "address": "40950 Road 768, Gothenburg, NE 69138"
+        },
+        {
+          "name": "Tiburon Golf Club",
+          "state": "NE",
+          "address": "10302 South 168th Street, Omaha, NE 68136"
+        },
+        {
+          "name": "The Prairie Club",
+          "state": "NE",
+          "address": "88897 State Hwy. 97, Valentine, NE 69201"
+        },
+        {
+          "name": "Nebraska Dunes Golf Course",
+          "state": "NE",
+          "address": "592 S Road, Axtell, NE 68924"
+        },
+        {
+          "name": "Fairbury Country Club",
+          "state": "NE",
+          "address": "56881 709th Rd, Fairbury, NE 68352"
+        },
+        {
+          "name": "Thornridge Golf Course",
+          "state": "NE",
+          "address": "801 South D Street, Milford, NE 68405"
+        },
+        {
+          "name": "Lake Maloney Golf Club",
+          "state": "NE",
+          "address": "608 Birdie Ln, North Platte, NE 69101"
+        },
+        {
+          "name": "Fair Play Golf Course",
+          "state": "NE",
+          "address": "55427 837th Rd, Norfolk, NE 68701"
+        },
+        {
+          "name": "Eldorado Hills Golf Course",
+          "state": "NE",
+          "address": "1227 Eldorado Rd, Norfolk, NE 68701"
+        },
+        {
+          "name": "Minden Country Club",
+          "state": "NE",
+          "address": "240 East 17th Street, Minden, NE 68959"
+        },
+        {
+          "name": "Oregon Trail Golf Course",
+          "state": "NE",
+          "address": "31200 West Tower Road, Sutherland, NE 69165"
+        },
+        {
+          "name": "Kirkman's Lakeview Golf Course",
+          "state": "NE",
+          "address": "71550 631 Avenue, Humboldt, NE 68376"
+        },
+        {
+          "name": "Red Cloud Golf Course",
+          "state": "NE",
+          "address": "766 Road 1400, Red Cloud, NE 68970"
+        },
+        {
+          "name": "Trenton Golf Club",
+          "state": "NE",
+          "address": null
+        },
+        {
+          "name": "Rivers Edge Golf Course",
+          "state": "NE",
+          "address": "1008 W 18th St, North Platte, NE 69101"
+        },
+        {
+          "name": "Wildwood Golf Course",
+          "state": "NE",
+          "address": "1101 Wildwood Ln, Nebraska City, NE 68410"
+        },
+        {
+          "name": "Enders Lake Golf Course",
+          "state": "NE",
+          "address": "33864 US-6, Enders, NE 69027"
+        },
+        {
+          "name": "Holdrege Country Club",
+          "state": "NE",
+          "address": "314 West 18th Avenue, Holdrege, NE 68949"
+        },
+        {
+          "name": "Hidden Hills Country Club",
+          "state": "NE",
+          "address": "1115 Road L, Geneva, NE 68361"
+        },
+        {
+          "name": "Superior Country Club",
+          "state": "NE",
+          "address": "3628 Rd E, Superior, NE 68978"
+        },
+        {
+          "name": "Falls City Golf Course",
+          "state": "NE",
+          "address": "64870 706 Trail, Falls City, NE 68355"
+        },
+        {
+          "name": "Ashland Golf Club",
+          "state": "NE",
+          "address": "16119 Highway 6, Ashland, NE 68003"
+        },
+        {
+          "name": "Crandall Creek Golf Club",
+          "state": "NE",
+          "address": "359 Road E 85, Ogallala, NE 69153"
+        },
+        {
+          "name": "Hebron Country Club",
+          "state": "NE",
+          "address": "1120 Road 6100, Hebron, NE 68370"
+        },
+        {
+          "name": "St. Paul Country Club",
+          "state": "NE",
+          "address": "1118 Inman Rd, St. Paul, NE 68873"
+        },
+        {
+          "name": "Antelope Country Club",
+          "state": "NE",
+          "address": "52580 E. Hwy. 275, Neligh, NE 68756"
+        },
+        {
+          "name": "Hay Springs Golf Course",
+          "state": "NE",
+          "address": "E 3rd Street, Hay Springs, NE"
+        },
+        {
+          "name": "Michigan Meadows Golf Course",
+          "state": "MI",
+          "address": "4575 County Line Rd, Casco, MI 48064"
+        },
+        {
+          "name": "Willow Brook Golf Club",
+          "state": "MI",
+          "address": "311 W Maple St, Byron, MI 48418"
+        },
+        {
+          "name": "Pine Hills Golf Course",
+          "state": "MI",
+          "address": "6603 Woodbury Rd, Laingsburg, MI 48848"
+        },
+        {
+          "name": "Myth Golf & Banquets",
+          "state": "MI",
+          "address": "850 Stoney Creek Rd, Oakland, MI 48363"
+        },
+        {
+          "name": "Pine Trace Golf Club",
+          "state": "MI",
+          "address": "3600 Pine Trace Blvd, Rochester Hills, MI 48309"
+        },
+        {
+          "name": "Beacon Hill Golf Club",
+          "state": "MI",
+          "address": "6011 Majestic Oaks Drive, Commerce Township, MI 48382"
+        },
+        {
+          "name": "Hampton Golf Club",
+          "state": "MI",
+          "address": "2600 Club Dr, Rochester Hills, MI 48307"
+        },
+        {
+          "name": "Maples Golf Club",
+          "state": "MI",
+          "address": "31260 Wakefield Drive, Novi, MI 48377"
+        },
+        {
+          "name": "Brentwood Golf Club",
+          "state": "MI",
+          "address": "2450 Havenwood Dr, White Lake, MI 48383"
+        },
+        {
+          "name": "Broadmoor Country Club",
+          "state": "MI",
+          "address": "7725 Kraft Avenue SE, Caledonia, MI 49316"
+        },
+        {
+          "name": "Bonnie View Golf Course",
+          "state": "MI",
+          "address": "194 S Michigan Rd, Eaton Rapids, MI 48827"
+        },
+        {
+          "name": "Briarwood Golf Club",
+          "state": "MI",
+          "address": "2900 92nd Street, Caledonia, MI 49316"
+        },
+        {
+          "name": "Heritage Glen Golf Club",
+          "state": "MI",
+          "address": "29795 Heritage Lane, Paw Paw, MI 49079"
+        },
+        {
+          "name": "Manistee National Golf & Resort",
+          "state": "MI",
+          "address": "4797 Grant Highway, Manistee, MI 49660"
+        },
+        {
+          "name": "The Crown Golf Club",
+          "state": "MI",
+          "address": "2430 West Crown Dr, Traverse City, MI 49684"
+        },
+        {
+          "name": "States Golf Course",
+          "state": "MI",
+          "address": "20 East W Avenue, Vicksburg, MI 49097"
+        },
+        {
+          "name": "The Falls at Barber Creek",
+          "state": "MI",
+          "address": "16030 Barber Creek Avenue, Kent City, MI 49330"
+        },
+        {
+          "name": "Inkster Valley Golf Club",
+          "state": "MI",
+          "address": "2150 Middlebelt Rd, Inkster, MI 48141"
+        },
+        {
+          "name": "Brookview Golf Course",
+          "state": "MN",
+          "address": "316 Brookview Parkway S, Golden Valley, MN 55426"
+        },
+        {
+          "name": "Monticello Country Club",
+          "state": "MN",
+          "address": "1209 Golf Course Road, Monticello, MN 55362"
+        },
+        {
+          "name": "Tanners Brook Golf Club",
+          "state": "MN",
+          "address": "5810 North 190th Street, Forest Lake, MN 55025"
+        },
+        {
+          "name": "The Pines at Grand View Lodge",
+          "state": "MN",
+          "address": "23521 Nokomis Avenue, Nisswa, MN 56468"
+        },
+        {
+          "name": "The Preserve at Grand View Lodge",
+          "state": "MN",
+          "address": "5505 Preserve Blvd, Pequot Lakes, MN 56472"
+        },
+        {
+          "name": "Cuyuna Rolling Hills Golf Course",
+          "state": "MN",
+          "address": "24410 State Highway 210, Deerwood, MN 56444"
+        },
+        {
+          "name": "Eagle's Landing Golf Club",
+          "state": "MN",
+          "address": "14825 263 Street, Fort Ripley, MN 56449"
+        },
+        {
+          "name": "Wildwedge Golf Course",
+          "state": "MN",
+          "address": "32792 Paul Bunyan Trail Dr, Pequot Lakes, MN 56472"
+        },
+        {
+          "name": "Ruttger's Bay Lake Resort",
+          "state": "MN",
+          "address": "25039 Tame Fish Lake Rd, Deerwood, MN 56444"
+        },
+        {
+          "name": "Deacon's Lodge Golf Course",
+          "state": "MN",
+          "address": "9348 Arnold Palmer Drive, Breezy Point, MN 56472"
+        },
+        {
+          "name": "Whitebirch Golf Course",
+          "state": "MN",
+          "address": "891 County Road 11, Breezy Point, MN 56472"
+        },
+        {
+          "name": "Fosston Golf Course",
+          "state": "MN",
+          "address": "32132 US-2 W, Fosston, MN 56542"
+        },
+        {
+          "name": "Twin Pines Golf Course",
+          "state": "MN",
+          "address": "531 7th Street NE, Bagley, MN 56621"
+        },
+        {
+          "name": "Graceville Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Kerkhoven Community Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Little Crow Golf Resort",
+          "state": "MN",
+          "address": "15980 Hwy 23 NE, Spicer, MN 56288"
+        },
+        {
+          "name": "Giants Ridge",
+          "state": "MN",
+          "address": "6325 Wynne Creek Dr, Biwabik, MN 55708"
+        },
+        {
+          "name": "Mayflower Golf Club",
+          "state": "MN",
+          "address": "46321 Co Rd 39, Fairfax, MN 55332"
+        },
+        {
+          "name": "Black Diamond Golf Course at Forest Hills Resort",
+          "state": "MN",
+          "address": "22931 185th Street, Detroit Lakes, MN 56501"
+        },
+        {
+          "name": "GreyStone Golf Club",
+          "state": "MN",
+          "address": "10548 Andrews Drive, Sauk Centre, MN 56378"
+        },
+        {
+          "name": "Island Pine Golf Club",
+          "state": "MN",
+          "address": "1601 Wyoming Ave W, Atwater, MN 56209"
+        },
+        {
+          "name": "Old Course Sauk Centre",
+          "state": "MN",
+          "address": "606 Lake Shore Dr, Sauk Centre, MN 56378"
+        },
+        {
+          "name": "Lynx National Golf Course",
+          "state": "MN",
+          "address": "40204 Primrose Lane, Sauk Centre, MN 56378"
+        },
+        {
+          "name": "Centerbrook Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Orono Orchards Golf Course",
+          "state": "MN",
+          "address": "265 Orono Orchard Road S, Orono, MN 55391"
+        },
+        {
+          "name": "Silver Bay Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Proctor Golf Course",
+          "state": "MN",
+          "address": "25 Al Shoberg Dr, Proctor, MN 55810"
+        },
+        {
+          "name": "Hoyt Lakes Municipal Golf Course",
+          "state": "MN",
+          "address": "4099 Allen Junction Rd, Hoyt Lakes, MN 55750"
+        },
+        {
+          "name": "Mountain Lake Golf Course",
+          "state": "MN",
+          "address": "56500 Lakeshore Drive, Mountain Lake, MN 56159"
+        },
+        {
+          "name": "Madelia Golf Course",
+          "state": "MN",
+          "address": "519 Christensen Drive, Madelia, MN 56062"
+        },
+        {
+          "name": "Hawley Golf and Country Club",
+          "state": "MN",
+          "address": "301 Hwy 10, Hawley, MN 56549"
+        },
+        {
+          "name": "Windom Country Club",
+          "state": "MN",
+          "address": "2825 Country Club Drive, Windom, MN 56101"
+        },
+        {
+          "name": "The Wilderness at Fortune Bay",
+          "state": "MN",
+          "address": "1450 Bois Forte Road, Tower, MN 55790"
+        },
+        {
+          "name": "Bellwood Oaks Golf Club",
+          "state": "MN",
+          "address": "13239 210th Street East, Hastings, MN 55033"
+        },
+        {
+          "name": "Daytona Golf Club",
+          "state": "MN",
+          "address": "14730 Lawndale Ln N, Dayton, MN 55327"
+        },
+        {
+          "name": "Emerald Greens Golf Course",
+          "state": "MN",
+          "address": "14425 Goodwin Ave, Hastings, MN 55033"
+        },
+        {
+          "name": "Hidden Haven Golf Club",
+          "state": "MN",
+          "address": "20520 NE Polk Street, Cedar, MN 55011"
+        },
+        {
+          "name": "Southbrook Golf Club",
+          "state": "MN",
+          "address": "511 Morrison Ave S, Annandale, MN 55302"
+        },
+        {
+          "name": "Southern Hills Golf Course",
+          "state": "MN",
+          "address": "18950 Chippendale Avenue, Farmington, MN 55024"
+        },
+        {
+          "name": "Island Lake Golf & Training Center",
+          "state": "MN",
+          "address": "1000 Red Fox Rd, Shoreview, MN 55126"
+        },
+        {
+          "name": "Cedar Creek Golf Course",
+          "state": "MN",
+          "address": "5700 Jason Ave NE, Albertville, MN 55301"
+        },
+        {
+          "name": "Ma Cal Grove Country Club",
+          "state": "MN",
+          "address": "15939 State 76, Caledonia, MN 55921"
+        },
+        {
+          "name": "Long Prairie Country Club",
+          "state": "MN",
+          "address": "406 6th Street SE, Long Prairie, MN 56347"
+        },
+        {
+          "name": "Princeton Golf Course",
+          "state": "MN",
+          "address": "301 Golf Course Road, Princeton, MN 55371"
+        },
+        {
+          "name": "Wild Marsh Golf Club",
+          "state": "MN",
+          "address": "1710 Montrose Blvd, Buffalo, MN 55313"
+        },
+        {
+          "name": "The Meadows at Mystic Lake",
+          "state": "MN",
+          "address": "2400 Mystic Lake Boulevard, Prior Lake, MN 55372"
+        },
+        {
+          "name": "Lanesboro Golf Course",
+          "state": "MN",
+          "address": "900 Parkway Avenue South, Lanesboro, MN 55949"
+        },
+        {
+          "name": "Harmony Golf Club",
+          "state": "MN",
+          "address": "545 4th Street NE, Harmony, MN 55939"
+        },
+        {
+          "name": "Mount Frontenac Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Hawk Creek Country Club",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Tracy Country Club",
+          "state": "MN",
+          "address": "10752 Hwy 14, Tracy, MN 56175"
+        },
+        {
+          "name": "Three Tees Golf & Social",
+          "state": "MN",
+          "address": "801 Pine Cone Rd N, Sartell, MN 56377"
+        },
+        {
+          "name": "Nordic Trails Golf Course",
+          "state": "MN",
+          "address": "4343 39th Avenue NE, Alexandria, MN 56308"
+        },
+        {
+          "name": "Stalker Lake Golf Course",
+          "state": "MN",
+          "address": "15786 Golf Course Road, Dalton, MN 56324"
+        },
+        {
+          "name": "Willingers Golf Club",
+          "state": "MN",
+          "address": "6797 Canby Trail, Northfield, MN 55057"
+        },
+        {
+          "name": "ShadowBrooke Golf Course",
+          "state": "MN",
+          "address": "3192 MN-7, Lester Prairie, MN 55354"
+        },
+        {
+          "name": "Glencoe Country Club",
+          "state": "MN",
+          "address": "1325 1st Street E, Glencoe, MN 55336"
+        },
+        {
+          "name": "Kimball Golf Club",
+          "state": "MN",
+          "address": "11823 County Road 150, Kimball, MN 55353"
+        },
+        {
+          "name": "Cokato Town & Country Club",
+          "state": "MN",
+          "address": "15256 US Highway 12 SW, Cokato, MN 55321"
+        },
+        {
+          "name": "Prairie View Community Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Pezhekee National Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Lake City Golf Club",
+          "state": "MN",
+          "address": "33587 Lakeview Drive, Lake City, MN 55041"
+        },
+        {
+          "name": "Lake Pepin Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "The Oaks Golf Club",
+          "state": "MN",
+          "address": "73671 170th Avenue, Hayfield, MN 55940"
+        },
+        {
+          "name": "Zumbro Falls Golf Club",
+          "state": "MN",
+          "address": "60146 Hwy 63, Zumbro Falls, MN 55991"
+        },
+        {
+          "name": "Sandhill River Golf Course",
+          "state": "MN",
+          "address": "44203 State Highway 32 South, Fertile, MN 56540"
+        },
+        {
+          "name": "Golf on the Edge",
+          "state": "MN",
+          "address": "59851 County Road 261, Bigfork, MN 56628"
+        },
+        {
+          "name": "Sugarbrooke Golf Course",
+          "state": "MN",
+          "address": "37584 Otis Lane, Cohasset, MN 55721"
+        },
+        {
+          "name": "Vermilion Fairways Golf Course",
+          "state": "MN",
+          "address": "2407 Vermilion Drive, Cook, MN 55723"
+        },
+        {
+          "name": "Eveleth Golf Course",
+          "state": "MN",
+          "address": "4276 Golf Course Road, Eveleth, MN 55734"
+        },
+        {
+          "name": "Pike Lake Golf & Beach Club",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Fair Hills Resort and Wildflower Golf Course",
+          "state": "MN",
+          "address": "19790 County Highway 20, Detroit Lakes, MN 56501"
+        },
+        {
+          "name": "Oak Knolls Golf Course",
+          "state": "MN",
+          "address": "702 Marshall Avenue SE, Red Lake Falls, MN 56750"
+        },
+        {
+          "name": "Pine Creek Golf Course",
+          "state": "MN",
+          "address": "3815 North Pine Creek Road, La Crescent, MN 55947"
+        },
+        {
+          "name": "Coffee Mill Golf Course",
+          "state": "MN",
+          "address": "180 Coffee Mill Drive, Wabasha, MN 55981"
+        },
+        {
+          "name": "Mendota Heights Par 3 Community Golf Course",
+          "state": "MN",
+          "address": "1695 Dodd Road, Mendota Heights, MN 55118"
+        },
+        {
+          "name": "Wells Municipal Golf Club",
+          "state": "MN",
+          "address": "801 1st Avenue SW, Wells, MN 56097"
+        },
+        {
+          "name": "Piper Hills Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Zumbrota Golf Club",
+          "state": "MN",
+          "address": "80 Golf Links Avenue, Zumbrota, MN 55992"
+        },
+        {
+          "name": "Blackberry Ridge Golf Club",
+          "state": "MN",
+          "address": "3125 Clubhouse Road, Sartell, MN 56377"
+        },
+        {
+          "name": "Madden's on Gull Lake Golf Courses",
+          "state": "MN",
+          "address": "11266 Pine Beach Peninsula, Brainerd, MN 56401"
+        },
+        {
+          "name": "Green Valley Golf Course",
+          "state": "MN",
+          "address": "15299 County Highway 6, Lake Park, MN 56554"
+        },
+        {
+          "name": "Mahnomen Country Club",
+          "state": "MN",
+          "address": "2267 155th Ave, Mahnomen, MN 56557"
+        },
+        {
+          "name": "Stephen Riverside Golf Course",
+          "state": "MN",
+          "address": "613 Stephen Ave, Stephen, MN 56757"
+        },
+        {
+          "name": "Oak Lake Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Farmer's Golf & Health Club",
+          "state": "MN",
+          "address": "698 W Central St, Sanborn, MN 56083"
+        },
+        {
+          "name": "Rolling Hills Golf Club",
+          "state": "MN",
+          "address": "1360 280th Ave, Westbrook, MN"
+        },
+        {
+          "name": "Riverview Golf Course",
+          "state": "MN",
+          "address": "15590 240th Ave, New Richland, MN"
+        },
+        {
+          "name": "Castlewood Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Meadowlark Country Club",
+          "state": "MN",
+          "address": "837 Country Club Drive, Melrose, MN 56352"
+        },
+        {
+          "name": "River Oaks Golf Club",
+          "state": "MN",
+          "address": "23742 Co Rd 2, Cold Spring, MN 56320"
+        },
+        {
+          "name": "Stones Throw Golf Course",
+          "state": "MN",
+          "address": "15679 Central Ave, Milaca, MN 56353"
+        },
+        {
+          "name": "Savannah Oaks Golf Club",
+          "state": "MN",
+          "address": "100 Savannah Heights Blvd, Lynd, MN 56157"
+        },
+        {
+          "name": "Grandy Nine Golf Course",
+          "state": "MN",
+          "address": "1199 361st Ave NE, Stanchfield, MN 55080"
+        },
+        {
+          "name": "Bear's Den Golf Course",
+          "state": "MN",
+          "address": "18454 Dayspring Drive, Park Rapids, MN 56470"
+        },
+        {
+          "name": "Cedar River Golf Course",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Kenyon Country Club",
+          "state": "MN",
+          "address": "46000 Highway 56, Kenyon, MN 55946"
+        },
+        {
+          "name": "Halla Greens",
+          "state": "MN",
+          "address": "495 Pioneer Trail, Chanhassen, MN 55317"
+        },
+        {
+          "name": "Blooming Prairie Country Club",
+          "state": "MN",
+          "address": "7701 SE 118th St, Blooming Prairie, MN 55917"
+        },
+        {
+          "name": "Meadow Greens Golf Course",
+          "state": "MN",
+          "address": "25238 540th Ave, Austin, MN 55912"
+        },
+        {
+          "name": "St. Charles Golf Club",
+          "state": "MN",
+          "address": "1920 Gladiola Drive, St. Charles, MN 55972"
+        },
+        {
+          "name": "Double Eagle Golf & Grille",
+          "state": "MN",
+          "address": null
+        },
+        {
+          "name": "Havana Hills Golf, Range & Event Center",
+          "state": "MN",
+          "address": "2213 NE 34th Avenue, Owatonna, MN 55060"
+        },
+        {
+          "name": "Izatys Resort",
+          "state": "MN",
+          "address": "40005 85th Ave, Onamia, MN 56359"
+        },
+        {
+          "name": "Wolfridge Golf Course",
+          "state": "MN",
+          "address": "8501 Savage Road, Angora, MN 55703"
+        },
+        {
+          "name": "Rugged Spruce Golf Club",
+          "state": "MN",
+          "address": "2871 Sundberg Road, Mahtowa, MN 55707"
+        },
+        {
+          "name": "Oneka Ridge Golf Course",
+          "state": "MN",
+          "address": "5610 120th Street North, White Bear Lake, MN 55110"
+        },
+        {
+          "name": "Lost Spur Golf and Event Center",
+          "state": "MN",
+          "address": "2750 Sibley Memorial Highway, Eagan, MN 55121"
         }
       ]
     }
