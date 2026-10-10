@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-10T05:58:03Z",
-  "catalog_commit": "7063d5d8157e74e2dbfcedea439e41cc69d1a363",
+  "updated_at": "2026-10-10T06:03:43Z",
+  "catalog_commit": "53a2e99bd4ff85429081ba5dc27ea49762321471",
   "active_regions": [
     {
       "state": "IA",
@@ -17,6 +17,104 @@
     }
   ],
   "recent_batches": [
+    {
+      "published_at": "2026-10-10T06:03:43Z",
+      "commit": "53a2e99bd4ff85429081ba5dc27ea49762321471",
+      "facilities_added": 18,
+      "facilities_updated": 47,
+      "added_facilities": [
+        {
+          "name": "Hillside Country Club",
+          "state": "MA",
+          "address": "82 Hillside Avenue, Rehoboth, MA 02769"
+        },
+        {
+          "name": "Acorn Park Golf & Recreation Area",
+          "state": "IA",
+          "address": "1426 Highway 105, Saint Ansgar, IA 50472"
+        },
+        {
+          "name": "Aplington Recreation Complex",
+          "state": "IA",
+          "address": "16750 Parrott St., Aplington, IA"
+        },
+        {
+          "name": "Big Rock Country Club",
+          "state": "IA",
+          "address": "9684 146th St., Fayette, IA"
+        },
+        {
+          "name": "Colfax Country Club",
+          "state": "IA",
+          "address": "3761 W 108th St. S, Colfax, IA"
+        },
+        {
+          "name": "Coon Rapids Golf Course",
+          "state": "IA",
+          "address": "731 S 5th Street, Coon Rapids, IA"
+        },
+        {
+          "name": "Correctionville Golf Course",
+          "state": "IA",
+          "address": "1300 Hackberry St., Correctionville, IA"
+        },
+        {
+          "name": "Council Bluffs Country Club",
+          "state": "IA",
+          "address": "4500 Piute St., Council Bluffs, IA"
+        },
+        {
+          "name": "Country View Golf Course",
+          "state": "IA",
+          "address": "503 Locust Rd., Decorah, IA"
+        },
+        {
+          "name": "Kirkwood National Golf Club & Cottages",
+          "state": "MS",
+          "address": "277 Palmer Ln, Holly Springs, MS 38635"
+        },
+        {
+          "name": "Cresco Country Club",
+          "state": "IA",
+          "address": "22005 115th St., Cresco, IA"
+        },
+        {
+          "name": "Deer Creek Golf Club",
+          "state": "IA",
+          "address": "2044 130th St., Humboldt, IA"
+        },
+        {
+          "name": "Deerwood Golf Club",
+          "state": "IA",
+          "address": "2870 Deerwood Golf Dr., New London, IA"
+        },
+        {
+          "name": "Derby Grange Golf & Recreation",
+          "state": "IA",
+          "address": "13079 Derby Grange Rd., Dubuque, IA 52002"
+        },
+        {
+          "name": "Diamond Trail Golf Club",
+          "state": "IA",
+          "address": "9364 E 146th St. S, Lynnville, IA"
+        },
+        {
+          "name": "Don Williams Golf Course",
+          "state": "IA",
+          "address": "610 H Ave., Ogden, IA"
+        },
+        {
+          "name": "Dows Golf Course",
+          "state": "IA",
+          "address": "200 85th St., Dows, IA"
+        },
+        {
+          "name": "Dysart Golf Club",
+          "state": "IA",
+          "address": "5614 Hwy. V37, Dysart, IA"
+        }
+      ]
+    },
     {
       "published_at": "2026-10-10T05:58:03Z",
       "commit": "7063d5d8157e74e2dbfcedea439e41cc69d1a363",
