@@ -3,7 +3,7 @@
   "time_basis": "git_commit_time",
   "count_unit": "provisional_facility_entry",
   "history_complete_from": "2026-10-07T19:39:08Z",
-  "current_facility_count": 5779,
+  "current_facility_count": 5811,
   "redaction_note": "Historical counts are retained. Six withdrawn entries are omitted from the initial baseline details, and two withdrawn addresses are null. Added counts include redacted entries.",
   "batches": [
     {
@@ -29349,6 +29349,176 @@
           "name": "South Hardin Recreation Area Golf Course",
           "state": "IA",
           "address": "601 Chaplin St., Union, IA"
+        }
+      ]
+    },
+    {
+      "commit": "d16bfc9e3ef15c65217b069cd0829bb0eec533ea",
+      "committed_at": "2026-10-10T06:53:21Z",
+      "initial_baseline": false,
+      "facilities_added": 32,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "name": "Huntingburg Country Club",
+          "state": "IN",
+          "address": "739 W 3rd St, Huntingburg, IN 47542"
+        },
+        {
+          "name": "Pine Woods Golf Course",
+          "state": "IN",
+          "address": "888 Rattlesnake Rd, Spencer, IN 47460-7097"
+        },
+        {
+          "name": "Pittsboro Golf Course",
+          "state": "IN",
+          "address": "2227 E US 136, Pittsboro, IN 46167"
+        },
+        {
+          "name": "Frankfort Commons Golf Course",
+          "state": "IN",
+          "address": "50 North Park Drive, Frankfort, IN 46041"
+        },
+        {
+          "name": "Crestview Golf Club",
+          "state": "IN",
+          "address": "3325 South Walnut St, Muncie, IN 47302"
+        },
+        {
+          "name": "South Winn Golf & Country Club",
+          "state": "IA",
+          "address": "2585 175th St., Calmar, IA"
+        },
+        {
+          "name": "Spring Hills Country Club",
+          "state": "IA",
+          "address": "4614 490th St., Mallard, IA"
+        },
+        {
+          "name": "St. Andrews Golf Club",
+          "state": "IA",
+          "address": "1866 Blairs Ferry Rd. NE, Cedar Rapids, IA"
+        },
+        {
+          "name": "Sugar Creek Golf Course",
+          "state": "IA",
+          "address": "1505 6th St., Waukee, IA"
+        },
+        {
+          "name": "Sun Valley Country Club",
+          "state": "IA",
+          "address": "3078 County Hwy J20, Ellston, IA"
+        },
+        {
+          "name": "Sunrise Golf Course",
+          "state": "IA",
+          "address": "3947 Moencks Rd., Bettendorf, IA"
+        },
+        {
+          "name": "Tara Hills Country Club",
+          "state": "IA",
+          "address": "1846 70th St., Van Horne, IA"
+        },
+        {
+          "name": "The Barn-Gruis Recreational Area",
+          "state": "IA",
+          "address": "2724 360th Street, Buffalo Center, IA"
+        },
+        {
+          "name": "The Hill Golf Club",
+          "state": "IA",
+          "address": "1949 220th St., Grand Junction, IA"
+        },
+        {
+          "name": "The Rockford Public Golf Course",
+          "state": "IA",
+          "address": "2127 8th St. SW, Rockford, IA"
+        },
+        {
+          "name": "Traer Golf and Country Club",
+          "state": "IA",
+          "address": "1643 Hwy. 63, Traer, IA"
+        },
+        {
+          "name": "Quail Crossing Golf Club",
+          "state": "IN",
+          "address": "5 Quail Crossing Drive, Boonville, IN 47601"
+        },
+        {
+          "name": "The Sportsman Golf Course",
+          "state": "IN",
+          "address": "16022 State Road 250, Rising Sun, Indiana 47040"
+        },
+        {
+          "name": "Twin Anchors Golf Club",
+          "state": "IA",
+          "address": "68030 US Hwy. 30, Colo, IA"
+        },
+        {
+          "name": "Valley Oaks Golf Club",
+          "state": "IA",
+          "address": "3330 Harts Mill Rd., Clinton, IA"
+        },
+        {
+          "name": "Villisca Country Club",
+          "state": "IA",
+          "address": null
+        },
+        {
+          "name": "Vinton Country Club",
+          "state": "IA",
+          "address": "314 N 9th Ave, Vinton, IA"
+        },
+        {
+          "name": "Wahkonsa Country Club",
+          "state": "IA",
+          "address": "2358 Vermont Ave., Durant, IA"
+        },
+        {
+          "name": "Wandering Creek Golf Course",
+          "state": "IA",
+          "address": "2436 233rd St., Marshalltown, IA"
+        },
+        {
+          "name": "Washington Golf & Country Club",
+          "state": "IA",
+          "address": "1732 Country Club Rd., Washington, IA"
+        },
+        {
+          "name": "Wellman Golf Club",
+          "state": "IA",
+          "address": "905 1st Ave., Wellman, IA"
+        },
+        {
+          "name": "West Bend Golf & Country Club",
+          "state": "IA",
+          "address": "4829 580th Ave., West Bend, IA"
+        },
+        {
+          "name": "West Links Estates Golf Course",
+          "state": "IA",
+          "address": "100 W Links Dr., Alta, IA"
+        },
+        {
+          "name": "Whispering Creek Golf Club",
+          "state": "IA",
+          "address": "6500 Whispering Creek Dr., Sioux City, IA"
+        },
+        {
+          "name": "Willow Run Country Club",
+          "state": "IA",
+          "address": "940 E Fayette St., Denver, IA"
+        },
+        {
+          "name": "Willow Vale Golf Course",
+          "state": "IA",
+          "address": "300 Sioux S., Mapleton, IA"
+        },
+        {
+          "name": "Woodward Golf Course",
+          "state": "IA",
+          "address": "28160 130th St., Woodward, IA"
         }
       ]
     }
