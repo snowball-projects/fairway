@@ -1,22 +1,155 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-10T06:40:20Z",
-  "catalog_commit": "2e97b1ca824d05f97be9f64bec4087a6bb659f70",
+  "updated_at": "2026-10-10T06:48:20Z",
+  "catalog_commit": "ba6ec1a84c82f2588c7e8163c76fc90bc82bf7d7",
   "active_regions": [
     {
-      "state": "IA",
+      "state": "AR",
       "county_fips": null,
       "stage": "verification",
-      "note": "Reviewing public-golf directory profiles against existing identities, course-specific access conflicts and source holds; county completeness is not established."
+      "note": "Checking missing facilities through independent owner and municipal public-play evidence; county completeness remains unestablished."
     },
     {
-      "state": "IN",
+      "state": "IL",
       "county_fips": null,
       "stage": "verification",
-      "note": "Checking independent owner and municipal evidence for missing public facilities. Discovery, independent review and essential-field enrichment continue."
+      "note": "Researching missing public municipal and operator facilities. Separate source discovery, review and retained-field enrichment continue."
     }
   ],
   "recent_batches": [
+    {
+      "published_at": "2026-10-10T06:48:20Z",
+      "commit": "ba6ec1a84c82f2588c7e8163c76fc90bc82bf7d7",
+      "facilities_added": 25,
+      "facilities_updated": 33,
+      "added_facilities": [
+        {
+          "name": "Quail Creek Golf Course",
+          "state": "IA",
+          "address": "700 Club House Rd., North Liberty, IA"
+        },
+        {
+          "name": "Radcliffe Friendly Fairways",
+          "state": "IA",
+          "address": "26814 Hwy. S27, Radcliffe, IA"
+        },
+        {
+          "name": "Raleigh Hill Golf & Country Club",
+          "state": "IA",
+          "address": "2048 Cheyenne Ave., Ionia, IA"
+        },
+        {
+          "name": "Remsen Golf Association",
+          "state": "IA",
+          "address": "506 W 5th St, Remsen, IA"
+        },
+        {
+          "name": "Riceville Country Club",
+          "state": "IA",
+          "address": "402 E Main St., Riceville, IA"
+        },
+        {
+          "name": "River Ridge Golf Club",
+          "state": "IA",
+          "address": "1749 Golf Course Blvd, Independence, IA"
+        },
+        {
+          "name": "River Road Golf Club",
+          "state": "IA",
+          "address": null
+        },
+        {
+          "name": "Rock River Golf & Country Club",
+          "state": "IA",
+          "address": "1344 Harding Ave., Rock Rapids, IA"
+        },
+        {
+          "name": "Rock Valley Golf Course",
+          "state": "IA",
+          "address": "701 Golf Course Rd., Rock Valley, IA"
+        },
+        {
+          "name": "Rolfe Golf Club",
+          "state": "IA",
+          "address": "36 Grant St., Rolfe, IA"
+        },
+        {
+          "name": "Curtis Creek Golf Course",
+          "state": "IN",
+          "address": "5385 S 1080 W, Rensselaer, IN 47978"
+        },
+        {
+          "name": "Scherwood Golf Course",
+          "state": "IN",
+          "address": "600 E Joliet St, Schererville, IN 46375"
+        },
+        {
+          "name": "Duck Creek Golf Course",
+          "state": "IN",
+          "address": "638 North 700 West, Hobart, Indiana 46342"
+        },
+        {
+          "name": "Harbor Links Golf Club",
+          "state": "IN",
+          "address": "15179 Old State Road 101, Liberty, IN 47353"
+        },
+        {
+          "name": "Centennial Park Golf Course",
+          "state": "IN",
+          "address": "1000 S Centennial Dr, Munster, IN 46321"
+        },
+        {
+          "name": "Rolling Acres Golf Course",
+          "state": "IA",
+          "address": "4761 Rolling Acres Rd., Center Point, IA"
+        },
+        {
+          "name": "Rolling Knolls Golf Course",
+          "state": "IA",
+          "address": "2424 2nd Ave. SE, Dyersville, IA"
+        },
+        {
+          "name": "Round Grove Golf & Country Club",
+          "state": "IA",
+          "address": "20498 Floyd Line St., Greene, IA"
+        },
+        {
+          "name": "Rustic Ridge Golf Course",
+          "state": "IA",
+          "address": "1151 E Iowa St., Eldridge, IA"
+        },
+        {
+          "name": "Schleswig Community Golf Course",
+          "state": "IA",
+          "address": "904 Valley View Dr., Schleswig, IA"
+        },
+        {
+          "name": "Shady Oaks Golf Course",
+          "state": "IA",
+          "address": "18169 Hwy. 92, Ackworth, IA"
+        },
+        {
+          "name": "Sheldon Golf and Country Club",
+          "state": "IA",
+          "address": "3040 Nest Ave., Sheldon, IA"
+        },
+        {
+          "name": "Silvercrest Golf and Country Club",
+          "state": "IA",
+          "address": "2772 College Dr., Decorah, IA"
+        },
+        {
+          "name": "Slippery Elm Golf Course",
+          "state": "IA",
+          "address": "800 S 1st St., Klemme, IA"
+        },
+        {
+          "name": "South Hardin Recreation Area Golf Course",
+          "state": "IA",
+          "address": "601 Chaplin St., Union, IA"
+        }
+      ]
+    },
     {
       "published_at": "2026-10-10T06:40:20Z",
       "commit": "2e97b1ca824d05f97be9f64bec4087a6bb659f70",
