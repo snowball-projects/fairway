@@ -24,6 +24,16 @@ def named(value, name):
     return next(f for f in value["facilities"] if f["name"] == name)
 
 
+def ranking_destination(value):
+    course_id = value["metadata"]["ranking"]["course_ids"][-1]
+    return next(
+        (facility, course)
+        for facility in value["facilities"]
+        for course in facility["courses"]
+        if course["id"] == course_id
+    )
+
+
 def test_mixed_access_and_partial_inventory_survive_export(source):
     public = foundation.exports(source)["public-courses.json"]
     lake = named(public, "Lake of Isles")
@@ -69,15 +79,12 @@ def test_exports_preserve_ids_after_corrections_and_reordering(source):
 
 
 def test_estimates_keep_exact_precision_and_never_become_routing_points(source):
-    estimate = next(f for f in source["facilities"] if f["map_location"])
     public = foundation.exports(source)["public-courses.json"]
-    assert (
-        next(f for f in public["facilities"] if f["id"] == estimate["id"])[
-            "map_location"
-        ]
-        == estimate["map_location"]
-    )
-    assert sum(f["map_location"] is not None for f in public["facilities"]) == 1939
+    source_locations = {f["id"]: f["map_location"] for f in source["facilities"]}
+    assert len(public["facilities"]) == len(source_locations)
+    assert {
+        f["id"]: f["map_location"] for f in public["facilities"]
+    } == source_locations
     ranking_facilities = {
         c["facility_id"]
         for c in foundation.exports(source)["course-catalog.json"]["courses"]
@@ -88,7 +95,7 @@ def test_estimates_keep_exact_precision_and_never_become_routing_points(source):
         if f["map_location"] and f["id"] not in ranking_facilities
     )
     changed = copy.deepcopy(source)
-    candidate = changed["facilities"][-1]["courses"][0]
+    _, candidate = ranking_destination(changed)
     candidate["arrival"]["kind"] = "address_range_estimate"
     with pytest.raises(ValueError, match="arrival"):
         foundation.validate(changed)
@@ -107,38 +114,44 @@ def test_estimates_keep_exact_precision_and_never_become_routing_points(source):
 )
 def test_invalid_proposals_do_not_pass_validation(source, defect):
     value = copy.deepcopy(source)
+    facility, course = ranking_destination(value)
     if defect == "missing_id":
         del value["facilities"][0]["id"]
     elif defect == "duplicate_course":
-        value["facilities"][-1]["courses"][0]["id"] = value["facilities"][-2][
-            "courses"
-        ][0]["id"]
+        course["id"] = next(
+            c["id"]
+            for f in value["facilities"]
+            for c in f["courses"]
+            if c["id"] != course["id"]
+        )
     elif defect == "dangling_source":
         value["research"][value["facilities"][0]["id"]]["listed_sources"].append(
             "missing"
         )
     elif defect == "dangling_field":
-        value["research"][value["facilities"][-1]["id"]]["support"][0]["fields"].append(
-            "imaginary"
-        )
+        value["research"][facility["id"]]["support"][0]["fields"].append("imaginary")
     elif defect == "unknown_access":
-        value["facilities"][-1]["courses"][0]["access"] = "unknown"
+        course["access"] = "unknown"
     elif defect == "mailing_destination":
-        value["facilities"][-1]["address"]["purpose"] = "mailing"
+        facility["address"]["purpose"] = "mailing"
     with pytest.raises(ValueError):
         foundation.validate(value)
 
 
 def test_minimal_course_location_override_wins_over_shared_contact(source):
     value = copy.deepcopy(source)
-    facility = value["facilities"][-1]
+    facility, course = ranking_destination(value)
     facility["address"]["purpose"] = "contact"
-    facility["courses"][0]["address"] = {
+    course["address"] = {
         "text": "Separate clubhouse",
         "purpose": "clubhouse",
     }
     foundation.validate(value)
-    exported = foundation.exports(value)["course-catalog.json"]["courses"][-1]
+    exported = next(
+        c
+        for c in foundation.exports(value)["course-catalog.json"]["courses"]
+        if c["id"] == course["id"]
+    )
     assert exported["address"] == "Separate clubhouse"
     assert exported["address_purpose"] == "clubhouse"
 
@@ -193,7 +206,7 @@ def test_import_refuses_accidental_facility_identity_replacement(tmp_path, sourc
     body = foundation.encoded(source)
     current.write_bytes(body)
     changed = copy.deepcopy(source)
-    facility = changed["facilities"][-1]
+    facility, _ = ranking_destination(changed)
     original_id = facility["id"]
     facility["id"] = "f-00000000-0000-4000-8000-000000000000"
     changed["research"][facility["id"]] = changed["research"].pop(original_id)
@@ -223,10 +236,11 @@ def test_import_refuses_accidental_facility_identity_replacement(tmp_path, sourc
 
 def test_ranking_export_accepts_field_specific_course_support(source):
     value = copy.deepcopy(source)
-    facility = value["facilities"][-1]
-    cid = facility["courses"][0]["id"]
+    facility, course = ranking_destination(value)
+    cid = course["id"]
     supports = value["research"][facility["id"]]["support"]
-    original = supports.pop(0)
+    original = next(s for s in supports if "courses" in s["fields"])
+    supports.remove(original)
     broad_fields = [field for field in original["fields"] if field != "courses"]
     supports.extend(
         [
@@ -236,7 +250,11 @@ def test_ranking_export_accepts_field_specific_course_support(source):
         ]
     )
     foundation.validate(value)
-    exported = foundation.exports(value)["course-catalog.json"]["courses"][-1]
+    exported = next(
+        c
+        for c in foundation.exports(value)["course-catalog.json"]["courses"]
+        if c["id"] == course["id"]
+    )
     assert exported["id"] == cid
     assert exported["facts_source"] == original["source"]
     assert exported["access"] == "public"
@@ -245,7 +263,12 @@ def test_ranking_export_accepts_field_specific_course_support(source):
 
 def test_ranking_validation_rejects_null_arrival_source_before_export(source):
     value = copy.deepcopy(source)
-    facility = value["facilities"][-1]
-    value["research"][facility["id"]]["support"][1]["source"] = None
+    facility, course = ranking_destination(value)
+    arrival_support = next(
+        s
+        for s in value["research"][facility["id"]]["support"]
+        if f"courses.{course['id']}.arrival" in s["fields"]
+    )
+    arrival_support["source"] = None
     with pytest.raises(ValueError, match="arrival lacks a scoped source"):
         foundation.validate(value)
