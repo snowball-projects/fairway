@@ -109,7 +109,7 @@ rounded up, before either score is calculated. Ties use the other score, then
 the course name and stable identifier. A ranking is only as current as the
 named course catalog, routing points, provider, and timing or static cost
 profile in its provenance. See
-[data/README.md](data/README.md) for the v1 catalog boundary and source method.
+[data/README.md](data/README.md) for the reviewed data foundation, catalog boundary and source method.
 
 ## Architecture
 

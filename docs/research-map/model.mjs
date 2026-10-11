@@ -49,11 +49,14 @@ export const regions = {
     "WA",
   ],
 };
-export const essentials = ["name", "address", "county", "holes"];
+export const essentials = ["name", "address", "county", "physical_holes"];
 const states = new Set(Object.values(regions).flat());
 const stages = new Set(["discovery", "verification", "review", "queued"]);
-export const facilityIdentity = (record) =>
-  JSON.stringify([record.name, record.state, record.address ?? null]);
+export const facilityIdentity = (record) => record.id;
+export const historicalIdentityLabel = (record) =>
+  record.id == null
+    ? "historical identity unlinked"
+    : "absent from loaded catalog";
 const sha = (value) =>
   typeof value === "string" && /^[a-f0-9]{40}$/i.test(value) ? value : null;
 const count = (value) =>
@@ -67,7 +70,7 @@ const utc = (value) =>
 export function parseAdditions(value) {
   if (
     !value ||
-    value.schema_version !== 1 ||
+    value.schema_version !== 3 ||
     value.time_basis !== "git_commit_time" ||
     value.count_unit !== "provisional_facility_entry" ||
     !Array.isArray(value.batches)
@@ -108,6 +111,7 @@ export function parseAdditions(value) {
       redacted,
       removed,
       facilities: batch.added_facilities.map((r) => ({
+        id: r.id ?? null,
         name: r.name,
         state: r.state,
         address: r.address ?? null,
@@ -117,7 +121,7 @@ export function parseAdditions(value) {
   return { completeFrom: utc(value.history_complete_from), batches };
 }
 export function parseProgress(value, now = Date.now()) {
-  if (!value || value.schema_version !== 1)
+  if (!value || value.schema_version !== 3)
     throw new Error("Unsupported progress snapshot");
   const updatedAt = utc(value.updated_at);
   return {
@@ -163,6 +167,7 @@ export function parseProgress(value, now = Date.now()) {
               (r.address == null || typeof r.address === "string"),
           )
           .map((r) => ({
+            id: r.id ?? null,
             name: r.name,
             state: r.state,
             address: r.address ?? null,
@@ -172,12 +177,14 @@ export function parseProgress(value, now = Date.now()) {
 }
 export const complete = (record, fields = essentials) =>
   fields.every((key) =>
-    key === "holes"
+    key === "physical_holes"
       ? Number.isFinite(record[key]) && record[key] > 0
-      : typeof record[key] === "string" && record[key].trim(),
+      : key === "address"
+        ? typeof record.address?.text === "string" && record.address.text.trim()
+        : typeof record[key] === "string" && record[key].trim(),
   );
 export function located(record) {
-  const c = record.coordinates;
+  const c = record.map_location;
   return (
     c &&
     Number.isFinite(c.latitude) &&
@@ -196,10 +203,9 @@ export function summarize(records) {
     four: records.filter((r) => complete(r)).length,
     five: records.filter((r) => complete(r, [...essentials, "website"])).length,
     located: records.filter(located).length,
-    unresolved: records.filter((r) => r.course_details_complete !== true)
-      .length,
+    unresolved: records.filter((r) => r.inventory_complete !== true).length,
     missing: Object.fromEntries(
-      ["address", "county", "holes", "website"].map((key) => [
+      ["address", "county", "physical_holes", "website"].map((key) => [
         key,
         records.filter((r) => !complete(r, [key])).length,
       ]),
@@ -209,6 +215,7 @@ export function summarize(records) {
 export function buildModel(catalog) {
   if (
     !catalog ||
+    catalog.schema_version !== 3 ||
     !Array.isArray(catalog.facilities) ||
     !Array.isArray(catalog.county_checklist) ||
     catalog.facilities.some(
@@ -216,6 +223,8 @@ export function buildModel(catalog) {
         !r ||
         typeof r.name !== "string" ||
         !r.name.trim() ||
+        typeof r.id !== "string" ||
+        !/^f-[0-9a-f-]{36}$/.test(r.id) ||
         !states.has(r.state),
     ) ||
     catalog.county_checklist.some(
@@ -228,6 +237,11 @@ export function buildModel(catalog) {
   ) {
     throw new Error("Unsupported catalog");
   }
+  if (
+    new Set(catalog.facilities.map(facilityIdentity)).size !==
+    catalog.facilities.length
+  )
+    throw new Error("Duplicate facility ID");
   const counties = catalog.county_checklist.map((c) => ({
     id: c.fips,
     state: c.state,
@@ -257,30 +271,7 @@ export function buildModel(catalog) {
 }
 export function addedFacilities(previous, next) {
   const identities = new Set(previous.map(facilityIdentity));
-  const uniqueKeys = (records, key) => {
-    const counts = new Map();
-    for (const record of records) {
-      const value = key(record);
-      if (value) counts.set(value, (counts.get(value) || 0) + 1);
-    }
-    return counts;
-  };
-  const name = (r) => JSON.stringify([r.state, r.name]);
-  const address = (r) =>
-    r.address ? JSON.stringify([r.state, r.address]) : null;
-  const keys = [name, address].map((key) => [
-    key,
-    uniqueKeys(previous, key),
-    uniqueKeys(next, key),
-  ]);
-  return next.filter(
-    (r) =>
-      !identities.has(facilityIdentity(r)) &&
-      !keys.some(
-        ([key, before, after]) =>
-          before.get(key(r)) === 1 && after.get(key(r)) === 1,
-      ),
-  );
+  return next.filter((r) => !identities.has(facilityIdentity(r)));
 }
 export function selectCounties(model, filters) {
   return model.counties.filter(

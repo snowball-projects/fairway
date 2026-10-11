@@ -14,104 +14,59 @@ contact external map services or change WSGI routes, ranking inputs or
 catalog/checklist files. The page and public inputs are included in the source
 archive for reproducibility.
 
-The existing Render build runs `scripts/publish_research_map.py` before the
-locked installation. This copies the reviewed browser files and exact public
-catalog/status bytes into generated, ignored static directories, also included
-in the wheel. The existing static handler serves `/research-map/index.html`
-and `/data/` JSON, using its existing security headers; no route or CSP change
-is needed. `publication.json` binds the served inputs to their SHA-256 digests.
-Status and additions sidecars are optional; unavailable or unsupported files
-do not block catalog publication. The script performs no network
-calls or source-data writes. No hosting migration or additional service is used.
-Data remains a deployment snapshot until the next existing Render build.
+The existing Render build validates `data/catalog.json` and generates all public
+snapshots plus the bounded ranking catalog before installing the application.
+The static handler serves `/research-map/index.html` and `/data/` using its existing
+security headers. `publication.json` binds catalog, progress, history and accessible
+source metadata to SHA-256 digests. No network requests or source writes occur.
+Only schema 3 is supported. Invalid canonical data stops the build.
 
 ## Counts and limits
 
-- Facility entry counts remain provisional. Nested `courses` are counted
-  directly; a facility hole total never implies layouts.
-- Four fields are name, address, county and holes. Five adds website. These
-  describe record completeness, not national completeness.
-- Represented means at least one catalog facility joins to the county through
-  an exact state/county name. Null and unmatched county records stay
-  in state/region totals and are not assigned a county by coordinates.
-- `searched_incomplete` is searched and explicitly unconfirmed. Only an
-  explicit future `searched_complete` checklist status counts as confirmed
-  complete. The current catalog has no confirmed counties. Unknown statuses
-  stay unknown. A county with zero facilities is not evidence of no courses.
-- Coordinates must be finite and within latitude/longitude limits. Only
-  located records receive markers. `address_range_estimate` markers are
-  explicitly unverified as entrances. Other kinds retain their uncertainty;
-  only an explicit `verified_entrance` kind is labeled a verified entrance.
-- Unlocated records remain in county/state counts and facility lists. Missing
-  fields and unsearched counties are known work; national facility remainder
-  is unknown, with no national progress percentage.
-- `updated_on` is the compilation date, not fresh verification of every row.
-  Snapshots older than two UTC days are labeled stale. Missing catalog data
-  fails visibly and disables filters.
+Facility and physical-course counts remain provisional. A facility hole total
+includes private courses when supported, and never implies how many layouts exist.
+Four fields are name, published address, county and physical holes; five adds
+website. These describe record completeness, not national completeness. Unknown
+holes, course access and inventories remain unknown. An inventory can be complete
+without established course access. Cards distinguish physical holes from each
+course's public/private/restricted/unknown access and show retained access conditions.
 
-Research focus and recent additions independently load the public
-`data/research-progress.json` version 1 sidecar on page load. Missing or
-unsupported sidecars show unavailable without breaking the catalog view.
-`updated_at` is the UTC snapshot time; snapshots older than two days, with
-unknown times or implausibly future times are labeled stale. Stale region
-status remains labeled as a historical snapshot and loses the focus outline.
-There is no claim of live researcher activity.
+Addresses identify their supported purpose, including mailing/contact addresses.
+Map estimates remain labeled as entrance-unverified, and never establish routing
+destinations. The ranking app retains its eight separately reviewed OSM points;
+this research map does not expand its routing coverage. Source qualifications and
+reuse terms are accessible in `catalog-metadata.json` from the footer and cards.
 
-## Published updates and additions
+Represented counties join only through exact state/county names. Null and unmatched
+county records remain in state/region counts without invented coordinate joins.
+Only explicit `searched_complete` counts as complete; all current searches remain
+incomplete. Zero records are not evidence of no courses. No national remainder or
+national progress percentage is claimed. Compilation and research-status dates
+retain their original meanings and freshness warnings.
 
-The visible page checks the existing same-origin `publication.json` every
-60 seconds. Its hashes avoid downloading the full catalog when unchanged.
-Changed JSON is verified against SHA-256 before adoption, protecting against a
-deployment switching between manifest and data requests. Filters, selected
-county/facility, zoom, keyboard focus, expanded details and scroll positions
-survive refresh. New facility identities receive a static 30-second highlight.
-The first loaded snapshot is a baseline, never announced as new additions.
-Name/state/address identity comparisons ignore unique name or address corrections;
-without permanent facility IDs, ambiguous identity changes cannot be classified
-perfectly. There are no fuzzy matches or invented IDs.
+## Published updates and history
 
-Hidden tabs abort requests and pause checks. Requests have a 15-second timeout,
-never overlap, and errors retain the working view with retries from 2 to 10
-minutes. Optional log or research-status errors do not block catalog counts.
-Render publishes a new snapshot after its automatic GitHub commit deployment;
-an open visible page normally sees it within 60 seconds after deploy completes.
-The observed deployment took about a minute, so the ordinary commit-to-view
-latency is roughly 1 to 2 minutes plus download time, not a delivery guarantee.
-Uncommitted work cannot appear through this mechanism.
+The visible page checks the same-origin publication manifest every 60 seconds.
+Changed snapshots are verified before adoption. Hidden pages pause requests;
+failures retain the working view and back off from two to ten minutes. Selection,
+filters, zoom, focus and scroll survive refresh. Permanent facility IDs identify
+new records and retain selection through renames and address corrections. New IDs
+receive a 30-second highlight; the first snapshot is a baseline.
 
-The data worker owns `data/catalog-additions.json`, a small durable commit log.
-Its exact contract is `schema_version: 1`, `time_basis: git_commit_time`,
-`count_unit: provisional_facility_entry`, `history_complete_from` (UTC time or
-null), and `batches` with `commit`, `committed_at`, `initial_baseline`,
-`facilities_added`, `facilities_removed`, and `added_facilities`
-(name/state/address). The optional
-`redacted_entries` count retains batch totals when historical identities are
-omitted; the page reports the number omitted without inventing their names.
-Batch totals may therefore exceed the named entries. The optional
-file is copied unchanged by the publisher and bound by `additions_sha256`.
-The page labels times **Committed**, displays the browser's local timezone,
-and labels unknown coverage **Partial history**. The initial baseline is
-excluded from addition pace totals. It shows up to 12 recent batches and 20
-names per batch, with the complete JSON linked. Counts are facility entries;
-they do not assert course-layout totals. Existing research-status batch history
-is separately labeled partial. The page never backfills or writes the log.
+History and progress derive from the same reviewed source. Batches retain original
+commit times, counts, corrections, redactions and historical identity snapshots.
+Linked historical entries carry facility IDs; unmatched historical rows explicitly
+retain null IDs and are labeled historical identity unlinked, without fuzzy joins.
+An unlinked old address/name can belong to a corrected current facility; it is
+not an assertion that the facility is absent. The initial
+baseline is excluded from pace totals; recent batches remain independent of
+geographic filters. Historical counts exclude the eight existing bounded ranking
+facilities imported during migration, as explained in the log metadata and
+[data foundation documentation](../../data/README.md).
 
-The agreed contract is `schema_version`, `updated_at`, `catalog_commit`,
-`active_regions` (`state`, `county_fips` or null, `stage`, `note`) and
-`recent_batches` (`published_at`, `commit`, `facilities_added`,
-`facilities_updated`, `added_facilities` with `name`, `state`, `address`). The
-page only displays valid US regions, the stages discovery/verification/review/
-queued, explicit nonnegative integer counts and times. It omits `note` and
-unknown extra fields. Missing counts stay unknown. Batch totals are explicitly
-all-region totals and are not altered by geographic filters.
-
-Addition identities are exact name/state/address tuples; no invented facility
-IDs, fuzzy matches or additions inferred from array order. An addition absent
-from the loaded catalog remains labeled absent. Catalog and status snapshots
-can refer to different revisions; the status catalog commit is linked
-separately without claiming that it matches the loaded catalog. Only valid
-40-character commit hashes receive change links. The page does not write,
-package a substitute sidecar or publish status data.
+Research focus remains a dated snapshot, not live worker activity. Stale or unknown
+times lose the focus outline. The source-history audit remains in progress. A
+successful build does not verify every facility or establish national completeness.
 
 ## Geography
 

@@ -23,6 +23,9 @@ class Course:
     facts_source: str
     routing_source: str
     routing_reference: str
+    destination_kind: str = "reviewed_osm_point"
+    address_purpose: str = "course"
+    facility_identifier: str = ""
 
 
 @dataclass(frozen=True)
@@ -43,7 +46,7 @@ def load_course_catalog(path):
     try:
         value = json.loads(raw)
         if (
-            value["schema_version"] != 1
+            value["schema_version"] != 3
             or not _slug(value["id"])
             or not _text(value["title"])
             or not _text(value["description"])
@@ -91,7 +94,12 @@ def _course(value, sources):
         raise ValueError
     latitude, longitude = map(float, coordinate)
     if (
-        not _slug(value["id"])
+        not fullmatch(r"c-[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}", value["id"])
+        or not fullmatch(
+            r"f-[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}", value["facility_id"]
+        )
+        or value["destination_kind"] not in {"reviewed_osm_point", "verified_entrance"}
+        or value["address_purpose"] not in {"course", "clubhouse", "arrival"}
         or not _text(value["name"])
         or not _text(value["address"])
         or not isfinite(latitude)
@@ -121,6 +129,9 @@ def _course(value, sources):
         value["facts_source"],
         value["routing_source"],
         value["routing_reference"],
+        value["destination_kind"],
+        value["address_purpose"],
+        value["facility_id"],
     )
 
 

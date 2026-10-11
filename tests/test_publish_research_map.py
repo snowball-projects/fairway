@@ -1,7 +1,8 @@
-"""Verify publication uses only public snapshots and existing static serving."""
+"""All public projections must come from the same reviewed source."""
 
 import importlib.util
 import json
+import sys
 from hashlib import sha256
 from pathlib import Path
 
@@ -10,25 +11,33 @@ import pytest
 from fairway import app
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+import catalog as foundation
+
 spec = importlib.util.spec_from_file_location(
-    "publish_research_map", ROOT / "scripts/publish_research_map.py"
+    "publisher", ROOT / "scripts/publish_research_map.py"
 )
 publisher = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(publisher)
 
 
-def test_publication_preserves_inputs_and_serves_under_existing_handler(
+def test_publication_generates_consistent_consumers_and_serves_existing_handler(
     tmp_path, monkeypatch
 ):
-    before = {
-        name: (ROOT / "data" / name).read_bytes()
-        for name in ("public-courses.json", "research-progress.json")
-    }
+    original = (ROOT / "data/catalog.json").read_bytes()
     result = publisher.publish(ROOT, tmp_path)
-    for name, data in before.items():
-        assert (ROOT / "data" / name).read_bytes() == data
-        assert (tmp_path / "data" / name).read_bytes() == data
-    assert result["catalog_sha256"] == sha256(before["public-courses.json"]).hexdigest()
+    assert (ROOT / "data/catalog.json").read_bytes() == original
+    expected = foundation.exports(foundation.read())
+    for name, value in expected.items():
+        path = (
+            ROOT / "src/fairway/data"
+            if name == "course-catalog.json"
+            else tmp_path / "data"
+        ) / name
+        assert json.loads(path.read_bytes()) == value
+    catalog_bytes = (tmp_path / "data/public-courses.json").read_bytes()
+    assert result["catalog_sha256"] == sha256(catalog_bytes).hexdigest()
+    assert len(catalog_bytes) < len(original) / 2
     assert not (tmp_path / "research-map/README.md").exists()
     monkeypatch.setattr(app, "STATIC", tmp_path)
     responses = []
@@ -44,60 +53,19 @@ def test_publication_preserves_inputs_and_serves_under_existing_handler(
     responses.clear()
     body = b"".join(
         app.application(
-            {"REQUEST_METHOD": "GET", "PATH_INFO": "/data/research-progress.json"},
+            {"REQUEST_METHOD": "GET", "PATH_INFO": "/data/catalog-metadata.json"},
             lambda status, headers: responses.append((status, dict(headers))),
         )
     )
     assert responses[0][0] == "200 OK"
-    assert json.loads(body)["schema_version"] == 1
+    assert json.loads(body)["metadata"]["source_licenses"]
 
 
-@pytest.mark.parametrize("status", [None, "not JSON", '{"schema_version":2}'])
-def test_optional_status_failure_does_not_block_catalog_publication(tmp_path, status):
+def test_invalid_canonical_source_fails_before_publication(tmp_path):
     root = tmp_path / "source"
     (root / "data").mkdir(parents=True)
-    (root / "data/public-courses.json").write_text(
-        '{"facilities":[],"county_checklist":[]}'
-    )
-    (root / "docs/research-map").mkdir(parents=True)
-    for name in publisher.ASSETS:
-        (root / "docs/research-map" / name).write_bytes(
-            (ROOT / "docs/research-map" / name).read_bytes()
-        )
-    if status is not None:
-        (root / "data/research-progress.json").write_text(status)
+    (root / "data/catalog.json").write_text('{"schema_version":2}')
     output = tmp_path / "output"
-    result = publisher.publish(root, output)
-    assert result["progress_sha256"] is None
-    assert (output / "data/public-courses.json").is_file()
-    assert not (output / "data/research-progress.json").exists()
-
-
-def test_optional_additions_log_is_published_unchanged_with_its_hash(tmp_path):
-    root = tmp_path / "source"
-    (root / "data").mkdir(parents=True)
-    (root / "docs/research-map").mkdir(parents=True)
-    (root / "data/public-courses.json").write_text(
-        '{"facilities":[],"county_checklist":[]}'
-    )
-    (root / "data/research-progress.json").write_text('{"schema_version":1}')
-    for name in publisher.ASSETS:
-        (root / "docs/research-map" / name).write_bytes(
-            (ROOT / "docs/research-map" / name).read_bytes()
-        )
-    log = {
-        "schema_version": 1,
-        "time_basis": "git_commit_time",
-        "count_unit": "provisional_facility_entry",
-        "history_complete_from": None,
-        "batches": [],
-    }
-    body = json.dumps(log).encode()
-    (root / "data/catalog-additions.json").write_bytes(body)
-    output = tmp_path / "output"
-    publisher.publish(root, output)
-    assert (output / "data/catalog-additions.json").read_bytes() == body
-    assert (root / "data/catalog-additions.json").read_bytes() == body
-    manifest = json.loads((output / "research-map/publication.json").read_bytes())
-    assert manifest["additions_sha256"] == sha256(body).hexdigest()
-    assert (output / "research-map/refresh.mjs").is_file()
+    with pytest.raises(ValueError, match="schema"):
+        publisher.publish(root, output)
+    assert not output.exists()

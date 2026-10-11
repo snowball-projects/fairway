@@ -81,7 +81,7 @@ Result provenance gives the earliest and latest returned departure times and
 the calculation time. The provider does not report a traffic-data update time,
 so fairway does not claim one. Drive estimates can change between rankings.
 
-The `chicago-public-courses-v1` catalog contains eight public courses reviewed
+The `chicago-public-courses-v2` catalog contains eight public courses reviewed
 as of August 30, 2026. It is incomplete, its facts and routing points can become
 stale, and missing fields are not inferred. [data/README.md](data/README.md) is
 the canonical coverage and provenance record.

@@ -8,6 +8,7 @@ import {
   regions,
   parseProgress,
   facilityIdentity,
+  historicalIdentityLabel,
   addedFacilities,
   parseAdditions,
 } from "./model.mjs";
@@ -157,14 +158,16 @@ function renderMap(preserveView = false) {
   $("points").replaceChildren();
   if ($("markers").checked)
     for (const record of filteredRecords.filter(located)) {
-      const c = record.coordinates;
+      const c = record.map_location;
       const [x, y] = project(c.longitude, c.latitude, record.state);
       const kind =
         c.kind === "verified_entrance"
           ? "Verified entrance"
           : c.kind === "address_range_estimate"
             ? "Address-range estimate, not an entrance"
-            : `Published coordinate (${c.kind || "kind unspecified"}), entrance unverified`;
+            : c.kind === "reviewed_osm_point"
+              ? "Reviewed OSM routing point · entrance unverified"
+              : `Published coordinate (${c.kind || "kind unspecified"}), entrance unverified`;
       const marker = svg("circle", {
         cx: x,
         cy: y,
@@ -239,10 +242,15 @@ function renderFacilities() {
     );
     item.append(
       element("h3", record.name),
-      element("p", record.address || "Address unknown"),
+      element(
+        "p",
+        record.address
+          ? `${record.address.text} · ${record.address.purpose.replaceAll("_", " ")}`
+          : "Address unknown",
+      ),
     );
     item.append(
-      element("span", `${record.holes ?? "?"} facility holes`, "pill"),
+      element("span", `${record.physical_holes ?? "?"} physical holes`, "pill"),
       element(
         "span",
         `${record.courses?.length || 0} documented layouts`,
@@ -253,14 +261,34 @@ function renderFacilities() {
       element(
         "p",
         located(record)
-          ? record.coordinates.kind === "address_range_estimate"
+          ? record.map_location.kind === "address_range_estimate"
             ? "Address-range estimate · entrance unverified"
-            : record.coordinates.kind === "verified_entrance"
+            : record.map_location.kind === "verified_entrance"
               ? "Verified entrance"
-              : "Published coordinate · entrance unverified"
+              : record.map_location.kind === "reviewed_osm_point"
+                ? "Reviewed OSM routing point · entrance unverified"
+                : "Published coordinate · entrance unverified"
           : "Unlocated · no marker",
       ),
     );
+    if (record.courses.length) {
+      item.append(
+        element(
+          "p",
+          record.courses
+            .map(
+              (course) =>
+                `${course.name ?? "Unnamed course"}: ${course.holes ?? "?"} holes · ${course.access} access${course.location_note ? ` · ${course.location_note}` : ""}`,
+            )
+            .join("; "),
+        ),
+      );
+    }
+    if (record.access_note) item.append(element("p", record.access_note));
+    const evidence = element("a", "Sources and qualifications");
+    evidence.href = "../../data/catalog-metadata.json";
+    evidence.dataset.focusKey = `evidence:${record.id}`;
+    item.append(evidence);
     const url = record.website;
     if (typeof url === "string" && /^https?:\/\//i.test(url)) {
       const link = element("a", "Official website");
@@ -369,7 +397,7 @@ function render(preserveView = false) {
   $("remaining").replaceChildren(
     list([
       ...Object.entries(totals.missing).map(([key, count]) => [
-        `Missing ${key}`,
+        `Missing ${key.replaceAll("_", " ")}`,
         count,
       ]),
       ["Unresolved course details", totals.unresolved],
@@ -475,7 +503,7 @@ function renderProgress() {
         details.append(
           element(
             "p",
-            `${addition.name}, ${addition.state} · ${matches.length > 1 ? "identity ambiguous in loaded catalog" : "absent from loaded catalog"}`,
+            `${addition.name}, ${addition.state} · ${historicalIdentityLabel(addition)}`,
           ),
         );
     }
@@ -552,7 +580,12 @@ function renderAdditions() {
         button.addEventListener("click", () => selectFacility(record));
         details.append(button);
       } else
-        details.append(element("p", `${facility.name}, ${facility.state}`));
+        details.append(
+          element(
+            "p",
+            `${facility.name}, ${facility.state} · ${historicalIdentityLabel(facility)}`,
+          ),
+        );
     }
     if (batch.facilities.length > 20)
       details.append(element("p", "More names in the full log."));
@@ -603,14 +636,11 @@ function applyCatalog(next) {
     selectedCounty = selectedCounty
       ? model.byId.get(selectedCounty.id) || null
       : null;
-    if (previousFacility) {
-      const matches = model.records.filter(
-        (r) =>
-          r.state === previousFacility.state &&
-          r.name === previousFacility.name,
-      );
-      if (matches.length === 1) selectedFacility = facilityIdentity(matches[0]);
-    }
+    if (
+      previousFacility &&
+      !model.records.some((r) => r.id === previousFacility.id)
+    )
+      selectedFacility = null;
     freshIdentities = new Set(added.map(facilityIdentity));
     lastAdded = added.length;
     clearTimeout(freshTimer);
