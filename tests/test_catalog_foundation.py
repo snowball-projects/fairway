@@ -69,15 +69,12 @@ def test_exports_preserve_ids_after_corrections_and_reordering(source):
 
 
 def test_estimates_keep_exact_precision_and_never_become_routing_points(source):
-    estimate = next(f for f in source["facilities"] if f["map_location"])
     public = foundation.exports(source)["public-courses.json"]
-    assert (
-        next(f for f in public["facilities"] if f["id"] == estimate["id"])[
-            "map_location"
-        ]
-        == estimate["map_location"]
-    )
-    assert sum(f["map_location"] is not None for f in public["facilities"]) == 1939
+    source_locations = {f["id"]: f["map_location"] for f in source["facilities"]}
+    assert len(public["facilities"]) == len(source_locations)
+    assert {
+        f["id"]: f["map_location"] for f in public["facilities"]
+    } == source_locations
     ranking_facilities = {
         c["facility_id"]
         for c in foundation.exports(source)["course-catalog.json"]["courses"]
