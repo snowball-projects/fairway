@@ -46,16 +46,19 @@ def test_mixed_access_and_partial_inventory_survive_export(source):
     winagamie = named(public, "Winagamie Golf Course")
     assert winagamie["physical_holes"] is None
     assert not winagamie["inventory_complete"]
-    assert all(
-        c["holes"] is None and c["access"] == "unknown" for c in winagamie["courses"]
-    )
+    assert [(c["name"], c["holes"], c["access"]) for c in winagamie["courses"]] == [
+        ("The Highlands", 9, "public"),
+        ("The Woodlands", 9, "public"),
+        ("Pines", 9, "public"),
+        ("TWIGS", None, "unknown"),
+    ]
     assert source["research"][winagamie["id"]]["reported_main_holes"] == 27
     riverwood = named(public, "Riverwood National Golf Course")
-    assert riverwood["physical_holes"] is None
-    assert [c["holes"] for c in riverwood["courses"]] == [None, 18]
+    assert riverwood["physical_holes"] == 36
+    assert [c["holes"] for c in riverwood["courses"]] == [18, 18]
     assert "Separate clubhouse" in riverwood["courses"][1]["location_note"]
     assert not any("arrival" in c for c in riverwood["courses"])
-    assert named(public, "Farmlinks Golf Club")["address"]["purpose"] == "mailing"
+    assert named(public, "Farmlinks Golf Club")["address"]["purpose"] == "course"
 
 
 def test_exports_preserve_ids_after_corrections_and_reordering(source):
@@ -272,3 +275,24 @@ def test_ranking_validation_rejects_null_arrival_source_before_export(source):
     arrival_support["source"] = None
     with pytest.raises(ValueError, match="arrival lacks a scoped source"):
         foundation.validate(value)
+
+
+def test_property_browse_points_never_become_routing_arrivals(source):
+    point = {"latitude": 42.1, "longitude": -79.3, "kind": "property_point"}
+    foundation.location(point)
+    with pytest.raises(ValueError, match="browse point is not an arrival"):
+        foundation.location({**point, "reference": "owner pin"}, arrival=True)
+    changed = copy.deepcopy(source)
+    f = changed["facilities"][0]
+    f.update(
+        public_access="public",
+        website_status="not_found",
+        website_checked_on="2026-10-12",
+    )
+    foundation.validate(changed)
+    exported = foundation.exports(changed)["public-courses.json"]["facilities"][0]
+    assert exported["public_access"] == "public"
+    assert exported["website_status"] == "not_found"
+    f["website_checked_on"] = None
+    with pytest.raises(ValueError, match="website check needs its date"):
+        foundation.validate(changed)

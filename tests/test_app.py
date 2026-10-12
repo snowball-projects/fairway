@@ -113,84 +113,21 @@ def ranked_courses(monkeypatch):
     )
 
 
-def test_serves_course_ranking_interface():
+def test_serves_catalog_interface_and_routing_assets():
     status, body = request()
+    body = b" ".join(body.split())
     assert status == "200 OK"
-    assert b"fairway" in body
-    assert b"Choose the course that works for the whole group" in body
+    assert b"Catalog progress" in body
+    assert b"Plan a round" in body
     assert b"Shortest longest drive" in body
     assert b"Lowest combined drive" in body
-    assert b'id="results"' in body
-    assert b'id="results-panel"' in body
-    assert b'class="results-panel" aria-labelledby="results-title" hidden' in body
-    assert b'id="map"' in body
-    assert b'id="map-key" class="map-key" hidden' in body
-    assert b'id="filter-toggle"' in body
-    assert b'aria-controls="filter-popover"' in body
-    assert b'aria-haspopup="dialog"' in body
-    assert b"Order by" in body
-    assert b"Holes" in body
-    assert b"Service policy" in body
+    assert b"Nationwide routing is not available yet" in body
+    assert b"Typed origin addresses go to Photon" in body
     assert b'<script src="/leaflet.js" defer></script>' in body
     assert b"https://unpkg.com" not in body
-    assert b"Address suggestions use Photon" not in body
-    assert b'class="eyebrow"' not in body
-    assert b"Results will appear here" not in body
-    assert b"meeting region" not in body.lower()
-    assert b"tee-time availability" in body
-    controls = body.split(b'<aside class="controls"', 1)[1].split(b"</aside>", 1)[0]
-    assert b'name="objective"' not in controls
-    assert b'name="holes"' not in controls
-
-    status, body = request("/app.js")
-    assert status == "200 OK"
-    assert b'fetch("/api/config")' in body
-    assert b'fetch("/api/rankings"' in body
-    assert b"courseMarkers" in body
-    assert b"drawCourseMarkers" in body
-    assert b"drawCatalog" not in body
-    assert b"setResultsVisible(true)" in body
-    assert b"preserveResults: true" in body
-    assert b'event.key !== "Tab"' in body
-    assert b'querySelectorAll("input:checked")' in body
-    assert b'view.results.querySelector(".course-focus")' in body
-    assert b"COLORS" in body
-    assert b"Updating golfer origins..." in body
-    assert b"Nearest-road adjustment:" in body
-    assert b"rankingBasis(result.provenance)" in body
-    assert b'"traffic-unaware": "without traffic"' in body
-    assert b'live: "with live traffic"' in body
-    assert b"current static road snapshot" not in body
-    assert b"looksLikeCoordinateInput(query)" in body
-    assert b'element.setAttribute("aria-label", label)' in body
-    assert b'element.setAttribute("title", label)' in body
-    assert b"`${course.name}, rank ${rank}`" in body
-    assert b"`Golfer ${state.rows.indexOf(row) + 1}`" in body
-    assert b'row.input.setAttribute("role", "combobox")' in body
-    assert b'row.suggestions.setAttribute("role", "listbox")' in body
-    assert b'row.input.setAttribute("aria-activedescendant"' in body
-    assert b'event.key === "ArrowDown"' in body
-    assert b'event.key === "ArrowUp"' in body
-    assert b'event.key === "Enter"' in body
-    assert b'event.key === "Escape"' in body
-    assert b"setTimeout(() => row.suggestions.replaceChildren(), 180)" not in body
-
-    status, body = request("/styles.css")
-    assert status == "200 OK"
-    assert b"grid-template-columns" in body
-    assert b".app-shell.has-results" in body
-    assert b"[hidden]" in body
-    assert b".filter-popover" in body
-    assert b".filter-icon span:nth-child(3)" in body
-    assert b'.status[data-error="true"]' in body
-    assert b".course-card" in body
-    assert b".origin-pin" in body
-    assert b"@media (max-width: 960px)" in body
-    assert b"min-height: 40rem" not in body
-
-    status, body = request("/leaflet.js")
-    assert status == "200 OK"
-    assert b"Leaflet 1.9.4" in body[:200]
+    for path in ["/app.js", "/catalog.mjs", "/styles.css"]:
+        status, _body = request(path)
+        assert status == "200 OK"
 
 
 def test_sets_security_and_cache_headers_on_every_response_kind():

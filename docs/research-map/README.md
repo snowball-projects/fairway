@@ -113,3 +113,27 @@ for catalog fields and validates outbound website URL protocols.
 No runtime dependencies, external fonts, tiles, analytics or new backend.
 The existing full catalog dominates payload size; compression is useful if a
 separate static host is approved later. Nothing here enables deployment.
+
+## Main catalog interface
+
+The main Leaflet map now loads the same catalog before ranking. Local facility,
+city and state search, optional estimates/counties, retractable desktop drawers
+and mobile sheets share facility selection. State search fits retained Census
+geometry inverted from this page's display projection; facility search fits
+actual points, never invented property polygons. City search uses only catalog
+addresses with an explicit city/state/ZIP pattern and fits those catalog points.
+It makes no remote place-search requests or claims to be a complete city gazetteer.
+
+The permanent Catalog progress modal shows derived On map / Not yet on map
+counts under the contract in `data/README.md`, plus one commit-deduplicated activity
+log in America/Chicago AM/PM time. Existing record completion and county discovery
+remain separate. The old standalone page is retained as a secondary research
+view; its legacy four/five metrics do not determine main-map eligibility.
+
+No automatic geolocation, persistence, new tiles or new paid requests are added.
+The current ranking API remains limited to its reviewed Chicago courses and road
+coverage. Origins elsewhere may be entered, but the UI explains unsupported
+routing before requesting a matrix. Routing is requested only by Rank courses; catalog browsing makes no routing API
+request and survives failed/cancelled comparisons. A lower-48 modo road-time
+estimator and bounded nearby-facility shortlist remain separate backend/data
+requirements. No meeting-point feature is exposed.

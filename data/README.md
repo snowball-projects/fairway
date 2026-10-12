@@ -259,3 +259,32 @@ or address may correspond to a corrected current facility. Recent-log display
 limits remain 12 batches and 20 names per batch; the complete generated JSON
 retains every row. The separate eight existing-app imports explain why current
 catalog totals are 6,181 without changing or inventing a historical batch.
+
+## Catalog browsing contract
+
+The main map may use `map_location.kind: property_point` for a source-matched
+point on the named golf property. Its identity/property-match qualification,
+source URL and observed date stay in existing `research.support`; dated
+`map_location` source support is required. An owner pin, official municipal map
+or directly matched golf-property point may support browsing without surveying
+an entrance. Geocoder estimates, viewport centers, nearby results and postcode
+centroids alone do not. A property point cannot be a course `arrival`.
+
+Optional facility `public_access` uses `public`, `private`, `restricted` or
+`unknown`. `public` means at least one ordinarily public course; the facility's
+physical-hole total can still include private components. Existing explicitly
+public nested courses also establish public play when this facility field is
+absent. No course rows are invented to make a public 27-hole facility browsable.
+
+Main-map eligibility requires facility identity/name, known public play, a
+positive physical-hole total and valid property/reviewed/entrance coordinates.
+Website presence is optional. Census `address_range_estimate` points remain
+unconfirmed estimates in a separate optional layer. Browsing eligibility never
+establishes routing eligibility or national discovery completeness.
+
+Optional `website_status` is `not_checked`, `found` or `not_found`.
+`website_checked_on` is a nullable ISO date. `found` requires a retained website
+URL and dated check; `not_found` requires a dated check but means only that the
+check did not find a website. `not_checked` has no check date. This status is
+independent of map eligibility. Existing records with no recorded check remain
+unchecked even when a website URL is populated.

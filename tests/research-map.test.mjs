@@ -199,3 +199,34 @@ test("unlinked historical identities are not mistaken for absent facilities", ()
     "absent from loaded catalog",
   );
 });
+
+test("activity deduplicates commits, retains corrections, and renders Chicago AM/PM across DST", async () => {
+  const { activityBatches, chicagoTime } = await import(
+    "../docs/research-map/model.mjs"
+  );
+  const commit = "a".repeat(40);
+  const batches = activityBatches(
+    {
+      batches: [
+        {
+          commit,
+          committedAt: "2026-10-12T18:26:17Z",
+          added: 0,
+          updated: 20,
+          correction: "Address corrected",
+        },
+      ],
+    },
+    {
+      recentBatches: [
+        { commit, publishedAt: "2026-10-12T18:26:17Z", updated: 20 },
+      ],
+    },
+  );
+  assert.equal(batches.length, 1);
+  assert.equal(batches[0].correction, "Address corrected");
+  assert.match(chicagoTime("2026-07-01T18:00:00Z"), /1:00 PM CDT/);
+  assert.match(chicagoTime("2026-12-01T18:00:00Z"), /12:00 PM CST/);
+  assert.match(chicagoTime("2026-11-01T06:30:00Z"), /1:30 AM CDT/);
+  assert.match(chicagoTime("2026-11-01T07:30:00Z"), /1:30 AM CST/);
+});

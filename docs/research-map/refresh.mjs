@@ -9,6 +9,8 @@ export function watchSnapshots({
   interval = 60000,
   setTimer = setTimeout,
   clearTimer = clearTimeout,
+  publicationPath = "./publication.json",
+  dataPath = "../../data/",
 }) {
   let timer,
     active = null,
@@ -45,14 +47,14 @@ export function watchSnapshots({
     if (stopped || active || visibility.hidden) return;
     active = new AbortController();
     try {
-      const publication = await read("./publication.json");
+      const publication = await read(publicationPath);
       if (visibility.hidden || stopped) return;
       if (!/^[a-f0-9]{64}$/.test(publication?.catalog_sha256))
         throw new Error("Invalid publication");
       let changed = false;
       if (publication.catalog_sha256 !== catalogHash) {
         const catalog = await read(
-          "../../data/public-courses.json",
+          `${dataPath}public-courses.json`,
           publication.catalog_sha256,
         );
         if (visibility.hidden || stopped) return;
@@ -66,7 +68,7 @@ export function watchSnapshots({
       ) {
         try {
           const additions = await read(
-            "../../data/catalog-additions.json",
+            `${dataPath}catalog-additions.json`,
             publication.additions_sha256,
           );
           if (visibility.hidden || stopped) return;
@@ -83,7 +85,7 @@ export function watchSnapshots({
       ) {
         try {
           const progress = await read(
-            "../../data/research-progress.json",
+            `${dataPath}research-progress.json`,
             publication.progress_sha256,
           );
           if (visibility.hidden || stopped) return;

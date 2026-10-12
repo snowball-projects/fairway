@@ -72,7 +72,12 @@ STATES = {
     "WI",
     "WY",
 }
-KINDS = {"address_range_estimate", "reviewed_osm_point", "verified_entrance"}
+KINDS = {
+    "address_range_estimate",
+    "property_point",
+    "reviewed_osm_point",
+    "verified_entrance",
+}
 PURPOSES = {
     "published_unspecified",
     "mailing",
@@ -123,7 +128,10 @@ def location(value, arrival=False):
         )
     require(value.get("kind") in KINDS, "unknown location precision")
     if arrival:
-        require(value["kind"] != "address_range_estimate", "estimate is not an arrival")
+        require(
+            value["kind"] in {"reviewed_osm_point", "verified_entrance"},
+            "browse point is not an arrival",
+        )
         require(text(value.get("reference")), "arrival needs a retained reference")
 
 
@@ -215,6 +223,31 @@ def validate(value):
             facility.get("website") is None or url(facility["website"]),
             "invalid website",
         )
+        require(
+            facility.get("public_access", "unknown")
+            in {"public", "private", "restricted", "unknown"},
+            "invalid facility public access",
+        )
+        website_status = facility.get("website_status", "not_checked")
+        checked_on = facility.get("website_checked_on")
+        require(
+            website_status in {"not_checked", "found", "not_found"},
+            "invalid website status",
+        )
+        require(
+            (website_status == "not_checked" and checked_on is None)
+            or (website_status != "not_checked" and isinstance(checked_on, str)),
+            "website check needs its date",
+        )
+        if checked_on is not None:
+            require(
+                date.fromisoformat(checked_on).isoformat() == checked_on,
+                "invalid website check date",
+            )
+        require(
+            website_status != "found" or facility.get("website") is not None,
+            "found website needs its URL",
+        )
         holes = facility.get("physical_holes")
         require(
             holes is None or type(holes) is int and holes > 0, "invalid physical holes"
@@ -289,6 +322,16 @@ def validate(value):
         for refs in evidence["notes"].values():
             note_refs(refs)
         facility = by_facility[fid]
+        if (facility.get("map_location") or {}).get("kind") == "property_point":
+            require(
+                any(
+                    "map_location" in support.get("fields", [])
+                    and support.get("source") is not None
+                    and support.get("observed_on") is not None
+                    for support in evidence.get("support", [])
+                ),
+                "property point needs dated source support",
+            )
         fields = set(facility) | {"grouping", "notes.source", "notes.access"}
         fields |= {
             f"courses.{c['id']}.{field}"
