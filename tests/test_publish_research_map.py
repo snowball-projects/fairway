@@ -48,7 +48,7 @@ def test_publication_generates_consistent_consumers_and_serves_existing_handler(
         )
     )
     assert responses[0][0] == "200 OK"
-    assert b'href="/favicon.png"' in body
+    assert b'href="../favicon.png"' in body
     assert "connect-src 'self'" in responses[0][1]["Content-Security-Policy"]
     responses.clear()
     body = b"".join(

@@ -38,6 +38,7 @@ def request(
     content_length="auto",
     content_type="auto",
     include_headers=False,
+    request_headers=None,
 ):
     body = (
         raw_body
@@ -67,6 +68,7 @@ def request(
         environ["CONTENT_TYPE"] = "application/json"
     elif content_type is not None and content_type != "auto":
         environ["CONTENT_TYPE"] = content_type
+    environ.update(request_headers or {})
     result = b"".join(app.application(environ, start_response))
     return (status, result, headers) if include_headers else (status, result)
 
@@ -114,7 +116,10 @@ def ranked_courses(monkeypatch):
 
 
 def test_serves_catalog_interface_and_routing_assets():
-    status, body = request()
+    status, _body, headers = request(include_headers=True)
+    assert status == "302 Found"
+    assert headers["Location"] == "https://snowball-projects.github.io/fairway/"
+    status, body = request("/index.html")
     body = b" ".join(body.split())
     assert status == "200 OK"
     assert b"Catalog progress" in body
@@ -123,7 +128,7 @@ def test_serves_catalog_interface_and_routing_assets():
     assert b"Lowest combined drive" in body
     assert b"Nationwide routing is not available yet" in body
     assert b"Typed origin addresses go to Photon" in body
-    assert b'<script src="/leaflet.js" defer></script>' in body
+    assert b'<script src="./leaflet.js" defer></script>' in body
     assert b"https://unpkg.com" not in body
     for path in ["/app.js", "/catalog.mjs", "/styles.css"]:
         status, _body = request(path)
@@ -131,7 +136,7 @@ def test_serves_catalog_interface_and_routing_assets():
 
 
 def test_sets_security_and_cache_headers_on_every_response_kind():
-    status, _body, headers = request(include_headers=True)
+    status, _body, headers = request("/index.html", include_headers=True)
     assert status == "200 OK"
     assert headers["Cache-Control"] == "no-cache"
     assert headers["Content-Type"] == "text/html; charset=utf-8"
@@ -170,9 +175,9 @@ def test_known_routes_enforce_methods_and_support_head(monkeypatch):
     monkeypatch.setattr(app, "_graph_sha256", app.SNAPSHOT_METADATA.sha256)
 
     status, body, headers = request("/", "HEAD", include_headers=True)
-    assert status == "200 OK"
+    assert status == "302 Found"
     assert body == b""
-    assert int(headers["Content-Length"]) > 0
+    assert headers["Location"] == app.BROWSING_URL
 
     status, body, headers = request("/api/rankings", "HEAD", include_headers=True)
     assert status == "405 Method Not Allowed"
@@ -822,3 +827,76 @@ def test_logs_unexpected_server_errors(monkeypatch, caplog):
 
 def test_unknown_route_is_not_found():
     assert request("/missing")[0] == "404 Not Found"
+
+
+def test_pages_preflight_and_errors_are_origin_restricted(monkeypatch):
+    def must_not_calculate():
+        raise AssertionError("preflight/rejected origins must not call a provider")
+
+    monkeypatch.setattr(app, "_matrix_provider", must_not_calculate)
+    allowed = {
+        "HTTP_ORIGIN": app.BROWSING_ORIGIN,
+        "HTTP_ACCESS_CONTROL_REQUEST_METHOD": "POST",
+        "HTTP_ACCESS_CONTROL_REQUEST_HEADERS": "content-type",
+    }
+    status, body, headers = request(
+        "/api/rankings", "OPTIONS", request_headers=allowed, include_headers=True
+    )
+    assert status == "204 No Content"
+    assert body == b""
+    assert headers["Access-Control-Allow-Origin"] == app.BROWSING_ORIGIN
+    assert headers["Access-Control-Allow-Methods"] == "POST"
+    assert headers["Access-Control-Allow-Headers"] == "Content-Type"
+    assert "Access-Control-Allow-Credentials" not in headers
+    for origin in [
+        "null",
+        "https://evil.example",
+        app.BROWSING_ORIGIN + ".evil.example",
+    ]:
+        status, _body, headers = request(
+            "/api/rankings",
+            "POST",
+            payload={"origins": []},
+            request_headers={"HTTP_ORIGIN": origin},
+            include_headers=True,
+        )
+        assert status == "403 Forbidden"
+        assert "Access-Control-Allow-Origin" not in headers
+    status, _body, headers = request(
+        "/api/rankings",
+        "POST",
+        payload={"origins": []},
+        request_headers={"HTTP_ORIGIN": app.BROWSING_ORIGIN},
+        include_headers=True,
+    )
+    assert status == "400 Bad Request"
+    assert headers["Access-Control-Allow-Origin"] == app.BROWSING_ORIGIN
+    status, _body, headers = request(
+        "/api/config",
+        request_headers={"HTTP_ORIGIN": app.BROWSING_ORIGIN},
+        include_headers=True,
+    )
+    assert status == "200 OK"
+    assert headers["Vary"] == "Origin"
+    assert headers["Access-Control-Allow-Origin"] == app.BROWSING_ORIGIN
+    assert app._ranking_tokens.tokens == 12
+
+
+@pytest.mark.parametrize(
+    "method,headers",
+    [
+        ("DELETE", "content-type"),
+        ("POST", "content-type, authorization"),
+    ],
+)
+def test_pages_preflight_rejects_unneeded_permissions(method, headers):
+    status, _body = request(
+        "/api/rankings",
+        "OPTIONS",
+        request_headers={
+            "HTTP_ORIGIN": app.BROWSING_ORIGIN,
+            "HTTP_ACCESS_CONTROL_REQUEST_METHOD": method,
+            "HTTP_ACCESS_CONTROL_REQUEST_HEADERS": headers,
+        },
+    )
+    assert status == "403 Forbidden"

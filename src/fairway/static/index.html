@@ -7,14 +7,16 @@
       name="description"
       content="Explore golf facilities and plan a round with your group."
     />
+    <meta name="fairway-calculation-origin" content="" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="theme-color" content="#f4f2e9" />
     <title>fairway</title>
-    <link rel="icon" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/icon.png" />
-    <link rel="stylesheet" href="/leaflet.css" />
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/leaflet.js" defer></script>
-    <script type="module" src="/app.js"></script>
+    <link rel="icon" href="./favicon.png" />
+    <link rel="apple-touch-icon" href="./icon.png" />
+    <link rel="stylesheet" href="./leaflet.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./leaflet.js" defer></script>
+    <script type="module" src="./app.js"></script>
   </head>
   <body>
     <main class="app-shell">
@@ -26,8 +28,8 @@
         ></div>
       </section>
       <header class="map-header">
-        <a class="brand" href="/" aria-label="fairway home"
-          ><img src="/icon.png" width="32" height="32" alt="" />fairway</a
+        <a class="brand" href="./" aria-label="fairway home"
+          ><img src="./icon.png" width="32" height="32" alt="" />fairway</a
         >
         <form id="catalog-search" class="search-pill" role="search">
           <label class="visually-hidden" for="place-query"
@@ -242,7 +244,7 @@
             href="https://www.tomtom.com/en-gb/legal/product-attributions/"
             hidden
             >Routing © TomTom</a
-          ><a href="/data/catalog-metadata.json">Sources and qualifications</a>
+          ><a href="./data/catalog-metadata.json">Sources and qualifications</a>
         </footer>
       </aside>
       <dialog id="catalog-progress" aria-labelledby="progress-heading">
@@ -265,15 +267,15 @@
         <h3>Activity <small>Central time</small></h3>
         <div id="activity-log"></div>
         <p>
-          <a href="/data/catalog-additions.json">Full history</a> ·
-          <a href="/data/public-courses.json">Catalog</a>
+          <a href="./data/catalog-additions.json">Full history</a> ·
+          <a href="./data/public-courses.json">Catalog</a>
         </p>
       </dialog>
     </main>
     <noscript
       ><p>
         JavaScript is required for the map.
-        <a href="/data/public-courses.json">Read the catalog</a>.
+        <a href="./data/public-courses.json">Read the catalog</a>.
       </p></noscript
     >
   </body>

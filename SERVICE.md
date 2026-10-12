@@ -1,6 +1,7 @@
 # Hosted service
 
-This policy applies to snowball's official fairway deployment at
+This policy applies to snowball's official browsing interface at
+<https://snowball-projects.github.io/fairway/> and calculation API at
 <https://fairway-n29h.onrender.com>. Operators of independent deployments set
 their own service policies.
 
@@ -27,6 +28,14 @@ their own service policies.
   bookings or receive booking information.
 
 ## Browser services
+
+- GitHub Pages hosts public browser assets and catalog snapshots. GitHub records
+  visitor IP addresses for security, as described in its Pages documentation.
+  Catalog browsing makes no request to the Render calculation service. Only
+  submitting Rank courses sends confirmed origins there; provider keys remain
+  server-side, and cross-origin requests omit credentials.
+  See [GitHub Pages data collection](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection).
+
 
 - Main-map catalog search runs locally against the published facility records and
   retained state geometry. It does not request the user's location or save origins,

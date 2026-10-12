@@ -11,3 +11,4 @@ src/fairway/static/research-map/
 src/fairway/static/data/
 data/*.npz
 .tools/
+_site/

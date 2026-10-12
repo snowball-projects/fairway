@@ -76,7 +76,7 @@ jobs:
       - run: node --check docs/research-map/app.mjs
       - run: node --check docs/research-map/model.mjs
       - run: node --check docs/research-map/refresh.mjs
-      - run: node --test tests/research-map.test.mjs tests/research-refresh.test.mjs
+      - run: node --test tests/research-map.test.mjs tests/research-refresh.test.mjs tests/catalog-ui.test.mjs
       - run: uv run --locked python -m pytest
       - run: uv build
       - name: Smoke-test installed wheel command
@@ -92,7 +92,7 @@ jobs:
           bash scripts/build.sh
           uv sync --extra test --locked
           env -u PYTHONPATH uv run --locked python -m pytest
-          node --test tests/research-map.test.mjs tests/research-refresh.test.mjs
+          node --test tests/research-map.test.mjs tests/research-refresh.test.mjs tests/catalog-ui.test.mjs
       - run: uv run --locked python scripts/validate_snapshot.py
       - run: uv run --locked python scripts/build_course_index.py /tmp/fairway-courses.npz
       - run: uv run --locked python scripts/validate_snapshot.py --course-index /tmp/fairway-courses.npz
@@ -110,3 +110,34 @@ jobs:
           node-version: "24"
       - run: npm test
         working-directory: experiments/catalog-expansion
+
+  pages:
+    needs: [catalog, verify]
+    if: >-
+      always() && github.event_name == 'push' && github.ref == 'refs/heads/main' &&
+      needs.catalog.result == 'success' &&
+      (needs.verify.result == 'success' || needs.verify.result == 'skipped')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+      - name: Build current catalog browsing
+        run: python scripts/build_pages.py --output _site --commit "$GITHUB_SHA"
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

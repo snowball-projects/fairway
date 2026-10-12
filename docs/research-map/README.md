@@ -137,3 +137,18 @@ routing before requesting a matrix. Routing is requested only by Rank courses; c
 request and survives failed/cancelled comparisons. A lower-48 modo road-time
 estimator and bounded nearby-facility shortlist remain separate backend/data
 requirements. No meeting-point feature is exposed.
+
+## Static browsing publication
+
+The main browsing URL is `https://snowball-projects.github.io/fairway/`.
+`python scripts/build_pages.py --output /tmp/fairway-pages --commit <git-sha>`
+produces only public browser assets and fresh catalog snapshots, without installing
+routing dependencies, fetching roads, changing canonical facts or writing the
+ranking export. Main pushes publish through the existing CI workflow's Pages
+job after applicable checks. This includes catalog-only updates.
+
+All browsing assets/data resolve within the project path. The generated main
+page contains only the public Render calculation origin, never a provider key.
+Only Rank courses requests configuration/calculation there; browsing works when
+the calculation service is unavailable. `deployment.json` records the published
+commit and catalog digest. Render redirects its root browsing URL to Pages.

@@ -18,7 +18,7 @@ ASSETS = (
 )
 
 
-def publish(root, output):
+def publish(root, output, *, write_ranking=True):
     value = foundation.read(root / "data/catalog.json")
     generated = foundation.exports(value)
     payloads = {
@@ -27,7 +27,7 @@ def publish(root, output):
     }
     payloads[Path("research-map/index.html")] = payloads[
         Path("research-map/index.html")
-    ].replace(b"../../src/fairway/static/favicon.png", b"/favicon.png")
+    ].replace(b"../../src/fairway/static/favicon.png", b"../favicon.png")
     for name, data in generated.items():
         if name != "course-catalog.json":
             payloads[Path("data") / name] = foundation.encoded(data)
@@ -44,10 +44,11 @@ def publish(root, output):
     # Validate everything before writing; release preparation happens before serving.
     for relative, body in payloads.items():
         foundation.atomic_write(output / relative, body)
-    foundation.atomic_write(
-        root / "src/fairway/data/course-catalog.json",
-        foundation.encoded(generated["course-catalog.json"]),
-    )
+    if write_ranking:
+        foundation.atomic_write(
+            root / "src/fairway/data/course-catalog.json",
+            foundation.encoded(generated["course-catalog.json"]),
+        )
     return {"facilities": len(value["facilities"]), **manifest}
 
 
