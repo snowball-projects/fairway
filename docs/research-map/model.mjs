@@ -110,6 +110,11 @@ export function parseAdditions(value) {
       added: batch.facilities_added,
       redacted,
       removed,
+      updated: count(batch.facilities_updated),
+      correction:
+        typeof batch.correction_note === "string"
+          ? batch.correction_note
+          : null,
       facilities: batch.added_facilities.map((r) => ({
         id: r.id ?? null,
         name: r.name,
@@ -317,4 +322,42 @@ export function project(longitude, latitude, state) {
     510 + 1100 * rho * Math.sin(theta),
     270 + 1100 * (rho * Math.cos(theta) - rho0),
   ];
+}
+
+export function chicagoTime(value) {
+  if (!value || !Number.isFinite(Date.parse(value))) return "Time unknown";
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Chicago",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+    timeZoneName: "short",
+  }).format(new Date(value));
+}
+// Merge existing history/status by commit. Commit time retains its original meaning.
+export function activityBatches(additions, progress) {
+  const batches = new Map(
+    (additions?.batches || []).map((b) => [b.commit, { ...b }]),
+  );
+  for (const b of progress?.recentBatches || []) {
+    const prior = batches.get(b.commit);
+    if (prior) {
+      if (prior.updated == null) prior.updated = b.updated;
+    } else if (b.commit)
+      batches.set(b.commit, {
+        ...b,
+        committedAt: b.publishedAt,
+        reported: true,
+        baseline: false,
+        removed: 0,
+        redacted: 0,
+      });
+  }
+  return [...batches.values()].sort(
+    (a, b) =>
+      (Date.parse(b.committedAt) || 0) - (Date.parse(a.committedAt) || 0),
+  );
 }

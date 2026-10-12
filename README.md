@@ -141,9 +141,11 @@ fairway. No database or hosted modo service is required.
 
 ## Research
 
+The main interface browses the dated US facility catalog before ranking, with
+local facility/city/state search and Catalog progress. Its optional estimate
+layer distinguishes unconfirmed coordinates from eligible property points.
 The [public research coverage map](https://fairway-n29h.onrender.com/research-map/index.html)
-shows dated US facility records, county searches, completeness and research
-focus. It is separate from the bounded eight-course ranking catalog. Public
+retains secondary county research detail. It is separate from the bounded eight-course ranking catalog. Public
 catalog and progress snapshots refresh with deployments; searched counties are
 not necessarily complete. See [review-map documentation](docs/research-map/README.md)
 for the local preview, counts and publication method.

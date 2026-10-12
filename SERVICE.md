@@ -28,6 +28,14 @@ their own service policies.
 
 ## Browser services
 
+- Main-map catalog search runs locally against the published facility records and
+  retained state geometry. It does not request the user's location or save origins,
+  searches or map state. The map loads OpenStreetMap tiles as described below.
+  Facility property points and unconfirmed estimate points do not expand the
+  reviewed ranking catalog. Catalog progress/activity use the existing publication
+  snapshots and manifest; the current ranking API remains geographically bounded.
+
+
 - The read-only research coverage page uses public catalog/status snapshots
   served by fairway, plus locally served Census boundaries. It makes no map-tile
   requests and collects no personal data. Region focus is dated snapshot status,

@@ -2,129 +2,268 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
-      content="Compare public golf courses by every golfer's road travel time."
+      content="Explore golf facilities and plan a round with your group."
     />
     <meta name="theme-color" content="#f4f2e9" />
     <title>fairway</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png" />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/icon.png" />
     <link rel="stylesheet" href="/leaflet.css" />
     <link rel="stylesheet" href="/styles.css" />
     <script src="/leaflet.js" defer></script>
-    <script src="/app.js" defer></script>
+    <script type="module" src="/app.js"></script>
   </head>
   <body>
     <main class="app-shell">
-      <aside class="controls" aria-label="Plan a round">
-        <header class="masthead">
-          <div class="brand-row">
-            <a class="brand" href="https://snowball-projects.github.io">
-              <img src="/icon.png" width="36" height="36" alt="" />
-              fairway
-            </a>
-            <a class="quiet-button explore-link" href="/research-map/index.html">Explore</a>
-          </div>
-          <p>Choose the course that works for the whole group.</p>
-        </header>
-
+      <section class="map-stage" aria-label="Golf facility map">
+        <div
+          id="map"
+          role="region"
+          aria-label="Interactive golf facility map"
+        ></div>
+      </section>
+      <header class="map-header">
+        <a class="brand" href="/" aria-label="fairway home"
+          ><img src="/icon.png" width="32" height="32" alt="" />fairway</a
+        >
+        <form id="catalog-search" class="search-pill" role="search">
+          <label class="visually-hidden" for="place-query"
+            >Find a facility, city or state</label
+          >
+          <input
+            id="place-query"
+            placeholder="Facility, city or state"
+            autocomplete="off"
+            role="combobox"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-controls="place-suggestions"
+          />
+          <button type="submit" aria-label="Search catalog">⌕</button>
+          <ul
+            id="place-suggestions"
+            role="listbox"
+            aria-label="Catalog search matches"
+          ></ul>
+        </form>
+        <button
+          id="courses-toggle"
+          class="pill"
+          aria-controls="results-panel"
+          aria-expanded="false"
+        >
+          Courses
+        </button>
+      </header>
+      <div class="map-actions">
+        <button
+          id="plan-toggle"
+          class="pill"
+          aria-controls="plan-panel"
+          aria-expanded="false"
+        >
+          Plan a round</button
+        ><button id="progress-toggle" class="pill">Catalog progress</button>
+      </div>
+      <div class="map-secondary">
+        <button id="us-view" class="pill" aria-label="Show United States">
+          US</button
+        ><label class="pill"
+          ><input id="show-estimates" type="checkbox" />Estimates</label
+        ><label class="pill"
+          ><input id="show-counties" type="checkbox" />Counties</label
+        >
+      </div>
+      <p id="catalog-status" class="catalog-status" role="status">
+        Loading catalog…
+      </p>
+      <button id="search-area" class="pill search-area" hidden>
+        Search this area
+      </button>
+      <aside class="controls" id="plan-panel" aria-label="Plan a round" hidden>
+        <div class="drawer-heading">
+          <h1>Plan a round</h1>
+          <button
+            class="close-drawer"
+            id="close-plan"
+            aria-label="Close planning controls"
+          >
+            ×
+          </button>
+        </div>
         <section class="control-section" aria-labelledby="origins-title">
           <div class="section-heading">
-            <h1 id="origins-title">Where is everyone?</h1>
-            <button id="add-origin" class="quiet-button" type="button">Add golfer</button>
+            <h2 id="origins-title">Where is everyone?</h2>
+            <button id="add-origin" class="quiet-button" type="button">
+              Add golfer
+            </button>
           </div>
           <div id="origins" class="origin-list"></div>
         </section>
-
-        <p id="status" class="status" role="status">Add at least two golfer origins.</p>
-
+        <fieldset class="filter-group">
+          <legend>Group drive</legend>
+          <div class="filter-options">
+            <label
+              ><input
+                type="radio"
+                name="objective"
+                value="maximum"
+                checked
+              /><span>Shortest longest drive</span></label
+            ><label
+              ><input type="radio" name="objective" value="combined" /><span
+                >Lowest combined drive</span
+              ></label
+            >
+          </div>
+        </fieldset>
+        <fieldset class="filter-group">
+          <legend>Routing course holes</legend>
+          <div class="hole-options">
+            <label
+              ><input type="radio" name="holes" value="all" checked /><span
+                >All</span
+              ></label
+            ><label
+              ><input type="radio" name="holes" value="9" /><span
+                >9</span
+              ></label
+            ><label
+              ><input type="radio" name="holes" value="18" /><span
+                >18</span
+              ></label
+            >
+          </div>
+        </fieldset>
+        <p id="status" class="status" role="status">
+          Add at least two golfer origins.
+        </p>
+        <p class="routing-limit">
+          Drive ranking currently covers eight Chicago courses. Nationwide
+          routing is not available yet.
+        </p>
+        <p class="privacy-note">
+          Typed origin addresses go to Photon for suggestions. Confirmed
+          coordinates go to fairway when calculating.
+        </p>
         <details class="method-note">
           <summary>How this works</summary>
+          <p id="routing-description">Loading travel-time provider…</p>
+          <p>Prices, ratings and tee-time availability are not included.</p>
           <p>
-            fairway ranks a fixed public-course catalog by modeled drive times.
-            Prices, ratings, and live tee-time availability are not included.
-          </p>
-          <p id="routing-description">Loading travel-time provider...</p>
-          <p>
-            <a href="https://github.com/snowball-projects/fairway/blob/main/SERVICE.md"
+            <a
+              href="https://github.com/snowball-projects/fairway/blob/main/SERVICE.md"
               >Service policy</a
             >
-            <span aria-hidden="true">·</span>
-            <a href="https://github.com/snowball-projects/fairway">Source</a>
-            <span aria-hidden="true">·</span>
-            <a href="https://snowball-projects.github.io/operations/#fairway">Operations</a>
+            · <a href="https://github.com/snowball-projects/fairway">Source</a>
           </p>
         </details>
       </aside>
-
-      <section class="map-stage" aria-label="Golf course map">
-        <div id="map" role="region" aria-label="Interactive course map"></div>
-        <p id="map-key" class="map-key" hidden><span></span>Ranked course</p>
-      </section>
-
-      <aside id="results-panel" class="results-panel" aria-labelledby="results-title" hidden>
+      <aside
+        id="results-panel"
+        class="results-panel"
+        aria-labelledby="results-title"
+        hidden
+      >
         <header class="results-heading">
-          <h2 id="results-title">Course ranking</h2>
-          <div class="results-actions">
-            <span id="result-count" class="result-count"></span>
-            <button
-              id="filter-toggle"
-              class="filter-toggle"
-              type="button"
-              aria-label="Order and filter results"
-              aria-controls="filter-popover"
-              aria-expanded="false"
-              aria-haspopup="dialog"
-            >
-              <span class="filter-icon" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </span>
-            </button>
-            <div
-              id="filter-popover"
-              class="filter-popover"
-              role="dialog"
-              aria-label="Order and filter results"
-              hidden
-            >
-              <fieldset class="filter-group">
-                <legend>Order by</legend>
-                <div class="filter-options">
-                  <label>
-                    <input type="radio" name="objective" value="maximum" checked />
-                    <span>Shortest longest drive</span>
-                  </label>
-                  <label>
-                    <input type="radio" name="objective" value="combined" />
-                    <span>Lowest combined drive</span>
-                  </label>
-                </div>
-              </fieldset>
-              <fieldset class="filter-group">
-                <legend>Holes</legend>
-                <div class="hole-options">
-                  <label><input type="radio" name="holes" value="all" checked /><span>All</span></label>
-                  <label><input type="radio" name="holes" value="9" /><span>9</span></label>
-                  <label><input type="radio" name="holes" value="18" /><span>18</span></label>
-                </div>
-              </fieldset>
-            </div>
-          </div>
+          <h2 id="results-title">Courses</h2>
+          <span id="result-count" class="result-count"></span
+          ><button
+            id="close-courses"
+            class="close-drawer"
+            aria-label="Close courses"
+          >
+            ×
+          </button>
         </header>
+        <div class="results-controls">
+          <button id="browse-mode" class="quiet-button" aria-pressed="true">
+            Catalog</button
+          ><button
+            id="ranking-mode"
+            class="quiet-button"
+            aria-pressed="false"
+            disabled
+          >
+            Group drives</button
+          ><button
+            id="filter-toggle"
+            class="quiet-button"
+            aria-controls="filter-popover"
+            aria-expanded="false"
+          >
+            Filter / sort
+          </button>
+        </div>
+        <div id="filter-popover" class="filter-popover" hidden>
+          <label
+            >Physical holes<select id="browse-holes">
+              <option value="all">All totals</option>
+              <option>9</option>
+              <option>18</option>
+              <option>27</option>
+              <option>36</option>
+            </select></label
+          ><label
+            >Public play<select id="browse-access">
+              <option value="all">All records</option>
+              <option value="public">Known public play</option>
+            </select></label
+          ><label
+            >Sort<select id="browse-sort">
+              <option value="name">Name</option>
+              <option value="holes">Physical holes</option>
+            </select></label
+          >
+        </div>
         <p id="ranking-description" class="ranking-description"></p>
+        <p id="browse-description" class="browse-description">
+          Facilities in the catalog
+        </p>
         <div id="results" class="results" aria-live="polite"></div>
         <footer class="catalog-note">
-          <span id="catalog-name"></span>
-          <a id="routing-attribution" href="https://www.tomtom.com/en-gb/legal/product-attributions/" hidden
+          <span id="catalog-name"></span
+          ><a
+            id="routing-attribution"
+            href="https://www.tomtom.com/en-gb/legal/product-attributions/"
+            hidden
             >Routing © TomTom</a
-          >
-          <a href="https://github.com/snowball-projects/fairway/blob/main/data/README.md"
-            >Coverage and provenance</a
-          >
+          ><a href="/data/catalog-metadata.json">Sources and qualifications</a>
         </footer>
       </aside>
+      <dialog id="catalog-progress" aria-labelledby="progress-heading">
+        <div class="drawer-heading">
+          <h2 id="progress-heading">Catalog progress</h2>
+          <button
+            id="close-progress"
+            class="close-drawer"
+            aria-label="Close catalog progress"
+          >
+            ×
+          </button>
+        </div>
+        <div id="progress-counts" class="progress-counts"></div>
+        <p class="progress-note">
+          Public play, hole total and a matched property point are required for
+          the main map. Websites are optional. National discovery remains
+          incomplete.
+        </p>
+        <h3>Activity <small>Central time</small></h3>
+        <div id="activity-log"></div>
+        <p>
+          <a href="/data/catalog-additions.json">Full history</a> ·
+          <a href="/data/public-courses.json">Catalog</a>
+        </p>
+      </dialog>
     </main>
+    <noscript
+      ><p>
+        JavaScript is required for the map.
+        <a href="/data/public-courses.json">Read the catalog</a>.
+      </p></noscript
+    >
   </body>
 </html>
