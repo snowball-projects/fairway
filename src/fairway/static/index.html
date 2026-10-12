@@ -138,6 +138,12 @@
             >
           </div>
         </fieldset>
+        <button id="calculate" class="pill" type="button" disabled>
+          Rank courses
+        </button>
+        <button id="cancel-calculate" class="quiet-button" type="button" hidden>
+          Cancel comparison
+        </button>
         <p id="status" class="status" role="status">
           Add at least two golfer origins.
         </p>
@@ -151,8 +157,13 @@
         </p>
         <details class="method-note">
           <summary>How this works</summary>
-          <p id="routing-description">Loading travel-time provider…</p>
-          <p>Prices, ratings and tee-time availability are not included.</p>
+          <p id="routing-description">
+            Travel-time provider is checked when you rank.
+          </p>
+          <p>
+            Prices, ratings and tee-time availability are not included. Software
+            by snowball.
+          </p>
           <p>
             <a
               href="https://github.com/snowball-projects/fairway/blob/main/SERVICE.md"

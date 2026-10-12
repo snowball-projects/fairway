@@ -61,12 +61,7 @@ const view = {
   routingDescription: document.querySelector("#routing-description"),
   routingAttribution: document.querySelector("#routing-attribution"),
 };
-let nextOriginId = 1,
-  rankingTimer;
-function queueRanking() {
-  clearTimeout(rankingTimer);
-  rankingTimer = setTimeout(calculate, 200);
-}
+let nextOriginId = 1;
 
 const map = L.map("map", {
   zoomControl: true,
@@ -289,7 +284,7 @@ function setOrigin(row, label, coordinate) {
   closeSuggestions(row, true);
   updateOriginMarker(row);
   if (map.getZoom() < 10) fitPoints([coordinate], 12);
-  calculate();
+  updatePlan();
 }
 
 async function suggest(row) {
@@ -400,15 +395,14 @@ function addOrigin() {
       row.coordinate = coordinate;
       updateOriginMarker(row);
       clearRanking();
-      setStatus("Updating golfer origins...");
-      queueRanking();
+      updatePlan();
       return;
     }
     row.coordinate = null;
     row.marker?.remove();
     row.marker = null;
     clearRanking();
-    setStatus("Add at least two golfer origins.");
+    updatePlan();
     row.timer = setTimeout(() => suggest(row), 300);
   };
   row.input.onkeydown = (event) => {
@@ -430,7 +424,7 @@ function addOrigin() {
     state.rows.splice(state.rows.indexOf(row), 1);
     element.remove();
     renumber();
-    calculate();
+    updatePlan();
   };
   element.append(number, row.input, remove, row.suggestions);
   row.element = element;
@@ -457,9 +451,11 @@ function renumber() {
 }
 
 function clearRanking() {
-  clearTimeout(rankingTimer);
   state.request?.abort();
   state.request = null;
+  $("cancel-calculate").hidden = true;
+  $("calculate").disabled =
+    state.rows.filter((row) => row.coordinate).length < 2;
   state.ranking = null;
   state.activeRows = [];
   state.activeCourse = null;
@@ -472,6 +468,15 @@ function clearRanking() {
   document.querySelector("#ranking-mode").disabled = true;
   drawFacilities();
   renderCourses();
+}
+
+function updatePlan() {
+  clearRanking();
+  const count = state.rows.filter((row) => row.coordinate).length;
+  document.querySelector("#calculate").disabled = count < 2;
+  setStatus(
+    count < 2 ? "Add at least two golfer origins." : "Ready to rank courses.",
+  );
 }
 
 function restoreFilters(result) {
@@ -638,6 +643,8 @@ async function calculate({ preserveResults = false } = {}) {
   if (!previousRanking) clearRanking();
   const controller = new AbortController();
   state.request = controller;
+  $("calculate").disabled = true;
+  $("cancel-calculate").hidden = false;
   view.results.setAttribute("aria-busy", "true");
   setStatus(previousRanking ? "Updating ranking..." : "Ranking courses...");
   try {
@@ -707,6 +714,9 @@ async function calculate({ preserveResults = false } = {}) {
   } finally {
     if (state.request === controller) {
       state.request = null;
+      $("cancel-calculate").hidden = true;
+      $("calculate").disabled =
+        state.rows.filter((row) => row.coordinate).length < 2;
       view.results.setAttribute("aria-busy", "false");
     }
   }
@@ -714,7 +724,9 @@ async function calculate({ preserveResults = false } = {}) {
 
 async function configure() {
   try {
-    const response = await fetch("/api/config");
+    const response = await fetch("/api/config", {
+      signal: AbortSignal.timeout(15000),
+    });
     const config = await responseBody(response);
     if (!response.ok) throw new Error(config.error);
     state.maxOrigins = Math.min(config.max_origins, COLORS.length);
@@ -727,7 +739,7 @@ async function configure() {
     view.routingAttribution.hidden =
       config.routing.provider !== "tomtom-matrix-v2";
     state.ready = true;
-    calculate();
+    updatePlan();
   } catch (error) {
     setStatus(error.message || "Course coverage is unavailable.", true);
     clearRanking();
@@ -738,7 +750,7 @@ view.addOrigin.onclick = addOrigin;
 document
   .querySelectorAll('input[name="objective"], input[name="holes"]')
   .forEach((input) => {
-    input.onchange = () => calculate({ preserveResults: true });
+    input.onchange = updatePlan;
   });
 view.filterToggle.onclick = () =>
   setFilterOpen(view.filterPopover.hidden, true);
@@ -800,6 +812,10 @@ function setDrawer(which, open) {
       "false",
     );
   }
+  view.appShell.classList.toggle(
+    "mobile-sheet-open",
+    mobile() && (!$("plan-panel").hidden || !view.resultsPanel.hidden),
+  );
   if (!open && panel.contains(document.activeElement)) toggle.focus();
   if (which === "courses" && open) renderCourses();
 }
@@ -1265,7 +1281,7 @@ function renderProgress() {
         ? `Initial catalog · ${fmt(b.added)} facilities`
         : [
             b.added ? `${fmt(b.added)} added` : "",
-            b.updated ? `${fmt(b.updated)} corrected` : "",
+            b.updated ? `${fmt(b.updated)} updated` : "",
             b.removed ? `${fmt(b.removed)} removed` : "",
           ]
             .filter(Boolean)
@@ -1315,6 +1331,16 @@ function drawCounties() {
         "aria-label",
         `${shape.name}, ${shape.state}: ${catalogModel.byId.get(shape.id)?.records.length ?? "unknown"} catalog facilities`,
       );
+      path.addEventListener("focus", () => {
+        if (!map.getBounds().contains(polygon.getBounds().getCenter()))
+          fitPoints(
+            [
+              polygon.getBounds().getSouthWest(),
+              polygon.getBounds().getNorthEast(),
+            ],
+            10,
+          );
+      });
       path.addEventListener("keydown", (event) => {
         if (["Enter", " "].includes(event.key)) {
           event.preventDefault();
@@ -1371,6 +1397,18 @@ function applyCatalog(catalog) {
   drawCounties();
   if (cataloguePopup?.isOpen() && popupSelection) openSelectionPopup();
 }
+$("calculate").onclick = async () => {
+  $("calculate").disabled = true;
+  if (!state.ready) await configure();
+  if (state.ready) calculate();
+  else
+    $("calculate").disabled =
+      state.rows.filter((row) => row.coordinate).length < 2;
+};
+$("cancel-calculate").onclick = () => {
+  updatePlan();
+  setStatus("Comparison cancelled.");
+};
 $("plan-toggle").onclick = () => setDrawer("plan", $("plan-panel").hidden);
 $("courses-toggle").onclick = () =>
   setDrawer("courses", view.resultsPanel.hidden);
@@ -1516,5 +1554,4 @@ async function loadCatalog() {
 }
 addOrigin();
 addOrigin();
-configure();
 loadCatalog();

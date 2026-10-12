@@ -133,5 +133,7 @@ view; its legacy four/five metrics do not determine main-map eligibility.
 No automatic geolocation, persistence, new tiles or new paid requests are added.
 The current ranking API remains limited to its reviewed Chicago courses and road
 coverage. Origins elsewhere may be entered, but the UI explains unsupported
-routing before requesting a matrix. Lower-48 meeting-area optimization remains
-a separate backend/data requirement, not a geographic-midpoint approximation.
+routing before requesting a matrix. Routing is requested only by Rank courses; catalog browsing makes no routing API
+request and survives failed/cancelled comparisons. A lower-48 modo road-time
+estimator and bounded nearby-facility shortlist remain separate backend/data
+requirements. No meeting-point feature is exposed.

@@ -33,7 +33,8 @@ their own service policies.
   searches or map state. The map loads OpenStreetMap tiles as described below.
   Facility property points and unconfirmed estimate points do not expand the
   reviewed ranking catalog. Catalog progress/activity use the existing publication
-  snapshots and manifest; the current ranking API remains geographically bounded.
+  snapshots and manifest. Only submitting Rank courses contacts the routing API;
+  the current calculation remains geographically bounded.
 
 
 - The read-only research coverage page uses public catalog/status snapshots

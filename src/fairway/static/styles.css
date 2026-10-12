@@ -1357,3 +1357,23 @@ dialog > p:last-child {
     padding: 18px;
   }
 }
+
+/* Keep Leaflet's controls/popups inside the map's stacking context. */
+.map-stage {
+  z-index: 0;
+}
+@media (max-width: 800px) {
+  .mobile-sheet-open .leaflet-control-zoom {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 800px) {
+  .mobile-sheet-open .map-actions {
+    top: 174px;
+    bottom: auto;
+  }
+  .mobile-sheet-open .search-area {
+    display: none;
+  }
+}
