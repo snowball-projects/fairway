@@ -10,7 +10,7 @@ export function watchSnapshots({
   setTimer = setTimeout,
   clearTimer = clearTimeout,
   publicationPath = "./publication.json",
-  dataPath = "../../data/",
+  dataPath = "../data/",
 }) {
   let timer,
     active = null,

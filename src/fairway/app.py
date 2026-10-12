@@ -97,6 +97,10 @@ if bool(COURSE_INDEX_PATH) != bool(COURSE_INDEX_SHA256) or (
     raise RuntimeError(
         "FAIRWAY_COURSE_INDEX and its valid SHA-256 must be configured together"
     )
+BROWSING_ORIGIN = "https://snowball-projects.github.io"
+BROWSING_URL = BROWSING_ORIGIN + "/fairway/"
+API_PATHS = {"/api/config", "/api/rankings"}
+
 CONTENT_SECURITY_POLICY = "default-src 'self'; base-uri 'none'; connect-src 'self' https://photon.komoot.io; font-src 'self'; form-action 'none'; frame-ancestors 'none'; frame-src 'none'; img-src 'self' data: https://tile.openstreetmap.org; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; worker-src 'none'"
 SECURITY_HEADERS = (
     ("Content-Security-Policy", CONTENT_SECURITY_POLICY),
@@ -599,6 +603,55 @@ def _application(environ, start_response):
     path = environ.get("PATH_INFO", "/")
     method = environ.get("REQUEST_METHOD", "GET")
     try:
+        if path in API_PATHS:
+            origin = environ.get("HTTP_ORIGIN")
+            if origin is not None and origin != BROWSING_ORIGIN:
+                return _json(
+                    start_response, "403 Forbidden", {"error": "origin is not allowed"}
+                )
+            if method == "OPTIONS" and path == "/api/rankings":
+                requested_headers = {
+                    h.strip().lower()
+                    for h in environ.get(
+                        "HTTP_ACCESS_CONTROL_REQUEST_HEADERS", ""
+                    ).split(",")
+                    if h.strip()
+                }
+                if (
+                    origin != BROWSING_ORIGIN
+                    or environ.get("HTTP_ACCESS_CONTROL_REQUEST_METHOD") != "POST"
+                    or requested_headers - {"content-type"}
+                ):
+                    return _json(
+                        start_response,
+                        "403 Forbidden",
+                        {"error": "preflight is not allowed"},
+                    )
+                start_response(
+                    "204 No Content",
+                    [
+                        ("Content-Length", "0"),
+                        ("Cache-Control", "no-store"),
+                        ("Access-Control-Allow-Methods", "POST"),
+                        ("Access-Control-Allow-Headers", "Content-Type"),
+                        ("Access-Control-Max-Age", "600"),
+                        *SECURITY_HEADERS,
+                    ],
+                )
+                return []
+        if path == "/":
+            if method not in {"GET", "HEAD"}:
+                return _method_not_allowed(start_response, "GET, HEAD")
+            start_response(
+                "302 Found",
+                [
+                    ("Location", BROWSING_URL),
+                    ("Content-Length", "0"),
+                    ("Cache-Control", "no-cache"),
+                    *SECURITY_HEADERS,
+                ],
+            )
+            return []
         if path == "/health":
             if method not in {"GET", "HEAD"}:
                 return _method_not_allowed(start_response, "GET, HEAD")
@@ -668,6 +721,14 @@ def _application(environ, start_response):
 
 
 def application(environ, start_response):
-    """Serve fairway and its same-origin ranking API."""
-    body = _application(environ, start_response)
+    """Serve explicit calculations for the Pages frontend and redirect browsing."""
+
+    def respond(status, headers):
+        if environ.get("PATH_INFO") in API_PATHS:
+            headers = [*headers, ("Vary", "Origin")]
+            if environ.get("HTTP_ORIGIN") == BROWSING_ORIGIN:
+                headers.append(("Access-Control-Allow-Origin", BROWSING_ORIGIN))
+        return start_response(status, headers)
+
+    body = _application(environ, respond)
     return [] if environ.get("REQUEST_METHOD", "GET") == "HEAD" else body

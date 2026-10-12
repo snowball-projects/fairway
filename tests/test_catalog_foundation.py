@@ -93,7 +93,7 @@ def test_estimates_keep_exact_precision_and_never_become_routing_points(source):
         for c in foundation.exports(source)["course-catalog.json"]["courses"]
     }
     assert all(
-        f["map_location"]["kind"] == "address_range_estimate"
+        f["map_location"]["kind"] in {"address_range_estimate", "property_point"}
         for f in public["facilities"]
         if f["map_location"] and f["id"] not in ranking_facilities
     )

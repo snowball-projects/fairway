@@ -286,7 +286,7 @@ function renderFacilities() {
     }
     if (record.access_note) item.append(element("p", record.access_note));
     const evidence = element("a", "Sources and qualifications");
-    evidence.href = "../../data/catalog-metadata.json";
+    evidence.href = "../data/catalog-metadata.json";
     evidence.dataset.focusKey = `evidence:${record.id}`;
     item.append(evidence);
     const url = record.website;
@@ -359,10 +359,10 @@ function renderDetail(override, heading) {
   renderFacilities();
   const showFacilities = Boolean(
     override ||
-    selectedCounty ||
-    $("state").value ||
-    $("region").value ||
-    $("query").value.trim(),
+      selectedCounty ||
+      $("state").value ||
+      $("region").value ||
+      $("query").value.trim(),
   );
   $("facilities").hidden = !showFacilities;
   if (!showFacilities) $("more-facilities").hidden = true;
@@ -596,7 +596,7 @@ function renderAdditions() {
     $("additions-log").append(article);
   }
   const full = element("a", "Full additions log");
-  full.href = "../../data/catalog-additions.json";
+  full.href = "../data/catalog-additions.json";
   $("additions-log").append(full);
 }
 function preserveView(update) {

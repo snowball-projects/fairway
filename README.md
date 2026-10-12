@@ -1,6 +1,6 @@
 # fairway
 
-fairway's [hosted interface](https://fairway-n29h.onrender.com) ranks a bounded
+fairway's [hosted interface](https://snowball-projects.github.io/fairway/) ranks a bounded
 public-course catalog for two or more golfer origins. It can minimize either the
 longest individual drive or the group's combined driving time, and reports every
 golfer's modeled time to each course.
@@ -10,6 +10,19 @@ Chicago region. It is dated and incomplete. The interface identifies its
 travel-time provider: TomTom with live and historical traffic for leaving now,
 or a local static modo road snapshot without traffic. Prices, ratings, and
 live tee-time availability are not included.
+
+## Hosting
+
+GitHub Pages serves catalog browsing at
+<https://snowball-projects.github.io/fairway/>. Every checked main push, including
+catalog-only changes, builds fresh public snapshots with `scripts/build_pages.py`
+and publishes through the existing CI Pages job. Browser assets need no routing
+service to load or search. `deployment.json` identifies the deployed commit.
+
+Render retains the existing explicit calculation API and private provider key.
+Only submitting Rank courses contacts it. The API permits the exact Pages origin
+and a narrow JSON POST preflight; existing calculation/time/cell budgets remain.
+Its root redirects to Pages. This split does not expand Chicago routing coverage.
 
 ## Run
 

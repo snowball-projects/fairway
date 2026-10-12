@@ -17,6 +17,11 @@ import {
   clusterPoints,
 } from "./catalog.mjs";
 
+const calculationOrigin =
+  document.querySelector('meta[name="fairway-calculation-origin"]')?.content ||
+  location.origin;
+const calculationURL = (path) => new URL(path, calculationOrigin).href;
+
 const COLORS = [
   "#2f6fba",
   "#c14c70",
@@ -648,7 +653,8 @@ async function calculate({ preserveResults = false } = {}) {
   view.results.setAttribute("aria-busy", "true");
   setStatus(previousRanking ? "Updating ranking..." : "Ranking courses...");
   try {
-    const response = await fetch("/api/rankings", {
+    const response = await fetch(calculationURL("/api/rankings"), {
+      credentials: "omit",
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -724,7 +730,8 @@ async function calculate({ preserveResults = false } = {}) {
 
 async function configure() {
   try {
-    const response = await fetch("/api/config", {
+    const response = await fetch(calculationURL("/api/config"), {
+      credentials: "omit",
       signal: AbortSignal.timeout(15000),
     });
     const config = await responseBody(response);
@@ -1526,15 +1533,15 @@ map.on("popupclose", (e) => {
 });
 async function loadCatalog() {
   try {
-    const r = await fetch("/research-map/boundaries.json");
+    const r = await fetch("./research-map/boundaries.json");
     if (!r.ok) throw new Error();
     geometry = await r.json();
   } catch {
     geometry = { states: [], counties: [] };
   }
   watchSnapshots({
-    publicationPath: "/research-map/publication.json",
-    dataPath: "/data/",
+    publicationPath: "./research-map/publication.json",
+    dataPath: "./data/",
     onCatalog: applyCatalog,
     onProgress: (v) => {
       progress = v ? parseProgress(v) : null;
