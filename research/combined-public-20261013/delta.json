@@ -1,0 +1,1006 @@
+{
+  "schema_version": 1,
+  "kind": "fairway_facility_additions",
+  "base_commit": "3fe8f486cce87ec1e38524c7e49c732ed368d05e",
+  "base_catalog_sha256": "7afc52725962e12825dbd1d13d2df4ac392f4fd8860239be317eae65a89089e6",
+  "facilities": [
+    {
+      "id": "f-248cb17c-e975-4b5d-81ff-05636f7fd3aa",
+      "name": "Sandpoint Elks Golf Course",
+      "state": "ID",
+      "county": null,
+      "address": {
+        "text": "30196 Highway 200 East, Ponderay, ID 83852",
+        "purpose": "contact"
+      },
+      "physical_holes": 9,
+      "inventory_complete": false,
+      "website": "https://www.elks.org/lodges/lodgefacilities.cfm?LodgeNumber=1376",
+      "map_location": null,
+      "courses": [
+        {
+          "id": "c-a0c6638d-b7e5-454a-b4cc-8354546fc022",
+          "name": null,
+          "holes": 9,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "website_status": "found",
+      "website_checked_on": "2026-10-13"
+    },
+    {
+      "id": "f-ab630c57-001c-463e-add1-57899d32f838",
+      "name": "Pinehurst Golf Course",
+      "state": "ID",
+      "county": null,
+      "address": {
+        "text": "11 Country Club Lane, Pinehurst, ID 83850",
+        "purpose": "contact"
+      },
+      "physical_holes": 9,
+      "inventory_complete": false,
+      "website": null,
+      "map_location": null,
+      "courses": [
+        {
+          "id": "c-5c6a3d72-54a4-41d7-94ca-f6c21be5da0a",
+          "name": null,
+          "holes": 9,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "website_status": "not_checked",
+      "website_checked_on": null
+    },
+    {
+      "id": "f-2afc16b7-bcad-4f30-9bbc-104f171fddaf",
+      "name": "Britton Country Club",
+      "state": "SD",
+      "county": null,
+      "address": {
+        "text": "10920 424TH AVE, BRITTON, SD 57430, US",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://www.brittoncountryclub.com/",
+      "map_location": null,
+      "courses": [
+        {
+          "id": "c-edaf0f2c-f551-4eef-920c-f4e1de063f53",
+          "name": null,
+          "holes": 9,
+          "access": "public"
+        }
+      ],
+      "public_access": "public"
+    },
+    {
+      "id": "f-a6ce5cfc-0d70-4947-b76f-545cd39928cd",
+      "name": "Fisher Grove Country Club",
+      "state": "SD",
+      "county": null,
+      "address": {
+        "text": "Box 22 17290 Fisher Lane Redfield, SD 57469",
+        "purpose": "mailing"
+      },
+      "physical_holes": 10,
+      "inventory_complete": true,
+      "website": null,
+      "map_location": null,
+      "courses": [
+        {
+          "id": "c-3053e6c9-e365-4d68-a4ee-675c5327f7fb",
+          "name": null,
+          "holes": 10,
+          "access": "public"
+        }
+      ],
+      "public_access": "public"
+    },
+    {
+      "id": "f-58542a44-1c5d-48ec-9ed9-60f444699475",
+      "name": "Miller Golf Course",
+      "state": "SD",
+      "county": null,
+      "address": {
+        "text": "2808 North Highway 45, Miller, SD 57362",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": null,
+      "inventory_complete": false,
+      "website": null,
+      "map_location": null,
+      "courses": [],
+      "public_access": "public"
+    },
+    {
+      "id": "f-dafb72f1-c912-4cf4-a6df-a270310f1fc2",
+      "name": "Webster Municipal Golf Course",
+      "state": "SD",
+      "county": null,
+      "address": null,
+      "physical_holes": null,
+      "inventory_complete": false,
+      "website": null,
+      "map_location": null,
+      "courses": [],
+      "public_access": "public"
+    },
+    {
+      "id": "f-b907c36e-5ab3-4106-acb7-abf07da1371e",
+      "name": "Olive Grove Golf Course",
+      "state": "SD",
+      "county": null,
+      "address": {
+        "text": "700 East 5th Ave, Groton, SD 57445",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": null,
+      "inventory_complete": false,
+      "website": null,
+      "map_location": null,
+      "courses": [],
+      "public_access": "public"
+    },
+    {
+      "id": "f-0cfec41a-f0fe-4a43-90df-58ba5e2fba81",
+      "name": "Bowdle Golf Club",
+      "state": "SD",
+      "county": null,
+      "address": {
+        "text": "13275 326th Ave, PO Box 60, Bowdle, SD 57428",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": null,
+      "inventory_complete": false,
+      "website": null,
+      "map_location": null,
+      "courses": [],
+      "public_access": "public"
+    },
+    {
+      "id": "f-e1b234fd-4dda-4bec-8498-10b81374096f",
+      "name": "Newell Golf Club",
+      "state": "SD",
+      "county": null,
+      "address": {
+        "text": "12963 Orman Road, Newell, SD 57760",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": null,
+      "inventory_complete": false,
+      "website": null,
+      "map_location": null,
+      "courses": [],
+      "public_access": "public"
+    },
+    {
+      "id": "f-c15cc495-4a08-4aa5-a34b-a6633c1acba4",
+      "name": "Cattail Crossing Golf Course",
+      "state": "SD",
+      "county": null,
+      "address": {
+        "text": "351 S Lake Dr., Watertown, SD 57201",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 27,
+      "inventory_complete": false,
+      "website": "https://www.watertownsd.us/177/Cattail-Crossing-Golf-Course",
+      "map_location": null,
+      "courses": [],
+      "public_access": "public"
+    },
+    {
+      "id": "f-b40677be-1f5c-4330-9b33-c0df9768b450",
+      "name": "Caney Golf Club",
+      "state": "KS",
+      "county": null,
+      "address": {
+        "text": "1567 County Road 2000, Caney, Kansas 67333",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://caneygolf.com/",
+      "map_location": null,
+      "courses": [
+        {
+          "id": "c-0ce1156e-62f2-4fda-a59c-71a495c94e05",
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "arrival": null
+        }
+      ],
+      "public_access": "public",
+      "website_status": "found",
+      "website_checked_on": "2026-10-13"
+    },
+    {
+      "id": "f-9ad38090-a54a-4097-b683-95ec55d2446d",
+      "name": "Ness County Golf Club",
+      "state": "KS",
+      "county": null,
+      "address": null,
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": null,
+      "map_location": null,
+      "courses": [
+        {
+          "id": "c-541d8094-c2e9-415d-af60-82a8b182d37d",
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "arrival": null
+        }
+      ],
+      "public_access": "public",
+      "website_status": "not_checked",
+      "website_checked_on": null
+    },
+    {
+      "id": "f-ac84f55a-adc8-4c3e-91f7-e0393c96a087",
+      "name": "Cimarron Golf Club",
+      "state": "KS",
+      "county": null,
+      "address": {
+        "text": "812 Golf Course Rd., Cimarron, KS 67835",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://cimarrongolfclub.com/",
+      "map_location": null,
+      "courses": [
+        {
+          "id": "c-4ac78050-a917-40df-847a-edc980604d3b",
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "arrival": null
+        }
+      ],
+      "public_access": "public",
+      "website_status": "found",
+      "website_checked_on": "2026-10-13"
+    }
+  ],
+  "sources": {
+    "s-idnita-20261013-sandpoint-elks": "https://visitnorthidaho.com/activity/sandpoint-elks-golf-course/",
+    "s-idnita-20261013-pinehurst": "https://visitnorthidaho.com/activity/pinehurst-golf-course-3/",
+    "sd20261013-d7407fb89397": "https://www.sdga.org/golf_course/britton-country-club/",
+    "sd20261013-dd9b4778e762": "https://www.brittoncountryclub.com/",
+    "sd20261013-08367bcf3146": "https://www.sdga.org/golf_course/fisher-grove-country-club/",
+    "sd20261013-6fd5d865e68e": "https://gfp.sd.gov/parks/detail/-fisher-grove-state-park/",
+    "sd20261013-5763adc48fb4": "https://www.sdga.org/golf_course/miller-golf-course/",
+    "sd20261013-b17d8bccb097": "https://www.sdga.org/golf_course/webster-municipal-golf-course/",
+    "sd20261013-8250bfef8efb": "https://www.sdga.org/golf_course/olive-grove-golf-course/",
+    "sd20261013-f5aa32d89569": "https://www.sdga.org/golf_course/bowdle-golf-club/",
+    "sd20261013-ee8a3f97471f": "https://www.sdga.org/golf_course/newell-golf-club/",
+    "sd20261013-31e5cd4ff8f0": "https://www.sdga.org/golf_course/cattail-crossing-golf-course/",
+    "sd20261013-9907cac4d72d": "https://www.watertownsd.us/177/Cattail-Crossing-Golf-Course",
+    "ks20261013-caney-home": "https://caneygolf.com/",
+    "ks20261013-caney-play": "https://caneygolf.com/stay-%26-play",
+    "ks20261013-caney-stats": "https://caneygolf.com/course-statistics",
+    "ks20261013-ness-chamber": "https://www.nesscountychamber.com/recreation.html",
+    "ks20261013-cimarron-home": "https://cimarrongolfclub.com/",
+    "ks20261013-cimarron-fees": "https://cimarrongolfclub.com/fees/",
+    "ks20261013-cimarron-state": "https://www.travelks.com/listing/cimarron-golf-club/6233/"
+  },
+  "notes": {
+    "n-idnita-20261013-sandpoint-elks": "Regional tourism profile explicitly describes a physical nine-hole golf course open to the public. The published address is under Contact Info, so its purpose is contact, not a verified arrival. The literal official Elks lodge facilities link is retained from this independently inspected source; destination was not visited and its current availability is unverified. Source is undated, observed October 13, 2026. No claim of current operating conditions or live availability. No distinct course label is established; layout name stays null. Full-property inventory completeness stays conservative. County, property/map point and arrival coordinates remain unknown.",
+    "n-idnita-20261013-pinehurst": "Regional tourism profile explicitly describes a physical nine-hole golf course and offers ordinary walk-in play without tee-time reservations. That facility-specific visitor offer supports public play; generic directory membership does not. Address is under Contact Info, so purpose is contact. The profile links a commercial listing, which is not an official operator website; no website is inferred. Source is undated, observed October 13, 2026. No claim of current operating conditions or live availability. No distinct course label is established; layout name stays null. Full-property inventory completeness stays conservative. County, property/map point and arrival coordinates remain unknown.",
+    "n-idnita-20261013-history": "Add two independent North Idaho Tourism Alliance public nine-hole facilities. No existing facility facts, ranking, map or arrival changes; source qualifications and control audit in research/idaho-nita-20261013.",
+    "sd20261013-bb3f0df54af9": "Individually labeled Public by the South Dakota Golf Association. No access inference from association membership or directory inclusion.",
+    "sd20261013-260525b8fa15": "County, map location and arrival remain unverified. Operator describes its nine-hole golf course. ",
+    "sd20261013-02e41286e7e2": "Individually labeled Public by the South Dakota Golf Association. No access inference from association membership or directory inclusion.",
+    "sd20261013-46046ba7a3b0": "County, map location and arrival remain unverified. State recreation page explicitly identifies a ten-hole golf course adjacent to Fisher Grove State Park. The page spells the operator County Club; association identity and shared telephone corroborate Country Club. State-park address/coordinates are excluded. Association combined Box 22/address remains mailing-purpose evidence; not a verified course or arrival address. ",
+    "sd20261013-2e0c061f8209": "Individually labeled Public by the South Dakota Golf Association. No access inference from association membership or directory inclusion.",
+    "sd20261013-f3f554f17ae4": "County, map location and arrival remain unverified. Physical hole count and component inventory remain unverified. Guest-fee round lengths and repeated front/back rating tables do not establish physical counts. ",
+    "sd20261013-13a0cfc912d0": "Individually labeled Public by the South Dakota Golf Association. No access inference from association membership or directory inclusion.",
+    "sd20261013-4e8d54175b4f": "County, map location and arrival remain unverified. Physical hole count and component inventory remain unverified. Guest-fee round lengths and repeated front/back rating tables do not establish physical counts. Live association address is blank; stale search-preview street address was excluded. Linked operator path returned 404 and is not recorded as a found website. ",
+    "sd20261013-fae4975ad79c": "Individually labeled Public by the South Dakota Golf Association. No access inference from association membership or directory inclusion.",
+    "sd20261013-a9fdcdd18892": "County, map location and arrival remain unverified. Physical hole count and component inventory remain unverified. Guest-fee round lengths and repeated front/back rating tables do not establish physical counts. ",
+    "sd20261013-b773a24a43f0": "Individually labeled Public by the South Dakota Golf Association. No access inference from association membership or directory inclusion.",
+    "sd20261013-be75072761e1": "County, map location and arrival remain unverified. Physical hole count and component inventory remain unverified. Guest-fee round lengths and repeated front/back rating tables do not establish physical counts. Association address combines street and PO Box; purpose remains published_unspecified. ",
+    "sd20261013-8725aaa152a2": "Individually labeled Public by the South Dakota Golf Association. No access inference from association membership or directory inclusion.",
+    "sd20261013-a1a165eafb90": "County, map location and arrival remain unverified. Physical hole count and component inventory remain unverified. Guest-fee round lengths and repeated front/back rating tables do not establish physical counts. ",
+    "sd20261013-509d13beaab8": "Individually labeled Public by the South Dakota Golf Association. No access inference from association membership or directory inclusion.",
+    "sd20261013-e807aa071af5": "County, map location and arrival remain unverified. Municipality explicitly reports a 27-hole facility and Physical Address. Exact address purpose beyond a physical facility address is unverified. Components remain unreviewed; no division of 27 into course rows or use of playing-round/rating combinations as physical layouts. ",
+    "sd20261013-reuse-qualification": "Bare facility facts with independent summaries; no website prose, imagery or scorecard artwork imported. SDGA, operator and municipal websites are not claimed as openly licensed data. Relevant robots and policy observations are retained in the South Dakota cohort review. State GFP permits informational use with third-party-rights and accuracy qualifications. These facts do not inherit the MIT software license.",
+    "sd20261013-batch-history": "Added eight independently reviewed South Dakota public facilities and two explicit physical courses. Individual SDGA Public labels establish access; five physical totals and all map/arrival/county fields remain unverified. No facility division from totals or playing-round pricing. Source stops and policy observations retained in research/south-dakota-20261013.",
+    "ks20261013-caney-access": "The operator explicitly publishes nonmember rates. Its homepage closes the course to public play on Tuesdays and allows exceptions for leagues, tournaments and posted events; the Stay & Play page separately says daily opening. The Tuesday restriction is retained rather than promising unrestricted daily access. Course Statistics expressly identifies nine physical holes played using two nine-hole tee loops, so the eighteen-hole route is not counted as a second physical course. Source publication dates are not stated; observed October 13, 2026.",
+    "ks20261013-ness-source": "The official Ness County Chamber recreation page explicitly identifies a nine-hole course open to the public. Its unnumbered Highway 283 location about four miles north of Ness City is retained here but is not promoted to a numbered course address. No independent operator website, county assignment, property point or arrival was verified. The page is undated; observation on October 13, 2026 does not guarantee live operation.",
+    "ks20261013-cimarron-source": "The operator Fees page explicitly offers nonmember weekday and weekend/holiday play. The independent official Kansas Tourism profile identifies a nine-hole physical course; nine/eighteen-hole playing prices are not separate layouts. The operator homepage publishes 812 Golf Course Rd., Cimarron, KS 67835. Source publication dates are unknown; observed October 13, 2026. County, property location and arrival remain unverified."
+  },
+  "research": {
+    "f-248cb17c-e975-4b5d-81ff-05636f7fd3aa": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "s-idnita-20261013-sandpoint-elks"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "address",
+            "physical_holes",
+            "public_access",
+            "courses",
+            "courses.c-a0c6638d-b7e5-454a-b4cc-8354546fc022.holes",
+            "courses.c-a0c6638d-b7e5-454a-b4cc-8354546fc022.access",
+            "website",
+            "website_status",
+            "website_checked_on"
+          ],
+          "source": "s-idnita-20261013-sandpoint-elks",
+          "observed_on": "2026-10-13",
+          "note": [
+            "n-idnita-20261013-sandpoint-elks"
+          ]
+        }
+      ],
+      "notes": {
+        "source": [
+          "n-idnita-20261013-sandpoint-elks"
+        ],
+        "access": [
+          "n-idnita-20261013-sandpoint-elks"
+        ]
+      }
+    },
+    "f-ab630c57-001c-463e-add1-57899d32f838": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "s-idnita-20261013-pinehurst"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "address",
+            "physical_holes",
+            "public_access",
+            "courses",
+            "courses.c-5c6a3d72-54a4-41d7-94ca-f6c21be5da0a.holes",
+            "courses.c-5c6a3d72-54a4-41d7-94ca-f6c21be5da0a.access"
+          ],
+          "source": "s-idnita-20261013-pinehurst",
+          "observed_on": "2026-10-13",
+          "note": [
+            "n-idnita-20261013-pinehurst"
+          ]
+        }
+      ],
+      "notes": {
+        "source": [
+          "n-idnita-20261013-pinehurst"
+        ],
+        "access": [
+          "n-idnita-20261013-pinehurst"
+        ]
+      }
+    },
+    "f-2afc16b7-bcad-4f30-9bbc-104f171fddaf": {
+      "grouping": "verified",
+      "listed_sources": [
+        "sd20261013-d7407fb89397",
+        "sd20261013-dd9b4778e762"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "courses.c-edaf0f2c-f551-4eef-920c-f4e1de063f53.access"
+          ],
+          "source": "sd20261013-d7407fb89397",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-bb3f0df54af9"
+          ]
+        },
+        {
+          "fields": [
+            "physical_holes",
+            "inventory_complete",
+            "courses.c-edaf0f2c-f551-4eef-920c-f4e1de063f53.holes",
+            "address",
+            "website"
+          ],
+          "source": "sd20261013-dd9b4778e762",
+          "observed_on": "2026-10-13"
+        },
+        {
+          "fields": [
+            "notes.source"
+          ],
+          "source": null,
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-260525b8fa15",
+            "sd20261013-reuse-qualification"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd20261013-bb3f0df54af9"
+        ],
+        "source": [
+          "sd20261013-260525b8fa15",
+          "sd20261013-reuse-qualification"
+        ]
+      }
+    },
+    "f-a6ce5cfc-0d70-4947-b76f-545cd39928cd": {
+      "grouping": "verified",
+      "listed_sources": [
+        "sd20261013-08367bcf3146",
+        "sd20261013-6fd5d865e68e"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "address",
+            "courses.c-3053e6c9-e365-4d68-a4ee-675c5327f7fb.access"
+          ],
+          "source": "sd20261013-08367bcf3146",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-02e41286e7e2"
+          ]
+        },
+        {
+          "fields": [
+            "physical_holes",
+            "inventory_complete",
+            "courses.c-3053e6c9-e365-4d68-a4ee-675c5327f7fb.holes"
+          ],
+          "source": "sd20261013-6fd5d865e68e",
+          "observed_on": "2026-10-13"
+        },
+        {
+          "fields": [
+            "notes.source"
+          ],
+          "source": null,
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-46046ba7a3b0",
+            "sd20261013-reuse-qualification"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd20261013-02e41286e7e2"
+        ],
+        "source": [
+          "sd20261013-46046ba7a3b0",
+          "sd20261013-reuse-qualification"
+        ]
+      }
+    },
+    "f-58542a44-1c5d-48ec-9ed9-60f444699475": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "sd20261013-5763adc48fb4"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "address"
+          ],
+          "source": "sd20261013-5763adc48fb4",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-2e0c061f8209"
+          ]
+        },
+        {
+          "fields": [
+            "notes.source"
+          ],
+          "source": null,
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-f3f554f17ae4",
+            "sd20261013-reuse-qualification"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd20261013-2e0c061f8209"
+        ],
+        "source": [
+          "sd20261013-f3f554f17ae4",
+          "sd20261013-reuse-qualification"
+        ]
+      }
+    },
+    "f-dafb72f1-c912-4cf4-a6df-a270310f1fc2": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "sd20261013-b17d8bccb097"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access"
+          ],
+          "source": "sd20261013-b17d8bccb097",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-13a0cfc912d0"
+          ]
+        },
+        {
+          "fields": [
+            "notes.source"
+          ],
+          "source": null,
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-4e8d54175b4f",
+            "sd20261013-reuse-qualification"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd20261013-13a0cfc912d0"
+        ],
+        "source": [
+          "sd20261013-4e8d54175b4f",
+          "sd20261013-reuse-qualification"
+        ]
+      }
+    },
+    "f-b907c36e-5ab3-4106-acb7-abf07da1371e": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "sd20261013-8250bfef8efb"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "address"
+          ],
+          "source": "sd20261013-8250bfef8efb",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-fae4975ad79c"
+          ]
+        },
+        {
+          "fields": [
+            "notes.source"
+          ],
+          "source": null,
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-a9fdcdd18892",
+            "sd20261013-reuse-qualification"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd20261013-fae4975ad79c"
+        ],
+        "source": [
+          "sd20261013-a9fdcdd18892",
+          "sd20261013-reuse-qualification"
+        ]
+      }
+    },
+    "f-0cfec41a-f0fe-4a43-90df-58ba5e2fba81": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "sd20261013-f5aa32d89569"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "address"
+          ],
+          "source": "sd20261013-f5aa32d89569",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-b773a24a43f0"
+          ]
+        },
+        {
+          "fields": [
+            "notes.source"
+          ],
+          "source": null,
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-be75072761e1",
+            "sd20261013-reuse-qualification"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd20261013-b773a24a43f0"
+        ],
+        "source": [
+          "sd20261013-be75072761e1",
+          "sd20261013-reuse-qualification"
+        ]
+      }
+    },
+    "f-e1b234fd-4dda-4bec-8498-10b81374096f": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "sd20261013-ee8a3f97471f"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "address"
+          ],
+          "source": "sd20261013-ee8a3f97471f",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-8725aaa152a2"
+          ]
+        },
+        {
+          "fields": [
+            "notes.source"
+          ],
+          "source": null,
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-a1a165eafb90",
+            "sd20261013-reuse-qualification"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd20261013-8725aaa152a2"
+        ],
+        "source": [
+          "sd20261013-a1a165eafb90",
+          "sd20261013-reuse-qualification"
+        ]
+      }
+    },
+    "f-c15cc495-4a08-4aa5-a34b-a6633c1acba4": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "sd20261013-31e5cd4ff8f0",
+        "sd20261013-9907cac4d72d"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access"
+          ],
+          "source": "sd20261013-31e5cd4ff8f0",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-509d13beaab8"
+          ]
+        },
+        {
+          "fields": [
+            "physical_holes",
+            "address",
+            "website"
+          ],
+          "source": "sd20261013-9907cac4d72d",
+          "observed_on": "2026-10-13"
+        },
+        {
+          "fields": [
+            "notes.source"
+          ],
+          "source": null,
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd20261013-e807aa071af5",
+            "sd20261013-reuse-qualification"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd20261013-509d13beaab8"
+        ],
+        "source": [
+          "sd20261013-e807aa071af5",
+          "sd20261013-reuse-qualification"
+        ]
+      }
+    },
+    "f-b40677be-1f5c-4330-9b33-c0df9768b450": {
+      "grouping": "verified",
+      "listed_sources": [
+        "ks20261013-caney-home",
+        "ks20261013-caney-play",
+        "ks20261013-caney-stats"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "address",
+            "website",
+            "website_status",
+            "website_checked_on",
+            "notes.access"
+          ],
+          "source": "ks20261013-caney-home",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-caney-access"
+          ]
+        },
+        {
+          "fields": [
+            "public_access",
+            "courses.c-0ce1156e-62f2-4fda-a59c-71a495c94e05.access"
+          ],
+          "source": "ks20261013-caney-play",
+          "observed_on": "2026-10-13"
+        },
+        {
+          "fields": [
+            "physical_holes",
+            "inventory_complete",
+            "courses.c-0ce1156e-62f2-4fda-a59c-71a495c94e05.holes"
+          ],
+          "source": "ks20261013-caney-stats",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-caney-access"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "ks20261013-caney-access"
+        ]
+      }
+    },
+    "f-9ad38090-a54a-4097-b683-95ec55d2446d": {
+      "grouping": "verified",
+      "listed_sources": [
+        "ks20261013-ness-chamber"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "physical_holes",
+            "inventory_complete",
+            "courses.c-541d8094-c2e9-415d-af60-82a8b182d37d.access",
+            "courses.c-541d8094-c2e9-415d-af60-82a8b182d37d.holes"
+          ],
+          "source": "ks20261013-ness-chamber",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-ness-source"
+          ]
+        }
+      ],
+      "notes": {
+        "source": [
+          "ks20261013-ness-source"
+        ]
+      }
+    },
+    "f-ac84f55a-adc8-4c3e-91f7-e0393c96a087": {
+      "grouping": "verified",
+      "listed_sources": [
+        "ks20261013-cimarron-home",
+        "ks20261013-cimarron-fees",
+        "ks20261013-cimarron-state"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "address",
+            "website",
+            "website_status",
+            "website_checked_on"
+          ],
+          "source": "ks20261013-cimarron-home",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-cimarron-source"
+          ]
+        },
+        {
+          "fields": [
+            "public_access",
+            "courses.c-4ac78050-a917-40df-847a-edc980604d3b.access"
+          ],
+          "source": "ks20261013-cimarron-fees",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-cimarron-source"
+          ]
+        },
+        {
+          "fields": [
+            "physical_holes",
+            "inventory_complete",
+            "courses.c-4ac78050-a917-40df-847a-edc980604d3b.holes"
+          ],
+          "source": "ks20261013-cimarron-state",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-cimarron-source"
+          ]
+        }
+      ],
+      "notes": {
+        "source": [
+          "ks20261013-cimarron-source"
+        ]
+      }
+    }
+  },
+  "history_batches": [
+    {
+      "commit": "7adab469622919f15c2350dda150dde466f66138",
+      "committed_at": "2026-10-13T17:31:09Z",
+      "initial_baseline": false,
+      "facilities_added": 2,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "id": "f-248cb17c-e975-4b5d-81ff-05636f7fd3aa",
+          "name": "Sandpoint Elks Golf Course",
+          "state": "ID",
+          "address": "30196 Highway 200 East, Ponderay, ID 83852"
+        },
+        {
+          "id": "f-ab630c57-001c-463e-add1-57899d32f838",
+          "name": "Pinehurst Golf Course",
+          "state": "ID",
+          "address": "11 Country Club Lane, Pinehurst, ID 83850"
+        }
+      ],
+      "facilities_updated": 0,
+      "correction_note": [
+        "n-idnita-20261013-history"
+      ],
+      "reported_at": "2026-10-13T17:31:09Z"
+    },
+    {
+      "commit": "3553c5f33a77d518592d23b00b4759c97f5f4832",
+      "committed_at": "2026-10-13T12:28:23-05:00",
+      "initial_baseline": false,
+      "facilities_added": 8,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "name": "Britton Country Club",
+          "state": "SD",
+          "address": "10920 424TH AVE, BRITTON, SD 57430, US",
+          "id": "f-2afc16b7-bcad-4f30-9bbc-104f171fddaf"
+        },
+        {
+          "name": "Fisher Grove Country Club",
+          "state": "SD",
+          "address": "Box 22 17290 Fisher Lane Redfield, SD 57469",
+          "id": "f-a6ce5cfc-0d70-4947-b76f-545cd39928cd"
+        },
+        {
+          "name": "Miller Golf Course",
+          "state": "SD",
+          "address": "2808 North Highway 45, Miller, SD 57362",
+          "id": "f-58542a44-1c5d-48ec-9ed9-60f444699475"
+        },
+        {
+          "name": "Webster Municipal Golf Course",
+          "state": "SD",
+          "address": null,
+          "id": "f-dafb72f1-c912-4cf4-a6df-a270310f1fc2"
+        },
+        {
+          "name": "Olive Grove Golf Course",
+          "state": "SD",
+          "address": "700 East 5th Ave, Groton, SD 57445",
+          "id": "f-b907c36e-5ab3-4106-acb7-abf07da1371e"
+        },
+        {
+          "name": "Bowdle Golf Club",
+          "state": "SD",
+          "address": "13275 326th Ave, PO Box 60, Bowdle, SD 57428",
+          "id": "f-0cfec41a-f0fe-4a43-90df-58ba5e2fba81"
+        },
+        {
+          "name": "Newell Golf Club",
+          "state": "SD",
+          "address": "12963 Orman Road, Newell, SD 57760",
+          "id": "f-e1b234fd-4dda-4bec-8498-10b81374096f"
+        },
+        {
+          "name": "Cattail Crossing Golf Course",
+          "state": "SD",
+          "address": "351 S Lake Dr., Watertown, SD 57201",
+          "id": "f-c15cc495-4a08-4aa5-a34b-a6633c1acba4"
+        }
+      ],
+      "facilities_updated": 0,
+      "correction_note": [
+        "sd20261013-batch-history"
+      ],
+      "reported_at": "2026-10-13T12:28:23-05:00"
+    },
+    {
+      "commit": "32ed67bf6cbe21c23a282e431b53051fed6bb0cb",
+      "committed_at": "2026-10-13T17:30:46Z",
+      "reported_at": "2026-10-13T17:30:46Z",
+      "initial_baseline": false,
+      "facilities_added": 3,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [
+        {
+          "id": "f-b40677be-1f5c-4330-9b33-c0df9768b450",
+          "name": "Caney Golf Club",
+          "state": "KS",
+          "address": "1567 County Road 2000, Caney, Kansas 67333"
+        },
+        {
+          "id": "f-9ad38090-a54a-4097-b683-95ec55d2446d",
+          "name": "Ness County Golf Club",
+          "state": "KS",
+          "address": null
+        },
+        {
+          "id": "f-ac84f55a-adc8-4c3e-91f7-e0393c96a087",
+          "name": "Cimarron Golf Club",
+          "state": "KS",
+          "address": "812 Golf Course Rd., Cimarron, KS 67835"
+        }
+      ]
+    }
+  ],
+  "map_additions": 0,
+  "course_additions": 7,
+  "existing_facility_changes": 0,
+  "existing_research_changes": 0
+}

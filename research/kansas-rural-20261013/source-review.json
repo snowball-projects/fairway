@@ -1,0 +1,157 @@
+{
+  "archives": [
+    {
+      "name": "fairway-map-batch01-pr8-portable.zip",
+      "library_version": 21,
+      "sha256": "bf60bbbd0ad99f3918f000d8c15fb370cf1d3cedbbc6bcbf491f6e590a9f3477"
+    },
+    {
+      "name": "fairway-map-national-remaining-20261013.zip",
+      "library_version": 5,
+      "sha256": "0313862f44084a4a733b28e95d79f976970831b8844e8184e832543f1d5353e2"
+    }
+  ],
+  "text_members_screened": 1003,
+  "method": "All UTF-8 JSON/TXT/MD/LOG/CSV members indexed; named control/hold/stop/ledger/scope files and embedded Kansas acquisition ledgers reviewed. Host and www/bare aliases screened manually; a follow-up exhaustive occurrence scan retained privately. No absence of a historical match was treated as affirmative clearance. Fresh robots/policy review required before facts intake.",
+  "retained_holds_honored": [
+    "Maryland/MCG www and bare aliases after prior403/no-retry",
+    "classic5golf.com canceled approval batch",
+    "montgomerycountymd.gov GPTBot exclusion",
+    "bmgcgolf.com TLS availability stop",
+    "PGA and canceled LeRoy",
+    "Pennsylvania explicit rejected redirect targets and caches; no Pennsylvania requests",
+    "Kansas source controls: Greeley older site unavailable robots, Tipton city403, Kingman plan asset403, Pine Edge/Wildcat unavailable robots, Sugar Hills unavailable robots, Deer Trace owner403, Abilene owner restrictive terms, Hillsboro city403"
+  ],
+  "publisher_decisions": [
+    {
+      "hosts": [
+        "caneygolf.com",
+        "www.caneygolf.com"
+      ],
+      "current_robots": "200; User-agent:* with no Disallow; no AI-specific exclusion or crawl-delay",
+      "policy": "No operator terms/reuse link in inspected home/admission/statistics footer. Google Privacy/Terms explicitly apply to reCAPTCHA widget, not asserted as the operator facts policy. No account or widget interaction. Copyright retained; no explicit open reuse license claimed.",
+      "facts_used": true
+    },
+    {
+      "hosts": [
+        "nesscountychamber.com",
+        "www.nesscountychamber.com"
+      ],
+      "current_robots": "200; recreation.html permitted; blocked Chamber/area-amenities/history paths not requested. NerdyBot Disallow:/ and dotbot delay10 do not match fairway-research or OpenAI-specific agents. No OpenAI exclusion.",
+      "policy": "No reuse/terms link found in inspected recreation footer. Official local Chamber explicit facility-specific public statement accepted under parent source-scope clarification. No explicit reuse license claimed.",
+      "facts_used": true
+    },
+    {
+      "hosts": [
+        "cimarrongolfclub.com",
+        "www.cimarrongolfclub.com"
+      ],
+      "current_robots": "200; User-agent:* Disallow: empty; no AI-specific exclusion or delay.",
+      "policy": "No general site terms link in inspected operator footer. Account/checkout links and third-party booking paths were not followed for this facility. Nonmember rates from own /fees/ page. No explicit reuse license claimed.",
+      "facts_used": true
+    },
+    {
+      "hosts": [
+        "travelks.com",
+        "www.travelks.com"
+      ],
+      "current_robots": "200; Allow:/ except /plugins/crm/count/; Crawl-delay:2; no AI-specific exclusion.",
+      "policy": "Entire linked current Privacy Policy/conditions read. Covers visitor data, partners, legal disclaimer, terms acceptance and Kansas law; no identified bare-fact collection/republication restriction. Partner terms not silently ignored: no third-party pages used for accepted state facts. Only public HTML-authored profile data inspected; no API, private endpoint, contact export, imagery or coordinates used.",
+      "facts_used": true
+    },
+    {
+      "hosts": [
+        "themiddlepin.com",
+        "www.themiddlepin.com"
+      ],
+      "current_robots": "200; selected Terms/Privacy and operator-authored product paths permitted. Account/cart/checkout/login/register/api links not requested.",
+      "policy": "Current Golfer Terms v1 October1 cover account/app/cards/purchases, accepted when account created/membership claimed/checkout. Privacy v1 includes course websites. No identified public-page facts extraction or publication restriction; no license grant inferred. Council Grove and Cimarron Valley remain excluded solely for unconfirmed public admission.",
+      "facts_used": false
+    }
+  ],
+  "new_stops": [
+    {
+      "hosts": [
+        "bellevillecountryclub.com",
+        "www.bellevillecountryclub.com",
+        "bellevillecc.com",
+        "www.bellevillecc.com"
+      ],
+      "url": "https://bellevillecountryclub.com/robots.txt",
+      "status": 404,
+      "kind": "policy_unavailable_and_automatic_approval_rejection",
+      "rejected_action": "Read https://bellevillecountryclub.com/ homepage",
+      "review_reason": "Robots endpoint404 made source controls unavailable; missing controls not clearance under delegated instructions, so homepage collection unauthorized.",
+      "homepage_requested": false,
+      "facts_used": false,
+      "disposition": "Do not retry or use aliases/cache/indexed facts to replace the rejected collection."
+    }
+  ],
+  "technical_route_notes": [
+    "Sandbox urllib DNS failed for Anthony before any origin response. Native web reported inaccessible robots URLs for Bird City and Anthony, without status/headers. A bounded escalated public policy read then used the working network path; no403/429/publisher access denial occurred.",
+    "Bird City bare robots301 disclosed canonical www policy URL; checked historical www/bare identity and read only that policy first. No cross-host content redirect was automatically followed."
+  ],
+  "pacing": {
+    "measurement": "UTC request-start and completion timestamps retained for every direct read. Subsequent publisher request gap measured from preceding completion to next start.",
+    "required_delays": {
+      "travelks.com": 2,
+      "crazyhorsegolf.com": 3
+    },
+    "deviations": [],
+    "note": "State profile sequences explicitly waited3 seconds after completion; other independent work creates longer gaps. No direct-source pacing exceptions observed."
+  },
+  "excluded_candidates": [
+    {
+      "name": "Council Grove Country Club",
+      "reason": "Current operator9/address and linked tee-sheet product do not explicitly resolve independent nonmember admission; this is an access-field ambiguity, not a publisher publication hold."
+    },
+    {
+      "name": "Cimarron Valley Golf Club",
+      "reason": "Current operator9/Haskell County and linked tee-sheet product do not explicitly resolve independent nonmember admission; access ambiguity only, not a publication hold."
+    },
+    {
+      "name": "Ellis Golf Club LLC",
+      "reason": "Independent current state Public amenity and physical9 retained privately, but exact initial history row has id:null and no active match. Not counted as net-new; restoration/identity review needed."
+    },
+    {
+      "name": "Waterville Community Golf Course",
+      "reason": "State physical9 and public tournaments do not establish ordinary public daily admission."
+    },
+    {
+      "name": "Mankato Country Club",
+      "reason": "State physical9 and daily fee alone do not resolve explicit public/nonmember eligibility."
+    },
+    {
+      "name": "Hoxie Municipal Golf Course",
+      "reason": "State physical9 and generic invitation do not resolve earlier admission and address ambiguity."
+    },
+    {
+      "name": "Tipton Oaks Golf Course",
+      "reason": "Independent state9/fee not explicit public admission; held Tipton city never revisited."
+    },
+    {
+      "name": "Cottonwood Falls Country Club",
+      "reason": "Independent state9/day fee not explicit nonmember eligibility."
+    },
+    {
+      "name": "Fredonia Golf Club",
+      "reason": "State semi-private without explicit ordinary nonmember admission."
+    },
+    {
+      "name": "Lamont Hill",
+      "reason": "State tee-time invitation does not resolve explicit nonmember eligibility."
+    },
+    {
+      "name": "Crazy Horse",
+      "reason": "Operator membership/booking material still lacks explicit public/nonmember eligibility."
+    },
+    {
+      "name": "Anthony Golf Club",
+      "reason": "Municipal conventional9 confirmed, but explicit public statement refers to separate disc course; no admission transfer."
+    },
+    {
+      "name": "Bird City Golf",
+      "reason": "Reviewed official community pages do not establish current conventional-golf operation/public admission."
+    }
+  ]
+}

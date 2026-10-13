@@ -1,0 +1,12 @@
+{
+  "method": "Minimum15 seconds after response completion before next request to a source group; www/bare treated as one. Watertown conservative20; GFP effective15 exceeds required5. Start/completion UTC and response hashes retained. No concurrency within source group.",
+  "minimum_seconds_by_group": {
+    "brittoncountryclub.com": 40.293763160705566,
+    "sdga.org": 15.00006651878357,
+    "webstersd.com": 37.29557800292969,
+    "watertownsd.us": 72.17616176605225,
+    "gfp.sd.gov": 15.000080108642578
+  },
+  "crawl_delay_deviations": [],
+  "failed_sandbox_dns": "First tourism.redfield-sd.com policy request failed in sandbox DNS before HTTP. No facts; no source retry or alternate route subsequently used."
+}

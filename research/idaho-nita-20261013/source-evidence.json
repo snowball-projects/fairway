@@ -1,0 +1,477 @@
+{
+  "observed_on": "2026-10-13",
+  "rights": "Bare facts, source URLs and original review summaries only. No website prose, imagery, map geometry, scorecard artwork, prices, manager identities or booking data redistributed. No explicit reusable source-data license claimed.",
+  "publisher": "North Idaho Tourism Alliance, independent collaboration of regional visitor bureaus/chambers; About NITA inspected.",
+  "accepted_sources": [
+    {
+      "url": "https://visitnorthidaho.com/activity/sandpoint-elks-golf-course/",
+      "host": "visitnorthidaho.com",
+      "request_started_unix": 1791911192.022531,
+      "response_finished_unix": 1791911192.5841455,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "bytes": 50927,
+      "sha256": "84869d1f0cdac8f7b44b580913627d4aa1b9b75d90e07e9f3d7e5776f2ec602e"
+    },
+    {
+      "url": "https://visitnorthidaho.com/activity/pinehurst-golf-course-3/",
+      "host": "visitnorthidaho.com",
+      "request_started_unix": 1791911207.5842621,
+      "response_finished_unix": 1791911208.154544,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "bytes": 51115,
+      "sha256": "e88c0c62c92b4d1d3e970d5a762418b3f2017a3afa3819dcd79263d325af7ffd"
+    }
+  ],
+  "source_control_decision": {
+    "reviewed_on": "2026-10-13",
+    "controls": "Both supplied archives screened. Retained acquisition-audit/control.json explicitly lists robots and Sandpoint Elks/Pinehurst profile paths cleared_for_request on Oct9. No later denial/no-retry/reuse restriction found in scoped controls. This is independently operated regional tourism, not held visitidaho.org. Current robots and visible policies still required.",
+    "policy_review_pending": false,
+    "current_robots": "200: ordinary public paths allowed, wp-admin excluded; no AI-specific exclusion or crawl-delay directive. All reads paced 15 seconds after prior host completion.",
+    "current_navigation_policy_review": "Complete homepage footer/navigation has no linked terms/privacy/reuse restriction. Regional publisher identity to be checked on About NITA. Factual content remains individually reviewed, no presumed public access from membership.",
+    "publisher": "NITA: independent regional collaboration of visitor bureaus/chambers of 12 North Idaho communities. About NITA full navigation/footer likewise exposes no linked reuse terms. No public-play criterion inferred from inclusion; individual factual profiles required."
+  },
+  "source_control_archives": [
+    {
+      "library_file_id": "libfile_eea73e9998e88191aed8eb8a0f5e48d5",
+      "version": 21,
+      "sha256": "bf60bbbd0ad99f3918f000d8c15fb370cf1d3cedbbc6bcbf491f6e590a9f3477"
+    },
+    {
+      "library_file_id": "libfile_f28998190048819190e76586ee1924be",
+      "version": 5,
+      "sha256": "0313862f44084a4a733b28e95d79f976970831b8844e8184e832543f1d5353e2"
+    }
+  ],
+  "publisher_policy_observations": "Both recovered control corpora screened before collection. Retained acquisition-audit control explicitly cleared robots and the exact Sandpoint/Pinehurst profiles; no later source-specific denial/restriction recovered. Current robots200 permits these public paths. Complete current home/About/category/profile navigation/footer exposes no linked website reuse terms. No public-access criterion is inferred from directory membership; accepted profiles independently support public play.",
+  "request_pacing": {
+    "minimum_seconds": 15,
+    "scope": "Response completion to next request start, persisted across invocations and logical www/bare source groups. No retries or automatic redirects.",
+    "verified_gaps": [
+      {
+        "source_group": "mirrorlakegolf.com",
+        "previous_url": "https://mirrorlakegolf.com/robots.txt",
+        "next_url": "https://mirrorlakegolf.com/terms/",
+        "completion_to_next_start_seconds": 26.302018,
+        "required_seconds": 15
+      },
+      {
+        "source_group": "visitnorthidaho.com",
+        "previous_url": "https://visitnorthidaho.com/robots.txt",
+        "next_url": "https://visitnorthidaho.com/",
+        "completion_to_next_start_seconds": 27.590888,
+        "required_seconds": 15
+      },
+      {
+        "source_group": "visitnorthidaho.com",
+        "previous_url": "https://visitnorthidaho.com/",
+        "next_url": "https://visitnorthidaho.com/get-more-info/about-nita/",
+        "completion_to_next_start_seconds": 69.396586,
+        "required_seconds": 15
+      },
+      {
+        "source_group": "visitnorthidaho.com",
+        "previous_url": "https://visitnorthidaho.com/get-more-info/about-nita/",
+        "next_url": "https://visitnorthidaho.com/activity-category/golfing-golf-courses/",
+        "completion_to_next_start_seconds": 15.000122,
+        "required_seconds": 15
+      },
+      {
+        "source_group": "visitnorthidaho.com",
+        "previous_url": "https://visitnorthidaho.com/activity-category/golfing-golf-courses/",
+        "next_url": "https://visitnorthidaho.com/activity/sandpoint-elks-golf-course/",
+        "completion_to_next_start_seconds": 15.000181,
+        "required_seconds": 15
+      },
+      {
+        "source_group": "visitnorthidaho.com",
+        "previous_url": "https://visitnorthidaho.com/activity/sandpoint-elks-golf-course/",
+        "next_url": "https://visitnorthidaho.com/activity/pinehurst-golf-course-3/",
+        "completion_to_next_start_seconds": 15.000117,
+        "required_seconds": 15
+      },
+      {
+        "source_group": "visitnorthidaho.com",
+        "previous_url": "https://visitnorthidaho.com/activity/pinehurst-golf-course-3/",
+        "next_url": "https://visitnorthidaho.com/activity/priest-river-ranch-golf-course/",
+        "completion_to_next_start_seconds": 67.039323,
+        "required_seconds": 15
+      },
+      {
+        "source_group": "visitnorthidaho.com",
+        "previous_url": "https://visitnorthidaho.com/activity/priest-river-ranch-golf-course/",
+        "next_url": "https://visitnorthidaho.com/activity/prairie-falls-golf-club/",
+        "completion_to_next_start_seconds": 15.000178,
+        "required_seconds": 15
+      },
+      {
+        "source_group": "visitnorthidaho.com",
+        "previous_url": "https://visitnorthidaho.com/activity/prairie-falls-golf-club/",
+        "next_url": "https://visitnorthidaho.com/activity/coeur-dalene-resort-golf-course/",
+        "completion_to_next_start_seconds": 15.000137,
+        "required_seconds": 15
+      },
+      {
+        "source_group": "prairiefallsgolfclub.com",
+        "previous_url": "https://www.prairiefallsgolfclub.com/robots.txt",
+        "next_url": "https://www.prairiefallsgolfclub.com/terms-conditions",
+        "completion_to_next_start_seconds": 51.567825,
+        "required_seconds": 15
+      },
+      {
+        "source_group": "prairiefallsgolfclub.com",
+        "previous_url": "https://www.prairiefallsgolfclub.com/terms-conditions",
+        "next_url": "https://www.prairiefallsgolfclub.com/privacy-policy",
+        "completion_to_next_start_seconds": 15.000115,
+        "required_seconds": 15
+      },
+      {
+        "source_group": "mackayidaho-city.com",
+        "previous_url": "https://mackayidaho-city.com/robots.txt",
+        "next_url": "https://mackayidaho-city.com/",
+        "completion_to_next_start_seconds": 30.987518,
+        "required_seconds": 15
+      }
+    ]
+  },
+  "requests": [
+    {
+      "url": "https://visitidaho.org/robots.txt",
+      "host": "visitidaho.org",
+      "request_started_unix": 1791910946.3840537,
+      "response_finished_unix": 1791910946.548063,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 403,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/00d3b6d67040.html",
+      "stop_reason": "No retry after denied or unavailable read",
+      "error": "",
+      "bytes": 5530,
+      "sha256": "6308145278d9dec100b5b1d5f1981a9d94d0b093bbb7d3a46dcab1bab47e9e52"
+    },
+    {
+      "url": "https://visitnorthidaho.com/robots.txt",
+      "host": "visitnorthidaho.com",
+      "request_started_unix": 1791911062.7013366,
+      "response_finished_unix": 1791911063.130357,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/aa09f7ce97bd.html",
+      "bytes": 123,
+      "sha256": "36960ae8b49409fbf338703341d7700b909b9686fb6dcf1abf8f5527362e45f6"
+    },
+    {
+      "url": "https://mirrorlakegolf.com/robots.txt",
+      "host": "mirrorlakegolf.com",
+      "request_started_unix": 1791911063.130782,
+      "response_finished_unix": 1791911063.295456,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/56b6ca7e7286.html",
+      "bytes": 24,
+      "sha256": "e1f21c9aa28d50ca112ed357f34b67c550597effd4d42fd55b4e27300dd8f9c1"
+    },
+    {
+      "url": "https://rupertcountryclub.com/robots.txt",
+      "host": "rupertcountryclub.com",
+      "request_started_unix": 1791911063.2958903,
+      "response_finished_unix": 1791911063.3178186,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 0,
+      "curl_exit": 6,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/5627c2c74b1a.html",
+      "stop_reason": "No retry after denied or unavailable read",
+      "error": "curl: (6) Could not resolve host: rupertcountryclub.com\n"
+    },
+    {
+      "url": "https://mirrorlakegolf.com/terms/",
+      "host": "mirrorlakegolf.com",
+      "request_started_unix": 1791911089.5974739,
+      "response_finished_unix": 1791911090.7166064,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/2e164ccaa9d8.html",
+      "bytes": 107927,
+      "sha256": "b0575309bb7cd205199441dfdb7ec4a6693a37fd3f861dd5943559bd2f097103"
+    },
+    {
+      "url": "https://visitnorthidaho.com/",
+      "host": "visitnorthidaho.com",
+      "request_started_unix": 1791911090.7212446,
+      "response_finished_unix": 1791911091.3724158,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/c308555b1281.html",
+      "bytes": 103987,
+      "sha256": "f2336d1e80b5d6c86ef4bdfdee8519f08f33a264576f633bcdc0ea4c720b4801"
+    },
+    {
+      "url": "https://visitnorthidaho.com/get-more-info/about-nita/",
+      "host": "visitnorthidaho.com",
+      "request_started_unix": 1791911160.769002,
+      "response_finished_unix": 1791911161.3318524,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/abc44dd9ca40.html",
+      "bytes": 60281,
+      "sha256": "cc177c0524be916ffb00937f2da6d207a99a797b70507a98d18fefbea2dc823e"
+    },
+    {
+      "url": "https://visitnorthidaho.com/activity-category/golfing-golf-courses/",
+      "host": "visitnorthidaho.com",
+      "request_started_unix": 1791911176.3319745,
+      "response_finished_unix": 1791911177.0223496,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/6e0b0d037d3f.html",
+      "bytes": 54716,
+      "sha256": "9c4f23844c144770e2a926948253c3da142a17c7ab2a834148ae22b67006abb9"
+    },
+    {
+      "url": "https://visitnorthidaho.com/activity/sandpoint-elks-golf-course/",
+      "host": "visitnorthidaho.com",
+      "request_started_unix": 1791911192.022531,
+      "response_finished_unix": 1791911192.5841455,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "bytes": 50927,
+      "sha256": "84869d1f0cdac8f7b44b580913627d4aa1b9b75d90e07e9f3d7e5776f2ec602e"
+    },
+    {
+      "url": "https://visitnorthidaho.com/activity/pinehurst-golf-course-3/",
+      "host": "visitnorthidaho.com",
+      "request_started_unix": 1791911207.5842621,
+      "response_finished_unix": 1791911208.154544,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "bytes": 51115,
+      "sha256": "e88c0c62c92b4d1d3e970d5a762418b3f2017a3afa3819dcd79263d325af7ffd"
+    },
+    {
+      "url": "https://visitnorthidaho.com/activity/priest-river-ranch-golf-course/",
+      "host": "visitnorthidaho.com",
+      "request_started_unix": 1791911275.193867,
+      "response_finished_unix": 1791911275.7748017,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/96277f86a13d.html",
+      "bytes": 50909,
+      "sha256": "75b84ad2e996306154ef199f57eb38a6f34e28fcd9908f7f98a430c7d7eecc38"
+    },
+    {
+      "url": "https://visitnorthidaho.com/activity/prairie-falls-golf-club/",
+      "host": "visitnorthidaho.com",
+      "request_started_unix": 1791911290.7749796,
+      "response_finished_unix": 1791911291.342857,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/a28cbc787c18.html",
+      "bytes": 51394,
+      "sha256": "a680d1b3a6d25e2d3dbf1fb8c303f2a459b77e0b710116d043260596e2c7d918"
+    },
+    {
+      "url": "https://visitnorthidaho.com/activity/coeur-dalene-resort-golf-course/",
+      "host": "visitnorthidaho.com",
+      "request_started_unix": 1791911306.3429937,
+      "response_finished_unix": 1791911307.017296,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/abc47cd638b4.html",
+      "bytes": 52536,
+      "sha256": "29b110905289a77bbe81a2c28bdbcffed00608d115386bf9d00ebcc41f13eee9"
+    },
+    {
+      "url": "https://www.ranchclubgolfcourse.com/robots.txt",
+      "host": "www.ranchclubgolfcourse.com",
+      "source_group": "ranchclubgolfcourse.com",
+      "request_started_unix": 1791911412.9296384,
+      "response_finished_unix": 1791911413.199477,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 301,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/4e60b9402252.html",
+      "bytes": 98,
+      "sha256": "42b8e5b801892388eebc1e040de93eb2396b85111118505920299f19c0c19076"
+    },
+    {
+      "url": "https://www.prairiefallsgolfclub.com/robots.txt",
+      "host": "www.prairiefallsgolfclub.com",
+      "source_group": "prairiefallsgolfclub.com",
+      "request_started_unix": 1791911413.199997,
+      "response_finished_unix": 1791911413.4330819,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/7182fc6ebe31.html",
+      "bytes": 57,
+      "sha256": "3e82fcfa95a1079b53a8b2b3d4a68eb565bac596c40c282eec501d9fbd178328"
+    },
+    {
+      "url": "https://www.cdaresort.com/robots.txt",
+      "host": "www.cdaresort.com",
+      "source_group": "cdaresort.com",
+      "request_started_unix": 1791911413.4335864,
+      "response_finished_unix": 1791911413.7582386,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 403,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/ee88512bfce9.html",
+      "stop_reason": "No retry after denied or unavailable read",
+      "error": "",
+      "bytes": 52,
+      "sha256": "889403e5cfbb7981f7a26aced0d7492524e5397d6996f7fccd67562d2a4a71a3"
+    },
+    {
+      "url": "https://www.prairiefallsgolfclub.com/terms-conditions",
+      "host": "www.prairiefallsgolfclub.com",
+      "source_group": "prairiefallsgolfclub.com",
+      "request_started_unix": 1791911465.000907,
+      "response_finished_unix": 1791911465.1495981,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/daa0ec7d7ba4.html",
+      "bytes": 28618,
+      "sha256": "21a854caf91695899e404a38a927882baf266e2f654455033462bbc937cc2c09"
+    },
+    {
+      "url": "https://www.prairiefallsgolfclub.com/privacy-policy",
+      "host": "www.prairiefallsgolfclub.com",
+      "source_group": "prairiefallsgolfclub.com",
+      "request_started_unix": 1791911480.1497135,
+      "response_finished_unix": 1791911480.3268428,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/119a479633a7.html",
+      "bytes": 19940,
+      "sha256": "e81d9954caf41466873992b05840d335f05fe26ae81eaa4bc921cf20e5b039fe"
+    },
+    {
+      "url": "https://mackayidaho-city.com/robots.txt",
+      "host": "mackayidaho-city.com",
+      "source_group": "mackayidaho-city.com",
+      "request_started_unix": 1791911650.1575646,
+      "response_finished_unix": 1791911650.417999,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/9920780a8d6f.html",
+      "bytes": 92,
+      "sha256": "076a77ed49fb4a6572d13ec14044a3e7f38ade78f93d77f26624e1a787a641de"
+    },
+    {
+      "url": "https://challisgolfcourse.com/robots.txt",
+      "host": "challisgolfcourse.com",
+      "source_group": "challisgolfcourse.com",
+      "request_started_unix": 1791911650.4223886,
+      "response_finished_unix": 1791911660.4284737,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 0,
+      "curl_exit": 28,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/267db8c027ba.html",
+      "stop_reason": "No retry after denied or unavailable read",
+      "error": "curl: (28) Connection timed out after 10001 milliseconds\n"
+    },
+    {
+      "url": "https://mackayidaho-city.com/",
+      "host": "mackayidaho-city.com",
+      "source_group": "mackayidaho-city.com",
+      "request_started_unix": 1791911681.4055173,
+      "response_finished_unix": 1791911681.711965,
+      "minimum_completion_to_start_delay_seconds": 15,
+      "status": 200,
+      "curl_exit": 0,
+      "capture_file": "/home/nas/Documents/Codex/2026-10-13/task-7/idaho-research/fbbc74d76a62.html",
+      "bytes": 55392,
+      "sha256": "1a0a3cfdd8f2945ae32c267714238b87e0aee593d6fa7e3bce22a06c62165a11"
+    }
+  ],
+  "new_stops": [
+    {
+      "url": "https://visitidaho.org/robots.txt",
+      "host": "visitidaho.org",
+      "kind": "http403",
+      "disposition": "Source stopped; no content request, retry, alias or indexed recovery."
+    },
+    {
+      "url": "https://mirrorlakegolf.com/terms/",
+      "host": "mirrorlakegolf.com",
+      "kind": "personal_noncommercial_transitory_use_restriction",
+      "disposition": "Operator stopped immediately; no facility facts admitted, including policy-page footer. No further source requests."
+    },
+    {
+      "url": "https://rupertcountryclub.com/robots.txt",
+      "host": "rupertcountryclub.com",
+      "kind": "dns_unavailable",
+      "disposition": "Guessed lead stopped; no retry or owner identity asserted."
+    },
+    {
+      "url": "https://www.prairiefallsgolfclub.com/terms-conditions",
+      "host": "prairiefallsgolfclub.com",
+      "kind": "explicit_reuse_scraping_derivative_restriction",
+      "disposition": "Operator stopped after terms restriction. A pre-scheduled privacy-only request completed 15 seconds later before manual stop; no golf facts or policy-page footer facts admitted from either. Helper now rejects multi-policy invocations. No later request or bypass."
+    },
+    {
+      "url": "https://www.cdaresort.com/robots.txt",
+      "host": "cdaresort.com",
+      "kind": "http403",
+      "disposition": "Operator stopped; no source content, alias or alternative route."
+    },
+    {
+      "url": "https://www.ranchclubgolfcourse.com/robots.txt",
+      "host": "ranchclubgolfcourse.com",
+      "kind": "expired_domain_redirect",
+      "disposition": "Off-topic destination not followed; website not admitted as current operator."
+    },
+    {
+      "url": "https://mackayidaho-city.com/",
+      "host": "mackayidaho-city.com",
+      "kind": "source_integrity_unresolved",
+      "disposition": "Homepage gambling injections make publisher integrity unresolved; no golf-source facts or linked casino requests. All further collection stopped."
+    },
+    {
+      "url": "https://challisgolfcourse.com/robots.txt",
+      "host": "challisgolfcourse.com",
+      "kind": "connection_timeout",
+      "disposition": "No source permission/identity established; no content request or retry."
+    }
+  ],
+  "deferrals": [
+    {
+      "name": "Priest River Ranch Golf Course",
+      "reason": "Tourism profile describes nine holes but public/nonmember eligibility is not strong enough alone. Published owner domain redirects to an expired-domain seller; redirect not followed. No addition or website admission."
+    },
+    {
+      "name": "Prairie Falls Golf Club",
+      "reason": "Tourism invitation lacks explicit public/nonmember eligibility and physical hole count; par is not a hole count. Owner current terms explicitly restrict reuse/scraping/derivatives. Owner facts excluded."
+    },
+    {
+      "name": "Coeur d’Alene Resort Golf Course",
+      "reason": "Tourism page does not establish physical hole count or ordinary public eligibility; contact address may be resort office. Owner robots403 stopped. No par-based count or resort-address inference."
+    },
+    {
+      "name": "Mirror Lake",
+      "reason": "Owner personal/noncommercial use restriction discovered and stopped. No owner facts accepted; no alternate-source attempt to complete this held facility."
+    },
+    {
+      "name": "Mackay/Challis municipal leads",
+      "reason": "Mackay municipal homepage has unrelated gambling injections, source integrity unresolved; no course facts accepted. Challis source connection timeout stopped before content."
+    }
+  ],
+  "policy_sequence_exception": "Prairie Falls terms and privacy were incorrectly scheduled together. The privacy-only read completed 15 seconds after restrictive terms before manual stop. No operator facts or policy footer fields are admitted from either page. Helper now rejects multi-policy invocations; no later publisher request. All accepted source reads retained correct pacing."
+}

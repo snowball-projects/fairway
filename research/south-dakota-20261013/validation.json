@@ -1,0 +1,15 @@
+{
+  "facilities_added": 8,
+  "courses_added": 2,
+  "mapped_added": 0,
+  "candidate_total": 7184,
+  "baseline_total": 7176,
+  "existing_facility_and_research_records_unchanged": true,
+  "ranking_sha256": "c017b830b398d9476a0791882c7e193bb691476eab1a8f43359892eaf9ff3180",
+  "python_tests": "226 passed with explicit PYTHONPATH=src",
+  "ruff": "check and format passed (58 files)",
+  "javascript_syntax": "app.js and leaflet.js passed",
+  "snapshot": "8 courses, 63413 vertices, 166843 edges, maximum snap0.3869998 km",
+  "package": "uv0.12.15 offline build succeeded (wheel and sdist)",
+  "no_deployment_or_remote_writes": true
+}
