@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from math import hypot
 
 import pytest
-from modo import NationwideEstimator
+from modo import NationwideEstimator, RoutingCoverageError, RoutingProviderError
 
 from fairway.courses import Course
 from fairway.national import calculate_national_ranking
@@ -124,6 +124,72 @@ def test_rejects_invalid_modo_matrix_dimensions():
             ((41.0, -96.0),),
             ("course",),
         )
+
+
+class IsolatingMatrix:
+    def __init__(self, *, bad_destination=None, bad_origin=None, failure=None):
+        self.bad_destination = bad_destination
+        self.bad_origin = bad_origin
+        self.failure = failure
+        self.calls = []
+
+    def matrix(self, origins, destinations):
+        origins = tuple(origins)
+        destinations = tuple(destinations)
+        self.calls.append((origins, destinations))
+        if self.failure is not None:
+            raise self.failure
+        if self.bad_origin in origins or self.bad_destination in destinations:
+            raise RoutingCoverageError("fixture outside coverage")
+        return tuple(
+            tuple(
+                float(origin_index + destination_index + 1)
+                for destination_index, _ in enumerate(destinations)
+            )
+            for origin_index, _ in enumerate(origins)
+        )
+
+
+def test_isolates_bad_destination_without_losing_valid_venues():
+    origins = ((40.0, -100.0), (42.0, -90.0))
+    good = (41.0, -96.0)
+    bad = (0.0, 0.0)
+    modo = IsolatingMatrix(bad_destination=bad)
+
+    result = ModoMatrixProvider(modo).calculate(origins, (good, bad), ("good", "bad"))
+
+    assert result.destinations[0].travel_times_seconds == (1.0, 2.0)
+    assert result.destinations[1].reason == "outside-road-coverage"
+    assert result.metadata.strategy == "bounded-destination-isolation"
+    assert modo.calls == [
+        (origins, (good, bad)),
+        ((origins[0],), (origins[0],)),
+        ((origins[1],), (origins[1],)),
+        (origins, (good,)),
+        (origins, (bad,)),
+    ]
+
+
+def test_invalid_origin_coverage_failure_propagates():
+    origins = ((40.0, -100.0), (0.0, 0.0))
+    modo = IsolatingMatrix(bad_origin=origins[1])
+
+    with pytest.raises(RoutingCoverageError, match="fixture outside coverage"):
+        ModoMatrixProvider(modo).calculate(origins, ((41.0, -96.0),), ("course",))
+
+
+def test_noncoverage_provider_failure_propagates_without_isolation():
+    failure = RoutingProviderError("provider unavailable")
+    modo = IsolatingMatrix(failure=failure)
+
+    with pytest.raises(RoutingProviderError, match="provider unavailable"):
+        ModoMatrixProvider(modo).calculate(
+            ((40.0, -100.0), (42.0, -90.0)),
+            ((41.0, -96.0), (41.5, -95.5)),
+            ("first", "second"),
+        )
+
+    assert len(modo.calls) == 1
 
 
 class PlaneMatrix:
