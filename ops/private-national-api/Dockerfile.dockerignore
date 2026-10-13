@@ -1,0 +1,14 @@
+.git
+.venv
+.env
+.env.*
+__pycache__
+.pytest_cache
+.ruff_cache
+build
+dist*
+.tools
+_site
+data/*
+!data/catalog.json
+experiments
