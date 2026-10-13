@@ -2,8 +2,8 @@
   "base_commit": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
   "canonical_pr": 17,
   "superseded_pr": 16,
-  "distinct_facilities": 7,
-  "facilities_added": 4,
+  "distinct_facilities": 14,
+  "facilities_added": 11,
   "facilities_updated": 3,
   "target_distinct_facilities": 100,
   "target_is_practical_not_admission_requirement": true,
@@ -27,6 +27,19 @@
         "f-aad69510-e5f8-441b-bd1a-b6ad5173bd5c",
         "f-3d47740c-fed4-4872-8451-7af7fb2f6637",
         "f-9755d33d-078f-4665-9796-fb187c9c7831"
+      ]
+    },
+    {
+      "name": "SDGA directory seven public additions",
+      "evidence_commit": "734c400b9ec144cd874e2d509bdb4c467ef35adf",
+      "facility_ids": [
+        "f-5f4be9f9-969f-4fbd-bcad-fc5957b00d78",
+        "f-93a52bb5-afc9-489d-b8d2-8ce469d80ef9",
+        "f-37b11a95-0a1a-407f-8343-7c2002c85af7",
+        "f-b23450ce-eb1a-48bc-8752-39ea61b3a259",
+        "f-fadd9077-1685-47fd-a1b9-78c19282ddae",
+        "f-d82d0d3a-4750-4adc-93ed-0c934ac44036",
+        "f-bb2c3675-b155-4f10-8577-df9db74077aa"
       ]
     }
   ],
