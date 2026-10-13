@@ -344,3 +344,5 @@ The Nebraska, Missouri, South Carolina, Arizona, Georgia, Virginia, Arkansas, We
 The remaining twenty-state property-point intake is reproducible in `source-layers/remaining-twenty-state-osm-properties-20261011.json`, under the same ODbL source-layer and derived-point terms described above. Selected geometry, identity evidence and original coordinates are retained. Points identify properties for browsing, not entrances. Source snapshot: 2026-10-11; intake: 2026-10-13.
 
 The retained distinctive-name property intake is reproducible in `source-layers/retained-name-matches-01-osm-properties-20261011.json` under the same ODbL terms. Original automated proposed classifications are retained alongside the explicit manual identity decisions. Property browse points are not entrances.
+
+The second retained distinctive-name property intake is reproducible in `source-layers/retained-name-matches-02-osm-properties-20261011.json` under the same ODbL terms, preserving original proposed classifications, manual identity decisions and prior coordinates.
