@@ -1,0 +1,233 @@
+{
+  "format": "fairway-additions-delta-v1",
+  "base_commit": "3fe8f486cce87ec1e38524c7e49c732ed368d05e",
+  "base_catalog_sha256": "7afc52725962e12825dbd1d13d2df4ac392f4fd8860239be317eae65a89089e6",
+  "observed_on": "2026-10-13",
+  "sources": {
+    "ks20261013-caney-home": "https://caneygolf.com/",
+    "ks20261013-caney-play": "https://caneygolf.com/stay-%26-play",
+    "ks20261013-caney-stats": "https://caneygolf.com/course-statistics",
+    "ks20261013-ness-chamber": "https://www.nesscountychamber.com/recreation.html",
+    "ks20261013-cimarron-home": "https://cimarrongolfclub.com/",
+    "ks20261013-cimarron-fees": "https://cimarrongolfclub.com/fees/",
+    "ks20261013-cimarron-state": "https://www.travelks.com/listing/cimarron-golf-club/6233/"
+  },
+  "notes": {
+    "ks20261013-caney-access": "The operator explicitly publishes nonmember rates. Its homepage closes the course to public play on Tuesdays and allows exceptions for leagues, tournaments and posted events; the Stay & Play page separately says daily opening. The Tuesday restriction is retained rather than promising unrestricted daily access. Course Statistics expressly identifies nine physical holes played using two nine-hole tee loops, so the eighteen-hole route is not counted as a second physical course. Source publication dates are not stated; observed October 13, 2026.",
+    "ks20261013-ness-source": "The official Ness County Chamber recreation page explicitly identifies a nine-hole course open to the public. Its unnumbered Highway 283 location about four miles north of Ness City is retained here but is not promoted to a numbered course address. No independent operator website, county assignment, property point or arrival was verified. The page is undated; observation on October 13, 2026 does not guarantee live operation.",
+    "ks20261013-cimarron-source": "The operator Fees page explicitly offers nonmember weekday and weekend/holiday play. The independent official Kansas Tourism profile identifies a nine-hole physical course; nine/eighteen-hole playing prices are not separate layouts. The operator homepage publishes 812 Golf Course Rd., Cimarron, KS 67835. Source publication dates are unknown; observed October 13, 2026. County, property location and arrival remain unverified."
+  },
+  "added_facilities": [
+    {
+      "id": "f-b40677be-1f5c-4330-9b33-c0df9768b450",
+      "name": "Caney Golf Club",
+      "state": "KS",
+      "county": null,
+      "address": {
+        "text": "1567 County Road 2000, Caney, Kansas 67333",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://caneygolf.com/",
+      "map_location": null,
+      "courses": [
+        {
+          "id": "c-0ce1156e-62f2-4fda-a59c-71a495c94e05",
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "arrival": null
+        }
+      ],
+      "public_access": "public",
+      "website_status": "found",
+      "website_checked_on": "2026-10-13"
+    },
+    {
+      "id": "f-9ad38090-a54a-4097-b683-95ec55d2446d",
+      "name": "Ness County Golf Club",
+      "state": "KS",
+      "county": null,
+      "address": null,
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": null,
+      "map_location": null,
+      "courses": [
+        {
+          "id": "c-541d8094-c2e9-415d-af60-82a8b182d37d",
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "arrival": null
+        }
+      ],
+      "public_access": "public",
+      "website_status": "not_checked",
+      "website_checked_on": null
+    },
+    {
+      "id": "f-ac84f55a-adc8-4c3e-91f7-e0393c96a087",
+      "name": "Cimarron Golf Club",
+      "state": "KS",
+      "county": null,
+      "address": {
+        "text": "812 Golf Course Rd., Cimarron, KS 67835",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://cimarrongolfclub.com/",
+      "map_location": null,
+      "courses": [
+        {
+          "id": "c-4ac78050-a917-40df-847a-edc980604d3b",
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "arrival": null
+        }
+      ],
+      "public_access": "public",
+      "website_status": "found",
+      "website_checked_on": "2026-10-13"
+    }
+  ],
+  "research": {
+    "f-b40677be-1f5c-4330-9b33-c0df9768b450": {
+      "grouping": "verified",
+      "listed_sources": [
+        "ks20261013-caney-home",
+        "ks20261013-caney-play",
+        "ks20261013-caney-stats"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "address",
+            "website",
+            "website_status",
+            "website_checked_on",
+            "notes.access"
+          ],
+          "source": "ks20261013-caney-home",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-caney-access"
+          ]
+        },
+        {
+          "fields": [
+            "public_access",
+            "courses.c-0ce1156e-62f2-4fda-a59c-71a495c94e05.access"
+          ],
+          "source": "ks20261013-caney-play",
+          "observed_on": "2026-10-13"
+        },
+        {
+          "fields": [
+            "physical_holes",
+            "inventory_complete",
+            "courses.c-0ce1156e-62f2-4fda-a59c-71a495c94e05.holes"
+          ],
+          "source": "ks20261013-caney-stats",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-caney-access"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "ks20261013-caney-access"
+        ]
+      }
+    },
+    "f-9ad38090-a54a-4097-b683-95ec55d2446d": {
+      "grouping": "verified",
+      "listed_sources": [
+        "ks20261013-ness-chamber"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "physical_holes",
+            "inventory_complete",
+            "courses.c-541d8094-c2e9-415d-af60-82a8b182d37d.access",
+            "courses.c-541d8094-c2e9-415d-af60-82a8b182d37d.holes"
+          ],
+          "source": "ks20261013-ness-chamber",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-ness-source"
+          ]
+        }
+      ],
+      "notes": {
+        "source": [
+          "ks20261013-ness-source"
+        ]
+      }
+    },
+    "f-ac84f55a-adc8-4c3e-91f7-e0393c96a087": {
+      "grouping": "verified",
+      "listed_sources": [
+        "ks20261013-cimarron-home",
+        "ks20261013-cimarron-fees",
+        "ks20261013-cimarron-state"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "address",
+            "website",
+            "website_status",
+            "website_checked_on"
+          ],
+          "source": "ks20261013-cimarron-home",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-cimarron-source"
+          ]
+        },
+        {
+          "fields": [
+            "public_access",
+            "courses.c-4ac78050-a917-40df-847a-edc980604d3b.access"
+          ],
+          "source": "ks20261013-cimarron-fees",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-cimarron-source"
+          ]
+        },
+        {
+          "fields": [
+            "physical_holes",
+            "inventory_complete",
+            "courses.c-4ac78050-a917-40df-847a-edc980604d3b.holes"
+          ],
+          "source": "ks20261013-cimarron-state",
+          "observed_on": "2026-10-13",
+          "note": [
+            "ks20261013-cimarron-source"
+          ]
+        }
+      ],
+      "notes": {
+        "source": [
+          "ks20261013-cimarron-source"
+        ]
+      }
+    }
+  },
+  "evidence_commit": "32ed67bf6cbe21c23a282e431b53051fed6bb0cb"
+}

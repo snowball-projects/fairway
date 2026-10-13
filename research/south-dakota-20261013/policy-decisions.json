@@ -1,0 +1,24 @@
+{
+  "sdga.org": {
+    "robots": "200; wildcard Disallow empty; no AI-specific restrictions or crawl delay.",
+    "terms": "Full /terms-of-use/ privacy policy reviewed, no automated-access or reuse restriction found. Footer all rights reserved. No affirmative open-data license claimed.",
+    "privacy_probe": "Guessed /privacy-policy/ returned404; actual linked /terms-of-use/ reviewed via canonical slash target. No source facts consumed from404.",
+    "allowed_use": "Bounded bare identity/address facts and explicit individual Public labels only; no protected prose, imagery, personnel/email details or scorecard/rating tables imported."
+  },
+  "brittoncountryclub.com": {
+    "robots": "200; wildcard Disallow:/api/ only; no AI-specific restriction/delay.",
+    "terms": "Homepage navigation/footer reviewed; no policy/terms link found; no explicit license. Homepage bare name/address/nine-hole fact used. Golf subpage had no useful golf text.",
+    "allowed_use": "Bare facility facts only."
+  },
+  "watertownsd.us": {
+    "robots": "200; allowed /177 page; several administrative/search paths denied. Siteimprove-specific20-second delay; conservative20 seconds used for direct collection.",
+    "terms": "Complete /177 navigation/footer inspected; no policy/terms link present. No affirmative license claimed.",
+    "allowed_use": "Bare municipal identity/address and whole-facility27 only."
+  },
+  "gfp.sd.gov": {
+    "robots": "200; /content/ and /error/ denied; park/policy paths permitted; crawl-delay5.",
+    "terms": "Full disclaimer and privacy reviewed. Disclaimer permits viewing, copying or distributing information for personal or informational use, with third-party-rights and accuracy qualifications. No explicit open license claimed.",
+    "allowed_use": "Independently written bare ten-hole fact; excludes state-park address and park GPS.",
+    "canonical_redirect": "Disclaimer untrailed URL redirects to same-host HTTP slash; same-host HTTPS slash reviewed with HTTPS preserved, no denial bypass."
+  }
+}

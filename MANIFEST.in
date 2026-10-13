@@ -3,6 +3,8 @@ include .env.example render.yaml uv.lock
 include data/README.md
 include data/catalog.json
 include data/migration-accounting.json
+include research/kansas-rural-20261013/apply_delta.py
+include research/kansas-rural-20261013/delta.json
 recursive-include docs *.md
 recursive-include docs *.png
 recursive-include docs/research-map *.html *.mjs *.css *.json

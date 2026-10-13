@@ -371,3 +371,5 @@ only facility totals and their provenance. All nested course records, inventory
 completeness, addresses, coordinates, arrivals, access fields and the bounded
 ranking selection remain unchanged. A facility total alone does not establish a
 course subdivision. No source fact here claims live operation or an entrance.
+
+The thirteen public-facility additions in `research/combined-public-20261013/` are documented with independent regional/official/operator facts, explicit admission evidence, source controls and rights qualifications. Idaho contributes two, Kansas three and South Dakota eight. Five physical totals remain unknown, Cattail component inventory is unresolved, all new counties/map/arrival coordinates are null, and Caney public play excludes Tuesdays. No explicit source-data open license is claimed.
