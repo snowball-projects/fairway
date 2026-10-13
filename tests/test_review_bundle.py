@@ -107,10 +107,8 @@ def test_extra_files_and_manifest_injection_fail_before_review(
         [
             "run_review.py",
             "--execute",
-            "--api-image-id",
-            "sha256:" + "a" * 64,
-            "--fixture-image-id",
-            "sha256:" + "b" * 64,
+            "--work-directory",
+            str(output.parent / "prepared-code"),
         ],
     )
     with patch("subprocess.run") as docker, pytest.raises(ValueError):
@@ -124,22 +122,6 @@ def test_bad_application_hash_creates_no_output(prepared):
     with pytest.raises(ValueError, match="checksum mismatch"):
         prepare.prepare(*altered)
     assert not output.exists()
-
-
-def test_image_wheel_subset_verification_rejects_pip_candidate_injection(prepared):
-    prepare, integrity, output, args = prepared
-    prepare.prepare(*args)
-    image = output.parent / "image-copy"
-    image.mkdir()
-    for name in integrity.IMAGE_FILES | {"SHA256SUMS"}:
-        shutil.copyfile(output / name, image / name)
-    shutil.copytree(output / "wheels", image / "wheels")
-    assert integrity.verify(image, wheels_only=True)["wheels"] == 8
-    (image / "wheels/geographiclib-999.0-py3-none-any.whl").write_bytes(
-        b"rogue candidate"
-    )
-    with pytest.raises(ValueError, match="extra or missing"):
-        integrity.verify(image, wheels_only=True)
 
 
 def test_application_requirement_cannot_be_an_external_url(prepared):
@@ -163,7 +145,7 @@ def test_documented_output_setup_allows_precreated_logs_without_changing_bundle(
     lines = [
         line for line in document.splitlines() if line.startswith("REVIEW_OUTPUT=")
     ]
-    assert len(lines) == 6 and lines[:2] == lines[2:4] == lines[4:6]
+    assert len(lines) == 4 and lines[:2] == lines[2:4]
     script = "\n".join(lines[:2]) + "\nexport REVIEW_OUTPUT\n"
     script += (
         f"{shlex.quote(sys.executable)} run_review.py "
@@ -185,17 +167,33 @@ def test_documented_output_setup_allows_precreated_logs_without_changing_bundle(
         json.loads((evidence / "review-events.jsonl").read_text())["docker_calls"] == 0
     )
     # No Docker save: a stand-in archive exercises the same outside output location.
-    (evidence / "fairway-safety-images.tar").write_bytes(b"synthetic archive evidence")
+    (evidence / "prepared-code.tar").write_bytes(b"synthetic archive evidence")
     assert integrity.verify(output) == before
     assert not (output / "review-events.jsonl").exists()
-    assert not (output / "fairway-safety-images.tar").exists()
-    assert 'docker save -o "$REVIEW_OUTPUT/fairway-safety-images.tar"' in document
+    assert not (output / "prepared-code.tar").exists()
+    assert '--work-directory "$REVIEW_OUTPUT/prepared-code"' in document
 
 
-@pytest.mark.parametrize("name", ["review-events.jsonl", "fairway-safety-images.tar"])
+@pytest.mark.parametrize("name", ["review-events.jsonl", "prepared-code.tar"])
 def test_operator_outputs_inside_bundle_still_fail_exact_file_check(prepared, name):
     prepare, integrity, output, args = prepared
     prepare.prepare(*args)
     (output / name).write_bytes(b"operator output must stay outside")
     with pytest.raises(ValueError, match="extra or missing"):
+        integrity.verify(output)
+
+
+def test_aggregate_wheel_budget_fails_before_output_creation(prepared, monkeypatch):
+    prepare, _, output, args = prepared
+    monkeypatch.setattr(prepare, "MAX_BUNDLE_BYTES", 1)
+    with pytest.raises(ValueError, match="aggregate wheels"):
+        prepare.prepare(*args)
+    assert not output.exists()
+
+
+def test_aggregate_bundle_budget_fails_before_any_review_call(prepared, monkeypatch):
+    prepare, integrity, output, args = prepared
+    prepare.prepare(*args)
+    monkeypatch.setattr(integrity, "MAX_BUNDLE_BYTES", 1)
+    with pytest.raises(ValueError, match="aggregate bundle"):
         integrity.verify(output)

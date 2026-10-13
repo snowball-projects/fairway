@@ -12,14 +12,14 @@ from urllib.parse import urlsplit
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[2]
 FILES = (
-    "Dockerfile.api",
-    "Dockerfile.fixture",
+    "prepare_runtime.py",
     "fixture_router.py",
     "run_review.py",
     "bundle_integrity.py",
     "runtime-requirements.arm64.txt",
 )
 MAX_WHEEL_BYTES = 128 * 1024 * 1024
+MAX_BUNDLE_BYTES = 256 * 1024 * 1024
 
 
 def verified(path, expected):
@@ -73,6 +73,8 @@ def prepare(output, dependencies, fairway, fairway_hash, modo, modo_hash):
             "version": versions[name],
             "sha256": digest,
         }
+    if sum(path.stat().st_size for path in selected) > MAX_BUNDLE_BYTES:
+        raise ValueError("aggregate wheels exceed the 256 MiB input budget")
     # Verify everything before creating output; never remove an existing directory.
     output.mkdir(mode=0o700)
     try:
@@ -93,11 +95,6 @@ def prepare(output, dependencies, fairway, fairway_hash, modo, modo_hash):
                 f"--hash=sha256:{manifest['applications'][name]['sha256']}\n"
                 for name in sorted(manifest["applications"])
             )
-        )
-        (output / ".dockerignore").write_text(
-            "*\n!Dockerfile.api\n!Dockerfile.fixture\n!fixture_router.py\n"
-            "!runtime-requirements.arm64.txt\n!application-requirements.txt\n"
-            "!wheel-manifest.json\n!SHA256SUMS\n!bundle_integrity.py\n!wheels/\n!wheels/*.whl\n"
         )
         paths = sorted(p for p in output.rglob("*") if p.is_file())
         lines = []

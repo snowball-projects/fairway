@@ -1,8 +1,0 @@
-# REVIEW ONLY. Same official ARM64 CPython base; stdlib-only synthetic fixture.
-FROM docker.io/library/python:3.12.14-slim-bookworm@sha256:eb5be8e5b4d0a159c237946bbdd06356dda5d19c30fc4f7843e8046d3a590333
-WORKDIR /opt/fixture
-COPY fixture_router.py /opt/fixture/fixture_router.py
-RUN command -v timeout
-ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
-USER 65532:65532
-ENTRYPOINT ["/usr/bin/timeout", "--signal=TERM", "--kill-after=5s", "180s", "python", "/opt/fixture/fixture_router.py"]

@@ -9,8 +9,7 @@ from pathlib import Path
 DEPENDENCIES = {"geographiclib", "gunicorn", "networkx", "numpy", "packaging", "scipy"}
 APPLICATIONS = {"fairway", "modo"}
 FIXED_FILES = {
-    "Dockerfile.api",
-    "Dockerfile.fixture",
+    "prepare_runtime.py",
     "fixture_router.py",
     "run_review.py",
     "bundle_integrity.py",
@@ -18,15 +17,9 @@ FIXED_FILES = {
     "application-requirements.txt",
     "wheel-manifest.json",
     "README.md",
-    ".dockerignore",
-}
-IMAGE_FILES = {
-    "bundle_integrity.py",
-    "runtime-requirements.arm64.txt",
-    "application-requirements.txt",
-    "wheel-manifest.json",
 }
 MAX_WHEEL_BYTES = 128 * 1024 * 1024
+MAX_BUNDLE_BYTES = 256 * 1024 * 1024
 
 
 def require(condition, message):
@@ -104,7 +97,7 @@ def wheel_entries(root):
     return result
 
 
-def verify(root, *, wheels_only=False):
+def verify(root):
     root = Path(root)
     wheels = wheel_entries(root)
     expected = FIXED_FILES | {f"wheels/{name}" for name in wheels}
@@ -121,9 +114,7 @@ def verify(root, *, wheels_only=False):
     require(
         set(checksums) == expected, "checksum manifest must list the exact bundle files"
     )
-    wanted = (IMAGE_FILES if wheels_only else FIXED_FILES) | {
-        f"wheels/{name}" for name in wheels
-    }
+    wanted = expected
     actual = set()
     for path in root.rglob("*"):
         require(not path.is_symlink(), "bundle links are forbidden")
@@ -134,6 +125,10 @@ def verify(root, *, wheels_only=False):
             require(path.is_file(), "bundle special files are forbidden")
             actual.add(name)
     require(actual == wanted | {"SHA256SUMS"}, "extra or missing bundle files")
+    require(
+        sum((root / name).stat().st_size for name in actual) <= MAX_BUNDLE_BYTES,
+        "aggregate bundle exceeds the 256 MiB input budget",
+    )
     for name in wanted:
         path = root / name
         require(
@@ -151,13 +146,8 @@ def verify(root, *, wheels_only=False):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--wheels-only", action="store_true")
-    args = parser.parse_args()
-    print(
-        json.dumps(
-            verify(Path(__file__).resolve().parent, wheels_only=args.wheels_only)
-        )
-    )
+    parser.parse_args()
+    print(json.dumps(verify(Path(__file__).resolve().parent)))
 
 
 if __name__ == "__main__":

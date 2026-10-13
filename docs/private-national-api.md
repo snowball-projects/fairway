@@ -194,8 +194,9 @@ its security options and context. Do not fall back to a rootful daemon.
    container and dataset identities. Do not dump environment secrets.
 2. Build the reviewed source on a separately approved isolated target-compatible
    builder. Do not use Spark's shared daemon for an uncapped build. For disposable
-   safety testing, follow `docs/disposable-container-test.md`: it requires prebuilt
-   reviewed image IDs and contains no runtime build/pull/import path. The normal
+   safety testing, follow `docs/disposable-container-test.md`: it uses one capped
+   offline preparation container followed by read-only public-code mounts on the
+   same already present pinned base; there is no build/pull/import path. The normal
    Dockerfile generates the existing catalog export from canonical data before
    installation, including in a clean checkout:
 
