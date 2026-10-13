@@ -5,6 +5,7 @@ import importlib.util
 import io
 import json
 import subprocess
+import traceback
 from contextlib import nullcontext
 from pathlib import Path
 from unittest.mock import MagicMock, Mock
@@ -95,7 +96,7 @@ class FakeDocker:
                 "Memory": memory * 1024**2,
                 "MemorySwap": memory * 1024**2,
                 "NanoCpus": 1_000_000_000,
-                "LogConfig": {"Type": "none"},
+                "LogConfig": {"Type": value("--log-driver")},
                 "Init": True,
                 "Devices": [],
                 "Tmpfs": {},
@@ -229,6 +230,8 @@ def test_sequential_preparation_then_readonly_runtime_and_owned_cleanup(
         assert args[args.index("--pids-limit") + 1] == "64"
         assert args[args.index("--entrypoint") + 1] == "/usr/bin/timeout"
         assert "180s" in args
+        assert args[args.index("--log-driver") + 1] == "none"
+        assert "--log-opt" not in args
         assert not any(x in args for x in ("run", "build", "pull", "commit", "load"))
     prep = runs[0]
     assert prep[prep.index("--network") + 1] == "none"
@@ -1234,3 +1237,336 @@ def test_connection_close_still_runs_when_explicit_response_close_raises(
         m.request_impl()
     assert responses[0].close.call_count >= 1
     assert close.call_count >= 2  # detachment plus request finally, despite close error
+
+
+@pytest.mark.parametrize("checked", [False, True])
+def test_docker_failure_record_keeps_only_allowed_bounded_fields(
+    controller, monkeypatch, capsys, checked
+):
+    m, review = controller
+    identifier = "a" * 64
+    review.ids[("container", m.API)] = identifier
+    review.cleanup_mode = True
+    result = subprocess.CompletedProcess(
+        [],
+        1,
+        "NEVER_PRINT_STDOUT_ENV",
+        "compression cannot be enabled when max file count is 1",
+    )
+    monkeypatch.setattr(subprocess, "run", Mock(return_value=result))
+    args = ("start", identifier, "/home/nas/private-marker", "password=NEVER_ARGV")
+    if checked:
+        with pytest.raises(RuntimeError, match="Docker command failed"):
+            review.docker(*args, timeout=4)
+    else:
+        assert review.docker(*args, timeout=4, check=False) is result
+    event = json.loads(capsys.readouterr().out)
+    assert event["operation"] == ["start"] and event["resources"] == [identifier]
+    assert event["returncode"] == 1 and event["timeout_seconds"] == 4
+    assert event["cleanup"] is True and event["checked"] is checked
+    assert event["stderr_preview"] == result.stderr
+    assert not any(
+        value in json.dumps(event)
+        for value in ("NEVER_PRINT_STDOUT_ENV", "NEVER_ARGV", "private-marker")
+    )
+
+
+def test_timeout_partial_stderr_is_redacted_without_resolving_create_uncertainty(
+    controller, monkeypatch, capsys
+):
+    m, review = controller
+    failure = subprocess.TimeoutExpired(
+        "SECRET_ARGV",
+        2,
+        output=b"SECRET_STDOUT",
+        stderr=b"token=SECRET_TOKEN\nstart failed\xff",
+    )
+    monkeypatch.setattr(subprocess, "run", Mock(side_effect=failure))
+    with pytest.raises(TimeoutError) as raised:
+        review.create_resource("container", m.PREP, ["create", "--name", m.PREP])
+    assert "SECRET" not in str(raised.value)
+    assert ("container", m.PREP) in review.uncertain_creates
+    event = json.loads(capsys.readouterr().out.splitlines()[-1])
+    assert event["exception_type"] == "TimeoutExpired" and event["resources"] == [
+        m.PREP
+    ]
+    assert event["returncode"] is None
+    assert "start failed" in event["stderr_preview"]
+    assert not any(
+        value in json.dumps(event)
+        for value in ("SECRET_TOKEN", "SECRET_STDOUT", "SECRET_ARGV")
+    )
+    assert review.ids == {}  # Diagnostics do not confirm a timed-out creation.
+
+
+@pytest.mark.parametrize(
+    "payload",
+    [
+        "界" * 10000,
+        b"x" * 10000,
+        "\x1b\x00\r\x7f\u202e" + "z" * 5000,
+        "TOKEN=" + "x" * 10000,
+    ],
+)
+def test_stderr_scan_utf8_retention_truncation_and_controls(controller, payload):
+    m, _ = controller
+    preview, clipped = m.diagnostic_stderr(payload)
+    assert len(preview.encode("utf-8")) <= 4096 and clipped
+    assert not any(char in preview for char in ("\x1b", "\x00", "\r", "\x7f", "\u202e"))
+
+
+def test_stderr_redacts_named_secrets_private_paths_url_data_and_key_block(controller):
+    m, _ = controller
+    payload = """failed /home/person/private-folder
+API_KEY=fake-api-credential
+Authorization: Bearer fake-bearer-credential
+PASSWORD=fake-password
+HTTPS://user:fake-url-credential@example.invalid/path?token=fake-query
+ssh://person@example.invalid/private
+C:\\Users\\person\\private-folder
+-----BEGIN PRIVATE KEY-----
+synthetic-fixture-only-no-key-material
+-----END PRIVATE KEY-----
+"""
+    preview, _ = m.diagnostic_stderr(payload)
+    assert (
+        "[private-path]" in preview
+        and "[url]" in preview
+        and "[redacted key]" in preview
+    )
+    assert not any(
+        value in preview
+        for value in (
+            "private-folder",
+            "fake-api",
+            "fake-bearer",
+            "fake-password",
+            "fake-url",
+            "fake-query",
+            "synthetic-fixture-only",
+        )
+    )
+
+
+def test_unknown_operation_and_copy_failure_never_publish_args_or_stdout(
+    controller, monkeypatch, capsys
+):
+    m, review = controller
+    review.failed_command(
+        ("SECRET_COMMAND", "SECRET_ARG", "password=value"),
+        1,
+        checked=False,
+        stderr="generic failure",
+    )
+    event = json.loads(capsys.readouterr().out)
+    assert event["operation"] == ["unknown"] and event["resources"] == []
+    assert "SECRET" not in json.dumps(event)
+    identifier = "b" * 64
+    review.ids[("container", m.PREP)] = identifier
+    monkeypatch.setattr(
+        subprocess,
+        "run",
+        Mock(
+            return_value=subprocess.CompletedProcess(
+                [], 1, "SECRET_STDOUT", "copy failed /tmp/private-output"
+            )
+        ),
+    )
+    with pytest.raises(RuntimeError):
+        review.docker("cp", identifier + ":/out/site", "/tmp/private-output")
+    event = json.loads(capsys.readouterr().out)
+    assert event["operation"] == ["cp"] and event["resources"] == [identifier]
+    assert "private-output" not in event[
+        "stderr_preview"
+    ] and "SECRET_STDOUT" not in json.dumps(event)
+    assert subprocess.run.call_args.kwargs["capture_output"] is True
+
+
+def test_docker_oserror_does_not_reproduce_private_filename_or_raw_message(
+    controller, monkeypatch, capsys
+):
+    m, review = controller
+    failure = OSError("SECRET_ERROR /home/user/privatefile")
+    monkeypatch.setattr(subprocess, "run", Mock(side_effect=failure))
+    with pytest.raises(RuntimeError, match="invocation failed") as raised:
+        review.docker("start", m.API)
+    event = json.loads(capsys.readouterr().out)
+    assert event["exception_type"] == "OSError"
+    assert "SECRET" not in str(raised.value) and "privatefile" not in str(raised.value)
+    assert "SECRET" not in json.dumps(event) and "privatefile" not in json.dumps(event)
+
+
+@pytest.mark.parametrize("stage", ["generation", "write"])
+@pytest.mark.parametrize("original", ["timeout", "oserror", "interrupt", "exit"])
+@pytest.mark.parametrize("diagnostic", ["pipe", "space", "alarm", "interrupt", "exit"])
+def test_diagnostic_failure_traceback_never_restores_raw_subprocess_context(
+    controller, monkeypatch, stage, original, diagnostic
+):
+    m, review = controller
+    original_errors = {
+        "timeout": subprocess.TimeoutExpired("SECRET_ARGV", 2, stderr=b"partial"),
+        "oserror": OSError(28, "SECRET_MESSAGE", "/srv/SECRET_FILENAME"),
+        "interrupt": KeyboardInterrupt("SECRET_INTERRUPT"),
+        "exit": SystemExit("SECRET_EXIT"),
+    }
+    diagnostic_errors = {
+        "pipe": BrokenPipeError("SECRET_DIAGNOSTIC"),
+        "space": OSError(28, "SECRET_DIAGNOSTIC", "/srv/SECRET_LOGFILE"),
+        "alarm": TimeoutError("SECRET_DIAGNOSTIC"),
+        "interrupt": KeyboardInterrupt("SECRET_DIAGNOSTIC"),
+        "exit": SystemExit("SECRET_DIAGNOSTIC"),
+    }
+    monkeypatch.setattr(subprocess, "run", Mock(side_effect=original_errors[original]))
+    target = "diagnostic_stderr" if stage == "generation" else "emit"
+    monkeypatch.setattr(m, target, Mock(side_effect=diagnostic_errors[diagnostic]))
+    expected = {
+        "timeout": TimeoutError,
+        "oserror": RuntimeError,
+        "interrupt": KeyboardInterrupt,
+        "exit": InterruptedError,
+    }[original]
+    if diagnostic in {"alarm", "interrupt", "exit"}:
+        expected = {
+            "alarm": TimeoutError,
+            "interrupt": KeyboardInterrupt,
+            "exit": InterruptedError,
+        }[diagnostic]
+    args = ("start", m.API, "SECRET_ARGV")
+    with pytest.raises(expected) as raised:
+        review.docker(*args)
+    formatted = "".join(traceback.format_exception(raised.value))
+    assert "SECRET" not in formatted
+    assert raised.value.__suppress_context__
+
+
+def test_failed_diagnostic_during_create_keeps_uncertainty_and_owned_cleanup(
+    controller, monkeypatch, capsys
+):
+    m, review = controller
+    fake = attach(m, review, monkeypatch)
+    review.prepare()
+    review.network(m.NETWORK)
+    saved_emit = m.emit
+
+    def broken_record(event, **fields):
+        if event == "docker-command-failed":
+            raise BrokenPipeError("SECRET_LOG_FAILURE")
+        saved_emit(event, **fields)
+
+    monkeypatch.setattr(m, "emit", broken_record)
+    monkeypatch.setattr(review, "docker", m.Review.docker.__get__(review))
+    monkeypatch.setattr(
+        subprocess,
+        "run",
+        Mock(side_effect=subprocess.TimeoutExpired("SECRET_ARGV", 1)),
+    )
+    with pytest.raises(TimeoutError):
+        review.create_resource("container", m.API, ["create", "--name", m.API])
+    assert ("container", m.API) in review.uncertain_creates
+    # A late owned create is reconciled during cleanup, never assumed absent.
+    fake(
+        *review.run_arguments(
+            m.API, review.resource_id("network", m.NETWORK), "512m", "65532:65532"
+        ),
+        "--mount",
+        f"type=bind,src={review.work / 'site'},dst=/opt/prepared,readonly",
+    )
+    monkeypatch.setattr(review, "docker", fake)
+    review.cleanup()
+    assert not fake.objects and not review.uncertain_creates and not review.created
+    assert "SECRET" not in capsys.readouterr().out
+
+
+@pytest.mark.parametrize(
+    "path",
+    [
+        "/home/alice/Private Client/record.txt",
+        "/srv/private-client/record.txt",
+        "C:\\Private Client\\record.txt",
+    ],
+)
+def test_path_bearing_stderr_suppresses_complete_path_line(controller, path):
+    m, _ = controller
+    preview, _ = m.diagnostic_stderr(f"invalid mount source: {path}\ncopy failed")
+    assert preview == "[private-path]\ncopy failed"
+    assert "record.txt" not in preview and "Client" not in preview
+
+
+@pytest.mark.parametrize(
+    "mode", ["success", "late-copy", "early-exit", "short-outer", "late-result"]
+)
+def test_preparation_uses_shared_lifetime_and_refuses_unsafe_copy(
+    controller, monkeypatch, mode
+):
+    m, review = controller
+    clock = [100.0]
+    original_deadline = 130.0 if mode == "short-outer" else 640.0
+    review.deadline = original_deadline
+    monkeypatch.setattr(m.time, "monotonic", lambda: clock[0])
+    watchdogs = []
+
+    def watchdog(deadline):
+        watchdogs.append(deadline)
+        if deadline <= clock[0]:
+            raise TimeoutError("absolute test deadline")
+        return nullcontext()
+
+    monkeypatch.setattr(m, "absolute_watchdog", watchdog)
+    fake = attach(m, review, monkeypatch)
+    seen_ready = False
+    observed = []
+
+    def docker(*args, **kwargs):
+        nonlocal seen_ready
+        observed.append((args, review.deadline))
+        if args[0] == "exec" and "/out/ready" in args[-1]:
+            seen_ready = True
+            if mode in {"late-copy", "early-exit"}:
+                # Ready shortly before the reserved boundary; the subsequent
+                # owned-state lookup spends another two seconds of that budget.
+                clock[0] = 244.0
+        elif seen_ready and args[:2] == ("container", "inspect"):
+            clock[0] += 2
+            if mode == "early-exit":
+                fake.objects[m.PREP]["State"]["Running"] = False
+        if args[0] == "cp" and mode == "late-result":
+            clock[0] = 276.0
+        return fake(*args, **kwargs)
+
+    monkeypatch.setattr(review, "docker", docker)
+    if mode == "success":
+        review.prepare()
+        assert review.site_digest and (review.work / "receipt.json").is_file()
+    else:
+        expected = AssertionError if mode == "early-exit" else TimeoutError
+        with pytest.raises(expected):
+            review.prepare()
+        assert not review.site_digest and not (review.work / "receipt.json").exists()
+        assert any(args[0] == "cp" for args, _ in observed) == (mode == "late-result")
+    assert review.deadline == original_deadline  # Restore outer work/cleanup budget.
+    assert watchdogs[0] == min(original_deadline, 280.0)
+    assert min(original_deadline, 280.0) - 35 in watchdogs
+    if mode == "success":
+        assert 275.0 in watchdogs
+        cp = next(row for row in observed if row[0][0] == "cp")
+        assert cp[1] == 280.0
+    monkeypatch.setattr(review, "docker", fake)
+    review.cleanup()
+    assert not fake.objects and not review.created
+
+
+def test_unchecked_failure_with_broken_diagnostic_write_aborts_safely(
+    controller, monkeypatch
+):
+    m, review = controller
+    monkeypatch.setattr(
+        subprocess,
+        "run",
+        Mock(
+            return_value=subprocess.CompletedProcess([], 1, "SECRET_STDOUT", "failed")
+        ),
+    )
+    monkeypatch.setattr(m, "emit", Mock(side_effect=OSError(28, "SECRET_LOG_FAILURE")))
+    with pytest.raises(RuntimeError, match="diagnostic recording failed") as raised:
+        review.docker("start", m.API, check=False)
+    assert "SECRET" not in "".join(traceback.format_exception(raised.value))

@@ -161,8 +161,18 @@ failed `/tmp` rootfs write, network, mounts, ports and policy. It then installs 
 six dependencies and two applications to `/out/site`, with no-index/no-deps,
 only-binary,require-hashes,no-cache-dir,no-compile and isolated pip configuration.
 
-The controller waits at most120s for preparation, copies only `/out/site` via
-Docker cp into its new mode0700 work directory, rejects links/special files,
+The pending local revision gives the entire preparation stage one absolute
+180s controller deadline recorded before creation, also capped by the outer
+work deadline. Isolation/barrier checks and the at-most120s readiness wait end
+at least35s before that deadline. After a fresh owned-state check, copying is
+refused unless a full30s copy window plus5s reserve remains. Copying has its own
+alarm ending5s before the stage deadline and rejects a late successful return.
+The existing180s container timer is unchanged; installer post-ready sleep does
+not extend it. Mocked tests cover late readiness, early exit, late copy return
+and a shorter enclosing deadline; actual live-tmpfs archive behavior is unproved.
+
+It copies only `/out/site` via Docker cp into its new mode0700 work directory,
+rejects links/special files,
 empty output or >20,000 files/>512MiB, hashes the tree and makes code readable
 by runtime UID65532. Docker cp and host disk operations are outside the installer
 cgroup; the tmpfs/copy bounds limit payload size, not all daemon CPU or memory.
@@ -305,3 +315,35 @@ could not run because its local artifact is absent; no download/rebuild occurred
 Sideline remains one paused/uninstalled proposal, excluded from this runtime.
 No public exposure, credentials, persistent service, DNS/firewall changes,
 Render retirement, PR merge or live routing load occurs in this work.
+
+## Pending diagnostic addition, separate source review
+
+The local addition retains one bounded failed-command record: allowlisted
+operation, fixed review names/confirmed full IDs, return code or exception type,
+configured timeout, checked/cleanup context and redacted stderr preview only.
+It scans at most8KiB and retains at most4KiB UTF-8. After credential/URL redaction,
+every remaining line containing POSIX/Windows path syntax is suppressed entirely,
+including paths with spaces or outside home/tmp roots. Credential assignments,
+Bearer tokens/private-key blocks and control characters are removed defensively.
+This is not a guarantee for arbitrary secret text. Full argv, environment, stdout
+and raw exception messages are never persisted in these records.
+
+Diagnostic generation/write occurs after leaving the original subprocess
+exception handler. Failures during redaction or emission are converted to safe
+messages with suppressed exception context. A failed diagnostic cannot restore
+raw TimeoutExpired argv or an OSError filename through traceback chaining.
+Deadline/interruption categories remain active; output failure fails closed and
+keeps original deadline/interruption semantics. Tests format full exception
+chains for generation/write failures, including broken pipe, ENOSPC and alarms.
+Timeout partial stderr is recorded while the existing uncertain-create and exact
+owner/ID cleanup guards remain in force. Checked and unchecked failures remain
+distinguishable, and late owned creations are still reconciled during cleanup.
+
+The existing subprocess.run/communicate path drains stdout and stderr together,
+including Docker cp; no separate unconsumed stderr pipe is introduced. Preview
+bounds limit persisted diagnostics, not total CLI capture or Docker daemon use.
+This addition is uncommitted and requires source review before any execution;
+the earlier eight-wheel bundle contains the reviewed controller only and must be
+refreshed after an approved diagnostic revision. Runtime still uses log-driver
+none without local-driver options, so native's max-file/compression conflict does
+not apply; no daemon setting, log-driver switch or failed-stage retry is proposed.

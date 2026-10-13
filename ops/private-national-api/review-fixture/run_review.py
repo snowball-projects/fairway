@@ -31,6 +31,9 @@ NATIVE_NAMES = {"modo-native-review-build", "modo-native-review-router"}
 LIVE = ("valhalla-us-261011", "valhalla-illinois")
 LABEL = "fairway.safety.run=review"
 PORT = 18081
+PREPARATION_SECONDS = 180
+COPY_SECONDS = 30
+COPY_RESERVE_SECONDS = COPY_SECONDS + 5
 BODY = json.dumps(
     {
         "origins": [[41.90, -87.66], [42.06, -87.88]],
@@ -111,6 +114,39 @@ def checked_tree(root, *, make_readable=False):
 
 def emit(event, **fields):
     print(json.dumps({"event": event, **fields}), flush=True)
+
+
+def diagnostic_stderr(raw):
+    """Defensive preview only: scan 8 KiB, retain at most 4 KiB UTF-8."""
+    raw = raw or b""
+    clipped_input = len(raw) > 8192
+    if isinstance(raw, str):
+        raw = raw[:8192].encode("utf-8", "replace")
+    clipped_input = clipped_input or len(raw) > 8192
+    preview = raw[:8192].decode("utf-8", "replace")
+    preview = re.sub(r"[\x00-\x08\x0b-\x1f\x7f-\x9f\u202a-\u202e]", "?", preview)
+    preview = re.sub(
+        r"(?is)-----BEGIN[^\n]*PRIVATE KEY-----.*", "[redacted key]", preview
+    )
+    preview = re.sub(
+        r"(?im)\b([\w-]*(?:password|passwd|token|secret|credential|key|authorization)[\w-]*)[\"']?\s*[:=][^\n]*",
+        r"\1=[redacted]",
+        preview,
+    )
+    preview = re.sub(r"(?i)\bbearer\s+\S+", "Bearer [redacted]", preview)
+    preview = re.sub(r"(?i)(?:https?|tcp|ssh)://[^\s\"']+", "[url]", preview)
+    # Paths may contain spaces and live outside familiar home/tmp roots. URL
+    # data was removed above; conservatively suppress every remaining line
+    # with POSIX/Windows path syntax instead of guessing its final component.
+    preview = "\n".join(
+        "[private-path]" if "/" in line or "\\" in line else line
+        for line in preview.split("\n")
+    )
+    preview = re.sub(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}", "[email]", preview)
+    encoded = preview.encode("utf-8")
+    return encoded[:4096].decode("utf-8", "ignore"), clipped_input or len(
+        encoded
+    ) > 4096
 
 
 def verify_bundle():
@@ -267,6 +303,7 @@ class Review:
         self.uncertain_creates = set()
         self.baseline = None
         self.initial_bytes = None
+        self.cleanup_mode = False
         self.env = {k: v for k, v in os.environ.items() if not k.startswith("DOCKER_")}
 
     def request(self, path="/health", body=None, timeout=35):
@@ -312,21 +349,132 @@ class Review:
             worker.wait(timeout=remaining_seconds(self.deadline, 0.5))
         self.http_worker = None
 
+    def failed_command(
+        self,
+        args,
+        timeout,
+        *,
+        checked,
+        returncode=None,
+        exception_type=None,
+        stderr=None,
+    ):
+        # Field values are constants or confirmed IDs, never full argv/stdout.
+        groups = {
+            "container": {"inspect", "rm"},
+            "network": {"create", "inspect", "connect", "disconnect", "rm"},
+            "image": {"inspect"},
+            "system": {"df"},
+        }
+        singles = {
+            "info",
+            "ps",
+            "inspect",
+            "create",
+            "start",
+            "stop",
+            "rm",
+            "kill",
+            "exec",
+            "cp",
+        }
+        operation = args[:1] if args[0] in singles else ("unknown",)
+        if len(args) > 1 and args[1] in groups.get(args[0], set()):
+            operation = args[:2]
+        known = {PREP, API, ROUTER, NETWORK, CANARY} | set(self.ids.values())
+        resources = list(
+            dict.fromkeys(
+                arg.split(":", 1)[0] for arg in args if arg.split(":", 1)[0] in known
+            )
+        )
+        preview, clipped = diagnostic_stderr(stderr)
+        emit(
+            "docker-command-failed",
+            operation=operation,
+            resources=resources[:4],
+            timeout_seconds=timeout,
+            returncode=returncode,
+            exception_type=exception_type,
+            checked=checked,
+            cleanup=self.cleanup_mode,
+            stderr_preview=preview,
+            stderr_truncated=clipped,
+        )
+
+    def record_failure(self, *args, failure=None, **fields):
+        # Called after leaving the original subprocess exception handler. A
+        # formatter/output failure must never expose its message or context.
+        try:
+            self.failed_command(*args, **fields)
+        except KeyboardInterrupt:
+            raise KeyboardInterrupt from None
+        except (TimeoutError, subprocess.TimeoutExpired):
+            raise TimeoutError("Docker diagnostic deadline expired") from None
+        except (InterruptedError, SystemExit):
+            raise InterruptedError("Docker diagnostic recording interrupted") from None
+        except Exception:  # noqa: BLE001 - fail closed without arbitrary diagnostic text
+            raise failure or RuntimeError(
+                "Docker diagnostic recording failed"
+            ) from None
+
     def docker(self, *args, timeout=10, check=True):
         remaining = self.deadline - time.monotonic()
         if remaining <= 0:
             raise TimeoutError("whole review deadline")
-        result = subprocess.run(
-            self.command + list(args),
-            env=self.env,
-            capture_output=True,
-            text=True,
-            timeout=min(timeout, remaining),
-            check=False,
-        )
+        timeout = min(timeout, remaining)
+        failure = None
+        exception_type = None
+        stderr = None
+        try:
+            # communicate drains both pipes, including cp failures. This limits
+            # persisted diagnostics, not total CLI capture/daemon resource use.
+            result = subprocess.run(
+                self.command + list(args),
+                env=self.env,
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+                check=False,
+            )
+        except (
+            OSError,
+            subprocess.SubprocessError,
+            KeyboardInterrupt,
+            SystemExit,
+        ) as error:
+            # No redaction or output while a raw exception is active. Retain
+            # its category/partial stderr only; Python clears error on exit.
+            exception_type = type(error).__name__
+            stderr = getattr(error, "stderr", None)
+            if isinstance(error, KeyboardInterrupt):
+                failure = KeyboardInterrupt()
+            elif isinstance(error, (subprocess.TimeoutExpired, TimeoutError)):
+                failure = TimeoutError("Docker command deadline expired")
+            elif isinstance(error, (InterruptedError, SystemExit)):
+                failure = InterruptedError("Docker command interrupted")
+            else:
+                failure = RuntimeError("Docker command invocation failed")
+        if failure is not None:
+            self.record_failure(
+                args,
+                timeout,
+                checked=check,
+                failure=failure,
+                exception_type=exception_type,
+                stderr=stderr,
+            )
+            raise failure from None
+        if result.returncode:
+            self.record_failure(
+                args,
+                timeout,
+                checked=check,
+                returncode=result.returncode,
+                stderr=result.stderr,
+            )
         if check and result.returncode:
             # Never dump container/image environment or arbitrary daemon output.
-            raise RuntimeError(f"Docker {args[0]} failed, status {result.returncode}")
+            raise RuntimeError(f"Docker command failed, status {result.returncode}")
         return result
 
     def document(self, *args):
@@ -604,6 +752,16 @@ class Review:
         emit("isolation-checked", component=name, effective_cgroups=controls)
 
     def prepare(self):
+        previous_deadline = self.deadline
+        deadline = min(previous_deadline, time.monotonic() + PREPARATION_SECONDS)
+        try:
+            self.deadline = deadline
+            with absolute_watchdog(deadline):
+                self.prepare_with_deadline(deadline)
+        finally:
+            self.deadline = previous_deadline
+
+    def prepare_with_deadline(self, deadline):
         # Validate before creating host output or daemon objects. This is public
         # code, not a routing dataset; the copied tree is capped and checked.
         validate_work_directory(self.work)
@@ -626,38 +784,56 @@ class Review:
             "/inputs/prepare_runtime.py",
         ]
         self.create_resource("container", PREP, args)
-        self.start_container(PREP, "none")
-        self.check_container(PREP, "none", 1024, "0:0", ROOT, "/inputs")
-        self.docker(
-            "exec",
-            self.resource_id("container", PREP),
-            "python",
-            "-c",
-            "from pathlib import Path; Path('/out/allow-install').touch()",
-        )
-        end = time.monotonic() + 120
-        while time.monotonic() < end:
-            state = self.owned("container", PREP)["State"]
-            assert state["Running"] and not state["OOMKilled"], "preparation failed"
-            ready = self.docker(
-                "exec",
-                self.resource_id("container", PREP),
-                "python",
-                "-c",
-                "from pathlib import Path; raise SystemExit(not Path('/out/ready').is_file())",
-                check=False,
+        try:
+            # One stage budget begins before creation, hence no later than the
+            # container timer. Checks/install cannot consume the copy reserve.
+            self.deadline = deadline - COPY_RESERVE_SECONDS
+            with absolute_watchdog(self.deadline):
+                self.start_container(PREP, "none")
+                self.check_container(PREP, "none", 1024, "0:0", ROOT, "/inputs")
+                self.docker(
+                    "exec",
+                    self.resource_id("container", PREP),
+                    "python",
+                    "-c",
+                    "from pathlib import Path; Path('/out/allow-install').touch()",
+                )
+                self.deadline = min(self.deadline, time.monotonic() + 120)
+                with absolute_watchdog(self.deadline):
+                    while time.monotonic() < self.deadline:
+                        state = self.owned("container", PREP)["State"]
+                        assert state["Running"] and not state["OOMKilled"], (
+                            "preparation failed"
+                        )
+                        ready = self.docker(
+                            "exec",
+                            self.resource_id("container", PREP),
+                            "python",
+                            "-c",
+                            "from pathlib import Path; raise SystemExit(not Path('/out/ready').is_file())",
+                            check=False,
+                        )
+                        if ready.returncode == 0:
+                            break
+                        time.sleep(min(1, remaining_seconds(self.deadline, 1)))
+                    else:
+                        raise TimeoutError("offline preparation deadline")
+        finally:
+            self.deadline = deadline
+        state = self.owned("container", PREP)["State"]
+        assert state["Running"] and not state["OOMKilled"], "preparation failed"
+        if deadline - time.monotonic() < COPY_RESERVE_SECONDS:
+            raise TimeoutError("insufficient preparation copy reserve")
+        # A 30s copy must finish at least 5s before the conservative lifetime
+        # deadline. The daemon's actual live-tmpfs copy behavior remains untested.
+        with absolute_watchdog(deadline - 5):
+            self.docker(
+                "cp",
+                self.resource_id("container", PREP) + ":/out/site",
+                str(self.work / "site"),
+                timeout=COPY_SECONDS,
             )
-            if ready.returncode == 0:
-                break
-            time.sleep(1)
-        else:
-            raise TimeoutError("offline preparation deadline")
-        self.docker(
-            "cp",
-            self.resource_id("container", PREP) + ":/out/site",
-            str(self.work / "site"),
-            timeout=30,
-        )
+            remaining_seconds(deadline - 5, 1)
         self.site_digest = checked_tree(self.work / "site", make_readable=True)
         if self.initial_bytes is not None:
             self.disk_budget()
@@ -920,6 +1096,7 @@ class Review:
 
     def cleanup(self, *, deadline=None):
         # Separate 30-second reserve, including the local HTTP worker teardown.
+        self.cleanup_mode = True
         self.deadline = time.monotonic() + 30 if deadline is None else deadline
         failures = []
         try:
