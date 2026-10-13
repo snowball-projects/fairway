@@ -308,3 +308,12 @@ or current operation. The MIT software license does not license OSM data.
 Keeping the evidence in a separate file does not by itself exempt a combined
 or derivative database from ODbL obligations. Reusers must preserve applicable
 source licenses and comply with ODbL when distributing OSM-derived databases.
+
+
+`data/source-layers/illinois-osm-property-corrections-20261011.json` contains
+60 further identity-matched golf polygons and derived interior property points,
+also under ODbL-1.0. These replace off-property Census estimates for browsing;
+the original coordinates remain in the source layer and prior catalog history.
+The point derivation uses Shapely representative_point on complete valid
+geometries, followed by strict containment after rounding. Namesakes, unresolved
+feature duplication and the Nashville address conflict remain excluded.
