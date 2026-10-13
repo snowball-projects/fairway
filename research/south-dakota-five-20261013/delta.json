@@ -220,7 +220,7 @@
       }
     }
   },
-  "publication_status": "approved_facts_preparing_draft_pr",
+  "publication_status": "draft_pr_proposal",
   "linked_policy_clearance_complete": true,
   "unreviewed_linked_policies": [],
   "integration_constraint": {

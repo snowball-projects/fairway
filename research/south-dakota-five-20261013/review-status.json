@@ -1,5 +1,5 @@
 {
-  "publication_status": "approved_facts_preparing_draft_pr",
+  "publication_status": "draft_pr_proposal",
   "related_prior_request": {
     "url": "https://www.sdga.org/privacy-policy/",
     "status": 404,
@@ -9,7 +9,6 @@
     "substitutes_for_exact_privacy": false
   },
   "fresh_requests": 2,
-  "canonical_catalog_sha256_unchanged": "a25595d68fe87e6e41f747211af04496b4f5aada00d6c99d011304edc311be7d",
   "exact_linked_path_follow_up": {
     "authorization": "One parent-authorized read of actual linked/privacy, after retained/current-session source-control review; no guessed/stopped URLs requested.",
     "requested_url": "https://www.sdga.org/privacy",
@@ -59,12 +58,14 @@
     "next_cohort_exact_url_requested": false,
     "raw_capture_retained": false,
     "terms_title_is_not_endpoint_clearance": true,
-    "prior_no_exact_request_statement": "Accurate before parent-authorized follow-up at19:08UTC; no earlier exact/privacy capture existed."
+    "prior_no_exact_request_statement": "Accurate before parent-authorized follow-up at19:08UTC; no earlier exact/privacy capture existed.",
+    "prior_candidate_catalog_sha256": "a25595d68fe87e6e41f747211af04496b4f5aada00d6c99d011304edc311be7d"
   },
   "actual_linked_url_requested": true,
   "canonical_policy_url": "https://www.sdga.org/privacy/",
   "raw_capture_retained": true,
   "raw_capture_sha256": "c8f1681be8014fcfb07326e3f2b47572be06e0bd853e080aecf212c0e6ef5b38",
   "policy_content_reviewed_in_full": true,
-  "unreviewed_policies": []
+  "unreviewed_policies": [],
+  "current_integration_catalog_sha256": "3140e3ff09551170c13e7f7db3041ae9f42ad056d731fc6d64d7c11dc074d5da"
 }
