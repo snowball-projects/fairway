@@ -1,0 +1,47 @@
+{
+  "baseline_head": "df14f16e14a62f8360e601241d5a147805a695ff",
+  "baseline_catalog_sha256": "b46d664d26478039aaece7794ca92a01363e8dde33107ff68b15bfd045ee21f9",
+  "method": "Screened the 1003 text members in the two retained control archives, the 19 current catalog source-license entries, and catalog notes recording positive reuse policies. Independent local review was included. Held-source facts were not reused.",
+  "source_license_entry_count": 19,
+  "recorded_license_types": [
+    "CC-BY-4.0",
+    "ODbL-1.0"
+  ],
+  "inventories": [
+    {
+      "name": "UGRC Utah GolfCourses",
+      "license": "CC-BY-4.0",
+      "retained_scope": "85 exact object IDs already bind to existing facilities; 72 property proposals were already applied. Remaining records have identity or invalid-geometry exceptions. No verified net-new public candidate was recovered.",
+      "status": "Reusable retained data for existing records; no net-new cohort."
+    },
+    {
+      "name": "Retained OSM golf properties",
+      "license": "ODbL-1.0",
+      "retained_scope": "Primarily existing-facility matching work. Geometry or directory presence alone does not establish public admission or current operation.",
+      "status": "No verified net-new admission cohort recovered. The Ohio worker owns 20 existing Ohio IDs."
+    },
+    {
+      "name": "Travel Iowa / Iowa Tourism Office",
+      "retained_permission": "Previous permission covered scoped facts from bare-host existing profiles; this was not an automatic license. Public listing criteria do not establish publisher permission.",
+      "status": "The October 12 JavaScript HTTP 406 publisher pause applies to new requests and new fact intake, superseding previous HTTP 200 and policy reviews. No requests, cache substitution, APIs, or aliases were used."
+    },
+    {
+      "name": "Glacier Country Western Montana golf inventory",
+      "retained_permission": "Catalog source s12543 and note n7766 record an August 24, 2026 factual travel-information exception; the complete governing policy body is not materialized.",
+      "known_current_binding": "Wildhorse Plains Golf Course already exists. No retained uncovered-candidate list was recovered.",
+      "status": "Selected for current policy review. Three control requests left policy review incomplete after an oversized response. The golf inventory was not requested; zero facilities were accepted."
+    },
+    {
+      "name": "South Dakota GFP",
+      "retained_permission": "Informational-use permission includes third-party rights and accuracy qualifications.",
+      "status": "Not a broad golf directory. Retained golf candidates are already covered."
+    }
+  ],
+  "candidate_limit": 20,
+  "nonduplicate_candidates_selected": 0,
+  "facilities_admitted": 0,
+  "newfacts_collected": 0,
+  "individual_operator_requests": 0,
+  "all_previous_and_latest_holds_preserved": true,
+  "conclusion": "No viable evidence-backed net-new public cohort was recovered from retained inventories. No count-target exception or inferred permission was used."
+}
