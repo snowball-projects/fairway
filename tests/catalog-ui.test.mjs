@@ -1,13 +1,14 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import {
   mapEligible,
   catalogCounts,
   searchCatalog,
   shapeRings,
-  clusterPoints,
 } from "../src/fairway/static/catalog.mjs";
 import { project } from "../docs/research-map/model.mjs";
+import { createFacilityDots } from "../src/fairway/static/facility-dots.mjs";
 import {
   canRemoveOrigin,
   originLimit,
@@ -102,22 +103,171 @@ test("Census state geometry inverts its projection without supplying fabricated 
   assert.ok(Math.abs(rings[0][0][0] - 42) < 1e-9);
   assert.ok(Math.abs(rings[0][0][1] + 89) < 1e-9);
 });
-test("screen clusters conserve facility identities and separate actual points at local zoom", () => {
+
+function dotMap() {
+  const paths = new Set();
+  const renderer = {};
+  const map = {
+    zoom: 4,
+    getZoom() {
+      return this.zoom;
+    },
+  };
+  let creations = 0;
+  const L = {
+    canvas(options) {
+      renderer.options = options;
+      return renderer;
+    },
+    layerGroup() {
+      return {
+        addTo() {
+          return this;
+        },
+        removeLayer(path) {
+          paths.delete(path);
+        },
+      };
+    },
+    circleMarker(coordinates, options) {
+      creations++;
+      return {
+        coordinates,
+        options,
+        styles: 0,
+        setLatLng(value) {
+          this.coordinates = value;
+          return this;
+        },
+        getLatLng() {
+          return this.coordinates;
+        },
+        on(event, handler) {
+          this[event] = handler;
+          return this;
+        },
+        addTo() {
+          paths.add(this);
+          return this;
+        },
+        setStyle(value) {
+          Object.assign(this.options, value);
+          this.styles++;
+        },
+        bringToFront() {
+          this.front = true;
+        },
+      };
+    },
+  };
+  return {
+    L,
+    map,
+    paths,
+    renderer,
+    get creations() {
+      return creations;
+    },
+  };
+}
+
+test("canvas dots retain every eligible identity and coordinate across national and local zoom", () => {
+  const fake = dotMap();
+  const selected = [];
+  const layer = createFacilityDots(fake.L, fake.map, (id) => selected.push(id));
   const records = [
     facility,
     {
       ...facility,
-      id: "b",
+      id: "nearby",
       map_location: { ...facility.map_location, longitude: -79.389 },
     },
+    {
+      ...facility,
+      id: "estimate",
+      map_location: {
+        ...facility.map_location,
+        kind: "address_range_estimate",
+      },
+    },
   ];
-  const projection = (p) => ({ x: p.longitude * 1000, y: p.latitude * 1000 });
-  assert.equal(clusterPoints(records, projection, 4).length, 1);
-  assert.equal(clusterPoints(records, projection, 15).length, 2);
-  assert.deepEqual(
-    clusterPoints(records, projection, 4)
-      .flatMap((g) => g.records.map((f) => f.id))
-      .sort(),
-    ["b", "f-example"],
+  const markers = layer.update(records, null);
+  assert.equal(markers.size, 2);
+  assert.equal(fake.paths.size, 2);
+  assert.equal(fake.creations, 2);
+  const first = markers.get(facility.id);
+  assert.deepEqual(first.coordinates, [42.1576593, -79.3887563]);
+  assert.equal(first.options.renderer, fake.renderer);
+  assert.equal(first.options.radius, 2.5);
+  assert.equal(first.options.stroke, false);
+  assert.ok(first.options.fillOpacity < 1);
+  const styles = first.styles;
+  for (let pan = 0; pan < 10; pan++) layer.update(records, null);
+  assert.equal(first.styles, styles);
+  fake.map.zoom = 15;
+  layer.update(records, facility.id);
+  assert.equal(first.options.radius, 7);
+  assert.equal(first.options.stroke, true);
+  assert.equal(first.front, true);
+  assert.equal(markers.get("nearby").options.radius, 4);
+  assert.equal(fake.creations, 2);
+  assert.deepEqual(first.coordinates, [42.1576593, -79.3887563]);
+  first.click();
+  assert.deepEqual(selected, [facility.id]);
+  layer.update(records, "nearby");
+  assert.equal(first.options.stroke, false);
+  assert.equal(markers.get("nearby").options.stroke, true);
+});
+
+test("snapshot refresh removes newly ineligible dots and updates coincident popup identities", () => {
+  const fake = dotMap();
+  const clicks = [];
+  const layer = createFacilityDots(
+    fake.L,
+    fake.map,
+    (id) => clicks.push(id),
+    (ids, point) => clicks.push({ ids, point }),
   );
+  const duplicate = { ...facility, id: "same-point" };
+  const markers = layer.update([facility, duplicate], null);
+  const retained = markers.get(facility.id);
+  retained.click();
+  assert.deepEqual(clicks[0].ids, [facility.id, duplicate.id]);
+  const moved = {
+    ...facility,
+    map_location: { ...facility.map_location, longitude: -80 },
+  };
+  layer.update([moved, { ...duplicate, public_access: "unknown" }], facility.id);
+  assert.equal(markers.size, 1);
+  assert.equal(fake.paths.size, 1);
+  assert.equal(markers.get(facility.id), retained);
+  assert.deepEqual(retained.coordinates, [42.1576593, -80]);
+  retained.click();
+  assert.equal(clicks[1], facility.id);
+});
+
+test("the published national catalog keeps one persistent canvas path per mapped facility", () => {
+  const catalog = JSON.parse(
+    readFileSync(
+      new URL("../src/fairway/static/data/public-courses.json", import.meta.url),
+    ),
+  );
+  const eligible = catalog.facilities.filter(mapEligible);
+  assert.ok(eligible.length > 4000);
+  const fake = dotMap();
+  const layer = createFacilityDots(
+    fake.L,
+    fake.map,
+    () => {},
+    () => {},
+  );
+  const markers = layer.update(catalog.facilities, null);
+  assert.equal(markers.size, eligible.length);
+  assert.equal(fake.creations, eligible.length);
+  for (const zoom of [4, 7, 11, 15, 7, 4]) {
+    fake.map.zoom = zoom;
+    layer.update(catalog.facilities, null);
+    assert.equal(markers.size, eligible.length);
+    assert.equal(fake.creations, eligible.length);
+  }
 });
