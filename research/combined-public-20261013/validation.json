@@ -16,7 +16,9 @@
   "wheel_and_sdist": "passed",
   "chicago_snapshot": "passed",
   "snapshot_courses": 8,
-  "catalog_sha256": "095363b83e76f750adce184f41442367be92439efdcf52d4653207e4f97a8565",
+  "catalog_sha256": "0bbcf243c74cf4948a79c74390775293536de32ad883f8f0d0fefb82fefab996",
   "base_commit": "3fe8f486cce87ec1e38524c7e49c732ed368d05e",
-  "fresh_draft_checks_passed": true
+  "fresh_draft_checks_passed": true,
+  "progress_metadata_regression": "failed before correction, passed after",
+  "affected_python_tests_passed": 17
 }
