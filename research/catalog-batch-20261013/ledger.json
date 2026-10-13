@@ -2,9 +2,9 @@
   "base_commit": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
   "canonical_pr": 17,
   "superseded_pr": 16,
-  "distinct_facilities": 31,
+  "distinct_facilities": 35,
   "facilities_added": 11,
-  "facilities_updated": 20,
+  "facilities_updated": 24,
   "target_distinct_facilities": 100,
   "target_is_practical_not_admission_requirement": true,
   "cohorts": [
@@ -66,6 +66,20 @@
         "f-07fa99bb-c277-4d01-9db5-2fffe4462039",
         "f-cd93e61f-3b83-4773-9080-ac8dcdb1b6a1"
       ]
+    },
+    {
+      "name": "Retained location14 four specific-address corrections",
+      "evidence_commit": "22d6b4b6b3bb805731db11cad202bf2923609c16",
+      "facility_ids": [
+        "f-ee14fc75-77ac-4295-881f-ff0d4bc90099",
+        "f-74930e2a-5523-48c6-a6ee-46379fe0092f",
+        "f-49a7855b-b7d1-4213-a593-8c372f0efc6a",
+        "f-0ce78ef9-0d28-4efb-8181-e9553b9fcdca"
+      ],
+      "selected": 14,
+      "accepted": 4,
+      "deferred": 10,
+      "source_requests": 0
     }
   ],
   "public_raw_captures": false,

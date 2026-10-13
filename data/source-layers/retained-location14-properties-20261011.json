@@ -3,12 +3,12 @@
   "attribution": "\u00a9 OpenStreetMap contributors",
   "license": "ODbL-1.0",
   "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
-  "source_extract": "Geofabrik United States261011",
+  "source_extract": "Geofabrik United States 261011",
   "source_data_through": "2026-10-11T20:21:06Z",
   "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
   "requests_for_this_cohort": 0,
   "coordinate_role": "Dated golf-property interior browsing point; not legal parcel/survey, clubhouse, entrance, arrival or current-operation claim.",
-  "original_geometry_hash_qualification": "Original upstream geometry_sha256 values are preserved as opaque provenance. Their original serialized bytes are not materialized, and re-encoding GeoJSON does not reproduce them. Exact original archive input SHA256 values verify the numeric geometry; independently computed sorted-compact GeoJSON hashes verify this review representation.",
+  "original_geometry_hash_qualification": "Original upstream geometry_sha256 values are preserved as opaque provenance. Their original hash serialization is not reproduced in this review. Exact original archive input SHA256 values verify the numeric geometry; independently computed sorted-compact GeoJSON hashes verify this review representation.",
   "records": [
     {
       "facility_id": "f-ee14fc75-77ac-4295-881f-ff0d4bc90099",
@@ -291,7 +291,7 @@
         ]
       },
       "independent_binding": "Specific accepted canonical street-address evidence is independent of retained OSM tags. Current course public-play and physical-hole facts are standing canonical values, unchanged.",
-      "identity_decision": "Canonical 2123 Strong Road, Waterford PA16441 matches OSM house2123,Strong Road,Waterford,16441. The other Pennsylvania Fox Run canonical identity is4240RiverRoad,BeaverFalls; the alternate retained geometry has no address binding and is spatially disjoint.",
+      "identity_decision": "The accepted canonical address 2123 Strong Road, Waterford, PA 16441 exactly matches the retained OSM house, street, city and ZIP. The Beaver Falls canonical namesake has a different street address; the disjoint unbound alternate geometry is rejected. New coordinates are Shapely 2.1.2 PointOnSurface of complete retained valid OSM geometry, rounded to eight decimals and strictly contained. Existing canonical physical totals and nested public-course evidence are standing accepted values, not new operator findings. No public label, holes, courses, address, county, arrival or availability is inferred. Original ambiguous flags, all rejected candidates and old estimate/null values are retained. This is a dated property browsing point, not an entrance, legal parcel, survey or routable arrival.",
       "rejected_competitors": [
         {
           "osm": {
@@ -797,7 +797,7 @@
         ]
       },
       "independent_binding": "Specific accepted canonical street-address evidence is independent of retained OSM tags. Current course public-play and physical-hole facts are standing canonical values, unchanged.",
-      "identity_decision": "Canonical811East41stStreet,AustinTX78751 matches all four specific OSM address components. The same-name Lampasas relation instead has700NarunaRoad,76550 and incompatible city/ZIP/house/street.",
+      "identity_decision": "The accepted canonical address 811 East 41st Street, Austin, TX 78751 matches retained OSM house, street, city and ZIP. The Lampasas namesake instead has 700 Naruna Road, ZIP 76550, and is rejected. The Austin municipal publisher remains held; no owner content was requested or recovered, and existing canonical facts are unchanged. New coordinates are Shapely 2.1.2 PointOnSurface of complete retained valid OSM geometry, rounded to eight decimals and strictly contained. Existing canonical physical totals and nested public-course evidence are standing accepted values, not new operator findings. No public label, holes, courses, address, county, arrival or availability is inferred. Original ambiguous flags, all rejected candidates and old estimate/null values are retained. This is a dated property browsing point, not an entrance, legal parcel, survey or routable arrival.",
       "rejected_competitors": [
         {
           "osm": {
@@ -1714,7 +1714,7 @@
         ]
       },
       "independent_binding": "Specific accepted canonical street-address evidence is independent of retained OSM tags. Current course public-play and physical-hole facts are standing canonical values, unchanged.",
-      "identity_decision": "Canonical1020GroveBoulevard,AustinTX78741 matches OSM house/street/city/ZIP. The Victoria catalog namesake is302McCrightDrive,77901. Other disjoint retained namesake geometries lack this Austin address binding. Existing address_range_estimate is retained in the delta before-value, not used to derive the new point.",
+      "identity_decision": "The accepted canonical address 1020 Grove Boulevard, Austin, TX 78741 matches retained OSM house, street, city and ZIP. The Victoria canonical namesake is 302 McCright Drive, ZIP 77901. Two disjoint, unbound same-name geometries are rejected for this UUID. The original Census address-range estimate remains in before-value evidence and supplies no new coordinates. New coordinates are Shapely 2.1.2 PointOnSurface of complete retained valid OSM geometry, rounded to eight decimals and strictly contained. Existing canonical physical totals and nested public-course evidence are standing accepted values, not new operator findings. No public label, holes, courses, address, county, arrival or availability is inferred. Original ambiguous flags, all rejected candidates and old estimate/null values are retained. This is a dated property browsing point, not an entrance, legal parcel, survey or routable arrival.",
       "rejected_competitors": [
         {
           "osm": {
@@ -2720,7 +2720,7 @@
         "software": "Python + Shapely 2.0.3"
       },
       "independent_binding": "Specific accepted canonical street-address evidence is independent of retained OSM tags. Current course public-play and physical-hole facts are standing canonical values, unchanged.",
-      "identity_decision": "Canonical6487HankinsRoad,LibertyTwpOH45044 matches OSM house6487,HankinsRoad,ZIP45044. OSM cityMiddletown is not asserted as a new alias or canonical address correction. Other Chardon/Aquilla44024 and Perrysville/PleasantHill44864 objects have conflicting house/street/ZIP. Exact specific address eliminates both; existing address_range_estimate/ButlerCounty remains in original evidence.",
+      "identity_decision": "The accepted canonical address 6487 Hankins Road, Liberty Twp, OH 45044 matches retained OSM house, street and ZIP. OSM city Middletown is preserved as a tag without adding an alias or changing the canonical address. Chardon/Aquilla Road 44024 and Perrysville/Pleasant Hill Road 44864 candidates conflict with the specific address and are rejected. New coordinates are Shapely 2.1.2 PointOnSurface of complete retained valid OSM geometry, rounded to eight decimals and strictly contained. Existing canonical physical totals and nested public-course evidence are standing accepted values, not new operator findings. No public label, holes, courses, address, county, arrival or availability is inferred. Original ambiguous flags, all rejected candidates and old estimate/null values are retained. This is a dated property browsing point, not an entrance, legal parcel, survey or routable arrival.",
       "rejected_competitors": [
         {
           "osm": {

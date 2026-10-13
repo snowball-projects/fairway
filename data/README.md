@@ -444,3 +444,33 @@ All previous history and report order are preserved. Independent review checks
 all 17 geometries and all 41 private capture hashes, and preserves the earlier
 14 accepted objects, unrelated research, all physical totals, inventories,
 addresses, counties and arrivals. Exact combined-head CI remains required.
+
+
+### Four retained property corrections, October 13, 2026
+
+The fixed 14 retained-data review accepts four location-only corrections and
+leaves ten identities unchanged. Fox Run Waterford, Hancock Austin, Riverside
+Austin and Pleasant Hill at 6487 Hankins Road match specific retained OSM address
+components to standing canonical addresses. Original ambiguous flags and
+complete rejected namesake geometry remain in the ODbL companion source layer
+`data/source-layers/retained-location14-properties-20261011.json`. No operator
+scraping, source request, held-source recovery, new admission claim, physical
+hole count, inventory, address, county or arrival update occurs. The Austin
+municipal publisher and all other holds remain active.
+
+Two null locations and two Census address-range estimates become rounded,
+strictly interior property points, independently reproduced with Shapely 2.1.2.
+They are dated browse locations, not legal parcels, surveys, entrances or
+routable arrivals. Four exact original input members match retained archive
+SHA256 values. Opaque original upstream geometry hashes are preserved without
+claiming reconstruction of the original hash serialization in this review; this review
+independently computes and checks sorted-compact GeoJSON hashes. ODbL
+attribution and applicable combined-database obligations remain.
+
+The actual factual commit `22d6b4b6b3bb805731db11cad202bf2923609c16` was committed at 2026-10-13T21:48:24Z;
+history records 4 updates and report time 2026-10-13T21:49:19Z. Previous history and
+report order are preserved. All31 earlier accepted facility/research objects
+and all unrelated fields remain unchanged. Candidate counts are 7,200 facilities
+and 4,460 eligible green dots; batch scope is 35 distinct IDs (11 added and 24 updated).
+Full controls, guarded delta, geometry and preservation audits are in
+`research/retained-location14-20261013/`. Final exact-head CI is required.

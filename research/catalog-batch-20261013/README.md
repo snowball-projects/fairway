@@ -1,4 +1,4 @@
-Accumulating catalog batch, canonical draft PR17. Current scope is 31 distinct facility IDs: 11 additions and 20 updates, with 7,200 candidate facilities and 4,456 eligible green dots. Count each facility once across cohorts. The practical target remains roughly 100 distinct facilities, subject to evidence, public eligibility, identity and physical-inventory standards. Main is unchanged; no PR is merged. PR16 is closed as superseded after complete accepted Ohio history/files were preserved and verified in this branch.
+Accumulating catalog batch, canonical draft PR17. Current scope is 35 distinct facility IDs: 11 additions and 24 updates, with 7,200 candidate facilities and 4,460 eligible green dots. Count each facility once across cohorts. The practical target remains roughly 100 distinct facilities, subject to evidence, public eligibility, identity and physical-inventory standards. Main is unchanged; no PR is merged. PR16 is closed as superseded after complete accepted Ohio history/files were preserved and verified in this branch.
 
 The branch retains coherent original SDGA4, Ohio3 and new SDGA7 cohorts with actual reachable evidence commits. Earlier consolidation-preservation.json is a snapshot of the original seven-facility integration. Audit labels and the duplicated Bison stop were subsequently corrected without changing timestamps, capture identity or facts. Both reviewed564a75a and cumulative22f8d36 contain intake83d7d8bf. Keep valid provenance and use a final merge commit; no squash/rebase.
 
@@ -33,3 +33,16 @@ Independent geometry checks reproduce all 17 strictly contained rounded points.
 Snapshot and rebuilt 507,304-cell index checks pass with zero maximum difference.
 The actual history entry records 17 updates at the real integration commit/time;
 prior report order is unchanged. Final combined-head CI remains required.
+
+The authorized retained-data-only14 review accepts four location corrections:
+Fox Run Waterford, Hancock Austin, Riverside Austin and Pleasant Hill Hankins
+Road. Specific retained house/street/ZIP matches resolve original ambiguous
+flags; rejected namesakes remain. Ten earlier generic/unbound deferrals persist.
+No source acquisition or new operator fact occurs. Two nulls and two Census
+address estimates become independently reproduced property points, adding four
+eligible dots. All earlier31 accepted objects and unrelated data are preserved.
+Austin municipal and every other source hold remain. Exact original input
+archive hashes verify; original upstream geometry hashes remain opaque, with
+new sorted-compact GeoJSON hashes independently checked. The actual factual
+commit is `22d6b4b6b3bb805731db11cad202bf2923609c16`, at 2026-10-13T21:48:24Z; report at 2026-10-13T21:49:19Z.
+See `research/retained-location14-20261013/` for full scope and validation.
