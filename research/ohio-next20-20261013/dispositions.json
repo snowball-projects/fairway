@@ -1,0 +1,189 @@
+[
+  {
+    "facility_id": "f-f70c3e20-7ba1-4a7a-a540-60f0ece235c0",
+    "name": "Blacklick Woods Golf Courses",
+    "disposition": "worker_reviewed_location_only",
+    "new_hole_total": false,
+    "scope": [
+      "map_location"
+    ]
+  },
+  {
+    "facility_id": "f-31c44cb8-5913-42fe-a966-fe6dbde73498",
+    "name": "EagleSticks Golf Club",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-70e1c5da-f303-4259-85c6-ff44fcd55ea0",
+    "name": "Lost Nation Golf Course",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-05868395-ac81-46b3-b185-e6ae4fba1dc7",
+    "name": "Pleasant Valley Golf Course",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-7cd75297-d01e-475e-b007-4f149df0d159",
+    "name": "Reeves Golf Course",
+    "disposition": "unchanged",
+    "reason": "Existing canonical n7585 retains the Cincinnati operator reuse hold. No request to that operator or alternate fact-recovery route; the association's nine-hole round length is not a verified whole-facility total. All facts remain unchanged."
+  },
+  {
+    "facility_id": "f-28fddfcd-6cc2-47d7-9af6-2747fd2e3037",
+    "name": "Twin Lakes Golf Club",
+    "disposition": "unchanged",
+    "reason": "Exact Mansfield identity/address and valid retained geometry are corroborated, and Bellevue/Kent identities are excluded. Official association status is Semi Private; owner group invitation and undated round prices do not establish explicit unconditional public play. No point or access change admitted; all facts remain unchanged."
+  },
+  {
+    "facility_id": "f-7d176dfd-d346-4f83-84eb-16ab3433cfa4",
+    "name": "Creekwood Golf Course",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-cb1b17c2-515b-4b87-8471-a4d7c480ca6f",
+    "name": "Eagle's Landing Golf Club",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-f1fbcf7e-2fe9-460c-aa5c-33126df79443",
+    "name": "Green Crest Golf Club",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-7d41a419-0b50-4c2d-985d-6e5507a2143f",
+    "name": "Green Ridge Golf Course",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-e8bec0d1-aed1-4bd8-bb21-b2a46cc06cca",
+    "name": "Kennsington Golf Club",
+    "disposition": "unchanged",
+    "reason": "Retained OSM name Kensington differs from canonical Kennsington and has no address/domain binding. County agreement does not establish the missing alias. No fuzzy-only promotion and no new source request; all facts remain unchanged."
+  },
+  {
+    "facility_id": "f-a12fe7a4-4285-46d1-abd2-4be7b621c758",
+    "name": "Lakeside Golf Club",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-9a9c452a-2698-4ee8-85b4-a5ad8b89f7a6",
+    "name": "Northmoor Golf Club",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-a10fbdf4-c800-4f2d-925c-98c6b9c03553",
+    "name": "Northwood Golf Club",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-36f8e931-4c13-4ca0-a561-55e6232260f2",
+    "name": "Pheasant Run Golf Course",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-68ce5000-97ab-4dc4-a898-fb82241f8a86",
+    "name": "Pine Hills Golf Club",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-97d46af6-a97b-4d38-80b0-df6d5aa78e1d",
+    "name": "Pleasant Valley Country Club",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-267ad798-f712-4da8-84d3-5db1ce45bd6c",
+    "name": "Rolling Meadows Golf Course",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-07fa99bb-c277-4d01-9db5-2fffe4462039",
+    "name": "Tanglewood Golf Club",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  },
+  {
+    "facility_id": "f-cd93e61f-3b83-4773-9080-ac8dcdb1b6a1",
+    "name": "The Elms Country Club",
+    "disposition": "worker_reviewed_location_and_explicit_public",
+    "new_hole_total": false,
+    "scope": [
+      "map_location",
+      "public_access"
+    ]
+  }
+]
