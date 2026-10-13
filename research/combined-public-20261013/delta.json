@@ -882,7 +882,7 @@
   "history_batches": [
     {
       "commit": "5e6ebdbbc54769f9f26f73cc921f712c0f1e09d5",
-      "committed_at": "2026-10-13T17:37:26+00:00",
+      "committed_at": "2026-10-13T17:36:57+00:00",
       "initial_baseline": false,
       "facilities_added": 13,
       "facilities_removed": 0,
