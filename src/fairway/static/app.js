@@ -16,6 +16,11 @@ import {
   shapeRings,
   clusterPoints,
 } from "./catalog.mjs";
+import {
+  canRemoveOrigin,
+  originLimit,
+  requiredOriginRows,
+} from "./origin-rows.mjs";
 
 const calculationOrigin =
   document.querySelector('meta[name="fairway-calculation-origin"]')?.content ||
@@ -423,6 +428,7 @@ function addOrigin() {
   };
   row.input.onblur = () => closeSuggestions(row, true);
   remove.onclick = () => {
+    if (!canRemoveOrigin(state.rows.length) || !state.rows.includes(row)) return;
     clearTimeout(row.timer);
     row.controller?.abort();
     row.marker?.remove();
@@ -441,12 +447,15 @@ function addOrigin() {
 }
 
 function renumber() {
+  const canRemove = canRemoveOrigin(state.rows.length);
   state.rows.forEach((row, index) => {
     row.number.textContent = index + 1;
     row.input.placeholder = `Golfer ${index + 1} address`;
     row.input.ariaLabel = `Golfer ${index + 1} origin`;
     row.suggestions.ariaLabel = `Address suggestions for Golfer ${index + 1}`;
     row.remove.ariaLabel = `Remove golfer ${index + 1}`;
+    row.remove.hidden = !canRemove;
+    row.remove.disabled = !canRemove;
     if (row.marker) {
       row.marker.setIcon(originIcon(row));
       labelMarker(row.marker, `Golfer ${index + 1}`);
@@ -736,7 +745,7 @@ async function configure() {
     });
     const config = await responseBody(response);
     if (!response.ok) throw new Error(config.error);
-    state.maxOrigins = Math.min(config.max_origins, COLORS.length);
+    state.maxOrigins = originLimit(config.max_origins, COLORS.length);
     const [south, west, north, east] = config.core_bounds;
     state.coreBounds = [south, west, north, east];
     state.photonBbox = [west, south, east, north].join(",");
@@ -780,10 +789,8 @@ document.addEventListener("keydown", (event) => {
 // One shared map, selection and catalog. No saved state or automatic location request.
 const $ = (id) => document.getElementById(id);
 const fmt = (n) => n.toLocaleString("en-US");
-const facilitiesLayer = L.layerGroup().addTo(map),
-  countiesLayer = L.layerGroup();
-let catalogDate = "",
-  countyIndex = 0;
+const facilitiesLayer = L.layerGroup().addTo(map);
+let catalogDate = "";
 let catalogModel = null,
   geometry = null,
   progress = null,
@@ -854,13 +861,7 @@ function fitPoints(points, maxZoom = 15) {
 }
 function onMapRecords() {
   if (!catalogModel) return [];
-  return catalogModel.records.filter(
-    (f) =>
-      mapEligible(f) ||
-      ($("show-estimates").checked &&
-        located(f) &&
-        f.map_location.kind === "address_range_estimate"),
-  );
+  return catalogModel.records.filter(mapEligible);
 }
 function drawFacilities() {
   if (!catalogModel) return;
@@ -1039,7 +1040,7 @@ function selectFacilityById(id, fit = true) {
   activeFacility = id;
   if (fit && located(f))
     fitPoints([[f.map_location.latitude, f.map_location.longitude]], 15);
-  if (located(f) && (mapEligible(f) || $("show-estimates").checked)) {
+  if (located(f) && mapEligible(f)) {
     popupSelection = {
       kind: "facility",
       id,
@@ -1311,84 +1312,6 @@ function renderProgress() {
   if (!batches.length)
     $("activity-log").append(node("p", "History unavailable."));
 }
-function drawCounties() {
-  const focused = document.activeElement?.dataset.countyId;
-  countiesLayer.clearLayers();
-  if (!$("show-counties").checked || !geometry || !catalogModel) return;
-  const polygons = [];
-  for (const [index, shape] of geometry.counties.entries()) {
-    const polygon = L.polygon(shapeRings(shape), {
-      color: "#6b8073",
-      weight: 0.5,
-      fillOpacity: 0,
-      opacity: 0.5,
-    });
-    const activate = (coordinate) => {
-      popupSelection = { kind: "county", id: shape.id, coordinate };
-      openSelectionPopup();
-    };
-    polygon.on("click", (event) => activate(event.latlng));
-    polygon.on("add", () => {
-      const path = polygon.getElement();
-      if (!path) return;
-      path.dataset.countyId = shape.id;
-      path.setAttribute("role", "button");
-      path.setAttribute("tabindex", index === countyIndex ? "0" : "-1");
-      path.setAttribute(
-        "aria-label",
-        `${shape.name}, ${shape.state}: ${catalogModel.byId.get(shape.id)?.records.length ?? "unknown"} catalog facilities`,
-      );
-      path.addEventListener("focus", () => {
-        if (!map.getBounds().contains(polygon.getBounds().getCenter()))
-          fitPoints(
-            [
-              polygon.getBounds().getSouthWest(),
-              polygon.getBounds().getNorthEast(),
-            ],
-            10,
-          );
-      });
-      path.addEventListener("keydown", (event) => {
-        if (["Enter", " "].includes(event.key)) {
-          event.preventDefault();
-          activate(polygon.getBounds().getCenter());
-        } else if (
-          ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(
-            event.key,
-          )
-        ) {
-          event.preventDefault();
-          event.stopPropagation();
-          countyIndex =
-            (index +
-              (["ArrowRight", "ArrowDown"].includes(event.key) ? 1 : -1) +
-              polygons.length) %
-            polygons.length;
-          polygons.forEach((p, i) =>
-            p
-              .getElement()
-              ?.setAttribute("tabindex", i === countyIndex ? "0" : "-1"),
-          );
-          const next = polygons[countyIndex];
-          fitPoints(
-            [next.getBounds().getSouthWest(), next.getBounds().getNorthEast()],
-            10,
-          );
-          next.getElement()?.focus({ preventScroll: true });
-        }
-      });
-    });
-    polygons.push(polygon);
-    polygon.addTo(countiesLayer);
-  }
-  countiesLayer.addTo(map);
-  if (focused)
-    [...countiesLayer.getLayers()]
-      .find((p) => p.getElement()?.dataset.countyId === focused)
-      ?.getElement()
-      ?.focus({ preventScroll: true });
-}
-
 function applyCatalog(catalog) {
   const next = buildModel(catalog);
   catalogDate = catalog.updated_on || "";
@@ -1397,11 +1320,10 @@ function applyCatalog(catalog) {
     closeSelection();
   const counts = catalogCounts(next.records);
   $("catalog-status").textContent =
-    `${fmt(counts.onMap)} on map · ${fmt(counts.pending)} pending${$("show-estimates").checked ? ` · ${fmt(counts.estimates)} estimates shown` : ""}`;
+    `${fmt(counts.onMap)} on map · ${fmt(counts.pending)} pending`;
   drawFacilities();
   renderCourses();
   renderProgress();
-  drawCounties();
   if (cataloguePopup?.isOpen() && popupSelection) openSelectionPopup();
 }
 $("calculate").onclick = async () => {
@@ -1448,18 +1370,6 @@ for (const id of ["browse-holes", "browse-access", "browse-sort"])
     listLimit = 60;
     renderCourses();
   };
-$("show-estimates").onchange = () => {
-  drawFacilities();
-  if (catalogModel) {
-    const counts = catalogCounts(catalogModel.records);
-    $("catalog-status").textContent =
-      `${fmt(counts.onMap)} on map · ${fmt(counts.pending)} pending${$("show-estimates").checked ? ` · ${fmt(counts.estimates)} estimates shown` : ""}`;
-  }
-};
-$("show-counties").onchange = () => {
-  if (!$("show-counties").checked) map.removeLayer(countiesLayer);
-  else drawCounties();
-};
 $("us-view").onclick = () => {
   browseScope = null;
   listLimit = 60;
@@ -1559,6 +1469,6 @@ async function loadCatalog() {
     },
   });
 }
-addOrigin();
-addOrigin();
+for (let count = requiredOriginRows(state.rows.length); count > 0; count -= 1)
+  addOrigin();
 loadCatalog();

@@ -8,6 +8,11 @@ import {
   clusterPoints,
 } from "../src/fairway/static/catalog.mjs";
 import { project } from "../docs/research-map/model.mjs";
+import {
+  canRemoveOrigin,
+  originLimit,
+  requiredOriginRows,
+} from "../src/fairway/static/origin-rows.mjs";
 const facility = {
   id: "f-example",
   name: "Public 27",
@@ -23,6 +28,19 @@ const facility = {
     kind: "property_point",
   },
 };
+test("planning retains two origin rows through repeated removals and restored counts", () => {
+  let count = 5;
+  for (let attempt = 0; attempt < 8; attempt += 1) {
+    if (canRemoveOrigin(count)) count -= 1;
+  }
+  assert.equal(count, 2);
+  assert.equal(canRemoveOrigin(2), false);
+  assert.equal(requiredOriginRows(0), 2);
+  assert.equal(requiredOriginRows(1), 1);
+  assert.equal(requiredOriginRows(2), 0);
+  assert.equal(originLimit(1, 8), 2);
+  assert.equal(originLimit(8, 8), 8);
+});
 test("public 27-hole facility with no website or invented courses is eligible, estimates remain pending", () => {
   assert.equal(mapEligible(facility), true);
   assert.equal(mapEligible({ ...facility, public_access: "unknown" }), false);
