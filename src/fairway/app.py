@@ -20,7 +20,6 @@ from .course_index import CourseDistanceIndex
 from .courses import load_course_catalog
 from .matrix import (
     MAX_SNAP_DISTANCE_KILOMETERS,
-    DestinationFailure,
     MatrixMetadata,
     MatrixProviderUnavailable,
     OutsideRoadCoverage,
@@ -35,7 +34,8 @@ from .paths import (
     SNAPSHOT_CATALOG_PATH,
     graph_path,
 )
-from .scoring import SCORE_RESOLUTION_MILLISECONDS, canonical_milliseconds
+from .ranking import rank_course_matrix
+from .scoring import SCORE_RESOLUTION_MILLISECONDS
 from .snapshots import load_catalog
 from .tomtom import DEFAULT_DAILY_CELL_LIMIT, TomTomMatrix
 
@@ -389,19 +389,6 @@ def _course(course):
     }
 
 
-def _validate_matrix_contract(matrix, origins, candidates):
-    expected_origins = tuple(origins)
-    expected_ids = tuple(course.identifier for course in candidates)
-    expected_destinations = tuple(course.routing_coordinate for course in candidates)
-    if matrix.origin_coordinates != expected_origins:
-        raise RuntimeError("matrix provider changed origin identity or order")
-    if matrix.destination_ids != expected_ids:
-        raise RuntimeError("matrix provider changed destination identity or order")
-    if tuple(item.coordinate for item in matrix.destinations) != expected_destinations:
-        raise RuntimeError("matrix provider changed destination coordinates or order")
-    return matrix
-
-
 def _config(start_response):
     return _json(
         start_response,
@@ -458,7 +445,8 @@ def _rankings(environ, start_response):
                 (course.identifier for course in candidates),
                 departure=None,
             )
-            _validate_matrix_contract(matrix, origins, candidates)
+            if matrix.origin_coordinates != origins:
+                raise RuntimeError("matrix provider changed origin identity or order")
         except OutsideRoadCoverage as error:
             raise _UnprocessableRequest(
                 f"Golfer {error.point_index + 1} is more than "
@@ -471,39 +459,26 @@ def _rankings(environ, start_response):
     finally:
         _compute_gate.release()
 
+    ranking = rank_course_matrix(candidates, matrix, objective)
     ranked = []
-    unranked = []
-    for course, destination in zip(candidates, matrix.destinations, strict=True):
-        if isinstance(destination, DestinationFailure):
-            unranked.append(
-                {
-                    "id": course.identifier,
-                    "name": course.name,
-                    "reason": destination.reason,
-                }
-            )
-            continue
-        travel_times_milliseconds = canonical_milliseconds(
-            destination.travel_times_seconds
-        )
-        combined_milliseconds = sum(travel_times_milliseconds)
-        maximum_milliseconds = max(travel_times_milliseconds)
-        item = _course(course)
+    for result in ranking.courses:
+        item = _course(result.course)
         item.update(
             {
                 "road_coordinate": (
-                    list(destination.road_coordinate)
-                    if destination.road_coordinate is not None
+                    list(result.destination.road_coordinate)
+                    if result.destination.road_coordinate is not None
                     else None
                 ),
-                "snap_distance_kilometers": destination.snap_distance_kilometers,
+                "snap_distance_kilometers": (
+                    result.destination.snap_distance_kilometers
+                ),
                 "travel_times_seconds": [
-                    value / 1000 for value in travel_times_milliseconds
+                    value / 1000 for value in result.travel_times_milliseconds
                 ],
-                "combined_seconds": combined_milliseconds / 1000,
-                "maximum_seconds": maximum_milliseconds / 1000,
-                "_combined_milliseconds": combined_milliseconds,
-                "_maximum_milliseconds": maximum_milliseconds,
+                "combined_seconds": result.combined_milliseconds / 1000,
+                "maximum_seconds": result.maximum_milliseconds / 1000,
+                "rank": result.rank,
             }
         )
         ranked.append(item)
@@ -511,24 +486,14 @@ def _rankings(environ, start_response):
         raise _UnprocessableRequest(
             "No selected course is reachable from every golfer on the current roads."
         )
-    primary = (
-        "_combined_milliseconds" if objective == "combined" else "_maximum_milliseconds"
-    )
-    secondary = (
-        "_maximum_milliseconds" if objective == "combined" else "_combined_milliseconds"
-    )
-    ranked.sort(
-        key=lambda item: (
-            item[primary],
-            item[secondary],
-            item["name"],
-            item["id"],
-        )
-    )
-    for rank, item in enumerate(ranked, 1):
-        del item["_combined_milliseconds"]
-        del item["_maximum_milliseconds"]
-        item["rank"] = rank
+    unranked = [
+        {
+            "id": result.course.identifier,
+            "name": result.course.name,
+            "reason": result.reason,
+        }
+        for result in ranking.unranked_courses
+    ]
     provenance = {
         "course_catalog": COURSE_CATALOG.identifier,
         "course_catalog_as_of": COURSE_CATALOG.as_of,
