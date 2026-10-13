@@ -408,3 +408,39 @@ guests; Gettysburg carries both Public and Semi-Private labels. Listed operator
 URLs remain unvisited/not_checked. Six profiles lacking a Public label are
 excluded; Leola profile500 is stopped without retry or replacement. Earlier
 Bison and operator/publisher holds remain active. Raw captures stay private.
+
+
+### Ohio seventeen-property reconciliation, October 13, 2026
+
+The accumulating draft PR #17 incorporates 17 existing Ohio property updates
+from the bounded 20-record review, with 16 explicit public-access updates and
+16 additional eligible green dots. It adds no facility or physical hole total.
+The candidate catalog contains 7,200 facilities and 4,456 eligible dots; the
+batch covers 31 distinct IDs (11 additions and 20 existing-record updates).
+Blacklick receives only retained licensed geometry and remains off map with an
+unknown total. Reeves, Twin Lakes and Kennsington remain unchanged.
+
+Complete selected ODbL geometry, versions, tags, original flags, identity
+qualifications and independently reproduced interior points remain in
+`data/source-layers/ohio-next20-properties-20261011.json`. Generalized retained
+Census county outlines corroborate locality only. The source layer separation
+does not waive applicable combined-database ODbL obligations. No arrival,
+clubhouse, legal parcel, address correction or course subdivision is inferred.
+
+Current operator and official association controls are recorded in
+`research/ohio-next20-20261013/source-controls.json`. The worker used at least
+10 seconds between request starts (minimum 10.000447), with a minimum 9.624367
+seconds from completion to the next start. It did not claim the 15-second
+completion convention used by other collectors. No longer admitted publisher
+delay was found in reviewed controls. Blacklick's linked policy-host stop and
+all historical holds remain; no new owner facts were admitted after that stop.
+Raw responses remain private. Integration made no source requests.
+
+Source commit `05b3135489815d6cb52be11ebc0bca2c10ba5641` and pacing correction
+`f65e0ac24aa9e7d5d15f73f0920352606aa14f4c` remain ancestors of the actual
+factual integration merge commit `22c802f0779cf436f473eaee2bbefe8cd35ae538`, committed at 2026-10-13T21:25:17Z.
+History records 17 updates at that real commit/time; report time is 2026-10-13T21:26:18Z.
+All previous history and report order are preserved. Independent review checks
+all 17 geometries and all 41 private capture hashes, and preserves the earlier
+14 accepted objects, unrelated research, all physical totals, inventories,
+addresses, counties and arrivals. Exact combined-head CI remains required.

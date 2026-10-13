@@ -80,3 +80,19 @@ existing registry value, PR17's earlier seven facilities, history, progress,
 county checklist, all physical totals, nested courses and arrivals. These are
 candidate checks; canonical integration/history and exact-head CI remain the
 owner's next step. Source research is paused at parent request.
+
+## Canonical integration
+
+The sole PR #17 owner independently replayed this guarded delta onto the newer
+7,200-facility catalog after the worker's explicit handoff. Actual integration
+merge commit `22c802f0779cf436f473eaee2bbefe8cd35ae538` retains both source
+commits as ancestors, and the report uses its actual UTC commit time. All earlier
+14 accepted facility objects and all physical totals, courses, arrivals,
+addresses, counties and unrelated research remain preserved. The accepted
+candidate has 4,456 eligible dots and 31 distinct batch IDs. Root checks all
+41 private raw capture hashes and independently reproduces all 17 points.
+`integration-request-audit.json` records forward gaps, including null last gaps
+per publisher, without altering source timestamps. The worker's convention is
+10-second start-to-start; the observed 9.624367-second completion gap is explicit.
+No separate 15-second compliance claim is made. No integration source request
+occurred. See the integration preservation, geometry and validation records.

@@ -1,9 +1,35 @@
-Accumulating catalog batch, canonical draft PR17. Current scope is 14 distinct facility IDs: 11 additions and 3 updates, with 7,200 candidate facilities and 4,440 mapped. Count each facility once across cohorts. The practical target remains roughly 100 distinct facilities, subject to evidence, public eligibility, identity and physical-inventory standards. Main is unchanged; no PR is merged. PR16 is closed as superseded after complete accepted Ohio history/files were preserved and verified in this branch.
+Accumulating catalog batch, canonical draft PR17. Current scope is 31 distinct facility IDs: 11 additions and 20 updates, with 7,200 candidate facilities and 4,456 eligible green dots. Count each facility once across cohorts. The practical target remains roughly 100 distinct facilities, subject to evidence, public eligibility, identity and physical-inventory standards. Main is unchanged; no PR is merged. PR16 is closed as superseded after complete accepted Ohio history/files were preserved and verified in this branch.
 
 The branch retains coherent original SDGA4, Ohio3 and new SDGA7 cohorts with actual reachable evidence commits. Earlier consolidation-preservation.json is a snapshot of the original seven-facility integration. Audit labels and the duplicated Bison stop were subsequently corrected without changing timestamps, capture identity or facts. Both reviewed564a75a and cumulative22f8d36 contain intake83d7d8bf. Keep valid provenance and use a final merge commit; no squash/rebase.
 
 The authorized next intake reviewed a fixed 14-lead SDGA cohort after one directory discovery read and reuse of today's fully inspected policies. Seven individually Public-labeled facilities qualify, six access-unknown profiles are excluded, and Leola profile500 is stopped without retry or replacement. All seven physical totals/inventories/counties/maps/arrivals remain unknown. No operator collection, source refetch or held-source bypass occurred. Raw response bodies remain private; public bare-fact evidence, qualifications, request metadata and the ID-scoped delta accompany the cohort. Ohio licensed geometry and ODbL attribution remain preserved.
 
-Further accepted cohorts accumulate in this PR as commits. Source/evidence/semantic checks run per cohort; cumulative packaging and CI cover checkpoints. Next useful discovery targets are the independently screened Wyoming Hidden Bridge and official Star Valley inventory, subject to current source-control, public-access and facility-boundary review. Ohio's separate twenty-record reconciliation continues through this sole integration owner.
+Further accepted cohorts accumulate in this PR as commits. Source/evidence/semantic checks run per cohort; cumulative packaging and CI cover checkpoints. The retained-inventory review found no viable net-new cohort. The bounded Ohio reconciliation is now integrated after independent review; its deferred three records remain excluded. No held-source recovery route is recommended.
 
 Wyoming follow-up source review admitted zero facilities after five identity/control leads. Hidden Bridge has no explicit public/nonmember admission statement in the reviewed operator material; Star Valley View is existing Valli Vu; Aspen Hills remains held/undivided; Newcastle's owner/GetTerms restriction is confirmed, and Sublette's public course is existing Rendezvous Meadows. New Sheridan tourism and Travel Wyoming reuse/automation holds are recorded before any tourism golf-inventory request. Counts, catalog/history/progress and prior evidence ancestry remain unchanged. See `research/wyoming-source-intake-20261013/` for precise outcomes and request/control hashes.
+
+The retained-source screen admits zero new facilities. Utah and OSM retained
+inventories provide no independently verified net-new public admission cohort.
+Travel Iowa remains paused. Glacier Country control review stops after an
+oversized policy-discovery response; its retained body is an incomplete prefix.
+No golf inventory was requested, and the ordinary publisher aliases now share
+a technical review pause. See `research/retained-inventory-screen-20261013/`.
+
+Ohio's seventeen-record delta is integrated at actual merge commit
+`22c802f0779cf436f473eaee2bbefe8cd35ae538`, preserving worker evidence
+`05b3135489815d6cb52be11ebc0bca2c10ba5641` and qualified pacing head
+`f65e0ac24aa9e7d5d15f73f0920352606aa14f4c` as ancestors. It adds 17 property
+points and 16 explicit public-access labels, increasing eligible dots by 16.
+Blacklick remains location-only and off map with unknown total. Reeves, Twin
+Lakes and Kennsington remain unchanged. Hole totals, nested course inventories,
+addresses, counties, arrivals and all earlier 14 accepted objects are preserved.
+Its 41 request captures hash correctly, and the worker's actual convention is
+10-second start-to-start pacing (minimum 10.000447), with completion-to-next-start
+minimum 9.624367; no 15-second completion claim is made. No longer admitted
+publisher delay was found in reviewed controls. Integration made no requests.
+
+229 Python tests and three JavaScript suites pass on the combined catalog.
+Independent geometry checks reproduce all 17 strictly contained rounded points.
+Snapshot and rebuilt 507,304-cell index checks pass with zero maximum difference.
+The actual history entry records 17 updates at the real integration commit/time;
+prior report order is unchanged. Final combined-head CI remains required.
