@@ -1,7 +1,13 @@
 export const MIN_ORIGIN_ROWS = 2;
 
-export function canRemoveOrigin(rowCount) {
-  return Number.isInteger(rowCount) && rowCount > MIN_ORIGIN_ROWS;
+export function canRemoveOrigin(rowCount, rowIndex) {
+  return (
+    Number.isInteger(rowCount) &&
+    Number.isInteger(rowIndex) &&
+    rowCount > MIN_ORIGIN_ROWS &&
+    rowIndex >= MIN_ORIGIN_ROWS &&
+    rowIndex < rowCount
+  );
 }
 
 export function requiredOriginRows(rowCount) {

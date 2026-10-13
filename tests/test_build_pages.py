@@ -25,6 +25,7 @@ def test_pages_build_preserves_source_and_uses_fresh_publication(tmp_path):
     assert (ROOT / "src/fairway/data/course-catalog.json").read_bytes() == ranking
     html = (output / "index.html").read_text()
     assert 'src="./app.js"' in html
+    assert (output / "origin-rows.mjs").is_file()
     assert 'href="./data/public-courses.json"' in html
     assert f'content="{pages.CALCULATION_ORIGIN}"' in html
     assert "Content-Security-Policy" in html

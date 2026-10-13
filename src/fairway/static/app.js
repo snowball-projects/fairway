@@ -428,11 +428,12 @@ function addOrigin() {
   };
   row.input.onblur = () => closeSuggestions(row, true);
   remove.onclick = () => {
-    if (!canRemoveOrigin(state.rows.length) || !state.rows.includes(row)) return;
+    const index = state.rows.indexOf(row);
+    if (!canRemoveOrigin(state.rows.length, index)) return;
     clearTimeout(row.timer);
     row.controller?.abort();
     row.marker?.remove();
-    state.rows.splice(state.rows.indexOf(row), 1);
+    state.rows.splice(index, 1);
     element.remove();
     renumber();
     updatePlan();
@@ -447,8 +448,8 @@ function addOrigin() {
 }
 
 function renumber() {
-  const canRemove = canRemoveOrigin(state.rows.length);
   state.rows.forEach((row, index) => {
+    const canRemove = canRemoveOrigin(state.rows.length, index);
     row.number.textContent = index + 1;
     row.input.placeholder = `Golfer ${index + 1} address`;
     row.input.ariaLabel = `Golfer ${index + 1} origin`;
