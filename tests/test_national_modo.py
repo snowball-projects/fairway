@@ -12,9 +12,10 @@ from fairway.national_modo import ModoMatrixProvider, ModoPromisingAreaProvider
 @dataclass(frozen=True)
 class Candidate:
     identifier: str
-    coordinate: tuple[float, float]
+    center: tuple[float, float]
     radius_kilometers: float
     travel_times_seconds: tuple[float, ...]
+    resolution_kilometers: float
 
 
 class Estimate:
@@ -25,10 +26,22 @@ class Estimate:
     matrix_requests = 4
     final_resolution_km = 12.5
 
-    def promising_candidates(self, *, limit):
+    def promising_candidates(self, *, limit, catchment_radius_kilometers):
         return (
-            Candidate("modo:first", (41.0, -96.0), 12.5, (10.0, 20.0)),
-            Candidate("modo:second", (42.0, -95.0), 12.5, (11.0, 19.0)),
+            Candidate(
+                "modo:first",
+                (41.0, -96.0),
+                catchment_radius_kilometers,
+                (10.0, 20.0),
+                12.5,
+            ),
+            Candidate(
+                "modo:second",
+                (42.0, -95.0),
+                catchment_radius_kilometers,
+                (11.0, 19.0),
+                12.5,
+            ),
         )[:limit]
 
 

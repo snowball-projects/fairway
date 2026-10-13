@@ -65,7 +65,12 @@ class ModoPromisingAreaProvider:
             raise RuntimeError("modo changed the area-search objective")
         if result.approximate is not True:
             raise RuntimeError("modo area search must identify itself as approximate")
-        candidates = tuple(result.promising_candidates(limit=limit))
+        candidates = tuple(
+            result.promising_candidates(
+                limit=limit,
+                catchment_radius_kilometers=self.facility_radius_kilometers,
+            )
+        )
         for candidate in candidates:
             times = tuple(candidate.travel_times_seconds)
             if len(times) != len(origins) or any(
@@ -74,19 +79,21 @@ class ModoPromisingAreaProvider:
             ):
                 raise RuntimeError("modo returned invalid candidate travel times")
             if (
-                type(candidate.radius_kilometers) not in {int, float}
-                or not isfinite(candidate.radius_kilometers)
-                or not 0 < candidate.radius_kilometers <= MAX_AREA_RADIUS_KILOMETERS
+                type(candidate.resolution_kilometers) not in {int, float}
+                or not isfinite(candidate.resolution_kilometers)
+                or candidate.resolution_kilometers <= 0
             ):
                 raise RuntimeError("modo returned invalid optimization resolution")
+            if candidate.radius_kilometers != self.facility_radius_kilometers:
+                raise RuntimeError("modo changed the requested facility radius")
         return PromisingAreas(
             origin_coordinates=origins,
             objective=objective,
             areas=tuple(
                 PromisingArea(
                     candidate.identifier,
-                    tuple(candidate.coordinate),
-                    self.facility_radius_kilometers,
+                    tuple(candidate.center),
+                    candidate.radius_kilometers,
                 )
                 for candidate in candidates
             ),
