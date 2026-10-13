@@ -352,3 +352,22 @@ The third retained-name property intake is reproducible in `source-layers/retain
 The fourth retained-name property intake is reproducible in `source-layers/retained-name-matches-04-osm-properties-20261011.json` under the same ODbL terms. Supported points whose physical-hole totals remain unknown stay outside the public map until those totals are established.
 
 The retained alternate-name property intake is reproducible in `source-layers/retained-alternate-name-matches-01-osm-properties-20261011.json` under the same ODbL terms. Actual facility identity is supported by retained aliases, locality or operator evidence; fuzzy scores alone do not establish identity. Unknown totals remain unknown.
+
+### Nine supported-property hole totals
+
+`review-batches/nine-supported-hole-totals-20261013.json` records nine existing
+facilities whose supported browse locations were retained while their physical
+hole totals were unknown. Miacomet, Valencia, Prairie Pines, Hidden River,
+Melody Hill, Plum Creek and Westchase have eighteen physical holes. CommonGround
+and Duran each have an eighteen-hole main layout plus a separate nine-hole
+par-three layout, supporting twenty-seven physical holes per facility. Ranges
+and practice greens are excluded. Complete owner-linked physical maps were
+visually inspected for Prairie Pines, Duran, Plum Creek and Westchase; the other
+counts use explicit owner descriptions or complete distinct-hole descriptions.
+
+The ID-scoped delta retains expected prior values, identity checks, field-specific
+official URLs, observation dates, source-policy limits and exclusions. It changes
+only facility totals and their provenance. All nested course records, inventory
+completeness, addresses, coordinates, arrivals, access fields and the bounded
+ranking selection remain unchanged. A facility total alone does not establish a
+course subdivision. No source fact here claims live operation or an entrance.

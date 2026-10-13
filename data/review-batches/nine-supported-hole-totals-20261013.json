@@ -1,0 +1,398 @@
+{
+  "batch_id": "nine-supported-hole-totals-20261013",
+  "baseline_commit": "3fe8f486cce87ec1e38524c7e49c732ed368d05e",
+  "baseline_catalog_sha256": "7afc52725962e12825dbd1d13d2df4ac392f4fd8860239be317eae65a89089e6",
+  "observed_on": "2026-10-13",
+  "scope": "Only nine existing facility physical_holes values and field-scoped provenance. All facility identities, course inventories, nested facts, coordinates, addresses, public-access fields, source layers and unrelated records preserved. No Maryland record is added or restored.",
+  "facility_count": 9,
+  "changes": [
+    {
+      "facility_id": "f-848cbe7c-3896-4754-a406-93dcf7105a6a",
+      "name": "Miacomet Golf Course",
+      "state": "MA",
+      "identity": {
+        "name": "Miacomet Golf Course",
+        "state": "MA",
+        "address": null
+      },
+      "changes": {
+        "physical_holes": {
+          "before": null,
+          "after": 18
+        }
+      },
+      "qualification": "Owner course tour explicitly identifies an eighteen-hole public Miacomet facility and its expansion to eighteen in 2003; footer matches 12 W. Miacomet Road, Nantucket. Sconset is a separately linked facility and is not added to this total. Complete primary indexed page inspected October 13, 2026; publication date unspecified. No current-season or entrance verification is asserted. This PR changes only the facility total and its provenance; no course rows or nested course facts are added or modified.",
+      "evidence": [
+        {
+          "url": "https://www.miacometgolf.com/course-tour",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Explicit eighteen-hole public-facility description; matching Nantucket street address."
+        }
+      ]
+    },
+    {
+      "facility_id": "f-d08d8615-b1c8-4b97-a02d-9ce9b3c8b868",
+      "name": "Valencia Golf & Country Club",
+      "state": "FL",
+      "identity": {
+        "name": "Valencia Golf & Country Club",
+        "state": "FL",
+        "address": {
+          "text": "1725 Double Eagle Trail, Naples, FL 34120",
+          "purpose": "published_unspecified"
+        }
+      },
+      "changes": {
+        "physical_holes": {
+          "before": null,
+          "after": 18
+        }
+      },
+      "qualification": "Owner homepage explicitly identifies an eighteen-hole public course in Naples; matching 1725 Double Eagle Trail address appears on the home and general-information pages. This is a physical course description, not a round rate. Complete primary indexed pages inspected October 13, 2026; undated reopening notice does not establish a reopening date. Practice areas are excluded. This PR changes only the facility total and its provenance; no course rows or nested course facts are added or modified.",
+      "evidence": [
+        {
+          "url": "https://www.valenciagolfandcountryclub.com/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Explicit eighteen-hole public-course heading with matching address."
+        }
+      ]
+    },
+    {
+      "facility_id": "f-15cd1891-3077-44d5-abfb-1952ef856ba0",
+      "name": "Prairie Pines Golf Club",
+      "state": "WI",
+      "identity": {
+        "name": "Prairie Pines Golf Club",
+        "state": "WI",
+        "address": {
+          "text": "3039 Happy Valley Road, Sun Prairie, WI 53590",
+          "purpose": "published_unspecified"
+        }
+      },
+      "changes": {
+        "physical_holes": {
+          "before": null,
+          "after": 18
+        }
+      },
+      "qualification": "Owner's currently linked scorecard was downloaded and both pages visually inspected October 13, 2026. The course map shows eighteen separate routings and greens, numbered one through eighteen, at the matching Sun Prairie address. This establishes physical holes rather than relying on scoring columns. The card has a printed 07/25 mark; no exact publication day inferred. Course page distinguishes a driving range and putting green, which are excluded. All existing nested course records remain unchanged in this bounded PR. This PR changes only the facility total and its provenance; no course rows or nested course facts are added or modified.",
+      "evidence": [
+        {
+          "url": "https://prairiepinesgolfclub.com/wp-content/uploads/2025/08/Prairie-Pines-Scorecard-2025.pdf",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Visual review of complete physical course map, eighteen separate holes; matching address."
+        },
+        {
+          "url": "https://prairiepinesgolfclub.com/course/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Current source link and distinction between course, driving range and practice putting green."
+        }
+      ]
+    },
+    {
+      "facility_id": "f-d11cc7d0-2cdc-4c40-ae4f-fa88c969ebb8",
+      "name": "Hidden River Golf & Casting Club",
+      "state": "MI",
+      "identity": {
+        "name": "Hidden River Golf & Casting Club",
+        "state": "MI",
+        "address": {
+          "text": "7688 Maple River Road, Brutus, MI 49716",
+          "purpose": "published_unspecified"
+        }
+      },
+      "changes": {
+        "physical_holes": {
+          "before": null,
+          "after": 18
+        }
+      },
+      "qualification": "Owner's complete course-details and architect-comment pages describe eighteen distinct physical holes individually, including the second nine beginning at hole ten and the finishing eighteenth. Matching Brutus street address and architect identity corroborate the same facility. This total is counted from the described physical layout, not from tee-time prices or a bare numbered scorecard. Owner practice page separately lists the driving range and putting green. Complete primary indexed pages inspected October 13, 2026; publication dates unspecified. This PR changes only the facility total and its provenance; no course rows or nested course facts are added or modified.",
+      "evidence": [
+        {
+          "url": "https://hiddenriver.com/course-details/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Complete eighteen-hole physical layout, individual descriptions, matching street address."
+        },
+        {
+          "url": "https://hiddenriver.com/architects-comments/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Architect describes the distinct first and second nines and finishing eighteenth."
+        },
+        {
+          "url": "https://hiddenriver.com/practice-facility/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Practice facilities are driving range and putting green, excluded from physical layout count."
+        }
+      ]
+    },
+    {
+      "facility_id": "f-21a4fe0c-9956-468d-b154-72ea65ca6277",
+      "name": "CommonGround Golf Course",
+      "state": "CO",
+      "identity": {
+        "name": "CommonGround Golf Course",
+        "state": "CO",
+        "address": {
+          "text": "10300 E. Golfers Way, Aurora, CO 80010",
+          "purpose": "published_unspecified"
+        }
+      },
+      "changes": {
+        "physical_holes": {
+          "before": null,
+          "after": 27
+        }
+      },
+      "qualification": "Owner's complete CommonGround tour describes eighteen distinct championship holes, explicitly distinguishing front and back nines and the eighteenth finishing hole. A separately identified nine-hole par-three layout gives a supported combined physical total of twenty-seven. Both pages match 10300 E. Golfers Way, Aurora. The par-three page explicitly welcomes everyone and offers ordinary adult play; public play is explicitly described. Existing facility public access is preserved. No course arrival is supplied. Complete primary indexed pages inspected October 13, 2026; dates unspecified and no real-time operation claim. This PR changes only the facility total and its provenance; no course rows or nested course facts are added or modified.",
+      "evidence": [
+        {
+          "url": "https://www.commongroundgc.com/golf-course/hole-descriptions",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Eighteen separate physical championship holes individually described."
+        },
+        {
+          "url": "https://www.commongroundgc.com/golf-course/par-3-course-practice-facility",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Explicit separate nine-hole par-three course, open to everyone with ordinary adult play."
+        }
+      ]
+    },
+    {
+      "facility_id": "f-4ba5da3e-8f6c-4502-a459-e9d54d58c36f",
+      "name": "Duran Golf Club",
+      "state": "FL",
+      "identity": {
+        "name": "Duran Golf Club",
+        "state": "FL",
+        "address": {
+          "text": "7032 Stadium Parkway, Viera, FL 32940",
+          "purpose": "published_unspecified"
+        }
+      },
+      "changes": {
+        "physical_holes": {
+          "before": null,
+          "after": 27
+        }
+      },
+      "qualification": "Owner's current Course Layout HTML links a full Duran regulation-course map. Downloaded map visually inspected October 13, 2026: eighteen distinct physical routings and greens. Owner separately identifies Chipper's Walk as its nine-hole par-three course at the Development Center. These two physical layouts support twenty-seven facility holes; range target greens and practice areas are excluded. Both sources match 7032 Stadium Parkway, Viera. Source maps are undated; upload path is not a publication date. Existing facility public access is retained; all existing nested course records are preserved. No arrival or routing claim. This PR changes only the facility total and its provenance; no course rows or nested course facts are added or modified.",
+      "evidence": [
+        {
+          "url": "https://durangolf.com/course-layout/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Current owner link to the complete eighteen-hole physical map."
+        },
+        {
+          "url": "https://durangolf.com/wp-content/uploads/sites/224/2023/03/duran_golf_course-jpg.webp",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Visual review of eighteen distinct mapped physical holes."
+        },
+        {
+          "url": "https://durangolf.com/par-3-course/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Explicit nine-hole par-three named Chipper's Walk at the same facility."
+        }
+      ]
+    },
+    {
+      "facility_id": "f-56cbea80-ef15-4c02-8c4b-fe346e1b5b46",
+      "name": "Melody Hill Country Club",
+      "state": "RI",
+      "identity": {
+        "name": "Melody Hill Country Club",
+        "state": "RI",
+        "address": {
+          "text": "55 Melody Hill Lane, Harmony, RI 02829",
+          "purpose": "published_unspecified"
+        }
+      },
+      "changes": {
+        "physical_holes": {
+          "before": null,
+          "after": 18
+        }
+      },
+      "qualification": "The retained owner domain ordinarily redirects to melodyhillgolf.com. Its complete golf-course page explicitly identifies an eighteen-hole course open to the public and matches 55 Melody Hill Lane, Harmony, Rhode Island. Separate operator properties in Thompson and Woodstock, Connecticut are excluded. The practice field, bunker and putting green are not additional course holes. Reviewed October 13, 2026; page undated. Published seasonal/weather and league restrictions remain qualifications, not a live availability claim. Existing property point, website, course inventory and public-access field are preserved. This PR changes only the facility total and its provenance; no course rows or nested course facts are added or modified.",
+      "evidence": [
+        {
+          "url": "https://melodyhillgolf.com/golf-course/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Explicit eighteen-hole physical-course description, public play and exact matching address."
+        },
+        {
+          "url": "https://melodyhillgolf.com/contact/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Owner identity and matching Harmony street address corroborate this existing facility."
+        }
+      ]
+    },
+    {
+      "facility_id": "f-6720406e-03a5-443d-bcdb-9e88b4c19ce8",
+      "name": "Plum Creek Country Club",
+      "state": "IN",
+      "identity": {
+        "name": "Plum Creek Country Club",
+        "state": "IN",
+        "address": {
+          "text": "12401 Lynnwood Blvd, Carmel, IN 46033",
+          "purpose": "published_unspecified"
+        }
+      },
+      "changes": {
+        "physical_holes": {
+          "before": null,
+          "after": 18
+        }
+      },
+      "qualification": "The owner golf page currently links a two-page scorecard PDF. Both pages were downloaded and visually inspected October 13, 2026. Its complete course map shows eighteen separate physical routings and greens numbered one through eighteen, with the driving range and practice green separately labeled and excluded. The PDF and contact page match 12401 Lynnwood Boulevard, Carmel, Indiana. Owner public green fees for 2026 and ordinary booking support the retained public facility identity. The map is undated; its upload path is not treated as publication date. Existing property point, course inventory and public-access field are preserved; no routing arrival or live availability claim. This PR changes only the facility total and its provenance; no course rows or nested course facts are added or modified.",
+      "evidence": [
+        {
+          "url": "https://plumcreekgolfclub.com/wp-content/uploads/2024/01/Plum-Scorecard.pdf",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Visual review of the complete physical map: eighteen distinct numbered holes; matching Carmel address."
+        },
+        {
+          "url": "https://plumcreekgolfclub.com/golf/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Current owner link to the physical map, with practice facilities separately described."
+        },
+        {
+          "url": "https://plumcreekgolfclub.com/contact-us/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Matching street address corroborates the existing facility despite Country Club/Golf Club naming variation."
+        },
+        {
+          "url": "https://plumcreekgolfclub.com/golf/green-fees/",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "2026 ordinary green fees separate from annual passes corroborate retained public play."
+        }
+      ]
+    },
+    {
+      "facility_id": "f-b7341ba3-fb95-4e80-8144-e0adf2008781",
+      "name": "Westchase Golf Club",
+      "state": "FL",
+      "identity": {
+        "name": "Westchase Golf Club",
+        "state": "FL",
+        "address": {
+          "text": "11602 Westchase Golf Drive, Tampa, FL 33626",
+          "purpose": "published_unspecified"
+        }
+      },
+      "changes": {
+        "physical_holes": {
+          "before": null,
+          "after": 18
+        }
+      },
+      "qualification": "The owner currently links a two-page scorecard PDF. Both pages were downloaded and visually inspected October 13, 2026, including a higher-resolution rendering of the map. The complete physical map shows eighteen separate routings and greens; scoring columns alone were not used. Owner course-information text independently distinguishes the ninth and eighteenth greens at the clubhouse. PDF, course-information page and homepage match 11602 Westchase Golf Drive, Tampa, Florida and describe a daily-fee public-access facility. The source is undated; filename and upload path are not publication dates. Existing property point, course inventory and public-access field are preserved; no routing arrival or live availability claim. This PR changes only the facility total and its provenance; no course rows or nested course facts are added or modified.",
+      "evidence": [
+        {
+          "url": "https://www.westchasegc.com/images/documents/WestchaseGolfClub-ScoreCard_2023.pdf",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Visual review of the full eighteen-hole physical layout, matching Tampa street address."
+        },
+        {
+          "url": "https://www.westchasegc.com/golf/course-information",
+          "fields": [
+            "physical_holes"
+          ],
+          "observed_on": "2026-10-13",
+          "basis": "Current PDF link, distinct ninth/eighteenth greens, daily-fee public-access identity and matching address."
+        }
+      ]
+    }
+  ],
+  "source_review": {
+    "source_control": "Fresh branch from fetched current GitHub main. Original review commits are not cherry-picked; stable IDs and expected null values reconciled independently.",
+    "permission": "Human publication approval supplied by parent; authenticated adelevski account has repository push permission. Draft PR only, no merge. No credentials/access settings changed.",
+    "source_policy": "Retained qualifications and source URLs inspected before acceptance. Full relevant accepted page navigation/footer checked; inspected linked privacy policies concern visitor data. No factual reuse bar located for accepted sources and no permission grant inferred. Miacomet native robots read unavailable without HTTP status; no retry and no unrestricted-robots claim. Full private recovery materialization unavailable; recovered concrete parent holds enforced.",
+    "holds": [
+      "mcggolf.com prior403 explicit do-not-retry including redirects",
+      "classic5golf.com canceled approval-review batch",
+      "MontgomeryCountyMD.gov GPTBot exclusion",
+      "3lakesgolf.com",
+      "duckhollowgolfclub.com",
+      "pittsburghgolf.com",
+      "riverforestgolf.com",
+      "PGA",
+      "canceled LeRoy source",
+      "TLS-failing bmgcgolf.com",
+      "Bolingbrook owner-use/robots",
+      "Golf Loveland403",
+      "Azalea Sands429",
+      "golfnyc403",
+      "tnstateparks403",
+      "Fairhope greens notice403",
+      "Jackson National reuse terms",
+      "Bowling Green terms406",
+      "Turtleback verification challenge"
+    ],
+    "excluded_read": "Bolingbrook root was accidentally read before full retained restriction inspected. Content excluded, no fact admitted, no retry. Earlier PA discovery reads admitted zero facts. Rejected caches and old MCG branch excluded.",
+    "limits": "Undated/indexed owner evidence does not verify real-time play, seasonal opening, entrances or source-wide clearance. PDF paths/filenames are not publication dates."
+  },
+  "facility_total_distinction": {
+    "CommonGround": "18 separately described main physical holes plus separate nine-hole public par-three; facility total27 only.",
+    "Duran": "18 distinct physical holes on complete owner map plus separate nine-hole Chippers Walk par-three; facility total27 only.",
+    "exclusions": "Ranges, target greens and practice putting areas excluded; no nested course inventory inferred."
+  }
+}
