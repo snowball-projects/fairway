@@ -1,0 +1,5845 @@
+{
+  "license": "ODbL-1.0",
+  "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "attribution": "© OpenStreetMap contributors",
+  "observed_on": "2026-10-13",
+  "source": {
+    "retained_input_file": "ohio-unmapped-golf-matches-261011.json",
+    "retained_input_sha256": "6a6066696dcd352dae8e0ccbb4d2fd85644c4ea12874de56e0a1082ef95fdb56",
+    "retained_input_bytes": 3458604,
+    "registry": "data/source-layers/retained-name-matches-04-osm-properties-20261011.json",
+    "upstream": {
+      "catalog_file": "existing-unmapped-facilities-20261013.json",
+      "catalog_sha256": "142f5965c54bee0d7e23c42ece296a6367d9f6b8297fe197cfb2097ed24dc8d6",
+      "catalog_library_file_id": "libfile_a57323e68e9081918951857885fe40a7",
+      "catalog_source_main": "53d30b4a08681b7927e6ade09f39ab4732718114",
+      "catalog_canonical_sha256": "489007c1c832b4ae87a78d92e7ddd22502aedd765148a1bcf8ba7fa682a3f9a6",
+      "catalog_scope_counts": {
+        "active_catalog_facilities": 7176,
+        "map_eligible": 294,
+        "off_map_total": 6882,
+        "without_qualified_property_location_in_this_handoff": 6868,
+        "excluded_existing_property_point_missing_holes": 14
+      },
+      "golf_sqlite_sha256": "d485b47256814d6764779e7d1987493c37d71e519b5b16412c46426ee468ea37",
+      "state_boundary_sha256": "308e178d83de441c812b503a75eb53e096c3acfa30abac66063341029f505e87",
+      "osm_extract": "Geofabrik United States 261011",
+      "osm_data_through": "2026-10-11T20:21:06Z",
+      "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+      "software": "Python + Shapely 2.0.3"
+    }
+  },
+  "hash_basis": "New geometry hashes use sorted compact json.dumps(sort_keys=True,separators=(',',':')). Upstream geometry hashes retain unspecified original serialization; whole input bytes are independently hash matched.",
+  "method": "17 existing null-coordinate Ohio facilities manually identity matched to retained Geofabrik United States 261011 golf geometry. Shapely2.1.2 PointOnSurface is strictly contained after eight-decimal rounding. Retained Census2025 20m display outlines supply broad independent county context only, never coordinates or survey boundaries. No arrivals, facility additions, hole totals or course inventories are inferred.",
+  "independent_context": {
+    "scope": "Independent locality context using retained Census 2025 1:20,000,000 projected display outlines, not cadastral/survey boundaries, not a coordinate source, and not a new canonical county fact. A county match alone is insufficient for facility identity or public play.",
+    "boundary_file_sha256": "1ec51d787b0264b59d4f5464ae99b6abf7ab1525b36651f234ea82f899c9d6ca",
+    "boundary_sources": [
+      {
+        "url": "https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_county_20m.zip",
+        "sha256": "745a193ddcb63337befa83a55c031c0fdd0c16a66fd12b56e2f274829624bb65"
+      },
+      {
+        "url": "https://www2.census.gov/geo/tiger/GENZ2025/shp/cb_2025_us_state_20m.zip",
+        "sha256": "9340b6d995e971b2b4230518f4fa85e6cd9e7fe6811afabc90a6a8b1191530f6"
+      }
+    ],
+    "projection_source_sha256": "2779188be1c79792d1f33b9b5899abd259f8439b9a509907535374cd7bb3f843",
+    "invalid_Ohio_display_outlines_not_used": []
+  },
+  "context_file": "research/ohio-next20-20261013/county-context.json",
+  "records": [
+    {
+      "facility_id": "f-f70c3e20-7ba1-4a7a-a540-60f0ece235c0",
+      "name": "Blacklick Woods Golf Courses",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Blacklick Woods Golf Courses",
+        "state": "OH",
+        "address": {
+          "text": "7309 E Livingston Ave Reynoldsburg, OH 43068",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://blacklickwoodsgc.com/"
+      },
+      "upstream_status": "ambiguous",
+      "upstream_reason": "plausible name candidates remain without decisive identity evidence",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 465240350,
+          "version": 9,
+          "timestamp_unix": 1765243857,
+          "tags": {
+            "addr:city": "Reynoldsburg",
+            "addr:housenumber": "7309",
+            "addr:postcode": "43068",
+            "addr:state": "OH",
+            "addr:street": "E Livingston Ave",
+            "leisure": "golf_course",
+            "name": "Blacklick Woods Golf Course",
+            "operator": "Columbus and Franklin County Metro Parks",
+            "phone": "+1-614-861-3193",
+            "website": "https://blacklickwoodsgc.com/"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -82.809687,
+                    39.943643
+                  ],
+                  [
+                    -82.8067549,
+                    39.94359
+                  ],
+                  [
+                    -82.8077884,
+                    39.9405352
+                  ],
+                  [
+                    -82.8076079,
+                    39.9392738
+                  ],
+                  [
+                    -82.8073373,
+                    39.9373831
+                  ],
+                  [
+                    -82.8037042,
+                    39.9363007
+                  ],
+                  [
+                    -82.802424,
+                    39.9356625
+                  ],
+                  [
+                    -82.7994097,
+                    39.936876
+                  ],
+                  [
+                    -82.7946995,
+                    39.937757
+                  ],
+                  [
+                    -82.7947644,
+                    39.9382061
+                  ],
+                  [
+                    -82.7948443,
+                    39.9387169
+                  ],
+                  [
+                    -82.7948497,
+                    39.9387565
+                  ],
+                  [
+                    -82.7933591,
+                    39.9388621
+                  ],
+                  [
+                    -82.7929231,
+                    39.9386093
+                  ],
+                  [
+                    -82.7926193,
+                    39.9388888
+                  ],
+                  [
+                    -82.7924616,
+                    39.9402192
+                  ],
+                  [
+                    -82.798198,
+                    39.9404842
+                  ],
+                  [
+                    -82.7971511,
+                    39.9413371
+                  ],
+                  [
+                    -82.7966338,
+                    39.9416044
+                  ],
+                  [
+                    -82.7964993,
+                    39.9418684
+                  ],
+                  [
+                    -82.7964789,
+                    39.9428203
+                  ],
+                  [
+                    -82.7966016,
+                    39.9431101
+                  ],
+                  [
+                    -82.7978407,
+                    39.9439798
+                  ],
+                  [
+                    -82.7983063,
+                    39.9443565
+                  ],
+                  [
+                    -82.799624,
+                    39.9457038
+                  ],
+                  [
+                    -82.8013245,
+                    39.9457649
+                  ],
+                  [
+                    -82.8083302,
+                    39.9460832
+                  ],
+                  [
+                    -82.8085377,
+                    39.9460894
+                  ],
+                  [
+                    -82.8087217,
+                    39.9460892
+                  ],
+                  [
+                    -82.8089098,
+                    39.9460837
+                  ],
+                  [
+                    -82.8090999,
+                    39.9460727
+                  ],
+                  [
+                    -82.8092766,
+                    39.9460575
+                  ],
+                  [
+                    -82.8094628,
+                    39.9460372
+                  ],
+                  [
+                    -82.809687,
+                    39.943643
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "2dd80fc94b4dbdea5ca5357c960a66d12c65115bb0e4abb511cc0b116f33b645",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "e805b1e909c702a3d9d643b1ae4592831b2ec505cd06dbdcef29315735426fac"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Blacklick Woods Golf Course",
+            "full_exact": false,
+            "core_exact": false,
+            "score": 0.9818,
+            "catalog_identity_kind": "golf_course",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "blacklickwoodsgc.com",
+            "osm_website_domain": "blacklickwoodsgc.com",
+            "website_match": true,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "43068"
+            ],
+            "osm_postcode": "43068",
+            "postcode_match": true,
+            "postcode_conflict": false,
+            "catalog_house_number": "7309",
+            "osm_house_number": "7309",
+            "house_number_match": true,
+            "house_number_conflict": false,
+            "catalog_street_key": "livingston reynoldsburg",
+            "osm_street_key": "livingston",
+            "street_similarity": 0.6061,
+            "city_match": true,
+            "street_words_match": false,
+            "street_conflict": true,
+            "specific_address_conflict": true,
+            "locality_signal_count": 3
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 1,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -82.80264800018827,
+          "latitude": 39.94093615,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "ambiguous_not_selected",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 137756530,
+          "name": "Mastick Woods Golf Course",
+          "upstream_geometry_sha256_serialization_unspecified": "ac2ec256c4921ad2de7a266614a5b523015c8b95e4aacd93ded5022e9d2cc86f",
+          "reason": "Different exact identity/address/domain or independent county; not this existing facility."
+        }
+      ],
+      "manual_identity_decision": "Retained OSM way465240350 shares the specific operator domain, house7309, E Livingston Ave, Reynoldsburg, OH and ZIP43068 with the existing facility. Removing the unpunctuated city from the old street comparison resolves the parser conflict. Mastick Woods has a different name, county, domain and independently mapped facility ID. This property decision uses only retained ODbL tags/geometry and canonical identity, not the newly read owner content. Existing Oct11 field-scoped public Championship/Learning/Practice course evidence is preserved. No new owner fact, whole-facility total, access field or course subdivision is admitted after the linked policy host declared ai-input=no.",
+      "independent_county_context": [
+        {
+          "fips": "39049",
+          "name": "Franklin County",
+          "point_outline_margin_pixels": 0.11372502409853075,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 39.94093615,
+        "longitude": -82.802648,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 39.94093615,
+          "longitude": -82.80264800018827
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-31c44cb8-5913-42fe-a966-fe6dbde73498",
+      "name": "EagleSticks Golf Club",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "EagleSticks Golf Club",
+        "state": "OH",
+        "address": {
+          "text": "2655 Maysville Pike Zanesville, OH 43701",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://www.eaglesticks.com"
+      },
+      "upstream_status": "ambiguous",
+      "upstream_reason": "plausible name candidates remain without decisive identity evidence",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 502550036,
+          "version": 9,
+          "timestamp_unix": 1708290375,
+          "tags": {
+            "addr:city": "Zanesville",
+            "addr:housenumber": "2655",
+            "addr:postcode": "43701",
+            "addr:state": "OH",
+            "addr:street": "Maysville Pike",
+            "leisure": "golf_course",
+            "name": "EagleSticks"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -82.0388502,
+                    39.8989983
+                  ],
+                  [
+                    -82.0385502,
+                    39.8982109
+                  ],
+                  [
+                    -82.037687,
+                    39.8983967
+                  ],
+                  [
+                    -82.0374273,
+                    39.8978006
+                  ],
+                  [
+                    -82.035853,
+                    39.898169
+                  ],
+                  [
+                    -82.0360756,
+                    39.8986723
+                  ],
+                  [
+                    -82.0360533,
+                    39.8989434
+                  ],
+                  [
+                    -82.0362673,
+                    39.8995353
+                  ],
+                  [
+                    -82.0340543,
+                    39.9000753
+                  ],
+                  [
+                    -82.0338643,
+                    39.9002146
+                  ],
+                  [
+                    -82.0337649,
+                    39.9017195
+                  ],
+                  [
+                    -82.0333739,
+                    39.9019678
+                  ],
+                  [
+                    -82.0332627,
+                    39.9027018
+                  ],
+                  [
+                    -82.0331534,
+                    39.9030028
+                  ],
+                  [
+                    -82.0326991,
+                    39.9029828
+                  ],
+                  [
+                    -82.0324468,
+                    39.903123
+                  ],
+                  [
+                    -82.0284671,
+                    39.9026473
+                  ],
+                  [
+                    -82.0283892,
+                    39.9031408
+                  ],
+                  [
+                    -82.0283518,
+                    39.9032184
+                  ],
+                  [
+                    -82.0283814,
+                    39.9033855
+                  ],
+                  [
+                    -82.0284262,
+                    39.9034579
+                  ],
+                  [
+                    -82.0284479,
+                    39.9035176
+                  ],
+                  [
+                    -82.0284195,
+                    39.9036626
+                  ],
+                  [
+                    -82.0282585,
+                    39.903887
+                  ],
+                  [
+                    -82.0281583,
+                    39.9040163
+                  ],
+                  [
+                    -82.0280643,
+                    39.904233
+                  ],
+                  [
+                    -82.0280175,
+                    39.9043717
+                  ],
+                  [
+                    -82.0282083,
+                    39.904497
+                  ],
+                  [
+                    -82.0282808,
+                    39.9050568
+                  ],
+                  [
+                    -82.0287516,
+                    39.906053
+                  ],
+                  [
+                    -82.0297897,
+                    39.9061026
+                  ],
+                  [
+                    -82.0333212,
+                    39.9062713
+                  ],
+                  [
+                    -82.0333456,
+                    39.907107
+                  ],
+                  [
+                    -82.0367491,
+                    39.907285
+                  ],
+                  [
+                    -82.036915,
+                    39.9073417
+                  ],
+                  [
+                    -82.0381513,
+                    39.9074179
+                  ],
+                  [
+                    -82.0383168,
+                    39.906239
+                  ],
+                  [
+                    -82.0384635,
+                    39.9063124
+                  ],
+                  [
+                    -82.0385287,
+                    39.9062569
+                  ],
+                  [
+                    -82.0384437,
+                    39.9059137
+                  ],
+                  [
+                    -82.0382404,
+                    39.9049302
+                  ],
+                  [
+                    -82.0384274,
+                    39.903321
+                  ],
+                  [
+                    -82.0385619,
+                    39.9030595
+                  ],
+                  [
+                    -82.0385087,
+                    39.9024976
+                  ],
+                  [
+                    -82.0388502,
+                    39.8989983
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "03af6c4afef1c8ecbf6acfd5954bf54ae9b24277ddddd85b961ce6587a67200c",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "066424f7a45e7146b3b635a183cf1da2e895fc7a1b37d562224864d54cada67a"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "EagleSticks",
+            "full_exact": false,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_club",
+            "osm_identity_kind": "unspecified",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "eaglesticks.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "43701"
+            ],
+            "osm_postcode": "43701",
+            "postcode_match": true,
+            "postcode_conflict": false,
+            "catalog_house_number": "2655",
+            "osm_house_number": "2655",
+            "house_number_match": true,
+            "house_number_conflict": false,
+            "catalog_street_key": "maysville pike zanesville",
+            "osm_street_key": "maysville pike",
+            "street_similarity": 0.7179,
+            "city_match": true,
+            "street_words_match": false,
+            "street_conflict": true,
+            "specific_address_conflict": true,
+            "locality_signal_count": 3
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -82.0358990415273,
+          "latitude": 39.902572449999994,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "ambiguous_not_selected",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 321206264,
+          "name": "Eagle Rock Golf Club",
+          "upstream_geometry_sha256_serialization_unspecified": "4130c7a9fc93b1dd9be97ddf12e63d241d66f76bc621c1110153ef81b576eea8",
+          "reason": "Different exact identity/address/domain or independent county; not this existing facility."
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 1204057727,
+          "name": "Three Sticks Golf Club",
+          "upstream_geometry_sha256_serialization_unspecified": "f511bedaadfb0fbfe5bd07f82d9fb5351b9764e3cd138b88442a76b22b57de38",
+          "reason": "Different exact identity/address/domain or independent county; not this existing facility."
+        }
+      ],
+      "manual_identity_decision": "Retained OSM way502550036 is EagleSticks at house2655, Maysville Pike, Zanesville, OH43701, matching the official operator homepage/FAQ. The apparent street conflict included the unpunctuated city in the old street key. Eagle Rock in Defiance and Three Sticks in Marion are different identities/localities. Current owner homepage explicitly identifies public golf; linked refund/data and FAQ policies were reviewed without locating an automated bare-fact reuse restriction. Booking/provider services were not opened.",
+      "independent_county_context": [
+        {
+          "fips": "39119",
+          "name": "Muskingum County",
+          "point_outline_margin_pixels": 1.7399447792494618,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 39.90257245,
+        "longitude": -82.03589904,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 39.902572449999994,
+          "longitude": -82.0358990415273
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-70e1c5da-f303-4259-85c6-ff44fcd55ea0",
+      "name": "Lost Nation Golf Course",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Lost Nation Golf Course",
+        "state": "OH",
+        "address": {
+          "text": "38890 Hodgson Road, Willoughby, OH 44094",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://lostnationgolfcourse.com/"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "strong identity evidence but explicit catalog/OSM ZIP mismatch requires review",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 338646768,
+          "version": 15,
+          "timestamp_unix": 1783189636,
+          "tags": {
+            "addr:city": "Willoughby",
+            "addr:housenumber": "38890",
+            "addr:postcode": "44090",
+            "addr:state": "OH",
+            "addr:street": "Hodgson Road",
+            "leisure": "golf_course",
+            "name": "Lost Nation Golf Course",
+            "operator": "City of Willoughby"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -81.4001284,
+                    41.6726936
+                  ],
+                  [
+                    -81.3996788,
+                    41.6725131
+                  ],
+                  [
+                    -81.3995305,
+                    41.6723927
+                  ],
+                  [
+                    -81.3994899,
+                    41.6723597
+                  ],
+                  [
+                    -81.3992928,
+                    41.6721634
+                  ],
+                  [
+                    -81.3989236,
+                    41.6720323
+                  ],
+                  [
+                    -81.3986023,
+                    41.6719837
+                  ],
+                  [
+                    -81.3982126,
+                    41.6718648
+                  ],
+                  [
+                    -81.3980294,
+                    41.671822
+                  ],
+                  [
+                    -81.3976258,
+                    41.6715194
+                  ],
+                  [
+                    -81.3971983,
+                    41.6714433
+                  ],
+                  [
+                    -81.3930452,
+                    41.6713494
+                  ],
+                  [
+                    -81.3921137,
+                    41.6716697
+                  ],
+                  [
+                    -81.3913763,
+                    41.6721945
+                  ],
+                  [
+                    -81.3913469,
+                    41.6740422
+                  ],
+                  [
+                    -81.3913316,
+                    41.6750047
+                  ],
+                  [
+                    -81.3917179,
+                    41.6751578
+                  ],
+                  [
+                    -81.3919109,
+                    41.675305
+                  ],
+                  [
+                    -81.3920095,
+                    41.6755656
+                  ],
+                  [
+                    -81.3919483,
+                    41.6757312
+                  ],
+                  [
+                    -81.3919109,
+                    41.6758325
+                  ],
+                  [
+                    -81.391796,
+                    41.6760011
+                  ],
+                  [
+                    -81.3915989,
+                    41.6760441
+                  ],
+                  [
+                    -81.3911212,
+                    41.6763699
+                  ],
+                  [
+                    -81.3911081,
+                    41.6765324
+                  ],
+                  [
+                    -81.3910439,
+                    41.6773277
+                  ],
+                  [
+                    -81.3910135,
+                    41.6775483
+                  ],
+                  [
+                    -81.3907374,
+                    41.6781922
+                  ],
+                  [
+                    -81.3906424,
+                    41.6783811
+                  ],
+                  [
+                    -81.3904481,
+                    41.6786238
+                  ],
+                  [
+                    -81.3904269,
+                    41.6786503
+                  ],
+                  [
+                    -81.3904737,
+                    41.6786708
+                  ],
+                  [
+                    -81.3905712,
+                    41.6786873
+                  ],
+                  [
+                    -81.3906839,
+                    41.6786998
+                  ],
+                  [
+                    -81.390959,
+                    41.6787167
+                  ],
+                  [
+                    -81.3910258,
+                    41.6785858
+                  ],
+                  [
+                    -81.3915588,
+                    41.6778698
+                  ],
+                  [
+                    -81.3920952,
+                    41.6774456
+                  ],
+                  [
+                    -81.3924348,
+                    41.677207
+                  ],
+                  [
+                    -81.3928293,
+                    41.677046
+                  ],
+                  [
+                    -81.3941747,
+                    41.6770853
+                  ],
+                  [
+                    -81.3944388,
+                    41.677119
+                  ],
+                  [
+                    -81.3946963,
+                    41.6771861
+                  ],
+                  [
+                    -81.3948653,
+                    41.6772432
+                  ],
+                  [
+                    -81.3950282,
+                    41.6773263
+                  ],
+                  [
+                    -81.3951228,
+                    41.677417
+                  ],
+                  [
+                    -81.3953239,
+                    41.6776023
+                  ],
+                  [
+                    -81.3954708,
+                    41.6777721
+                  ],
+                  [
+                    -81.3956284,
+                    41.6779664
+                  ],
+                  [
+                    -81.3958544,
+                    41.6782273
+                  ],
+                  [
+                    -81.3958691,
+                    41.6782604
+                  ],
+                  [
+                    -81.3958731,
+                    41.678337
+                  ],
+                  [
+                    -81.3959046,
+                    41.6785879
+                  ],
+                  [
+                    -81.3959402,
+                    41.6787721
+                  ],
+                  [
+                    -81.3953057,
+                    41.6788498
+                  ],
+                  [
+                    -81.3936259,
+                    41.6794069
+                  ],
+                  [
+                    -81.3924426,
+                    41.6797994
+                  ],
+                  [
+                    -81.3920244,
+                    41.6799653
+                  ],
+                  [
+                    -81.3915961,
+                    41.6800035
+                  ],
+                  [
+                    -81.3914345,
+                    41.6800049
+                  ],
+                  [
+                    -81.3907372,
+                    41.6800112
+                  ],
+                  [
+                    -81.3906997,
+                    41.6787682
+                  ],
+                  [
+                    -81.3905312,
+                    41.678752
+                  ],
+                  [
+                    -81.3904656,
+                    41.6787311
+                  ],
+                  [
+                    -81.3902898,
+                    41.6786623
+                  ],
+                  [
+                    -81.3899329,
+                    41.678446
+                  ],
+                  [
+                    -81.389915,
+                    41.6788975
+                  ],
+                  [
+                    -81.3882907,
+                    41.6788941
+                  ],
+                  [
+                    -81.3859461,
+                    41.6788958
+                  ],
+                  [
+                    -81.3859227,
+                    41.6783701
+                  ],
+                  [
+                    -81.3849727,
+                    41.6783626
+                  ],
+                  [
+                    -81.38493,
+                    41.6786973
+                  ],
+                  [
+                    -81.3840317,
+                    41.6790008
+                  ],
+                  [
+                    -81.3832734,
+                    41.6788172
+                  ],
+                  [
+                    -81.3806161,
+                    41.6788173
+                  ],
+                  [
+                    -81.3800131,
+                    41.67907
+                  ],
+                  [
+                    -81.3789396,
+                    41.6792663
+                  ],
+                  [
+                    -81.3787534,
+                    41.6794954
+                  ],
+                  [
+                    -81.3788739,
+                    41.6799699
+                  ],
+                  [
+                    -81.3794764,
+                    41.6802072
+                  ],
+                  [
+                    -81.3858211,
+                    41.6804363
+                  ],
+                  [
+                    -81.3882323,
+                    41.680569
+                  ],
+                  [
+                    -81.3896406,
+                    41.6817339
+                  ],
+                  [
+                    -81.3919778,
+                    41.6813029
+                  ],
+                  [
+                    -81.3945641,
+                    41.6803789
+                  ],
+                  [
+                    -81.3955527,
+                    41.6799431
+                  ],
+                  [
+                    -81.3968388,
+                    41.6790026
+                  ],
+                  [
+                    -81.3970255,
+                    41.678849
+                  ],
+                  [
+                    -81.3972585,
+                    41.6786916
+                  ],
+                  [
+                    -81.3972612,
+                    41.6783661
+                  ],
+                  [
+                    -81.3966523,
+                    41.677723
+                  ],
+                  [
+                    -81.3960341,
+                    41.6770639
+                  ],
+                  [
+                    -81.3958141,
+                    41.6768345
+                  ],
+                  [
+                    -81.3950242,
+                    41.6762465
+                  ],
+                  [
+                    -81.3949532,
+                    41.6761856
+                  ],
+                  [
+                    -81.3970534,
+                    41.6753709
+                  ],
+                  [
+                    -81.3972383,
+                    41.6753386
+                  ],
+                  [
+                    -81.3975459,
+                    41.6753485
+                  ],
+                  [
+                    -81.3979088,
+                    41.6752584
+                  ],
+                  [
+                    -81.398734,
+                    41.6749963
+                  ],
+                  [
+                    -81.3993913,
+                    41.6747597
+                  ],
+                  [
+                    -81.3994029,
+                    41.6746668
+                  ],
+                  [
+                    -81.3994993,
+                    41.6746515
+                  ],
+                  [
+                    -81.4000031,
+                    41.6745714
+                  ],
+                  [
+                    -81.4001038,
+                    41.6745577
+                  ],
+                  [
+                    -81.4001284,
+                    41.6726936
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "1626cb9b2a7f359aa8dc2f991c690e8ff48cb3280b094e83254c2e28eaccc217",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "5cf651c2db025e0e9229b9cd940cadd4e4db3d5b0c6865ff77f08f34e176740a"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Lost Nation Golf Course",
+            "full_exact": true,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_course",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "lostnationgolfcourse.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "44094"
+            ],
+            "osm_postcode": "44090",
+            "postcode_match": false,
+            "postcode_conflict": true,
+            "catalog_house_number": "38890",
+            "osm_house_number": "38890",
+            "house_number_match": true,
+            "house_number_conflict": false,
+            "catalog_street_key": "hodgson",
+            "osm_street_key": "hodgson",
+            "street_similarity": 1.0,
+            "city_match": true,
+            "street_words_match": true,
+            "street_conflict": false,
+            "specific_address_conflict": true,
+            "locality_signal_count": 3
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -81.39335354548176,
+          "latitude": 41.67668345,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "Retained OSM way338646768 has the exact facility name, house38890, Hodgson Road and Willoughby city. Both inspected owner homepage and official association profile corroborate the canonical ZIP44094, while retained OSM ZIP44090 is inconsistent. That stale tag is disclosed without changing the correct existing address. Official association explicitly reports Public. Geometry does not prove public play or current operation.",
+      "independent_county_context": [
+        {
+          "fips": "39085",
+          "name": "Lake County",
+          "point_outline_margin_pixels": 0.41259053379080507,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 41.67668345,
+        "longitude": -81.39335355,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 41.67668345,
+          "longitude": -81.39335354548176
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-05868395-ac81-46b3-b185-e6ae4fba1dc7",
+      "name": "Pleasant Valley Golf Course",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Pleasant Valley Golf Course",
+        "state": "OH",
+        "address": {
+          "text": "4152 Rd 17, Payne, OH 45880",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://www.facebook.com/pleasantvalleygolfcourseohio/"
+      },
+      "upstream_status": "ambiguous",
+      "upstream_reason": "plausible name candidates remain without decisive identity evidence",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 381688882,
+          "version": 7,
+          "timestamp_unix": 1764908959,
+          "tags": {
+            "addr:city": "Payne",
+            "addr:housenumber": "4152",
+            "addr:postcode": "45880",
+            "addr:state": "OH",
+            "addr:street": "Rd 17",
+            "fax": "+1-419-263-2037",
+            "golf:course": "9_hole",
+            "golf:par": "36",
+            "leisure": "golf_course",
+            "name": "Pleasant Valley Golf Course",
+            "phone": "+1-419-263-2037"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -84.7745976,
+                    41.0387602
+                  ],
+                  [
+                    -84.774596,
+                    41.034894
+                  ],
+                  [
+                    -84.7745221,
+                    41.0348965
+                  ],
+                  [
+                    -84.774447,
+                    41.0348991
+                  ],
+                  [
+                    -84.7711078,
+                    41.0350103
+                  ],
+                  [
+                    -84.7711101,
+                    41.0353129
+                  ],
+                  [
+                    -84.7707116,
+                    41.0353154
+                  ],
+                  [
+                    -84.7683164,
+                    41.0353303
+                  ],
+                  [
+                    -84.7677315,
+                    41.0353339
+                  ],
+                  [
+                    -84.7663683,
+                    41.0353424
+                  ],
+                  [
+                    -84.7663683,
+                    41.0358042
+                  ],
+                  [
+                    -84.7649831,
+                    41.0365491
+                  ],
+                  [
+                    -84.7650975,
+                    41.0366381
+                  ],
+                  [
+                    -84.7653498,
+                    41.0368342
+                  ],
+                  [
+                    -84.7655391,
+                    41.0369814
+                  ],
+                  [
+                    -84.7655908,
+                    41.0375758
+                  ],
+                  [
+                    -84.7658342,
+                    41.0382607
+                  ],
+                  [
+                    -84.7659964,
+                    41.0383254
+                  ],
+                  [
+                    -84.7663734,
+                    41.0381892
+                  ],
+                  [
+                    -84.7668647,
+                    41.0386235
+                  ],
+                  [
+                    -84.7671448,
+                    41.0387621
+                  ],
+                  [
+                    -84.7708187,
+                    41.0387604
+                  ],
+                  [
+                    -84.7713354,
+                    41.0387602
+                  ],
+                  [
+                    -84.7744438,
+                    41.0387587
+                  ],
+                  [
+                    -84.7745046,
+                    41.0387574
+                  ],
+                  [
+                    -84.7745976,
+                    41.0387602
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "870afd1ea1a152eff238e310fde0bd9fa772a0d637ce3e5afeffad6b7322779b",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "a6e970095511db1fce5c913e9a2b7714485c4a94973bc4d2997cc8af116be07c"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Pleasant Valley Golf Course",
+            "full_exact": true,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_course",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "facebook.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "45880"
+            ],
+            "osm_postcode": "45880",
+            "postcode_match": true,
+            "postcode_conflict": false,
+            "catalog_house_number": "4152",
+            "osm_house_number": "4152",
+            "house_number_match": true,
+            "house_number_conflict": false,
+            "catalog_street_key": "17",
+            "osm_street_key": "17",
+            "street_similarity": 1.0,
+            "city_match": true,
+            "street_words_match": true,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 4
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 20,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -84.7699102061805,
+          "latitude": 41.036736149999996,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "ambiguous_not_selected",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [
+        {
+          "osm_type": "way",
+          "osm_id": 509252032,
+          "name": "Pleasant Valley Golf Course",
+          "upstream_geometry_sha256_serialization_unspecified": "7c1860fc26a578ed0dfd4ead9455f054121e51d34534ddedc149f750810c7b19",
+          "reason": "Different exact identity/address/domain or independent county; not this existing facility."
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 134165280,
+          "name": "Pleasant Valley Country Club",
+          "upstream_geometry_sha256_serialization_unspecified": "228635ea37ecc06e886609acc276713307af22fba9f4da02f7107a238d3d42db",
+          "reason": "Different exact identity/address/domain or independent county; not this existing facility."
+        }
+      ],
+      "manual_identity_decision": "Select retained OSM way381688882 by exact full facility name, house4152, Road17, Payne and ZIP45880, corroborated by the exact official association profile and Paulding County context. The different Fairfield County Pleasant Valley Golf Course and Medina County Pleasant Valley Country Club are excluded. Official profile explicitly reports Public. Facebook was not requested.",
+      "independent_county_context": [
+        {
+          "fips": "39125",
+          "name": "Paulding County",
+          "point_outline_margin_pixels": 0.4636641694411991,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 41.03673615,
+        "longitude": -84.76991021,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 41.036736149999996,
+          "longitude": -84.7699102061805
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-7d176dfd-d346-4f83-84eb-16ab3433cfa4",
+      "name": "Creekwood Golf Course",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Creekwood Golf Course",
+        "state": "OH",
+        "address": {
+          "text": "9691 N Reed Rd Columbia Station, OH 44028",
+          "purpose": "published_unspecified"
+        },
+        "website": "http://creekwoodgolf.com/"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "unique normalized core name; OSM lacks enough locality fields for support",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 327815034,
+          "version": 8,
+          "timestamp_unix": 1787674381,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Creekwood Golf Club"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -81.9904733,
+                    41.3435215
+                  ],
+                  [
+                    -81.9805228,
+                    41.3434092
+                  ],
+                  [
+                    -81.9804354,
+                    41.344521
+                  ],
+                  [
+                    -81.9798324,
+                    41.3447078
+                  ],
+                  [
+                    -81.977918,
+                    41.3450538
+                  ],
+                  [
+                    -81.977975,
+                    41.3453023
+                  ],
+                  [
+                    -81.9784001,
+                    41.3483749
+                  ],
+                  [
+                    -81.9801462,
+                    41.3483873
+                  ],
+                  [
+                    -81.9805152,
+                    41.3499939
+                  ],
+                  [
+                    -81.9808339,
+                    41.3513815
+                  ],
+                  [
+                    -81.9809181,
+                    41.3513853
+                  ],
+                  [
+                    -81.982497,
+                    41.3514572
+                  ],
+                  [
+                    -81.9824946,
+                    41.3499029
+                  ],
+                  [
+                    -81.9824929,
+                    41.3487638
+                  ],
+                  [
+                    -81.9827111,
+                    41.3486705
+                  ],
+                  [
+                    -81.983575,
+                    41.3483008
+                  ],
+                  [
+                    -81.9842976,
+                    41.3481745
+                  ],
+                  [
+                    -81.9856982,
+                    41.348129
+                  ],
+                  [
+                    -81.9904394,
+                    41.3480616
+                  ],
+                  [
+                    -81.9904534,
+                    41.3458005
+                  ],
+                  [
+                    -81.9904733,
+                    41.3435215
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "c059f87da8b525835f6e00a3bb879428a6b6e2c0eb5f3ab0fe0126d8166e5b39",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "d4b08a0ed922a38f569898799304df802890341593a480f9df706a8f3fbd990c"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Creekwood Golf Club",
+            "full_exact": false,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_course",
+            "osm_identity_kind": "golf_club",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "creekwoodgolf.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "44028"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "9691",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "reed columbia station",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -81.98432337031585,
+          "latitude": 41.34693105,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies Creekwood Golf Course, 9691 N Reed Rd, Columbia Station, OH 44028, Lorain County, and explicitly Public play. The unique retained Ohio named golf property Creekwood Golf Club has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Lorain County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39093",
+          "name": "Lorain County",
+          "point_outline_margin_pixels": 0.23586850650569519,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 41.34693105,
+        "longitude": -81.98432337,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 41.34693105,
+          "longitude": -81.98432337031585
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-cb1b17c2-515b-4b87-8471-a4d7c480ca6f",
+      "name": "Eagle's Landing Golf Club",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Eagle's Landing Golf Club",
+        "state": "OH",
+        "address": {
+          "text": "5350 Bay Shore Rd Oregon, OH 43618",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://www.eagleslandinggolfclub.net/home-eagleslanding"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "strong unique name similarity without independent locality corroboration",
+      "selected_feature": {
+        "osm": {
+          "type": "relation",
+          "id": 3550252,
+          "version": 1,
+          "timestamp_unix": 1393819004,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Eagles Landing Golf Course"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -83.429864,
+                    41.6839722
+                  ],
+                  [
+                    -83.4298095,
+                    41.680889
+                  ],
+                  [
+                    -83.4298052,
+                    41.6807532
+                  ],
+                  [
+                    -83.4292612,
+                    41.6807671
+                  ],
+                  [
+                    -83.4287963,
+                    41.6807208
+                  ],
+                  [
+                    -83.4284907,
+                    41.6806904
+                  ],
+                  [
+                    -83.4282646,
+                    41.6806953
+                  ],
+                  [
+                    -83.4280068,
+                    41.6807195
+                  ],
+                  [
+                    -83.4277591,
+                    41.680751
+                  ],
+                  [
+                    -83.4278342,
+                    41.6818067
+                  ],
+                  [
+                    -83.4278476,
+                    41.6822775
+                  ],
+                  [
+                    -83.4277859,
+                    41.68257
+                  ],
+                  [
+                    -83.4275365,
+                    41.6833552
+                  ],
+                  [
+                    -83.4281132,
+                    41.6842045
+                  ],
+                  [
+                    -83.4282419,
+                    41.6842226
+                  ],
+                  [
+                    -83.4282634,
+                    41.6843107
+                  ],
+                  [
+                    -83.4282956,
+                    41.6844229
+                  ],
+                  [
+                    -83.4283117,
+                    41.684493
+                  ],
+                  [
+                    -83.428309,
+                    41.6845571
+                  ],
+                  [
+                    -83.4282956,
+                    41.6846132
+                  ],
+                  [
+                    -83.428258,
+                    41.6846873
+                  ],
+                  [
+                    -83.428199,
+                    41.6847714
+                  ],
+                  [
+                    -83.4281153,
+                    41.6848577
+                  ],
+                  [
+                    -83.4279817,
+                    41.6849717
+                  ],
+                  [
+                    -83.4279227,
+                    41.6850218
+                  ],
+                  [
+                    -83.4277558,
+                    41.685148
+                  ],
+                  [
+                    -83.4276699,
+                    41.6851841
+                  ],
+                  [
+                    -83.4275385,
+                    41.6852241
+                  ],
+                  [
+                    -83.4273514,
+                    41.6853323
+                  ],
+                  [
+                    -83.4269384,
+                    41.6855506
+                  ],
+                  [
+                    -83.4262276,
+                    41.6856067
+                  ],
+                  [
+                    -83.4255978,
+                    41.6853665
+                  ],
+                  [
+                    -83.4253564,
+                    41.6851101
+                  ],
+                  [
+                    -83.4251091,
+                    41.6849337
+                  ],
+                  [
+                    -83.4249991,
+                    41.6847975
+                  ],
+                  [
+                    -83.4249575,
+                    41.6848111
+                  ],
+                  [
+                    -83.4248452,
+                    41.6848477
+                  ],
+                  [
+                    -83.4247168,
+                    41.6848896
+                  ],
+                  [
+                    -83.4238424,
+                    41.68514
+                  ],
+                  [
+                    -83.4234562,
+                    41.6852802
+                  ],
+                  [
+                    -83.4230679,
+                    41.6846793
+                  ],
+                  [
+                    -83.4230116,
+                    41.6842506
+                  ],
+                  [
+                    -83.4230673,
+                    41.6842326
+                  ],
+                  [
+                    -83.4230277,
+                    41.6841645
+                  ],
+                  [
+                    -83.4250119,
+                    41.6835575
+                  ],
+                  [
+                    -83.4252613,
+                    41.6834614
+                  ],
+                  [
+                    -83.4254893,
+                    41.6833512
+                  ],
+                  [
+                    -83.4256905,
+                    41.683229
+                  ],
+                  [
+                    -83.4258782,
+                    41.6830948
+                  ],
+                  [
+                    -83.4260291,
+                    41.6829325
+                  ],
+                  [
+                    -83.4261706,
+                    41.6827643
+                  ],
+                  [
+                    -83.4263,
+                    41.682578
+                  ],
+                  [
+                    -83.4263778,
+                    41.6823897
+                  ],
+                  [
+                    -83.4264147,
+                    41.6821773
+                  ],
+                  [
+                    -83.4264475,
+                    41.681991
+                  ],
+                  [
+                    -83.4264582,
+                    41.6817607
+                  ],
+                  [
+                    -83.4264582,
+                    41.6815684
+                  ],
+                  [
+                    -83.4264032,
+                    41.6815221
+                  ],
+                  [
+                    -83.4262732,
+                    41.6814125
+                  ],
+                  [
+                    -83.4262002,
+                    41.681351
+                  ],
+                  [
+                    -83.4259111,
+                    41.6809694
+                  ],
+                  [
+                    -83.4259131,
+                    41.6808332
+                  ],
+                  [
+                    -83.4267526,
+                    41.6804105
+                  ],
+                  [
+                    -83.4270611,
+                    41.6802723
+                  ],
+                  [
+                    -83.4274071,
+                    41.6801841
+                  ],
+                  [
+                    -83.4280917,
+                    41.6800619
+                  ],
+                  [
+                    -83.4288561,
+                    41.6800539
+                  ],
+                  [
+                    -83.42884,
+                    41.679503
+                  ],
+                  [
+                    -83.4249797,
+                    41.6795431
+                  ],
+                  [
+                    -83.4249374,
+                    41.6797033
+                  ],
+                  [
+                    -83.419971,
+                    41.6798054
+                  ],
+                  [
+                    -83.415193,
+                    41.6799037
+                  ],
+                  [
+                    -83.4151688,
+                    41.6790543
+                  ],
+                  [
+                    -83.4125889,
+                    41.6790997
+                  ],
+                  [
+                    -83.4099495,
+                    41.6791461
+                  ],
+                  [
+                    -83.4097025,
+                    41.6791504
+                  ],
+                  [
+                    -83.4097132,
+                    41.6812719
+                  ],
+                  [
+                    -83.4107807,
+                    41.6812619
+                  ],
+                  [
+                    -83.4107861,
+                    41.6818268
+                  ],
+                  [
+                    -83.4142071,
+                    41.6817548
+                  ],
+                  [
+                    -83.4146687,
+                    41.6817451
+                  ],
+                  [
+                    -83.4152627,
+                    41.6817326
+                  ],
+                  [
+                    -83.4153434,
+                    41.6852426
+                  ],
+                  [
+                    -83.4153727,
+                    41.6865181
+                  ],
+                  [
+                    -83.4149665,
+                    41.6865559
+                  ],
+                  [
+                    -83.415057,
+                    41.6889224
+                  ],
+                  [
+                    -83.4159601,
+                    41.6889237
+                  ],
+                  [
+                    -83.4159252,
+                    41.6880044
+                  ],
+                  [
+                    -83.4166601,
+                    41.6879944
+                  ],
+                  [
+                    -83.416695,
+                    41.6889077
+                  ],
+                  [
+                    -83.4179396,
+                    41.6888877
+                  ],
+                  [
+                    -83.4179288,
+                    41.688457
+                  ],
+                  [
+                    -83.4182768,
+                    41.688451
+                  ],
+                  [
+                    -83.4184036,
+                    41.6886934
+                  ],
+                  [
+                    -83.4184089,
+                    41.6888837
+                  ],
+                  [
+                    -83.4187462,
+                    41.6888757
+                  ],
+                  [
+                    -83.4187335,
+                    41.6883429
+                  ],
+                  [
+                    -83.4199339,
+                    41.6883165
+                  ],
+                  [
+                    -83.419953,
+                    41.6888485
+                  ],
+                  [
+                    -83.4207606,
+                    41.6888396
+                  ],
+                  [
+                    -83.4207398,
+                    41.6883649
+                  ],
+                  [
+                    -83.4215337,
+                    41.6883569
+                  ],
+                  [
+                    -83.4215525,
+                    41.6888276
+                  ],
+                  [
+                    -83.4218147,
+                    41.6888256
+                  ],
+                  [
+                    -83.4217939,
+                    41.6883509
+                  ],
+                  [
+                    -83.4237432,
+                    41.6883208
+                  ],
+                  [
+                    -83.4237217,
+                    41.687748
+                  ],
+                  [
+                    -83.42377,
+                    41.6876919
+                  ],
+                  [
+                    -83.4237352,
+                    41.6865121
+                  ],
+                  [
+                    -83.4242223,
+                    41.6865301
+                  ],
+                  [
+                    -83.4246772,
+                    41.6862998
+                  ],
+                  [
+                    -83.4252291,
+                    41.6865061
+                  ],
+                  [
+                    -83.4251976,
+                    41.6870549
+                  ],
+                  [
+                    -83.425211,
+                    41.6873474
+                  ],
+                  [
+                    -83.4263939,
+                    41.6873434
+                  ],
+                  [
+                    -83.4273373,
+                    41.6873374
+                  ],
+                  [
+                    -83.4273058,
+                    41.6865982
+                  ],
+                  [
+                    -83.4287059,
+                    41.6865602
+                  ],
+                  [
+                    -83.4286979,
+                    41.6858391
+                  ],
+                  [
+                    -83.4290636,
+                    41.685832
+                  ],
+                  [
+                    -83.4290808,
+                    41.6857409
+                  ],
+                  [
+                    -83.4290996,
+                    41.6854505
+                  ],
+                  [
+                    -83.4291183,
+                    41.6852001
+                  ],
+                  [
+                    -83.4290888,
+                    41.6850479
+                  ],
+                  [
+                    -83.4290727,
+                    41.6849257
+                  ],
+                  [
+                    -83.4290432,
+                    41.6843888
+                  ],
+                  [
+                    -83.4290385,
+                    41.6839702
+                  ],
+                  [
+                    -83.429864,
+                    41.6839722
+                  ]
+                ],
+                [
+                  [
+                    -83.4253511,
+                    41.6820052
+                  ],
+                  [
+                    -83.4251794,
+                    41.6821294
+                  ],
+                  [
+                    -83.4247395,
+                    41.6821054
+                  ],
+                  [
+                    -83.4238651,
+                    41.6821975
+                  ],
+                  [
+                    -83.4202105,
+                    41.6822759
+                  ],
+                  [
+                    -83.4201993,
+                    41.6816063
+                  ],
+                  [
+                    -83.4201499,
+                    41.6810091
+                  ],
+                  [
+                    -83.42117,
+                    41.6809813
+                  ],
+                  [
+                    -83.4211856,
+                    41.6800272
+                  ],
+                  [
+                    -83.4225835,
+                    41.6800368
+                  ],
+                  [
+                    -83.4225884,
+                    41.6809355
+                  ],
+                  [
+                    -83.4246842,
+                    41.6809642
+                  ],
+                  [
+                    -83.4247764,
+                    41.681541
+                  ],
+                  [
+                    -83.4252161,
+                    41.6815318
+                  ],
+                  [
+                    -83.4253208,
+                    41.6815266
+                  ],
+                  [
+                    -83.4253511,
+                    41.6820052
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "f899df0da0285e2cbded90fb5cd497b805079b67ad2402eb3e0b05d57f3be324",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "93f206d82dd32aef49ba6e8c23119cb31c2bec8dbce0bb77d03bd1eeffe08022"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Eagles Landing Golf Course",
+            "full_exact": false,
+            "core_exact": false,
+            "score": 0.9655,
+            "catalog_identity_kind": "golf_club",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "eagleslandinggolfclub.net",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "43618"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "5350",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "bay shore oregon",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -83.41932920174447,
+          "latitude": 41.684068350000004,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies Eagle's Landing Golf Club, 5350 Bay Shore Rd, Oregon, OH 43618, Lucas County, and explicitly Public play. The unique retained Ohio named golf property Eagles Landing Golf Course has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Lucas County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39095",
+          "name": "Lucas County",
+          "point_outline_margin_pixels": 0.21864596369651407,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 41.68406835,
+        "longitude": -83.4193292,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 41.684068350000004,
+          "longitude": -83.41932920174447
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-f1fbcf7e-2fe9-460c-aa5c-33126df79443",
+      "name": "Green Crest Golf Club",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Green Crest Golf Club",
+        "state": "OH",
+        "address": {
+          "text": "7813 Bethany Rd, Middletown, OH 45044",
+          "purpose": "published_unspecified"
+        },
+        "website": "http://www.greencrestgolf.com/"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "unique normalized core name; OSM lacks enough locality fields for support",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 33163974,
+          "version": 8,
+          "timestamp_unix": 1708069868,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Green Crest Golf Course"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -84.3645407,
+                    39.3755929
+                  ],
+                  [
+                    -84.361159,
+                    39.3754137
+                  ],
+                  [
+                    -84.361138,
+                    39.3756007
+                  ],
+                  [
+                    -84.3609873,
+                    39.3769397
+                  ],
+                  [
+                    -84.35976,
+                    39.3768535
+                  ],
+                  [
+                    -84.3598715,
+                    39.375845
+                  ],
+                  [
+                    -84.3597582,
+                    39.3758391
+                  ],
+                  [
+                    -84.3596087,
+                    39.3758314
+                  ],
+                  [
+                    -84.3570563,
+                    39.375699
+                  ],
+                  [
+                    -84.357331,
+                    39.3761237
+                  ],
+                  [
+                    -84.3578288,
+                    39.3766544
+                  ],
+                  [
+                    -84.3581034,
+                    39.3770061
+                  ],
+                  [
+                    -84.3576381,
+                    39.3826069
+                  ],
+                  [
+                    -84.3576327,
+                    39.3826724
+                  ],
+                  [
+                    -84.3613341,
+                    39.3828592
+                  ],
+                  [
+                    -84.361369,
+                    39.382861
+                  ],
+                  [
+                    -84.3613389,
+                    39.3831811
+                  ],
+                  [
+                    -84.361273,
+                    39.3835661
+                  ],
+                  [
+                    -84.3613569,
+                    39.3835698
+                  ],
+                  [
+                    -84.3638037,
+                    39.3836773
+                  ],
+                  [
+                    -84.3645407,
+                    39.3755929
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "37e92e4a78cda87991894868be05f2aa8e3eeb100b42d8144c4da30d956b8893",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "b3ea1873b8720500de03aae71d911367847d46750628dc6757f13695979026b1"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Green Crest Golf Course",
+            "full_exact": false,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_club",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "greencrestgolf.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "45044"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "7813",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "bethany",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -84.36101366231136,
+          "latitude": 39.3798065,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies Green Crest Golf Club, 7813 Bethany Rd, Middletown, OH 45044, Butler County, and explicitly Public play. The unique retained Ohio named golf property Green Crest Golf Course has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Butler County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39017",
+          "name": "Butler County",
+          "point_outline_margin_pixels": 0.23030453769201775,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 39.3798065,
+        "longitude": -84.36101366,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 39.3798065,
+          "longitude": -84.36101366231136
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-7d41a419-0b50-4c2d-985d-6e5507a2143f",
+      "name": "Green Ridge Golf Course",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Green Ridge Golf Course",
+        "state": "OH",
+        "address": {
+          "text": "29150 Ridge Rd, Wickliffe, OH 44092",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://cityofwickliffe.com/185/green-ridge-golf-course"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "unique normalized core name; OSM lacks enough locality fields for support",
+      "selected_feature": {
+        "osm": {
+          "type": "relation",
+          "id": 7889731,
+          "version": 1,
+          "timestamp_unix": 1515561751,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Green Ridge Public Golf Course"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -81.4721233,
+                    41.599856
+                  ],
+                  [
+                    -81.4721153,
+                    41.599503
+                  ],
+                  [
+                    -81.4720951,
+                    41.5986168
+                  ],
+                  [
+                    -81.4720902,
+                    41.5984006
+                  ],
+                  [
+                    -81.4720741,
+                    41.5980636
+                  ],
+                  [
+                    -81.4718859,
+                    41.597761
+                  ],
+                  [
+                    -81.470285,
+                    41.5951872
+                  ],
+                  [
+                    -81.4682643,
+                    41.5920369
+                  ],
+                  [
+                    -81.4668622,
+                    41.5920903
+                  ],
+                  [
+                    -81.4666135,
+                    41.5920998
+                  ],
+                  [
+                    -81.4669315,
+                    41.5928926
+                  ],
+                  [
+                    -81.4676768,
+                    41.5943722
+                  ],
+                  [
+                    -81.4687188,
+                    41.5964408
+                  ],
+                  [
+                    -81.4688104,
+                    41.5966226
+                  ],
+                  [
+                    -81.4688828,
+                    41.5967663
+                  ],
+                  [
+                    -81.4689117,
+                    41.5968237
+                  ],
+                  [
+                    -81.4698542,
+                    41.5989401
+                  ],
+                  [
+                    -81.470371,
+                    41.6000545
+                  ],
+                  [
+                    -81.470618,
+                    41.6005871
+                  ],
+                  [
+                    -81.4709487,
+                    41.6004496
+                  ],
+                  [
+                    -81.4712909,
+                    41.6009274
+                  ],
+                  [
+                    -81.471796,
+                    41.6006535
+                  ],
+                  [
+                    -81.4713955,
+                    41.6002778
+                  ],
+                  [
+                    -81.4721233,
+                    41.599856
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "28749b0232b1a76050e6133fdfcf9c6e628218eb81aee34b95d43d7d484924f0",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "6eee35046d226e56c522cc8a2843cb78d163fb309c1d83d3dd1e0999e89eb4ca"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Green Ridge Public Golf Course",
+            "full_exact": false,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_course",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "cityofwickliffe.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "44092"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "29150",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "ridge",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -81.46994293855971,
+          "latitude": 41.5965317,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies Green Ridge Golf Course, 29150 Ridge Rd, Wickliffe, OH 44092, Lake County, and explicitly Public play. The unique retained Ohio named golf property Green Ridge Public Golf Course has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Lake County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39085",
+          "name": "Lake County",
+          "point_outline_margin_pixels": 0.2497350101771051,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 41.5965317,
+        "longitude": -81.46994294,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 41.5965317,
+          "longitude": -81.46994293855971
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-a12fe7a4-4285-46d1-abd2-4be7b621c758",
+      "name": "Lakeside Golf Club",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Lakeside Golf Club",
+        "state": "OH",
+        "address": {
+          "text": "State Route 60 Beverly, OH 45715",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://www.lakesidegolfcourse.biz/"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "strong unique name similarity without independent locality corroboration",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 174340223,
+          "version": 2,
+          "timestamp_unix": 1596680488,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Lakeside Golf Course"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -81.6038065,
+                    39.5504491
+                  ],
+                  [
+                    -81.6037379,
+                    39.5504296
+                  ],
+                  [
+                    -81.6036456,
+                    39.5504077
+                  ],
+                  [
+                    -81.6035919,
+                    39.5505566
+                  ],
+                  [
+                    -81.6037528,
+                    39.5505732
+                  ],
+                  [
+                    -81.6038065,
+                    39.5504491
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "a745bb61d83ff8545db27526fb08dd00500dbf88b9a10981a530d4a87f31a796",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "7a8fca893812c3b9bf983d7c622ac4dae4cb8f803db7149378f44d00e7bb653a"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Lakeside Golf Course",
+            "full_exact": false,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_club",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "lakesidegolfcourse.biz",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "45715"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": null,
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "state 60 beverly",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -81.60369726309659,
+          "latitude": 39.55050285,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies Lakeside Golf Club, State Route 60, Beverly, OH 45715, Washington County, and explicitly Public play. The unique retained Ohio named golf property Lakeside Golf Course has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Washington County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39167",
+          "name": "Washington County",
+          "point_outline_margin_pixels": 0.6624617130235705,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 39.55050285,
+        "longitude": -81.60369726,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 39.55050285,
+          "longitude": -81.60369726309659
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-9a9c452a-2698-4ee8-85b4-a5ad8b89f7a6",
+      "name": "Northmoor Golf Club",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Northmoor Golf Club",
+        "state": "OH",
+        "address": {
+          "text": "8330 State Rt 703, Celina, OH 45822",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://www.facebook.com/northmoorgolf/"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "unique normalized core name; OSM lacks enough locality fields for support",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 189171437,
+          "version": 5,
+          "timestamp_unix": 1771798358,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Northmoor Golf Course"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -84.484235,
+                    40.55007
+                  ],
+                  [
+                    -84.484208,
+                    40.550018
+                  ],
+                  [
+                    -84.484175,
+                    40.549971
+                  ],
+                  [
+                    -84.4841298,
+                    40.5498875
+                  ],
+                  [
+                    -84.4840156,
+                    40.5498567
+                  ],
+                  [
+                    -84.4839067,
+                    40.54983
+                  ],
+                  [
+                    -84.4837974,
+                    40.5498165
+                  ],
+                  [
+                    -84.4836864,
+                    40.5498121
+                  ],
+                  [
+                    -84.4834846,
+                    40.5498147
+                  ],
+                  [
+                    -84.4831885,
+                    40.5498259
+                  ],
+                  [
+                    -84.4828791,
+                    40.5498295
+                  ],
+                  [
+                    -84.4826462,
+                    40.5498234
+                  ],
+                  [
+                    -84.4824567,
+                    40.549797
+                  ],
+                  [
+                    -84.4822559,
+                    40.5497522
+                  ],
+                  [
+                    -84.4820625,
+                    40.5496826
+                  ],
+                  [
+                    -84.4819028,
+                    40.5496131
+                  ],
+                  [
+                    -84.4817501,
+                    40.5495092
+                  ],
+                  [
+                    -84.4816501,
+                    40.5494106
+                  ],
+                  [
+                    -84.4815676,
+                    40.5493028
+                  ],
+                  [
+                    -84.4815297,
+                    40.5492282
+                  ],
+                  [
+                    -84.481511,
+                    40.549171
+                  ],
+                  [
+                    -84.481508,
+                    40.549085
+                  ],
+                  [
+                    -84.4814973,
+                    40.5484519
+                  ],
+                  [
+                    -84.4815024,
+                    40.548286
+                  ],
+                  [
+                    -84.4815166,
+                    40.5481506
+                  ],
+                  [
+                    -84.4815629,
+                    40.5479774
+                  ],
+                  [
+                    -84.4816175,
+                    40.5478576
+                  ],
+                  [
+                    -84.481698,
+                    40.547689
+                  ],
+                  [
+                    -84.481743,
+                    40.547527
+                  ],
+                  [
+                    -84.481799,
+                    40.547266
+                  ],
+                  [
+                    -84.4817825,
+                    40.5471064
+                  ],
+                  [
+                    -84.481827,
+                    40.547038
+                  ],
+                  [
+                    -84.481798,
+                    40.546894
+                  ],
+                  [
+                    -84.4817267,
+                    40.5468104
+                  ],
+                  [
+                    -84.4817138,
+                    40.5467736
+                  ],
+                  [
+                    -84.4816471,
+                    40.5466252
+                  ],
+                  [
+                    -84.4816191,
+                    40.5465764
+                  ],
+                  [
+                    -84.4814838,
+                    40.5463607
+                  ],
+                  [
+                    -84.4814359,
+                    40.5462683
+                  ],
+                  [
+                    -84.4814071,
+                    40.5462003
+                  ],
+                  [
+                    -84.4814018,
+                    40.5461799
+                  ],
+                  [
+                    -84.481384,
+                    40.5461086
+                  ],
+                  [
+                    -84.481352,
+                    40.5458747
+                  ],
+                  [
+                    -84.48134,
+                    40.5456046
+                  ],
+                  [
+                    -84.4813367,
+                    40.5454807
+                  ],
+                  [
+                    -84.4813321,
+                    40.5452745
+                  ],
+                  [
+                    -84.4813292,
+                    40.5452439
+                  ],
+                  [
+                    -84.4813081,
+                    40.5452196
+                  ],
+                  [
+                    -84.4812488,
+                    40.5451863
+                  ],
+                  [
+                    -84.4809834,
+                    40.5450822
+                  ],
+                  [
+                    -84.4809558,
+                    40.5450688
+                  ],
+                  [
+                    -84.4805654,
+                    40.5449145
+                  ],
+                  [
+                    -84.4804233,
+                    40.5448867
+                  ],
+                  [
+                    -84.4803064,
+                    40.5448942
+                  ],
+                  [
+                    -84.4800481,
+                    40.5449178
+                  ],
+                  [
+                    -84.4799193,
+                    40.5448852
+                  ],
+                  [
+                    -84.4798641,
+                    40.5448281
+                  ],
+                  [
+                    -84.4798962,
+                    40.544714
+                  ],
+                  [
+                    -84.479746,
+                    40.5443715
+                  ],
+                  [
+                    -84.4794365,
+                    40.5444368
+                  ],
+                  [
+                    -84.4788663,
+                    40.5445428
+                  ],
+                  [
+                    -84.4787912,
+                    40.5446487
+                  ],
+                  [
+                    -84.4785444,
+                    40.5447058
+                  ],
+                  [
+                    -84.4782671,
+                    40.5446814
+                  ],
+                  [
+                    -84.477795,
+                    40.544771
+                  ],
+                  [
+                    -84.4775895,
+                    40.5448852
+                  ],
+                  [
+                    -84.4773321,
+                    40.5449096
+                  ],
+                  [
+                    -84.4771835,
+                    40.5448933
+                  ],
+                  [
+                    -84.4768187,
+                    40.5450075
+                  ],
+                  [
+                    -84.4766454,
+                    40.5451868
+                  ],
+                  [
+                    -84.4764754,
+                    40.5452521
+                  ],
+                  [
+                    -84.476345,
+                    40.5452602
+                  ],
+                  [
+                    -84.4760982,
+                    40.5454151
+                  ],
+                  [
+                    -84.4759067,
+                    40.5455211
+                  ],
+                  [
+                    -84.4756385,
+                    40.5455537
+                  ],
+                  [
+                    -84.4754867,
+                    40.5456271
+                  ],
+                  [
+                    -84.4753472,
+                    40.5457575
+                  ],
+                  [
+                    -84.475027,
+                    40.5458798
+                  ],
+                  [
+                    -84.4748537,
+                    40.5458309
+                  ],
+                  [
+                    -84.474715,
+                    40.5458612
+                  ],
+                  [
+                    -84.4747786,
+                    40.5485212
+                  ],
+                  [
+                    -84.474371,
+                    40.548544
+                  ],
+                  [
+                    -84.474443,
+                    40.54858
+                  ],
+                  [
+                    -84.474487,
+                    40.548618
+                  ],
+                  [
+                    -84.474524,
+                    40.548674
+                  ],
+                  [
+                    -84.474545,
+                    40.548765
+                  ],
+                  [
+                    -84.474554,
+                    40.549005
+                  ],
+                  [
+                    -84.474545,
+                    40.549243
+                  ],
+                  [
+                    -84.474526,
+                    40.550159
+                  ],
+                  [
+                    -84.474526,
+                    40.550683
+                  ],
+                  [
+                    -84.474531,
+                    40.550834
+                  ],
+                  [
+                    -84.474535,
+                    40.550882
+                  ],
+                  [
+                    -84.474545,
+                    40.550942
+                  ],
+                  [
+                    -84.474567,
+                    40.550989
+                  ],
+                  [
+                    -84.474598,
+                    40.551029
+                  ],
+                  [
+                    -84.474831,
+                    40.551024
+                  ],
+                  [
+                    -84.47566,
+                    40.551018
+                  ],
+                  [
+                    -84.475905,
+                    40.551016
+                  ],
+                  [
+                    -84.4768937,
+                    40.551009
+                  ],
+                  [
+                    -84.478036,
+                    40.551001
+                  ],
+                  [
+                    -84.479035,
+                    40.550987
+                  ],
+                  [
+                    -84.479711,
+                    40.55098
+                  ],
+                  [
+                    -84.480061,
+                    40.550976
+                  ],
+                  [
+                    -84.480449,
+                    40.550972
+                  ],
+                  [
+                    -84.481075,
+                    40.550966
+                  ],
+                  [
+                    -84.481604,
+                    40.550962
+                  ],
+                  [
+                    -84.481898,
+                    40.550963
+                  ],
+                  [
+                    -84.482145,
+                    40.550963
+                  ],
+                  [
+                    -84.482255,
+                    40.550963
+                  ],
+                  [
+                    -84.482714,
+                    40.550965
+                  ],
+                  [
+                    -84.4832,
+                    40.550968
+                  ],
+                  [
+                    -84.483366,
+                    40.550969
+                  ],
+                  [
+                    -84.4834054,
+                    40.5509689
+                  ],
+                  [
+                    -84.483701,
+                    40.550968
+                  ],
+                  [
+                    -84.483991,
+                    40.550968
+                  ],
+                  [
+                    -84.484152,
+                    40.550968
+                  ],
+                  [
+                    -84.484165,
+                    40.550907
+                  ],
+                  [
+                    -84.48417,
+                    40.550849
+                  ],
+                  [
+                    -84.484172,
+                    40.550789
+                  ],
+                  [
+                    -84.484181,
+                    40.550671
+                  ],
+                  [
+                    -84.484193,
+                    40.550461
+                  ],
+                  [
+                    -84.48421,
+                    40.550207
+                  ],
+                  [
+                    -84.484235,
+                    40.55007
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "1f6bfa56adbdf8a6eda4120150455e9bc4dfe5fda26f0fcf0b693dc6583d9854",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "4d35dd39fb6fb8cacf07e40637dfd58a5590e50298753fa732c8c428dd3b882a"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Northmoor Golf Course",
+            "full_exact": false,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_club",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "facebook.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "45822"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "8330",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "state rt 703",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 20,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -84.47820923393985,
+          "latitude": 40.5477733,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies Northmoor Golf Club, 8330 State Rt 703, Celina, OH 45822, Mercer County, and explicitly Public play. The unique retained Ohio named golf property Northmoor Golf Course has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Mercer County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39107",
+          "name": "Mercer County",
+          "point_outline_margin_pixels": 0.3228065640642133,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 40.5477733,
+        "longitude": -84.47820923,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 40.5477733,
+          "longitude": -84.47820923393985
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-a10fbdf4-c800-4f2d-925c-98c6b9c03553",
+      "name": "Northwood Golf Club",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Northwood Golf Club",
+        "state": "OH",
+        "address": {
+          "text": "635 Champion St E, Warren, OH 44483",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://www.facebook.com/northwoodgolf"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "unique normalized core name; OSM lacks enough locality fields for support",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 481885714,
+          "version": 4,
+          "timestamp_unix": 1678383274,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Northwood Golf Course"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -80.8301415,
+                    41.2915717
+                  ],
+                  [
+                    -80.8277224,
+                    41.2915613
+                  ],
+                  [
+                    -80.8276465,
+                    41.2923523
+                  ],
+                  [
+                    -80.8245957,
+                    41.2927938
+                  ],
+                  [
+                    -80.8245295,
+                    41.2916591
+                  ],
+                  [
+                    -80.8228459,
+                    41.291757
+                  ],
+                  [
+                    -80.822727,
+                    41.2918471
+                  ],
+                  [
+                    -80.8227129,
+                    41.2921715
+                  ],
+                  [
+                    -80.822812,
+                    41.2925278
+                  ],
+                  [
+                    -80.8232508,
+                    41.2932564
+                  ],
+                  [
+                    -80.8235198,
+                    41.2937617
+                  ],
+                  [
+                    -80.824079,
+                    41.2944637
+                  ],
+                  [
+                    -80.8242276,
+                    41.2946764
+                  ],
+                  [
+                    -80.8244471,
+                    41.2949742
+                  ],
+                  [
+                    -80.8245745,
+                    41.2950168
+                  ],
+                  [
+                    -80.8248081,
+                    41.2953625
+                  ],
+                  [
+                    -80.8258415,
+                    41.2970855
+                  ],
+                  [
+                    -80.8261247,
+                    41.2974897
+                  ],
+                  [
+                    -80.8260751,
+                    41.2975641
+                  ],
+                  [
+                    -80.8261459,
+                    41.2977502
+                  ],
+                  [
+                    -80.8265352,
+                    41.2983459
+                  ],
+                  [
+                    -80.8268113,
+                    41.298867
+                  ],
+                  [
+                    -80.8272855,
+                    41.2995105
+                  ],
+                  [
+                    -80.8276253,
+                    41.2996487
+                  ],
+                  [
+                    -80.8276324,
+                    41.2998242
+                  ],
+                  [
+                    -80.8278305,
+                    41.3001486
+                  ],
+                  [
+                    -80.8282482,
+                    41.3006485
+                  ],
+                  [
+                    -80.8282906,
+                    41.3005634
+                  ],
+                  [
+                    -80.8282694,
+                    41.3002868
+                  ],
+                  [
+                    -80.8285839,
+                    41.3002868
+                  ],
+                  [
+                    -80.8286468,
+                    41.3005395
+                  ],
+                  [
+                    -80.828804,
+                    41.3006846
+                  ],
+                  [
+                    -80.8290197,
+                    41.3006812
+                  ],
+                  [
+                    -80.8292983,
+                    41.3004146
+                  ],
+                  [
+                    -80.8292174,
+                    41.3001816
+                  ],
+                  [
+                    -80.8291905,
+                    41.299763
+                  ],
+                  [
+                    -80.8288939,
+                    41.2996618
+                  ],
+                  [
+                    -80.8288338,
+                    41.2993675
+                  ],
+                  [
+                    -80.8287581,
+                    41.2991899
+                  ],
+                  [
+                    -80.8288074,
+                    41.2989255
+                  ],
+                  [
+                    -80.8282694,
+                    41.2978832
+                  ],
+                  [
+                    -80.8282128,
+                    41.2970802
+                  ],
+                  [
+                    -80.828411,
+                    41.2967292
+                  ],
+                  [
+                    -80.8286587,
+                    41.2966282
+                  ],
+                  [
+                    -80.8285684,
+                    41.2952343
+                  ],
+                  [
+                    -80.8286817,
+                    41.2951313
+                  ],
+                  [
+                    -80.8290811,
+                    41.2951402
+                  ],
+                  [
+                    -80.8293077,
+                    41.2949163
+                  ],
+                  [
+                    -80.8293375,
+                    41.2945176
+                  ],
+                  [
+                    -80.8289858,
+                    41.2943339
+                  ],
+                  [
+                    -80.8286101,
+                    41.2941996
+                  ],
+                  [
+                    -80.8285386,
+                    41.2939577
+                  ],
+                  [
+                    -80.8287652,
+                    41.2938994
+                  ],
+                  [
+                    -80.8290811,
+                    41.2938815
+                  ],
+                  [
+                    -80.829517,
+                    41.2938871
+                  ],
+                  [
+                    -80.8299187,
+                    41.2937245
+                  ],
+                  [
+                    -80.8299807,
+                    41.2920369
+                  ],
+                  [
+                    -80.8301415,
+                    41.2915717
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "5ddefb59e2a5dea1c7927aae6289518bac47fabb6e6a51c30949a9888b4d0f28",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "28be25d0476ab8d4729288ab9b3ef8319fd9bc8768b2f79a2f045302aeaca157"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Northwood Golf Course",
+            "full_exact": false,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_club",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "facebook.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "44483"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "635",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "champion",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 20,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -80.82690268281253,
+          "latitude": 41.29599535,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies Northwood Golf Club, 635 Champion St E, Warren, OH 44483, Trumbull County, and explicitly Public play. The unique retained Ohio named golf property Northwood Golf Course has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Trumbull County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39155",
+          "name": "Trumbull County",
+          "point_outline_margin_pixels": 2.4900697412525608,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 41.29599535,
+        "longitude": -80.82690268,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 41.29599535,
+          "longitude": -80.82690268281253
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-36f8e931-4c13-4ca0-a561-55e6232260f2",
+      "name": "Pheasant Run Golf Course",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Pheasant Run Golf Course",
+        "state": "OH",
+        "address": {
+          "text": "711 Pheasant Run Dr, Lagrange, OH 44050",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://www.pheasantrunohio.com/"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "strong unique name similarity without independent locality corroboration",
+      "selected_feature": {
+        "osm": {
+          "type": "relation",
+          "id": 6245986,
+          "version": 3,
+          "timestamp_unix": 1494487956,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Pheasant Run Golfcourse"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -82.1508332,
+                    41.2067902
+                  ],
+                  [
+                    -82.1508322,
+                    41.2067089
+                  ],
+                  [
+                    -82.150828,
+                    41.206268
+                  ],
+                  [
+                    -82.150804,
+                    41.206175
+                  ],
+                  [
+                    -82.1502593,
+                    41.2062755
+                  ],
+                  [
+                    -82.1497154,
+                    41.2051753
+                  ],
+                  [
+                    -82.1492334,
+                    41.2049455
+                  ],
+                  [
+                    -82.1488579,
+                    41.2047639
+                  ],
+                  [
+                    -82.1483644,
+                    41.204671
+                  ],
+                  [
+                    -82.1473255,
+                    41.2047273
+                  ],
+                  [
+                    -82.147125,
+                    41.2049314
+                  ],
+                  [
+                    -82.146484,
+                    41.2049515
+                  ],
+                  [
+                    -82.1464833,
+                    41.2036376
+                  ],
+                  [
+                    -82.146484,
+                    41.2028286
+                  ],
+                  [
+                    -82.1461454,
+                    41.2028203
+                  ],
+                  [
+                    -82.1445334,
+                    41.2028183
+                  ],
+                  [
+                    -82.1432352,
+                    41.2027719
+                  ],
+                  [
+                    -82.1432298,
+                    41.2023968
+                  ],
+                  [
+                    -82.142288,
+                    41.202396
+                  ],
+                  [
+                    -82.14187,
+                    41.202396
+                  ],
+                  [
+                    -82.141796,
+                    41.202408
+                  ],
+                  [
+                    -82.141728,
+                    41.202435
+                  ],
+                  [
+                    -82.141672,
+                    41.202473
+                  ],
+                  [
+                    -82.141636,
+                    41.202514
+                  ],
+                  [
+                    -82.141611,
+                    41.202568
+                  ],
+                  [
+                    -82.141598,
+                    41.202668
+                  ],
+                  [
+                    -82.141578,
+                    41.202725
+                  ],
+                  [
+                    -82.141546,
+                    41.202779
+                  ],
+                  [
+                    -82.141502,
+                    41.202827
+                  ],
+                  [
+                    -82.140933,
+                    41.203266
+                  ],
+                  [
+                    -82.140546,
+                    41.203564
+                  ],
+                  [
+                    -82.140466,
+                    41.203638
+                  ],
+                  [
+                    -82.140403,
+                    41.203721
+                  ],
+                  [
+                    -82.140361,
+                    41.203812
+                  ],
+                  [
+                    -82.14034,
+                    41.203906
+                  ],
+                  [
+                    -82.1402952,
+                    41.206507
+                  ],
+                  [
+                    -82.145046,
+                    41.206528
+                  ],
+                  [
+                    -82.1464281,
+                    41.2065076
+                  ],
+                  [
+                    -82.1466319,
+                    41.2065802
+                  ],
+                  [
+                    -82.146589,
+                    41.2072502
+                  ],
+                  [
+                    -82.1456556,
+                    41.2072825
+                  ],
+                  [
+                    -82.1453445,
+                    41.2086143
+                  ],
+                  [
+                    -82.144619,
+                    41.208529
+                  ],
+                  [
+                    -82.1431129,
+                    41.2086062
+                  ],
+                  [
+                    -82.1430592,
+                    41.2129562
+                  ],
+                  [
+                    -82.1457629,
+                    41.2129965
+                  ],
+                  [
+                    -82.1459453,
+                    41.2108662
+                  ],
+                  [
+                    -82.1490888,
+                    41.2115684
+                  ],
+                  [
+                    -82.1490349,
+                    41.211209
+                  ],
+                  [
+                    -82.1490663,
+                    41.2106842
+                  ],
+                  [
+                    -82.1486058,
+                    41.2104624
+                  ],
+                  [
+                    -82.1479835,
+                    41.2100346
+                  ],
+                  [
+                    -82.1477206,
+                    41.2099741
+                  ],
+                  [
+                    -82.1474739,
+                    41.2094414
+                  ],
+                  [
+                    -82.1476876,
+                    41.2094291
+                  ],
+                  [
+                    -82.1485138,
+                    41.2092878
+                  ],
+                  [
+                    -82.1485414,
+                    41.2087311
+                  ],
+                  [
+                    -82.1493836,
+                    41.2087351
+                  ],
+                  [
+                    -82.1496733,
+                    41.2083235
+                  ],
+                  [
+                    -82.150199,
+                    41.2085293
+                  ],
+                  [
+                    -82.150504,
+                    41.208634
+                  ],
+                  [
+                    -82.1506121,
+                    41.20861
+                  ],
+                  [
+                    -82.1506703,
+                    41.2085291
+                  ],
+                  [
+                    -82.1506764,
+                    41.2084082
+                  ],
+                  [
+                    -82.1507185,
+                    41.2083354
+                  ],
+                  [
+                    -82.1507668,
+                    41.2082426
+                  ],
+                  [
+                    -82.1507727,
+                    41.2081398
+                  ],
+                  [
+                    -82.1508322,
+                    41.207113
+                  ],
+                  [
+                    -82.1508322,
+                    41.2070216
+                  ],
+                  [
+                    -82.1508322,
+                    41.2068971
+                  ],
+                  [
+                    -82.1508332,
+                    41.2067902
+                  ]
+                ],
+                [
+                  [
+                    -82.149209,
+                    41.206298
+                  ],
+                  [
+                    -82.1488893,
+                    41.2065919
+                  ],
+                  [
+                    -82.1485084,
+                    41.2064103
+                  ],
+                  [
+                    -82.1478325,
+                    41.2061036
+                  ],
+                  [
+                    -82.146309,
+                    41.2058897
+                  ],
+                  [
+                    -82.146279,
+                    41.205511
+                  ],
+                  [
+                    -82.146503,
+                    41.2055
+                  ],
+                  [
+                    -82.146884,
+                    41.205508
+                  ],
+                  [
+                    -82.147263,
+                    41.20554
+                  ],
+                  [
+                    -82.147637,
+                    41.205597
+                  ],
+                  [
+                    -82.148333,
+                    41.205731
+                  ],
+                  [
+                    -82.148432,
+                    41.205763
+                  ],
+                  [
+                    -82.148521,
+                    41.205808
+                  ],
+                  [
+                    -82.1486,
+                    41.205864
+                  ],
+                  [
+                    -82.148826,
+                    41.206088
+                  ],
+                  [
+                    -82.148892,
+                    41.20614
+                  ],
+                  [
+                    -82.148964,
+                    41.206187
+                  ],
+                  [
+                    -82.149041,
+                    41.206229
+                  ],
+                  [
+                    -82.149123,
+                    41.206266
+                  ],
+                  [
+                    -82.149209,
+                    41.206298
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "1bd9263db8923dcb03adb1a14f9a48f6691b4ed6204bf71194833b45d2da7b70",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "d02eb253b9e9ce7e115d0367688cb6b40963fadc78183bf17b379af1c4f7378d"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Pheasant Run Golfcourse",
+            "full_exact": false,
+            "core_exact": false,
+            "score": 0.9787,
+            "catalog_identity_kind": "golf_course",
+            "osm_identity_kind": "unspecified",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "pheasantrunohio.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "44050"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "711",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "pheasant run",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -82.1481765045397,
+          "latitude": 41.207711149999994,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies Pheasant Run Golf Course, 711 Pheasant Run Dr, Lagrange, OH 44050, Lorain County, and explicitly Public play. The unique retained Ohio named golf property Pheasant Run Golfcourse has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Lorain County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39093",
+          "name": "Lorain County",
+          "point_outline_margin_pixels": 1.1391090509047441,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 41.20771115,
+        "longitude": -82.1481765,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 41.207711149999994,
+          "longitude": -82.1481765045397
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-68ce5000-97ab-4dc4-a898-fb82241f8a86",
+      "name": "Pine Hills Golf Club",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Pine Hills Golf Club",
+        "state": "OH",
+        "address": {
+          "text": "433 West 130th Street, Hinckley, OH 44233",
+          "purpose": "contact"
+        },
+        "website": "https://www.golfpinehills.net/"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "unique normalized core name; OSM lacks enough locality fields for support",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 134165181,
+          "version": 5,
+          "timestamp_unix": 1557577675,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Pine Hills Golf Course"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -81.7845904,
+                    41.2659339
+                  ],
+                  [
+                    -81.7841088,
+                    41.2589653
+                  ],
+                  [
+                    -81.7825013,
+                    41.2590173
+                  ],
+                  [
+                    -81.7824915,
+                    41.2601079
+                  ],
+                  [
+                    -81.7786192,
+                    41.2600371
+                  ],
+                  [
+                    -81.777034,
+                    41.2604241
+                  ],
+                  [
+                    -81.7699969,
+                    41.2609637
+                  ],
+                  [
+                    -81.7695646,
+                    41.2617479
+                  ],
+                  [
+                    -81.7695779,
+                    41.2641079
+                  ],
+                  [
+                    -81.7700225,
+                    41.2647575
+                  ],
+                  [
+                    -81.7763936,
+                    41.2667379
+                  ],
+                  [
+                    -81.7767784,
+                    41.2667526
+                  ],
+                  [
+                    -81.778849,
+                    41.2664922
+                  ],
+                  [
+                    -81.7845904,
+                    41.2659339
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "223b2192e91cd613e2933660265f5682f43ffcae4a79e008270c97c66357de34",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "144d9e73a5ce2f1e760ec1d72e379cdc8aecac0d481b6282d8420e351ec2d9c6"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Pine Hills Golf Course",
+            "full_exact": false,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_club",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "golfpinehills.net",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "44233"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "433",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "130th",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -81.77697695265834,
+          "latitude": 41.2629279,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies Pine Hills Golf Club, 433 W 130th St, Hinckley, OH 44233, Medina County, and explicitly Public play. The unique retained Ohio named golf property Pine Hills Golf Course has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Medina County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39103",
+          "name": "Medina County",
+          "point_outline_margin_pixels": 0.23769736558493648,
+          "current_county_agrees": false
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 41.2629279,
+        "longitude": -81.77697695,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 41.2629279,
+          "longitude": -81.77697695265834
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-97d46af6-a97b-4d38-80b0-df6d5aa78e1d",
+      "name": "Pleasant Valley Country Club",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Pleasant Valley Country Club",
+        "state": "OH",
+        "address": {
+          "text": "3830 Hamilton Road, Medina, Ohio",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://www.golfpleasantvalley.net/"
+      },
+      "upstream_status": "supported",
+      "upstream_reason": "unique exact normalized name within OH",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 134165280,
+          "version": 2,
+          "timestamp_unix": 1785284413,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Pleasant Valley Country Club"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -81.8287322,
+                    41.1868709
+                  ],
+                  [
+                    -81.8238583,
+                    41.1865185
+                  ],
+                  [
+                    -81.822326,
+                    41.1856535
+                  ],
+                  [
+                    -81.8184524,
+                    41.1857336
+                  ],
+                  [
+                    -81.8184311,
+                    41.1925727
+                  ],
+                  [
+                    -81.8265187,
+                    41.1925566
+                  ],
+                  [
+                    -81.8280724,
+                    41.1924125
+                  ],
+                  [
+                    -81.8287322,
+                    41.1868709
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "228635ea37ecc06e886609acc276713307af22fba9f4da02f7107a238d3d42db",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "398b984f5a12c5df8ebc4de2600db6f8774d6d9eb44e51e8954bb87c37f30ef7"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Pleasant Valley Country Club",
+            "full_exact": true,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "country_club",
+            "osm_identity_kind": "country_club",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "golfpleasantvalley.net",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "3830",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "hamilton",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -81.82342126421898,
+          "latitude": 41.1896417,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_supported",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies Pleasant Valley Country Club, 3830 Hamilton Rd, Medina, OH 44256, Medina County, and explicitly Public play. The unique retained Ohio named golf property Pleasant Valley Country Club has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Medina County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39103",
+          "name": "Medina County",
+          "point_outline_margin_pixels": 1.632835603557809,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 41.1896417,
+        "longitude": -81.82342126,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 41.1896417,
+          "longitude": -81.82342126421898
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-267ad798-f712-4da8-84d3-5db1ce45bd6c",
+      "name": "Rolling Meadows Golf Course",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Rolling Meadows Golf Course",
+        "state": "OH",
+        "address": {
+          "text": "11233 Industrial Pkwy, Marysville, OH 43040",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://rollingmeadowsgolfclub.com/"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "unique normalized core name; OSM lacks enough locality fields for support",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 844331426,
+          "version": 2,
+          "timestamp_unix": 1756654110,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Rolling Meadows"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -83.2738537,
+                    40.1691931
+                  ],
+                  [
+                    -83.268105,
+                    40.162601
+                  ],
+                  [
+                    -83.2548568,
+                    40.1683347
+                  ],
+                  [
+                    -83.2609473,
+                    40.1722342
+                  ],
+                  [
+                    -83.2642011,
+                    40.1708935
+                  ],
+                  [
+                    -83.2646554,
+                    40.1707063
+                  ],
+                  [
+                    -83.2652856,
+                    40.1704717
+                  ],
+                  [
+                    -83.2652362,
+                    40.1703821
+                  ],
+                  [
+                    -83.2672491,
+                    40.1695179
+                  ],
+                  [
+                    -83.2678498,
+                    40.169226
+                  ],
+                  [
+                    -83.2678845,
+                    40.1692092
+                  ],
+                  [
+                    -83.2680105,
+                    40.1692081
+                  ],
+                  [
+                    -83.2680565,
+                    40.1692537
+                  ],
+                  [
+                    -83.2682264,
+                    40.1695826
+                  ],
+                  [
+                    -83.269127,
+                    40.1711789
+                  ],
+                  [
+                    -83.2693646,
+                    40.1716001
+                  ],
+                  [
+                    -83.2696633,
+                    40.1719503
+                  ],
+                  [
+                    -83.2700764,
+                    40.1725547
+                  ],
+                  [
+                    -83.2702929,
+                    40.1731708
+                  ],
+                  [
+                    -83.2714235,
+                    40.1726979
+                  ],
+                  [
+                    -83.2724057,
+                    40.1722954
+                  ],
+                  [
+                    -83.2711106,
+                    40.1712677
+                  ],
+                  [
+                    -83.2709988,
+                    40.1711687
+                  ],
+                  [
+                    -83.2738537,
+                    40.1691931
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "0f365980cca546fb69b167cec87aa74bc15350ab3bfccf49a936971410105053",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "ff087a00b64357629dc88f01d16e0c971ebed55a3a36fb56138d4dae5e8864de"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Rolling Meadows",
+            "full_exact": false,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_course",
+            "osm_identity_kind": "unspecified",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "rollingmeadowsgolfclub.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "43040"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "11233",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "industrial pkwy",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -83.26604298114296,
+          "latitude": 40.16546785,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies Rolling Meadows Golf Course, 11233 Industrial Pkwy, Marysville, OH 43040, Union County, and explicitly Public play. The unique retained Ohio named golf property Rolling Meadows has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Union County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39159",
+          "name": "Union County",
+          "point_outline_margin_pixels": 1.0655199020148665,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 40.16546785,
+        "longitude": -83.26604298,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 40.16546785,
+          "longitude": -83.26604298114296
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-07fa99bb-c277-4d01-9db5-2fffe4462039",
+      "name": "Tanglewood Golf Club",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "Tanglewood Golf Club",
+        "state": "OH",
+        "address": {
+          "text": "8745 Tanglewood Trail, Chagrin Falls, OH 44023",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://thetanglewoodclub.com/"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "unique normalized core name; OSM lacks enough locality fields for support",
+      "selected_feature": {
+        "osm": {
+          "type": "relation",
+          "id": 12929229,
+          "version": 1,
+          "timestamp_unix": 1625690226,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Tanglewood Golf Course"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -81.3379418,
+                    41.3952322
+                  ],
+                  [
+                    -81.337483,
+                    41.3950225
+                  ],
+                  [
+                    -81.3372118,
+                    41.3946508
+                  ],
+                  [
+                    -81.3368509,
+                    41.3937066
+                  ],
+                  [
+                    -81.3367236,
+                    41.3934404
+                  ],
+                  [
+                    -81.336423,
+                    41.3932118
+                  ],
+                  [
+                    -81.3366673,
+                    41.3923884
+                  ],
+                  [
+                    -81.3354861,
+                    41.391342
+                  ],
+                  [
+                    -81.3334572,
+                    41.389225
+                  ],
+                  [
+                    -81.3321639,
+                    41.3893014
+                  ],
+                  [
+                    -81.3329733,
+                    41.391551
+                  ],
+                  [
+                    -81.3324908,
+                    41.3919538
+                  ],
+                  [
+                    -81.3323661,
+                    41.3920579
+                  ],
+                  [
+                    -81.3328752,
+                    41.3932386
+                  ],
+                  [
+                    -81.3330463,
+                    41.3936354
+                  ],
+                  [
+                    -81.3349357,
+                    41.3943697
+                  ],
+                  [
+                    -81.3355747,
+                    41.3946181
+                  ],
+                  [
+                    -81.3360482,
+                    41.3948022
+                  ],
+                  [
+                    -81.3357698,
+                    41.3961941
+                  ],
+                  [
+                    -81.3357472,
+                    41.3963069
+                  ],
+                  [
+                    -81.3354873,
+                    41.3976065
+                  ],
+                  [
+                    -81.3352307,
+                    41.398249
+                  ],
+                  [
+                    -81.3341071,
+                    41.3982875
+                  ],
+                  [
+                    -81.3337416,
+                    41.3980533
+                  ],
+                  [
+                    -81.3332779,
+                    41.3977563
+                  ],
+                  [
+                    -81.3317771,
+                    41.3981431
+                  ],
+                  [
+                    -81.3314471,
+                    41.3980483
+                  ],
+                  [
+                    -81.3312054,
+                    41.3979788
+                  ],
+                  [
+                    -81.3311414,
+                    41.3979604
+                  ],
+                  [
+                    -81.3308886,
+                    41.3972567
+                  ],
+                  [
+                    -81.3301699,
+                    41.3970303
+                  ],
+                  [
+                    -81.3293351,
+                    41.3980511
+                  ],
+                  [
+                    -81.3269937,
+                    41.3973888
+                  ],
+                  [
+                    -81.3265323,
+                    41.3967275
+                  ],
+                  [
+                    -81.3265646,
+                    41.3964687
+                  ],
+                  [
+                    -81.3265697,
+                    41.3964277
+                  ],
+                  [
+                    -81.3265917,
+                    41.3962519
+                  ],
+                  [
+                    -81.327245,
+                    41.3959888
+                  ],
+                  [
+                    -81.3276539,
+                    41.3960022
+                  ],
+                  [
+                    -81.327798,
+                    41.3960069
+                  ],
+                  [
+                    -81.3278744,
+                    41.3958479
+                  ],
+                  [
+                    -81.3278293,
+                    41.3955957
+                  ],
+                  [
+                    -81.3276527,
+                    41.3955196
+                  ],
+                  [
+                    -81.3275919,
+                    41.3954403
+                  ],
+                  [
+                    -81.3276176,
+                    41.3953607
+                  ],
+                  [
+                    -81.3278153,
+                    41.3952919
+                  ],
+                  [
+                    -81.3280233,
+                    41.395243
+                  ],
+                  [
+                    -81.3281543,
+                    41.395187
+                  ],
+                  [
+                    -81.3282393,
+                    41.3951054
+                  ],
+                  [
+                    -81.3281944,
+                    41.3949731
+                  ],
+                  [
+                    -81.3280926,
+                    41.3948484
+                  ],
+                  [
+                    -81.3279076,
+                    41.3946589
+                  ],
+                  [
+                    -81.3278369,
+                    41.3945395
+                  ],
+                  [
+                    -81.327826,
+                    41.3944007
+                  ],
+                  [
+                    -81.3276484,
+                    41.3942353
+                  ],
+                  [
+                    -81.3272764,
+                    41.393889
+                  ],
+                  [
+                    -81.3267711,
+                    41.3934184
+                  ],
+                  [
+                    -81.3266849,
+                    41.3933382
+                  ],
+                  [
+                    -81.3267113,
+                    41.3931149
+                  ],
+                  [
+                    -81.3280231,
+                    41.3929514
+                  ],
+                  [
+                    -81.329074,
+                    41.3930685
+                  ],
+                  [
+                    -81.3293273,
+                    41.3930967
+                  ],
+                  [
+                    -81.3295285,
+                    41.3931191
+                  ],
+                  [
+                    -81.3306431,
+                    41.392613
+                  ],
+                  [
+                    -81.330673,
+                    41.3923764
+                  ],
+                  [
+                    -81.3307342,
+                    41.3918908
+                  ],
+                  [
+                    -81.3308965,
+                    41.3906045
+                  ],
+                  [
+                    -81.3303075,
+                    41.388343
+                  ],
+                  [
+                    -81.3291255,
+                    41.3884849
+                  ],
+                  [
+                    -81.3292129,
+                    41.390632
+                  ],
+                  [
+                    -81.3290108,
+                    41.3911961
+                  ],
+                  [
+                    -81.328884,
+                    41.3912384
+                  ],
+                  [
+                    -81.328529,
+                    41.3913568
+                  ],
+                  [
+                    -81.3282453,
+                    41.3914514
+                  ],
+                  [
+                    -81.3279477,
+                    41.3915506
+                  ],
+                  [
+                    -81.3273986,
+                    41.3917003
+                  ],
+                  [
+                    -81.3270323,
+                    41.3918001
+                  ],
+                  [
+                    -81.3268846,
+                    41.3918404
+                  ],
+                  [
+                    -81.3254917,
+                    41.3919016
+                  ],
+                  [
+                    -81.3244634,
+                    41.3919467
+                  ],
+                  [
+                    -81.3242723,
+                    41.3919551
+                  ],
+                  [
+                    -81.3242228,
+                    41.3922236
+                  ],
+                  [
+                    -81.3250726,
+                    41.3923274
+                  ],
+                  [
+                    -81.3250117,
+                    41.392738
+                  ],
+                  [
+                    -81.3250195,
+                    41.3928284
+                  ],
+                  [
+                    -81.325107,
+                    41.3938458
+                  ],
+                  [
+                    -81.3237701,
+                    41.3941798
+                  ],
+                  [
+                    -81.3238359,
+                    41.3952836
+                  ],
+                  [
+                    -81.3240087,
+                    41.395636
+                  ],
+                  [
+                    -81.3239857,
+                    41.3960376
+                  ],
+                  [
+                    -81.3237971,
+                    41.3983658
+                  ],
+                  [
+                    -81.3239348,
+                    41.3986688
+                  ],
+                  [
+                    -81.3252748,
+                    41.399293
+                  ],
+                  [
+                    -81.324805,
+                    41.4000705
+                  ],
+                  [
+                    -81.3261247,
+                    41.3999179
+                  ],
+                  [
+                    -81.327873,
+                    41.3997187
+                  ],
+                  [
+                    -81.3281671,
+                    41.3997806
+                  ],
+                  [
+                    -81.328313,
+                    41.3997612
+                  ],
+                  [
+                    -81.3286778,
+                    41.3997127
+                  ],
+                  [
+                    -81.3292636,
+                    41.3997163
+                  ],
+                  [
+                    -81.329794,
+                    41.399568
+                  ],
+                  [
+                    -81.3298478,
+                    41.3995669
+                  ],
+                  [
+                    -81.329925,
+                    41.3995653
+                  ],
+                  [
+                    -81.331351,
+                    41.3995356
+                  ],
+                  [
+                    -81.3326992,
+                    41.3995076
+                  ],
+                  [
+                    -81.3338603,
+                    41.3994339
+                  ],
+                  [
+                    -81.3364354,
+                    41.3992705
+                  ],
+                  [
+                    -81.3375229,
+                    41.3992015
+                  ],
+                  [
+                    -81.3370795,
+                    41.3978894
+                  ],
+                  [
+                    -81.3370429,
+                    41.3975292
+                  ],
+                  [
+                    -81.3370404,
+                    41.3971637
+                  ],
+                  [
+                    -81.3371103,
+                    41.3966995
+                  ],
+                  [
+                    -81.3372851,
+                    41.3961992
+                  ],
+                  [
+                    -81.3375812,
+                    41.3957157
+                  ],
+                  [
+                    -81.3379418,
+                    41.3952322
+                  ]
+                ],
+                [
+                  [
+                    -81.3268291,
+                    41.3944975
+                  ],
+                  [
+                    -81.3268222,
+                    41.3956525
+                  ],
+                  [
+                    -81.3265185,
+                    41.3959787
+                  ],
+                  [
+                    -81.326219,
+                    41.3958592
+                  ],
+                  [
+                    -81.3258695,
+                    41.3957198
+                  ],
+                  [
+                    -81.3256624,
+                    41.3963983
+                  ],
+                  [
+                    -81.3260145,
+                    41.3964397
+                  ],
+                  [
+                    -81.3262147,
+                    41.3972321
+                  ],
+                  [
+                    -81.3261315,
+                    41.3975365
+                  ],
+                  [
+                    -81.3260559,
+                    41.3978133
+                  ],
+                  [
+                    -81.3259247,
+                    41.3982937
+                  ],
+                  [
+                    -81.3253625,
+                    41.3986072
+                  ],
+                  [
+                    -81.3245232,
+                    41.3981953
+                  ],
+                  [
+                    -81.3248201,
+                    41.3969213
+                  ],
+                  [
+                    -81.3250617,
+                    41.395119
+                  ],
+                  [
+                    -81.3254345,
+                    41.3943784
+                  ],
+                  [
+                    -81.3262078,
+                    41.394135
+                  ],
+                  [
+                    -81.3268291,
+                    41.3944975
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "b9dcc5ffa52e9a6feac83a5aa41bd417b75d879c23760921cead3004673e7c91",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "2d179f6793b05e11c0896098da7eba2f731bf458e1d1a467b85fea40b8df6be5"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Tanglewood Golf Course",
+            "full_exact": false,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_club",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "thetanglewoodclub.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "44023"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "8745",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "tanglewood trail",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -81.33578042757887,
+          "latitude": 41.394207550000004,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The current operator homepage explicitly identifies the historic Tanglewood Club as a public championship golf course and repeats8745 Tanglewood Trail, Chagrin Falls OH44023. This primary statement conflicts with the undated association profile's Private classification; the discrepancy is retained, not erased or given an invented change date. The specific Tanglewood brand, compatible club/course labels, unique retained Ohio core name and independent Geauga County context support the named OSM property. No booking, PGA or social service was requested.",
+      "independent_county_context": [
+        {
+          "fips": "39055",
+          "name": "Geauga County",
+          "point_outline_margin_pixels": 0.8101140213268166,
+          "current_county_agrees": false
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 41.39420755,
+        "longitude": -81.33578043,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 41.394207550000004,
+          "longitude": -81.33578042757887
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    },
+    {
+      "facility_id": "f-cd93e61f-3b83-4773-9080-ac8dcdb1b6a1",
+      "name": "The Elms Country Club",
+      "original_map_location": null,
+      "catalog_identity_before": {
+        "name": "The Elms Country Club",
+        "state": "OH",
+        "address": {
+          "text": "1608 Manchester Ave NW, North Lawrence, OH 44666",
+          "purpose": "published_unspecified"
+        },
+        "website": "https://www.facebook.com/profile.php?id=100063908499193&_rdr"
+      },
+      "upstream_status": "proposed",
+      "upstream_reason": "unique normalized core name; OSM lacks enough locality fields for support",
+      "selected_feature": {
+        "osm": {
+          "type": "way",
+          "id": 236942855,
+          "version": 8,
+          "timestamp_unix": 1733368047,
+          "tags": {
+            "leisure": "golf_course",
+            "name": "Elms Country Club"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -81.6029777,
+                    40.7890408
+                  ],
+                  [
+                    -81.6029068,
+                    40.789035
+                  ],
+                  [
+                    -81.6019443,
+                    40.788956
+                  ],
+                  [
+                    -81.6019146,
+                    40.7878852
+                  ],
+                  [
+                    -81.6019063,
+                    40.7875861
+                  ],
+                  [
+                    -81.6012595,
+                    40.7874957
+                  ],
+                  [
+                    -81.6006782,
+                    40.7874392
+                  ],
+                  [
+                    -81.5972565,
+                    40.7874052
+                  ],
+                  [
+                    -81.5972624,
+                    40.7872803
+                  ],
+                  [
+                    -81.5971559,
+                    40.7872814
+                  ],
+                  [
+                    -81.5973427,
+                    40.786915
+                  ],
+                  [
+                    -81.5973628,
+                    40.7868217
+                  ],
+                  [
+                    -81.5973096,
+                    40.7864144
+                  ],
+                  [
+                    -81.5973413,
+                    40.7837078
+                  ],
+                  [
+                    -81.5920583,
+                    40.7864743
+                  ],
+                  [
+                    -81.5905873,
+                    40.7864144
+                  ],
+                  [
+                    -81.5897806,
+                    40.7866539
+                  ],
+                  [
+                    -81.5856365,
+                    40.7864623
+                  ],
+                  [
+                    -81.5853202,
+                    40.7896718
+                  ],
+                  [
+                    -81.5933046,
+                    40.7905249
+                  ],
+                  [
+                    -81.5943647,
+                    40.7904361
+                  ],
+                  [
+                    -81.5945818,
+                    40.7901892
+                  ],
+                  [
+                    -81.5952055,
+                    40.7904263
+                  ],
+                  [
+                    -81.5957434,
+                    40.7904318
+                  ],
+                  [
+                    -81.5958734,
+                    40.7908334
+                  ],
+                  [
+                    -81.596155,
+                    40.7939109
+                  ],
+                  [
+                    -81.6012165,
+                    40.7940666
+                  ],
+                  [
+                    -81.6015064,
+                    40.7920362
+                  ],
+                  [
+                    -81.6020764,
+                    40.7918919
+                  ],
+                  [
+                    -81.6024365,
+                    40.7919121
+                  ],
+                  [
+                    -81.6027987,
+                    40.7920988
+                  ],
+                  [
+                    -81.6028278,
+                    40.7915702
+                  ],
+                  [
+                    -81.6029029,
+                    40.7902881
+                  ],
+                  [
+                    -81.6029777,
+                    40.7890408
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "5798d8755318702cde164f621723832073b7036d44b65debf3e189ca4bd06494",
+          "geometry_crs": "EPSG:4326",
+          "sorted_compact_geojson_sha256": "f96b88f12a220814e42434d5bfd75ad25cd62e01da09e5a6a7c9ed6dd283f688"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Elms Country Club",
+            "full_exact": false,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "country_club",
+            "osm_identity_kind": "country_club",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "facebook.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "44666"
+            ],
+            "osm_postcode": null,
+            "postcode_match": false,
+            "postcode_conflict": false,
+            "catalog_house_number": "1608",
+            "osm_house_number": null,
+            "house_number_match": false,
+            "house_number_conflict": false,
+            "catalog_street_key": "manchester nw",
+            "osm_street_key": null,
+            "street_similarity": 0.0,
+            "city_match": false,
+            "street_words_match": false,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 0
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 20,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -81.59368647861584,
+          "latitude": 40.788420599999995,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        },
+        "upstream_selection_status": "selected_proposed",
+        "selection_status": "manually_identity_matched"
+      },
+      "rejected_candidates": [],
+      "manual_identity_decision": "The exact official association profile identifies The Elms Country Club, 1608 Manchester Ave NW, North Lawrence, OH 44666, Stark County, and explicitly Public play. The unique retained Ohio named golf property Elms Country Club has the same complete distinguishing name/core after ordinary article, apostrophe, spacing and compatible club/course-label normalization. Its independently projected retained Census county context is Stark County, agreeing with the official profile and existing locality. The decision combines explicit official identity/access, unique compatible named golf geometry and independent county context. Neither a fuzzy score nor county/proximity alone establishes identity. The display county outline is generalized at1:20,000,000 and is not cadastral or survey evidence. No operator, social or booking request was needed.",
+      "independent_county_context": [
+        {
+          "fips": "39151",
+          "name": "Stark County",
+          "point_outline_margin_pixels": 0.8027927444631913,
+          "current_county_agrees": true
+        }
+      ],
+      "derived_map_location": {
+        "latitude": 40.7884206,
+        "longitude": -81.59368648,
+        "kind": "property_point"
+      },
+      "derivation": {
+        "algorithm": "PointOnSurface of retained EPSG:4326 geometry; round latitude/longitude to eight decimals; strict containment",
+        "shapely_version": "2.1.2",
+        "original_unrounded_point": {
+          "latitude": 40.788420599999995,
+          "longitude": -81.59368647861584
+        },
+        "geometry_valid": true,
+        "strict_contains_rounded_point": true,
+        "Census_coordinates_used_to_derive_point": false
+      }
+    }
+  ]
+}
