@@ -54,8 +54,11 @@ python ops/private-national-api/review-fixture/prepare_bundle.py \
   --modo-wheel /ABSOLUTE/modo-artifacts/modo-0.3.7-py3-none-any.whl \
   --modo-sha256 REVIEWED_MODO_SHA256
 cd /ABSOLUTE/new-review-bundle
+REVIEW_OUTPUT=$(mktemp -d ../fairway-review-output.XXXXXX)
+REVIEW_OUTPUT=$(cd "$REVIEW_OUTPUT" && pwd -P)
+export REVIEW_OUTPUT
 sha256sum --check SHA256SUMS
-python3 run_review.py  # verifies bundle and prints scope; zero Docker calls
+python3 run_review.py > "$REVIEW_OUTPUT/preflight-events.jsonl" 2>&1  # zero Docker calls
 ```
 
 Use the locked application versions/revisions after any confirmed dependency
@@ -64,6 +67,14 @@ that exact source/catalog revision; historical sample wheel hashes below are not
 a claim that rebuilding produces identical bytes. Later build input labels must
 use the newly reviewed fairway wheel/fixture hashes from SHA256SUMS, not stale
 example labels. Wheels/bundles are local review artifacts; not committed binaries.
+
+The bundle is immutable after preparation. Each phase below creates a fresh,
+private `fairway-review-output.*` sibling directory and resolves its absolute
+path. Logs, image archives and checksum reports go there, never inside the
+bundle or its `wheels/` directory. Shell redirection creates a file before the
+controller verifies inputs, so even a log inside the bundle is correctly rejected.
+Preserve the outside output directory separately as evidence. Moving it into the
+bundle or allowing output files in the verifier is not a workaround.
 
 ## Build resources, separate from runtime
 
@@ -119,6 +130,9 @@ Historical baseline wheel SHA256 (not the rebuilt review-fix artifacts):
 Inside the exact review bundle on that separately approved bounded build host:
 
 ```sh
+REVIEW_OUTPUT=$(mktemp -d ../fairway-review-output.XXXXXX)
+REVIEW_OUTPUT=$(cd "$REVIEW_OUTPUT" && pwd -P)
+export REVIEW_OUTPUT
 sha256sum --check SHA256SUMS
 # Input labels must match this exact newly prepared and reviewed bundle.
 FAIRWAY_INPUT_SHA=$(python3 -c 'import json; print(json.load(open("wheel-manifest.json"))["applications"]["fairway"]["sha256"])')
@@ -132,13 +146,13 @@ export FAIRWAY_INPUT_SHA FIXTURE_INPUT_SHA
   docker build --network=none --platform linux/arm64 --label fairway.safety.run=review \
     --label "fairway.safety.input.sha256=$FIXTURE_INPUT_SHA" \
     -f Dockerfile.fixture -t fairway-safety-router:review .
-'
+' > "$REVIEW_OUTPUT/image-build.log" 2>&1
 docker image inspect --format '{{.Id}} {{.Architecture}}' \
-  fairway-safety-api:review fairway-safety-router:review
+  fairway-safety-api:review fairway-safety-router:review > "$REVIEW_OUTPUT/image-identities.txt"
 /usr/bin/timeout --signal=TERM --kill-after=5s 30s \
-  docker save -o fairway-safety-images.tar \
+  docker save -o "$REVIEW_OUTPUT/fairway-safety-images.tar" \
   fairway-safety-api:review fairway-safety-router:review
-sha256sum fairway-safety-images.tar
+sha256sum "$REVIEW_OUTPUT/fairway-safety-images.tar" > "$REVIEW_OUTPUT/fairway-safety-images.sha256"
 ```
 
 Client timeout alone does not establish cancellation of daemon build work. Stop
@@ -218,11 +232,14 @@ Entrypoints are fixed in the digest-pinned Dockerfiles:
 Run the reviewed controller, only after separate approval and image availability:
 
 ```sh
+REVIEW_OUTPUT=$(mktemp -d ../fairway-review-output.XXXXXX)
+REVIEW_OUTPUT=$(cd "$REVIEW_OUTPUT" && pwd -P)
+export REVIEW_OUTPUT
 sha256sum --check SHA256SUMS
-python3 run_review.py  # hash verification and scope; zero Docker calls
+python3 run_review.py > "$REVIEW_OUTPUT/preflight-events.jsonl" 2>&1  # zero Docker calls
 /usr/bin/timeout --signal=TERM --kill-after=5s 600s \
   python3 run_review.py --execute \
-  --api-image-id "$API_IMAGE" --fixture-image-id "$FIXTURE_IMAGE" > review-events.jsonl 2>&1
+  --api-image-id "$API_IMAGE" --fixture-image-id "$FIXTURE_IMAGE" > "$REVIEW_OUTPUT/review-events.jsonl" 2>&1
 ```
 
 The controller verifies image IDs/architecture/input labels, exact mount/network
@@ -259,7 +276,9 @@ later removal, separately review exact newly imported IDs and remove without
 force only after confirming no users. Shared layers remain referenced if used by
 others. No shared Docker/system/builder/network prune. Build-host cache is removed
 by disposing that independently approved host. Remove the exact staged temporary
-bundle after retaining evidence; no wildcard filesystem cleanup.
+bundle after retaining evidence. Its sibling output directories hold logs and
+archives separately; retain or remove only those exact owned directories after
+review, never move them inside the bundle. No wildcard filesystem cleanup.
 
 No image build/import, staging, Spark network/container creation or execution has
 occurred. Local regression tests cover reproducible offline preparation, existing-output

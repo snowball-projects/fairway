@@ -2,7 +2,11 @@
 
 import hashlib
 import importlib.util
+import json
+import shlex
 import shutil
+import subprocess
+import sys
 from pathlib import Path
 from unittest.mock import patch
 
@@ -145,4 +149,53 @@ def test_application_requirement_cannot_be_an_external_url(prepared):
         "https://example.com/rogue.whl\n"
     )
     with pytest.raises(ValueError, match="local hash-locked"):
+        integrity.verify(output)
+
+
+def test_documented_output_setup_allows_precreated_logs_without_changing_bundle(
+    prepared,
+):
+    prepare, integrity, output, args = prepared
+    prepare.prepare(*args)
+    before = integrity.verify(output)
+    document = (FIXTURE.parents[2] / "docs/disposable-container-test.md").read_text()
+    # Execute the actual shared setup lines, not a different directory recipe.
+    lines = [
+        line for line in document.splitlines() if line.startswith("REVIEW_OUTPUT=")
+    ]
+    assert len(lines) == 6 and lines[:2] == lines[2:4] == lines[4:6]
+    script = "\n".join(lines[:2]) + "\nexport REVIEW_OUTPUT\n"
+    script += (
+        f"{shlex.quote(sys.executable)} run_review.py "
+        '> "$REVIEW_OUTPUT/review-events.jsonl" 2>&1\n'
+        'printf "%s\\n" "$REVIEW_OUTPUT"\n'
+    )
+    completed = subprocess.run(
+        ["bash", "-eu", "-c", script],
+        cwd=output,
+        capture_output=True,
+        text=True,
+        check=True,
+        timeout=15,
+    )
+    evidence = Path(completed.stdout.strip())
+    assert evidence.is_absolute() and evidence.parent == output.parent
+    assert not evidence.is_relative_to(output)
+    assert (
+        json.loads((evidence / "review-events.jsonl").read_text())["docker_calls"] == 0
+    )
+    # No Docker save: a stand-in archive exercises the same outside output location.
+    (evidence / "fairway-safety-images.tar").write_bytes(b"synthetic archive evidence")
+    assert integrity.verify(output) == before
+    assert not (output / "review-events.jsonl").exists()
+    assert not (output / "fairway-safety-images.tar").exists()
+    assert 'docker save -o "$REVIEW_OUTPUT/fairway-safety-images.tar"' in document
+
+
+@pytest.mark.parametrize("name", ["review-events.jsonl", "fairway-safety-images.tar"])
+def test_operator_outputs_inside_bundle_still_fail_exact_file_check(prepared, name):
+    prepare, integrity, output, args = prepared
+    prepare.prepare(*args)
+    (output / name).write_bytes(b"operator output must stay outside")
+    with pytest.raises(ValueError, match="extra or missing"):
         integrity.verify(output)
