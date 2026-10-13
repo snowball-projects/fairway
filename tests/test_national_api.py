@@ -8,6 +8,7 @@ from urllib.request import Request
 
 import pytest
 from modo import RoutingProviderError
+from test_facilities import public_map_ids
 
 from fairway.national_api import (
     MAX_BODY_BYTES,
@@ -72,7 +73,7 @@ def test_real_modo_estimator_shortlist_and_canonical_ranking(objective):
     assert metadata["global_optimum"] is False
     assert metadata["traffic_basis"] == "unaware"
     assert metadata["catalog_complete"] is False
-    assert metadata["catalog_facility_count"] == 4428
+    assert metadata["catalog_facility_count"] == len(public_map_ids())
     assert len(metadata["catalog_sha256"]) == 64
     assert metadata["area_search"]["approximate"] is True
     assert "127.0.0.1" not in json.dumps(result)

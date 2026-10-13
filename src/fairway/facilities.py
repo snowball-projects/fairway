@@ -73,6 +73,7 @@ def load_facility_catalog(path):
                 None,
                 "public",
                 "private",
+                "restricted",
                 "unknown",
             }:
                 raise ValueError

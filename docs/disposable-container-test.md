@@ -7,6 +7,62 @@ of a bounded build host, image import, Spark staging and container execution all
 remain separate review actions. No daemon changes, sudo or credentials are needed
 by the proposed runtime test. No such action has been executed.
 
+## Reproduce the bundle from a clean checkout
+
+`ops/private-national-api/review-fixture/prepare_bundle.py` runs locally with
+Python3.12+. It performs no download, installation, subprocess or Docker action.
+It takes an explicit new absolute output directory, the dependency-wheel cache,
+and both application wheels with their expected SHA256 hashes. All inputs are
+verified before output creation. Existing directories, wrong hashes, missing
+wheels and application filenames inconsistent with uv.lock fail closed. It copies
+only the fixed fixture/controller files and eight verified wheels, then generates
+`.dockerignore`, an eight-wheel manifest, two explicitly named hash-locked local
+application requirements, and the sibling `SHA256SUMS` required by the controller.
+The shared verifier rejects extra/missing files, symlinks, unlisted wheels and
+duplicate/changed manifest entries before any Docker call. The Dockerfile verifies
+the copied wheel set again and installs both dependencies and named applications
+with hashes, without wildcard installation. A supplied extra wheel cannot be
+selected silently by pip.
+
+Prepare artifacts from the exact revision under review. These are separate
+operator commands; uv/pip dependency installation or wheel downloads need their
+normal network access approval. No Docker action is included:
+
+```sh
+# From a clean fairway checkout at the reviewed commit:
+python scripts/publish_research_map.py
+uv sync --extra test --locked
+uv build --out-dir /ABSOLUTE/fairway-artifacts
+# Build modo at the exact Git revision in fairway's uv.lock, in its own checkout:
+uv build --out-dir /ABSOLUTE/modo-artifacts
+# In a Python environment with pip, obtain only the six hash-pinned ARM64 wheels:
+python -m pip download --index-url https://pypi.org/simple \
+  --no-deps --require-hashes --only-binary=:all: \
+  --platform manylinux_2_28_aarch64 --python-version 3.12 \
+  --implementation cp --abi cp312 \
+  -r ops/private-national-api/review-fixture/runtime-requirements.arm64.txt \
+  --dest /ABSOLUTE/dependency-wheels
+# Record/review exact application wheel hashes; do not assume byte-identical builds.
+sha256sum /ABSOLUTE/fairway-artifacts/fairway-*.whl /ABSOLUTE/modo-artifacts/modo-*.whl
+python ops/private-national-api/review-fixture/prepare_bundle.py \
+  --output /ABSOLUTE/new-review-bundle \
+  --dependency-wheels /ABSOLUTE/dependency-wheels \
+  --fairway-wheel /ABSOLUTE/fairway-artifacts/fairway-0.6.2-py3-none-any.whl \
+  --fairway-sha256 REVIEWED_FAIRWAY_SHA256 \
+  --modo-wheel /ABSOLUTE/modo-artifacts/modo-0.3.7-py3-none-any.whl \
+  --modo-sha256 REVIEWED_MODO_SHA256
+cd /ABSOLUTE/new-review-bundle
+sha256sum --check SHA256SUMS
+python3 run_review.py  # verifies bundle and prints scope; zero Docker calls
+```
+
+Use the locked application versions/revisions after any confirmed dependency
+update. The preparation script resolves versions from uv.lock. Review hashes for
+that exact source/catalog revision; historical sample wheel hashes below are not
+a claim that rebuilding produces identical bytes. Later build input labels must
+use the newly reviewed fairway wheel/fixture hashes from SHA256SUMS, not stale
+example labels. Wheels/bundles are local review artifacts; not committed binaries.
+
 ## Build resources, separate from runtime
 
 Preferred path: an already approved disposable Linux arm64 build VM with hard host
@@ -25,9 +81,16 @@ packaging26.3, SciPy1.18.1, plus local fairway0.6.2 and modo0.3.7.
 modo source is exact merged257c680d6acf6917ac47df6521d44ab1b35f6d1a.
 The fixture uses only Python stdlib. There is no apt install, compiler, road
 artifact download, extra routing engine, SSH key or Docker socket in either image.
-Build registry/PyPI access is confined to that isolated build host.
+Stage all six dependency wheels plus the two local application wheels in
+`wheels/` before building. The dependency requirement file contains exact versions
+and hashes, without external URLs; pip uses only that local directory. The two
+application wheels are checked by SHA256SUMS. Missing or mismatched wheels fail
+the build. Dependency installation is offline; a cold base-image pull still
+requires registry access and is separate from the installation step. Any wheel
+download/staging is a separate reviewed preparation action, never an implicit
+build fetch.
 
-Current review wheel SHA256:
+Historical baseline wheel SHA256 (not the rebuilt review-fix artifacts):
 - fairway:633c2ecc39d5cddd6004bbf567e5bdd481439a060c62d1b0ae3f7f8b89d129c9
 - modo:4e3a7f1240b83243bafa4a1d0782245457f6402f17772b4c647982b8d3795860
 
@@ -35,13 +98,17 @@ Inside the exact review bundle on that separately approved bounded build host:
 
 ```sh
 sha256sum --check SHA256SUMS
+# Input labels must match this exact newly prepared and reviewed bundle.
+FAIRWAY_INPUT_SHA=$(python3 -c 'import json; print(json.load(open("wheel-manifest.json"))["applications"]["fairway"]["sha256"])')
+FIXTURE_INPUT_SHA=$(python3 -c 'import hashlib; print(hashlib.file_digest(open("fixture_router.py", "rb"), "sha256").hexdigest())')
+export FAIRWAY_INPUT_SHA FIXTURE_INPUT_SHA
 # Build sequentially; outer client limit300s total. Whole-host limits also apply.
 /usr/bin/timeout --signal=TERM --kill-after=5s 300s sh -eu -c '
-  docker build --platform linux/arm64 --label fairway.safety.run=review \
-    --label fairway.safety.input.sha256=633c2ecc39d5cddd6004bbf567e5bdd481439a060c62d1b0ae3f7f8b89d129c9 \
+  docker build --network=none --platform linux/arm64 --label fairway.safety.run=review \
+    --label "fairway.safety.input.sha256=$FAIRWAY_INPUT_SHA" \
     -f Dockerfile.api -t fairway-safety-api:review .
-  docker build --platform linux/arm64 --label fairway.safety.run=review \
-    --label fairway.safety.input.sha256=d5c53953db64db7eb8ce3134dccad4514a21468ada9755722bbabc3ecb626439 \
+  docker build --network=none --platform linux/arm64 --label fairway.safety.run=review \
+    --label "fairway.safety.input.sha256=$FIXTURE_INPUT_SHA" \
     -f Dockerfile.fixture -t fairway-safety-router:review .
 '
 docker image inspect --format '{{.Id}} {{.Architecture}}' \
@@ -173,9 +240,11 @@ by disposing that independently approved host. Remove the exact staged temporary
 bundle after retaining evidence; no wildcard filesystem cleanup.
 
 No image build/import, staging, Spark network/container creation or execution has
-occurred. Five local checks cover default/missing-ID no-Docker guards, altered
-bundle denial, actual current-wheel synthetic calculator compatibility and fixture
-route/body bounds. Existing API343 tests and installed-runtime142 checks pass.
+occurred. Local regression tests cover reproducible offline preparation, existing-output
+and bad-hash refusal, extra/unlisted wheel and manifest injection, image-subset
+verification and denial of external application URLs. Earlier local checks cover
+API fixture behavior; container tests remain unexecuted. See the PR for current
+local and CI counts; historical sample wheels do not attest a changed runtime.
 Chicago road snapshot validation was attempted but could not run: local artifact
 absent; no download/rebuild. No current live-router smoke/overload test. Sideline is
 one paused/uninstalled proposal, excluded from this runtime. No public exposure,

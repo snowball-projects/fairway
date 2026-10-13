@@ -11,6 +11,7 @@ import re
 import signal
 import socket
 import subprocess
+import sys
 import time
 from pathlib import Path
 
@@ -64,11 +65,11 @@ def emit(event, **fields):
 
 
 def verify_bundle():
-    for line in (ROOT / "SHA256SUMS").read_text().splitlines():
-        expected, name = line.split("  ", 1)
-        path = ROOT / name
-        assert path.is_file() and path.resolve().is_relative_to(ROOT)
-        assert hashlib.sha256(path.read_bytes()).hexdigest() == expected, name
+    # CLI verification must not create an unlisted __pycache__ in the bundle.
+    sys.dont_write_bytecode = True
+    from bundle_integrity import verify
+
+    return verify(ROOT)
 
 
 def request(path="/health", body=None, timeout=35):
@@ -166,14 +167,12 @@ class Review:
                 assert result.returncode != 0, f"reserved {kind} already exists"
         with socket.socket() as s:
             s.bind(("127.0.0.1", PORT))
+        manifest = json.loads((ROOT / "wheel-manifest.json").read_text())
+        with (ROOT / "fixture_router.py").open("rb") as stream:
+            fixture_hash = hashlib.file_digest(stream, "sha256").hexdigest()
         for image, source_hash in zip(
             self.images,
-            (
-                hashlib.sha256(
-                    (ROOT / "wheels/fairway-0.6.2-py3-none-any.whl").read_bytes()
-                ).hexdigest(),
-                hashlib.sha256((ROOT / "fixture_router.py").read_bytes()).hexdigest(),
-            ),
+            (manifest["applications"]["fairway"]["sha256"], fixture_hash),
             strict=True,
         ):
             row = self.document("image", "inspect", image)[0]

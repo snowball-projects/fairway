@@ -1,15 +1,17 @@
 # REVIEW ONLY. Official CPython Linux ARM64 image; no host/system installs.
 FROM docker.io/library/python:3.12.14-slim-bookworm@sha256:eb5be8e5b4d0a159c237946bbdd06356dda5d19c30fc4f7843e8046d3a590333
-WORKDIR /opt/fairway
-COPY runtime-requirements.arm64.txt /opt/review/runtime-requirements.arm64.txt
-COPY wheels /opt/review/wheels
-RUN command -v timeout \
+WORKDIR /opt/review
+COPY runtime-requirements.arm64.txt application-requirements.txt wheel-manifest.json SHA256SUMS bundle_integrity.py ./
+COPY wheels ./wheels
+RUN python bundle_integrity.py --wheels-only \
     && python -m pip --isolated --disable-pip-version-check install --no-cache-dir \
        --no-index --no-deps --require-hashes --only-binary=:all: \
-       -r /opt/review/runtime-requirements.arm64.txt \
+       --find-links=/opt/review/wheels -r runtime-requirements.arm64.txt \
     && python -m pip --isolated --disable-pip-version-check install --no-cache-dir \
-       --no-index --no-deps /opt/review/wheels/*.whl \
+       --no-index --no-deps --require-hashes --only-binary=:all: \
+       -r application-requirements.txt \
     && rm -rf /opt/review
+WORKDIR /opt/fairway
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
     OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
     NUMEXPR_NUM_THREADS=1 BLIS_NUM_THREADS=1 \

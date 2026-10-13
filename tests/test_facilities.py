@@ -1,4 +1,5 @@
 import json
+import subprocess
 from dataclasses import replace
 from pathlib import Path
 from uuid import UUID
@@ -47,21 +48,79 @@ def ranking(candidates, holes=(9, 18), matrix=None):
     )
 
 
+def public_map_ids(path=CATALOG):
+    """Use the existing JavaScript map contract as an independent eligibility oracle."""
+    script = """
+      import { readFileSync } from 'node:fs';
+      const { mapEligible } = await import(process.argv[1]);
+      const data = JSON.parse(readFileSync(0, 'utf8'));
+      console.log(JSON.stringify(data.facilities.filter(mapEligible).map(f => f.id)));
+    """
+    result = subprocess.run(
+        [
+            "node",
+            "--input-type=module",
+            "-e",
+            script,
+            (CATALOG.parent.parent / "catalog.mjs").as_uri(),
+        ],
+        input=path.read_text(),
+        capture_output=True,
+        text=True,
+        check=True,
+        timeout=15,
+    )
+    return set(json.loads(result.stdout))
+
+
 def test_reuses_existing_catalog_pins_ids_and_layout_evidence():
     retained = json.loads(CATALOG.read_text())
     loaded = load_facility_catalog(CATALOG)
     originals = {f["id"]: f for f in retained["facilities"]}
-    assert len(loaded.facilities) == 4428
-    assert sum(bool(f.public_layout_holes) for f in loaded.facilities) == 1318
-    assert sum(f.coordinate_basis == "property_pin" for f in loaded.facilities) == 4420
+    assert {f.identifier for f in loaded.facilities} == public_map_ids()
+    assert len(loaded.facilities) == len({f.identifier for f in loaded.facilities})
     for candidate in loaded.facilities:
         source = originals[candidate.identifier]
         assert candidate.routing_coordinate == (
             source["map_location"]["latitude"],
             source["map_location"]["longitude"],
         )
+        assert candidate.coordinate_basis == (
+            "property_pin"
+            if source["map_location"]["kind"] == "property_point"
+            else source["map_location"]["kind"]
+        )
+        assert candidate.public_layout_holes == tuple(
+            sorted(
+                {
+                    c["holes"]
+                    for c in source["courses"]
+                    if c["access"] == "public" and c["holes"] in (9, 18)
+                }
+            )
+        )
         assert candidate.physical_holes == source["physical_holes"]
+        assert candidate.website == source["website"]
+        assert candidate.inventory_complete == source["inventory_complete"]
         assert candidate.access_note == source.get("access_note")
+
+
+def test_new_hole_fact_admits_existing_pin_without_inventing_layout(tmp_path):
+    unknown = record(1, holes=None)
+    before = catalog(tmp_path, unknown, record(2))
+    path = tmp_path / "public-courses.json"
+    assert {f.identifier for f in before.facilities} == public_map_ids(path)
+    known = {**unknown, "physical_holes": 9}
+    after = catalog(tmp_path, known, record(2))
+    assert {f.identifier for f in after.facilities} == public_map_ids(path)
+    admitted = next(f for f in after.facilities if f.identifier == unknown["id"])
+    assert len(after.facilities) == len(before.facilities) + 1
+    assert admitted.routing_coordinate == (41.0, -96.0)
+    assert admitted.public_layout_holes == ()
+    assert admitted.layout_filter_status((9, 18)) == "unconfirmed"
+    assert [
+        r.facility.identifier for r in ranking(after.facilities).ranking.facilities
+    ] == [unknown["id"], record(2)["id"]]
 
 
 @pytest.mark.parametrize("holes", [(9,), (18,)])
@@ -160,3 +219,13 @@ def test_provider_identity_changes_fail_whole_ranking(tmp_path, change):
 def test_duplicate_catalog_ids_fail_closed(tmp_path):
     with pytest.raises(ValueError):
         catalog(tmp_path, record(1), record(1))
+
+
+def test_restricted_access_is_valid_but_never_enters_public_candidates(tmp_path):
+    retained = catalog(
+        tmp_path, record(1), record(2, access="restricted", layouts=((18, "public"),))
+    )
+    assert {f.identifier for f in retained.facilities} == {record(1)["id"]}
+    assert {f.identifier for f in retained.facilities} == public_map_ids(
+        tmp_path / "public-courses.json"
+    )
