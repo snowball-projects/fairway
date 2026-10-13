@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "kind": "fairway_facility_additions",
-  "base_commit": "3fe8f486cce87ec1e38524c7e49c732ed368d05e",
-  "base_catalog_sha256": "7afc52725962e12825dbd1d13d2df4ac392f4fd8860239be317eae65a89089e6",
+  "base_commit": "ecf3865886ddc02289022431030ac0da28882d30",
+  "base_catalog_sha256": "8541ba73b8ad87d425ef0347819db737ccea7ab8490d8e2e0fd090b390fd9a4a",
   "facilities": [
     {
       "id": "f-248cb17c-e975-4b5d-81ff-05636f7fd3aa",

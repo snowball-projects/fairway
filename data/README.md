@@ -353,4 +353,23 @@ The fourth retained-name property intake is reproducible in `source-layers/retai
 
 The retained alternate-name property intake is reproducible in `source-layers/retained-alternate-name-matches-01-osm-properties-20261011.json` under the same ODbL terms. Actual facility identity is supported by retained aliases, locality or operator evidence; fuzzy scores alone do not establish identity. Unknown totals remain unknown.
 
+### Nine supported-property hole totals
+
+`review-batches/nine-supported-hole-totals-20261013.json` records nine existing
+facilities whose supported browse locations were retained while their physical
+hole totals were unknown. Miacomet, Valencia, Prairie Pines, Hidden River,
+Melody Hill, Plum Creek and Westchase have eighteen physical holes. CommonGround
+and Duran each have an eighteen-hole main layout plus a separate nine-hole
+par-three layout, supporting twenty-seven physical holes per facility. Ranges
+and practice greens are excluded. Complete owner-linked physical maps were
+visually inspected for Prairie Pines, Duran, Plum Creek and Westchase; the other
+counts use explicit owner descriptions or complete distinct-hole descriptions.
+
+The ID-scoped delta retains expected prior values, identity checks, field-specific
+official URLs, observation dates, source-policy limits and exclusions. It changes
+only facility totals and their provenance. All nested course records, inventory
+completeness, addresses, coordinates, arrivals, access fields and the bounded
+ranking selection remain unchanged. A facility total alone does not establish a
+course subdivision. No source fact here claims live operation or an entrance.
+
 The thirteen public-facility additions in `research/combined-public-20261013/` are documented with independent regional/official/operator facts, explicit admission evidence, source controls and rights qualifications. Idaho contributes two, Kansas three and South Dakota eight. Five physical totals remain unknown, Cattail component inventory is unresolved, all new counties/map/arrival coordinates are null, and Caney public play excludes Tuesdays. No explicit source-data open license is claimed.

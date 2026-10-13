@@ -5,6 +5,7 @@ import copy
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
@@ -73,13 +74,31 @@ def main():
             support["source"] = remap[support["source"]]
         proposal["research"][f["id"]] = evidence
     now = datetime.now(UTC).isoformat(timespec="seconds").replace("+00:00", "Z")
+    try:
+        commit_time = subprocess.check_output(
+            ["git", "show", "-s", "--format=%cI", f"{commit}^{{commit}}"],
+            cwd=ROOT,
+            text=True,
+            stderr=subprocess.PIPE,
+        ).strip()
+    except subprocess.CalledProcessError as error:
+        raise ValueError(
+            "Resolve the reviewed evidence commit locally before replay"
+        ) from error
+    committed_at = (
+        datetime.fromisoformat(commit_time)
+        .astimezone(UTC)
+        .isoformat(timespec="seconds")
+        .replace("+00:00", "Z")
+    )
     batch = {
         "commit": commit,
-        "committed_at": now,
+        "committed_at": committed_at,
         "reported_at": now,
         "initial_baseline": False,
         "facilities_added": len(delta["added_facilities"]),
         "facilities_removed": 0,
+        "facilities_updated": 0,
         "redacted_entries": 0,
         "added_facilities": [
             {
@@ -92,7 +111,7 @@ def main():
         ],
     }
     proposal["history"]["batches"].append(batch)
-    proposal["progress"]["report_commits"].append(commit)
+    proposal["progress"]["report_commits"].insert(0, commit)
     proposal["progress"]["catalog_commit"] = commit
     proposal["progress"]["updated_at"] = now
     proposal["metadata"]["updated_on"] = max(
