@@ -11,7 +11,7 @@
     "bytes": 134022,
     "file": "a7be96907465b226.body",
     "redirect": null,
-    "completion_to_next_start_gap_seconds": 15.000133275985718,
+    "completion_to_next_start_gap_seconds": 15.000092267990112,
     "kind": "profile_specific_http500",
     "facts_used": false,
     "disposition": "Exact profile stopped for unavailable response; no retry, cache/indexed substitute, operator alternative or replacement lead. No publisher-wide policy denial inferred."

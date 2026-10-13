@@ -9,8 +9,9 @@
   "catalog_publication_tests": 17,
   "javascript_test_files": 3,
   "ruff_check_format": "passed",
-  "accepted_cohort_files": "byte-identical to accepted heads except combined catalog/README",
+  "accepted_cohort_files": "Original consolidation byte-preserved accepted files; later audit labels/Bison mirror and README corrected, raw timestamp/hash identities unchanged",
   "cohort_history_commits_reachable": true,
   "source_reads": 0,
-  "full_ci": "pending cumulative head"
+  "full_ci": "passed cumulative22f8d36; https://github.com/snowball-projects/fairway/actions/runs/38459285395",
+  "audit_review": "passed nine rows, eight gaps >=15seconds, Bison mirror consistent, final gap null"
 }

@@ -11,7 +11,7 @@
     "bytes": 170,
     "file": "1c5df71dcf142ffc.body",
     "redirect": null,
-    "completion_to_next_start_gap_seconds": null
+    "completion_to_next_start_gap_seconds": 21.462444305419922
   },
   {
     "url": "https://www.sdga.org/terms-of-use/",
@@ -25,7 +25,7 @@
     "bytes": 250038,
     "file": "fe128e80e806af85.body",
     "redirect": null,
-    "completion_to_next_start_gap_seconds": 21.462444305419922
+    "completion_to_next_start_gap_seconds": 22.646085739135742
   },
   {
     "url": "https://www.sdga.org/golf_course/murdo-golf-club/",
@@ -39,7 +39,7 @@
     "bytes": 266203,
     "file": "0f97893de7916048.body",
     "redirect": null,
-    "completion_to_next_start_gap_seconds": 22.646085739135742
+    "completion_to_next_start_gap_seconds": 20.89853000640869
   },
   {
     "url": "https://www.sdga.org/golf_course/oahe-hills-golf-course/",
@@ -53,7 +53,7 @@
     "bytes": 266075,
     "file": "83b08df8a6591d9e.body",
     "redirect": null,
-    "completion_to_next_start_gap_seconds": 20.89853000640869
+    "completion_to_next_start_gap_seconds": 15.000150203704834
   },
   {
     "url": "https://www.sdga.org/golf_course/lake-waggoner-golf-club/",
@@ -67,7 +67,7 @@
     "bytes": 268068,
     "file": "ebcb2d9d10e4c392.body",
     "redirect": null,
-    "completion_to_next_start_gap_seconds": 15.000150203704834
+    "completion_to_next_start_gap_seconds": 15.000133275985718
   },
   {
     "url": "https://www.sdga.org/golf_course/bison-country-club/",
@@ -81,7 +81,7 @@
     "bytes": 134022,
     "file": "a7be96907465b226.body",
     "redirect": null,
-    "completion_to_next_start_gap_seconds": 15.000133275985718
+    "completion_to_next_start_gap_seconds": 15.000092267990112
   },
   {
     "url": "https://www.sdga.org/golf_course/elkhorn-ridge-golf-club/",
@@ -95,7 +95,7 @@
     "bytes": 267408,
     "file": "277f44b4e57e8ae6.body",
     "redirect": null,
-    "completion_to_next_start_gap_seconds": 15.000092267990112
+    "completion_to_next_start_gap_seconds": 3367.6348237991333
   },
   {
     "url": "https://www.sdga.org/privacy",
@@ -109,7 +109,7 @@
     "bytes": 0,
     "file": "6224ba2909665024.body",
     "redirect": "https://www.sdga.org/privacy/",
-    "completion_to_next_start_gap_seconds": 3367.6348237991333
+    "completion_to_next_start_gap_seconds": 253.10130715370178
   },
   {
     "url": "https://www.sdga.org/privacy/",
@@ -123,6 +123,6 @@
     "bytes": 238165,
     "file": "77bced874fe21f4c.body",
     "redirect": null,
-    "completion_to_next_start_gap_seconds": 253.10130715370178
+    "completion_to_next_start_gap_seconds": null
   }
 ]
