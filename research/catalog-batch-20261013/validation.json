@@ -1,0 +1,16 @@
+{
+  "base_commit": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
+  "consolidation_commit": "8008b285db192f3bfbbf01a9925f8c13376ba114",
+  "distinct_facilities": 7,
+  "candidate_facilities": 7193,
+  "mapped_facilities": 4440,
+  "semantic_preservation": "passed; complete Ohio3 and SDGA4 and unrelated7186 main objects",
+  "python_tests": 229,
+  "catalog_publication_tests": 17,
+  "javascript_test_files": 3,
+  "ruff_check_format": "passed",
+  "accepted_cohort_files": "byte-identical to accepted heads except combined catalog/README",
+  "cohort_history_commits_reachable": true,
+  "source_reads": 0,
+  "full_ci": "pending cumulative head"
+}
