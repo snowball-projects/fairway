@@ -348,3 +348,5 @@ The retained distinctive-name property intake is reproducible in `source-layers/
 The second retained distinctive-name property intake is reproducible in `source-layers/retained-name-matches-02-osm-properties-20261011.json` under the same ODbL terms, preserving original proposed classifications, manual identity decisions and prior coordinates.
 
 The third retained-name property intake is reproducible in `source-layers/retained-name-matches-03-osm-properties-20261011.json` under the same ODbL terms, preserving original proposed classifications, identity decisions and prior coordinates.
+
+The fourth retained-name property intake is reproducible in `source-layers/retained-name-matches-04-osm-properties-20261011.json` under the same ODbL terms. Supported points whose physical-hole totals remain unknown stay outside the public map until those totals are established.
