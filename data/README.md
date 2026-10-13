@@ -279,7 +279,7 @@ absent. No course rows are invented to make a public 27-hole facility browsable.
 Main-map eligibility requires facility identity/name, known public play, a
 positive physical-hole total and valid property/reviewed/entrance coordinates.
 Website presence is optional. Census `address_range_estimate` points remain
-unconfirmed estimates in a separate optional layer. Browsing eligibility never
+unconfirmed estimates and are excluded from the main map. Browsing eligibility never
 establishes routing eligibility or national discovery completeness.
 
 Optional `website_status` is `not_checked`, `found` or `not_found`.
@@ -288,3 +288,23 @@ URL and dated check; `not_found` requires a dated check but means only that the
 check did not find a website. `not_checked` has no check date. This status is
 independent of map eligibility. Existing records with no recorded check remain
 unchecked even when a website URL is populated.
+
+## OSM property-match source layer
+
+`data/source-layers/illinois-osm-property-matches-20261011.json` provides the
+OpenStreetMap geometry and derived containment/identity evidence used for the
+Illinois property qualifications. Copyright OpenStreetMap contributors; this
+source layer and its derived matching results are offered under the
+[Open Database License 1.0](https://opendatacommons.org/licenses/odbl/1-0/).
+The source is the Geofabrik Illinois extract with OSM data through
+2026-10-11T20:21:06Z. Object IDs, versions, timestamps, tags, geometry and the
+unchanged pre-existing Census coordinates are included for reproducibility.
+
+The canonical catalog links these results through its source and license
+metadata. Numeric Census coordinates and independently sourced facility facts
+retain their original provenance; the new property qualification depends on
+OSM and is subject to ODbL. This does not establish an entrance, public access,
+or current operation. The MIT software license does not license OSM data.
+Keeping the evidence in a separate file does not by itself exempt a combined
+or derivative database from ODbL obligations. Reusers must preserve applicable
+source licenses and comply with ODbL when distributing OSM-derived databases.
