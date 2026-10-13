@@ -315,7 +315,8 @@
     "sd20261013-batch-history": "Added eight independently reviewed South Dakota public facilities and two explicit physical courses. Individual SDGA Public labels establish access; five physical totals and all map/arrival/county fields remain unverified. No facility division from totals or playing-round pricing. Source stops and policy observations retained in research/south-dakota-20261013.",
     "ks20261013-caney-access": "The operator explicitly publishes nonmember rates. Its homepage closes the course to public play on Tuesdays and allows exceptions for leagues, tournaments and posted events; the Stay & Play page separately says daily opening. The Tuesday restriction is retained rather than promising unrestricted daily access. Course Statistics expressly identifies nine physical holes played using two nine-hole tee loops, so the eighteen-hole route is not counted as a second physical course. Source publication dates are not stated; observed October 13, 2026.",
     "ks20261013-ness-source": "The official Ness County Chamber recreation page explicitly identifies a nine-hole course open to the public. Its unnumbered Highway 283 location about four miles north of Ness City is retained here but is not promoted to a numbered course address. No independent operator website, county assignment, property point or arrival was verified. The page is undated; observation on October 13, 2026 does not guarantee live operation.",
-    "ks20261013-cimarron-source": "The operator Fees page explicitly offers nonmember weekday and weekend/holiday play. The independent official Kansas Tourism profile identifies a nine-hole physical course; nine/eighteen-hole playing prices are not separate layouts. The operator homepage publishes 812 Golf Course Rd., Cimarron, KS 67835. Source publication dates are unknown; observed October 13, 2026. County, property location and arrival remain unverified."
+    "ks20261013-cimarron-source": "The operator Fees page explicitly offers nonmember weekday and weekend/holiday play. The independent official Kansas Tourism profile identifies a nine-hole physical course; nine/eighteen-hole playing prices are not separate layouts. The operator homepage publishes 812 Golf Course Rd., Cimarron, KS 67835. Source publication dates are unknown; observed October 13, 2026. County, property location and arrival remain unverified.",
+    "n-id-ks-sd-20261013-integration-history": "Thirteen ID-scoped public facility additions: Idaho2, Kansas3, South Dakota8; seven supported physical course records. Existing facilities/research, maps, arrivals, green-dot UI and ranking preserved. Bounded independent-source intake; control exceptions and source-license limitations documented in research/combined-public-20261013."
   },
   "research": {
     "f-248cb17c-e975-4b5d-81ff-05636f7fd3aa": {
@@ -880,10 +881,10 @@
   },
   "history_batches": [
     {
-      "commit": "7adab469622919f15c2350dda150dde466f66138",
-      "committed_at": "2026-10-13T17:31:09Z",
+      "commit": "5e6ebdbbc54769f9f26f73cc921f712c0f1e09d5",
+      "committed_at": "2026-10-13T17:37:26+00:00",
       "initial_baseline": false,
-      "facilities_added": 2,
+      "facilities_added": 13,
       "facilities_removed": 0,
       "redacted_entries": 0,
       "added_facilities": [
@@ -898,86 +899,55 @@
           "name": "Pinehurst Golf Course",
           "state": "ID",
           "address": "11 Country Club Lane, Pinehurst, ID 83850"
-        }
-      ],
-      "facilities_updated": 0,
-      "correction_note": [
-        "n-idnita-20261013-history"
-      ],
-      "reported_at": "2026-10-13T17:31:09Z"
-    },
-    {
-      "commit": "3553c5f33a77d518592d23b00b4759c97f5f4832",
-      "committed_at": "2026-10-13T12:28:23-05:00",
-      "initial_baseline": false,
-      "facilities_added": 8,
-      "facilities_removed": 0,
-      "redacted_entries": 0,
-      "added_facilities": [
+        },
         {
+          "id": "f-2afc16b7-bcad-4f30-9bbc-104f171fddaf",
           "name": "Britton Country Club",
           "state": "SD",
-          "address": "10920 424TH AVE, BRITTON, SD 57430, US",
-          "id": "f-2afc16b7-bcad-4f30-9bbc-104f171fddaf"
+          "address": "10920 424TH AVE, BRITTON, SD 57430, US"
         },
         {
+          "id": "f-a6ce5cfc-0d70-4947-b76f-545cd39928cd",
           "name": "Fisher Grove Country Club",
           "state": "SD",
-          "address": "Box 22 17290 Fisher Lane Redfield, SD 57469",
-          "id": "f-a6ce5cfc-0d70-4947-b76f-545cd39928cd"
+          "address": "Box 22 17290 Fisher Lane Redfield, SD 57469"
         },
         {
+          "id": "f-58542a44-1c5d-48ec-9ed9-60f444699475",
           "name": "Miller Golf Course",
           "state": "SD",
-          "address": "2808 North Highway 45, Miller, SD 57362",
-          "id": "f-58542a44-1c5d-48ec-9ed9-60f444699475"
+          "address": "2808 North Highway 45, Miller, SD 57362"
         },
         {
+          "id": "f-dafb72f1-c912-4cf4-a6df-a270310f1fc2",
           "name": "Webster Municipal Golf Course",
           "state": "SD",
-          "address": null,
-          "id": "f-dafb72f1-c912-4cf4-a6df-a270310f1fc2"
+          "address": null
         },
         {
+          "id": "f-b907c36e-5ab3-4106-acb7-abf07da1371e",
           "name": "Olive Grove Golf Course",
           "state": "SD",
-          "address": "700 East 5th Ave, Groton, SD 57445",
-          "id": "f-b907c36e-5ab3-4106-acb7-abf07da1371e"
+          "address": "700 East 5th Ave, Groton, SD 57445"
         },
         {
+          "id": "f-0cfec41a-f0fe-4a43-90df-58ba5e2fba81",
           "name": "Bowdle Golf Club",
           "state": "SD",
-          "address": "13275 326th Ave, PO Box 60, Bowdle, SD 57428",
-          "id": "f-0cfec41a-f0fe-4a43-90df-58ba5e2fba81"
+          "address": "13275 326th Ave, PO Box 60, Bowdle, SD 57428"
         },
         {
+          "id": "f-e1b234fd-4dda-4bec-8498-10b81374096f",
           "name": "Newell Golf Club",
           "state": "SD",
-          "address": "12963 Orman Road, Newell, SD 57760",
-          "id": "f-e1b234fd-4dda-4bec-8498-10b81374096f"
+          "address": "12963 Orman Road, Newell, SD 57760"
         },
         {
+          "id": "f-c15cc495-4a08-4aa5-a34b-a6633c1acba4",
           "name": "Cattail Crossing Golf Course",
           "state": "SD",
-          "address": "351 S Lake Dr., Watertown, SD 57201",
-          "id": "f-c15cc495-4a08-4aa5-a34b-a6633c1acba4"
-        }
-      ],
-      "facilities_updated": 0,
-      "correction_note": [
-        "sd20261013-batch-history"
-      ],
-      "reported_at": "2026-10-13T12:28:23-05:00"
-    },
-    {
-      "commit": "32ed67bf6cbe21c23a282e431b53051fed6bb0cb",
-      "committed_at": "2026-10-13T17:30:46Z",
-      "reported_at": "2026-10-13T17:30:46Z",
-      "initial_baseline": false,
-      "facilities_added": 3,
-      "facilities_removed": 0,
-      "redacted_entries": 0,
-      "added_facilities": [
+          "address": "351 S Lake Dr., Watertown, SD 57201"
+        },
         {
           "id": "f-b40677be-1f5c-4330-9b33-c0df9768b450",
           "name": "Caney Golf Club",
@@ -996,7 +966,12 @@
           "state": "KS",
           "address": "812 Golf Course Rd., Cimarron, KS 67835"
         }
-      ]
+      ],
+      "facilities_updated": 0,
+      "correction_note": [
+        "n-id-ks-sd-20261013-integration-history"
+      ],
+      "reported_at": "2026-10-13T17:37:26+00:00"
     }
   ],
   "map_additions": 0,
