@@ -201,6 +201,17 @@ def test_overlapping_areas_deduplicate_and_honor_course_cap():
     assert len({item.identifier for item in shortlisted}) == 3
 
 
+def test_spherical_longitude_prefilter_keeps_course_inside_exact_radius():
+    inside = course("edge", (40.0, -95.988265))
+
+    shortlisted = shortlist_courses(
+        (inside,),
+        (PromisingArea("area", (40.0, -96.0), 1),),
+    )
+
+    assert shortlisted == (inside,)
+
+
 def test_distant_only_catalog_fails_without_matrix_call():
     matrix = Matrix({"chicago": (1.0, 1.0)})
 
@@ -277,3 +288,20 @@ def test_rejects_matrix_that_changes_origin_identity():
             Areas(),
             BrokenMatrix({"eligible": (1.0, 1.0)}),
         )
+
+
+def test_normalizes_json_style_origin_lists_before_provider_contracts():
+    areas = Areas()
+    matrix = Matrix({"eligible": (1.0, 1.0)})
+
+    result = calculate_national_ranking(
+        [[47.6062, -122.3321], [40.7128, -74.0060]],
+        "maximum",
+        (course("eligible", (41.0, -96.0)),),
+        areas,
+        matrix,
+    )
+
+    assert result.matrix.origin_coordinates == ORIGINS
+    assert areas.calls[0][0] == ORIGINS
+    assert matrix.calls[0][0] == ORIGINS

@@ -2,7 +2,7 @@
 
 from bisect import bisect_left, bisect_right
 from dataclasses import dataclass
-from math import cos, isfinite, radians
+from math import asin, cos, degrees, isfinite, pi, radians, sin
 from typing import Protocol
 
 from .courses import Course
@@ -14,8 +14,7 @@ MAX_AREA_RADIUS_KILOMETERS = 160
 MAX_ROUTED_COURSES = 24
 ROUTING_DESTINATION_KINDS = frozenset({"reviewed_osm_point", "verified_entrance"})
 ROUTING_ADDRESS_PURPOSES = frozenset({"course", "clubhouse", "arrival"})
-KILOMETERS_PER_LATITUDE_DEGREE = 110.574
-KILOMETERS_PER_LONGITUDE_DEGREE_AT_EQUATOR = 111.320
+EARTH_RADIUS_KILOMETERS = 6_371.0088
 
 
 @dataclass(frozen=True)
@@ -147,21 +146,16 @@ class _CourseLatitudeIndex:
 
     def within(self, area):
         latitude, longitude = area.center
-        latitude_delta = area.radius_kilometers / KILOMETERS_PER_LATITUDE_DEGREE
+        angular_radius = area.radius_kilometers / EARTH_RADIUS_KILOMETERS
+        latitude_delta = degrees(angular_radius)
         start = bisect_left(self.latitudes, latitude - latitude_delta)
         end = bisect_right(self.latitudes, latitude + latitude_delta)
-        longitude_edge_latitude = min(
-            89.999999,
-            max(abs(latitude - latitude_delta), abs(latitude + latitude_delta)),
-        )
-        longitude_scale = KILOMETERS_PER_LONGITUDE_DEGREE_AT_EQUATOR * cos(
-            radians(longitude_edge_latitude)
-        )
-        longitude_delta = (
-            180
-            if longitude_scale <= 0
-            else min(180, area.radius_kilometers / longitude_scale)
-        )
+        center_latitude = radians(latitude)
+        longitude_delta = 180
+        if abs(center_latitude) + angular_radius < pi / 2:
+            longitude_delta = degrees(
+                asin(min(1, sin(angular_radius) / cos(center_latitude)))
+            )
         return tuple(
             course
             for course in self.courses[start:end]
@@ -189,6 +183,9 @@ def calculate_national_ranking(
         raise ValueError("provide between 2 and 8 origins")
     for origin in origins:
         _require_coordinate("origin", origin)
+    origins = tuple(
+        (float(latitude), float(longitude)) for latitude, longitude in origins
+    )
     if objective not in {"combined", "maximum"}:
         raise ValueError("objective must be 'combined' or 'maximum'")
     _require_limit("promising area", area_limit, MAX_PROMISING_AREAS)

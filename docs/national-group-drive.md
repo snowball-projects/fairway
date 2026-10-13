@@ -25,7 +25,8 @@ bounded tuple of stable
 `PromisingArea(identifier, center, radius_kilometers)` values, and carries
 provider, strategy, and scalar provenance metadata. Every radius must be
 positive and no greater than 160 km. fairway uses a latitude index, a longitude
-bounding-box check, and then exact great-circle distance to enforce each radius.
+bound derived from the same spherical model, and then exact great-circle
+distance to enforce each radius.
 It does not expand an empty area or fall back to the nearest national course.
 The result describes an approximate candidate search, not a global optimum. A
 later thin adapter may translate MODO's native response into this type without
@@ -44,6 +45,12 @@ they do not prove global optimality, complete facility coverage, or that the
 true road-time optimum is in the shortlist. This boundary prevents a national
 all-course matrix. The current Pages catalog browsing and Chicago production
 calculation paths are unchanged.
+
+MODO's `final_resolution_km` describes numerical search resolution, not a
+useful facility-discovery catchment. The thin MODO adapter preserves that value
+in provenance and applies a separate, explicit 25-km facility radius by default.
+Callers may choose another positive value up to the 160-km hard ceiling. There
+is no automatic widening after an empty search.
 
 The hole filter remains 9 or 18 because those are fairway's documented playable
 course choices and the validated ranking catalog contract. A facility's
