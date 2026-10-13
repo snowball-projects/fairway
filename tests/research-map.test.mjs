@@ -23,6 +23,26 @@ const boundaries = JSON.parse(
   ),
 );
 const model = buildModel(catalog);
+test("published progress exposes the latest reported intake to the map", () => {
+  const canonical = JSON.parse(
+    readFileSync(new URL("../data/catalog.json", import.meta.url)),
+  );
+  const exported = JSON.parse(
+    readFileSync(
+      new URL("../src/fairway/static/data/research-progress.json", import.meta.url),
+    ),
+  );
+  const latest = canonical.history.batches.find(
+    (batch) => batch.commit === canonical.progress.report_commits[0],
+  );
+  assert.ok(latest);
+  const reportTime = Date.parse(latest.reported_at);
+  const parsed = parseProgress(exported, reportTime);
+  assert.equal(parsed.catalogCommit, latest.commit);
+  assert.equal(Date.parse(parsed.updatedAt), reportTime);
+  assert.equal(parsed.recentBatches[0].commit, latest.commit);
+  assert.equal(parsed.stale, false);
+});
 test("derived metrics agree with published catalog totals without inferring course layouts", () => {
   const totals = summarize(model.records);
   assert.equal(totals.facilities, catalog.coverage.facility_entry_count);
