@@ -324,3 +324,5 @@ the same Illinois extract, under ODbL-1.0. These fill previously null browse
 locations; unchanged facility facts and original admission evidence remain
 separate. Fourteen unmatched facilities and the insufficiently corroborated
 Golfmohr spelling candidate remain unchanged.
+
+The California property-point intake is reproducible in `source-layers/california-osm-properties-20261011.json`. It contains the selected OpenStreetMap golf polygons, versions, identity evidence and derived interior browse points, including the catalog's prior coordinate values. This layer and the resulting OSM-dependent point/location qualifications are under ODbL 1.0 with attribution to OpenStreetMap contributors. Independent facility facts retain their existing source provenance; separation into a companion file does not waive applicable combined-database obligations. Points indicate the matched property, not an entrance or a routing arrival. Source snapshot: 2026-10-11; intake: 2026-10-13.
