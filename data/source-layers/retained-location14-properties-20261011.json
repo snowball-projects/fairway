@@ -1,0 +1,3389 @@
+{
+  "schema": "retained-location14-20261013-v1",
+  "attribution": "\u00a9 OpenStreetMap contributors",
+  "license": "ODbL-1.0",
+  "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "source_extract": "Geofabrik United States261011",
+  "source_data_through": "2026-10-11T20:21:06Z",
+  "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+  "requests_for_this_cohort": 0,
+  "coordinate_role": "Dated golf-property interior browsing point; not legal parcel/survey, clubhouse, entrance, arrival or current-operation claim.",
+  "original_geometry_hash_qualification": "Original upstream geometry_sha256 values are preserved as opaque provenance. Their original serialized bytes are not materialized, and re-encoding GeoJSON does not reproduce them. Exact original archive input SHA256 values verify the numeric geometry; independently computed sorted-compact GeoJSON hashes verify this review representation.",
+  "records": [
+    {
+      "facility_id": "f-ee14fc75-77ac-4295-881f-ff0d4bc90099",
+      "name": "Fox Run Golf Course",
+      "original_map_location": null,
+      "derived_map_location": {
+        "latitude": 41.98403555,
+        "longitude": -79.95157553,
+        "kind": "property_point"
+      },
+      "selected_feature": {
+        "selection_status": "ambiguous_not_selected",
+        "osm": {
+          "type": "way",
+          "id": 1016415497,
+          "version": 1,
+          "timestamp_unix": 1640735885,
+          "tags": {
+            "addr:city": "Waterford",
+            "addr:housenumber": "2123",
+            "addr:postcode": "16441",
+            "addr:state": "PA",
+            "addr:street": "Strong Road",
+            "leisure": "golf_course",
+            "name": "Fox Run Golf Course"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -79.9544023,
+                    41.9828631
+                  ],
+                  [
+                    -79.9542513,
+                    41.9823837
+                  ],
+                  [
+                    -79.9538911,
+                    41.9810622
+                  ],
+                  [
+                    -79.9527117,
+                    41.9805051
+                  ],
+                  [
+                    -79.9525723,
+                    41.9802287
+                  ],
+                  [
+                    -79.9515207,
+                    41.9802589
+                  ],
+                  [
+                    -79.9515498,
+                    41.9813904
+                  ],
+                  [
+                    -79.9515323,
+                    41.982483
+                  ],
+                  [
+                    -79.9513987,
+                    41.9833727
+                  ],
+                  [
+                    -79.9506086,
+                    41.9834374
+                  ],
+                  [
+                    -79.948796,
+                    41.9836447
+                  ],
+                  [
+                    -79.9491445,
+                    41.9844264
+                  ],
+                  [
+                    -79.9498069,
+                    41.986076
+                  ],
+                  [
+                    -79.950597,
+                    41.9876911
+                  ],
+                  [
+                    -79.9531067,
+                    41.9875745
+                  ],
+                  [
+                    -79.9530545,
+                    41.9868577
+                  ],
+                  [
+                    -79.9538271,
+                    41.9868145
+                  ],
+                  [
+                    -79.9539375,
+                    41.9867238
+                  ],
+                  [
+                    -79.9540072,
+                    41.9854628
+                  ],
+                  [
+                    -79.9540595,
+                    41.9845646
+                  ],
+                  [
+                    -79.9542803,
+                    41.9836016
+                  ],
+                  [
+                    -79.9544023,
+                    41.9828631
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "42f85139de5c4898a4553cd6099664732fe4ccccd8a85292d7fdadd59e279033",
+          "geometry_crs": "EPSG:4326"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Fox Run Golf Course",
+            "full_exact": true,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_course",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "facebook.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "16441"
+            ],
+            "osm_postcode": "16441",
+            "postcode_match": true,
+            "postcode_conflict": false,
+            "catalog_house_number": "2123",
+            "osm_house_number": "2123",
+            "house_number_match": true,
+            "house_number_conflict": false,
+            "catalog_street_key": "strong",
+            "osm_street_key": "strong",
+            "street_similarity": 1.0,
+            "catalog_city": "waterford",
+            "osm_city": "waterford",
+            "city_match": true,
+            "city_conflict": false,
+            "street_words_match": true,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 4
+          },
+          "state_containment": "representative point strictly contained by OSM US-PA boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 11,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -79.95157552621495,
+          "latitude": 41.98403555,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        }
+      },
+      "original_record_status": "ambiguous",
+      "original_decision_reason": "plausible name candidates remain without decisive identity evidence",
+      "retained_input_sha256": "4fce6e9093adea6c6a8e731110cc7877581e845671701f61b7aca6d4a5198890",
+      "source_provenance": {
+        "state_inputs": [
+          {
+            "state": "texas",
+            "input_sha256": "a0e233e2cd270070529d0fb387b7f6a0bd2b615b61be9b7506022f79e36847db",
+            "source": {
+              "catalog_file": "existing-unmapped-facilities-20261013.json",
+              "catalog_sha256": "142f5965c54bee0d7e23c42ece296a6367d9f6b8297fe197cfb2097ed24dc8d6",
+              "catalog_library_file_id": "libfile_a57323e68e9081918951857885fe40a7",
+              "catalog_source_main": "53d30b4a08681b7927e6ade09f39ab4732718114",
+              "catalog_canonical_sha256": "489007c1c832b4ae87a78d92e7ddd22502aedd765148a1bcf8ba7fa682a3f9a6",
+              "catalog_scope_counts": {
+                "active_catalog_facilities": 7176,
+                "map_eligible": 294,
+                "off_map_total": 6882,
+                "without_qualified_property_location_in_this_handoff": 6868,
+                "excluded_existing_property_point_missing_holes": 14
+              },
+              "golf_sqlite_sha256": "d485b47256814d6764779e7d1987493c37d71e519b5b16412c46426ee468ea37",
+              "state_boundary_sha256": "308e178d83de441c812b503a75eb53e096c3acfa30abac66063341029f505e87",
+              "osm_extract": "Geofabrik United States 261011",
+              "osm_data_through": "2026-10-11T20:21:06Z",
+              "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+              "software": "Python + Shapely 2.0.3"
+            },
+            "counts": {
+              "supported": 164,
+              "proposed": 27,
+              "ambiguous": 55,
+              "unmatched": 73
+            }
+          },
+          {
+            "state": "pennsylvania",
+            "input_sha256": "cd29a180587ae7ed389b4c89bb022ed8e061e46af7418360cd2b0a5442498b0c",
+            "source": {
+              "catalog_file": "existing-unmapped-facilities-20261013.json",
+              "catalog_sha256": "142f5965c54bee0d7e23c42ece296a6367d9f6b8297fe197cfb2097ed24dc8d6",
+              "catalog_library_file_id": "libfile_a57323e68e9081918951857885fe40a7",
+              "catalog_source_main": "53d30b4a08681b7927e6ade09f39ab4732718114",
+              "catalog_canonical_sha256": "489007c1c832b4ae87a78d92e7ddd22502aedd765148a1bcf8ba7fa682a3f9a6",
+              "catalog_scope_counts": {
+                "active_catalog_facilities": 7176,
+                "map_eligible": 294,
+                "off_map_total": 6882,
+                "without_qualified_property_location_in_this_handoff": 6868,
+                "excluded_existing_property_point_missing_holes": 14
+              },
+              "golf_sqlite_sha256": "d485b47256814d6764779e7d1987493c37d71e519b5b16412c46426ee468ea37",
+              "state_boundary_sha256": "308e178d83de441c812b503a75eb53e096c3acfa30abac66063341029f505e87",
+              "osm_extract": "Geofabrik United States 261011",
+              "osm_data_through": "2026-10-11T20:21:06Z",
+              "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+              "software": "Python + Shapely 2.0.3"
+            },
+            "counts": {
+              "supported": 141,
+              "proposed": 45,
+              "ambiguous": 40,
+              "unmatched": 83
+            }
+          },
+          {
+            "state": "iowa",
+            "input_sha256": "386a913dbdcbf549f062ed07aa3139a5849468a1aa4465cbf903f008a6c42106",
+            "source": {
+              "catalog_file": "existing-unmapped-facilities-20261013.json",
+              "catalog_sha256": "142f5965c54bee0d7e23c42ece296a6367d9f6b8297fe197cfb2097ed24dc8d6",
+              "catalog_library_file_id": "libfile_a57323e68e9081918951857885fe40a7",
+              "catalog_source_main": "53d30b4a08681b7927e6ade09f39ab4732718114",
+              "catalog_canonical_sha256": "489007c1c832b4ae87a78d92e7ddd22502aedd765148a1bcf8ba7fa682a3f9a6",
+              "catalog_scope_counts": {
+                "active_catalog_facilities": 7176,
+                "map_eligible": 294,
+                "off_map_total": 6882,
+                "without_qualified_property_location_in_this_handoff": 6868,
+                "excluded_existing_property_point_missing_holes": 14
+              },
+              "golf_sqlite_sha256": "d485b47256814d6764779e7d1987493c37d71e519b5b16412c46426ee468ea37",
+              "state_boundary_sha256": "308e178d83de441c812b503a75eb53e096c3acfa30abac66063341029f505e87",
+              "osm_extract": "Geofabrik United States 261011",
+              "osm_data_through": "2026-10-11T20:21:06Z",
+              "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+              "software": "Python + Shapely 2.0.3"
+            },
+            "counts": {
+              "supported": 173,
+              "proposed": 41,
+              "ambiguous": 31,
+              "unmatched": 58
+            }
+          }
+        ]
+      },
+      "independent_binding": "Specific accepted canonical street-address evidence is independent of retained OSM tags. Current course public-play and physical-hole facts are standing canonical values, unchanged.",
+      "identity_decision": "Canonical 2123 Strong Road, Waterford PA16441 matches OSM house2123,Strong Road,Waterford,16441. The other Pennsylvania Fox Run canonical identity is4240RiverRoad,BeaverFalls; the alternate retained geometry has no address binding and is spatially disjoint.",
+      "rejected_competitors": [
+        {
+          "osm": {
+            "type": "way",
+            "id": 804451644,
+            "version": 2,
+            "timestamp_unix": 1607721973,
+            "tags": {
+              "leisure": "golf_course",
+              "name": "Fox Run Golf Course"
+            },
+            "geometry": {
+              "type": "MultiPolygon",
+              "coordinates": [
+                [
+                  [
+                    [
+                      -80.3296765,
+                      40.7970488
+                    ],
+                    [
+                      -80.3291544,
+                      40.7966041
+                    ],
+                    [
+                      -80.327944,
+                      40.7952516
+                    ],
+                    [
+                      -80.3281884,
+                      40.7941436
+                    ],
+                    [
+                      -80.3282762,
+                      40.7938199
+                    ],
+                    [
+                      -80.3279535,
+                      40.79361
+                    ],
+                    [
+                      -80.3260216,
+                      40.7940448
+                    ],
+                    [
+                      -80.3215445,
+                      40.7942523
+                    ],
+                    [
+                      -80.3209049,
+                      40.7953887
+                    ],
+                    [
+                      -80.3203436,
+                      40.796614
+                    ],
+                    [
+                      -80.319717,
+                      40.7989065
+                    ],
+                    [
+                      -80.3193777,
+                      40.8003986
+                    ],
+                    [
+                      -80.322915,
+                      40.8004974
+                    ],
+                    [
+                      -80.3233588,
+                      40.8003887
+                    ],
+                    [
+                      -80.3234436,
+                      40.8003536
+                    ],
+                    [
+                      -80.3249121,
+                      40.7997464
+                    ],
+                    [
+                      -80.325865,
+                      40.7991535
+                    ],
+                    [
+                      -80.3283581,
+                      40.7979777
+                    ],
+                    [
+                      -80.3296765,
+                      40.7970488
+                    ]
+                  ]
+                ]
+              ]
+            },
+            "geometry_sha256": "3229231f2d89d2a276dc6591ef3adc13f328d9060b40b6203d5bcd3833d17195",
+            "geometry_crs": "EPSG:4326"
+          },
+          "original_identity_evidence": {
+            "name": {
+              "osm_variant": "Fox Run Golf Course",
+              "full_exact": true,
+              "core_exact": true,
+              "score": 1.0,
+              "catalog_identity_kind": "golf_course",
+              "osm_identity_kind": "golf_course",
+              "identity_kind_conflict": false
+            },
+            "address_website": {
+              "catalog_website_domain": "facebook.com",
+              "osm_website_domain": null,
+              "website_match": false,
+              "website_domains_differ": false,
+              "catalog_postcodes": [
+                "16441"
+              ],
+              "osm_postcode": null,
+              "postcode_match": false,
+              "postcode_conflict": false,
+              "catalog_house_number": "2123",
+              "osm_house_number": null,
+              "house_number_match": false,
+              "house_number_conflict": false,
+              "catalog_street_key": "strong",
+              "osm_street_key": null,
+              "street_similarity": 0.0,
+              "catalog_city": "waterford",
+              "osm_city": null,
+              "city_match": false,
+              "city_conflict": false,
+              "street_words_match": false,
+              "street_conflict": false,
+              "specific_address_conflict": false,
+              "locality_signal_count": 0
+            },
+            "state_containment": "representative point strictly contained by OSM US-PA boundary",
+            "proximity_alone_not_used": true,
+            "domain_multiplicity": {
+              "catalog_records_with_domain": 11,
+              "osm_properties_with_domain": 0,
+              "shared_domain": false
+            }
+          },
+          "original_selection_status": "ambiguous_not_selected",
+          "selected_geometry_intersects": false,
+          "selected_geometry_centroid_distance_degrees": 1.2441636720807783,
+          "decision": "Rejected for this UUID: lacks matching canonical house/street/ZIP or conflicts with that address. No second property or facility/course subdivision inferred."
+        }
+      ],
+      "other_canonical_namesakes": [
+        {
+          "id": "f-95ba2b61-6f8f-4e17-93c6-fbb7a8b28864",
+          "state": "PA",
+          "address": {
+            "text": "4240 River Rd, Beaver Falls, PA",
+            "purpose": "published_unspecified"
+          },
+          "map_location": null
+        },
+        {
+          "id": "f-71f64d3f-ffe8-4508-b73d-8f18378ccd0f",
+          "state": "SD",
+          "address": {
+            "text": "600 W 27th Street, Yankton, SD 57078",
+            "purpose": "published_unspecified"
+          },
+          "map_location": {
+            "latitude": 42.903298649999996,
+            "longitude": -97.40519794168786,
+            "kind": "property_point"
+          }
+        },
+        {
+          "id": "f-44e374b8-165d-454c-8fef-d64803e2b249",
+          "state": "WI",
+          "address": {
+            "text": "27536 State Road 35, Webster, WI 54893",
+            "purpose": "contact"
+          },
+          "map_location": null
+        }
+      ],
+      "prior_decision_records": [
+        {
+          "archive_member": "fairway-map-batch01-pr8-portable/fairway-map-three-state01/deferred.json",
+          "sha256": "33b2fd548976cf8e1ac32126389c6105ad784f43b59c698db085907f5a2bfa88",
+          "record": {
+            "id": "f-ee14fc75-77ac-4295-881f-ff0d4bc90099",
+            "name": "Fox Run Golf Course",
+            "status": "ambiguous",
+            "reason": "plausible name candidates remain without decisive identity evidence"
+          }
+        }
+      ],
+      "review_sorted_compact_geojson_sha256": "1ae8ca368b870f6d9f9cbd6608fbfbf1db4c2f726d0c4eb5f2598dc113fd8a0a",
+      "geometry_validation": {
+        "retained_input_sha256_verified": true,
+        "review_geojson_hash_independently_computed": true,
+        "original_upstream_geometry_hash_preserved_not_recomputed": true,
+        "original_and_new_points_strictly_contained": true,
+        "current_qualified_property_point_collisions": [],
+        "rounded_point_reproduced_shapely": "2.1.2"
+      },
+      "existing_public_field_provenance": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "address",
+            "physical_holes",
+            "courses.c-178df247-2237-42d7-9379-59ed349768c6.holes",
+            "courses.c-178df247-2237-42d7-9379-59ed349768c6.access",
+            "inventory_complete",
+            "grouping"
+          ],
+          "source_url": "https://golferiepa.com/local-golf-courses",
+          "observed_on": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "facility_id": "f-74930e2a-5523-48c6-a6ee-46379fe0092f",
+      "name": "Hancock Golf Course",
+      "original_map_location": null,
+      "derived_map_location": {
+        "latitude": 30.29902665,
+        "longitude": -97.72531964,
+        "kind": "property_point"
+      },
+      "selected_feature": {
+        "selection_status": "ambiguous_not_selected",
+        "osm": {
+          "type": "way",
+          "id": 30764860,
+          "version": 8,
+          "timestamp_unix": 1726928157,
+          "tags": {
+            "addr:city": "Austin",
+            "addr:housenumber": "811",
+            "addr:postcode": "78751",
+            "addr:street": "East 41st Street",
+            "leisure": "golf_course",
+            "name": "Hancock Golf Course"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -97.7284739,
+                    30.2981272
+                  ],
+                  [
+                    -97.7284649,
+                    30.2980903
+                  ],
+                  [
+                    -97.7271309,
+                    30.2974854
+                  ],
+                  [
+                    -97.7259715,
+                    30.2969331
+                  ],
+                  [
+                    -97.7244008,
+                    30.296229
+                  ],
+                  [
+                    -97.7243471,
+                    30.2962255
+                  ],
+                  [
+                    -97.7232764,
+                    30.296607
+                  ],
+                  [
+                    -97.7230361,
+                    30.2976742
+                  ],
+                  [
+                    -97.7227529,
+                    30.2988525
+                  ],
+                  [
+                    -97.7226928,
+                    30.2992008
+                  ],
+                  [
+                    -97.7237399,
+                    30.2995416
+                  ],
+                  [
+                    -97.7235082,
+                    30.3001864
+                  ],
+                  [
+                    -97.7245124,
+                    30.3006903
+                  ],
+                  [
+                    -97.7254289,
+                    30.3011282
+                  ],
+                  [
+                    -97.7263108,
+                    30.3015727
+                  ],
+                  [
+                    -97.7263488,
+                    30.3015787
+                  ],
+                  [
+                    -97.7263651,
+                    30.3015698
+                  ],
+                  [
+                    -97.7263735,
+                    30.3015608
+                  ],
+                  [
+                    -97.7263946,
+                    30.3015079
+                  ],
+                  [
+                    -97.7267584,
+                    30.300909
+                  ],
+                  [
+                    -97.7273032,
+                    30.3000245
+                  ],
+                  [
+                    -97.7275555,
+                    30.299609
+                  ],
+                  [
+                    -97.7284739,
+                    30.2981272
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "33e96e41c4cdf9a2633e0586b9759b9fba89e1907f586717fc9c5876e652fa32",
+          "geometry_crs": "EPSG:4326"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Hancock Golf Course",
+            "full_exact": true,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_course",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "austintexas.gov",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "78751"
+            ],
+            "osm_postcode": "78751",
+            "postcode_match": true,
+            "postcode_conflict": false,
+            "catalog_house_number": "811",
+            "osm_house_number": "811",
+            "house_number_match": true,
+            "house_number_conflict": false,
+            "catalog_street_key": "41st",
+            "osm_street_key": "41st",
+            "street_similarity": 1.0,
+            "catalog_city": "austin",
+            "osm_city": "austin",
+            "city_match": true,
+            "city_conflict": false,
+            "street_words_match": true,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 4
+          },
+          "state_containment": "representative point strictly contained by OSM US-TX boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 4,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -97.72531964140572,
+          "latitude": 30.299026650000002,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        }
+      },
+      "original_record_status": "ambiguous",
+      "original_decision_reason": "plausible name candidates remain without decisive identity evidence",
+      "retained_input_sha256": "4fce6e9093adea6c6a8e731110cc7877581e845671701f61b7aca6d4a5198890",
+      "source_provenance": {
+        "state_inputs": [
+          {
+            "state": "texas",
+            "input_sha256": "a0e233e2cd270070529d0fb387b7f6a0bd2b615b61be9b7506022f79e36847db",
+            "source": {
+              "catalog_file": "existing-unmapped-facilities-20261013.json",
+              "catalog_sha256": "142f5965c54bee0d7e23c42ece296a6367d9f6b8297fe197cfb2097ed24dc8d6",
+              "catalog_library_file_id": "libfile_a57323e68e9081918951857885fe40a7",
+              "catalog_source_main": "53d30b4a08681b7927e6ade09f39ab4732718114",
+              "catalog_canonical_sha256": "489007c1c832b4ae87a78d92e7ddd22502aedd765148a1bcf8ba7fa682a3f9a6",
+              "catalog_scope_counts": {
+                "active_catalog_facilities": 7176,
+                "map_eligible": 294,
+                "off_map_total": 6882,
+                "without_qualified_property_location_in_this_handoff": 6868,
+                "excluded_existing_property_point_missing_holes": 14
+              },
+              "golf_sqlite_sha256": "d485b47256814d6764779e7d1987493c37d71e519b5b16412c46426ee468ea37",
+              "state_boundary_sha256": "308e178d83de441c812b503a75eb53e096c3acfa30abac66063341029f505e87",
+              "osm_extract": "Geofabrik United States 261011",
+              "osm_data_through": "2026-10-11T20:21:06Z",
+              "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+              "software": "Python + Shapely 2.0.3"
+            },
+            "counts": {
+              "supported": 164,
+              "proposed": 27,
+              "ambiguous": 55,
+              "unmatched": 73
+            }
+          },
+          {
+            "state": "pennsylvania",
+            "input_sha256": "cd29a180587ae7ed389b4c89bb022ed8e061e46af7418360cd2b0a5442498b0c",
+            "source": {
+              "catalog_file": "existing-unmapped-facilities-20261013.json",
+              "catalog_sha256": "142f5965c54bee0d7e23c42ece296a6367d9f6b8297fe197cfb2097ed24dc8d6",
+              "catalog_library_file_id": "libfile_a57323e68e9081918951857885fe40a7",
+              "catalog_source_main": "53d30b4a08681b7927e6ade09f39ab4732718114",
+              "catalog_canonical_sha256": "489007c1c832b4ae87a78d92e7ddd22502aedd765148a1bcf8ba7fa682a3f9a6",
+              "catalog_scope_counts": {
+                "active_catalog_facilities": 7176,
+                "map_eligible": 294,
+                "off_map_total": 6882,
+                "without_qualified_property_location_in_this_handoff": 6868,
+                "excluded_existing_property_point_missing_holes": 14
+              },
+              "golf_sqlite_sha256": "d485b47256814d6764779e7d1987493c37d71e519b5b16412c46426ee468ea37",
+              "state_boundary_sha256": "308e178d83de441c812b503a75eb53e096c3acfa30abac66063341029f505e87",
+              "osm_extract": "Geofabrik United States 261011",
+              "osm_data_through": "2026-10-11T20:21:06Z",
+              "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+              "software": "Python + Shapely 2.0.3"
+            },
+            "counts": {
+              "supported": 141,
+              "proposed": 45,
+              "ambiguous": 40,
+              "unmatched": 83
+            }
+          },
+          {
+            "state": "iowa",
+            "input_sha256": "386a913dbdcbf549f062ed07aa3139a5849468a1aa4465cbf903f008a6c42106",
+            "source": {
+              "catalog_file": "existing-unmapped-facilities-20261013.json",
+              "catalog_sha256": "142f5965c54bee0d7e23c42ece296a6367d9f6b8297fe197cfb2097ed24dc8d6",
+              "catalog_library_file_id": "libfile_a57323e68e9081918951857885fe40a7",
+              "catalog_source_main": "53d30b4a08681b7927e6ade09f39ab4732718114",
+              "catalog_canonical_sha256": "489007c1c832b4ae87a78d92e7ddd22502aedd765148a1bcf8ba7fa682a3f9a6",
+              "catalog_scope_counts": {
+                "active_catalog_facilities": 7176,
+                "map_eligible": 294,
+                "off_map_total": 6882,
+                "without_qualified_property_location_in_this_handoff": 6868,
+                "excluded_existing_property_point_missing_holes": 14
+              },
+              "golf_sqlite_sha256": "d485b47256814d6764779e7d1987493c37d71e519b5b16412c46426ee468ea37",
+              "state_boundary_sha256": "308e178d83de441c812b503a75eb53e096c3acfa30abac66063341029f505e87",
+              "osm_extract": "Geofabrik United States 261011",
+              "osm_data_through": "2026-10-11T20:21:06Z",
+              "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+              "software": "Python + Shapely 2.0.3"
+            },
+            "counts": {
+              "supported": 173,
+              "proposed": 41,
+              "ambiguous": 31,
+              "unmatched": 58
+            }
+          }
+        ]
+      },
+      "independent_binding": "Specific accepted canonical street-address evidence is independent of retained OSM tags. Current course public-play and physical-hole facts are standing canonical values, unchanged.",
+      "identity_decision": "Canonical811East41stStreet,AustinTX78751 matches all four specific OSM address components. The same-name Lampasas relation instead has700NarunaRoad,76550 and incompatible city/ZIP/house/street.",
+      "rejected_competitors": [
+        {
+          "osm": {
+            "type": "relation",
+            "id": 7037719,
+            "version": 2,
+            "timestamp_unix": 1571560891,
+            "tags": {
+              "addr:city": "Lampasas",
+              "addr:housenumber": "700",
+              "addr:postcode": "76550",
+              "addr:state": "TX",
+              "addr:street": "Naruna Road",
+              "leisure": "golf_course",
+              "name": "Hancock Golf Course"
+            },
+            "geometry": {
+              "type": "MultiPolygon",
+              "coordinates": [
+                [
+                  [
+                    [
+                      -98.1889237,
+                      31.0542728
+                    ],
+                    [
+                      -98.1889165,
+                      31.0539222
+                    ],
+                    [
+                      -98.1887245,
+                      31.0534411
+                    ],
+                    [
+                      -98.1888006,
+                      31.0532736
+                    ],
+                    [
+                      -98.1889165,
+                      31.0529601
+                    ],
+                    [
+                      -98.1888332,
+                      31.0524449
+                    ],
+                    [
+                      -98.1885615,
+                      31.0518025
+                    ],
+                    [
+                      -98.1882246,
+                      31.0508063
+                    ],
+                    [
+                      -98.1876686,
+                      31.050571
+                    ],
+                    [
+                      -98.1859417,
+                      31.0494658
+                    ],
+                    [
+                      -98.1869074,
+                      31.0490398
+                    ],
+                    [
+                      -98.1861792,
+                      31.0480215
+                    ],
+                    [
+                      -98.18417,
+                      31.048668
+                    ],
+                    [
+                      -98.184156,
+                      31.045899
+                    ],
+                    [
+                      -98.183432,
+                      31.045523
+                    ],
+                    [
+                      -98.183056,
+                      31.045446
+                    ],
+                    [
+                      -98.182838,
+                      31.04535
+                    ],
+                    [
+                      -98.182649,
+                      31.045286
+                    ],
+                    [
+                      -98.182415,
+                      31.045324
+                    ],
+                    [
+                      -98.182222,
+                      31.045454
+                    ],
+                    [
+                      -98.18211,
+                      31.045684
+                    ],
+                    [
+                      -98.182168,
+                      31.046027
+                    ],
+                    [
+                      -98.182178,
+                      31.046186
+                    ],
+                    [
+                      -98.182172,
+                      31.046488
+                    ],
+                    [
+                      -98.181606,
+                      31.047676
+                    ],
+                    [
+                      -98.181552,
+                      31.047886
+                    ],
+                    [
+                      -98.181636,
+                      31.048334
+                    ],
+                    [
+                      -98.1819963,
+                      31.0488277
+                    ],
+                    [
+                      -98.182318,
+                      31.049109
+                    ],
+                    [
+                      -98.182652,
+                      31.049256
+                    ],
+                    [
+                      -98.182924,
+                      31.049475
+                    ],
+                    [
+                      -98.1840145,
+                      31.0501745
+                    ],
+                    [
+                      -98.1827747,
+                      31.0506344
+                    ],
+                    [
+                      -98.1831124,
+                      31.0514374
+                    ],
+                    [
+                      -98.1827513,
+                      31.0515669
+                    ],
+                    [
+                      -98.182959,
+                      31.051861
+                    ],
+                    [
+                      -98.1832343,
+                      31.0524879
+                    ],
+                    [
+                      -98.1833502,
+                      31.0530403
+                    ],
+                    [
+                      -98.1833719,
+                      31.0536455
+                    ],
+                    [
+                      -98.182325,
+                      31.0536796
+                    ],
+                    [
+                      -98.1824305,
+                      31.0541041
+                    ],
+                    [
+                      -98.1826103,
+                      31.0540912
+                    ],
+                    [
+                      -98.1830674,
+                      31.0541595
+                    ],
+                    [
+                      -98.1833368,
+                      31.0550282
+                    ],
+                    [
+                      -98.1832937,
+                      31.0552949
+                    ],
+                    [
+                      -98.1832113,
+                      31.0553257
+                    ],
+                    [
+                      -98.1830573,
+                      31.0553661
+                    ],
+                    [
+                      -98.1828616,
+                      31.0553562
+                    ],
+                    [
+                      -98.1826809,
+                      31.0553428
+                    ],
+                    [
+                      -98.1824253,
+                      31.0553236
+                    ],
+                    [
+                      -98.182363,
+                      31.0553256
+                    ],
+                    [
+                      -98.1822095,
+                      31.0553529
+                    ],
+                    [
+                      -98.182188,
+                      31.05557
+                    ],
+                    [
+                      -98.1821753,
+                      31.05604
+                    ],
+                    [
+                      -98.182021,
+                      31.0566588
+                    ],
+                    [
+                      -98.1820812,
+                      31.0567115
+                    ],
+                    [
+                      -98.1830369,
+                      31.0566652
+                    ],
+                    [
+                      -98.1847229,
+                      31.0562554
+                    ],
+                    [
+                      -98.1851862,
+                      31.0560855
+                    ],
+                    [
+                      -98.1856201,
+                      31.0559781
+                    ],
+                    [
+                      -98.1860307,
+                      31.0563717
+                    ],
+                    [
+                      -98.1866824,
+                      31.0561462
+                    ],
+                    [
+                      -98.1868357,
+                      31.0560527
+                    ],
+                    [
+                      -98.1871936,
+                      31.0555412
+                    ],
+                    [
+                      -98.1872675,
+                      31.0554183
+                    ],
+                    [
+                      -98.1873596,
+                      31.0552002
+                    ],
+                    [
+                      -98.1873725,
+                      31.0550737
+                    ],
+                    [
+                      -98.1889197,
+                      31.0548977
+                    ],
+                    [
+                      -98.1889237,
+                      31.0542728
+                    ]
+                  ]
+                ]
+              ]
+            },
+            "geometry_sha256": "74f50f3e3e276092eec68600334a45e8fc02c584d6bb4e3eb12b8935ca807a6d",
+            "geometry_crs": "EPSG:4326"
+          },
+          "original_identity_evidence": {
+            "name": {
+              "osm_variant": "Hancock Golf Course",
+              "full_exact": true,
+              "core_exact": true,
+              "score": 1.0,
+              "catalog_identity_kind": "golf_course",
+              "osm_identity_kind": "golf_course",
+              "identity_kind_conflict": false
+            },
+            "address_website": {
+              "catalog_website_domain": "austintexas.gov",
+              "osm_website_domain": null,
+              "website_match": false,
+              "website_domains_differ": false,
+              "catalog_postcodes": [
+                "78751"
+              ],
+              "osm_postcode": "76550",
+              "postcode_match": false,
+              "postcode_conflict": true,
+              "catalog_house_number": "811",
+              "osm_house_number": "700",
+              "house_number_match": false,
+              "house_number_conflict": true,
+              "catalog_street_key": "41st",
+              "osm_street_key": "naruna",
+              "street_similarity": 0.0,
+              "catalog_city": "austin",
+              "osm_city": "lampasas",
+              "city_match": false,
+              "city_conflict": true,
+              "street_words_match": false,
+              "street_conflict": true,
+              "specific_address_conflict": true,
+              "locality_signal_count": 0
+            },
+            "state_containment": "representative point strictly contained by OSM US-TX boundary",
+            "proximity_alone_not_used": true,
+            "domain_multiplicity": {
+              "catalog_records_with_domain": 4,
+              "osm_properties_with_domain": 0,
+              "shared_domain": false
+            }
+          },
+          "original_selection_status": "ambiguous_not_selected",
+          "selected_geometry_intersects": false,
+          "selected_geometry_centroid_distance_degrees": 0.8822665523808767,
+          "decision": "Rejected for this UUID: lacks matching canonical house/street/ZIP or conflicts with that address. No second property or facility/course subdivision inferred."
+        }
+      ],
+      "other_canonical_namesakes": [],
+      "prior_decision_records": [
+        {
+          "archive_member": "fairway-map-batch01-pr8-portable/fairway-map-three-state01/combined-decisions.json",
+          "sha256": "d37e2711fff2117026b1cec94afcf56ffaae2abd6b4503f7f111e54ce9a4ec6f",
+          "record": {
+            "id": "f-74930e2a-5523-48c6-a6ee-46379fe0092f",
+            "decision": "deferred",
+            "reason": "Retained ambiguous lead, outside the supported selected-property intake; no promotion in this review. Source reason: plausible name candidates remain without decisive identity evidence."
+          }
+        },
+        {
+          "archive_member": "fairway-map-batch01-pr8-portable/fairway-map-three-state01/deferred.json",
+          "sha256": "33b2fd548976cf8e1ac32126389c6105ad784f43b59c698db085907f5a2bfa88",
+          "record": {
+            "id": "f-74930e2a-5523-48c6-a6ee-46379fe0092f",
+            "name": "Hancock Golf Course",
+            "status": "ambiguous",
+            "reason": "Retained ambiguous lead, outside the supported selected-property intake; no promotion in this review. Source reason: plausible name candidates remain without decisive identity evidence."
+          }
+        },
+        {
+          "archive_member": "fairway-map-batch01-pr8-portable/texas-property-match-next/identity-decisions.json",
+          "sha256": "c5692210512017ee39dc7f6fe4ce3439512bb679d170a951dc4604907316ed57",
+          "record": {
+            "id": "f-74930e2a-5523-48c6-a6ee-46379fe0092f",
+            "decision": "deferred",
+            "reason": "Retained ambiguous lead, outside the supported selected-property intake; no promotion in this review. Source reason: plausible name candidates remain without decisive identity evidence."
+          }
+        }
+      ],
+      "review_sorted_compact_geojson_sha256": "3e3eba9bbdec09d4a919e0b9ddf2e2010fd2069a5738356a6af4610f032839db",
+      "geometry_validation": {
+        "retained_input_sha256_verified": true,
+        "review_geojson_hash_independently_computed": true,
+        "original_upstream_geometry_hash_preserved_not_recomputed": true,
+        "original_and_new_points_strictly_contained": true,
+        "current_qualified_property_point_collisions": [],
+        "rounded_point_reproduced_shapely": "2.1.2"
+      },
+      "existing_public_field_provenance": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "address",
+            "physical_holes",
+            "website",
+            "courses.c-630e2ee5-d6b1-4b22-9a8a-03a58e003086.name",
+            "courses.c-630e2ee5-d6b1-4b22-9a8a-03a58e003086.holes",
+            "courses.c-630e2ee5-d6b1-4b22-9a8a-03a58e003086.access",
+            "inventory_complete",
+            "grouping"
+          ],
+          "source_url": "https://www.austintexas.gov/golfatx/hancock-course",
+          "observed_on": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "facility_id": "f-49a7855b-b7d1-4213-a593-8c372f0efc6a",
+      "name": "Riverside Golf Course",
+      "original_map_location": {
+        "latitude": 30.236108,
+        "longitude": -97.703756,
+        "kind": "address_range_estimate"
+      },
+      "derived_map_location": {
+        "latitude": 30.23683415,
+        "longitude": -97.70835751,
+        "kind": "property_point"
+      },
+      "selected_feature": {
+        "selection_status": "ambiguous_not_selected",
+        "osm": {
+          "type": "way",
+          "id": 30769048,
+          "version": 9,
+          "timestamp_unix": 1710269241,
+          "tags": {
+            "addr:city": "Austin",
+            "addr:housenumber": "1020",
+            "addr:postcode": "78741",
+            "addr:street": "Grove Boulevard",
+            "email": "michael.travis@austincc.edu",
+            "leisure": "golf_course",
+            "name": "Riverside Golf Course",
+            "phone": "+1-512-223-6677"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -97.7104464,
+                    30.2302335
+                  ],
+                  [
+                    -97.7080858,
+                    30.2291066
+                  ],
+                  [
+                    -97.7064418,
+                    30.23156
+                  ],
+                  [
+                    -97.7062615,
+                    30.2320939
+                  ],
+                  [
+                    -97.706004,
+                    30.2325759
+                  ],
+                  [
+                    -97.7054134,
+                    30.2335235
+                  ],
+                  [
+                    -97.7053689,
+                    30.2335993
+                  ],
+                  [
+                    -97.7046827,
+                    30.2346774
+                  ],
+                  [
+                    -97.7052614,
+                    30.2349521
+                  ],
+                  [
+                    -97.7058279,
+                    30.2352822
+                  ],
+                  [
+                    -97.706043,
+                    30.2354692
+                  ],
+                  [
+                    -97.7063116,
+                    30.2357843
+                  ],
+                  [
+                    -97.7065136,
+                    30.236176
+                  ],
+                  [
+                    -97.706588,
+                    30.2364614
+                  ],
+                  [
+                    -97.7066195,
+                    30.2366399
+                  ],
+                  [
+                    -97.7066633,
+                    30.2370284
+                  ],
+                  [
+                    -97.7066554,
+                    30.2372164
+                  ],
+                  [
+                    -97.7066382,
+                    30.2373115
+                  ],
+                  [
+                    -97.7065619,
+                    30.2375517
+                  ],
+                  [
+                    -97.7061375,
+                    30.2381308
+                  ],
+                  [
+                    -97.7058767,
+                    30.2383265
+                  ],
+                  [
+                    -97.7056962,
+                    30.2384031
+                  ],
+                  [
+                    -97.7055153,
+                    30.2384478
+                  ],
+                  [
+                    -97.7053486,
+                    30.2384565
+                  ],
+                  [
+                    -97.7051762,
+                    30.2384598
+                  ],
+                  [
+                    -97.7050763,
+                    30.2385656
+                  ],
+                  [
+                    -97.7050411,
+                    30.2386165
+                  ],
+                  [
+                    -97.7050325,
+                    30.2386567
+                  ],
+                  [
+                    -97.7050466,
+                    30.2386957
+                  ],
+                  [
+                    -97.7050938,
+                    30.2387473
+                  ],
+                  [
+                    -97.7051465,
+                    30.2387887
+                  ],
+                  [
+                    -97.7051855,
+                    30.2388033
+                  ],
+                  [
+                    -97.7052323,
+                    30.2387989
+                  ],
+                  [
+                    -97.7052979,
+                    30.2387962
+                  ],
+                  [
+                    -97.7053562,
+                    30.2388017
+                  ],
+                  [
+                    -97.7053966,
+                    30.2388241
+                  ],
+                  [
+                    -97.7054461,
+                    30.2388689
+                  ],
+                  [
+                    -97.7054516,
+                    30.2388745
+                  ],
+                  [
+                    -97.7054726,
+                    30.2388958
+                  ],
+                  [
+                    -97.7055725,
+                    30.239007
+                  ],
+                  [
+                    -97.7056264,
+                    30.239057
+                  ],
+                  [
+                    -97.705666,
+                    30.2391082
+                  ],
+                  [
+                    -97.7057295,
+                    30.2391695
+                  ],
+                  [
+                    -97.7057723,
+                    30.2392276
+                  ],
+                  [
+                    -97.7058066,
+                    30.2394574
+                  ],
+                  [
+                    -97.7054376,
+                    30.2396057
+                  ],
+                  [
+                    -97.7048367,
+                    30.2397244
+                  ],
+                  [
+                    -97.704502,
+                    30.2400581
+                  ],
+                  [
+                    -97.7040385,
+                    30.2407736
+                  ],
+                  [
+                    -97.7034549,
+                    30.2416745
+                  ],
+                  [
+                    -97.7030821,
+                    30.2422421
+                  ],
+                  [
+                    -97.702588,
+                    30.2429944
+                  ],
+                  [
+                    -97.7027511,
+                    30.2431427
+                  ],
+                  [
+                    -97.7034034,
+                    30.2433132
+                  ],
+                  [
+                    -97.7046045,
+                    30.2437512
+                  ],
+                  [
+                    -97.7055228,
+                    30.2440891
+                  ],
+                  [
+                    -97.7060674,
+                    30.2443082
+                  ],
+                  [
+                    -97.7062615,
+                    30.2440918
+                  ],
+                  [
+                    -97.7064675,
+                    30.2439138
+                  ],
+                  [
+                    -97.706725,
+                    30.2435802
+                  ],
+                  [
+                    -97.7073001,
+                    30.2429499
+                  ],
+                  [
+                    -97.708476,
+                    30.2414818
+                  ],
+                  [
+                    -97.709051,
+                    30.2407847
+                  ],
+                  [
+                    -97.7094373,
+                    30.2402434
+                  ],
+                  [
+                    -97.7098493,
+                    30.2393462
+                  ],
+                  [
+                    -97.710081,
+                    30.2386937
+                  ],
+                  [
+                    -97.7101325,
+                    30.2382933
+                  ],
+                  [
+                    -97.7101226,
+                    30.2374354
+                  ],
+                  [
+                    -97.7100139,
+                    30.2361013
+                  ],
+                  [
+                    -97.7100203,
+                    30.2356834
+                  ],
+                  [
+                    -97.7098235,
+                    30.2347932
+                  ],
+                  [
+                    -97.7096227,
+                    30.2327291
+                  ],
+                  [
+                    -97.7095826,
+                    30.232317
+                  ],
+                  [
+                    -97.709566,
+                    30.2321458
+                  ],
+                  [
+                    -97.7097779,
+                    30.2312201
+                  ],
+                  [
+                    -97.7104464,
+                    30.2302335
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "8690c04819e8ea748ed1581ca329f1d9cf2ced53652036b8ded35649af70a4b9",
+          "geometry_crs": "EPSG:4326"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Riverside Golf Course",
+            "full_exact": true,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_course",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "riverside-gc.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "78741"
+            ],
+            "osm_postcode": "78741",
+            "postcode_match": true,
+            "postcode_conflict": false,
+            "catalog_house_number": "1020",
+            "osm_house_number": "1020",
+            "house_number_match": true,
+            "house_number_conflict": false,
+            "catalog_street_key": "grove",
+            "osm_street_key": "grove",
+            "street_similarity": 1.0,
+            "catalog_city": "austin",
+            "osm_city": "austin",
+            "city_match": true,
+            "city_conflict": false,
+            "street_words_match": true,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 4
+          },
+          "state_containment": "representative point strictly contained by OSM US-TX boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -97.70835750563114,
+          "latitude": 30.23683415,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        }
+      },
+      "original_record_status": "ambiguous",
+      "original_decision_reason": "plausible name candidates remain without decisive identity evidence",
+      "retained_input_sha256": "4fce6e9093adea6c6a8e731110cc7877581e845671701f61b7aca6d4a5198890",
+      "source_provenance": {
+        "state_inputs": [
+          {
+            "state": "texas",
+            "input_sha256": "a0e233e2cd270070529d0fb387b7f6a0bd2b615b61be9b7506022f79e36847db",
+            "source": {
+              "catalog_file": "existing-unmapped-facilities-20261013.json",
+              "catalog_sha256": "142f5965c54bee0d7e23c42ece296a6367d9f6b8297fe197cfb2097ed24dc8d6",
+              "catalog_library_file_id": "libfile_a57323e68e9081918951857885fe40a7",
+              "catalog_source_main": "53d30b4a08681b7927e6ade09f39ab4732718114",
+              "catalog_canonical_sha256": "489007c1c832b4ae87a78d92e7ddd22502aedd765148a1bcf8ba7fa682a3f9a6",
+              "catalog_scope_counts": {
+                "active_catalog_facilities": 7176,
+                "map_eligible": 294,
+                "off_map_total": 6882,
+                "without_qualified_property_location_in_this_handoff": 6868,
+                "excluded_existing_property_point_missing_holes": 14
+              },
+              "golf_sqlite_sha256": "d485b47256814d6764779e7d1987493c37d71e519b5b16412c46426ee468ea37",
+              "state_boundary_sha256": "308e178d83de441c812b503a75eb53e096c3acfa30abac66063341029f505e87",
+              "osm_extract": "Geofabrik United States 261011",
+              "osm_data_through": "2026-10-11T20:21:06Z",
+              "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+              "software": "Python + Shapely 2.0.3"
+            },
+            "counts": {
+              "supported": 164,
+              "proposed": 27,
+              "ambiguous": 55,
+              "unmatched": 73
+            }
+          },
+          {
+            "state": "pennsylvania",
+            "input_sha256": "cd29a180587ae7ed389b4c89bb022ed8e061e46af7418360cd2b0a5442498b0c",
+            "source": {
+              "catalog_file": "existing-unmapped-facilities-20261013.json",
+              "catalog_sha256": "142f5965c54bee0d7e23c42ece296a6367d9f6b8297fe197cfb2097ed24dc8d6",
+              "catalog_library_file_id": "libfile_a57323e68e9081918951857885fe40a7",
+              "catalog_source_main": "53d30b4a08681b7927e6ade09f39ab4732718114",
+              "catalog_canonical_sha256": "489007c1c832b4ae87a78d92e7ddd22502aedd765148a1bcf8ba7fa682a3f9a6",
+              "catalog_scope_counts": {
+                "active_catalog_facilities": 7176,
+                "map_eligible": 294,
+                "off_map_total": 6882,
+                "without_qualified_property_location_in_this_handoff": 6868,
+                "excluded_existing_property_point_missing_holes": 14
+              },
+              "golf_sqlite_sha256": "d485b47256814d6764779e7d1987493c37d71e519b5b16412c46426ee468ea37",
+              "state_boundary_sha256": "308e178d83de441c812b503a75eb53e096c3acfa30abac66063341029f505e87",
+              "osm_extract": "Geofabrik United States 261011",
+              "osm_data_through": "2026-10-11T20:21:06Z",
+              "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+              "software": "Python + Shapely 2.0.3"
+            },
+            "counts": {
+              "supported": 141,
+              "proposed": 45,
+              "ambiguous": 40,
+              "unmatched": 83
+            }
+          },
+          {
+            "state": "iowa",
+            "input_sha256": "386a913dbdcbf549f062ed07aa3139a5849468a1aa4465cbf903f008a6c42106",
+            "source": {
+              "catalog_file": "existing-unmapped-facilities-20261013.json",
+              "catalog_sha256": "142f5965c54bee0d7e23c42ece296a6367d9f6b8297fe197cfb2097ed24dc8d6",
+              "catalog_library_file_id": "libfile_a57323e68e9081918951857885fe40a7",
+              "catalog_source_main": "53d30b4a08681b7927e6ade09f39ab4732718114",
+              "catalog_canonical_sha256": "489007c1c832b4ae87a78d92e7ddd22502aedd765148a1bcf8ba7fa682a3f9a6",
+              "catalog_scope_counts": {
+                "active_catalog_facilities": 7176,
+                "map_eligible": 294,
+                "off_map_total": 6882,
+                "without_qualified_property_location_in_this_handoff": 6868,
+                "excluded_existing_property_point_missing_holes": 14
+              },
+              "golf_sqlite_sha256": "d485b47256814d6764779e7d1987493c37d71e519b5b16412c46426ee468ea37",
+              "state_boundary_sha256": "308e178d83de441c812b503a75eb53e096c3acfa30abac66063341029f505e87",
+              "osm_extract": "Geofabrik United States 261011",
+              "osm_data_through": "2026-10-11T20:21:06Z",
+              "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+              "software": "Python + Shapely 2.0.3"
+            },
+            "counts": {
+              "supported": 173,
+              "proposed": 41,
+              "ambiguous": 31,
+              "unmatched": 58
+            }
+          }
+        ]
+      },
+      "independent_binding": "Specific accepted canonical street-address evidence is independent of retained OSM tags. Current course public-play and physical-hole facts are standing canonical values, unchanged.",
+      "identity_decision": "Canonical1020GroveBoulevard,AustinTX78741 matches OSM house/street/city/ZIP. The Victoria catalog namesake is302McCrightDrive,77901. Other disjoint retained namesake geometries lack this Austin address binding. Existing address_range_estimate is retained in the delta before-value, not used to derive the new point.",
+      "rejected_competitors": [
+        {
+          "osm": {
+            "type": "relation",
+            "id": 4037636,
+            "version": 1,
+            "timestamp_unix": 1410650720,
+            "tags": {
+              "leisure": "golf_course",
+              "name": "Riverside Golf Course"
+            },
+            "geometry": {
+              "type": "MultiPolygon",
+              "coordinates": [
+                [
+                  [
+                    [
+                      -98.4897519,
+                      29.3812623
+                    ],
+                    [
+                      -98.4897412,
+                      29.381097
+                    ],
+                    [
+                      -98.489696,
+                      29.3809391
+                    ],
+                    [
+                      -98.4895736,
+                      29.3805342
+                    ],
+                    [
+                      -98.4895205,
+                      29.3803676
+                    ],
+                    [
+                      -98.4894731,
+                      29.3803757
+                    ],
+                    [
+                      -98.4891843,
+                      29.380373
+                    ],
+                    [
+                      -98.4883671,
+                      29.3801787
+                    ],
+                    [
+                      -98.4878787,
+                      29.3799957
+                    ],
+                    [
+                      -98.4874638,
+                      29.3797849
+                    ],
+                    [
+                      -98.4871312,
+                      29.379622
+                    ],
+                    [
+                      -98.486706,
+                      29.3793228
+                    ],
+                    [
+                      -98.4864172,
+                      29.3791204
+                    ],
+                    [
+                      -98.4862694,
+                      29.379026
+                    ],
+                    [
+                      -98.4860113,
+                      29.3787289
+                    ],
+                    [
+                      -98.4858719,
+                      29.3784668
+                    ],
+                    [
+                      -98.4850865,
+                      29.3792956
+                    ],
+                    [
+                      -98.4849041,
+                      29.3794103
+                    ],
+                    [
+                      -98.4848418,
+                      29.3795075
+                    ],
+                    [
+                      -98.4845868,
+                      29.3799411
+                    ],
+                    [
+                      -98.4840767,
+                      29.3809017
+                    ],
+                    [
+                      -98.484015,
+                      29.3809863
+                    ],
+                    [
+                      -98.4839093,
+                      29.3810744
+                    ],
+                    [
+                      -98.4837915,
+                      29.3811345
+                    ],
+                    [
+                      -98.4836472,
+                      29.3811684
+                    ],
+                    [
+                      -98.4834415,
+                      29.3811826
+                    ],
+                    [
+                      -98.4826615,
+                      29.3809349
+                    ],
+                    [
+                      -98.4833785,
+                      29.3826836
+                    ],
+                    [
+                      -98.4837481,
+                      29.3833959
+                    ],
+                    [
+                      -98.4841472,
+                      29.3840324
+                    ],
+                    [
+                      -98.4847746,
+                      29.3847957
+                    ],
+                    [
+                      -98.4851064,
+                      29.3851495
+                    ],
+                    [
+                      -98.485531,
+                      29.384952
+                    ],
+                    [
+                      -98.4855739,
+                      29.3849988
+                    ],
+                    [
+                      -98.4859709,
+                      29.3854288
+                    ],
+                    [
+                      -98.4861211,
+                      29.3861954
+                    ],
+                    [
+                      -98.4862023,
+                      29.3865415
+                    ],
+                    [
+                      -98.4896783,
+                      29.3858504
+                    ],
+                    [
+                      -98.4896068,
+                      29.3854453
+                    ],
+                    [
+                      -98.4894709,
+                      29.3853136
+                    ],
+                    [
+                      -98.4894371,
+                      29.3851738
+                    ],
+                    [
+                      -98.4894269,
+                      29.3849284
+                    ],
+                    [
+                      -98.4893605,
+                      29.384699
+                    ],
+                    [
+                      -98.4892461,
+                      29.3844893
+                    ],
+                    [
+                      -98.4892017,
+                      29.3843303
+                    ],
+                    [
+                      -98.4891692,
+                      29.3841194
+                    ],
+                    [
+                      -98.489175,
+                      29.3839497
+                    ],
+                    [
+                      -98.4892796,
+                      29.3832445
+                    ],
+                    [
+                      -98.4894069,
+                      29.3825754
+                    ],
+                    [
+                      -98.489465,
+                      29.3824106
+                    ],
+                    [
+                      -98.4895792,
+                      29.3820624
+                    ],
+                    [
+                      -98.4896327,
+                      29.3819021
+                    ],
+                    [
+                      -98.4897519,
+                      29.3812623
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    [
+                      -98.4889544,
+                      29.3783766
+                    ],
+                    [
+                      -98.4889193,
+                      29.3779645
+                    ],
+                    [
+                      -98.4888492,
+                      29.3774222
+                    ],
+                    [
+                      -98.4887763,
+                      29.3770335
+                    ],
+                    [
+                      -98.4887173,
+                      29.3766423
+                    ],
+                    [
+                      -98.4886868,
+                      29.3766407
+                    ],
+                    [
+                      -98.4886416,
+                      29.3762629
+                    ],
+                    [
+                      -98.4885608,
+                      29.3757123
+                    ],
+                    [
+                      -98.4884106,
+                      29.3753325
+                    ],
+                    [
+                      -98.4881149,
+                      29.3752702
+                    ],
+                    [
+                      -98.4879411,
+                      29.3752143
+                    ],
+                    [
+                      -98.4878743,
+                      29.3750481
+                    ],
+                    [
+                      -98.487856,
+                      29.3749383
+                    ],
+                    [
+                      -98.4878493,
+                      29.3745493
+                    ],
+                    [
+                      -98.4878936,
+                      29.3742243
+                    ],
+                    [
+                      -98.4880597,
+                      29.3737721
+                    ],
+                    [
+                      -98.4877945,
+                      29.3731483
+                    ],
+                    [
+                      -98.4867251,
+                      29.3705895
+                    ],
+                    [
+                      -98.4858032,
+                      29.3713258
+                    ],
+                    [
+                      -98.4856098,
+                      29.3712103
+                    ],
+                    [
+                      -98.4849924,
+                      29.3720032
+                    ],
+                    [
+                      -98.4846651,
+                      29.3717924
+                    ],
+                    [
+                      -98.4832859,
+                      29.373432
+                    ],
+                    [
+                      -98.4833004,
+                      29.3734421
+                    ],
+                    [
+                      -98.483412,
+                      29.3735121
+                    ],
+                    [
+                      -98.4836853,
+                      29.3736854
+                    ],
+                    [
+                      -98.4827672,
+                      29.3748188
+                    ],
+                    [
+                      -98.4830974,
+                      29.3750516
+                    ],
+                    [
+                      -98.4834311,
+                      29.375779
+                    ],
+                    [
+                      -98.4847791,
+                      29.3767511
+                    ],
+                    [
+                      -98.4857281,
+                      29.3770718
+                    ],
+                    [
+                      -98.4860846,
+                      29.3772209
+                    ],
+                    [
+                      -98.4872664,
+                      29.378443
+                    ],
+                    [
+                      -98.4875785,
+                      29.3786931
+                    ],
+                    [
+                      -98.4881171,
+                      29.3790115
+                    ],
+                    [
+                      -98.4883498,
+                      29.3790407
+                    ],
+                    [
+                      -98.4885271,
+                      29.3790513
+                    ],
+                    [
+                      -98.4888146,
+                      29.378859
+                    ],
+                    [
+                      -98.4887632,
+                      29.3787151
+                    ],
+                    [
+                      -98.4887728,
+                      29.3786076
+                    ],
+                    [
+                      -98.4889544,
+                      29.3783766
+                    ]
+                  ]
+                ]
+              ]
+            },
+            "geometry_sha256": "f1d6fbfab606af7284d2dc1e11d25d3b5fed5068560b30233956a57b29d9adcc",
+            "geometry_crs": "EPSG:4326"
+          },
+          "original_identity_evidence": {
+            "name": {
+              "osm_variant": "Riverside Golf Course",
+              "full_exact": true,
+              "core_exact": true,
+              "score": 1.0,
+              "catalog_identity_kind": "golf_course",
+              "osm_identity_kind": "golf_course",
+              "identity_kind_conflict": false
+            },
+            "address_website": {
+              "catalog_website_domain": "riverside-gc.com",
+              "osm_website_domain": null,
+              "website_match": false,
+              "website_domains_differ": false,
+              "catalog_postcodes": [
+                "78741"
+              ],
+              "osm_postcode": null,
+              "postcode_match": false,
+              "postcode_conflict": false,
+              "catalog_house_number": "1020",
+              "osm_house_number": null,
+              "house_number_match": false,
+              "house_number_conflict": false,
+              "catalog_street_key": "grove",
+              "osm_street_key": null,
+              "street_similarity": 0.0,
+              "catalog_city": "austin",
+              "osm_city": null,
+              "city_match": false,
+              "city_conflict": false,
+              "street_words_match": false,
+              "street_conflict": false,
+              "specific_address_conflict": false,
+              "locality_signal_count": 0
+            },
+            "state_containment": "representative point strictly contained by OSM US-TX boundary",
+            "proximity_alone_not_used": true,
+            "domain_multiplicity": {
+              "catalog_records_with_domain": 1,
+              "osm_properties_with_domain": 0,
+              "shared_domain": false
+            }
+          },
+          "original_selection_status": "ambiguous_not_selected",
+          "selected_geometry_intersects": false,
+          "selected_geometry_centroid_distance_degrees": 1.1589521134720988,
+          "decision": "Rejected for this UUID: lacks matching canonical house/street/ZIP or conflicts with that address. No second property or facility/course subdivision inferred."
+        },
+        {
+          "osm": {
+            "type": "way",
+            "id": 192366321,
+            "version": 7,
+            "timestamp_unix": 1741059247,
+            "tags": {
+              "leisure": "golf_course",
+              "name": "Riverside Golf Course"
+            },
+            "geometry": {
+              "type": "MultiPolygon",
+              "coordinates": [
+                [
+                  [
+                    [
+                      -97.0245504,
+                      28.8216523
+                    ],
+                    [
+                      -97.024367,
+                      28.8204869
+                    ],
+                    [
+                      -97.024156,
+                      28.819643
+                    ],
+                    [
+                      -97.0240551,
+                      28.8190673
+                    ],
+                    [
+                      -97.0239327,
+                      28.8185551
+                    ],
+                    [
+                      -97.0237367,
+                      28.8172708
+                    ],
+                    [
+                      -97.0234572,
+                      28.8158524
+                    ],
+                    [
+                      -97.0231671,
+                      28.8153562
+                    ],
+                    [
+                      -97.022853,
+                      28.8146757
+                    ],
+                    [
+                      -97.0218575,
+                      28.8135589
+                    ],
+                    [
+                      -97.020407,
+                      28.8120011
+                    ],
+                    [
+                      -97.0197043,
+                      28.8120254
+                    ],
+                    [
+                      -97.01435,
+                      28.8122923
+                    ],
+                    [
+                      -97.0149584,
+                      28.8202875
+                    ],
+                    [
+                      -97.014975,
+                      28.8204575
+                    ],
+                    [
+                      -97.0150002,
+                      28.8207168
+                    ],
+                    [
+                      -97.0145209,
+                      28.8219656
+                    ],
+                    [
+                      -97.0141246,
+                      28.8229924
+                    ],
+                    [
+                      -97.0144306,
+                      28.8230206
+                    ],
+                    [
+                      -97.0148807,
+                      28.8231781
+                    ],
+                    [
+                      -97.0150545,
+                      28.8231019
+                    ],
+                    [
+                      -97.0151917,
+                      28.8229533
+                    ],
+                    [
+                      -97.0153283,
+                      28.822661
+                    ],
+                    [
+                      -97.015473,
+                      28.8224318
+                    ],
+                    [
+                      -97.0158779,
+                      28.8220275
+                    ],
+                    [
+                      -97.0165348,
+                      28.8215999
+                    ],
+                    [
+                      -97.0167809,
+                      28.821448
+                    ],
+                    [
+                      -97.0173421,
+                      28.8212386
+                    ],
+                    [
+                      -97.0179036,
+                      28.8211662
+                    ],
+                    [
+                      -97.0182011,
+                      28.8211783
+                    ],
+                    [
+                      -97.0195334,
+                      28.821284
+                    ],
+                    [
+                      -97.0206425,
+                      28.8214192
+                    ],
+                    [
+                      -97.0218993,
+                      28.8218532
+                    ],
+                    [
+                      -97.0229818,
+                      28.822239
+                    ],
+                    [
+                      -97.0236881,
+                      28.8223837
+                    ],
+                    [
+                      -97.0243395,
+                      28.822231
+                    ],
+                    [
+                      -97.0244749,
+                      28.822044
+                    ],
+                    [
+                      -97.0245504,
+                      28.8216523
+                    ]
+                  ]
+                ]
+              ]
+            },
+            "geometry_sha256": "c2876929fc8c1dc86088dc43546f0a4e77e3f580efe6adeb69ad52785fca0d4b",
+            "geometry_crs": "EPSG:4326"
+          },
+          "original_identity_evidence": {
+            "name": {
+              "osm_variant": "Riverside Golf Course",
+              "full_exact": true,
+              "core_exact": true,
+              "score": 1.0,
+              "catalog_identity_kind": "golf_course",
+              "osm_identity_kind": "golf_course",
+              "identity_kind_conflict": false
+            },
+            "address_website": {
+              "catalog_website_domain": "riverside-gc.com",
+              "osm_website_domain": null,
+              "website_match": false,
+              "website_domains_differ": false,
+              "catalog_postcodes": [
+                "78741"
+              ],
+              "osm_postcode": null,
+              "postcode_match": false,
+              "postcode_conflict": false,
+              "catalog_house_number": "1020",
+              "osm_house_number": null,
+              "house_number_match": false,
+              "house_number_conflict": false,
+              "catalog_street_key": "grove",
+              "osm_street_key": null,
+              "street_similarity": 0.0,
+              "catalog_city": "austin",
+              "osm_city": null,
+              "city_match": false,
+              "city_conflict": false,
+              "street_words_match": false,
+              "street_conflict": false,
+              "specific_address_conflict": false,
+              "locality_signal_count": 0
+            },
+            "state_containment": "representative point strictly contained by OSM US-TX boundary",
+            "proximity_alone_not_used": true,
+            "domain_multiplicity": {
+              "catalog_records_with_domain": 1,
+              "osm_properties_with_domain": 0,
+              "shared_domain": false
+            }
+          },
+          "original_selection_status": "ambiguous_not_selected",
+          "selected_geometry_intersects": false,
+          "selected_geometry_centroid_distance_degrees": 1.5778919437356633,
+          "decision": "Rejected for this UUID: lacks matching canonical house/street/ZIP or conflicts with that address. No second property or facility/course subdivision inferred."
+        }
+      ],
+      "other_canonical_namesakes": [
+        {
+          "id": "f-3e7f5de4-cac6-481e-bb58-235a93e795f9",
+          "state": "ID",
+          "address": {
+            "text": "3500 Bannock Highway, Pocatello, ID 83204",
+            "purpose": "published_unspecified"
+          },
+          "map_location": {
+            "latitude": 42.83552525,
+            "longitude": -112.42188598528358,
+            "kind": "property_point"
+          }
+        },
+        {
+          "id": "f-f10e111f-2b03-4dee-bb33-0ea21a12947e",
+          "state": "ME",
+          "address": {
+            "text": "1158 Riverside Street, Portland, ME 04103",
+            "purpose": "published_unspecified"
+          },
+          "map_location": {
+            "latitude": 43.714805999999996,
+            "longitude": -70.31289716993074,
+            "kind": "property_point"
+          }
+        },
+        {
+          "id": "f-ac6e4eb7-719e-440f-9181-9ceb1fc9d555",
+          "state": "OK",
+          "address": {
+            "text": "10329 N. 2265 Rd., Clinton, OK 73601",
+            "purpose": "published_unspecified"
+          },
+          "map_location": {
+            "latitude": 35.52218310000001,
+            "longitude": -98.95615897424679,
+            "kind": "property_point"
+          }
+        },
+        {
+          "id": "f-ac6a9f3e-715d-48ae-bb44-ddc767122398",
+          "state": "TX",
+          "address": {
+            "text": "302 Mc Cright Drive, Victoria, TX 77901",
+            "purpose": "published_unspecified"
+          },
+          "map_location": {
+            "latitude": 28.816127,
+            "longitude": -97.023488,
+            "kind": "address_range_estimate"
+          }
+        },
+        {
+          "id": "f-32fdb663-9fe7-424f-aec8-0dd30bdfed46",
+          "state": "WI",
+          "address": {
+            "text": "2100 Golf Course Rd, Janesville, WI 53548",
+            "purpose": "published_unspecified"
+          },
+          "map_location": {
+            "latitude": 42.711714549999996,
+            "longitude": -89.04456769970147,
+            "kind": "property_point"
+          }
+        }
+      ],
+      "prior_decision_records": [
+        {
+          "archive_member": "fairway-map-batch01-pr8-portable/fairway-map-three-state01/combined-decisions.json",
+          "sha256": "d37e2711fff2117026b1cec94afcf56ffaae2abd6b4503f7f111e54ce9a4ec6f",
+          "record": {
+            "id": "f-49a7855b-b7d1-4213-a593-8c372f0efc6a",
+            "decision": "deferred",
+            "reason": "Retained ambiguous lead, outside the supported selected-property intake; no promotion in this review. Source reason: plausible name candidates remain without decisive identity evidence."
+          }
+        },
+        {
+          "archive_member": "fairway-map-batch01-pr8-portable/fairway-map-three-state01/deferred.json",
+          "sha256": "33b2fd548976cf8e1ac32126389c6105ad784f43b59c698db085907f5a2bfa88",
+          "record": {
+            "id": "f-49a7855b-b7d1-4213-a593-8c372f0efc6a",
+            "name": "Riverside Golf Course",
+            "status": "ambiguous",
+            "reason": "Retained ambiguous lead, outside the supported selected-property intake; no promotion in this review. Source reason: plausible name candidates remain without decisive identity evidence."
+          }
+        },
+        {
+          "archive_member": "fairway-map-batch01-pr8-portable/texas-property-match-next/identity-decisions.json",
+          "sha256": "c5692210512017ee39dc7f6fe4ce3439512bb679d170a951dc4604907316ed57",
+          "record": {
+            "id": "f-49a7855b-b7d1-4213-a593-8c372f0efc6a",
+            "decision": "deferred",
+            "reason": "Retained ambiguous lead, outside the supported selected-property intake; no promotion in this review. Source reason: plausible name candidates remain without decisive identity evidence."
+          }
+        }
+      ],
+      "review_sorted_compact_geojson_sha256": "9cb8792cd4d4898c0098a87d1b9fc7328609b58dfa228e3d50d1ca190ed85333",
+      "geometry_validation": {
+        "retained_input_sha256_verified": true,
+        "review_geojson_hash_independently_computed": true,
+        "original_upstream_geometry_hash_preserved_not_recomputed": true,
+        "original_and_new_points_strictly_contained": true,
+        "current_qualified_property_point_collisions": [],
+        "rounded_point_reproduced_shapely": "2.1.2"
+      },
+      "existing_public_field_provenance": [
+        {
+          "fields": [
+            "courses.c-30029395-4721-4b85-9cad-a73a25b6b294.access"
+          ],
+          "source_url": "https://riverside-gc.com/",
+          "observed_on": "2026-10-11"
+        },
+        {
+          "fields": [
+            "notes.access"
+          ],
+          "source_url": "https://riverside-gc.com/",
+          "observed_on": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "facility_id": "f-0ce78ef9-0d28-4efb-8181-e9553b9fcdca",
+      "name": "Pleasant Hill Golf Course",
+      "original_map_location": {
+        "latitude": 39.430636,
+        "longitude": -84.402732,
+        "kind": "address_range_estimate"
+      },
+      "derived_map_location": {
+        "latitude": 39.4270965,
+        "longitude": -84.39913712,
+        "kind": "property_point"
+      },
+      "selected_feature": {
+        "selection_status": "ambiguous_not_selected",
+        "osm": {
+          "type": "way",
+          "id": 33264518,
+          "version": 8,
+          "timestamp_unix": 1692666626,
+          "tags": {
+            "addr:city": "Middletown",
+            "addr:housenumber": "6487",
+            "addr:postcode": "45044",
+            "addr:state": "OH",
+            "addr:street": "Hankins Road",
+            "leisure": "golf_course",
+            "name": "Pleasant Hill Golf Course"
+          },
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -84.4052638,
+                    39.4234369
+                  ],
+                  [
+                    -84.4027648,
+                    39.4232304
+                  ],
+                  [
+                    -84.3946882,
+                    39.4228989
+                  ],
+                  [
+                    -84.3942303,
+                    39.4279972
+                  ],
+                  [
+                    -84.3949286,
+                    39.4280388
+                  ],
+                  [
+                    -84.3948659,
+                    39.4287496
+                  ],
+                  [
+                    -84.3972544,
+                    39.428887
+                  ],
+                  [
+                    -84.3984209,
+                    39.4284697
+                  ],
+                  [
+                    -84.3989026,
+                    39.4292069
+                  ],
+                  [
+                    -84.399644,
+                    39.4295761
+                  ],
+                  [
+                    -84.3994286,
+                    39.430521
+                  ],
+                  [
+                    -84.4010112,
+                    39.4306057
+                  ],
+                  [
+                    -84.4011017,
+                    39.4306105
+                  ],
+                  [
+                    -84.4024393,
+                    39.430682
+                  ],
+                  [
+                    -84.4027079,
+                    39.4306992
+                  ],
+                  [
+                    -84.4027324,
+                    39.4305805
+                  ],
+                  [
+                    -84.4037328,
+                    39.4277603
+                  ],
+                  [
+                    -84.4041933,
+                    39.4264327
+                  ],
+                  [
+                    -84.4046657,
+                    39.4251352
+                  ],
+                  [
+                    -84.4049648,
+                    39.4242861
+                  ],
+                  [
+                    -84.4052638,
+                    39.4234369
+                  ]
+                ]
+              ]
+            ]
+          },
+          "geometry_sha256": "4ae7e26f34441206f19814085bbbd28ec598335252b7b80ac1733daa2987685f",
+          "geometry_crs": "EPSG:4326"
+        },
+        "identity_evidence": {
+          "name": {
+            "osm_variant": "Pleasant Hill Golf Course",
+            "full_exact": true,
+            "core_exact": true,
+            "score": 1.0,
+            "catalog_identity_kind": "golf_course",
+            "osm_identity_kind": "golf_course",
+            "identity_kind_conflict": false
+          },
+          "address_website": {
+            "catalog_website_domain": "playpleasanthill.com",
+            "osm_website_domain": null,
+            "website_match": false,
+            "website_domains_differ": false,
+            "catalog_postcodes": [
+              "45044"
+            ],
+            "osm_postcode": "45044",
+            "postcode_match": true,
+            "postcode_conflict": false,
+            "catalog_house_number": "6487",
+            "osm_house_number": "6487",
+            "house_number_match": true,
+            "house_number_conflict": false,
+            "catalog_street_key": "hankin",
+            "osm_street_key": "hankin",
+            "street_similarity": 1.0,
+            "city_match": false,
+            "street_words_match": true,
+            "street_conflict": false,
+            "specific_address_conflict": false,
+            "locality_signal_count": 3
+          },
+          "state_containment": "representative point strictly contained by OSM US-OH boundary",
+          "proximity_alone_not_used": true,
+          "domain_multiplicity": {
+            "catalog_records_with_domain": 1,
+            "osm_properties_with_domain": 0,
+            "shared_domain": false
+          }
+        },
+        "derived_interior_point": {
+          "longitude": -84.3991371228483,
+          "latitude": 39.427096500000005,
+          "crs": "EPSG:4326",
+          "kind": "osm_golf_property_interior",
+          "purpose": "property browsing; not an entrance, clubhouse, routable arrival point, access claim, or public-play claim"
+        },
+        "validation": {
+          "geometry_valid": true,
+          "strict_contains_interior_point": true,
+          "shapely_version": "2.0.3"
+        }
+      },
+      "original_record_status": "ambiguous",
+      "original_decision_reason": "plausible name candidates remain without decisive identity evidence",
+      "retained_input_sha256": "6a6066696dcd352dae8e0ccbb4d2fd85644c4ea12874de56e0a1082ef95fdb56",
+      "source_provenance": {
+        "catalog_file": "existing-unmapped-facilities-20261013.json",
+        "catalog_sha256": "142f5965c54bee0d7e23c42ece296a6367d9f6b8297fe197cfb2097ed24dc8d6",
+        "catalog_library_file_id": "libfile_a57323e68e9081918951857885fe40a7",
+        "catalog_source_main": "53d30b4a08681b7927e6ade09f39ab4732718114",
+        "catalog_canonical_sha256": "489007c1c832b4ae87a78d92e7ddd22502aedd765148a1bcf8ba7fa682a3f9a6",
+        "catalog_scope_counts": {
+          "active_catalog_facilities": 7176,
+          "map_eligible": 294,
+          "off_map_total": 6882,
+          "without_qualified_property_location_in_this_handoff": 6868,
+          "excluded_existing_property_point_missing_holes": 14
+        },
+        "golf_sqlite_sha256": "d485b47256814d6764779e7d1987493c37d71e519b5b16412c46426ee468ea37",
+        "state_boundary_sha256": "308e178d83de441c812b503a75eb53e096c3acfa30abac66063341029f505e87",
+        "osm_extract": "Geofabrik United States 261011",
+        "osm_data_through": "2026-10-11T20:21:06Z",
+        "source_pbf_sha256": "de48784f65c1160eec691abf47821c7d8deab685c8cc984ba3720ce410c8b5df",
+        "software": "Python + Shapely 2.0.3"
+      },
+      "independent_binding": "Specific accepted canonical street-address evidence is independent of retained OSM tags. Current course public-play and physical-hole facts are standing canonical values, unchanged.",
+      "identity_decision": "Canonical6487HankinsRoad,LibertyTwpOH45044 matches OSM house6487,HankinsRoad,ZIP45044. OSM cityMiddletown is not asserted as a new alias or canonical address correction. Other Chardon/Aquilla44024 and Perrysville/PleasantHill44864 objects have conflicting house/street/ZIP. Exact specific address eliminates both; existing address_range_estimate/ButlerCounty remains in original evidence.",
+      "rejected_competitors": [
+        {
+          "osm": {
+            "type": "way",
+            "id": 313381311,
+            "version": 15,
+            "timestamp_unix": 1760046621,
+            "tags": {
+              "addr:city": "Chardon",
+              "addr:housenumber": "13461",
+              "addr:postcode": "44024",
+              "addr:state": "OH",
+              "addr:street": "Aquilla Road",
+              "leisure": "golf_course",
+              "name": "Pleasant Hill Golf Course"
+            },
+            "geometry": {
+              "type": "MultiPolygon",
+              "coordinates": [
+                [
+                  [
+                    [
+                      -81.1935794,
+                      41.4914487
+                    ],
+                    [
+                      -81.1899467,
+                      41.4914507
+                    ],
+                    [
+                      -81.1899464,
+                      41.4909789
+                    ],
+                    [
+                      -81.1898857,
+                      41.4898744
+                    ],
+                    [
+                      -81.1876723,
+                      41.489902
+                    ],
+                    [
+                      -81.1877313,
+                      41.4931078
+                    ],
+                    [
+                      -81.1856707,
+                      41.4930973
+                    ],
+                    [
+                      -81.1833965,
+                      41.493094
+                    ],
+                    [
+                      -81.1833427,
+                      41.4930939
+                    ],
+                    [
+                      -81.1828696,
+                      41.4930932
+                    ],
+                    [
+                      -81.1829189,
+                      41.4958993
+                    ],
+                    [
+                      -81.1829242,
+                      41.4962025
+                    ],
+                    [
+                      -81.1829272,
+                      41.4963717
+                    ],
+                    [
+                      -81.1829285,
+                      41.496449
+                    ],
+                    [
+                      -81.1829292,
+                      41.4964869
+                    ],
+                    [
+                      -81.1834499,
+                      41.4963
+                    ],
+                    [
+                      -81.1834339,
+                      41.497158
+                    ],
+                    [
+                      -81.1831348,
+                      41.4971617
+                    ],
+                    [
+                      -81.1831344,
+                      41.4980791
+                    ],
+                    [
+                      -81.1831332,
+                      41.5006252
+                    ],
+                    [
+                      -81.1821137,
+                      41.5006379
+                    ],
+                    [
+                      -81.1814666,
+                      41.5006405
+                    ],
+                    [
+                      -81.1814257,
+                      41.5006407
+                    ],
+                    [
+                      -81.1813893,
+                      41.5006408
+                    ],
+                    [
+                      -81.1764955,
+                      41.5006608
+                    ],
+                    [
+                      -81.1764967,
+                      41.5007823
+                    ],
+                    [
+                      -81.1765173,
+                      41.5027843
+                    ],
+                    [
+                      -81.1765256,
+                      41.503726
+                    ],
+                    [
+                      -81.1810623,
+                      41.5036708
+                    ],
+                    [
+                      -81.181168,
+                      41.5036695
+                    ],
+                    [
+                      -81.1819442,
+                      41.5036599
+                    ],
+                    [
+                      -81.182366,
+                      41.5036667
+                    ],
+                    [
+                      -81.1832825,
+                      41.5036433
+                    ],
+                    [
+                      -81.1846117,
+                      41.5036387
+                    ],
+                    [
+                      -81.189931,
+                      41.5035606
+                    ],
+                    [
+                      -81.190043,
+                      41.5035592
+                    ],
+                    [
+                      -81.1905634,
+                      41.5035487
+                    ],
+                    [
+                      -81.19051,
+                      41.5005761
+                    ],
+                    [
+                      -81.1921585,
+                      41.5005591
+                    ],
+                    [
+                      -81.1921708,
+                      41.4993341
+                    ],
+                    [
+                      -81.1935461,
+                      41.4993209
+                    ],
+                    [
+                      -81.1935412,
+                      41.4989529
+                    ],
+                    [
+                      -81.1921497,
+                      41.4989616
+                    ],
+                    [
+                      -81.1921462,
+                      41.4987202
+                    ],
+                    [
+                      -81.1921355,
+                      41.4979939
+                    ],
+                    [
+                      -81.1935538,
+                      41.4979829
+                    ],
+                    [
+                      -81.1935569,
+                      41.4977625
+                    ],
+                    [
+                      -81.1921557,
+                      41.4977716
+                    ],
+                    [
+                      -81.1921673,
+                      41.4968252
+                    ],
+                    [
+                      -81.1896961,
+                      41.4968265
+                    ],
+                    [
+                      -81.1897017,
+                      41.4965095
+                    ],
+                    [
+                      -81.1887418,
+                      41.4965731
+                    ],
+                    [
+                      -81.1876302,
+                      41.4966468
+                    ],
+                    [
+                      -81.1865459,
+                      41.4967186
+                    ],
+                    [
+                      -81.186504,
+                      41.4967214
+                    ],
+                    [
+                      -81.1859676,
+                      41.4967569
+                    ],
+                    [
+                      -81.1850651,
+                      41.4968167
+                    ],
+                    [
+                      -81.1850336,
+                      41.4959906
+                    ],
+                    [
+                      -81.1850413,
+                      41.4959092
+                    ],
+                    [
+                      -81.1853258,
+                      41.4958905
+                    ],
+                    [
+                      -81.1853115,
+                      41.4948429
+                    ],
+                    [
+                      -81.1862724,
+                      41.4944214
+                    ],
+                    [
+                      -81.1868935,
+                      41.4944039
+                    ],
+                    [
+                      -81.1868906,
+                      41.4944817
+                    ],
+                    [
+                      -81.1871706,
+                      41.4944817
+                    ],
+                    [
+                      -81.187174,
+                      41.4944337
+                    ],
+                    [
+                      -81.1874438,
+                      41.4944337
+                    ],
+                    [
+                      -81.1874472,
+                      41.4945777
+                    ],
+                    [
+                      -81.1883601,
+                      41.4945878
+                    ],
+                    [
+                      -81.1883736,
+                      41.493173
+                    ],
+                    [
+                      -81.1905323,
+                      41.4932033
+                    ],
+                    [
+                      -81.1905053,
+                      41.4919299
+                    ],
+                    [
+                      -81.1917239,
+                      41.4919338
+                    ],
+                    [
+                      -81.1935749,
+                      41.4919398
+                    ],
+                    [
+                      -81.1935794,
+                      41.4914487
+                    ]
+                  ]
+                ]
+              ]
+            },
+            "geometry_sha256": "0ceaf126cb817c1450a980378a86ffda5aaae2f3bed46ff860472614ec71abaf",
+            "geometry_crs": "EPSG:4326"
+          },
+          "original_identity_evidence": {
+            "name": {
+              "osm_variant": "Pleasant Hill Golf Course",
+              "full_exact": true,
+              "core_exact": true,
+              "score": 1.0,
+              "catalog_identity_kind": "golf_course",
+              "osm_identity_kind": "golf_course",
+              "identity_kind_conflict": false
+            },
+            "address_website": {
+              "catalog_website_domain": "playpleasanthill.com",
+              "osm_website_domain": null,
+              "website_match": false,
+              "website_domains_differ": false,
+              "catalog_postcodes": [
+                "45044"
+              ],
+              "osm_postcode": "44024",
+              "postcode_match": false,
+              "postcode_conflict": true,
+              "catalog_house_number": "6487",
+              "osm_house_number": "13461",
+              "house_number_match": false,
+              "house_number_conflict": true,
+              "catalog_street_key": "hankin",
+              "osm_street_key": "aquilla",
+              "street_similarity": 0.3077,
+              "city_match": false,
+              "street_words_match": false,
+              "street_conflict": true,
+              "specific_address_conflict": true,
+              "locality_signal_count": 0
+            },
+            "state_containment": "representative point strictly contained by OSM US-OH boundary",
+            "proximity_alone_not_used": true,
+            "domain_multiplicity": {
+              "catalog_records_with_domain": 1,
+              "osm_properties_with_domain": 0,
+              "shared_domain": false
+            }
+          },
+          "original_selection_status": "ambiguous_not_selected",
+          "selected_geometry_intersects": false,
+          "selected_geometry_centroid_distance_degrees": 3.824167498990474,
+          "decision": "Rejected for this UUID: lacks matching canonical house/street/ZIP or conflicts with that address. No second property or facility/course subdivision inferred."
+        },
+        {
+          "osm": {
+            "type": "way",
+            "id": 667935931,
+            "version": 3,
+            "timestamp_unix": 1735595771,
+            "tags": {
+              "addr:city": "Perrysville",
+              "addr:housenumber": "4089",
+              "addr:postcode": "44864",
+              "addr:state": "OH",
+              "addr:street": "Pleasant Hill Road",
+              "leisure": "golf_course",
+              "name": "Pleasant Hill Golf Course"
+            },
+            "geometry": {
+              "type": "MultiPolygon",
+              "coordinates": [
+                [
+                  [
+                    [
+                      -82.3670661,
+                      40.6346095
+                    ],
+                    [
+                      -82.3670635,
+                      40.6335572
+                    ],
+                    [
+                      -82.3670045,
+                      40.633486
+                    ],
+                    [
+                      -82.3659611,
+                      40.6333781
+                    ],
+                    [
+                      -82.3654595,
+                      40.6332844
+                    ],
+                    [
+                      -82.3653308,
+                      40.6332458
+                    ],
+                    [
+                      -82.3652932,
+                      40.6332132
+                    ],
+                    [
+                      -82.3651242,
+                      40.6332193
+                    ],
+                    [
+                      -82.3650304,
+                      40.6332519
+                    ],
+                    [
+                      -82.3648989,
+                      40.6332722
+                    ],
+                    [
+                      -82.3646817,
+                      40.6333435
+                    ],
+                    [
+                      -82.3645663,
+                      40.6333455
+                    ],
+                    [
+                      -82.3645288,
+                      40.6333089
+                    ],
+                    [
+                      -82.3644403,
+                      40.633201
+                    ],
+                    [
+                      -82.3643652,
+                      40.6331684
+                    ],
+                    [
+                      -82.3638529,
+                      40.6330056
+                    ],
+                    [
+                      -82.3637965,
+                      40.6329567
+                    ],
+                    [
+                      -82.363826,
+                      40.6329343
+                    ],
+                    [
+                      -82.3642473,
+                      40.6330487
+                    ],
+                    [
+                      -82.3645073,
+                      40.6322504
+                    ],
+                    [
+                      -82.3640943,
+                      40.6321283
+                    ],
+                    [
+                      -82.3639762,
+                      40.631998
+                    ],
+                    [
+                      -82.3640031,
+                      40.631772
+                    ],
+                    [
+                      -82.3625976,
+                      40.6315196
+                    ],
+                    [
+                      -82.3623133,
+                      40.6315074
+                    ],
+                    [
+                      -82.3623133,
+                      40.6333659
+                    ],
+                    [
+                      -82.3623133,
+                      40.6340335
+                    ],
+                    [
+                      -82.3623133,
+                      40.6341923
+                    ],
+                    [
+                      -82.3623052,
+                      40.6351286
+                    ],
+                    [
+                      -82.3623133,
+                      40.6358084
+                    ],
+                    [
+                      -82.3624796,
+                      40.636071
+                    ],
+                    [
+                      -82.3626244,
+                      40.6361361
+                    ],
+                    [
+                      -82.3628309,
+                      40.6362664
+                    ],
+                    [
+                      -82.3631528,
+                      40.6367773
+                    ],
+                    [
+                      -82.3632136,
+                      40.6368167
+                    ],
+                    [
+                      -82.3632816,
+                      40.6368607
+                    ],
+                    [
+                      -82.3637375,
+                      40.6370114
+                    ],
+                    [
+                      -82.3637939,
+                      40.6370114
+                    ],
+                    [
+                      -82.3638743,
+                      40.636936
+                    ],
+                    [
+                      -82.3639521,
+                      40.6366999
+                    ],
+                    [
+                      -82.3643062,
+                      40.6363214
+                    ],
+                    [
+                      -82.365438,
+                      40.6359692
+                    ],
+                    [
+                      -82.3665082,
+                      40.6354705
+                    ],
+                    [
+                      -82.3666424,
+                      40.6353749
+                    ],
+                    [
+                      -82.3668784,
+                      40.6350289
+                    ],
+                    [
+                      -82.3669669,
+                      40.6348192
+                    ],
+                    [
+                      -82.3670661,
+                      40.6346095
+                    ]
+                  ]
+                ]
+              ]
+            },
+            "geometry_sha256": "9d7674f6d3d77bea1efb5396826451e28d194ea19685f0574c98d754b868d970",
+            "geometry_crs": "EPSG:4326"
+          },
+          "original_identity_evidence": {
+            "name": {
+              "osm_variant": "Pleasant Hill Golf Course",
+              "full_exact": true,
+              "core_exact": true,
+              "score": 1.0,
+              "catalog_identity_kind": "golf_course",
+              "osm_identity_kind": "golf_course",
+              "identity_kind_conflict": false
+            },
+            "address_website": {
+              "catalog_website_domain": "playpleasanthill.com",
+              "osm_website_domain": null,
+              "website_match": false,
+              "website_domains_differ": false,
+              "catalog_postcodes": [
+                "45044"
+              ],
+              "osm_postcode": "44864",
+              "postcode_match": false,
+              "postcode_conflict": true,
+              "catalog_house_number": "6487",
+              "osm_house_number": "4089",
+              "house_number_match": false,
+              "house_number_conflict": true,
+              "catalog_street_key": "hankin",
+              "osm_street_key": "pleasant hill",
+              "street_similarity": 0.3158,
+              "city_match": false,
+              "street_words_match": false,
+              "street_conflict": true,
+              "specific_address_conflict": true,
+              "locality_signal_count": 0
+            },
+            "state_containment": "representative point strictly contained by OSM US-OH boundary",
+            "proximity_alone_not_used": true,
+            "domain_multiplicity": {
+              "catalog_records_with_domain": 1,
+              "osm_properties_with_domain": 0,
+              "shared_domain": false
+            }
+          },
+          "original_selection_status": "ambiguous_not_selected",
+          "selected_geometry_intersects": false,
+          "selected_geometry_centroid_distance_degrees": 2.3668601775869536,
+          "decision": "Rejected for this UUID: lacks matching canonical house/street/ZIP or conflicts with that address. No second property or facility/course subdivision inferred."
+        }
+      ],
+      "other_canonical_namesakes": [],
+      "prior_decision_records": [],
+      "review_sorted_compact_geojson_sha256": "482c35fef6efee191921d5e7e52446f04c947af9e9ec7c9fef3a15490c532b43",
+      "geometry_validation": {
+        "retained_input_sha256_verified": true,
+        "review_geojson_hash_independently_computed": true,
+        "original_upstream_geometry_hash_preserved_not_recomputed": true,
+        "original_and_new_points_strictly_contained": true,
+        "current_qualified_property_point_collisions": [],
+        "rounded_point_reproduced_shapely": "2.1.2"
+      },
+      "existing_public_field_provenance": [
+        {
+          "fields": [
+            "website",
+            "address",
+            "courses.c-6dd68770-d213-439f-a4ce-88fcf28f8b17.holes",
+            "courses.c-6dd68770-d213-439f-a4ce-88fcf28f8b17.access",
+            "inventory_complete",
+            "grouping"
+          ],
+          "source_url": "https://playpleasanthill.com/clubs.action",
+          "observed_on": "2026-10-11"
+        }
+      ]
+    }
+  ]
+}
