@@ -3,8 +3,10 @@
 This replaces the earlier shared-Spark-build proposal. The controller now accepts
 only two separately reviewed, already available SHA256 image IDs. It contains no
 build, pull, import or image-removal path. No suitable images exist yet. Creation
-of a bounded build host, image import, Spark staging and container execution all
-remain separate review actions. No daemon changes, sudo or credentials are needed
+of images, image import, Spark staging and container execution all remain
+separate review actions. No new host, daemon or cloud cost is proposed for the
+initial fixture preparation; the smaller existing-rootless option below remains
+a proposal requiring a controller adaptation and review. No daemon changes, sudo or credentials are needed
 by the proposed runtime test. No such action has been executed.
 
 ## Reproduce the bundle from a clean checkout
@@ -65,12 +67,31 @@ example labels. Wheels/bundles are local review artifacts; not committed binarie
 
 ## Build resources, separate from runtime
 
-Preferred path: an already approved disposable Linux arm64 build VM with hard host
-limits of2 vCPUs,2GiB RAM, no swap, a dedicated4GiB writable disk and no personal
-services/data/credentials. These whole-host bounds contain builder, pulls,
-decompression and install work; a limit applied only to the Docker CLI does not.
-No VM or paid service creation is authorized here. If that build environment is
-unavailable, stop at this proposal. Do not build on Spark's shared daemon instead.
+Prefer already reviewed images when available. For the first synthetic test,
+preparation can use one resource-capped official-Python container on Spark's
+existing rootless daemon:1 CPU,1GiB RAM/no extra swap,64tasks,180s timeout;
+read-only rootfs, capabilities dropped, no-new-privileges, default seccomp,
+network=none, no ports, no restart. Only predownloaded hash-locked wheels are
+mounted read-only; installation writes to a512MiB container-local tmpfs. Copy
+only the checked public package tree into a new private disposable directory,
+then remove the preparation container. There is no compiler, image build/commit,
+persistent build cache, extra host or new daemon. UID0 inside the rootless
+namespace maps to the ordinary host account; runtime remainsUID65532.
+
+The smallest runtime variant would mount only that new public-code directory
+read-only and use the same official base image. This explicitly changes the
+zero-bind-mount image proposal; no home/routing data/socket/key is mounted. It
+requires separate review and a controller adaptation: the current controller
+accepts prebuilt image IDs only, so do not invoke it for this variant. Base pull,
+wheel staging and Docker copying are outside the preparation cgroup and still
+need scoped review; do not claim the installer caps all daemon work.
+
+The image-building commands below are an alternative only when an independently
+bounded builder is already available and approved, with whole-host CPU/memory/
+storage limits covering its daemon and scratch space. Do not provision a cloud
+host or run an uncapped shared-Spark build to make those commands work. Client
+limits alone do not cap the builder. No preparation or image action is authorized
+or executed by these documents.
 
 Use the digest-pinned official CPython arm64/v8 base:
 `docker.io/library/python:3.12.14-slim-bookworm@sha256:eb5be8e5b4d0a159c237946bbdd06356dda5d19c30fc4f7843e8046d3a590333`.
@@ -78,7 +99,8 @@ Use the digest-pinned official CPython arm64/v8 base:
 The API image installs only these hash-locked wheel dependencies:
 geographiclib2.1, gunicorn26.2.0, networkx3.6.1, NumPy2.5.2,
 packaging26.3, SciPy1.18.1, plus local fairway0.6.2 and modo0.3.7.
-modo source is exact merged257c680d6acf6917ac47df6521d44ab1b35f6d1a.
+modo source is the reviewed merge pinned by the committed uv.lock, currently
+865beb66c039babcc96d7c1511b29bbf95405acf.
 The fixture uses only Python stdlib. There is no apt install, compiler, road
 artifact download, extra routing engine, SSH key or Docker socket in either image.
 Stage all six dependency wheels plus the two local application wheels in
@@ -123,7 +145,7 @@ Client timeout alone does not establish cancellation of daemon build work. Stop
 criteria are any build/space/time failure; retain evidence then stop/discard the
 entire disposable build VM through its separately approved lifecycle, bounding
 remaining processes and cache. Do not repair the failure with Spark builds or
-broader privileges. No build host currently exists or has been approved.
+broader privileges. No build environment or container action is approved by this proposal.
 
 Review the built image IDs, provenance and archive SHA before separately approving
 import. Pre-existing reviewed images could eliminate the build step. No image IDs

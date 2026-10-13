@@ -4,7 +4,7 @@ Status: local security-review prototype, separate from `fairway.app:application`
 No deployment or public cutover is implied. Render is not required for this
 national calculation path. The Pages map, catalog snapshots, and existing
 Chicago/TomTom API remain unchanged. modo is a pinned Python dependency at
-`257c680d6acf6917ac47df6521d44ab1b35f6d1a`, not a hosted relay.
+`865beb66c039babcc96d7c1511b29bbf95405acf`, not a hosted relay.
 
 ## Contract and limitations
 
@@ -38,7 +38,7 @@ verification of Spark's tile bytes or freshness. Retain the router's separate
 checksummed manifest and restore procedure. Road attribution remains OSM/ODbL.
 
 The private API reuses the existing canonical catalog's packaged
-`static/data/public-courses.json` projection. It admits the same 4,428 mapped
+`static/data/public-courses.json` projection. It admits the currently eligible mapped
 public facilities, preserving IDs, coordinates, physical hole totals, websites
 and access notes. No new source requests, entrance verification pipeline,
 canonical facts or public map changes are needed. Lower-48 origins and ordinary
