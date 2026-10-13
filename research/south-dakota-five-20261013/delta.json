@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "base_commit": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
+  "base_catalog_sha256": "762417d3d30c61fd2e4cf2e19d2b0b34a102602ac88fbef99b66d08bbef2b15b",
+  "authorized_leads": 5,
+  "excluded_leads": [
+    {
+      "name": "Bison Country Club",
+      "reason": "Exact profile HTTP500; no facts accepted."
+    }
+  ],
+  "facilities_added": 4,
+  "courses_added": 0,
+  "mapped_added": 0,
+  "facilities": [
+    {
+      "id": "f-715cbbe2-8092-4c17-9707-2faad1a1ded8",
+      "name": "Murdo Golf Club",
+      "state": "SD",
+      "county": null,
+      "address": {
+        "text": "24094 270th Ave, Murdo, SD 57559",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": null,
+      "inventory_complete": false,
+      "website": null,
+      "map_location": null,
+      "courses": [],
+      "public_access": "public",
+      "website_status": "not_checked",
+      "website_checked_on": null
+    },
+    {
+      "id": "f-f75e10e2-e371-4c14-8bb7-e87d1ef3fe98",
+      "name": "Oahe Hills Golf Course",
+      "state": "SD",
+      "county": null,
+      "address": {
+        "text": "12631 Highway 1804, Mobridge, SD 57601",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": null,
+      "inventory_complete": false,
+      "website": "https://www.oahehills.com/",
+      "map_location": null,
+      "courses": [],
+      "public_access": "public",
+      "website_status": "not_checked",
+      "website_checked_on": null
+    },
+    {
+      "id": "f-a45175da-b70c-436a-9bab-d9dd53e832b9",
+      "name": "Lake Waggoner Golf Club",
+      "state": "SD",
+      "county": null,
+      "address": {
+        "text": "22271 Lake Waggoner Road PO Box 518, Philip, SD 57567",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": null,
+      "inventory_complete": false,
+      "website": null,
+      "map_location": null,
+      "courses": [],
+      "public_access": "public",
+      "website_status": "not_checked",
+      "website_checked_on": null
+    },
+    {
+      "id": "f-b93ebe7e-4986-4a13-8f2e-916f03e4cbd5",
+      "name": "Elkhorn Ridge Golf Club",
+      "state": "SD",
+      "county": null,
+      "address": null,
+      "physical_holes": null,
+      "inventory_complete": false,
+      "website": "https://elkhornridgeresort.com/golf",
+      "map_location": null,
+      "courses": [],
+      "public_access": "public",
+      "website_status": "not_checked",
+      "website_checked_on": null
+    }
+  ],
+  "sources": {
+    "sd-five-20261013-source-0241d1d869b4": "https://www.sdga.org/golf_course/murdo-golf-club/",
+    "sd-five-20261013-source-c64527846b0d": "https://www.sdga.org/golf_course/oahe-hills-golf-course/",
+    "sd-five-20261013-source-da9eba7e1d2d": "https://www.sdga.org/golf_course/lake-waggoner-golf-club/",
+    "sd-five-20261013-source-2e1de562c5d0": "https://www.sdga.org/golf_course/elkhorn-ridge-golf-club/"
+  },
+  "notes": {
+    "sd-five-20261013-note-c8730ce13eae": "Individually classified Public by South Dakota Golf Association; membership or list inclusion alone is not the admission basis. Physical-hole total and course inventory remain unverified; playing-round fees, par and rating tables do not establish physical counts. County, map and arrival are unknown. Bare facts with independently written qualifications only; no website prose, photographs, scorecard artwork or personnel information imported. No explicit open-data license claimed; the facts do not inherit the MIT software license.",
+    "sd-five-20261013-note-de9ead3af572": "SDGA profile locality: Murdo, South Dakota. Distinct from Grandpa\u2019s Woods in Murdock, Nebraska. Listed Facebook link was not requested or recorded as an independently found operator website. ",
+    "sd-five-20261013-note-58adcc24ed2f": "SDGA profile locality: Mobridge, South Dakota. Website is the operator URL listed by SDGA, not independently visited or verified; website_status remains not_checked and website_checked_on remains null. ",
+    "sd-five-20261013-note-713ed22126c6": "SDGA profile locality: Philip, South Dakota. Street and PO Box are combined in the published address; purpose remains unspecified. Held Philip municipal source was not requested and supplies no facts. Listed Facebook link was not requested or recorded as an independently found operator website. ",
+    "sd-five-20261013-note-8988bb74fb76": "SDGA profile locality: Spearfish, South Dakota. The live profile has no street address; city/ZIP-only text remains null. Distinct from Elkhorn Ridge Golf Course in Elkhorn, Nebraska. Website is the operator URL listed by SDGA, not independently visited or verified; website_status remains not_checked and website_checked_on remains null. ",
+    "sd-five-20261013-history": "Added four net-new individually Public-labeled South Dakota facilities from exactly five authorized SDGA profiles. Bison profile returned500 and was excluded without retry or replacement. Four physical totals remain null and inventories empty; no county/map/arrival/course additions or playing-round inference. Source controls, policy and pacing evidence retained in research/south-dakota-five-20261013."
+  },
+  "research": {
+    "f-715cbbe2-8092-4c17-9707-2faad1a1ded8": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "sd-five-20261013-source-0241d1d869b4"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "address"
+          ],
+          "source": "sd-five-20261013-source-0241d1d869b4",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd-five-20261013-note-c8730ce13eae",
+            "sd-five-20261013-note-de9ead3af572"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd-five-20261013-note-c8730ce13eae"
+        ],
+        "source": [
+          "sd-five-20261013-note-de9ead3af572"
+        ]
+      }
+    },
+    "f-f75e10e2-e371-4c14-8bb7-e87d1ef3fe98": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "sd-five-20261013-source-c64527846b0d"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "address",
+            "website"
+          ],
+          "source": "sd-five-20261013-source-c64527846b0d",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd-five-20261013-note-c8730ce13eae",
+            "sd-five-20261013-note-58adcc24ed2f"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd-five-20261013-note-c8730ce13eae"
+        ],
+        "source": [
+          "sd-five-20261013-note-58adcc24ed2f"
+        ]
+      }
+    },
+    "f-a45175da-b70c-436a-9bab-d9dd53e832b9": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "sd-five-20261013-source-da9eba7e1d2d"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "address"
+          ],
+          "source": "sd-five-20261013-source-da9eba7e1d2d",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd-five-20261013-note-c8730ce13eae",
+            "sd-five-20261013-note-713ed22126c6"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd-five-20261013-note-c8730ce13eae"
+        ],
+        "source": [
+          "sd-five-20261013-note-713ed22126c6"
+        ]
+      }
+    },
+    "f-b93ebe7e-4986-4a13-8f2e-916f03e4cbd5": {
+      "grouping": "unreviewed",
+      "listed_sources": [
+        "sd-five-20261013-source-2e1de562c5d0"
+      ],
+      "support": [
+        {
+          "fields": [
+            "name",
+            "state",
+            "public_access",
+            "website"
+          ],
+          "source": "sd-five-20261013-source-2e1de562c5d0",
+          "observed_on": "2026-10-13",
+          "note": [
+            "sd-five-20261013-note-c8730ce13eae",
+            "sd-five-20261013-note-8988bb74fb76"
+          ]
+        }
+      ],
+      "notes": {
+        "access": [
+          "sd-five-20261013-note-c8730ce13eae"
+        ],
+        "source": [
+          "sd-five-20261013-note-8988bb74fb76"
+        ]
+      }
+    }
+  },
+  "publication_status": "approved_facts_preparing_draft_pr",
+  "linked_policy_clearance_complete": true,
+  "unreviewed_linked_policies": [],
+  "integration_constraint": {
+    "latest_parent_main": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
+    "latest_parent_catalog_sha256": "762417d3d30c61fd2e4cf2e19d2b0b34a102602ac88fbef99b66d08bbef2b15b",
+    "apply_only_id_scoped_delta": true,
+    "replace_stale_whole_catalog": false,
+    "reason": "PR14 merged after this candidate base; retain PR13 nine totals and all current-main data/history."
+  }
+}
