@@ -317,3 +317,10 @@ the original coordinates remain in the source layer and prior catalog history.
 The point derivation uses Shapely representative_point on complete valid
 geometries, followed by strict containment after rounding. Namesakes, unresolved
 feature duplication and the Nashville address conflict remain excluded.
+
+`data/source-layers/illinois-osm-remaining80-properties-20261011.json` contains
+65 additional identity-matched golf polygons and derived interior points from
+the same Illinois extract, under ODbL-1.0. These fill previously null browse
+locations; unchanged facility facts and original admission evidence remain
+separate. Fourteen unmatched facilities and the insufficiently corroborated
+Golfmohr spelling candidate remain unchanged.
