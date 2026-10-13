@@ -346,3 +346,5 @@ The remaining twenty-state property-point intake is reproducible in `source-laye
 The retained distinctive-name property intake is reproducible in `source-layers/retained-name-matches-01-osm-properties-20261011.json` under the same ODbL terms. Original automated proposed classifications are retained alongside the explicit manual identity decisions. Property browse points are not entrances.
 
 The second retained distinctive-name property intake is reproducible in `source-layers/retained-name-matches-02-osm-properties-20261011.json` under the same ODbL terms, preserving original proposed classifications, manual identity decisions and prior coordinates.
+
+The third retained-name property intake is reproducible in `source-layers/retained-name-matches-03-osm-properties-20261011.json` under the same ODbL terms, preserving original proposed classifications, identity decisions and prior coordinates.
