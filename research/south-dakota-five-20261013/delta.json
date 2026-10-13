@@ -229,5 +229,49 @@
     "apply_only_id_scoped_delta": true,
     "replace_stale_whole_catalog": false,
     "reason": "PR14 merged after this candidate base; retain PR13 nine totals and all current-main data/history."
+  },
+  "history_batch": {
+    "commit": "83d7d8bf6f7bdc44aa048c3930b292af9610dfc3",
+    "committed_at": "2026-10-13T19:23:16Z",
+    "reported_at": "2026-10-13T19:24:05Z",
+    "initial_baseline": false,
+    "facilities_added": 4,
+    "facilities_removed": 0,
+    "redacted_entries": 0,
+    "added_facilities": [
+      {
+        "id": "f-715cbbe2-8092-4c17-9707-2faad1a1ded8",
+        "name": "Murdo Golf Club",
+        "state": "SD",
+        "address": "24094 270th Ave, Murdo, SD 57559"
+      },
+      {
+        "id": "f-f75e10e2-e371-4c14-8bb7-e87d1ef3fe98",
+        "name": "Oahe Hills Golf Course",
+        "state": "SD",
+        "address": "12631 Highway 1804, Mobridge, SD 57601"
+      },
+      {
+        "id": "f-a45175da-b70c-436a-9bab-d9dd53e832b9",
+        "name": "Lake Waggoner Golf Club",
+        "state": "SD",
+        "address": "22271 Lake Waggoner Road PO Box 518, Philip, SD 57567"
+      },
+      {
+        "id": "f-b93ebe7e-4986-4a13-8f2e-916f03e4cbd5",
+        "name": "Elkhorn Ridge Golf Club",
+        "state": "SD",
+        "address": null
+      }
+    ],
+    "facilities_updated": 0,
+    "correction_note": [
+      "sd-five-20261013-history"
+    ]
+  },
+  "progress_report": {
+    "catalog_commit": "83d7d8bf6f7bdc44aa048c3930b292af9610dfc3",
+    "updated_at": "2026-10-13T19:24:05Z",
+    "report_commits_operation": "prepend_preserving_existing_order"
   }
 }

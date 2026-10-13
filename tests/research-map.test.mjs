@@ -32,8 +32,12 @@ test("published progress exposes the latest reported intake to the map", () => {
       new URL("../src/fairway/static/data/research-progress.json", import.meta.url),
     ),
   );
+  assert.equal(
+    canonical.progress.report_commits[0],
+    canonical.progress.catalog_commit,
+  );
   const latest = canonical.history.batches.find(
-    (batch) => batch.commit === canonical.progress.report_commits[0],
+    (batch) => batch.commit === canonical.progress.catalog_commit,
   );
   assert.ok(latest);
   const reportTime = Date.parse(latest.reported_at);

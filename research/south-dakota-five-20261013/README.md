@@ -1,8 +1,8 @@
 # Five-lead South Dakota review, 2026-10-13
 
-Exactly five authorized SDGA profile leads were reviewed. Four net-new individually Public-labeled facilities are proposed; Bison Country Club is excluded after a single HTTP500 response. No replacement lead, operator/municipal/social collection, remote write or publication. The older South Dakota branch and PR14 are unchanged.
+Exactly five authorized SDGA profile leads were reviewed. Four net-new individually Public-labeled facilities are proposed; Bison Country Club is excluded after a single HTTP500 response. No replacement lead or operator/municipal/social collection. Raw captures remain private; this isolated branch is a draft PR proposal, with no direct main write or merge.
 
-Base: `47846dc978855271717a1f73a365125196775a43`, 7,189 facilities. Candidate: 7,193 facilities. All four physical totals remain null, inventories empty and incomplete; zero new physical-course entries, county facts, map points or arrivals. Existing records, ranking projection and UI are preserved.
+Current integration base: `f011e4b8330577613f781a6cc3e32b0a2915beb6`, 7,189 facilities. Candidate: 7,193 facilities. All four physical totals remain null, inventories empty and incomplete; zero new physical-course entries, county facts, map points or arrivals. Existing records, ranking projection and UI are preserved.
 
 | Facility | Published address | Evidence |
 | --- | --- | --- |
@@ -48,3 +48,5 @@ Current parent main is now f011e4b8330577613f781a6cc3e32b0a2915beb6 after PR14 m
 ## Current-main draft integration
 
 The accepted four ID-scoped additions are now prepared on merged mainf011e4b, preserving all7189 facilities/research, PR13 nine totals and PR14 additions/history. The older stale-base whole-catalog candidate was not imported. Raw captures remain private Library audit evidence and are excluded from Git. Current review-status fields describe the completed canonical privacy review; earlier unreviewed/no-capture observations remain explicitly historical. A new reachable intake/report commit will be recorded with actual Git committer time, reported time separate, zero existing updates, and newest-first recent report order. No merge will be performed.
+
+The report-order defect in the earlier stale-base candidate is corrected here: actual intake commit83d7d8bf6f7bdc44aa048c3930b292af9610dfc3 is prepended, all existing report order retained, committed_at from Git, reported_at separate, known zero existing updates. The exported latest-report regression was strengthened to compare report_commits[0] against catalog_commit before parsing the public snapshot. Three JS files pass against regenerated exports;229 Python tests and full checks pass. The Ohio owner was notified to preserve distinct ID-scoped deltas; current main is rechecked before publication. Merge using a merge commit to preserve the recorded evidence ancestry.

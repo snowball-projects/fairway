@@ -1,120 +1,26 @@
 {
-  "base_commit": "47846dc978855271717a1f73a365125196775a43",
-  "base_catalog_sha256": "0bbcf243c74cf4948a79c74390775293536de32ad883f8f0d0fefb82fefab996",
-  "final_catalog_sha256": "a25595d68fe87e6e41f747211af04496b4f5aada00d6c99d011304edc311be7d",
-  "intake_ancestor": "282e1aa3e81544879169e6953cc6411ff2bcc3f5",
-  "intake_committed_at": "2026-10-13T13:15:51-05:00",
-  "reported_at": "2026-10-13T18:16:41.067626+00:00",
+  "base_commit": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
+  "base_catalog_sha256": "762417d3d30c61fd2e4cf2e19d2b0b34a102602ac88fbef99b66d08bbef2b15b",
+  "final_catalog_sha256": "3140e3ff09551170c13e7f7db3041ae9f42ad056d731fc6d64d7c11dc074d5da",
+  "intake_ancestor": "83d7d8bf6f7bdc44aa048c3930b292af9610dfc3",
+  "intake_committed_at": "2026-10-13T19:23:16Z",
+  "reported_at": "2026-10-13T19:24:05Z",
   "baseline_facilities": 7189,
   "candidate_facilities": 7193,
   "facilities_added": 4,
   "courses_added": 0,
   "mapped_added": 0,
-  "original_facility_research_source_note_registries_preserved": true,
-  "original_history_prefix_and_history_metadata_preserved": true,
-  "metadata_counties_and_active_regions_preserved": true,
-  "progress_fields_supported": true,
-  "tracked_ranking_ui_and_research_map_files_preserved": [
-    {
-      "path": "docs/research-map/README.md",
-      "sha256": "6a1bda81816509de41616cd66f7951139391d2437ebb928841cb6bc9bcebe976"
-    },
-    {
-      "path": "docs/research-map/app.mjs",
-      "sha256": "8a6ebb809437785b7ce5b6ffeb69194d855480dbd01497d9e2017d274b73fb00"
-    },
-    {
-      "path": "docs/research-map/boundaries.json",
-      "sha256": "1ec51d787b0264b59d4f5464ae99b6abf7ab1525b36651f234ea82f899c9d6ca"
-    },
-    {
-      "path": "docs/research-map/index.html",
-      "sha256": "ddf5045d8a8e6ed8833bd49c9d13bc3974f84283804bbf60c95c1ba4f4384a6a"
-    },
-    {
-      "path": "docs/research-map/model.mjs",
-      "sha256": "b2256101fee5ed2931e3d30e65061ef72f990e67720bd687e2e5179338510f63"
-    },
-    {
-      "path": "docs/research-map/refresh.mjs",
-      "sha256": "8478f7a67a09328481eb5e16979a953843e6959c8979582b678dafad0481eb9e"
-    },
-    {
-      "path": "docs/research-map/styles.css",
-      "sha256": "2141725e1cc2a802c79b541b1ef167bd2192739848ed924c54f6a8352162944c"
-    },
-    {
-      "path": "src/fairway/data/course-catalog.json",
-      "sha256": "c017b830b398d9476a0791882c7e193bb691476eab1a8f43359892eaf9ff3180"
-    },
-    {
-      "path": "src/fairway/data/snapshots.json",
-      "sha256": "6589d1ae8822c87bf8f919360d79448d341d98e436564960f122ed88a3c7d195"
-    },
-    {
-      "path": "src/fairway/static/LEAFLET-LICENSE.txt",
-      "sha256": "bbc959aaef7488b38942e7f05cfd1244351f8bce54261951ea17dd7cf60f894b"
-    },
-    {
-      "path": "src/fairway/static/app.js",
-      "sha256": "e863f35a2fdb59511f19517dbf41da47aa62394aaddd3b9b4a5625db20d76f72"
-    },
-    {
-      "path": "src/fairway/static/catalog.mjs",
-      "sha256": "398dfb43551b52c917509b5ec501dc506a587115a7ef13435c5555b2a9709048"
-    },
-    {
-      "path": "src/fairway/static/facility-dots.mjs",
-      "sha256": "11fb1f113f706fe92f42bb17968d36b9b5dc9e1b5b0c236b4bd7674e1371d0a3"
-    },
-    {
-      "path": "src/fairway/static/favicon.png",
-      "sha256": "b3837a4c32b60d770e0fb3bdc08d9ac25e44f867f1e7d1600d303d2939b7e0a9"
-    },
-    {
-      "path": "src/fairway/static/icon.png",
-      "sha256": "a54dea1181837541b9271fe51ed70769fc0b947f292449c90c0fde52d212383d"
-    },
-    {
-      "path": "src/fairway/static/index.html",
-      "sha256": "1185a2d0480bb2e8a9f7dbc186f8742b8036c60a1e5fd2cf47200bfb3feba952"
-    },
-    {
-      "path": "src/fairway/static/leaflet.css",
-      "sha256": "f0b85bf8d17c4ddc5c8404215c2518c97622b5d8cc5635958af7665b4e7e40e9"
-    },
-    {
-      "path": "src/fairway/static/leaflet.js",
-      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a"
-    },
-    {
-      "path": "src/fairway/static/origin-rows.mjs",
-      "sha256": "b8930d240a83f8553ebc059390caf4bcb34a090fde68d70d0896b9fb43d681a5"
-    },
-    {
-      "path": "src/fairway/static/styles.css",
-      "sha256": "772478a7fc2b511678e2763cfbeab365abc38136fe191f6f77bcba4576b217c3"
-    }
-  ],
-  "python_tests": "226 passed with PYTHONPATH=src",
-  "ruff": "check and format passed,65 files",
-  "javascript": "app.js/leaflet.js syntax and three existing JS test files passed",
-  "snapshot": {
-    "courses": 8,
-    "edges": 166843,
-    "maximum_course_snap_kilometers": 0.38699980264236983,
-    "snapshot": "chicago-static-v1",
-    "vertices": 63413
-  },
-  "packaging": {
-    "tool": "uv0.12.15 offline build",
-    "wheel": "/tmp/south-dakota-five-dist/fairway-0.6.2-py3-none-any.whl",
-    "sdist": "/tmp/south-dakota-five-dist/fairway-0.6.2.tar.gz",
-    "wheel_and_sdist_success": true,
-    "sdist_canonical_catalog_sha256": "a25595d68fe87e6e41f747211af04496b4f5aada00d6c99d011304edc311be7d",
-    "wheel_ranking_projection_preserved": true
-  },
-  "external_publication": false,
-  "remote_write": false,
-  "final_affected_tests": "17 passed after history/progress finalization"
+  "map_count": 4437,
+  "existing_facilities_research_registries_history_metadata_counties_preserved": true,
+  "ranking_ui_bytes_preserved": true,
+  "existing_report_order_preserved": true,
+  "exported_latest_report_first": true,
+  "facilities_updated": 0,
+  "python_tests_passed": 229,
+  "javascript_files_passed": 3,
+  "ruff": "passed",
+  "wheel_sdist": "passed",
+  "snapshot": "passed",
+  "policy_scope_review_complete": true,
+  "raw_captures_committed": false
 }

@@ -1,0 +1,17 @@
+{
+  "base_commit": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
+  "intake_commit": "83d7d8bf6f7bdc44aa048c3930b292af9610dfc3",
+  "all_7189_facilities_preserved": true,
+  "pr13_nine_totals_preserved": true,
+  "pr14_thirteen_additions_preserved": true,
+  "new_ids": [
+    "f-715cbbe2-8092-4c17-9707-2faad1a1ded8",
+    "f-f75e10e2-e371-4c14-8bb7-e87d1ef3fe98",
+    "f-a45175da-b70c-436a-9bab-d9dd53e832b9",
+    "f-b93ebe7e-4986-4a13-8f2e-916f03e4cbd5"
+  ],
+  "all_existing_research_sources_notes_history_preserved": true,
+  "report_order_assertion": "new actual intake commit followed by every existing report commit in exact previous order",
+  "export_assertion": "recent_batches[0].commit equals catalog_commit, facilities_updated0",
+  "existing_rank_ui_unchanged": true
+}
