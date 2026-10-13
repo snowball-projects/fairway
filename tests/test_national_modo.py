@@ -24,6 +24,7 @@ class Estimate:
     method = "bounded fixture"
     evaluated_candidates = 31
     matrix_requests = 4
+    prefilter_requests = 2
     final_resolution_km = 12.5
 
     def promising_candidates(self, *, limit, catchment_radius_kilometers):
@@ -72,6 +73,7 @@ def test_translates_combined_objective_and_modo_area_provenance():
     assert dict(result.metadata.provenance) == {
         "approximate": True,
         "evaluated_candidates": 31,
+        "area_prefilter_requests": 2,
         "area_matrix_requests": 4,
         "final_resolution_kilometers": 12.5,
         "facility_radius_kilometers": 25.0,

@@ -105,6 +105,7 @@ class ModoPromisingAreaProvider:
                 provenance=(
                     ("approximate", True),
                     ("evaluated_candidates", result.evaluated_candidates),
+                    ("area_prefilter_requests", result.prefilter_requests),
                     ("area_matrix_requests", result.matrix_requests),
                     ("final_resolution_kilometers", result.final_resolution_km),
                     (

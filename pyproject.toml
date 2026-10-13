@@ -16,7 +16,7 @@ dependencies = [
   "networkx>=3.4,<4",
   "numpy>=1.26,<3",
   "scipy>=1.12,<2",
-  "modo @ git+https://github.com/adelevski/modo.git@efd225b3711db64c6089719d8a937244835987c1",
+  "modo @ git+https://github.com/adelevski/modo.git@925312e48f4933512bf653ad58b005d4fba461ec",
 ]
 
 [project.optional-dependencies]
