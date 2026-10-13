@@ -22,5 +22,6 @@
   "wheel_sdist": "passed",
   "snapshot": "passed",
   "policy_scope_review_complete": true,
-  "raw_captures_committed": false
+  "raw_captures_committed": false,
+  "extracted_source_python_tests_passed": 229
 }
