@@ -350,3 +350,5 @@ The second retained distinctive-name property intake is reproducible in `source-
 The third retained-name property intake is reproducible in `source-layers/retained-name-matches-03-osm-properties-20261011.json` under the same ODbL terms, preserving original proposed classifications, identity decisions and prior coordinates.
 
 The fourth retained-name property intake is reproducible in `source-layers/retained-name-matches-04-osm-properties-20261011.json` under the same ODbL terms. Supported points whose physical-hole totals remain unknown stay outside the public map until those totals are established.
+
+The retained alternate-name property intake is reproducible in `source-layers/retained-alternate-name-matches-01-osm-properties-20261011.json` under the same ODbL terms. Actual facility identity is supported by retained aliases, locality or operator evidence; fuzzy scores alone do not establish identity. Unknown totals remain unknown.
