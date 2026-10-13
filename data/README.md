@@ -375,3 +375,26 @@ course subdivision. No source fact here claims live operation or an entrance.
 The thirteen public-facility additions in `research/combined-public-20261013/` are documented with independent regional/official/operator facts, explicit admission evidence, source controls and rights qualifications. Idaho contributes two, Kansas three and South Dakota eight. Five physical totals remain unknown, Cattail component inventory is unresolved, all new counties/map/arrival coordinates are null, and Caney public play excludes Tuesdays. No explicit source-data open license is claimed.
 
 The bounded four-facility SDGA proposal in `research/south-dakota-five-20261013/` adds Murdo, Oahe Hills, Lake Waggoner and Elkhorn Ridge using individually Public classifications. Physical totals/inventories, counties and coordinates remain unknown. Operator URLs are listed links, not independently verified. Linked terms and canonical privacy policy were reviewed; no open license is claimed. Bison profile500 remains excluded. Raw captures stay private.
+
+The three existing Ohio property corrections in
+`review-batches/ohio-property-gaps-03-20261013.json` use retained ODbL golf
+geometry and matching operator identity/address evidence for Beavercreek,
+Eagle Creek in Norwalk, and Windy Knoll in Springfield. The companion
+`source-layers/ohio-property-gaps-03-20261011.json` retains complete selected
+areas, versions, tags, original automated flags, manual decisions, null prior
+coordinates and reproducible geometry hashes. Shapely 2.1.2 derives
+PointOnSurface from the selected-area union and checks strict containment after
+eight-decimal rounding. These browse points do not establish entrances or
+routing arrivals. Combined database reuse remains subject to applicable ODbL
+requirements; operator facts retain independent source provenance.
+
+Operator pages explicitly support public play. Beavercreek's owner-confirmed
+ZIP45431 resolves the retained ZIP45324 conflict. Windy Knoll's touching mapped
+areas remain components of the existing facility, without creating new courses
+or changing its eighteen-hole total. All existing hole totals, nested course
+facts, inventory completeness and unrelated records are preserved. Operator
+reads preceded robots attempts; the robots reads were unavailable without HTTP
+status or rules and were not retried. Retained excerpts are not raw HTML or
+complete exported response buffers. Review accepted the factual delta while
+preserving these limits, with no source-wide permission or live-availability
+claim.

@@ -1,0 +1,35 @@
+{
+  "base_commit": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
+  "canonical_pr": 17,
+  "superseded_pr": 16,
+  "distinct_facilities": 7,
+  "facilities_added": 4,
+  "facilities_updated": 3,
+  "target_distinct_facilities": 100,
+  "target_is_practical_not_admission_requirement": true,
+  "cohorts": [
+    {
+      "name": "SDGA four public additions",
+      "evidence_commit": "83d7d8bf6f7bdc44aa048c3930b292af9610dfc3",
+      "accepted_pr_head": "564a75a8d4b3dca7ad406a3deadffca008e436d7",
+      "facility_ids": [
+        "f-715cbbe2-8092-4c17-9707-2faad1a1ded8",
+        "f-f75e10e2-e371-4c14-8bb7-e87d1ef3fe98",
+        "f-a45175da-b70c-436a-9bab-d9dd53e832b9",
+        "f-b93ebe7e-4986-4a13-8f2e-916f03e4cbd5"
+      ]
+    },
+    {
+      "name": "Ohio three property corrections",
+      "evidence_commit": "6e2b060bd819c7a4da1771aa5613f78b9ee0fdbf",
+      "accepted_pr_head": "8a20ce5506179812ad2eb3f5abcf08d005c16e53",
+      "facility_ids": [
+        "f-aad69510-e5f8-441b-bd1a-b6ad5173bd5c",
+        "f-3d47740c-fed4-4872-8451-7af7fb2f6637",
+        "f-9755d33d-078f-4665-9796-fb187c9c7831"
+      ]
+    }
+  ],
+  "public_raw_captures": false,
+  "no_new_source_collection_for_consolidation": true
+}
