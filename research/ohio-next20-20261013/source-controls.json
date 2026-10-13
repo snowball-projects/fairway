@@ -6,7 +6,6 @@
     "GPTBot",
     "OAI-SearchBot"
   ],
-  "per_host_minimum_seconds": 10,
   "retries": 0,
   "automatic_redirects": false,
   "byte_limit": 524288,
@@ -733,7 +732,7 @@
     },
     {
       "host": "thetanglewoodclub.com",
-      "result": "Current robots permit root and ten-second pacing respected. Complete owner homepage/footer/navigation inspected; no additional site-use/data policy linked. Explicit primary public statement resolves eligibility despite retained undated association Private classification; discrepancy remains in qualifications. No booking, PGA or social source opened."
+      "result": "Current robots permit root and declare Crawl-delay: 10; the helper spaces request starts by at least ten seconds. The recorded completion-to-next-start audit is separately qualified above. Complete owner homepage/footer/navigation inspected; no additional site-use/data policy linked. Explicit primary public statement resolves eligibility despite retained undated association Private classification; discrepancy remains in qualifications. No booking, PGA or social source opened."
     },
     {
       "host": "app.getterms.io",
@@ -749,5 +748,14 @@
     }
   ],
   "capture_retention": "Complete response bodies, exact HTTP status, normalized header dictionaries and UTC client receipt timestamps are retained in the private task directory. Original wire framing and duplicate-header fidelity were not captured. Git retains hashes, bare field facts, provenance and our qualifications only; no raw HTML/headers/cookies/protected prose or screenshots.",
-  "header_meta_review": "Inspected response control headers and HTML robot meta tags: no additional AI-input prohibition found on admitted sources. Robot files carry noindex/follow where recorded; page directives permit indexing/following or limit only image previews. No alternate JSON/API endpoints were opened."
+  "header_meta_review": "Inspected response control headers and HTML robot meta tags: no additional AI-input prohibition found on admitted sources. Robot files carry noindex/follow where recorded; page directives permit indexing/following or limit only image previews. No alternate JSON/API endpoints were opened.",
+  "per_host_minimum_start_to_start_seconds": 10,
+  "pacing_audit": {
+    "clock": "Recorded UTC client requested_at and captured_at; original request timestamps unchanged. Hostnames normalized by removing www.",
+    "minimum_start_to_start_seconds": 10.000447,
+    "minimum_completion_to_next_start_seconds": 9.624367,
+    "minimum_host": "ohiogolf.org",
+    "qualification": "The helper enforces ten seconds between request starts, not ten seconds after prior completion. No claim of satisfying a separate fifteen-second convention.",
+    "publisher_delay_review": "No admitted publisher requirement longer than ten seconds was found in the captured current robots or inspected applicable linked policies. Tanglewood declares Crawl-delay: 10. Pine Hills also declares Crawl-delay: 10; only its robots were requested, with no following operator-page collection. This is a bounded current-control finding, not a general permission grant."
+  }
 }

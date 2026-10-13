@@ -39,8 +39,15 @@ facility objects and their research remain unchanged.
 
 Current robots and linked applicable policies were screened before fact
 admission. Requests were bounded, with no redirects/retries and at least ten
-seconds between same-host reads. `source-controls.json` preserves results and
-hashes. The linked Blacklick policy host declared ai-input=no, so no policy
+seconds between same-host request starts. The minimum normalized-host
+start-to-start gap was10.000447 seconds; completion-to-next-start was9.624367
+seconds on ohiogolf.org. The helper does not enforce a ten-second wait after
+completion and this cohort does not claim the separate fifteen-second convention.
+No admitted publisher requirement longer than ten seconds was found in captured
+current robots or inspected applicable linked policies. Tanglewood declares
+Crawl-delay:10. Pine Hills also declares10, but only its robots were read, with
+no following operator-page collection. `source-controls.json` preserves the
+original request timestamps, audit, results and hashes. The linked Blacklick policy host declared ai-input=no, so no policy
 request, alternate route or further owner collection followed; new owner content
 is excluded. All previous explicit source holds persist. Raw bodies, normalized
 header dictionaries/cookies, and protected prose remain private outside Git.
