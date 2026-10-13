@@ -1,0 +1,20 @@
+# REVIEW ONLY. Official CPython Linux ARM64 image; no host/system installs.
+FROM docker.io/library/python:3.12.14-slim-bookworm@sha256:eb5be8e5b4d0a159c237946bbdd06356dda5d19c30fc4f7843e8046d3a590333
+WORKDIR /opt/fairway
+COPY runtime-requirements.arm64.txt /opt/review/runtime-requirements.arm64.txt
+COPY wheels /opt/review/wheels
+RUN command -v timeout \
+    && python -m pip --isolated --disable-pip-version-check install --no-cache-dir \
+       --no-index --no-deps --require-hashes --only-binary=:all: \
+       -r /opt/review/runtime-requirements.arm64.txt \
+    && python -m pip --isolated --disable-pip-version-check install --no-cache-dir \
+       --no-index --no-deps /opt/review/wheels/*.whl \
+    && rm -rf /opt/review
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
+    OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+    NUMEXPR_NUM_THREADS=1 BLIS_NUM_THREADS=1 \
+    FAIRWAY_NATIONAL_BIND=0.0.0.0 \
+    FAIRWAY_NATIONAL_ROUTER=http://valhalla:8002 \
+    FAIRWAY_NATIONAL_DATASET=synthetic-fixture-only
+USER 65532:65532
+ENTRYPOINT ["/usr/bin/timeout", "--signal=TERM", "--kill-after=5s", "180s", "fairway-national-api"]

@@ -6,6 +6,7 @@ from math import asin, cos, degrees, isfinite, pi, radians, sin
 from typing import Protocol
 
 from .courses import Course
+from .facilities import FacilityCandidate, FacilityRanking, rank_facility_matrix
 from .matrix import MatrixProvider, MatrixResult, distance_kilometers
 from .ranking import CourseRanking, rank_course_matrix
 
@@ -266,3 +267,87 @@ def _require_limit(name, value, maximum):
 
 def _longitude_delta(first, second):
     return abs((first - second + 180) % 360 - 180)
+
+
+@dataclass(frozen=True)
+class NationalFacilityRanking:
+    areas: PromisingAreas
+    shortlisted_facilities: tuple[FacilityCandidate, ...]
+    matrix: MatrixResult
+    ranking: FacilityRanking
+
+
+def calculate_national_facility_ranking(
+    origins,
+    objective,
+    facilities,
+    area_provider,
+    matrix_provider,
+    *,
+    holes=(9, 18),
+    area_limit=MAX_PROMISING_AREAS,
+    shortlist_limit=MAX_ROUTED_COURSES,
+):
+    """Approximate property ranking; explicit layout evidence for a single filter."""
+    origins = tuple(origins)
+    if not 2 <= len(origins) <= 8:
+        raise ValueError("provide between 2 and 8 origins")
+    for origin in origins:
+        _require_coordinate("origin", origin)
+    origins = tuple(tuple(map(float, point)) for point in origins)
+    if objective not in {"combined", "maximum"}:
+        raise ValueError("unknown ranking objective")
+    holes = frozenset(holes)
+    if not holes or not holes <= {9, 18}:
+        raise ValueError("holes must contain 9, 18, or both")
+    _require_limit("promising area", area_limit, MAX_PROMISING_AREAS)
+    _require_limit("facility shortlist", shortlist_limit, MAX_ROUTED_COURSES)
+    facilities = tuple(facilities)
+    if any(not isinstance(f, FacilityCandidate) for f in facilities):
+        raise TypeError("invalid facility candidate")
+    if len({f.identifier for f in facilities}) != len(facilities):
+        raise ValueError("duplicate facility identifier")
+    eligible = tuple(
+        f
+        for f in facilities
+        if f.access == "public"
+        and (holes == {9, 18} or holes & set(f.public_layout_holes))
+    )
+    areas = area_provider.find_promising_areas(origins, objective, limit=area_limit)
+    _validate_area_contract(areas, origins, objective, area_limit)
+    index = _CourseLatitudeIndex(eligible)
+    nearest = tuple(
+        sorted(
+            index.within(area),
+            key=lambda f: (
+                distance_kilometers(f.routing_coordinate, area.center),
+                f.name,
+                f.identifier,
+            ),
+        )
+        for area in areas.areas
+    )
+    selected, ids = [], set()
+    for offset in range(max(map(len, nearest), default=0)):
+        for group in nearest:
+            if offset < len(group) and group[offset].identifier not in ids:
+                selected.append(group[offset])
+                ids.add(group[offset].identifier)
+                if len(selected) == shortlist_limit:
+                    break
+        if len(selected) == shortlist_limit:
+            break
+    if not selected:
+        raise ValueError("no eligible facilities within promising areas")
+    selected = tuple(selected)
+    matrix = matrix_provider.calculate(
+        origins,
+        (f.routing_coordinate for f in selected),
+        (f.identifier for f in selected),
+        departure=None,
+    )
+    if matrix.origin_coordinates != origins:
+        raise RuntimeError("matrix provider changed origin identity or order")
+    return NationalFacilityRanking(
+        areas, selected, matrix, rank_facility_matrix(selected, matrix, objective)
+    )

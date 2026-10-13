@@ -10,3 +10,4 @@ recursive-include scripts *.py *.sh
 recursive-include tests *.py
 recursive-include tests *.mjs
 prune experiments
+recursive-include ops/private-national-api *.py *.txt Dockerfile Dockerfile.*
