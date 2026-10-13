@@ -14,8 +14,8 @@ import {
   cityLabel,
   searchCatalog,
   shapeRings,
-  clusterPoints,
 } from "./catalog.mjs";
+import { createFacilityDots } from "./facility-dots.mjs";
 import {
   canRemoveOrigin,
   originLimit,
@@ -40,7 +40,6 @@ const COLORS = [
 
 const state = {
   rows: [],
-  courseMarkers: new Map(),
   ranking: null,
   activeRows: [],
   activeCourse: null,
@@ -217,11 +216,6 @@ function currentResult(courseId) {
   return (
     state.ranking?.courses.find((course) => course.id === courseId) || null
   );
-}
-
-function clearCourseMarkers() {
-  state.courseMarkers.forEach((marker) => marker.remove());
-  state.courseMarkers.clear();
 }
 
 function drawCourseMarkers() {
@@ -478,7 +472,6 @@ function clearRanking() {
   view.results.replaceChildren();
   view.resultCount.textContent = "";
   view.rankingDescription.textContent = "";
-  clearCourseMarkers();
   browseMode = true;
   document.querySelector("#ranking-mode").disabled = true;
   drawFacilities();
@@ -790,7 +783,15 @@ document.addEventListener("keydown", (event) => {
 // One shared map, selection and catalog. No saved state or automatic location request.
 const $ = (id) => document.getElementById(id);
 const fmt = (n) => n.toLocaleString("en-US");
-const facilitiesLayer = L.layerGroup().addTo(map);
+const facilityDots = createFacilityDots(
+  L,
+  map,
+  (id) => selectFacilityById(id, false),
+  (ids, coordinate) => {
+    popupSelection = { kind: "coincident", ids, coordinate };
+    openSelectionPopup();
+  },
+);
 let catalogDate = "";
 let catalogModel = null,
   geometry = null,
@@ -860,74 +861,9 @@ function fitPoints(points, maxZoom = 15) {
       ...fitPadding(),
     });
 }
-function onMapRecords() {
-  if (!catalogModel) return [];
-  return catalogModel.records.filter(mapEligible);
-}
 function drawFacilities() {
   if (!catalogModel) return;
-  facilitiesLayer.clearLayers();
-  state.courseMarkers.clear();
-  const records = onMapRecords();
-  const groups = clusterPoints(
-    records,
-    (location) => map.project([location.latitude, location.longitude]),
-    map.getZoom(),
-  );
-  for (const group of groups) {
-    const coordinates = map.unproject(L.point(group.x, group.y));
-    if (!map.getBounds().pad(0.25).contains(coordinates)) continue;
-    const many = group.records.length > 1;
-    const qualified = group.records.every(mapEligible);
-    const icon = node(
-      "span",
-      many ? fmt(group.records.length) : "",
-      `${many ? "facility-cluster" : "facility-dot"}${qualified ? "" : " estimate"}${!many && activeFacility === group.records[0].id ? " active" : ""}`,
-    );
-    const marker = L.marker(coordinates, {
-      icon: L.divIcon({
-        className: "",
-        html: icon,
-        iconSize: many ? [38, 38] : [16, 16],
-        iconAnchor: many ? [19, 19] : [8, 8],
-      }),
-      keyboard: true,
-      alt: many ? `${group.records.length} facilities` : group.records[0].name,
-    });
-    marker.on("add", () => {
-      const e = marker.getElement();
-      if (e)
-        e.setAttribute(
-          "aria-label",
-          many
-            ? `${group.records.length} facilities, zoom to explore`
-            : `${group.records[0].name}, ${qualified ? "property point" : "unconfirmed estimate"}`,
-        );
-    });
-    marker.on("click", () => {
-      if (many && map.getZoom() < 16)
-        fitPoints(
-          group.records.map((f) => [
-            f.map_location.latitude,
-            f.map_location.longitude,
-          ]),
-          Math.min(map.getZoom() + 3, 16),
-        );
-      else if (many) {
-        popupSelection = {
-          kind: "cluster",
-          ids: group.records.map((f) => f.id),
-          coordinate: coordinates,
-        };
-        openSelectionPopup();
-      } else selectFacilityById(group.records[0].id, false);
-    });
-    marker.addTo(facilitiesLayer);
-    if (!many)
-      for (const c of state.ranking?.courses || [])
-        if (c.facility_id === group.records[0].id)
-          state.courseMarkers.set(c.id, marker);
-  }
+  facilityDots.update(catalogModel.records, activeFacility);
 }
 function websiteState(f) {
   if (f.website_status === "not_found")

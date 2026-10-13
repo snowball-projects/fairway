@@ -1143,39 +1143,6 @@ h2 {
 .facility-card summary {
   cursor: pointer;
 }
-.facility-dot {
-  display: grid;
-  place-items: center;
-  width: 16px;
-  height: 16px;
-  border: 2px solid white;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 1px 5px #17352d55;
-}
-.facility-dot.estimate {
-  background: #b67b35;
-}
-.facility-dot.active {
-  outline: 3px solid #e7b447;
-}
-.facility-cluster {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border: 3px solid #ffffffd9;
-  border-radius: 50%;
-  background: var(--green);
-  color: white;
-  font:
-    600 12px/1 system-ui,
-    sans-serif;
-  box-shadow: 0 2px 9px #17352d45;
-}
-.facility-cluster.estimate {
-  background: #957044;
-}
 .leaflet-popup-content {
   width: 280px !important;
   max-height: 320px;
