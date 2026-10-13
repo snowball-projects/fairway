@@ -260,7 +260,8 @@
     "n8202": "ODbL-derived property browse point from retained Geofabrik United States golf geometry through2026-10-11T20:21:06Z. Exact manual identity review on2026-10-13: OSM relation 3927362 uniquely matches Eagle Creek's owner domain, house number2406, New State Road, Norwalk and ZIP44857. Owner course page repeats the same address and public play. The automated street conflict arose from treating the catalog's unpunctuated city name Norwalk as part of the street. Eagle Rock and Pebble Creek candidates have different identities/localities/domains and are explicitly rejected. Shapely2.1.2 PointOnSurface of the selected-area union, rounded to eight decimals and independently verified strictly inside valid geometry. Original map_location:null retained in the source layer. Not an entrance or routing arrival; geometry does not establish public play, hole totals or live operation. Full selected geometry, versions, tags, hashes, original automated flags and manual identity decision retained in ohio-property-gaps-03-20261011.json.",
     "n8203": "Complete owner Our Course page inspected October 13, 2026 explicitly identifies Eagle Creek as a public golf course in Norwalk and repeats 2406 New State Road, Norwalk OH44857. Exact existing record identity and locality are corroborated; similarly named Eagle Rock and Pebble Creek are excluded. Existing hole total18, address, county, website and nested course fields are preserved. Undated/indexed content is not real-time availability or entrance proof. Older rates/pass-year text is not promoted as current pricing. Subsequent native robots read was inaccessible without HTTP status and was not retried; no unrestricted-robots or source-wide clearance claim.",
     "n8204": "ODbL-derived property browse point from retained Geofabrik United States golf geometry through2026-10-11T20:21:06Z. Exact manual identity review on2026-10-13: Both OSM golf-course ways129019595 and129021257 carry the exact Windy Knoll Golf Club name, house500, Roscommon Drive, Springfield OH and ZIP45503. Complete owner homepage and About page match the same address; homepage explicitly confirms public play. The two areas touch at their boundaries without positive-area overlap. They are retained together as mapped components of this existing facility, not two new facilities or an inferred36-hole inventory. Shapely2.1.2 PointOnSurface of the selected-area union, rounded to eight decimals and independently verified strictly inside valid geometry. Original map_location:null retained in the source layer. Not an entrance or routing arrival; geometry does not establish public play, hole totals or live operation. Full selected geometry, versions, tags, hashes, original automated flags and manual identity decision retained in ohio-property-gaps-03-20261011.json.",
-    "n8205": "Complete Windy Knoll owner homepage and About page inspected October 13, 2026 identify the public Springfield facility and match500 Roscommon Drive, Springfield Ohio45503. Both retained OSM areas carry that same exact name/full address. The mapped areas are property components, not separately counted courses; physical holes18 and the existing empty course inventory remain unchanged. The About page's nineteenth-hole expression is not treated as another physical golf hole. No real-time operation or arrival claim. Subsequent native robots read was inaccessible without HTTP status and was not retried; no unrestricted-robots or source-wide clearance claim."
+    "n8205": "Complete Windy Knoll owner homepage and About page inspected October 13, 2026 identify the public Springfield facility and match500 Roscommon Drive, Springfield Ohio45503. Both retained OSM areas carry that same exact name/full address. The mapped areas are property components, not separately counted courses; physical holes18 and the existing empty course inventory remain unchanged. The About page's nineteenth-hole expression is not treated as another physical golf hole. No real-time operation or arrival claim. Subsequent native robots read was inaccessible without HTTP status and was not retried; no unrestricted-robots or source-wide clearance claim.",
+    "n8206": "Three existing Ohio facilities gain retained ODbL-derived property browse points and explicit operator-public access: Beavercreek, Eagle Creek in Norwalk and Windy Knoll in Springfield. Beavercreek owner evidence corrects ZIP45324 to45431. Reconciled on main f011e4b after PR13 and PR14; all thirteen additions, nine accepted hole totals, nested courses, arrivals, original registry/history/progress and unrelated records preserved. Operator reads preceded unavailable robots attempts; no HTTP status/rules, source-wide permission or live-availability claim, no source refetch. Reviewed evidence/limitations retained in research/ohio-property-gaps-20261013 and the ID-scoped review/source layer."
   },
   "metadata_source_licenses_appended": [
     {
@@ -273,5 +274,20 @@
       "changes": "Three existing Ohio facilities matched to retained Geofabrik United States golf geometry through 2026-10-11T20:21:06Z. Shapely 2.1.2 unions the selected areas and computes PointOnSurface, strictly inside after eight-decimal rounding. Original locations were null. No entrance, arrival or public-access inference from geometry."
     }
   ],
-  "unchanged": "All other facility facts, nested courses, arrivals, holes, unrelated research, original registry entries, existing history/progress/metadata fields, Maryland records, ranking and UI source preserved. A separate correction-history entry references the factual commit."
+  "unchanged": "All other facility facts, nested courses, arrivals, holes, unrelated research, original registry entries, existing history/progress/metadata fields, Maryland records, ranking and UI source preserved. A separate correction-history entry references the factual commit.",
+  "history_batches_appended": [
+    {
+      "commit": "6e2b060bd819c7a4da1771aa5613f78b9ee0fdbf",
+      "committed_at": "2026-10-13T19:21:50Z",
+      "initial_baseline": false,
+      "facilities_added": 0,
+      "facilities_removed": 0,
+      "redacted_entries": 0,
+      "added_facilities": [],
+      "facilities_updated": 3,
+      "correction_note": [
+        "n8206"
+      ]
+    }
+  ]
 }

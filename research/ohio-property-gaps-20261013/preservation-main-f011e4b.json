@@ -1,7 +1,7 @@
 {
   "base": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
   "base_catalog_sha256": "762417d3d30c61fd2e4cf2e19d2b0b34a102602ac88fbef99b66d08bbef2b15b",
-  "proposal_catalog_sha256": "6d9e932cd5375941813e3ebfb649bd4b143ca4581537ab3c598181408b66d1cd",
+  "proposal_catalog_sha256": "e08f61e3f02dc63b11310218c510e27931bed9df79a60b8985140908fd36e0ac",
   "changed_facility_ids": [
     "f-3d47740c-fed4-4872-8451-7af7fb2f6637",
     "f-9755d33d-078f-4665-9796-fb187c9c7831",
@@ -57,5 +57,7 @@
     "address_estimates": 565,
     "missing_holes": 353,
     "nested_courses": 2969
-  }
+  },
+  "new_correction_history_entries": 1,
+  "factual_commit": "6e2b060bd819c7a4da1771aa5613f78b9ee0fdbf"
 }
