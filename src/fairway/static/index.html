@@ -72,12 +72,8 @@
       </div>
       <div class="map-secondary">
         <button id="us-view" class="pill" aria-label="Show United States">
-          US</button
-        ><label class="pill"
-          ><input id="show-estimates" type="checkbox" />Estimates</label
-        ><label class="pill"
-          ><input id="show-counties" type="checkbox" />Counties</label
-        >
+          US
+        </button>
       </div>
       <p id="catalog-status" class="catalog-status" role="status">
         Loading catalog…
@@ -114,10 +110,10 @@
                 name="objective"
                 value="maximum"
                 checked
-              /><span>Shortest longest drive</span></label
+                /><span>Minimize longest driving time</span></label
             ><label
               ><input type="radio" name="objective" value="combined" /><span
-                >Lowest combined drive</span
+                >Minimize combined driving time</span
               ></label
             >
           </div>
@@ -149,18 +145,18 @@
         <p id="status" class="status" role="status">
           Add at least two golfer origins.
         </p>
-        <p class="routing-limit">
-          Drive ranking currently covers eight Chicago courses. Nationwide
-          routing is not available yet.
-        </p>
-        <p class="privacy-note">
-          Typed origin addresses go to Photon for suggestions. Confirmed
-          coordinates go to fairway when calculating.
-        </p>
         <details class="method-note">
-          <summary>How this works</summary>
+          <summary>How This Works</summary>
           <p id="routing-description">
             Travel-time provider is checked when you rank.
+          </p>
+          <p class="routing-limit">
+            Drive ranking currently covers eight Chicago courses. Nationwide
+            routing is not available yet.
+          </p>
+          <p class="privacy-note">
+            Typed origin addresses go to Photon for suggestions. Confirmed
+            coordinates go to fairway when calculating.
           </p>
           <p>
             Prices, ratings and tee-time availability are not included. Software

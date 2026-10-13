@@ -124,13 +124,21 @@ def test_serves_catalog_interface_and_routing_assets():
     assert status == "200 OK"
     assert b"Catalog progress" in body
     assert b"Plan a round" in body
-    assert b"Shortest longest drive" in body
-    assert b"Lowest combined drive" in body
+    assert b"Minimize longest driving time" in body
+    assert b"Minimize combined driving time" in body
+    assert b"Estimates" not in body
+    assert b"Counties" not in body
     assert b"Nationwide routing is not available yet" in body
     assert b"Typed origin addresses go to Photon" in body
+    assert body.index(b"How This Works") < body.index(
+        b"Nationwide routing is not available yet"
+    )
+    assert body.index(b"How This Works") < body.index(
+        b"Typed origin addresses go to Photon"
+    )
     assert b'<script src="./leaflet.js" defer></script>' in body
     assert b"https://unpkg.com" not in body
-    for path in ["/app.js", "/catalog.mjs", "/styles.css"]:
+    for path in ["/app.js", "/catalog.mjs", "/origin-rows.mjs", "/styles.css"]:
         status, _body = request(path)
         assert status == "200 OK"
 
