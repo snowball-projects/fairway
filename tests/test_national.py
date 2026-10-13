@@ -10,6 +10,7 @@ from fairway.matrix import (
     TrafficBasis,
 )
 from fairway.national import (
+    MAX_AREA_RADIUS_KILOMETERS,
     AreaSearchMetadata,
     PromisingArea,
     PromisingAreas,
@@ -48,8 +49,9 @@ def course(
 
 
 class Areas:
-    def __init__(self, centers=((41.0, -96.0),)):
+    def __init__(self, centers=((41.0, -96.0),), radius_kilometers=80):
         self.centers = centers
+        self.radius_kilometers = radius_kilometers
         self.calls = []
 
     def find_promising_areas(self, origins, objective, *, limit):
@@ -59,7 +61,7 @@ class Areas:
             origin_coordinates=origins,
             objective=objective,
             areas=tuple(
-                PromisingArea(f"area-{index}", center)
+                PromisingArea(f"area-{index}", center, self.radius_kilometers)
                 for index, center in enumerate(self.centers)
             ),
             metadata=AreaSearchMetadata(
@@ -145,7 +147,7 @@ def test_routes_only_bounded_spatial_shortlist_and_reuses_ranking(objective, exp
 
 
 def test_shortlist_requires_explicit_reviewed_public_arrivals():
-    area = PromisingArea("center", (41.0, -96.0))
+    area = PromisingArea("center", (41.0, -96.0), 80)
     eligible = course("eligible", (41.04, -96.0))
     courses = (
         course("private", (41.0, -96.0), access="private"),
@@ -175,13 +177,53 @@ def test_shortlist_represents_multiple_promising_areas_before_filling_dense_one(
     shortlisted = shortlist_courses(
         (west, west_second, east),
         (
-            PromisingArea("west-area", (40.0, -120.0)),
-            PromisingArea("east-area", (40.0, -75.0)),
+            PromisingArea("west-area", (40.0, -120.0), 80),
+            PromisingArea("east-area", (40.0, -75.0), 80),
         ),
         limit=2,
     )
 
     assert shortlisted == (west, east)
+
+
+def test_overlapping_areas_deduplicate_and_honor_course_cap():
+    courses = tuple(
+        course(f"course-{index}", (41.0 + index / 100, -96.0)) for index in range(5)
+    )
+    areas = (
+        PromisingArea("first", (41.0, -96.0), 80),
+        PromisingArea("second", (41.01, -96.0), 80),
+    )
+
+    shortlisted = shortlist_courses(courses, areas, limit=3)
+
+    assert len(shortlisted) == 3
+    assert len({item.identifier for item in shortlisted}) == 3
+
+
+def test_distant_only_catalog_fails_without_matrix_call():
+    matrix = Matrix({"chicago": (1.0, 1.0)})
+
+    with pytest.raises(
+        ValueError, match="reviewed routing arrival inside the promising areas"
+    ):
+        calculate_national_ranking(
+            ORIGINS,
+            "maximum",
+            (course("chicago", (41.8781, -87.6298)),),
+            Areas(centers=((34.0522, -118.2437),), radius_kilometers=40),
+            matrix,
+        )
+
+    assert matrix.calls == []
+
+
+@pytest.mark.parametrize("radius", [0, -1, float("inf"), 161])
+def test_promising_area_radius_is_explicitly_bounded(radius):
+    with pytest.raises(ValueError, match="promising area radius"):
+        PromisingArea("area", (41.0, -96.0), radius)
+
+    assert MAX_AREA_RADIUS_KILOMETERS == 160
 
 
 @pytest.mark.parametrize("mismatch", ["origins", "objective", "too-many", "duplicate"])
@@ -199,7 +241,7 @@ def test_rejects_broken_area_provider_contract_before_routing(mismatch):
                 return replace(
                     result,
                     areas=tuple(
-                        PromisingArea(f"area-{index}", (41.0, -96.0))
+                        PromisingArea(f"area-{index}", (41.0, -96.0), 80)
                         for index in range(limit + 1)
                     ),
                 )

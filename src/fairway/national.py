@@ -1,7 +1,8 @@
 """Bounded national candidate-area, course-shortlist, and ranking pipeline."""
 
+from bisect import bisect_left, bisect_right
 from dataclasses import dataclass
-from math import isfinite
+from math import cos, isfinite, radians
 from typing import Protocol
 
 from .courses import Course
@@ -9,9 +10,12 @@ from .matrix import MatrixProvider, MatrixResult, distance_kilometers
 from .ranking import CourseRanking, rank_course_matrix
 
 MAX_PROMISING_AREAS = 8
+MAX_AREA_RADIUS_KILOMETERS = 160
 MAX_ROUTED_COURSES = 24
 ROUTING_DESTINATION_KINDS = frozenset({"reviewed_osm_point", "verified_entrance"})
 ROUTING_ADDRESS_PURPOSES = frozenset({"course", "clubhouse", "arrival"})
+KILOMETERS_PER_LATITUDE_DEGREE = 110.574
+KILOMETERS_PER_LONGITUDE_DEGREE_AT_EQUATOR = 111.320
 
 
 @dataclass(frozen=True)
@@ -20,11 +24,21 @@ class PromisingArea:
 
     identifier: str
     center: tuple[float, float]
+    radius_kilometers: float
 
     def __post_init__(self):
         if not isinstance(self.identifier, str) or not self.identifier.strip():
             raise ValueError("promising area identifier must be a nonempty string")
         _require_coordinate("promising area center", self.center)
+        if (
+            type(self.radius_kilometers) not in {int, float}
+            or not isfinite(self.radius_kilometers)
+            or not 0 < self.radius_kilometers <= MAX_AREA_RADIUS_KILOMETERS
+        ):
+            raise ValueError(
+                "promising area radius must be positive and no greater than "
+                f"{MAX_AREA_RADIUS_KILOMETERS} km"
+            )
 
 
 @dataclass(frozen=True)
@@ -85,6 +99,8 @@ def shortlist_courses(courses, areas, *, holes=(9, 18), limit=MAX_ROUTED_COURSES
     _require_limit("course shortlist", limit, MAX_ROUTED_COURSES)
     if not areas:
         raise ValueError("at least one promising area is required")
+    if any(not isinstance(area, PromisingArea) for area in areas):
+        raise TypeError("areas must contain PromisingArea values")
     if not holes or not holes <= {9, 18}:
         raise ValueError("holes must contain 9, 18, or both")
 
@@ -93,9 +109,10 @@ def shortlist_courses(courses, areas, *, holes=(9, 18), limit=MAX_ROUTED_COURSES
         for course in courses
         if course.holes in holes and _has_reviewed_arrival(course)
     )
+    latitude_index = _CourseLatitudeIndex(eligible)
     nearest_by_area = tuple(
         sorted(
-            eligible,
+            latitude_index.within(area),
             key=lambda course: (
                 distance_kilometers(course.routing_coordinate, area.center),
                 course.name,
@@ -106,8 +123,10 @@ def shortlist_courses(courses, areas, *, holes=(9, 18), limit=MAX_ROUTED_COURSES
     )
     selected = []
     selected_ids = set()
-    for rank in range(len(eligible)):
+    for rank in range(max((len(nearest) for nearest in nearest_by_area), default=0)):
         for nearest in nearest_by_area:
+            if rank >= len(nearest):
+                continue
             course = nearest[rank]
             if course.identifier in selected_ids:
                 continue
@@ -116,6 +135,41 @@ def shortlist_courses(courses, areas, *, holes=(9, 18), limit=MAX_ROUTED_COURSES
             if len(selected) == limit:
                 return tuple(selected)
     return tuple(selected)
+
+
+class _CourseLatitudeIndex:
+    """Small in-memory latitude index with exact radial filtering."""
+
+    def __init__(self, courses):
+        ordered = sorted(courses, key=lambda course: course.routing_coordinate[0])
+        self.courses = tuple(ordered)
+        self.latitudes = tuple(course.routing_coordinate[0] for course in ordered)
+
+    def within(self, area):
+        latitude, longitude = area.center
+        latitude_delta = area.radius_kilometers / KILOMETERS_PER_LATITUDE_DEGREE
+        start = bisect_left(self.latitudes, latitude - latitude_delta)
+        end = bisect_right(self.latitudes, latitude + latitude_delta)
+        longitude_edge_latitude = min(
+            89.999999,
+            max(abs(latitude - latitude_delta), abs(latitude + latitude_delta)),
+        )
+        longitude_scale = KILOMETERS_PER_LONGITUDE_DEGREE_AT_EQUATOR * cos(
+            radians(longitude_edge_latitude)
+        )
+        longitude_delta = (
+            180
+            if longitude_scale <= 0
+            else min(180, area.radius_kilometers / longitude_scale)
+        )
+        return tuple(
+            course
+            for course in self.courses[start:end]
+            if _longitude_delta(course.routing_coordinate[1], longitude)
+            <= longitude_delta
+            and distance_kilometers(course.routing_coordinate, area.center)
+            <= area.radius_kilometers
+        )
 
 
 def calculate_national_ranking(
@@ -146,7 +200,10 @@ def calculate_national_ranking(
         courses, areas.areas, holes=holes, limit=shortlist_limit
     )
     if not shortlist:
-        raise ValueError("no eligible public course has a reviewed routing arrival")
+        raise ValueError(
+            "no eligible public course has a reviewed routing arrival inside the "
+            "promising areas"
+        )
 
     matrix = matrix_provider.calculate(
         origins,
@@ -208,3 +265,7 @@ def _require_coordinate(name, value):
 def _require_limit(name, value, maximum):
     if type(value) is not int or not 1 <= value <= maximum:
         raise ValueError(f"{name} limit must be between 1 and {maximum}")
+
+
+def _longitude_delta(first, second):
+    return abs((first - second + 180) % 360 - 180)
