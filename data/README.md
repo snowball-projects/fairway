@@ -398,3 +398,13 @@ status or rules and were not retried. Retained excerpts are not raw HTML or
 complete exported response buffers. Review accepted the factual delta while
 preserving these limits, with no source-wide permission or live-availability
 claim.
+
+The next bounded SDGA directory cohort in `research/sdga-directory-next-20261013/`
+adds seven individually Public-labeled facilities from fourteen selected leads.
+Gettysburg, Red Rock, Hillcrest, Parkston, Prairie Ridge, River’s Bend and The
+Lakes have unknown physical hole totals and empty incomplete inventories. All
+new county/map/arrival fields remain null. Prairie Ridge also lists Non-Base
+guests; Gettysburg carries both Public and Semi-Private labels. Listed operator
+URLs remain unvisited/not_checked. Six profiles lacking a Public label are
+excluded; Leola profile500 is stopped without retry or replacement. Earlier
+Bison and operator/publisher holds remain active. Raw captures stay private.
