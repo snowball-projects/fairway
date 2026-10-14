@@ -1,0 +1,232 @@
+{
+  "directory_url": "https://www.missgolf.org/club-membership",
+  "observed_on": "2026-10-14",
+  "member_rows": 76,
+  "public_rows": 26,
+  "new_facility_proposals": 1,
+  "directory_facts_admitted": 0,
+  "decisions": [
+    {
+      "name": "Cherokee Valley Golf Club",
+      "city": "Olive Branch",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-0e17d1b1-c5ed-4700-9438-4f27d2f91b1a"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Dancing Rabbit Golf Club",
+      "city": "Choctaw",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-bf205c0e-517c-4f8c-9fcb-1ae3480df535"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Dixie Golf Club",
+      "city": "Laurel",
+      "status": "proposed",
+      "existing_ids": [],
+      "reason": "Independent current owner explicitly18holes/public and full published address; one facility."
+    },
+    {
+      "name": "Eagle Ridge GC",
+      "city": "Raymond",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-c61109bd-667b-4309-b62b-753cc04c49a8"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Eagle Ridge GC",
+      "city": "Raymond",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-c61109bd-667b-4309-b62b-753cc04c49a8"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Eagle Ridge Men's Golf",
+      "city": "Raymond",
+      "status": "same_facility_playing_group",
+      "existing_ids": [
+        "f-c61109bd-667b-4309-b62b-753cc04c49a8"
+      ],
+      "reason": "Raymond group references existing Eagle Ridge Golf Course; distinct club label is not a new physical facility."
+    },
+    {
+      "name": "Elm Lake Golf Course",
+      "city": "Columbus",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-0970e38c-be3a-4f0d-84dc-fd416024d3c2"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Fallen Oak Golf Course",
+      "city": "Saucier",
+      "status": "not_admitted_requires_current_primary_confirmation",
+      "existing_ids": [],
+      "reason": "Current unrestricted public operation and physical identity are not independently established in this bounded review. No historical closed-course or hotel-access lead is overridden by a directory label."
+    },
+    {
+      "name": "Great Southern Golf Club",
+      "city": "Gulfport",
+      "status": "not_admitted_requires_current_primary_confirmation",
+      "existing_ids": [],
+      "reason": "Current unrestricted public operation and physical identity are not independently established in this bounded review. No historical closed-course or hotel-access lead is overridden by a directory label."
+    },
+    {
+      "name": "Hickory Hill Country Club",
+      "city": "Gautier",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-519b66e3-5789-488b-80b1-b0001e2a8731"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Hillandale Country Club",
+      "city": "Corinth",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-797d31d7-6571-4143-8d2f-4b8029ab8e7c"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Leake Country Club",
+      "city": "Carthage",
+      "status": "held_access_conflict",
+      "existing_ids": [],
+      "reason": "MGA Public row conflicts with owner Facebook discovery snippet describing a members-only club; no ordinary public eligibility admitted."
+    },
+    {
+      "name": "Live Oaks Golf Club",
+      "city": "Jackson",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-74c15f28-c57b-43fc-ac8c-058f533513d7"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Mallard Pointe Golf Course",
+      "city": "Sardis",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-58133112-0861-497a-964d-308724903f21"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Ole Miss Golf Club",
+      "city": "Oxford",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-a7a7ebca-f10e-4212-b040-53a4e3d4cbc0"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Pine Creek Golf Club",
+      "city": "Purvis",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-870b3c70-4a70-49e3-bea2-290b2ce58039"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Steel Magnolias",
+      "city": "Pearl",
+      "status": "excluded_unbound_club_or_program",
+      "existing_ids": [],
+      "reason": "Directory label does not establish a distinct Mississippi physical public facility; YOC locality is Pebble Beach."
+    },
+    {
+      "name": "The Bridges",
+      "city": "Bay St Louis",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-d1847612-1fc9-439a-b169-1a0ed27ac1c9"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "The Grand Bear",
+      "city": "Saucier",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-6f5ff106-497a-452c-a995-d0f9306b94bc"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "The Natchez Golf Club at Duncan Park",
+      "city": "Natchez",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-cfa5f161-7a8e-49a3-8b26-ba5cf3629e47"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "The Oaks Golf Club",
+      "city": "Pass Christian",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-5db45b53-c1a5-4118-b0bb-415d7dc2e0db"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "The Preserve Golf Club",
+      "city": "Vancleave",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-f6f33b85-2176-45f5-a14a-73376826b328"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "The Refuge",
+      "city": "Flowood",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-0ba31a1d-143a-4001-a673-35037b6b941c"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Tunica National GC",
+      "city": "Tunica Resorts",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-c8f8f037-4d97-4981-ba3a-09fdeea240c8"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "Windance Country Club",
+      "city": "Gulfport",
+      "status": "already_cataloged",
+      "existing_ids": [
+        "f-f88e75fa-8c9c-4a83-876f-e502d5f646fb"
+      ],
+      "reason": "Locality, normalized identity and existing physical facility reviewed; no update requested."
+    },
+    {
+      "name": "YOC Mississippi",
+      "city": "Pebble Beach",
+      "status": "excluded_unbound_club_or_program",
+      "existing_ids": [],
+      "reason": "Directory label does not establish a distinct Mississippi physical public facility; YOC locality is Pebble Beach."
+    }
+  ]
+}

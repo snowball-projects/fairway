@@ -1,0 +1,49 @@
+{
+  "historical_review": {
+    "archives": [
+      "fairway-map-batch01-pr8-portable.zip",
+      "fairway-map-national-remaining-20261013.zip"
+    ],
+    "mga_history_matches": 6,
+    "dixie_candidate_history_matches": 2,
+    "scope": "Full available JSON/TXT/MD contents screened for exact publishers and candidate identities; no no-retry hold recovered for missgolf.org or dixiegolf.net. Existing Arkansas holds are preserved.",
+    "arkansas_hold_audit": [
+      "mariongolfac.com robots502",
+      "diamondhillscountryclub.com wrong-identity gambling redirect",
+      "cityofblytheville.gov copying/display restriction",
+      "mtnhomegolf.com externally hosted restrictive terms",
+      "explorethevillage.com403",
+      "golfonturkeymountain.com seller/disclaimed affiliation",
+      "cityofsherwood.net robots502",
+      "trumanncountryclub.com robots502",
+      "newhavengc.com wrong-identity gambling redirect",
+      "clarksville-countryclub.com unresolved redirect",
+      "tboxgolf.net403",
+      "thetmgc.com unresolved substantive terms",
+      "Prairie Creek closure lead"
+    ],
+    "no_held_source_requests_or_recovery": true
+  },
+  "dixie_owner": {
+    "robots_url": "https://www.dixiegolf.net/robots.txt",
+    "robots_status": 200,
+    "robots_sha256": "2cdce38fa993d7fbf8d959066f47ca60f790e733493584b40690c4cd8ca8d1a8",
+    "allowed_scope": "Homepage allowed for wildcard user agent; wpforms upload route disallowed and not visited. No crawl delay published.",
+    "policy_discovery": "Full homepage navigation/footer reviewed. No linked Terms/Privacy policy. Exact-domain scoped policy search returned no results. No missing guessed policy endpoint requested.",
+    "factual_scope": "Name, explicit ordinary public access, street/city/state/ZIP, physical18holes and ownerURL only. No source-wide open license claimed. Copyright notice preserved as a source qualification. No booking, vendor, social, rate or promotional data."
+  },
+  "mga_discovery": {
+    "robots_status": 404,
+    "robots_sha256": "cc846fc16d7939f5a995654646220f1014dd708ad842ece6145398382640ecdb",
+    "robots_body": "Generic 24-byte resource-not-found response, no directives. Missing endpoint is not affirmative permission.",
+    "policy_discovery": "Full homepage and member-directory navigation/footer have no linked privacy/use terms. Scoped exact-domain policy searches found no applicable body. No source-wide clearance or open license claimed.",
+    "facts_admitted": false,
+    "scope": "Discovery and dedup only. Public member categories can include programs and duplicate playing groups; no member row is assumed a separate physical facility."
+  },
+  "asga_attempt": {
+    "url": "https://www.asga.org/robots.txt",
+    "result": "First direct request explicitly require_escalated; DNS failure, zero bytes, no retry or ordinary alias request",
+    "scope": "Technical stop for this pass only; not publisher denial or legal prohibition."
+  },
+  "network": "All direct calls escalated public reads with timeout25seconds, byte cap3MB, single exact attempt, no automatic redirect, minimum15seconds completion-to-next-start per normalized publisher."
+}
