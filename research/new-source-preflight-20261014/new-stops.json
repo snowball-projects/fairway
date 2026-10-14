@@ -1,0 +1,20 @@
+[
+  {
+    "kind": "observed_access_denial",
+    "url": "https://www.mass.gov/robots.txt",
+    "status": 403,
+    "scope": "MassGIS publisher intake through mass.gov and ordinary MassGIS-hosted delivery aliases, including gis.data.mass.gov and massgis.maps.arcgis.com; do not reroute. No statewide unrelated agency legal ban inferred.",
+    "facts_intake": 0,
+    "no_retry": true
+  },
+  {
+    "kind": "incomplete_current_policy_review",
+    "scope": [
+      "geodata.ct.gov",
+      "ctmaps.maps.arcgis.com"
+    ],
+    "reason": "Linked /pages/terms-of-use returns complete HTTP200 application shell/site configuration, but no actual Terms of Use body or dataset-specific reuse license. Site licenseInfo is null, not permission or prohibition. No dataset query, download or facility fact admission.",
+    "no_retry_alternate_API_or_cache_fact_substitution": true,
+    "no_statewide_legal_or_ctgov_agency_ban_inferred": true
+  }
+]
