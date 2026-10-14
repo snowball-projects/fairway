@@ -4,8 +4,12 @@ One practical path uses Spark's existing normal-user rootless Docker daemon:
 prepare public Python code offline in one capped container, remove it, then run
 the synthetic API/fixture pair with narrow read-only code mounts. The controller
 has no pull, build, commit, import, image-removal or persistent-service path.
-Local source and mocked tests are complete; no Spark staging, image pull,
-installer, container, network or HTTP test has been executed.
+This namespace-client revision is an uncommitted local proposal based on reviewed
+commit `a0aa503e47bc5881ca10ee033a4fb6977ac448d0`. It needs independent source
+review and a fresh approval before acquisition, staging or execution. Local pipe
+and temporary loopback HTTP tests exercise the actual client dispatcher and host
+adapter with Docker policy mocked. No Spark staging, image pull, installer,
+container, network or routing traffic was executed for this revision.
 
 ## Inputs and separate approval boundaries
 
@@ -41,7 +45,7 @@ before building fairway; no catalog, pins or public UI are edited by this test.
 
 `prepare_bundle.py` takes an explicit new absolute directory and verified wheel
 paths/hashes. It runs locally without downloads, installs, subprocesses or Docker.
-The bundle contains exactly eight wheels, the fixed controller/installer/verifier
+The bundle contains exactly eight wheels, the fixed controller/installer/verifier, namespace client
 and fixture source, the requirement/manifest files, README and SHA256SUMS.
 It rejects changed hashes, missing/extra files, symlinks and unlisted wheel entries
 before creating output. Both preparation and runtime controllers reject extra
@@ -143,7 +147,7 @@ commas or line breaks, outside the bundle.
 The fixed controller connects only to
 `unix:///run/user/<ordinary UID>/docker.sock` and strips DOCKER_* overrides.
 Read-only execution preflight verifies rootless/systemd/cgroupv2, all reserved
-names absent, loopback18081 unused, matching pinned base, <=1GiB reported base-image size, >=4GiB free and the same
+names absent, matching pinned base, <=1GiB reported base-image size, >=4GiB free and the same
 filesystem for inputs, output and DockerRootDir. Before/after live-engine metadata
 contains only IDs, running state, networks and port bindings. No environment,
 logs, files or HTTP requests are read from those engines.
@@ -161,7 +165,7 @@ failed `/tmp` rootfs write, network, mounts, ports and policy. It then installs 
 six dependencies and two applications to `/out/site`, with no-index/no-deps,
 only-binary,require-hashes,no-cache-dir,no-compile and isolated pip configuration.
 
-The pending local revision gives the entire preparation stage one absolute
+The reviewed baseline gives the entire preparation stage one absolute
 180s controller deadline recorded before creation, also capped by the outer
 work deadline. Isolation/barrier checks and the at-most120s readiness wait end
 at least35s before that deadline. After a fresh owned-state check, copying is
@@ -192,7 +196,12 @@ no-new-privileges,default seccomp,init,restart=no,logs disabled,core0,nofile256,
 | fairway-safety-api-review | 512MiB | work/site -> /opt/prepared | python -m fairway.national_server; PYTHONPATH=/opt/prepared; bind0.0.0.0; router http://valhalla:8002; dataset synthetic-fixture-only |
 | fairway-safety-router-review | 256MiB | work/fixture_router.py -> /opt/fixture_router.py | python /opt/fixture_router.py; FIXTURE_MODE normal,hold-first,slow-stream |
 
-Only published port is `127.0.0.1:18081 -> 8081`. No SSH keys, home directories,
+No host ports are published. The controller verifies both requested
+`HostConfig.PortBindings`/`PublishAllPorts` and realized `NetworkSettings.Ports`
+as absent, before/after start and before connecting client commands. Missing
+inspection fields are rejected; an exposed container port with no host mapping
+is allowed. There is no host-network mode, external bridge or host proxy.
+No SSH keys, home directories,
 Docker socket, road tiles or live-engine data are mounted. No tmpfs is provided
 to runtime. Creation returns full container and bridge IDs, checked with the exact owner
 token. Every attachment, exec, stop and removal uses those recorded IDs.
@@ -244,22 +253,73 @@ trailer terminators fail closed, even when the partial body is valid JSON. Chunk
 trailers are capped at32 lines/8192 bytes per line. Explicitly close the response
 on success/error/deadline paths and close the connection even if response close
 itself fails. Timer-generated EOF does not override the absolute deadline. Continuous trickling cannot refresh the total allowance.
-The one concurrent calculation client is a fixed local Python subprocess,
-without shell/URLs/credentials/Docker access, whose own absolute request timer
-is <=35s. It returns only a bounded status record; the parent waits <=25s within
-its remaining work allowance. There is no thread-pool exit join. Client teardown
-uses terminate, a <=0.5s wait, kill if needed, and one further <=0.5s wait, capped
-by remaining controller/cleanup time. An unreaped PID is retained/reported and
-fails cleanup; expiry skips phase-local waits and enters the separate reserve.
-These alarms/client bounds do not rely on the API's timers or container expiry.
-Each container has
-its own180s lifetime even if the controller is lost. No persistent launch occurs.
-Cases: held first calculation/immediate second503/recovery; eight held admission
-connections/ninth503; disconnected client and local child reaped at30s while
-intentional35s synthetic upstream work continues; gate recovery; active-worker
-SIGTERM and abrupt container kill. Two calculation clients maximum; eight idle
-clients only for admission; <=12 API requests per phase including up to8 startup
-health probes, four phases total. Each recreated fixture permits <=64 provider
+HTTP originates from a fixed Python client launched by one interactive Docker
+exec in an already owned runtime container, as UID65532. It has no Docker
+socket, key, new mount or arbitrary target/path/body command. Startup health
+uses API namespace IPv4 loopback8081. After clean startup-client finish, one phase
+observer runs in the existing synthetic fixture container and uses only the
+inspected API IPv4 endpoint:8081 on the same owned internal bridge. Its container
+ID, start time, exact bridge ID/membership, API full ID/start time and endpoint
+are pinned and rechecked before connecting commands. This observer survives API
+stop/kill; response/finish commands allow the stopped API to leave bridge
+membership, but require the still-owned observer and no foreign member.
+
+Both client and server probes independently report UID, capability/seccomp state
+and the same actual cgroup limits. Client overhead shares the existing API
+1CPU/512MiB/64-task or fixture1CPU/256MiB/64-task cap; it adds no separate
+container budget and supports no capacity claim. Fixed source is passed through
+exec stdin-independent argv, covered by the input manifest; no shell runs.
+
+The closed protocol permits health, ranking, begin, collect, close, idle-open,
+idle-close and finish. It permits no URLs, provider arguments or arbitrary code.
+Each command/event has an exact schema, nonce and monotonically increasing
+sequence. Input/output each cap at64KiB with4KiB frames including their newline. The
+producer checks encoded UTF-8 frame and aggregate sizes before any write;
+Retry-After is absent or one to four ASCII digits on both direct and collected
+response paths. Every output write is nonblocking and bounded by the earliest
+pending-request/session deadline, including readiness, replies and finish.
+The dispatcher snapshots its command deadline before handling. Reply and error
+writes use the earlier of that snapshot and the current deadline, so collecting
+or closing the last pending socket cannot restore a later session allowance.
+Direct health/ranking commands snapshot an additional1s/35s operation deadline
+before handling; those totals include both HTTP work and protocol result delivery.
+The handler watchdog and output writer retain that same command budget.
+Failure closes held sockets before error reporting and retains that original
+deadline; output rejection/uncertain partial write is terminal and forbids further
+records. A partial frame, overflow,
+wrong identity, unsolicited extra event or premature EOF is terminal. The host
+allows at most63 commands and64 events including readiness per session. One
+session is at most90s (GNU timeout TERM/KILL1s is an additional bound); request
+headers/body/framing remain capped by the earlier absolute session/work deadline
+and35s. Both direct and begun requests cap connection/send at2s (health retains
+its earlier1s total); response reading restores only the remaining total budget. At most two calculation sockets
+are outstanding; eight partial-header connections are opened only once in the
+entire run and closed before finish. Pending/idle sockets retain their original
+35s deadlines while the dispatcher waits for the next command.
+
+The controller allocates attempt IDs before sending, never refunds a failed
+attempt, and enforces <=12 API attempts per phase including <=8 startup health
+probes, four phases and <=48 attempts across all sessions and fixture replacement.
+The client independently permits <=12 attempts per session with increasing IDs
+<=48. Startup requires an actual IPv4 HTTP200, rather than a TCP listener fact.
+Cases are held first calculation/immediate second503/recovery; eight held
+admission sockets/ninth503; selected client disconnect while intentional35s
+synthetic upstream work continues, bounded API child reaping and gate recovery;
+active-worker SIGTERM and abrupt API container kill with an independent observer.
+
+Clean client finish requires acknowledgement, zero held sockets, CLI exit0,
+clean output EOF and an independent /proc PID/start-time/nonce check showing
+that exact client is absent. Uncertain launch/response/finish is a sticky
+inconclusive failure: no replacement client, next phase or resource creation
+follows. Cleanup may terminate/reap the local Docker CLI with two <=0.5s waits,
+but this does not prove remote exec termination. The separately verified absence
+of each owned whole-container full ID is the final remote cleanup boundary;
+uncertain exec still fails the stage and retains evidence even after resources
+are removed. There are no automatic retries after unknown outcomes.
+Each runtime container retains its180s lifetime. Existing preparation180s,
+work540s, cleanup30s and outer600s limits are unchanged.
+
+Each recreated fixture permits <=64 provider
 jobs/4 handlers, bounded bodies and origins/targets. No production8002/8003,
 port11000, host gateway or Internet is probed.
 
@@ -303,8 +363,22 @@ Local tests use fake wheel bytes and a mocked Docker model, including installer
 barrier, exact policy/mount denial, preparation failure, content changes,
 sequential ordering, native-stage conflict, delayed/unknown creates, bridge
 replacement/foreign membership, pre-start endpoint ID denial, owner-token
-cleanup refusal, expired clocks, slow body/header streams, nested alarms, capped
-client reaping and preservation of the independent cleanup reserve. Framing and
+cleanup refusal, expired clocks, slow body/header streams, nested alarms and preservation of the independent
+cleanup reserve. Local integration uses the actual client dispatcher and host
+adapter in Python pipes with temporary loopback HTTP, preserving fixed peer
+arguments and explicitly mocking OCI facts. It covers startup, held calculation,
+503/Retry-After, eight-slot admission, selected socket closure, actual API SIGTERM
+and SIGKILL, protocol corruption, input byte budgets and independent PID checks.
+Collect Retry-After overflow, encoded frame/aggregate output bounds, direct
+connect/send overruns and actual full-pipe backpressure also have regressions.
+Blocked readiness/reply/error output cannot retain sockets past their deadline;
+error-reporting tests require closed sockets before the attempted error write.
+Near-expiry collect and uncaught handler errors exercise normal and blocked
+output after handler cleanup; all retain the original command deadline. Direct
+health/ranking near-expiry result delivery, including full-pipe backpressure,
+also retains its1s/35s operation deadline rather than the later session end.
+Realized/requested mappings, missing fields, API/observer incarnation changes,
+uncertain launches and missing finish/EOF/exit evidence stop progression. Framing and
 lifecycle cases use actual stdlib HTTPConnection/HTTPResponse parsers over
 BytesIO-backed transports that raise EBADF after file release, with no network.
 They cover fixed-length/close/HTTP1.0, valid JSON with overstated length, empty/
@@ -316,9 +390,9 @@ Sideline remains one paused/uninstalled proposal, excluded from this runtime.
 No public exposure, credentials, persistent service, DNS/firewall changes,
 Render retirement, PR merge or live routing load occurs in this work.
 
-## Pending diagnostic addition, separate source review
+## Reviewed baseline diagnostics
 
-The local addition retains one bounded failed-command record: allowlisted
+The reviewed baseline retains one bounded failed-command record: allowlisted
 operation, fixed review names/confirmed full IDs, return code or exception type,
 configured timeout, checked/cleanup context and redacted stderr preview only.
 It scans at most8KiB and retains at most4KiB UTF-8. After credential/URL redaction,
@@ -342,8 +416,9 @@ distinguishable, and late owned creations are still reconciled during cleanup.
 The existing subprocess.run/communicate path drains stdout and stderr together,
 including Docker cp; no separate unconsumed stderr pipe is introduced. Preview
 bounds limit persisted diagnostics, not total CLI capture or Docker daemon use.
-This addition is uncommitted and requires source review before any execution;
-the earlier eight-wheel bundle contains the reviewed controller only and must be
-refreshed after an approved diagnostic revision. Runtime still uses log-driver
+These diagnostics are committed locally at `a0aa503`, separately from the
+published PR15 head `86f54e5`. The namespace-client diff above remains uncommitted
+and unreviewed. Earlier bundles retain their original identities and are paused;
+a fresh18-file bundle (17 payload files plus SHA256SUMS) is needed after review. Runtime still uses log-driver
 none without local-driver options, so native's max-file/compression conflict does
 not apply; no daemon setting, log-driver switch or failed-stage retry is proposed.

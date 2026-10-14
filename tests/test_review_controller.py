@@ -19,6 +19,7 @@ FIXTURE = (
 
 @pytest.fixture
 def controller(tmp_path, monkeypatch):
+    monkeypatch.syspath_prepend(str(FIXTURE))
     spec = importlib.util.spec_from_file_location(
         "controller", FIXTURE / "run_review.py"
     )
@@ -26,6 +27,9 @@ def controller(tmp_path, monkeypatch):
     spec.loader.exec_module(module)
     bundle = tmp_path / "bundle"
     bundle.mkdir()
+    (bundle / "namespace_client.py").write_bytes(
+        (FIXTURE / "namespace_client.py").read_bytes()
+    )
     (bundle / "fixture_router.py").write_text("# public synthetic fixture\n")
     (bundle / "SHA256SUMS").write_text("reviewed source manifest\n")
     monkeypatch.setattr(module, "ROOT", bundle)
@@ -101,12 +105,9 @@ class FakeDocker:
                 "Devices": [],
                 "Tmpfs": {},
                 "PortBindings": {},
+                "PublishAllPorts": False,
                 "NetworkMode": value("--network"),
             }
-            if name == self.m.API:
-                host["PortBindings"] = {
-                    "8081/tcp": [{"HostIp": "127.0.0.1", "HostPort": "18081"}]
-                }
             if name == self.m.PREP:
                 host["Tmpfs"] = {"/out": value("--tmpfs").split(":", 1)[1]}
             network_name = names.get(value("--network"), value("--network"))
@@ -129,8 +130,19 @@ class FakeDocker:
                         "RW": False,
                     }
                 ],
-                "NetworkSettings": {"Networks": {network_name: {"NetworkID": ""}}},
+                "NetworkSettings": {
+                    "Ports": {},
+                    "Networks": {
+                        network_name: {
+                            "NetworkID": "",
+                            "IPAddress": "172.30.0.2"
+                            if name == self.m.API
+                            else "172.30.0.3",
+                        }
+                    },
+                },
                 "State": {
+                    "StartedAt": "2026-10-13T22:00:00Z",
                     "Running": False,
                     "OOMKilled": self.prep_failed,
                 },
@@ -651,7 +663,9 @@ def test_slow_body_trickle_obeys_absolute_deadline_and_closes(controller, monkey
     m, _ = controller
     clock = [100.0]
     monkeypatch.setattr(m.time, "monotonic", lambda: clock[0])
-    monkeypatch.setattr(m, "absolute_watchdog", lambda deadline: nullcontext())
+    monkeypatch.setattr(
+        m.client_module, "absolute_watchdog", lambda deadline: nullcontext()
+    )
     client, response = Mock(), Mock()
     client.getresponse.return_value = response
     response.isclosed.return_value = False
@@ -675,7 +689,9 @@ def test_slow_body_trickle_obeys_absolute_deadline_and_closes(controller, monkey
 
 def test_http_body_size_cap_is_enforced_incrementally(controller, monkeypatch):
     m, _ = controller
-    monkeypatch.setattr(m, "absolute_watchdog", lambda deadline: nullcontext())
+    monkeypatch.setattr(
+        m.client_module, "absolute_watchdog", lambda deadline: nullcontext()
+    )
     client, response = Mock(), Mock()
     client.getresponse.return_value = response
     response.isclosed.return_value = False
@@ -717,73 +733,6 @@ def test_nested_watchdog_keeps_earlier_controller_deadline(controller):
         m.time.sleep(0.1)
     assert m.signal.getitimer(m.signal.ITIMER_REAL) == before
     assert m.signal.getsignal(m.signal.SIGALRM) == handler
-
-
-def test_worker_timeout_gets_terminate_kill_and_only_bounded_waits(controller):
-    _, review = controller
-    worker = Mock(pid=321)
-    worker.poll.return_value = None
-    worker.wait.side_effect = [subprocess.TimeoutExpired("client", 0.5), 0]
-    review.http_worker = worker
-    review.stop_http_worker()
-    worker.terminate.assert_called_once()
-    worker.kill.assert_called_once()
-    assert worker.wait.call_count == 2
-    assert all(0 < call.kwargs["timeout"] <= 0.5 for call in worker.wait.call_args_list)
-    assert review.http_worker is None
-
-
-def test_unreaped_client_is_reported_but_docker_cleanup_still_runs(
-    controller, monkeypatch, capsys
-):
-    m, review = controller
-    fake = attach(m, review, monkeypatch)
-    review.network(m.NETWORK)
-    worker = Mock(pid=321)
-    worker.poll.return_value = None
-    worker.wait.side_effect = subprocess.TimeoutExpired("client", 0.5)
-    review.http_worker = worker
-    with pytest.raises(RuntimeError, match="cleanup"):
-        review.cleanup()
-    assert not fake.objects and review.http_worker is worker
-    assert worker.wait.call_count == 2
-    event = json.loads(capsys.readouterr().out.splitlines()[-1])
-    assert event["http_worker_pid"] == 321
-    assert "local HTTP worker could not be reaped" in event["failed_resources"]
-
-
-def test_expired_controller_clock_starts_no_client_and_no_wait(controller, monkeypatch):
-    m, review = controller
-    monkeypatch.setattr(m.time, "monotonic", lambda: review.deadline + 1)
-    with pytest.raises(TimeoutError):
-        review.start_http_worker()
-    subprocess.Popen.assert_not_called()
-    worker = Mock(pid=321)
-    worker.poll.return_value = None
-    review.http_worker = worker
-    with pytest.raises(TimeoutError):
-        review.stop_http_worker()
-    worker.wait.assert_not_called()
-
-
-def test_contention_client_is_fixed_loopback_helper_with_finite_result_wait(
-    controller, monkeypatch
-):
-    m, review = controller
-    worker = Mock(pid=321, returncode=0)
-    worker.communicate.return_value = (b'{"status":200}\n', None)
-    popen = Mock(return_value=worker)
-    monkeypatch.setattr(subprocess, "Popen", popen)
-    review.start_http_worker()
-    args = popen.call_args.args[0]
-    assert args[:4] == [m.sys.executable, "-B", "-c", m.HTTP_WORKER]
-    assert args[4] == str(m.ROOT / "run_review.py")
-    assert (
-        "--execute" not in args
-        and popen.call_args.kwargs["stderr"] == subprocess.DEVNULL
-    )
-    assert review.http_worker_result() == 200
-    assert 0 < worker.communicate.call_args.kwargs["timeout"] <= 25
 
 
 def test_controller_alarm_preserves_fresh_cleanup_reserve(controller, monkeypatch):
@@ -1053,7 +1002,9 @@ def test_real_parser_timer_generated_eof_is_deadline_failure_even_after_valid_js
     m, _ = controller
     clock = [100.0]
     monkeypatch.setattr(m.time, "monotonic", lambda: clock[0])
-    monkeypatch.setattr(m, "absolute_watchdog", lambda deadline: nullcontext())
+    monkeypatch.setattr(
+        m.client_module, "absolute_watchdog", lambda deadline: nullcontext()
+    )
     length = b"" if declared_length is None else b"Content-Length: 20\r\n"
     payload = b"HTTP/1.1 200 OK\r\nConnection: close\r\n" + length + b'\r\n{"ok":true}'
 
@@ -1159,7 +1110,9 @@ def test_real_parser_expiry_during_json_processing_is_rejected_and_closed(
     m, _ = controller
     clock = [100.0]
     monkeypatch.setattr(m.time, "monotonic", lambda: clock[0])
-    monkeypatch.setattr(m, "absolute_watchdog", lambda deadline: nullcontext())
+    monkeypatch.setattr(
+        m.client_module, "absolute_watchdog", lambda deadline: nullcontext()
+    )
     payload = (
         b'HTTP/1.1 200 OK\r\nContent-Length: 11\r\nConnection: close\r\n\r\n{"ok":true}'
     )

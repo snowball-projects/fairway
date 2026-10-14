@@ -2,20 +2,22 @@
 
 import argparse
 import hashlib
-import http.client
+import ipaddress
 import json
 import os
 import platform
 import re
+import select
 import shutil
 import signal
-import socket
 import subprocess
 import sys
 import time
 import uuid
-from contextlib import contextmanager
 from pathlib import Path
+
+sys.dont_write_bytecode = True
+import namespace_client as client_module
 
 ROOT = Path(__file__).resolve().parent
 NETWORK = "fairway-safety-review"
@@ -30,7 +32,7 @@ BASE = (
 NATIVE_NAMES = {"modo-native-review-build", "modo-native-review-router"}
 LIVE = ("valhalla-us-261011", "valhalla-illinois")
 LABEL = "fairway.safety.run=review"
-PORT = 18081
+PORT = client_module.PORT
 PREPARATION_SECONDS = 180
 COPY_SECONDS = 30
 COPY_RESERVE_SECONDS = COPY_SECONDS + 5
@@ -157,121 +159,12 @@ def verify_bundle():
     return verify(ROOT)
 
 
-@contextmanager
-def absolute_watchdog(deadline):
-    """Linux main-process alarm, independent of Docker and the API under test."""
-    remaining = deadline - time.monotonic()
-    if remaining <= 0:
-        raise TimeoutError("absolute controller/request deadline")
-    previous_handler = signal.getsignal(signal.SIGALRM)
-    previous_timer = signal.getitimer(signal.ITIMER_REAL)
-    started = time.monotonic()
-
-    def expire(signum, frame):
-        raise TimeoutError("absolute controller/request deadline")
-
-    signal.signal(signal.SIGALRM, expire)
-    signal.setitimer(
-        signal.ITIMER_REAL,
-        min(remaining, previous_timer[0]) if previous_timer[0] else remaining,
-    )
-    try:
-        yield
-    finally:
-        signal.setitimer(signal.ITIMER_REAL, 0)
-        signal.signal(signal.SIGALRM, previous_handler)
-        if previous_timer[0]:
-            restored = previous_timer[0] - (time.monotonic() - started)
-            if restored <= 0:
-                raise TimeoutError("enclosing absolute deadline expired")
-            signal.setitimer(signal.ITIMER_REAL, restored, previous_timer[1])
-
-
-def remaining_seconds(deadline, ceiling):
-    remaining = deadline - time.monotonic()
-    if remaining <= 0:
-        raise TimeoutError("absolute controller/request deadline")
-    return min(remaining, ceiling)
-
-
-class ReviewHTTPResponse(http.client.HTTPResponse):
-    """Stdlib framing with strict chunk terminators and bounded trailers."""
-
-    # Same protocol guard as the native review's smoke parser; no native
-    # cancellation or engine-evidence logic is imported into this controller.
-    def _get_chunk_left(self):
-        if self.chunk_left == 0:
-            if self._safe_read(2) != b"\r\n":
-                raise http.client.IncompleteRead(b"")
-            self.chunk_left = None
-        return super()._get_chunk_left()
-
-    def _read_and_discard_trailer(self):
-        for _ in range(32):
-            line = self.fp.readline(8193)
-            if line == b"\r\n":
-                return
-            if not line or not line.endswith(b"\r\n"):
-                raise http.client.IncompleteRead(b"")
-            if len(line) > 8192:
-                raise http.client.HTTPException("review trailer line exceeds bound")
-        raise http.client.HTTPException("review trailer count exceeds bound")
-
-
-def request(path="/health", body=None, timeout=35, *, deadline=None):
-    end = time.monotonic() + timeout
-    if deadline is not None:
-        end = min(end, deadline)
-    remaining = remaining_seconds(end, timeout)
-    with absolute_watchdog(end):
-        client = http.client.HTTPConnection("127.0.0.1", PORT, timeout=remaining)
-        response = None
-        try:
-            client.request(
-                "GET" if body is None else "POST",
-                path,
-                body=body,
-                headers={} if body is None else {"Content-Type": "application/json"},
-            )
-            # Keep the socket reference: getresponse may detach it from client
-            # when a Connection: close response owns the remaining file handle.
-            transport = client.sock
-            transport.settimeout(remaining_seconds(end, timeout))
-            client.response_class = ReviewHTTPResponse
-            response = client.getresponse()
-            raw = bytearray()
-            # read1 closes HTTPResponse.fp at the last fixed-length byte. A
-            # Connection: close transport can then also be closed; never touch
-            # that saved socket once the parser has completed the response.
-            while not response.isclosed():
-                transport.settimeout(remaining_seconds(end, timeout))
-                chunk = response.read1(min(65536, 1048577 - len(raw)))
-                remaining_seconds(end, timeout)
-                if not chunk:
-                    break
-                raw.extend(chunk)
-                assert len(raw) <= 1048576, "response body exceeds 1 MiB"
-            remaining_seconds(end, timeout)
-            if response.length not in (None, 0):
-                raise http.client.IncompleteRead(bytes(raw), response.length)
-            if response.chunked and not response.isclosed():
-                raise http.client.IncompleteRead(bytes(raw))
-            body = json.loads(raw)
-            remaining_seconds(end, timeout)
-            return response.status, body, response.getheader("Retry-After")
-        finally:
-            try:
-                if response is not None:
-                    response.close()
-            finally:
-                client.close()
-
-
-HTTP_WORKER = """import json,runpy,sys
-module=runpy.run_path(sys.argv[1])
-result=module['request']('/api/national/rankings',module['BODY'],deadline=float(sys.argv[2]))
-print(json.dumps({'status':result[0]}),flush=True)
-"""
+absolute_watchdog = client_module.absolute_watchdog
+remaining_seconds = client_module.remaining_seconds
+http = client_module.http
+socket = client_module.socket
+ReviewHTTPResponse = client_module.ReviewHTTPResponse
+request = client_module.request
 
 
 def until(check, seconds):
@@ -284,11 +177,283 @@ def until(check, seconds):
     raise TimeoutError("fixture condition deadline")
 
 
+class ExecClient:
+    """One fixed client in an owned namespace; ambiguous lifecycle is fatal."""
+
+    def __init__(self, owner, component):
+        self.owner, self.component = owner, component
+        self.cid = owner.resource_id("container", component)
+        api, self.peer = owner.client_peer(component)
+        self.started_at = owner.owned("container", component)["State"]["StartedAt"]
+        self.api_id = api["Id"]
+        self.api_started_at = api["State"]["StartedAt"]
+        self.token = uuid.uuid4().hex
+        self.sequence = 0
+        self.buffer = bytearray()
+        self.bytes = 0
+        self.events = 0
+        self.pid = self.start_ticks = None
+        self.process = None
+        self.finished = False
+        self.failed = False
+        self.pending = set()
+        self.idle = 0
+        self.idle_used = False
+        self.end = min(owner.deadline, time.monotonic() + 90)
+        owner.clients.append(self)  # Intent before Popen: unknown exec stays owned.
+        try:
+            owner.validate_client(self, True)
+            source = (ROOT / "namespace_client.py").read_text()
+            self.process = subprocess.Popen(
+                owner.command
+                + [
+                    "exec",
+                    "--interactive",
+                    "--user",
+                    "65532:65532",
+                    self.cid,
+                    "/usr/bin/timeout",
+                    "--signal=TERM",
+                    "--kill-after=1s",
+                    "90s",
+                    "python",
+                    "-I",
+                    "-B",
+                    "-c",
+                    source,
+                    self.peer,
+                    self.token,
+                    str(remaining_seconds(self.end, 90)),
+                ],
+                env=owner.env,
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.DEVNULL,
+            )
+            os.set_blocking(self.process.stdin.fileno(), False)
+            os.set_blocking(self.process.stdout.fileno(), False)
+            event = self.read("ready", min(self.end, time.monotonic() + 5))
+            assert set(event) == {
+                "event",
+                "session",
+                "seq",
+                "pid",
+                "start_ticks",
+                "peer",
+                "port",
+                "isolation",
+            }
+            assert type(event["pid"]) is int and event["pid"] > 0
+            assert (
+                isinstance(event["start_ticks"], str) and event["start_ticks"].isdigit()
+            )
+            assert event["peer"] == self.peer and event["port"] == 8081
+            assert event["isolation"] == {
+                "uid": 65532,
+                "cap_eff": "0000000000000000",
+                "no_new_privs": "1",
+                "seccomp": "2",
+                "limits": {
+                    "memory.max": str((512 if component == API else 256) * 1024**2),
+                    "cpu.max": "100000 100000",
+                    "pids.max": "64",
+                },
+            }
+            self.pid, self.start_ticks = event["pid"], event["start_ticks"]
+            assert owner.client_alive(self), "remote exec identity unconfirmed"
+        except (Exception, KeyboardInterrupt, SystemExit) as error:  # noqa: BLE001 - incomplete exec/protocol evidence always fails closed
+            self.abort(error)
+
+    def abort(self, error):
+        self.failed = True
+        self.owner.client_failure = True
+        if isinstance(error, KeyboardInterrupt):
+            raise KeyboardInterrupt from None
+        if isinstance(error, (TimeoutError, subprocess.TimeoutExpired)):
+            raise TimeoutError("namespace exec outcome inconclusive") from None
+        if isinstance(error, (InterruptedError, SystemExit)):
+            raise InterruptedError(
+                "namespace exec interrupted; outcome inconclusive"
+            ) from None
+        raise RuntimeError("namespace exec outcome inconclusive") from None
+
+    def read(self, expected, deadline):
+        while b"\n" not in self.buffer:
+            remaining = remaining_seconds(min(deadline, self.owner.deadline), 0.1)
+            if select.select([self.process.stdout], [], [], remaining)[0]:
+                raw = os.read(self.process.stdout.fileno(), 4096)
+                if not raw:
+                    raise ValueError("exec EOF before lifecycle evidence")
+                self.bytes += len(raw)
+                self.buffer.extend(raw)
+                if self.bytes > 65536 or len(self.buffer) > 4096:
+                    raise ValueError("exec output budget")
+        line, _, rest = self.buffer.partition(b"\n")
+        if rest:
+            raise ValueError("unsolicited exec events")
+        self.buffer.clear()
+        self.events += 1
+        if self.events > 64:
+            raise ValueError("exec event budget")
+        event = json.loads(line.decode("utf-8"))
+        if (
+            not isinstance(event, dict)
+            or event.get("event") != expected
+            or event.get("session") != self.token
+            or type(event.get("seq")) is not int
+            or event["seq"] != self.sequence
+        ):
+            raise ValueError("exec event identity")
+        return event
+
+    def exchange(self, op, **fields):
+        try:
+            assert (
+                not self.failed and not self.finished and not self.owner.client_failure
+            )
+            self.owner.validate_client(
+                self, op in {"health", "ranking", "begin", "idle-open"}
+            )
+            if op in {"collect", "close"}:
+                assert fields.get("attempt") in self.pending
+            if op == "finish":
+                assert not self.pending and not self.idle
+            if op == "idle-open":
+                assert not self.idle_used
+                self.idle_used = True
+            self.sequence += 1
+            assert self.sequence < 64
+            raw = (
+                json.dumps({"seq": self.sequence, "op": op, **fields}) + "\n"
+            ).encode()
+            assert len(raw) <= 4096
+            end = min(self.end, self.owner.deadline, time.monotonic() + 35)
+            cursor = 0
+            while cursor < len(raw):
+                if select.select(
+                    [], [self.process.stdin], [], remaining_seconds(end, 0.1)
+                )[1]:
+                    cursor += os.write(self.process.stdin.fileno(), raw[cursor:])
+            event = self.read("finished" if op == "finish" else "reply", end)
+            if op == "finish":
+                assert set(event) == {"event", "session", "seq", "pending", "idle"}
+                assert type(event["pending"]) is type(event["idle"]) is int
+                assert event["pending"] == event["idle"] == 0
+                self.process.stdin.close()
+                self.process.wait(timeout=remaining_seconds(end, 2))
+                assert self.process.returncode == 0
+                while not select.select(
+                    [self.process.stdout], [], [], remaining_seconds(end, 0.1)
+                )[0]:
+                    pass
+                assert os.read(self.process.stdout.fileno(), 4096) == b"", (
+                    "exec trailing output or missing EOF"
+                )
+                assert self.owner.client_exited(self), (
+                    "remote exec termination unconfirmed"
+                )
+                self.finished = True
+                self.process.stdout.close()
+                return None
+            assert set(event) == {
+                "event",
+                "session",
+                "seq",
+                "result",
+                "pending",
+                "idle",
+            }
+            assert type(event["pending"]) is int and 0 <= event["pending"] <= 2
+            assert type(event["idle"]) is int and event["idle"] in {0, 8}
+            result = event["result"]
+            assert isinstance(result, dict)
+            outcomes = {
+                "response": {"outcome", "status", "retry_after"},
+                "transport-error": {"outcome", "exception_type"},
+                "begun": {"outcome", "attempt"},
+                "closed": {"outcome", "attempt"},
+                "idle-open": {"outcome", "count"},
+                "idle-closed": {"outcome"},
+            }
+            allowed = {
+                "health": {"response", "transport-error"},
+                "ranking": {"response", "transport-error"},
+                "begin": {"begun"},
+                "collect": {"response", "transport-error"},
+                "close": {"closed"},
+                "idle-open": {"idle-open"},
+                "idle-close": {"idle-closed"},
+            }
+            assert (
+                result.get("outcome") in allowed[op]
+                and set(result) == outcomes[result["outcome"]]
+            )
+            if result["outcome"] == "response":
+                assert type(result["status"]) is int and 100 <= result["status"] <= 599
+                assert result["retry_after"] is None or (
+                    isinstance(result["retry_after"], str)
+                    and result["retry_after"].isdigit()
+                    and len(result["retry_after"]) <= 4
+                )
+            elif result["outcome"] == "transport-error":
+                assert result["exception_type"] in {
+                    "OSError",
+                    "TimeoutError",
+                    "ConnectionRefusedError",
+                    "ConnectionResetError",
+                    "RemoteDisconnected",
+                    "IncompleteRead",
+                    "HTTPException",
+                    "JSONDecodeError",
+                    "UnicodeDecodeError",
+                    "ValueError",
+                }
+            elif result["outcome"] in {"begun", "closed"}:
+                assert type(result["attempt"]) is int
+                assert result["attempt"] == fields["attempt"]
+            elif result["outcome"] == "idle-open":
+                assert result["count"] == 8
+            if op == "begin":
+                self.pending.add(fields["attempt"])
+            elif op in {"collect", "close"}:
+                self.pending.remove(fields["attempt"])
+            elif op == "idle-open":
+                self.idle = 8
+            elif op == "idle-close":
+                self.idle = 0
+            assert event["pending"] == len(self.pending) and event["idle"] == self.idle
+            return result
+        except (Exception, KeyboardInterrupt, SystemExit) as error:  # noqa: BLE001 - incomplete exec/protocol evidence always fails closed
+            self.abort(error)
+
+    def detach(self):
+        # Local CLI termination is not remote termination evidence.
+        if self.process is None:
+            return
+        if self.process.poll() is None:
+            self.process.terminate()
+        try:
+            self.process.wait(timeout=remaining_seconds(self.owner.deadline, 0.5))
+        except subprocess.TimeoutExpired:
+            self.process.kill()
+            self.process.wait(timeout=remaining_seconds(self.owner.deadline, 0.5))
+        for pipe in (self.process.stdin, self.process.stdout):
+            if pipe is not None:
+                pipe.close()
+
+
 class Review:
     def __init__(self, work_directory):
         self.work = validate_work_directory(work_directory)
         self.work_created = False
-        self.http_worker = None
+        self.client = None
+        self.clients = []
+        self.client_failure = False
+        self.pending_attempt = None
+        self.phase = 0
+        self.phase_attempts = 0
+        self.attempts = 0
+        self.idle_used = False
         self.site_digest = None
         self.token = uuid.uuid4().hex
         self.deadline = time.monotonic() + 540
@@ -306,48 +471,173 @@ class Review:
         self.cleanup_mode = False
         self.env = {k: v for k, v in os.environ.items() if not k.startswith("DOCKER_")}
 
-    def request(self, path="/health", body=None, timeout=35):
-        return request(path, body, timeout, deadline=self.deadline)
+    def begin_phase(self):
+        assert self.client is None and not self.client_failure and self.phase < 4
+        self.phase += 1
+        self.phase_attempts = 0
 
-    def start_http_worker(self):
-        assert self.http_worker is None
-        remaining_seconds(self.deadline, 35)
-        self.http_worker = subprocess.Popen(
-            [
-                sys.executable,
+    def allocate_attempt(self):
+        assert (
+            not self.client_failure
+            and self.phase > 0
+            and self.phase_attempts < 12
+            and self.attempts < 48
+        )
+        self.phase_attempts += 1
+        self.attempts += 1
+        return self.attempts
+
+    def no_publication(self, row):
+        host, network = row["HostConfig"], row["NetworkSettings"]
+        bindings = host["PortBindings"]
+        assert bindings is None or isinstance(bindings, dict)
+        assert not bindings and host["PublishAllPorts"] is False, (
+            "requested host publication forbidden"
+        )
+        ports = network["Ports"]
+        assert ports is None or isinstance(ports, dict)
+        assert all(
+            isinstance(key, str)
+            and re.fullmatch(r"[0-9]+/(?:tcp|udp|sctp)", key)
+            and (value is None or value == [])
+            for key, value in (ports or {}).items()
+        ), "effective host publication forbidden"
+
+    def client_peer(self, component):
+        assert component in {API, ROUTER} and not self.client_failure
+        api = self.owned("container", API)
+        self.no_publication(api)
+        assert api["State"]["Running"] and not api["State"]["OOMKilled"]
+        assert isinstance(api["State"]["StartedAt"], str) and api["State"]["StartedAt"]
+        self.network_row(NETWORK, self.members[NETWORK])
+        assert set(api["NetworkSettings"]["Networks"]) == {NETWORK}
+        assert api["NetworkSettings"]["Networks"][NETWORK][
+            "NetworkID"
+        ] == self.resource_id("network", NETWORK)
+        if component == API:
+            return api, "127.0.0.1"
+        assert self.members[NETWORK] == {API, ROUTER}
+        peer = api["NetworkSettings"]["Networks"][NETWORK]["IPAddress"]
+        address = ipaddress.IPv4Address(peer)
+        assert (
+            address.is_private
+            and not address.is_loopback
+            and not address.is_unspecified
+            and not address.is_multicast
+        )
+        return api, str(address)
+
+    def validate_client(self, client, connecting):
+        row = self.owned("container", client.component)
+        assert (
+            row["Id"] == client.cid
+            and row["State"]["Running"]
+            and not row["State"]["OOMKilled"]
+            and row["State"]["StartedAt"] == client.started_at
+        )
+        self.no_publication(row)
+        assert row["Config"]["User"] == "65532:65532"
+        assert set(row["NetworkSettings"]["Networks"]) == {NETWORK}
+        assert row["NetworkSettings"]["Networks"][NETWORK][
+            "NetworkID"
+        ] == self.resource_id("network", NETWORK)
+        api = self.owned("container", API)
+        assert (
+            api["Id"] == client.api_id
+            and api["State"]["StartedAt"] == client.api_started_at
+        ), "API incarnation changed"
+        if connecting:
+            checked, peer = self.client_peer(client.component)
+            assert checked["Id"] == client.api_id and peer == client.peer, (
+                "peer endpoint changed"
+            )
+        else:
+            bridge = self.owned("network", NETWORK)
+            assert bridge["Internal"] and bridge["Driver"] == "bridge"
+            members = set(bridge.get("Containers") or {})
+            assert client.cid in members and members <= {
+                self.resource_id("container", n) for n in self.members[NETWORK]
+            }
+
+    def client_process_state(self, client, alive):
+        code = """import json,sys
+from pathlib import Path
+p=Path('/proc')/sys.argv[1]
+try:
+ same=p.joinpath('stat').read_text().rsplit(')',1)[1].split()[19]==sys.argv[2]
+ present=same and sys.argv[3].encode() in p.joinpath('cmdline').read_bytes().split(b'\\0')
+except FileNotFoundError: same=present=False
+print(json.dumps(present if sys.argv[4]=='alive' else not same))
+"""
+        return (
+            self.document(
+                "exec",
+                "--user",
+                "65532:65532",
+                client.cid,
+                "python",
+                "-I",
                 "-B",
                 "-c",
-                HTTP_WORKER,
-                str(ROOT / "run_review.py"),
-                str(min(self.deadline, time.monotonic() + 35)),
-            ],
-            stdin=subprocess.DEVNULL,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.DEVNULL,
+                code,
+                str(client.pid),
+                client.start_ticks,
+                client.token,
+                "alive" if alive else "exited",
+            )
+            is True
         )
+
+    def client_alive(self, client):
+        return self.client_process_state(client, True)
+
+    def client_exited(self, client):
+        return self.client_process_state(client, False)
+
+    def open_client(self, component):
+        assert self.client is None and not self.client_failure
+        self.client = ExecClient(self, component)
+        return self.client
+
+    def finish_client(self):
+        if self.client is not None:
+            self.client.exchange("finish")
+            self.client = None
+
+    def request(self, path="/health", body=None, timeout=35):
+        assert path in {"/health", "/api/national/rankings"} and body in (None, BODY)
+        attempt = self.allocate_attempt()
+        result = self.client.exchange(
+            "health" if path == "/health" else "ranking", attempt=attempt
+        )
+        if result["outcome"] == "transport-error":
+            if (
+                path == "/health"
+                and result["exception_type"] == "ConnectionRefusedError"
+            ):
+                return 0, None, None
+            raise RuntimeError("namespace HTTP request failed")
+        assert result["outcome"] == "response"
+        return result["status"], None, result["retry_after"]
+
+    def start_http_worker(self):
+        assert self.pending_attempt is None
+        attempt = self.allocate_attempt()
+        result = self.client.exchange("begin", attempt=attempt)
+        assert result["outcome"] == "begun"
+        self.pending_attempt = attempt
 
     def http_worker_result(self, timeout=25):
-        assert self.http_worker is not None
-        raw, _ = self.http_worker.communicate(
-            timeout=remaining_seconds(self.deadline, timeout)
-        )
-        assert self.http_worker.returncode == 0 and len(raw) <= 256
-        return json.loads(raw)["status"]
+        assert self.pending_attempt is not None
+        result = self.client.exchange("collect", attempt=self.pending_attempt)
+        self.pending_attempt = None
+        return result
 
     def stop_http_worker(self):
-        worker = self.http_worker
-        if worker is None:
-            return
-        # Popen has no ThreadPoolExecutor's unbounded context/exit join. Even a
-        # stalled client gets only two capped waits; retain an unreaped handle.
-        if worker.poll() is None:
-            worker.terminate()
-        try:
-            worker.wait(timeout=remaining_seconds(self.deadline, 0.5))
-        except subprocess.TimeoutExpired:
-            worker.kill()
-            worker.wait(timeout=remaining_seconds(self.deadline, 0.5))
-        self.http_worker = None
+        if self.pending_attempt is not None:
+            result = self.client.exchange("close", attempt=self.pending_attempt)
+            assert result["outcome"] == "closed"
+            self.pending_attempt = None
 
     def failed_command(
         self,
@@ -513,8 +803,6 @@ class Review:
             for name in names:
                 result = self.docker(kind, "inspect", name, check=False)
                 assert result.returncode != 0, f"reserved {kind} already exists"
-        with socket.socket() as s:
-            s.bind(("127.0.0.1", PORT))
         row = self.document("image", "inspect", BASE)[0]
         assert row["Architecture"] == "arm64" and row["Os"] == "linux"
         digest = BASE.split("@", 1)[1]
@@ -543,6 +831,7 @@ class Review:
         assert not NATIVE_NAMES.intersection(names), "native review objects remain"
 
     def creation_gate(self, kind, name):
+        assert not self.client_failure, "prior namespace exec outcome inconclusive"
         self.native_absent()
         assert self.docker(kind, "inspect", name, check=False).returncode != 0, (
             "reserved object already exists"
@@ -719,11 +1008,7 @@ class Review:
             assert row["NetworkSettings"]["Networks"][network][
                 "NetworkID"
             ] == self.resource_id("network", network)
-        assert (host["PortBindings"] or {}) == (
-            {"8081/tcp": [{"HostIp": "127.0.0.1", "HostPort": str(PORT)}]}
-            if name == API
-            else {}
-        )
+        self.no_publication(row)
         binds = [x for x in row["Mounts"] if x["Type"] == "bind"]
         assert len(binds) == 1 and binds[0]["Source"] == str(source)
         assert binds[0]["Destination"] == destination and not binds[0]["RW"]
@@ -866,8 +1151,6 @@ class Review:
         if name == API:
             source, destination = self.work / "site", "/opt/prepared"
             args += [
-                "--publish",
-                f"127.0.0.1:{PORT}:8081",
                 "--env",
                 "PYTHONPATH=/opt/prepared",
                 "--env",
@@ -941,21 +1224,29 @@ class Review:
         raise TimeoutError("API startup deadline / eight health requests")
 
     def start_phase(self, mode):
+        self.begin_phase()
         self.container(ROUTER, NETWORK, "256m", mode)
         self.container(API, NETWORK, "512m")
+        self.open_client(API)
         self.ready()
+        self.finish_client()
+        self.open_client(ROUTER)
         until(lambda: self.status().get("fixture_only"), 3)
 
     def end_phase(self):
+        self.finish_client()
         self.remove_container(API)
         self.remove_container(ROUTER)
 
     def canary_and_busy(self):
+        self.begin_phase()
         self.network(NETWORK)
         self.network(CANARY)
         self.container(ROUTER, CANARY, "256m", "hold-first")
         self.container(API, NETWORK, "512m")
+        self.open_client(API)
         self.ready()
+        self.finish_client()
         until(lambda: self.status().get("fixture_only"), 3)
         ip = self.owned("container", ROUTER)["NetworkSettings"]["Networks"][CANARY][
             "IPAddress"
@@ -1004,46 +1295,32 @@ class Review:
         ] == self.resource_id("network", NETWORK)
         members = self.network_row(NETWORK, {API, ROUTER})["Containers"]
         assert {x["Name"] for x in members.values()} == {API, ROUTER}
+        self.open_client(ROUTER)
         self.start_http_worker()
         try:
             until(lambda: self.status()["active_jobs"] == 1, 10)
             second = self.request("/api/national/rankings", BODY)
             assert second[0] == 503 and second[2] == "10"
-            assert self.http_worker_result() == 200
+            assert self.http_worker_result()["status"] == 200
         finally:
             if time.monotonic() < self.deadline:
                 self.stop_http_worker()
         assert self.request("/api/national/rankings", BODY)[0] == 200
-        held = []
-        try:
-            for _ in range(8):
-                s = socket.create_connection(("127.0.0.1", PORT), timeout=1)
-                s.sendall(b"GET /health HTTP/1.1\r\n")
-                held.append(s)
-            time.sleep(0.2)
-            assert self.request(timeout=2)[0] == 503
-        finally:
-            for s in held:
-                s.close()
+        assert not self.idle_used
+        self.idle_used = True
+        assert self.client.exchange("idle-open")["count"] == 8
+        assert self.request(timeout=2)[0] == 503
+        assert self.client.exchange("idle-close")["outcome"] == "idle-closed"
         emit("calculation-contention-and-connection-overload-passed")
         self.end_phase()
 
     def disconnect_deadline(self):
         self.start_phase("slow-stream")
-        s = socket.create_connection(("127.0.0.1", PORT), timeout=2)
-        raw = (
-            b"POST /api/national/rankings HTTP/1.1\r\nHost: localhost\r\n"
-            b"Content-Type: application/json\r\nContent-Length: "
-            + str(len(BODY)).encode()
-            + b"\r\n\r\n"
-            + BODY
-        )
         started = time.monotonic()
-        try:
-            s.sendall(raw)
-            until(lambda: self.status()["active_jobs"] == 1, 10)
-        finally:
-            s.close()
+        self.start_http_worker()
+        until(lambda: self.status()["active_jobs"] == 1, 10)
+        self.stop_http_worker()
+        self.finish_client()
         assert self.workers() == 1
         until(lambda: self.workers() == 0, 32)
         elapsed = time.monotonic() - started
@@ -1055,54 +1332,58 @@ class Review:
         )
         self.remove_container(ROUTER)
         self.container(ROUTER, NETWORK, "256m")
+        self.open_client(ROUTER)
         assert self.request("/api/national/rankings", BODY)[0] == 200
         emit("calculation-gate-recovered")
         self.end_phase()
 
     def interruption(self, abrupt):
         self.start_phase("slow-stream")
-        s = socket.create_connection(("127.0.0.1", PORT), timeout=2)
-        try:
-            s.sendall(
-                b"POST /api/national/rankings HTTP/1.1\r\nHost: localhost\r\n"
-                b"Content-Type: application/json\r\nContent-Length: "
-                + str(len(BODY)).encode()
-                + b"\r\n\r\n"
-                + BODY
-            )
-            until(lambda: self.status()["active_jobs"] == 1, 10)
-            assert self.workers() == 1
-            started = time.monotonic()
-            self.owned("container", API)
-            if abrupt:
-                self.docker(
-                    "kill", "--signal", "KILL", self.resource_id("container", API)
-                )
-            else:
-                self.docker("stop", "--time", "3", self.resource_id("container", API))
-            state = self.owned("container", API)["State"]
-            assert not state["Running"] and not state["OOMKilled"]
-            if not abrupt:
-                assert state["ExitCode"] != 137
-            emit(
-                "api-container-interrupted",
-                abrupt=abrupt,
-                elapsed_seconds=round(time.monotonic() - started, 2),
-                exit_code=state["ExitCode"],
-            )
-        finally:
-            s.close()
+        self.start_http_worker()
+        until(lambda: self.status()["active_jobs"] == 1, 10)
+        assert self.workers() == 1
+        started = time.monotonic()
+        self.owned("container", API)
+        if abrupt:
+            self.docker("kill", "--signal", "KILL", self.resource_id("container", API))
+        else:
+            self.docker("stop", "--time", "3", self.resource_id("container", API))
+        state = self.owned("container", API)["State"]
+        assert not state["Running"] and not state["OOMKilled"]
+        if not abrupt:
+            assert state["ExitCode"] != 137
+        result = self.http_worker_result()
+        assert result["outcome"] == "transport-error" or result.get("status") in {
+            503,
+            504,
+        }
+        self.finish_client()  # Independent fixture observer survives API exit.
+        emit(
+            "api-container-interrupted",
+            abrupt=abrupt,
+            elapsed_seconds=round(time.monotonic() - started, 2),
+            exit_code=state["ExitCode"],
+        )
         self.end_phase()
 
     def cleanup(self, *, deadline=None):
-        # Separate 30-second reserve, including the local HTTP worker teardown.
+        # Separate 30-second reserve, including namespace CLI teardown.
         self.cleanup_mode = True
         self.deadline = time.monotonic() + 30 if deadline is None else deadline
-        failures = []
+        failures = (
+            ["namespace exec outcome inconclusive"] if self.client_failure else []
+        )
         try:
-            self.stop_http_worker()
+            if self.client is not None and not self.client_failure:
+                self.stop_http_worker()
+                self.finish_client()
         except Exception:  # noqa: BLE001 - continue owned Docker cleanup within reserve
-            failures.append("local HTTP worker could not be reaped")
+            failures.append("namespace client lifecycle unconfirmed")
+        for client in self.clients:
+            try:
+                client.detach()
+            except Exception:  # noqa: BLE001 - remote cleanup remains mandatory
+                failures.append("namespace client CLI unreaped")
         # Bounded reconciliation can discover a delayed create, but repeated
         # absence never turns an uncertain create into confirmed cleanup.
         for key in list(self.uncertain_creates):
@@ -1159,7 +1440,11 @@ class Review:
                 {"kind": k, "name": n, "id": self.ids.get((k, n))}
                 for k, n in sorted(self.uncertain_creates)
             ],
-            http_worker_pid=None if self.http_worker is None else self.http_worker.pid,
+            namespace_exec_inconclusive=self.client_failure,
+            namespace_clients=[
+                {"container_id": c.cid, "pid": c.pid, "finished": c.finished}
+                for c in self.clients
+            ],
             remaining_resources=[
                 {"kind": k, "name": n, "id": self.ids.get((k, n))}
                 for k, n in self.created
@@ -1187,7 +1472,7 @@ def main():
             resources={
                 "containers_max": 2,
                 "internal_bridges_max": 2,
-                "published_port": "127.0.0.1:18081",
+                "published_ports": 0,
                 "persistent_volumes": 0,
                 "readonly_code_mounts_per_container": 1,
                 "preparation_memory_mib": 1024,
@@ -1241,9 +1526,7 @@ def main():
                 "cleanup-deadline-expired",
                 confirmed_cleanup=False,
                 owner_token=review.token,
-                http_worker_pid=None
-                if review.http_worker is None
-                else review.http_worker.pid,
+                namespace_exec_inconclusive=review.client_failure,
                 remaining_resources=[
                     {"kind": k, "name": n, "id": review.ids.get((k, n))}
                     for k, n in review.created

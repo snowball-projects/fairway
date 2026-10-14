@@ -14,6 +14,7 @@ REPO = HERE.parents[2]
 FILES = (
     "prepare_runtime.py",
     "fixture_router.py",
+    "namespace_client.py",
     "run_review.py",
     "bundle_integrity.py",
     "runtime-requirements.arm64.txt",
