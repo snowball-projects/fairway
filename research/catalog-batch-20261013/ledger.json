@@ -2,8 +2,8 @@
   "base_commit": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
   "canonical_pr": 17,
   "superseded_pr": 16,
-  "distinct_facilities": 35,
-  "facilities_added": 11,
+  "distinct_facilities": 39,
+  "facilities_added": 15,
   "facilities_updated": 24,
   "target_distinct_facilities": 100,
   "target_is_practical_not_admission_requirement": true,
@@ -80,6 +80,32 @@
       "accepted": 4,
       "deferred": 10,
       "source_requests": 0
+    },
+    {
+      "name": "Three-source four public additions",
+      "evidence_commit": "fa8b35160038d330f08af1f105bbef4b083c4792",
+      "worker_evidence_commit": "f1a3ed5983e29161fd348233db2370508d39456e",
+      "facility_ids": [
+        "f-50b27f7a-bc51-4667-8411-0c263ebe53ec",
+        "f-54d50b23-1726-4f4b-96c7-bc49fb3a80d6",
+        "f-cceb5459-66a5-40bc-8ef0-da674fd0ae1e",
+        "f-d372a2b0-f8c9-4704-9ce2-7d8701689308"
+      ],
+      "source_cohorts": [
+        {
+          "publisher": "Boston municipal",
+          "facilities_added": 2
+        },
+        {
+          "publisher": "Louisiana Golf Association dated table",
+          "facilities_added": 1
+        },
+        {
+          "publisher": "Dixie operator",
+          "facilities_added": 1
+        }
+      ],
+      "new_green_dots": 0
     }
   ],
   "public_raw_captures": false,
