@@ -956,10 +956,17 @@ function selectFacilityById(id, fit = true) {
 function selectionPopupOptions() {
   const options={maxWidth:312,minWidth:280,maxHeight:null,autoPan:false,closeOnClick:false};
   if(mobile()) {
+    let top=Math.max(120,document.querySelector(".map-actions").getBoundingClientRect().bottom+8);
+    coursesDrawer?.makeMapRoom(window.innerHeight-top-16-104);
     const covered=!view.resultsPanel.hidden?view.resultsPanel.getBoundingClientRect().height:0;
-    const top=Math.max(120,document.querySelector(".map-actions").getBoundingClientRect().bottom+8);
-    const bottom=covered+16;
-    options.maxHeight=Math.max(48,Math.min(230,window.innerHeight-top-bottom-40));
+    let bottom=covered+16;
+    if(view.resultsPanel.hidden) {
+      top=$("catalog-search").getBoundingClientRect().bottom+8;
+      bottom=Math.max(16,window.innerHeight-document.querySelector(".map-actions").getBoundingClientRect().top+8);
+    }
+    const available=window.innerHeight-top-bottom-40;
+    if(available<1)return null;
+    options.maxHeight=Math.min(230,available);
     options.autoPan=true;
     options.autoPanPaddingTopLeft=[12,top];
     options.autoPanPaddingBottomRight=[12,bottom];
@@ -984,6 +991,11 @@ function openSelectionPopup() {
     for(const id of popupSelection.ids){const facility=catalogModel.facilityById.get(id);if(facility)content.append(facilityDetails(facility,true));}
   }
   const options=selectionPopupOptions();
+  if(!options) {
+    const previous=cataloguePopup;cataloguePopup=null;
+    if(previous)map.closePopup(previous);
+    return;
+  }
   if(cataloguePopup?.isOpen()) {
     Object.assign(cataloguePopup.options,options);
     cataloguePopup.setLatLng(popupSelection.coordinate).setContent(content);

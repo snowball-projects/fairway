@@ -18,6 +18,15 @@ test('reachable native grip toggles with pointer click and keyboard-generated cl
   f.send('click');assert.equal(f.panel.hidden,false);assert.equal(f.shell.style.width,'360px');assert.equal(f.grip.attributes['aria-expanded'],'true');
   f.send('click',{detail:0});assert.equal(f.panel.hidden,true);assert.equal(f.grip.attributes['aria-label'],'Open courses');
 });
+test('selection makes map room by shrinking an open sheet or collapsing only below its minimum',()=>{
+ for(const screen of [667,740,844]) {
+  const f=harness(390,screen);f.send('keydown',{key:'Home'});const budget=screen-226-16-104;
+  f.controller.makeMapRoom(budget);assert.equal(f.panel.hidden,false);assert.ok(parseFloat(f.shell.style.height)<=budget);assert.ok(parseFloat(f.shell.style.height)>=sheetLimits(screen).minimum);
+ }
+ const small=harness(390,390);small.send('click');small.controller.makeMapRoom(40);assert.equal(small.panel.hidden,true);assert.equal(small.shell.style.height,'0px');
+ small.controller.makeMapRoom(300);assert.equal(small.panel.hidden,true);
+ const desktop=harness();desktop.send('click');desktop.controller.makeMapRoom(100);assert.equal(desktop.shell.style.width,'360px');assert.equal(desktop.panel.hidden,false);
+});
 test('mouse drag resizes, captures only the grip, and never toggles on release click',()=>{
   const f=harness();f.send('click');f.send('pointerdown');assert.equal(f.captured(),1);assert.equal(f.focus(),1);
   assert.equal(f.send('pointermove',{clientX:380}).prevented,true);assert.equal(f.shell.style.width,'480px');

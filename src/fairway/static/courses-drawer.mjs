@@ -35,6 +35,12 @@ export function bindCoursesDrawer({shell, panel, grip, setOpen, viewport, viewpo
     if(mode==='sheet')height=clamp(value,limits());else width=clamp(value,limits());
     if(panel.hidden)setOpen(true);else sync(true);
   }
+  function makeMapRoom(maximumHeight) {
+    if(mode!=='sheet'||panel.hidden||size()<=maximumHeight)return;
+    cancelDrag(true);
+    if(maximumHeight<limits().minimum)setOpen(false);
+    else {height=Math.floor(maximumHeight);sync(true);}
+  }
   grip.addEventListener('focus',onActivate);
   grip.addEventListener('click',event=>{
     event.stopPropagation();
@@ -69,5 +75,5 @@ export function bindCoursesDrawer({shell, panel, grip, setOpen, viewport, viewpo
     else if(event.key===increase)resize(panel.hidden?size():size()+24);
     else if(!panel.hidden){if(size()<=limits().minimum)setOpen(false);else resize(size()-24);}
   });
-  sync(!panel.hidden);return {sync};
+  sync(!panel.hidden);return {sync,makeMapRoom};
 }
