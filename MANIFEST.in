@@ -17,3 +17,4 @@ prune experiments
 recursive-include tests/fixtures/native5-ui *.json
 recursive-include tests/fixtures/native5-production *.json
 include docs/catalog/native5-ui/INPUT-PINS.json
+include docs/catalog/native5-production/PER-EACH-EXPORT-FIX.txt

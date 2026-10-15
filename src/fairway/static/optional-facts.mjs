@@ -28,12 +28,22 @@ function unique(rows,key='id'){
 }
 function rawMatches(record,raw,schema){return Object.keys(schema).every(key=>Object.hasOwn(record,key)&&sameValue(record[key],raw[key]));}
 function assertIds(actual,expected){if(!Array.isArray(actual)||new Set(actual).size!==actual.length||actual.length!==expected.length||actual.some(id=>!expected.includes(id)))fail('Changed canonical relationship membership');}
+// Shared explicit scan policy. Only the validation copy is normalized.
+const SCAN_SPACE=/[\u0009-\u000d\u001c-\u0020\u0085\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]/g;
+function validationScan(text){return text.replace(SCAN_SPACE,' ').replace(/[A-Z]/g,letter=>letter.toLowerCase());}
+function priceConditionScan(row){
+  let text=row.conditions;
+  if(row.billing_basis!=='per_person'||!['id','observation_id','fee_kind','amount_kind','amount_min'].every(key=>Object.hasOwn(row,key)))return text;
+  text=validationScan(text);
+  text=text.replace(/^( *printed +["'`]?)\/ea(?=["'`]? +with *[0-9]+ *riders? +per +cart(?=$| |[.,;:!?)](?: |$)))/,'$1each');
+  return text.replace(/^( *[$€£] *[0-9]+(?:[.,][0-9]{1,2})? +)\/ea(?=$| |[.,;:!?)](?: |$))/,'$1each');
+}
 export function rejectRawEvidence(value){
   if(Array.isArray(value)){for(const row of value)rejectRawEvidence(row);return;}
-  if(object(value)){for(const [key,child] of Object.entries(value)){if(['fact_groups','payload','retained_pointer','retained_document','retained_evidence','controls_reference','capture_path','local_path'].includes(key))fail('Raw evidence is not operational transport');rejectRawEvidence(key);rejectRawEvidence(child);}return;}
+  if(object(value)){for(const [key,child] of Object.entries(value)){if(['fact_groups','payload','retained_pointer','retained_document','retained_evidence','controls_reference','capture_path','local_path'].includes(key))fail('Raw evidence is not operational transport');rejectRawEvidence(key);rejectRawEvidence(key==='conditions'&&typeof child==='string'?priceConditionScan(value):child);}return;}
   if(typeof value==='string'){
-    const scan=value.replace(/\bhttps?:\/\/[^\s<>"'`]+/gi,'');
-    if(/(?:^|[\s"'`(\[={:;,<>|!?“”‘’«»])\/+[^\s/]|file:\/\/|\b[A-Za-z]:[\\/]|\\{2}/i.test(scan))fail('Private path in public transport');
+    const scan=validationScan(value).replace(/(^|[\x00-\x2f\x3a-\x40\x5b-\x5e\x60\x7b-\x7f“”‘’«»])https?:\/\/[^ <>"'`“”‘’«»]+/g,'$1');
+    if(/(?:^|[ "'`(\[={:;,<>|!?“”‘’«»])\/+[^ /]|file:\/\/|[a-zİıſK]:[\\/]|\\{2}/.test(scan))fail('Private path in public transport');
   }
 }
 export function validateScopedOptional(value){

@@ -33,6 +33,55 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
+# Explicit shared scan policy: no engine-dependent whitespace, casefold or boundary.
+_SCAN_SPACE = r"\u0009-\u000d\u001c-\u0020\u0085\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff"
+_URL_BOUNDARY = r"\x00-\x2f\x3a-\x40\x5b-\x5e\x60\x7b-\x7f“”‘’«»"
+
+
+def _validation_scan(text):
+    text = re.sub(f"[{_SCAN_SPACE}]", " ", text)
+    return re.sub(r"[A-Z]", lambda match: match[0].lower(), text)
+
+
+def _price_condition_scan(row):
+    """Scan bounded ASCII financial notation; never rewrite emitted claims."""
+    text = row["conditions"]
+    if (
+        row.get("billing_basis") != "per_person"
+        or not {"id", "observation_id", "fee_kind", "amount_kind", "amount_min"}
+        <= row.keys()
+    ):
+        return text
+    text = _validation_scan(text)
+    text = re.sub(
+        r"""\A( *printed +["'`]?)\/ea(?=["'`]? +with *[0-9]+ *riders? +per +cart(?=$| |[.,;:!?)](?: |$)))""",
+        r"\1each",
+        text,
+    )
+    return re.sub(
+        r"\A( *[$€£] *[0-9]+(?:[.,][0-9]{1,2})? +)/ea(?=$| |[.,;:!?)](?: |$))",
+        r"\1each",
+        text,
+    )
+
+
+def _without_http_links(text):
+    return re.sub(
+        rf"""(^|[{_URL_BOUNDARY}])https?://[^ <>"'`“”‘’«»]+""",
+        r"\1",
+        _validation_scan(text),
+    )
+
+
+def _has_private_path(text):
+    return bool(
+        re.search(
+            r"""(?:^|[ "'`(\[={:;,<>|!?“”‘’«»])/+[^ /]|file://|[a-zİıſK]:[\\/]|\\{2}""",
+            _without_http_links(text),
+        )
+    )
+
+
 def public_projection(value):
     """Reject retained bodies and private path tokens before writing a public asset."""
     forbidden = {
@@ -52,18 +101,16 @@ def public_projection(value):
                 if key in forbidden:
                     raise ValueError("raw evidence in public transport")
                 visit(key)
-                visit(child)
+                visit(
+                    _price_condition_scan(item)
+                    if key == "conditions" and isinstance(child, str)
+                    else child
+                )
         elif isinstance(item, list):
             for child in item:
                 visit(child)
-        elif isinstance(item, str):
-            scan = re.sub(r"\bhttps?://[^\s<>\"'`]+", "", item, flags=re.IGNORECASE)
-            if re.search(
-                r"""(?:^|[\s"'`(\[={:;,<>|!?“”‘’«»])/+[^\s/]|file://|\b[A-Za-z]:[\\/]|\\{2}""",
-                scan,
-                re.IGNORECASE,
-            ):
-                raise ValueError("private path in public transport")
+        elif isinstance(item, str) and _has_private_path(item):
+            raise ValueError("private path in public transport")
 
     visit(value)
     for note in value.get("provenance", {}).get("notes", []):

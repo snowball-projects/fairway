@@ -1,0 +1,254 @@
+[
+  {
+    "name": "URL quote 0 POSIX",
+    "value": {
+      "qualification": "See \"https://official.example\"/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 0 drive",
+    "value": {
+      "qualification": "See \"https://official.example\"C:/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 0 UNC",
+    "value": {
+      "qualification": "See \"https://official.example\"\\\\server\\private"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 0 public",
+    "value": {
+      "qualification": "See \"https://official.example\" Dated source only."
+    },
+    "accept": true
+  },
+  {
+    "name": "URL quote 1 POSIX",
+    "value": {
+      "qualification": "See 'https://official.example'/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 1 drive",
+    "value": {
+      "qualification": "See 'https://official.example'C:/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 1 UNC",
+    "value": {
+      "qualification": "See 'https://official.example'\\\\server\\private"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 1 public",
+    "value": {
+      "qualification": "See 'https://official.example' Dated source only."
+    },
+    "accept": true
+  },
+  {
+    "name": "URL quote 2 POSIX",
+    "value": {
+      "qualification": "See `https://official.example`/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 2 drive",
+    "value": {
+      "qualification": "See `https://official.example`C:/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 2 UNC",
+    "value": {
+      "qualification": "See `https://official.example`\\\\server\\private"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 2 public",
+    "value": {
+      "qualification": "See `https://official.example` Dated source only."
+    },
+    "accept": true
+  },
+  {
+    "name": "URL quote 3 POSIX",
+    "value": {
+      "qualification": "See \u201chttps://official.example\u201c/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 3 drive",
+    "value": {
+      "qualification": "See \u201chttps://official.example\u201cC:/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 3 UNC",
+    "value": {
+      "qualification": "See \u201chttps://official.example\u201c\\\\server\\private"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 3 public",
+    "value": {
+      "qualification": "See \u201chttps://official.example\u201c Dated source only."
+    },
+    "accept": true
+  },
+  {
+    "name": "URL quote 4 POSIX",
+    "value": {
+      "qualification": "See \u201dhttps://official.example\u201d/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 4 drive",
+    "value": {
+      "qualification": "See \u201dhttps://official.example\u201dC:/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 4 UNC",
+    "value": {
+      "qualification": "See \u201dhttps://official.example\u201d\\\\server\\private"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 4 public",
+    "value": {
+      "qualification": "See \u201dhttps://official.example\u201d Dated source only."
+    },
+    "accept": true
+  },
+  {
+    "name": "URL quote 5 POSIX",
+    "value": {
+      "qualification": "See \u2018https://official.example\u2018/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 5 drive",
+    "value": {
+      "qualification": "See \u2018https://official.example\u2018C:/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 5 UNC",
+    "value": {
+      "qualification": "See \u2018https://official.example\u2018\\\\server\\private"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 5 public",
+    "value": {
+      "qualification": "See \u2018https://official.example\u2018 Dated source only."
+    },
+    "accept": true
+  },
+  {
+    "name": "URL quote 6 POSIX",
+    "value": {
+      "qualification": "See \u2019https://official.example\u2019/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 6 drive",
+    "value": {
+      "qualification": "See \u2019https://official.example\u2019C:/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 6 UNC",
+    "value": {
+      "qualification": "See \u2019https://official.example\u2019\\\\server\\private"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 6 public",
+    "value": {
+      "qualification": "See \u2019https://official.example\u2019 Dated source only."
+    },
+    "accept": true
+  },
+  {
+    "name": "URL quote 7 POSIX",
+    "value": {
+      "qualification": "See \u00abhttps://official.example\u00ab/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 7 drive",
+    "value": {
+      "qualification": "See \u00abhttps://official.example\u00abC:/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 7 UNC",
+    "value": {
+      "qualification": "See \u00abhttps://official.example\u00ab\\\\server\\private"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 7 public",
+    "value": {
+      "qualification": "See \u00abhttps://official.example\u00ab Dated source only."
+    },
+    "accept": true
+  },
+  {
+    "name": "URL quote 8 POSIX",
+    "value": {
+      "qualification": "See \u00bbhttps://official.example\u00bb/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 8 drive",
+    "value": {
+      "qualification": "See \u00bbhttps://official.example\u00bbC:/private/evidence"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 8 UNC",
+    "value": {
+      "qualification": "See \u00bbhttps://official.example\u00bb\\\\server\\private"
+    },
+    "accept": false
+  },
+  {
+    "name": "URL quote 8 public",
+    "value": {
+      "qualification": "See \u00bbhttps://official.example\u00bb Dated source only."
+    },
+    "accept": true
+  }
+]
