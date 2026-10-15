@@ -45,7 +45,7 @@ for(const domain of OPTIONAL_DOMAINS.filter(d=>d!=='quality_rating'))test(`expli
   const {value}=fixture(),f=facility(value),schema=OPTIONAL_SCHEMA[domain];
   // Independent synthetic all-null operational cells exercise each domain shape; not an actual catalog claim.
   const row=Object.fromEntries(Object.keys(schema).map(k=>[k,null]));
-  Object.assign(row,{id:'synthetic-domain-'+domain,observation_id:'synthetic-observation',facility_id:f.facility_id,status:null,conflict:false});
+  Object.assign(row,{id:'synthetic-domain-'+domain,observation_id:'synthetic-observation',facility_id:f.facility_id,status:'retained',conflict:false});
   if(domain==='architecture_event')row.credits=[];
   f.optional[domain].push(row);assert.ok(validateScopedOptional(value).has(domain+':'+row.id));
   assert.match(renderOptional(f.optional,{subjectLabel:'Facility',document}).textContent,/Unconfirmed/);
@@ -89,4 +89,45 @@ for(const prefix of [':',';',',','<','>','|','!','?','“','”','‘','’','«
 test('URL tokens and ordinary slash-compound text remain unchanged',()=>{
   for(const text of ['clubhouse/range', 'https://official.example/path?next=/course', 'Source: https://official.example/golf/course; practice/range'])assert.doesNotThrow(()=>rejectRawEvidence(text));
   assert.throws(()=>rejectRawEvidence('https://official.example/path then:/private/evidence'),/Private path/);
+});
+
+function visit(value,fn){if(Array.isArray(value))value.forEach(v=>visit(v,fn));else if(value&&typeof value==='object'){fn(value);Object.values(value).forEach(v=>visit(v,fn));}}
+for(const status of ['retained','extracted','confirmed'])test(`all exact SQL observation statuses accept consistent shared envelopes: ${status}`,()=>{
+  const {value,manifest}=fixture();visit(value,row=>{if(Object.hasOwn(row,'observation_id'))row.status=status;});
+  assert.equal(validatePublicCatalog(value,manifest).optionalObservations.size,6);
+});
+test('retained observations can preserve a completely unknown public source/date envelope',()=>{
+  const {value,manifest}=fixture();visit(value,row=>{if(Object.hasOwn(row,'observation_id'))Object.assign(row,{source_id:null,source_url:null,source_license:null,source_attribution:null,collected_on:null,observed_on:null,effective_from:null,effective_to:null,status:'retained',conflict:true,qualification:'Original qualification retained'});});
+  const model=validatePublicCatalog(value,manifest);assert.equal(model.optionalObservations.size,6);assert.ok([...model.optionalObservations.values()].every(r=>r.source_id===null&&r.status==='retained'));
+});
+for(const status of [null,'unknown','documented',''])test(`reject invalid or missing SQL observation status ${status}`,()=>{
+  const {value,manifest}=fixture();main(value).optional.practice_observation[0].status=status;assert.throws(()=>validatePublicCatalog(value,manifest),/envelope/);
+});
+for(const [key,changed] of Object.entries({collected_on:'2026-10-14',observed_on:'2099-01-01',effective_from:'2026-01-01',effective_to:'2027-01-01',status:'confirmed',conflict:false,qualification:'Different qualification'}))test(`one immutable observation cannot disagree across domains: ${key}`,()=>{
+  const {value,manifest}=fixture();main(value).optional.practice_observation[0][key]=changed;assert.throws(()=>validatePublicCatalog(value,manifest),/immutable source observation/);
+});
+test('changing a source consistently on one row still rejects drift of a shared observation ID',()=>{
+  const {value,manifest}=fixture(),row=main(value).optional.practice_observation[0];
+  value.provenance.sources.push({id:'other-source',url:'https://other.example/source',license:'Other license',attribution:'Other attribution'});
+  Object.assign(row,{source_id:'other-source',source_url:'https://other.example/source',source_license:'Other license',source_attribution:'Other attribution'});
+  assert.throws(()=>validatePublicCatalog(value,manifest),/immutable source observation/);
+});
+function courseOwnedRound(value,{keepForeignMember=false}={}){
+  const owner=main(value),raw=value.relationships.round_option[0],round=structuredClone(owner.round_options[0]);
+  raw.facility_id=null;raw.course_id=owner.course_id;Object.assign(round,{facility_id:null,course_id:owner.course_id,scope:'course'});
+  if(!keepForeignMember){value.relationships.round_component=value.relationships.round_component.filter(m=>m.course_id===owner.course_id||owner.components.some(p=>p.id===m.component_id));round.members=structuredClone(value.relationships.round_component);}
+  for(const f of value.facilities)f.round_options=[];
+  for(const c of value.courses)c.round_options=(c.course_id===owner.course_id||keepForeignMember&&c.facility_id===owner.facility_id)?[structuredClone(round)]:[];
+}
+test('valid course-owned round keeps only its own course/component membership',()=>{
+  const {value,manifest}=fixture();courseOwnedRound(value);assert.equal(validatePublicCatalog(value,manifest).optionalObservations.size,6);
+});
+for(const foreign of ['course','component'])test(`course-owned round rejects another ${foreign} even at the same facility`,()=>{
+  const {value,manifest}=fixture();courseOwnedRound(value,{keepForeignMember:true});
+  if(foreign==='component'){
+    const other=value.courses.find(c=>c.plan_eligible===false),component={...value.relationships.component[0],id:'p-foreign',course_id:other.course_id};
+    value.relationships.component.push(component);other.components.push({...component,optional:structuredClone(Object.fromEntries(OPTIONAL_DOMAINS.map(k=>[k,[]])))});
+    const member=value.relationships.round_component.find(m=>m.course_id!==null);member.component_id=component.id;member.course_id=null;for(const c of value.courses)if(c.round_options.length)c.round_options[0].members=structuredClone(value.relationships.round_component);
+  }
+  assert.throws(()=>validatePublicCatalog(value,manifest),/round component membership/);
 });

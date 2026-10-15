@@ -14,7 +14,8 @@ Production layout confirmation, source review and approved real export are pendi
 Facility, course, component and round optional observations remain independently
 scoped. NULL values remain unconfirmed; prices are dated observations with all
 recorded conditions, and tee difficulty is separate from deferred quality ratings.
-Public note provenance contains IDs only; retained evidence bodies remain private.
+Shared observation metadata and course-owned round scope are checked against the
+pinned SQL contract. Public note provenance contains IDs only; retained evidence bodies remain private.
 
 The existing map, single Courses drawer and committed-origin behavior remain.
 **Driving-time comparison is unavailable** in this public path. No routing transport,

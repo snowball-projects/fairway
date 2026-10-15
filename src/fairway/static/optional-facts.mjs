@@ -3,6 +3,7 @@ export {OPTIONAL_DOMAINS};
 const SUBJECTS=['facility_id','course_id','component_id','round_id'];
 const META=new Set(['id','observation_id',...SUBJECTS,'source_id','source_url','source_license','source_attribution','collected_on','observed_on','effective_from','effective_to','status','conflict','qualification']);
 const LABELS={physical_characteristics:'Physical characteristics',amenity_observation:'Amenities',practice_observation:'Practice',service_observation:'Services',policy_observation:'Policies',operating_period:'Operating periods',accessibility_observation:'Accessibility',price_observation:'Dated price observations',architecture_event:'Design and architecture',quality_rating:'Quality ratings'};
+const ENVELOPE=['source_id','source_url','source_license','source_attribution','collected_on','observed_on','effective_from','effective_to','status','conflict','qualification'];
 const CREDIT={id:'text',party_id:'text',name:'text',party_kind:'text',role:'text'};
 const fail=message=>{throw new Error(message);};
 const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
@@ -51,8 +52,13 @@ export function validateScopedOptional(value){
   for(const round of maps.round_option.values())if((round.facility_id!==null)===(round.course_id!==null)||!facilities.has(roundFacility(round)))fail('Invalid round owner');
   const members=new Map(),tees=new Map(),ordinals=new Set();
   for(const member of maps.round_component.values()){
-    const round=maps.round_option.get(member.round_id),facility=member.course_id!==null?facilityForCourse(member.course_id):componentFacility(member.component_id);
-    if(!round||(member.component_id!==null)===(member.course_id!==null)||!facility||roundFacility(round)!==facility||!Number.isSafeInteger(member.ordinal)||member.ordinal<0||!Number.isSafeInteger(member.repetitions)||member.repetitions<1||ordinals.has(`${member.round_id}:${member.ordinal}`))fail('Invalid round component membership');
+    const round=maps.round_option.get(member.round_id);
+    const memberCourse=member.course_id??maps.component.get(member.component_id)?.course_id;
+    const facility=facilityForCourse(memberCourse);
+    if(!round||(member.component_id!==null)===(member.course_id!==null)||!facility||roundFacility(round)!==facility||
+      (round.course_id!==null&&round.course_id!==memberCourse)||
+      !Number.isSafeInteger(member.ordinal)||member.ordinal<0||!Number.isSafeInteger(member.repetitions)||member.repetitions<1||
+      ordinals.has(`${member.round_id}:${member.ordinal}`))fail('Invalid round component membership');
     ordinals.add(`${member.round_id}:${member.ordinal}`);const rows=members.get(member.round_id)||[];rows.push(member);members.set(member.round_id,rows);
   }
   for(const tee of maps.tee_set.values()){
@@ -60,7 +66,7 @@ export function validateScopedOptional(value){
     const key=tee.round_id??tee.course_id,rows=tees.get(key)||[];rows.push(tee);tees.set(key,rows);
   }
   for(const alias of maps.alias.values())if((alias.facility_id!==null)===(alias.course_id!==null)||alias.facility_id!==null&&!facilities.has(alias.facility_id)||alias.course_id!==null&&!courses.has(alias.course_id))fail('Invalid alias subject');
-  const observations=new Map(),roundViews=new Map(),parties=new Map();
+  const observations=new Map(),envelopes=new Map(),roundViews=new Map(),parties=new Map();
   function optional(subject,column,id){
     const groups=subject.optional;
     if(!object(groups)||!sameValue(Object.keys(groups).sort(),[...OPTIONAL_DOMAINS].sort()))fail('Missing exact optional domain arrays');
@@ -70,9 +76,12 @@ export function validateScopedOptional(value){
       for(const row of rows){
         rowShape(row,OPTIONAL_SCHEMA[domain]);
         if(!Object.hasOwn(OPTIONAL_SCHEMA[domain],column)||row[column]!==id||SUBJECTS.some(key=>key!==column&&Object.hasOwn(row,key)&&row[key]!==null))fail('Optional observation has wrong subject scope');
-        if(typeof row.observation_id!=='string'||typeof row.conflict!=='boolean'||![null,'extracted','confirmed'].includes(row.status))fail('Invalid observation envelope');
+        if(typeof row.observation_id!=='string'||!row.observation_id||typeof row.conflict!=='boolean'||!['retained','extracted','confirmed'].includes(row.status))fail('Invalid observation envelope');
         const source=row.source_id===null?null:sources.get(row.source_id);
         if(row.source_id!==null&&!source||row.source_url!==(source?.url??null)||row.source_license!==(source?.license??null)||row.source_attribution!==(source?.attribution??null))fail('Changed observation source binding');
+        const envelope=Object.fromEntries(ENVELOPE.map(k=>[k,row[k]]));
+        if(envelopes.has(row.observation_id)&&!sameValue(envelopes.get(row.observation_id),envelope))fail('Changed immutable source observation envelope');
+        envelopes.set(row.observation_id,envelope);
         if(domain==='architecture_event'){
           unique(row.credits);for(const credit of row.credits){rowShape(credit,CREDIT);if(!credit.party_id||!credit.name)fail('Missing architecture party');const party={name:credit.name,party_kind:credit.party_kind};if(parties.has(credit.party_id)&&!sameValue(parties.get(credit.party_id),party))fail('Changed architecture party identity');parties.set(credit.party_id,party);}
         }
