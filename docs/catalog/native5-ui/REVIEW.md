@@ -26,6 +26,9 @@ Writer203fcd4 bounded source clearance is independently recorded in task11/nativ
 The separate [three-finding correction](CORRECTION.md) binds retained statuses,
 shared immutable observation envelopes and course-owned round membership.
 
+The [deferred course-detail successor](LAZY-DETAILS.md) constructs the unchanged
+course detail body only when its native section is first opened.
+
 ## Consumer behavior
 
 The immutable loader requires format_version2/schema5, exact manifest release,
@@ -77,7 +80,7 @@ separate reviewed change.
 
 ## Verification and limits
 
-Author source checks:273 Python and133 JavaScript tests pass, including actual
+Author source checks:273 Python and136 JavaScript tests pass, including actual
 committed-origin handler and course-details execution, all ten optional domain
 arrays, four subject scopes, unknown/false behavior, shared rounds, architecture,
 full price conditions, source drift, note-body rejection and absolute-path rejection.

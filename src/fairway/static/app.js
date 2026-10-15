@@ -598,6 +598,16 @@ function courseCard(course, objective) {
 
 function courseMetadata(course) {
   const details=node("details",undefined,"course-facts");details.append(node("summary","Course details"));
+  let populated=false;
+  details.addEventListener("toggle",()=>{
+    if(!details.open||populated)return;
+    populateCourseMetadata(details,course);
+    populated=true;
+  });
+  return details;
+}
+
+function populateCourseMetadata(details,course) {
   details.append(node("p",course.game_kind==="obstacle_minigolf"?"Obstacle miniature golf":STYLES[course.style] || "Style unconfirmed"));
   const rounds=course.round_options||[];
   details.append(node("p",rounds.length?rounds.map(r=>`${r.round_holes} hole round${r.scope==='facility'?" · documented course combination":""}`).join("; "):"Round options not documented"));
@@ -610,7 +620,6 @@ function courseMetadata(course) {
   details.append(renderOptional(course.optional,{subjectLabel:'Course: '+(course.course_name??course.name??course.facility_name??'name unconfirmed')}));
   for(const component of course.components||[]){const part=node("details");part.append(node("summary",`Component: ${component.name || 'Name unconfirmed'} · ${component.physical_holes??'Unknown'} physical holes · independent booking unconfirmed`),renderOptional(component.optional,{subjectLabel:'Component: '+(component.name||'name unconfirmed')}));details.append(part);}
   for(const round of rounds){const part=node("details");part.append(node("summary",`Round: ${round.name || 'Name unconfirmed'} · ${round.round_holes??'Unknown'} holes · ${round.scope==='facility'?'facility-owned combination':'course-owned round'}`),renderOptional(round.optional,{subjectLabel:'Round: '+(round.name||'name unconfirmed')}));details.append(part);}
-  return details;
 }
 
 function observationFields(value) {

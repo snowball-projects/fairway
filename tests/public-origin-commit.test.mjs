@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import {PublicPlanningSession} from '../src/fairway/static/public-planning.mjs';
 import {renderOptional} from '../src/fairway/static/optional-facts.mjs';
 import {cityLabel,mapEligible,displayAddress,accessLabel} from '../src/fairway/static/catalog-read.mjs';
-import {fixture,document} from './native5-fixture.mjs';
+import {fixture,document,expand} from './native5-fixture.mjs';
 const source=readFileSync(new URL('../src/fairway/static/app.js',import.meta.url),'utf8');
 function harness(resolveOrigin=async()=>({features:[]})){
   const row={input:{value:'A committed address'},coordinate:null,committedLabel:null,lookupPromise:null,controller:null};
@@ -60,7 +60,7 @@ test('actual course details preserve typed tee unknowns and source scope without
   const context={URL,STYLES:{regulation:'Regulation'},document,renderOptional:(o,options)=>renderOptional(o,{...options,document})};vm.createContext(context);
   vm.runInContext(source.slice(source.indexOf('function node('),source.indexOf('function mobile('))+source.slice(source.indexOf('function courseMetadata('),source.indexOf('function renderRanking(')),context);
   const {value}=fixture(),course=value.courses.find(c=>c.plan_eligible===true);
-  const element=context.courseMetadata(course);
+  const element=expand(context.courseMetadata(course));
   assert.match(element.textContent,/Nonmember booking unconfirmed/);assert.match(element.textContent,/Not documented/);assert.match(element.textContent,/course difficulty rating \(not a quality rating\)/);assert.match(element.textContent,/121/);
   assert.match(element.textContent,/Preliminary public-play eligibility/);assert.match(element.textContent,/Component:/);assert.match(element.textContent,/facility-owned combination/);assert.match(element.textContent,/conflicting observations/);assert.match(element.textContent,/not a current quote/);assert.doesNotMatch(element.textContent,/restaurant available/);
 });
