@@ -67,7 +67,7 @@ def _price_condition_scan(row):
 
 def _without_http_links(text):
     return re.sub(
-        rf"""(^|[{_URL_BOUNDARY}])https?://[^ <>"'`]+""",
+        rf"""(^|[{_URL_BOUNDARY}])https?://[^ <>"'`“”‘’«»]+""",
         r"\1",
         _validation_scan(text),
     )

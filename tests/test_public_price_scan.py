@@ -20,7 +20,11 @@ pages = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(pages)
 CASES = [
     case
-    for name in ("per-each-guard.json", "per-each-unicode-policy.json")
+    for name in (
+        "per-each-guard.json",
+        "per-each-unicode-policy.json",
+        "public-url-termination.json",
+    )
     for case in json.loads((ROOT / "tests/fixtures/native5-ui" / name).read_text())
 ]
 
@@ -39,16 +43,24 @@ def test_financial_scan_decisions_match_export_and_preserve_all_text(case):
 
 
 @pytest.mark.parametrize(
-    "conditions,accept",
+    "field,conditions,accept",
     [
-        ("$25 /ea\u0085Dated only.", True),
-        ("Printed /ea\ufeffwith 2 riders per cart.", True),
-        ("$25 /ea then\u0085/private/evidence", False),
-        ("$25 /ea then\ufeff/private/evidence", False),
+        ("conditions", "$25 /ea\u0085Dated only.", True),
+        ("conditions", "Printed /ea\ufeffwith 2 riders per cart.", True),
+        ("conditions", "$25 /ea then\u0085/private/evidence", False),
+        ("conditions", "$25 /ea then\ufeff/private/evidence", False),
+        ("qualification", "See “https://official.example”/private/evidence", False),
+        ("qualification", "See ‘https://official.example’C:/private/evidence", False),
+        ("qualification", r"See «https://official.example»\\server\private", False),
+        (
+            "qualification",
+            "See “https://official.example/course” Dated source only.",
+            True,
+        ),
     ],
 )
 def test_normal_build_preserves_or_rejects_complete_unicode_transport(
-    tmp_path, conditions, accept
+    tmp_path, field, conditions, accept
 ):
     value = json.loads((ROOT / "tests/fixtures/native5-ui/transport.json").read_bytes())
 
@@ -57,8 +69,16 @@ def test_normal_build_preserves_or_rejects_complete_unicode_transport(
             for child in item:
                 update(child)
         elif isinstance(item, dict):
-            if item.get("billing_basis") == "per_person" and "conditions" in item:
-                item["conditions"] = conditions
+            if (
+                field == "conditions"
+                and item.get("billing_basis") == "per_person"
+                and "conditions" in item
+            ) or (
+                field == "qualification"
+                and item.get("observation_id")
+                == "o-00000000-0000-4000-8000-000000000001"
+            ):
+                item[field] = conditions
             for child in item.values():
                 update(child)
 

@@ -22,6 +22,10 @@ No exception applies to other fields or a second private path later in the claim
 Public HTTP(S) links are excluded from the path scan only at the start or after
 an explicit ASCII nonword delimiter (U+0000..002F, 003A..0040, 005B..005E,
 0060, 007B..007F) or the listed quotes “ ” ‘ ’ « ».
+HTTP(S) tokens end at whitespace, ASCII quotes/backtick, angle brackets or any
+of those six smart quotes. A closing quote cannot swallow a following POSIX,
+drive or UNC path. Shared36-case URL controls and synchronized complete DTO
+qualification tests cover those terminations without rewriting the source text.
 Other Unicode prefixes are conservative: they do not grant a URL exemption.
 Absolute POSIX path tokens at start or after the listed punctuation/space,
 file URIs, drive-colon slash/backslash tokens and two or more consecutive

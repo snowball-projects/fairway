@@ -42,7 +42,7 @@ export function rejectRawEvidence(value){
   if(Array.isArray(value)){for(const row of value)rejectRawEvidence(row);return;}
   if(object(value)){for(const [key,child] of Object.entries(value)){if(['fact_groups','payload','retained_pointer','retained_document','retained_evidence','controls_reference','capture_path','local_path'].includes(key))fail('Raw evidence is not operational transport');rejectRawEvidence(key);rejectRawEvidence(key==='conditions'&&typeof child==='string'?priceConditionScan(value):child);}return;}
   if(typeof value==='string'){
-    const scan=validationScan(value).replace(/(^|[\x00-\x2f\x3a-\x40\x5b-\x5e\x60\x7b-\x7f“”‘’«»])https?:\/\/[^ <>"'`]+/g,'$1');
+    const scan=validationScan(value).replace(/(^|[\x00-\x2f\x3a-\x40\x5b-\x5e\x60\x7b-\x7f“”‘’«»])https?:\/\/[^ <>"'`“”‘’«»]+/g,'$1');
     if(/(?:^|[ "'`(\[={:;,<>|!?“”‘’«»])\/+[^ /]|file:\/\/|[a-zİıſK]:[\\/]|\\{2}/.test(scan))fail('Private path in public transport');
   }
 }

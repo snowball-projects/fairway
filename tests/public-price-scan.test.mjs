@@ -6,7 +6,7 @@ import {rejectRawEvidence,renderKnownOptional} from '../src/fairway/static/optio
 import {loadPublicCatalog,validatePublicCatalog} from '../src/fairway/static/public-catalog.mjs';
 import {fixture,document} from './native5-fixture.mjs';
 
-const cases=['per-each-guard.json','per-each-unicode-policy.json'].flatMap(name=>JSON.parse(readFileSync(new URL('./fixtures/native5-ui/'+name,import.meta.url),'utf8')));
+const cases=['per-each-guard.json','per-each-unicode-policy.json','public-url-termination.json'].flatMap(name=>JSON.parse(readFileSync(new URL('./fixtures/native5-ui/'+name,import.meta.url),'utf8')));
 for(const item of cases)test('public financial scan: '+item.name,()=>{
  const value=structuredClone(item.value),before=structuredClone(value);
  if(item.accept)assert.doesNotThrow(()=>rejectRawEvidence(value));
@@ -39,4 +39,21 @@ for(const [conditions,accept] of [
  }else await assert.rejects(pending,/Private path/);
  assert.equal(calls.length,2);assert.ok(calls.every(c=>c.options.credentials==='omit'&&c.options.mode==='same-origin'&&!c.options.body));
  assert.equal(JSON.stringify({value,manifest}),before);
+});
+
+for(const [qualification,accept] of [
+ ['See “https://official.example”/private/evidence',false],
+ ['See ‘https://official.example’C:/private/evidence',false],
+ ['See «https://official.example»\\\\server\\private',false],
+ ['See “https://official.example/course” Dated source only.',true],
+])test('complete synchronized qualification URL termination: '+qualification,async()=>{
+ const {value,manifest}=fixture();let updated=0;
+ function update(item){if(Array.isArray(item))item.forEach(update);else if(item&&typeof item==='object'){if(item.observation_id==='o-00000000-0000-4000-8000-000000000001'){item.qualification=qualification;updated++;}Object.values(item).forEach(update);}}
+ update(value);assert.equal(updated,8);const before=JSON.stringify(value);
+ if(accept)assert.doesNotThrow(()=>validatePublicCatalog(value,manifest));else assert.throws(()=>validatePublicCatalog(value,manifest),/Private path/);
+ const raw=JSON.stringify(value),hash=createHash('sha256').update(raw).digest('hex');manifest.files={'catalog.json':{path:`native-catalog-${hash}.json`,sha256:hash,bytes:Buffer.byteLength(raw)}};
+ let calls=0;const fetcher=async(url,options)=>{assert.equal(options.credentials,'omit');assert.ok(!options.body);assert.ok(++calls<=2);return new Response(calls===1?JSON.stringify(manifest):raw);};
+ const pending=loadPublicCatalog('https://example.test/fairway/data/catalog-release.json',{fetcher});
+ if(accept){const model=await pending;for(const [key,row] of model.optionalObservations)if(row.qualification===qualification){const domain=key.slice(0,key.indexOf(':'));assert.ok(renderKnownOptional({[domain]:[row]},{subjectLabel:'Known fact',document}).textContent.includes(qualification));}}else await assert.rejects(pending,/Private path/);
+ assert.equal(calls,2);assert.equal(JSON.stringify(value),before);
 });
