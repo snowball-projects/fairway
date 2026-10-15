@@ -850,11 +850,11 @@ function appendKnownOptional(container, optional, subjectLabel) {
 function knownRounds(container, rounds) {
   for(const round of rounds || []) {
     const values=[round.name,round.round_holes!==null&&round.round_holes!==undefined?`${round.round_holes} holes`:null].filter(Boolean);
-    if(!values.length)continue;
-    const details=node("details");details.append(node("summary",values.join(" · ")));
+    const details=node("details");details.append(node("summary",values.join(" · ") || "Round"));
     if(round.description)details.append(node("p",round.description));
     appendKnownOptional(details,round.optional,round.name || "Round");
-    container.append(details.children.length>1?details:node("p",values.join(" · ")));
+    if(details.children.length>1)container.append(details);
+    else if(values.length)container.append(node("p",values.join(" · ")));
   }
 }
 function coursePopupDetails(course) {
@@ -877,9 +877,10 @@ function coursePopupDetails(course) {
   appendKnownOptional(article,course.optional,course.name || course.facility_name);
   for(const component of course.components||[]) {
     const facts=[component.name,Number.isFinite(component.physical_holes)?`${component.physical_holes} holes`:null].filter(Boolean);
-    const details=node("details");if(facts.length)details.append(node("summary",facts.join(" · ")));
+    const details=node("details");details.append(node("summary",facts.join(" · ") || "Component"));
     appendKnownOptional(details,component.optional,component.name || "Component");
-    if(details.children.length)article.append(details.children.length>1?details:node("p",facts.join(" · ")));
+    if(details.children.length>1)article.append(details);
+    else if(facts.length)article.append(node("p",facts.join(" · ")));
   }
   const tees=[...(course.tee_sets||[]),...(course.round_options||[]).flatMap(round=>(round.tee_sets||[]).map(tee=>({...tee,round:round.name})))];
   if(tees.length) {
@@ -939,6 +940,8 @@ function selectCoincidentFacilities(ids, coordinate) {
 function selectFacilityById(id, fit = true) {
   const facility=catalogModel?.facilityById.get(id);
   if(!facility)return;
+  if(!planningMode&&browseScope?.ids&&!browseScope.ids.includes(id)&&located(facility)&&map.getBounds().contains([facility.map_location.latitude,facility.map_location.longitude]))
+    browseScope={kind:"viewport",label:"Courses in this map area"};
   const courses=selectableCourses().filter(course=>course.facility_id===id);
   if(courses.length===1)return selectCourse(courses[0].course_id||courses[0].id,fit);
   if(!courses.some(course=>(course.course_id||course.id)===state.activeCourse))state.activeCourse=null;
@@ -953,6 +956,7 @@ function selectFacilityById(id, fit = true) {
 function openSelectionPopup() {
   if(!popupSelection||!catalogModel)return;
   const content=node("div");
+  content.addEventListener("click",event=>event.stopPropagation());
   if(popupSelection.kind==="course") {
     const course=catalogModel.courseById.get(popupSelection.id);
     if(!course){closeSelection();return;}

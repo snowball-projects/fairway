@@ -176,3 +176,31 @@ test('strictly accepted qualification-only observations retain their known restr
 test('Leaflet close notification before remove does not close the same popup recursively',()=>{
  const h=harness();h.ctx.selectCourse('c-a');const popup=h.ctx.cataloguePopup;h.ctx.map.closePopup(popup);assert.equal(h.effects.closes,1);assert.equal(h.ctx.cataloguePopup,null);assert.equal(h.ctx.state.activeCourse,null);assert.equal(h.ctx.activeFacility,null);
 });
+
+
+test('strictly accepted unnamed component with unknown hole count keeps known optional facts',()=>{
+ const h=harness(),{value,manifest}=fixture(),course=value.courses.find(c=>c.components.length),component=course.components[0];
+ function clear(object){if(!object||typeof object!=='object')return;if(object.id===component.id&&Object.hasOwn(object,'name')){object.name=null;object.physical_holes=null;}for(const child of Object.values(object))clear(child);}clear(value);
+ h.ctx.catalogModel=validatePublicCatalog(value,manifest);const popup=h.ctx.coursePopupDetails(h.ctx.catalogModel.courseById.get(course.course_id));
+ const details=popup.querySelectorAll('details').find(d=>d.firstElementChild.textContent==='Component');assert.ok(details);assert.equal(details.firstElementChild.tag,'summary');assert.match(details.textContent,/greens grass name Documented bentgrass/);assert.match(details.textContent,/Synthetic Person/);assert.doesNotMatch(details.textContent,/Unconfirmed|Not documented/);
+ component.optional=empty();const blank=h.ctx.coursePopupDetails(course);assert.ok(!blank.querySelectorAll('details').some(d=>d.firstElementChild.textContent==='Component'));
+});
+test('strictly accepted unnamed round with unknown holes keeps its known description and optional restrictions',()=>{
+ const h=harness(),{value,manifest}=fixture(),course=value.courses.find(c=>c.round_options.some(r=>Object.values(r.optional).some(rows=>rows.length))),round=course.round_options.find(r=>Object.values(r.optional).some(rows=>rows.length));
+ function clear(object){if(!object||typeof object!=='object')return;if(object.id===round.id&&Object.hasOwn(object,'round_holes')){object.name=null;object.round_holes=null;}for(const child of Object.values(object))clear(child);}clear(value);
+ h.ctx.catalogModel=validatePublicCatalog(value,manifest);const popup=h.ctx.coursePopupDetails(h.ctx.catalogModel.courseById.get(course.course_id));const details=popup.querySelectorAll('details').find(d=>d.firstElementChild.textContent==='Round');assert.ok(details);assert.match(details.textContent,/Dated weekdays only/);assert.doesNotMatch(details.textContent,/Unconfirmed|Not documented/);
+});
+test('a visible facility pin is not rejected by a prior different facility-search scope before viewport frame',()=>{
+ const h=harness();h.ctx.browseScope={ids:['f-one'],label:'Facility search'};h.ctx.renderCourses();h.ctx.selectFacilityById('f-two');assert.equal(h.ctx.state.activeCourse,'c-c');assert.equal(h.ids()[0],'c-c');assert.equal(h.ctx.popupSelection.kind,'course');h.pan([41.8,-89.2,42.2,-88.8]);h.flush();assert.equal(h.ctx.state.activeCourse,'c-c');assert.equal(h.ctx.popupSelection.kind,'course');
+});
+test('an explicit facility search outside the prior viewport survives its fit and viewport transition',()=>{
+ const h=harness();h.pan([40.8,-88.2,41.3,-87.8]);h.flush();assert.ok(!h.ids().includes('c-c'));h.ctx.browseScope={ids:['f-two'],label:'Facility search'};h.ctx.selectFacilityById('f-two');assert.equal(h.ctx.state.activeCourse,'c-c');assert.equal(h.ctx.popupSelection.kind,'course');assert.equal(h.effects.fit.length,1);h.pan([41.8,-89.2,42.2,-88.8]);h.flush();assert.equal(h.ctx.state.activeCourse,'c-c');assert.equal(h.ctx.popupSelection.kind,'course');
+});
+test('replacing popup content during a course choice stops the original click before it deselects on the map',()=>{
+ const h=harness();h.ctx.selectFacilityById('f-one');const oldContent=h.popup().content,button=oldContent.querySelectorAll('button').find(n=>n.textContent.includes('Charlie'));
+ const path=[];for(let n=button;n;n=n.parent)path.push(n);
+ let stopped=false;const event={stopPropagation(){stopped=true;}};
+ for(const n of path){n.emit('click',event);if(stopped)break;}
+ if(!stopped)h.events.click();
+ assert.equal(stopped,true);assert.equal(h.ctx.state.activeCourse,'c-b');assert.equal(h.ctx.popupSelection.kind,'course');assert.equal(h.ids()[0],'c-b');assert.notEqual(h.popup().content,oldContent);
+});
