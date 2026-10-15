@@ -5,6 +5,8 @@ import vm from 'node:vm';
 import {CatalogRead,browseCard,courseMatches,sortCourses,STYLES,located,mapEligible,cityLabel,accessLabel,displayAddress} from '../src/fairway/static/catalog-read.mjs';
 import {renderOptional,renderKnownOptional,OPTIONAL_DOMAINS} from '../src/fairway/static/optional-facts.mjs';
 import {fixture} from './native5-fixture.mjs';
+import {validatePublicCatalog} from '../src/fairway/static/public-catalog.mjs';
+import {OPTIONAL_SCHEMA} from '../src/fairway/static/optional-schema.mjs';
 const source=readFileSync(new URL('../src/fairway/static/app.js',import.meta.url),'utf8');
 function actual(name){
   const start=source.indexOf(`function ${name}(`);assert.ok(start>=0,name);
@@ -44,14 +46,15 @@ function harness(){
  const document={activeElement:null,createElement:tag=>new Element(tag,document)};
  const controls=Object.fromEntries(['browse-state','browse-access','browse-holes','browse-round','browse-style','browse-sort','browse-description','preparation-status'].map(id=>[id,document.createElement('div')]));
  for(const c of Object.values(controls))c.value='all';controls['browse-sort'].value='name';
+ controls['courses-grip']=document.createElement('button');
  const nonmember=document.createElement('option');nonmember.value='nonmember';controls['browse-access'].append(nonmember);
  const view={results:document.createElement('div'),catalogName:document.createElement('span'),rankingDescription:document.createElement('p'),resultCount:document.createElement('span'),resultsPanel:{hidden:false}};
  const frames=[],events={},effects={fit:[],popups:0,draws:0,planning:0,render:0};let bounds=[40,-90,43,-87],openPopup=null;
- const map={getBounds:()=>({contains:p=>{const [lat,lng]=Array.isArray(p)?p:[p.lat,p.lng];return lat>=bounds[0]&&lat<=bounds[2]&&lng>=bounds[1]&&lng<=bounds[3];}}),on:(types,fn)=>{for(const t of types.split(' '))events[t]=fn;},closePopup:p=>{p.open=false;p.listeners.remove?.();events.popupclose?.({popup:p});}};
- const L={latLng:(lat,lng)=>({lat,lng}),popup:()=>{effects.popups++;const p={listeners:{},setLatLng(c){this.coordinate=c;return this;},setContent(c){this.content=c;return this;},openOn(){this.open=true;openPopup=this;return this;},isOpen(){return this.open;},on(t,fn){this.listeners[t]=fn;return this;}};return p;}};
+ const map={getBounds:()=>({contains:p=>{const [lat,lng]=Array.isArray(p)?p:[p.lat,p.lng];return lat>=bounds[0]&&lat<=bounds[2]&&lng>=bounds[1]&&lng<=bounds[3];}}),on:(types,fn)=>{for(const t of types.split(' '))events[t]=fn;},closePopup:p=>{effects.closes=(effects.closes||0)+1;assert.ok(!p.closing,'must not close a popup during its close notification');p.closing=true;events.popupclose?.({popup:p});p.open=false;p.listeners.remove?.();p.closing=false;}};
+ const L={latLng:(lat,lng)=>({lat,lng}),popup:()=>{effects.popups++;const p={listeners:{},setLatLng(c){this.coordinate=c;return this;},setContent(c){this.content=c;return this;},openOn(){this.open=true;openPopup=this;return this;},isOpen(){return this.open;},getElement(){return this.content;},on(t,fn){this.listeners[t]=fn;return this;}};return p;}};
  const ctx={URL,L,map,document,view,preparationFacilities:{clearLayers(){}},meetingLayer:{clearLayers(){}},STYLES,located,mapEligible,cityLabel,accessLabel,displayAddress,browseCard,courseMatches,sortCourses,catalogModel:catalog(),state:{activeCourse:null,activeRows:[],rows:[],ranking:null,routingCatalogLabel:'Catalog760'},COLORS:[],planningMode:false,browseMode:true,browseScope:{kind:'viewport',label:'Courses in this map area'},activeFacility:null,popupSelection:null,cataloguePopup:null,movingCourseCard:false,viewportFrame:null,listLimit:60,catalogDate:'revision760',rankingNodes:new Map(),browseNodes:new Map(),rowInteractions:new Set(),$:id=>controls[id],renderOptional:(o,p)=>renderOptional(o,{...p,document}),renderKnownOptional:(o,p)=>renderKnownOptional(o,{...p,document}),requestAnimationFrame:fn=>{frames.push(fn);return frames.length;},drawFacilities:()=>effects.draws++,fitPoints:(p,z)=>effects.fit.push([p,z]),setDrawer:()=>{view.resultsPanel.hidden=false;},selected:()=> 'maximum',updateDisplaySortOptions(){},duration:()=> 'Unavailable',planningSession:{update(){effects.planning++;throw Error('No automatic planning');},invalidate(){effects.planning++;throw Error('No browse invalidation');}}};
  vm.createContext(ctx);
- for(const name of ['node','selectableCourses','selectCourse','moveCourseCard','courseCard','courseMetadata','populateCourseMetadata','observationFields','renderRanking','knownLink','knownAddress','appendKnownOptional','knownRounds','coursePopupDetails','facilityDetails','selectCoincidentFacilities','selectFacilityById','openSelectionPopup','closeSelection','reconcileBrowseSelection','selectedFirst','refreshBrowseViewport','filterOptions','scopedRecords','matchesCourseFilters','updateLoadedCount','renderCourses'])vm.runInContext(actual(name),ctx);
+ for(const name of ['node','selectableCourses','selectCourse','moveCourseCard','courseCard','courseMetadata','populateCourseMetadata','observationFields','renderRanking','knownLink','knownAddress','appendKnownOptional','knownRounds','coursePopupDetails','facilityDetails','selectCoincidentFacilities','selectFacilityById','openSelectionPopup','closeSelection','reconcilePopupChoices','reconcileBrowseSelection','selectedFirst','refreshBrowseViewport','filterOptions','scopedRecords','matchesCourseFilters','updateLoadedCount','renderCourses'])vm.runInContext(actual(name),ctx);
  vm.runInContext(source.slice(source.indexOf('map.on("moveend zoomend"'),source.indexOf('async function loadCatalog()')),ctx);
  const real=ctx.renderCourses;ctx.renderCourses=()=>{effects.render++;return real();};ctx.renderCourses();
  return {ctx,view,effects,controls,document,frames,events,ids:()=>view.results.querySelector('.course-list').children.map(item=>item.firstElementChild.dataset.courseId),cards:()=>view.results.querySelectorAll('.course-card'),pan:box=>{bounds=box;events.moveend();events.zoomend();},flush:()=>{while(frames.length)frames.shift()();},popup:()=>openPopup};
@@ -139,4 +142,37 @@ test('coincident facility choices clear the previous individual without arbitrar
 });
 test('unmapped multi-course facility search closes a previous mapped popup without inventing a point',()=>{
  const h=harness();h.ctx.selectCourse('c-c');h.ctx.catalogModel.facilityById.get('f-one').map_location=null;h.ctx.browseScope={ids:['f-one'],label:'Facility search'};h.ctx.selectFacilityById('f-one');assert.equal(h.ctx.popupSelection,null);assert.equal(h.ctx.cataloguePopup,null);assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),['c-a','c-b']);
+});
+
+
+test('viewport updates preserve loaded windows above60 and focused/expanded eligible cards',()=>{
+ const h=harness(),base=h.ctx.catalogModel.courses[0];
+ for(let i=0;i<100;i++){const c={...base,course_id:`c-loaded-${i}`,name:`ZZ${String(i).padStart(3,'0')}`};h.ctx.catalogModel.courses.push(c);h.ctx.catalogModel.courseById.set(c.course_id,c);}
+ h.ctx.listLimit=120;h.ctx.renderCourses();assert.equal(h.ids().length,103);
+ const card=h.cards().find(c=>c.dataset.courseId==='c-loaded-99'),details=card.querySelector('.course-facts');details.open=true;details.emit('toggle');details.children[0].focus();
+ h.pan([40,-90,43,-87]);h.flush();assert.equal(h.ids().length,103);assert.equal(h.document.activeElement,details.children[0]);assert.ok(h.view.results.contains(card));
+ // Newly entering alphabetically earlier records must not push a held eligible card out.
+ for(let i=0;i<100;i++){const c={...base,course_id:`c-entered-${i}`,name:`AA${i}`};h.ctx.catalogModel.courses.push(c);h.ctx.catalogModel.courseById.set(c.course_id,c);}
+ h.pan([40,-90,43,-87]);h.flush();assert.ok(h.ids().includes('c-loaded-99'));assert.equal(h.document.activeElement,details.children[0]);assert.equal(card.querySelector('.course-facts'),details);
+});
+test('changing filters after a multi-course popup is open closes stale choices and returns popup focus safely',()=>{
+ const h=harness();h.ctx.catalogModel.courseById.get('c-b').physical_holes=9;
+ h.ctx.selectFacilityById('f-one');const stale=h.popup().content.querySelectorAll('button').find(button=>button.textContent.includes('Charlie'));assert.ok(stale);stale.focus();
+ h.controls['browse-holes'].value='18';h.ctx.renderCourses();assert.equal(h.ctx.cataloguePopup,null);assert.equal(h.ctx.activeFacility,null);assert.equal(h.document.activeElement,h.controls['courses-grip']);assert.ok(!h.ids().includes('c-b'));
+});
+test('planning filters also close an already-open mixed-course popup instead of retaining dead choices',()=>{
+ const h=harness();h.ctx.catalogModel.courseById.get('c-b').physical_holes=9;h.ctx.planningMode=true;h.ctx.browseMode=false;
+ h.ctx.state.ranking={courses:h.ctx.catalogModel.courses.slice(0,2).map(c=>({...browseCard(c,h.ctx.catalogModel.destinations),browseOnly:false,rank:null})),objective:'maximum'};h.ctx.renderCourses();h.ctx.selectFacilityById('f-one');assert.equal(h.ctx.popupSelection.kind,'facility');
+ h.controls['browse-holes'].value='18';h.ctx.renderCourses();assert.equal(h.ctx.cataloguePopup,null);assert.deepEqual(h.ids(),['c-a']);
+});
+test('strictly accepted qualification-only observations retain their known restriction in popup',()=>{
+ const h=harness(),{value,manifest}=fixture(),target=value.courses.find(c=>c.optional.practice_observation.length).optional.practice_observation[0];
+ const metadata=new Set(['id','observation_id','facility_id','course_id','component_id','round_id','source_id','source_url','source_license','source_attribution','collected_on','observed_on','effective_from','effective_to','status','conflict','qualification']);
+ const restriction='Practice access requires a scheduled lesson.';
+ function update(object){if(!object||typeof object!=='object')return;if(object.observation_id===target.observation_id)object.qualification=restriction;if(object.id===target.id)for(const key of Object.keys(OPTIONAL_SCHEMA.practice_observation))if(!metadata.has(key))object[key]=null;for(const child of Object.values(object))update(child);}
+ update(value);const model=validatePublicCatalog(value,manifest),row=[...model.optionalObservations.values()].find(r=>r.id===target.id),groups=empty();groups.practice_observation=[row];
+ const node=renderKnownOptional(groups,{subjectLabel:'Practice at this course',document:h.document});assert.ok(node);assert.match(node.textContent,/Practice access requires a scheduled lesson/);assert.equal(node.querySelectorAll('dl').length,0);
+});
+test('Leaflet close notification before remove does not close the same popup recursively',()=>{
+ const h=harness();h.ctx.selectCourse('c-a');const popup=h.ctx.cataloguePopup;h.ctx.map.closePopup(popup);assert.equal(h.effects.closes,1);assert.equal(h.ctx.cataloguePopup,null);assert.equal(h.ctx.state.activeCourse,null);assert.equal(h.ctx.activeFacility,null);
 });

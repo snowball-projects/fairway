@@ -149,7 +149,7 @@ export function renderKnownOptional(optional,{subjectLabel,document=globalThis.d
   for(const domain of OPTIONAL_DOMAINS)for(const row of optional?.[domain]||[]){
     const keys=Object.keys(OPTIONAL_SCHEMA[domain]).filter(key=>!META.has(key)&&key!=='credits'&&row[key]!==null&&row[key]!==undefined);
     const credits=domain==='architecture_event'?row.credits||[]:[];
-    if(!keys.length&&!credits.length)continue;
+    if(!keys.length&&!credits.length&&!row.qualification)continue;
     if(!count++)holder.append(el('h4',subjectLabel));
     const details=el('details');
     details.append(el('summary',`${LABELS[domain]}${row.conflict?' · conflicting observations':''}${domain==='price_observation'&&row.historical===true?' · historical':''}`));

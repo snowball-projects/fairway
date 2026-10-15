@@ -666,6 +666,7 @@ function renderRanking(result) {
     rankingNodes.clear(); rowInteractions.clear(); list = document.createElement("ol");
     list.className = "course-list"; list.dataset.planning = "true"; view.results.replaceChildren(list);
   }
+  reconcilePopupChoices(result.courses,course=>course.id);
   if(state.activeCourse&&!result.courses.some(course=>course.id===state.activeCourse))closeSelection(false);
   const desired = selectedFirst(result.courses,course=>course.id).map(course => course.id);
   const pendingOrder = JSON.stringify([...list.children].map(item => item.firstElementChild.dataset.courseId)) !== JSON.stringify(desired);
@@ -959,6 +960,7 @@ function openSelectionPopup() {
   } else if(popupSelection.kind==="facility") {
     const facility=catalogModel.facilityById.get(popupSelection.id);
     if(!facility){closeSelection();return;}
+    popupSelection.courseChoices=selectableCourses().filter(course=>course.facility_id===facility.facility_id).map(course=>course.course_id||course.id).sort();
     content.append(facilityDetails(facility));
   } else {
     content.append(node("h3",`${popupSelection.ids.length} facilities at this point`));
@@ -968,17 +970,25 @@ function openSelectionPopup() {
   else {
     const popup=L.popup({maxWidth:312,minWidth:280,autoPan:false,closeOnClick:false}).setLatLng(popupSelection.coordinate).setContent(content).openOn(map);
     cataloguePopup=popup;
-    popup.on("remove",()=>{if(cataloguePopup===popup){cataloguePopup=null;popupSelection=null;}});
+    popup.on("remove",()=>{if(cataloguePopup===popup){cataloguePopup=null;closeSelection();}});
   }
 }
 function closeSelection(render = true) {
   popupSelection=null;activeFacility=null;state.activeCourse=null;
   const previous=cataloguePopup;cataloguePopup=null;
+  const focusedPopup=previous?.getElement?.()?.contains(document.activeElement);
   if(previous)map.closePopup(previous);
+  if(focusedPopup)$("courses-grip").focus({preventScroll:true});
   drawFacilities();
   if(render)renderCourses();
 }
+function reconcilePopupChoices(records, id = course => course.course_id) {
+  if(popupSelection?.kind!=="facility"||!popupSelection.courseChoices)return;
+  const current=records.filter(course=>course.facility_id===popupSelection.id).map(id).sort();
+  if(JSON.stringify(current)!==JSON.stringify(popupSelection.courseChoices))closeSelection(false);
+}
 function reconcileBrowseSelection(records) {
+  reconcilePopupChoices(records);
   if(popupSelection?.kind==="coincident"&&browseScope?.kind==="viewport"&&!map.getBounds().contains(popupSelection.coordinate))closeSelection(false);
   if(state.activeCourse&&!records.some(course=>course.course_id===state.activeCourse))closeSelection(false);
   else if(!state.activeCourse&&activeFacility) {
@@ -994,7 +1004,7 @@ function refreshBrowseViewport() {
   viewportFrame=requestAnimationFrame(()=>{
     viewportFrame=null;
     if(planningMode||!catalogModel)return;
-    browseMode=true;browseScope={kind:"viewport",label:"Courses in this map area"};listLimit=60;
+    browseMode=true;browseScope={kind:"viewport",label:"Courses in this map area"};
     renderCourses();
   });
 }
@@ -1056,7 +1066,8 @@ function renderCourses() {
   }
   const records=scopedRecords();
   reconcileBrowseSelection(records);
-  const visible=selectedFirst(records).slice(0,listLimit);
+  const held=new Set([...browseNodes].filter(([,item])=>item.contains(document.activeElement)||[...item.querySelectorAll("details")].some(details=>details.open)).map(([id])=>id));
+  const visible=selectedFirst(records).filter((course,index)=>index<listLimit||held.has(course.course_id));
   updateLoadedCount(visible.length);
   $("browse-description").textContent=browseScope?.label || "Courses in this map area";
   let list=view.results.querySelector(".course-list");
@@ -1075,7 +1086,7 @@ function renderCourses() {
   });
   if(focused&&list.contains(focused)&&document.activeElement!==focused)focused.focus({preventScroll:true});
   view.results.querySelector(".browse-more")?.remove();view.results.querySelector(".browse-empty")?.remove();
-  if(records.length>listLimit) {
+  if(records.length>visible.length) {
     const more=node("button","Show more","quiet-button browse-more");
     more.addEventListener("click",()=>{listLimit+=60;renderCourses();});view.results.append(more);
   }
@@ -1284,7 +1295,7 @@ map.on("moveend zoomend", () => {
   refreshBrowseViewport();
 });
 map.on("click",()=>closeSelection());
-map.on("popupclose",event=>{if(event.popup===cataloguePopup)closeSelection();});
+map.on("popupclose",event=>{if(event.popup===cataloguePopup){cataloguePopup=null;closeSelection();}});
 async function loadCatalog() {
   try {
     const r = await fetch("./research-map/boundaries.json");
