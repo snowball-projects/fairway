@@ -753,10 +753,7 @@ const facilityDots = createFacilityDots(
   L,
   map,
   (id) => selectFacilityById(id, true),
-  (ids, coordinate) => {
-    popupSelection = { kind: "coincident", ids, coordinate };
-    openSelectionPopup();
-  },
+  (ids, coordinate) => selectCoincidentFacilities(ids, coordinate),
 );
 let catalogDate = "";
 let catalogModel = null,
@@ -932,6 +929,12 @@ function facilityDetails(f, compact = false) {
   knownRounds(article,f.round_options);
   return article;
 }
+function selectCoincidentFacilities(ids, coordinate) {
+  closeSelection(false);
+  popupSelection={kind:"coincident",ids,coordinate};
+  setDrawer("courses",true,false);
+  openSelectionPopup();renderCourses();
+}
 function selectFacilityById(id, fit = true) {
   const facility=catalogModel?.facilityById.get(id);
   if(!facility)return;
@@ -943,6 +946,7 @@ function selectFacilityById(id, fit = true) {
   if(fit&&located(facility))fitPoints([[facility.map_location.latitude,facility.map_location.longitude]],15);
   popupSelection=located(facility)?{kind:"facility",id,coordinate:L.latLng(facility.map_location.latitude,facility.map_location.longitude)}:null;
   if(popupSelection)openSelectionPopup();
+  else if(cataloguePopup){const previous=cataloguePopup;cataloguePopup=null;map.closePopup(previous);}
   drawFacilities();renderCourses();view.results.scrollTop=0;
 }
 function openSelectionPopup() {
@@ -975,6 +979,7 @@ function closeSelection(render = true) {
   if(render)renderCourses();
 }
 function reconcileBrowseSelection(records) {
+  if(popupSelection?.kind==="coincident"&&browseScope?.kind==="viewport"&&!map.getBounds().contains(popupSelection.coordinate))closeSelection(false);
   if(state.activeCourse&&!records.some(course=>course.course_id===state.activeCourse))closeSelection(false);
   else if(!state.activeCourse&&activeFacility) {
     const facility=catalogModel.facilityById.get(activeFacility);
