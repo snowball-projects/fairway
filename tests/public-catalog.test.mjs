@@ -7,12 +7,9 @@ import {loadPublicCatalog,validatePublicCatalog} from '../src/fairway/static/pub
 import {PublicPlanningSession,resolvePublicOrigin} from '../src/fairway/static/public-planning.mjs';
 import {catalogCounts} from '../src/fairway/static/catalog-read.mjs';
 
-const release='a'.repeat(64);
-const course=(id,longitude=0)=>({course_id:`c-${id}`,facility_id:'f-one',name:id,facility_name:'One',nonmember_bookable:true,plan_eligible:true,access:'public',arrival:null,destination_id:null,map_location:{latitude:0,longitude},round_options:[{round_holes:9}],physical_holes:9,fact_groups:[]});
-function fixture(){
-  const value={format_version:1,schema:4,revision:758,catalog_release_key:release,facilities:[{facility_id:'f-one',name:'One',course_ids:['c-first','c-second']}],courses:[course('first'),course('second',10)],destinations:[]};
-  return {value,manifest:{format_version:1,schema:4,revision:758,catalog_release_key:release,counts:{facilities:1,courses:2,destinations:0}}};
-}
+import {CatalogRead} from '../src/fairway/static/catalog-read.mjs';
+import {fixture} from './native5-fixture.mjs';
+const course=(id,longitude=0)=>({course_id:`c-${id}`,facility_id:'f-one',name:id,facility_name:'One',nonmember_bookable:true,plan_eligible:true,access:'public',arrival:null,destination_id:null,map_location:{latitude:0,longitude},round_options:[{round_holes:9}],physical_holes:9});
 function transport(change=()=>{}){
   const {value,manifest}=fixture();change(value,manifest);
   const raw=JSON.stringify(value),hash=createHash('sha256').update(raw).digest('hex');
@@ -22,7 +19,7 @@ function transport(change=()=>{}){
 }
 test('immutable load resolves within a Pages subpath and uses only two credential-free GETs',async()=>{
   const t=transport();const model=await loadPublicCatalog('https://example.test/fairway/data/catalog-release.json',t);
-  assert.equal(model.revision,758);assert.equal(model.courses.length,2);
+  assert.equal(model.revision,2);assert.equal(model.courses.length,3);
   assert.deepEqual(t.calls.map(c=>new URL(c.url).pathname),['/fairway/data/catalog-release.json',`/fairway/data/${t.manifest.files['catalog.json'].path}`]);
   assert.ok(t.calls.every(c=>c.options.credentials==='omit'&&c.options.mode==='same-origin'&&!c.options.body));
 });
@@ -37,7 +34,7 @@ for(const defect of ['revision','release','count','duplicate','relationship','or
   if(defect==='release')value.catalog_release_key='b'.repeat(64);
   if(defect==='count')manifest.counts.courses++;
   if(defect==='duplicate')value.courses[1]=structuredClone(value.courses[0]);
-  if(defect==='relationship')value.facilities[0].course_ids.pop();
+  if(defect==='relationship')value.facilities.find(f=>f.course_ids.length).course_ids.pop();
   if(defect==='orphan')value.courses[0].facility_id='f-missing';
   if(defect==='unknown')value.courses[0].nonmember_bookable=undefined;
   assert.throws(()=>validatePublicCatalog(value,manifest));
@@ -52,8 +49,8 @@ test('HTTP and declared oversized responses stop without fallback',async()=>{
   }
 });
 test('committed origins select every nearby course across both neighborhoods without routing',()=>{
-  const {value,manifest}=fixture();value.courses.push(...Array.from({length:100},(_,i)=>course(`extra-${i}`)));value.facilities[0].course_ids=value.courses.map(c=>c.course_id);manifest.counts.courses=102;
-  const session=new PublicPlanningSession();session.setCatalog(validatePublicCatalog(value,manifest));
+  const model=new CatalogRead({revision:2,facilities:[{facility_id:'f-one'}],courses:[course('first'),course('second',10),...Array.from({length:100},(_,i)=>course(`extra-${i}`))]});
+  const session=new PublicPlanningSession();session.setCatalog(model);
   const origins=[{id:'one',coordinate:[0,0]},{id:'two',coordinate:[0,10]}];
   assert.equal(session.update(origins),true);assert.equal(session.courseCards().length,102);assert.equal(session.update(origins),false);
   assert.ok(session.courseCards().every(c=>c.status==='unavailable'&&c.rank===null&&c.maximum_seconds===null&&c.travel_times_seconds.every(t=>t===null)));
@@ -62,8 +59,8 @@ test('committed origins select every nearby course across both neighborhoods wit
   session.update([]);assert.equal(session.courseCards().length,0);
 });
 test('radius/access/round edits retain nulls and apply documented filters',()=>{
-  const {value,manifest}=fixture();value.courses[0].plan_eligible=false;value.courses[0].nonmember_bookable=null;
-  const session=new PublicPlanningSession();session.setCatalog(validatePublicCatalog(value,manifest));session.update([{id:'one',coordinate:[0,0]}]);
+  const item={...course('unknown'),plan_eligible:false,nonmember_bookable:null};
+  const session=new PublicPlanningSession();session.setCatalog(new CatalogRead({revision:2,facilities:[{facility_id:'f-one'}],courses:[item]}));session.update([{id:'one',coordinate:[0,0]}]);
   assert.equal(session.cards.length,0);session.accessChanged('all');assert.equal(session.cards.length,1);
   session.update(session.origins,'maximum',[18]);assert.equal(session.cards.length,0);
   assert.throws(()=>session.radiusChanged(NaN));assert.throws(()=>session.update([{id:'one',coordinate:[91,0]}]));
@@ -72,11 +69,11 @@ test('address lookup has an injected deterministic transport and no private rout
   let call;const value=await resolvePublicOrigin('committed address',{fetcher:async(url,options)=>{call={url,options};return {ok:true,json:async()=>({features:[]})};}});
   assert.deepEqual(value.features,[]);assert.equal(call.url.origin,'https://photon.komoot.io');assert.equal(call.url.searchParams.get('q'),'committed address');assert.equal(call.options.credentials,'omit');
 });
-test('frozen 758 export preserves real full-pool identities, map denominator and sparse observations',()=>{
+test('frozen 758 recovery baseline remains unchanged and is rejected by the v2 entry',()=>{
   const raw=gunzipSync(readFileSync(new URL('../data/catalog-release/catalog.json.gz',import.meta.url)));
   const manifest=JSON.parse(readFileSync(new URL('../data/catalog-release/manifest.json',import.meta.url)));
   assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.files['catalog.json'].sha256);
-  const value=JSON.parse(raw),model=validatePublicCatalog(value,manifest);
+  const value=JSON.parse(raw);assert.throws(()=>validatePublicCatalog(value,manifest),/identity/);const model=new CatalogRead(value);
   assert.equal(model.facilities.length,7387);assert.equal(model.courses.length,3641);assert.equal(model.destinations.size,2144);
   assert.deepEqual(catalogCounts(model.facilities),{total:7387,onMap:4640,pending:2747});
   assert.equal(new Set([...model.facilities,...model.courses].flatMap(r=>r.fact_groups||[]).map(g=>g.id)).size,4794);

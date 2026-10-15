@@ -3,7 +3,9 @@ export const STYLES = {regulation:'Regulation',executive:'Executive',par_3:'Par3
 export const located = facility => facility.map_location && Number.isFinite(facility.map_location.latitude) && Number.isFinite(facility.map_location.longitude) && Math.abs(facility.map_location.latitude)<=90 && Math.abs(facility.map_location.longitude)<=180;
 export const mapEligible = facility => Boolean(facility.facility_id && facility.name && located(facility) && ['property_point','reviewed_osm_point','verified_entrance'].includes(facility.map_location.kind));
 export const catalogCounts = facilities => ({total:facilities.length,onMap:facilities.filter(mapEligible).length,pending:facilities.filter(f=>!mapEligible(f)).length});
-export const cityLabel = facility => facility.address?.text?.match(/,\s*([^,]+),\s*[A-Z]{2}\s+\d{5}(?:-\d{4})?\s*$/i)?.[1]?.trim() || null;
+export const cityLabel = facility => facility.address?.city ?? null;
+export const accessLabel = value => value==='public'?'Public play':value==='private'?'Private':value==='restricted'?'Restricted':'Access unconfirmed';
+export const displayAddress = value => value?.text ?? ([value?.street_line1,value?.street_line2,[value?.city,value?.region,value?.postal_code].filter(x=>x!==null&&x!==undefined).join(', '),value?.country].filter(Boolean).join(', ') || 'Address not recorded');
 export function searchCatalog(facilities,states,query) {
   const text=query.trim().toLowerCase();if(!text)return [];
   const found=states.filter(s=>s.id.toLowerCase()===text || s.name.toLowerCase().includes(text)).map(s=>({kind:'state',id:s.id,label:`${s.name} (${s.id})`,state:s}));
@@ -35,7 +37,7 @@ export class CatalogRead {
 }
 export function courseMatches(course,{state='all',access='all',holes='all',roundHoles='all',style='all',facilityIds=null,bounds=null}={}) {
   if(state!=='all' && course.state!==state)return false;
-  if(access==='nonmember' ? course.plan_eligible!==true : access!=='all' && course.access!==access)return false;
+  if(access==='nonmember' ? course.plan_eligible!==true : access==='unknown' ? course.access!==null : access!=='all' && course.access!==access)return false;
   if(holes!=='all' && course.physical_holes!==Number(holes))return false;
   if(roundHoles!=='all' && !(course.round_options||[]).some(r=>r.round_holes===Number(roundHoles)))return false;
   if(style==='putting'&&course.game_kind==='obstacle_minigolf')return false;
@@ -56,10 +58,10 @@ export function browseCard(course,destinations) {
   const target=destinations.get(course.destination_id)||null;
   return {id:course.course_id,facility_id:course.facility_id,name:course.name??course.facility_name,course_name:course.name,
     facility_name:course.facility_name,state:course.state,holes:course.physical_holes,round_options:course.round_options||[],tee_sets:course.tee_sets||[],
-    style:course.style,game_kind:course.game_kind,identity_status:course.identity_status,access:course.access==='unknown'?'Access unconfirmed':course.access==='public'?'Public play':course.access==='private'?'Private':'Restricted',
+    style:course.style,game_kind:course.game_kind,identity_status:course.identity_status,access:accessLabel(course.access),
     access_qualification:course.access_qualification,booking_conditions:course.booking_conditions,nonmember_bookable:course.nonmember_bookable,booking_availability:course.booking_availability,
-    plan_eligible:course.plan_eligible,fact_groups:course.fact_groups||[],source_course:course,
-    address:course.address?.text??'Address not recorded',website:course.website??course.facility_website,
+    plan_eligible:course.plan_eligible,planning_basis:course.planning_basis,optional:course.optional,components:course.components||[],source_course:course,
+    address:displayAddress(course.address),website:course.website??course.facility_website,
     coordinate:course.map_location?[course.map_location.latitude,course.map_location.longitude]:null,
     routing_target:target,arrival:course.arrival,destination_kind:target?.precision||null,routing_basis:target?.scope==='facility_estimate'?'approximate_facility_point':target?'reviewed_course_arrival':'arrival_unavailable',
     travel_times_seconds:[],maximum_seconds:null,combined_seconds:null,browseOnly:true};

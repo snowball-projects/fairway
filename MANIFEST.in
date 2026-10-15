@@ -13,3 +13,6 @@ recursive-include scripts *.py *.sh
 recursive-include tests *.py
 recursive-include tests *.mjs
 prune experiments
+
+recursive-include tests/fixtures/native5-ui *.json
+include docs/catalog/native5-ui/INPUT-PINS.json

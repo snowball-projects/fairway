@@ -3,48 +3,41 @@
 fairway explores golf facilities and helps a group find nearby courses. Software by
 snowball; catalog and third-party data retain their separate licenses.
 
-## Local public release candidate
+## Isolated native5 consumer preparation
 
-This branch prepares a SQLite-derived national catalog and the reviewed Courses
-interface for GitHub Pages. It has **not been published**. The 758 baseline contains
-7,387 facilities and 3,641 retained course records, with explicit unknowns, component
-identities, access qualifications and dated source evidence. Typed operational
-optional fields are being finalized with the writer; 758 is not a claim that all
-historical prose or optional facts have been normalized.
+This branch prepares the version2/schema5 browser consumer from reviewed frontend
+830bce4 using the writer's exact synthetic fixture. It has not adopted a new schema,
+replaced the unchanged revision758/schema4 data or been published. See
+[scope, pins, review build and remaining gates](docs/catalog/native5-ui/REVIEW.md).
+Production layout confirmation, source review and approved real export are pending.
 
-The map, facility/city/state search, single Courses drawer and its keyboard/drag
-controls are independent of routing. Plan a Round commits an address only on Enter
-or blur, fits origin pins, and selects courses within the chosen straight-line radius
-of at least one origin. Manual coordinates stay local. **Driving-time comparison is
-unavailable** in this public release path. There is no Rank Courses button, private
-routing transport, MODO request or fake completion.
+Facility, course, component and round optional observations remain independently
+scoped. NULL values remain unconfirmed; prices are dated observations with all
+recorded conditions, and tee difficulty is separate from deferred quality ratings.
+Public note provenance contains IDs only; retained evidence bodies remain private.
 
-SQLite is the sole maintained authority. The browser loads an immutable generated
-native DTO projection bound by SHA256, revision and release identity. No full SQLite,
-SQL recovery, private source controls or credentials enter the Pages artifact.
-See [data](data/README.md), [public seam](PUBLIC-758-EXPORT-CONTRACT.md),
-[actual 758 schema](docs/catalog/SCHEMA758.md) and [service policy](SERVICE.md).
+The existing map, single Courses drawer and committed-origin behavior remain.
+**Driving-time comparison is unavailable** in this public path. No routing transport,
+provider request, MODO request or fake completion is added.
 
 ## Build and verify locally
 
-Python 3.12+ and Node are required. Existing locked app dependencies are installed with
-`uv sync --extra test --locked`. The static Pages build itself uses Python stdlib:
+Python3.12+ and Node are required. The explicit synthetic review build uses stdlib
+and writes only to a new output directory; it starts no server:
 
 ```sh
-python scripts/build_pages.py --check
-python scripts/build_pages.py --output /tmp/fairway-pages --commit <git-commit>
-node --test tests/*.test.mjs
-uv run --locked ruff check .
-uv run --locked ruff format --check .
-uv run --locked python -m pytest
-uv build
+python scripts/build_pages.py --check --review-fixture
+python scripts/build_pages.py --review-fixture --output /tmp/fairway-native5-review --commit COMMIT
+node --test --test-isolation=none tests/*.test.mjs
+PYTHONPATH=src:tests python -m pytest -q
 ```
 
-The writer regenerates the public transport from a closed private SQLite release;
-see data/README.md. Do not edit generated JSON/gzip or choose an implicit database.
-The source export is 36.6MB raw /4.76MB gzip; fresh desktop/mobile browser acceptance
-and payload performance remain release gates. Offline unit tests do not substitute
-for those checks.
+Every review page carries a visible synthetic-fixture banner. The normal production
+build intentionally rejects the retained v1 catalog before output. There is no
+schema adapter or automatic fixture fallback. Do not edit generated transport or
+replace the sole maintained SQLite authority. No raw SQLite/SQL/private controls
+enter Pages. Desktop/mobile visual acceptance and real-payload performance remain
+separate release gates.
 
 ## Existing calculation API
 

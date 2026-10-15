@@ -1455,3 +1455,6 @@ dialog > p:last-child {
 .observation-fields dt{font-weight:650;margin-top:.35rem;}
 .observation-fields dd{margin-left:.7rem;}
 .fact-observations>details{margin:.65rem 0;}
+
+.review-fixture-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;margin:0;padding:4px;background:#352b1c;color:white;text-align:center;font-size:12px;pointer-events:none}
+.typed-observations h4{margin:12px 0 6px}.typed-observations>details{margin-block:8px}

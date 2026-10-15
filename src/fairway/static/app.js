@@ -1,4 +1,4 @@
-import {located,mapEligible,catalogCounts,cityLabel,searchCatalog,courseMatches,sortCourses,browseCard,STYLES} from "./catalog-read.mjs";
+import {located,mapEligible,catalogCounts,cityLabel,searchCatalog,courseMatches,sortCourses,browseCard,STYLES,accessLabel,displayAddress} from "./catalog-read.mjs";
 import {shapeRings} from "./map-geometry.mjs";
 import { createFacilityDots } from "./facility-dots.mjs";
 import {
@@ -8,6 +8,7 @@ import {
 } from "./origin-rows.mjs";
 import {PublicPlanningSession,resolvePublicOrigin} from "./public-planning.mjs";
 import {loadPublicCatalog} from "./public-catalog.mjs";
+import {renderOptional} from "./optional-facts.mjs";
 import { bindCoursesDrawer } from "./courses-drawer.mjs";
 
 // Public catalog selection owns no routing or native admission.
@@ -605,7 +606,10 @@ function courseMetadata(course) {
   const teeRecords=[...(course.tee_sets||[]),...(course.round_options||[]).flatMap(r=>(r.tee_sets||[]).map(t=>({...t,round_holes:r.round_holes})))];
   if(teeRecords.length){const tees=node("details");tees.append(node("summary",`${teeRecords.length} tee observations`));for(const tee of teeRecords)tees.append(observationFields(tee));details.append(tees);}
   else details.append(node("p","Tee yardage, rating and slope not documented"));
-  details.append(factObservations(course.fact_groups));
+  if(course.planning_basis==='accepted_public_play_with_qualification')details.append(node("p","Preliminary public-play eligibility; nonmember booking and availability remain unconfirmed."));
+  details.append(renderOptional(course.optional,{subjectLabel:'Course: '+(course.course_name??course.name??course.facility_name??'name unconfirmed')}));
+  for(const component of course.components||[]){const part=node("details");part.append(node("summary",`Component: ${component.name || 'Name unconfirmed'} · ${component.physical_holes??'Unknown'} physical holes · independent booking unconfirmed`),renderOptional(component.optional,{subjectLabel:'Component: '+(component.name||'name unconfirmed')}));details.append(part);}
+  for(const round of rounds){const part=node("details");part.append(node("summary",`Round: ${round.name || 'Name unconfirmed'} · ${round.round_holes??'Unknown'} holes · ${round.scope==='facility'?'facility-owned combination':'course-owned round'}`),renderOptional(round.optional,{subjectLabel:'Round: '+(round.name||'name unconfirmed')}));details.append(part);}
   return details;
 }
 
@@ -622,23 +626,11 @@ function observationFields(value) {
   }
   return list;
 }
-function factObservations(groups) {
-  const holder=node("div",undefined,"fact-observations");
-  if(groups?.length)holder.append(node("p","Dated source evidence is retained. Its raw payload is not interpreted as a canonical price, amenity or design attribute."));
-  for(const group of groups||[]){
-    const detail=node("details");detail.append(node("summary",`${group.module || "Source"} · ${group.course_id?"course":"facility"} observation${group.conflict?" · conflicting observations":""}`));
-    detail.append(node("p",`Observed ${group.observed_on || "date unknown"} · collected ${group.collected_on || "date unknown"} · ${group.status || "status unknown"}`));
-    try{const url=new URL(group.source_url);if(['http:','https:'].includes(url.protocol)){const link=node("a","Source");link.href=url.href;link.target="_blank";link.rel="noopener noreferrer";detail.append(link);}}catch{}
-    holder.append(detail);
-  }
-  return holder;
-}
-
 function renderRanking(result) {
   const sort = $("browse-sort").value;
   const originIndex = sort.startsWith("origin:") ? state.activeRows.findIndex(row => row?.id === sort.slice(7)) : -1;
   const value = course => sort === "holes" ? course.holes : sort === "name" ? null : originIndex >= 0 ? course.travel_times_seconds[originIndex] : course[`${sort}_seconds`];
-  result = {...result, courses:result.courses.filter(course => matchesCourseFilters(course.source_course || {access:course.access === "Public play"?"public":course.access === "Access unconfirmed"?"unknown":course.access.toLowerCase(),state:course.state,physical_holes:course.holes,plan_eligible:course.plan_eligible,style:course.style,round_options:course.round_options,fact_groups:course.fact_groups})).sort((a,b) => {
+  result = {...result, courses:result.courses.filter(course => matchesCourseFilters(course.source_course || {access:course.access === "Public play"?"public":course.access === "Access unconfirmed"?null:course.access.toLowerCase(),state:course.state,physical_holes:course.holes,plan_eligible:course.plan_eligible,style:course.style,round_options:course.round_options,optional:course.optional})).sort((a,b) => {
     if (sort === "name") return a.name.localeCompare(b.name);
     const av=value(a),bv=value(b);return av===null?(bv===null?0:1):bv===null?-1:av-bv||a.name.localeCompare(b.name);
   })};
@@ -848,7 +840,7 @@ function facilityDetails(f, compact = false) {
     );
     return article;
   }
-  article.append(node("p", f.address?.text || "Address not documented"));
+  article.append(node("p", displayAddress(f.address)));
   if (f.course_inventory?.length) {
     const details = node("details");
     details.append(
@@ -861,7 +853,7 @@ function facilityDetails(f, compact = false) {
       details.append(
         node(
           "p",
-          `${c.name || "Unnamed course"} · ${c.physical_holes ?? "?"} holes · ${c.access} access`,
+          `${c.name || "Unnamed course"} · ${c.physical_holes ?? "?"} holes · ${accessLabel(c.access)}`,
         ),
       );
     if (f.access_note) details.append(node("p", f.access_note));
@@ -911,9 +903,8 @@ function facilityDetails(f, compact = false) {
       }
     } catch {}
   }
-  article.append(node("p", websiteState(f)),factObservations(f.fact_groups));
-  const retained=catalogModel?.provenanceByFacility?.get(f.facility_id);
-  if(retained?.support?.length){const evidence=node("details");evidence.append(node("summary","Retained facility sources and qualifications"));for(const claim of retained.support){evidence.append(node("p",`${(claim.fields||[]).join(', ')} · observed ${claim.observed_on || "date unknown"}`));for(const note of claim.notes||[])evidence.append(node("p",note));try{const url=new URL(claim.source_url);if(['http:','https:'].includes(url.protocol)){const link=node("a","Source");link.href=url.href;link.target="_blank";link.rel="noopener noreferrer";evidence.append(link);}}catch{}}article.append(evidence);}
+  article.append(node("p", websiteState(f)),renderOptional(f.optional,{subjectLabel:'Facility: '+f.name}));
+  for(const round of f.round_options||[]){const part=node("details");part.append(node("summary",`Round: ${round.name||'Name unconfirmed'} · ${round.round_holes??'Unknown'} holes · facility-owned combination`),renderOptional(round.optional,{subjectLabel:'Round: '+(round.name||'name unconfirmed')}));article.append(part);}
   return article;
 }
 function selectFacilityById(id, fit = true) {
@@ -1155,9 +1146,8 @@ function renderProgress() {
   const provenance=$("native-provenance");
   provenance.replaceChildren(node("p",`Catalog revision ${catalogModel.revision}. ${catalogModel.qualification || "Native read qualification unavailable."}`),
     node("p","Facility property points are map context, not canonical course arrivals. Retained course records may need identity review; actual booking and availability remain separately qualified."));
-  const groups=new Map();
-  for(const record of [...catalogModel.facilities,...catalogModel.courses])for(const group of record.fact_groups||[])groups.set(group.id,group);
-  provenance.append(node("p",`${fmt(groups.size)} sparse field observations. Optional fields are not uniformly normalized; historical detail may remain in retained notes. Individual details show scope, dates, conflicts and source links. Quality/star ratings are not recorded.`));
+  provenance.append(node("p",`${fmt(catalogModel.optionalObservations.size)} distinct typed observations. Facility, course, component and round scopes are separate. Missing values are unconfirmed. Quality/star ratings are not supplied; tee rating describes playing difficulty.`));
+  provenance.append(node("p",`${fmt(catalogModel.provenance.sources.length)} registered public sources. Individual observation details show their source link, license and attribution.`));
   for(const license of catalogModel.sourceLicenses||[]){const detail=node("details");detail.append(node("summary",`${license.source || "Data source"} · ${license.license || "See source policy"}`),observationFields(license));provenance.append(detail);}
   $("activity-log").replaceChildren(node("p","This is a frozen published catalog, not live research activity."));
 }

@@ -3,6 +3,9 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 import {PublicPlanningSession} from '../src/fairway/static/public-planning.mjs';
+import {renderOptional} from '../src/fairway/static/optional-facts.mjs';
+import {cityLabel,mapEligible,displayAddress,accessLabel} from '../src/fairway/static/catalog-read.mjs';
+import {fixture,document} from './native5-fixture.mjs';
 const source=readFileSync(new URL('../src/fairway/static/app.js',import.meta.url),'utf8');
 function harness(resolveOrigin=async()=>({features:[]})){
   const row={input:{value:'A committed address'},coordinate:null,committedLabel:null,lookupPromise:null,controller:null};
@@ -54,9 +57,17 @@ test('public entry never imports a private or fake planning transport or reads r
   assert.doesNotMatch(source,/fetch\([^)]*api\//);
 });
 test('actual course details preserve typed tee unknowns and source scope without interpreting raw optional keys',()=>{
-  class Element{constructor(tag){this.tag=tag;this.children=[];this.value='';}append(...nodes){this.children.push(...nodes);}set textContent(value){this.value=String(value);}get textContent(){return this.value+this.children.map(n=>typeof n==='string'?n:n.textContent).join(' ');}}
-  const context={URL,STYLES:{regulation:'Regulation'},document:{createElement:tag=>new Element(tag)}};vm.createContext(context);
+  const context={URL,STYLES:{regulation:'Regulation'},document,renderOptional:(o,options)=>renderOptional(o,{...options,document})};vm.createContext(context);
   vm.runInContext(source.slice(source.indexOf('function node('),source.indexOf('function mobile('))+source.slice(source.indexOf('function courseMetadata('),source.indexOf('function renderRanking(')),context);
-  const element=context.courseMetadata({style:'regulation',nonmember_bookable:null,round_options:[],tee_sets:[{name:'White',distance:null,distance_unit:null,difficulty_rating:71.2,slope:123}],fact_groups:[{module:'prices',course_id:'c-example',observed_on:null,collected_on:'2026-10-14',status:'extracted',conflict:true,source_url:'https://operator.example/fees',payload:{scalar_fee_alias:'DO_NOT_RENDER_RAW_99',amenity_alias:true}}]});
-  assert.match(element.textContent,/Nonmember booking unconfirmed/);assert.match(element.textContent,/Not documented/);assert.match(element.textContent,/course difficulty rating \(not a quality rating\)/);assert.match(element.textContent,/123/);assert.match(element.textContent,/course observation.*conflicting/);assert.match(element.textContent,/Observed date unknown/);assert.doesNotMatch(element.textContent,/DO_NOT_RENDER_RAW_99|scalar fee alias|amenity alias/);
+  const {value}=fixture(),course=value.courses.find(c=>c.plan_eligible===true);
+  const element=context.courseMetadata(course);
+  assert.match(element.textContent,/Nonmember booking unconfirmed/);assert.match(element.textContent,/Not documented/);assert.match(element.textContent,/course difficulty rating \(not a quality rating\)/);assert.match(element.textContent,/121/);
+  assert.match(element.textContent,/Preliminary public-play eligibility/);assert.match(element.textContent,/Component:/);assert.match(element.textContent,/facility-owned combination/);assert.match(element.textContent,/conflicting observations/);assert.match(element.textContent,/not a current quote/);assert.doesNotMatch(element.textContent,/restaurant available/);
+});
+
+test('actual full facility details retain only facility and owned-round optional scopes',()=>{
+  const context={URL,document,renderOptional:(o,options)=>renderOptional(o,{...options,document}),activeFacility:null,planningMode:false,browseMode:true,cityLabel,mapEligible,displayAddress,accessLabel};vm.createContext(context);
+  vm.runInContext(source.slice(source.indexOf('function node('),source.indexOf('function mobile('))+source.slice(source.indexOf('function websiteState('),source.indexOf('function selectFacilityById(')),context);
+  const f=fixture().value.facilities.find(f=>f.optional.amenity_observation.length),element=context.facilityDetails(f);
+  assert.match(element.textContent,/Facility access unconfirmed/);assert.match(element.textContent,/restaurant available Yes/);assert.match(element.textContent,/Round:/);assert.match(element.textContent,/not a current quote/);assert.doesNotMatch(element.textContent,/driving range lighted|greens grass/);
 });

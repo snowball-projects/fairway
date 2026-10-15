@@ -23,7 +23,7 @@ const facility = {
   access: "public",
   website: null,
   courses: [],
-  address: { text: "72 Main St, Bemus Point, NY 14712" },
+  address: { text: "72 Main St, Bemus Point, NY 14712", city:"Bemus Point" },
   map_location: {
     latitude: 42.1576593,
     longitude: -79.3887563,
@@ -76,7 +76,7 @@ test("facility/city/state search preserves duplicate-name geography and unmapped
     facility_id: "other",
     state: "WI",
     map_location: null,
-    address: { text: "10 Main St, Bemus Point, WI 54321" },
+    address: { text: "10 Main St, Bemus Point, WI 54321", city:"Bemus Point" },
   };
   const results = searchCatalog(
     [facility, other],
