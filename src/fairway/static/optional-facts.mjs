@@ -140,3 +140,28 @@ export function renderOptional(optional,{subjectLabel,document=globalThis.docume
   if(!count)holder.append(el('p','No optional observations recorded for this scope. Unknown values are not evidence of absence.'));
   return holder;
 }
+
+// Popups show recorded values only. The full card retains the source envelope and unknowns.
+export function renderKnownOptional(optional,{subjectLabel,document=globalThis.document}={}){
+  const el=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n;};
+  const holder=el('section');holder.className='typed-observations';
+  let count=0;
+  for(const domain of OPTIONAL_DOMAINS)for(const row of optional?.[domain]||[]){
+    const keys=Object.keys(OPTIONAL_SCHEMA[domain]).filter(key=>!META.has(key)&&key!=='credits'&&row[key]!==null&&row[key]!==undefined);
+    const credits=domain==='architecture_event'?row.credits||[]:[];
+    if(!keys.length&&!credits.length&&!row.qualification)continue;
+    if(!count++)holder.append(el('h4',subjectLabel));
+    const details=el('details');
+    details.append(el('summary',`${LABELS[domain]}${row.conflict?' · conflicting observations':''}${domain==='price_observation'&&row.historical===true?' · historical':''}`));
+    const dates=[row.observed_on?`Observed ${row.observed_on}`:null,row.effective_from?`From ${row.effective_from}`:null,row.effective_to?`Through ${row.effective_to}`:null].filter(Boolean);
+    if(dates.length)details.append(el('p',dates.join(' · ')));
+    if(row.qualification)details.append(el('p',row.qualification));
+    const fields=el('dl');fields.className='observation-fields';
+    for(const key of keys)fields.append(el('dt',label(key)),el('dd',scalar(row[key])));
+    if(keys.length)details.append(fields);
+    for(const credit of credits)details.append(el('p',[credit.name,credit.party_kind,credit.role].filter(Boolean).join(' · ')));
+    holder.append(details);
+  }
+  if(!count)return null;
+  return holder;
+}

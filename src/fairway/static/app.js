@@ -8,7 +8,7 @@ import {
 } from "./origin-rows.mjs";
 import {PublicPlanningSession,resolvePublicOrigin} from "./public-planning.mjs";
 import {loadPublicCatalog} from "./public-catalog.mjs";
-import {renderOptional} from "./optional-facts.mjs";
+import {renderOptional,renderKnownOptional} from "./optional-facts.mjs";
 import { bindCoursesDrawer } from "./courses-drawer.mjs";
 
 // Public catalog selection owns no routing or native admission.
@@ -19,6 +19,8 @@ const preparationFacilities = L.layerGroup();
 let planningMode = false;
 let planningDisplaySort = "maximum";
 const rankingNodes = new Map();
+const browseNodes = new Map();
+let movingCourseCard = false;
 const rowInteractions = new Set();
 
 
@@ -212,21 +214,27 @@ function updateOriginMarker(row) {
   labelMarker(row.marker, label);
 }
 
-function currentResult(courseId) {
-  return (
-    state.ranking?.courses.find((course) => course.id === courseId) || null
-  );
+function selectableCourses() {
+  if (planningMode) return (state.ranking?.courses || []).filter(course => matchesCourseFilters(course.source_course || catalogModel?.courseById.get(course.id)));
+  return scopedRecords();
 }
 
-function selectCourse(courseId, scrollToCard = false) {
+function selectCourse(courseId, focusMap = true) {
+  const course = selectableCourses().find(course => (course.course_id || course.id) === courseId);
+  if (!course) return false;
   state.activeCourse = courseId;
-  const course = currentResult(courseId);
-  if (course) selectFacilityById(course.facility_id, false);
-  document.querySelectorAll(".course-card").forEach((card) => {
-    card.dataset.active = String(card.dataset.courseId === courseId);
-    if (scrollToCard && card.dataset.active === "true")
-      card.scrollIntoView({ block: "nearest" });
-  });
+  activeFacility = course.facility_id;
+  const record = course.source_course || course;
+  const coordinate = course.coordinate || (record.map_location ? [record.map_location.latitude, record.map_location.longitude] : null);
+  setDrawer("courses", true, false);
+  if (focusMap && coordinate) fitPoints([coordinate], 14, !mobile()&&!REDUCED_MOTION);
+  popupSelection = coordinate ? {kind:"course",id:courseId,coordinate:L.latLng(...coordinate)} : null;
+  if (popupSelection) openSelectionPopup();
+  else if (cataloguePopup) {const previous=cataloguePopup;cataloguePopup=null;map.closePopup(previous);}
+  drawFacilities();
+  renderCourses();
+  view.results.scrollTop = 0;
+  return true;
 }
 
 function closeSuggestions(row, abort = false) {
@@ -497,7 +505,7 @@ function renderPreparation(session) {
     preparationFacilities.key = facilityKey;preparationFacilities.clearLayers();
     for (const course of facilities.filter(c=>!catalogModel?.facilityById.has(c.facility_id))) {
       const label = document.createElement("span");label.textContent = course.facility_name;
-      L.circleMarker(course.coordinate,{radius:7,color:"#fff",weight:2,fillColor:"#1d644b",fillOpacity:.95,className:"preparation-facility"})
+      L.circleMarker(course.coordinate,{radius:7,color:"#fff",weight:2,fillColor:"#1d644b",fillOpacity:.95,bubblingMouseEvents:false,className:"preparation-facility"})
         .bindTooltip(label,{className:"preparation-facility-label"}).on("click",()=>selectCourse(course.id,true)).addTo(preparationFacilities);
     }
   }
@@ -514,6 +522,17 @@ function renderPreparation(session) {
   setStatus(session.origins.length ? "Driving times are unavailable. These courses are within the selected straight-line radius of at least one golfer." : "Enter a golfer address or coordinate.");
 }
 
+function moveCourseCard(list, item, before) {
+  if(item===before)return;
+  const focused=item.contains(document.activeElement)?document.activeElement:null;
+  movingCourseCard=true;
+  try {
+    if(list.moveBefore&&item.parentElement===list)list.moveBefore(item,before);
+    else list.insertBefore(item,before);
+    if(focused&&document.activeElement!==focused)focused.focus({preventScroll:true});
+  } finally {movingCourseCard=false;}
+}
+
 function courseCard(course, objective) {
   const item = document.createElement("li");
   const article = document.createElement("article");
@@ -525,8 +544,6 @@ function courseCard(course, objective) {
   focus.className = "course-focus";
   focus.onclick = () => {
     selectCourse(course.id);
-    if (course.coordinate) fitPoints([course.coordinate], 14);
-    selectFacilityById(course.facility_id, false);
   };
   const rank = document.createElement("span");
   rank.className = "rank";
@@ -649,7 +666,9 @@ function renderRanking(result) {
     rankingNodes.clear(); rowInteractions.clear(); list = document.createElement("ol");
     list.className = "course-list"; list.dataset.planning = "true"; view.results.replaceChildren(list);
   }
-  const desired = result.courses.map(course => course.id);
+  reconcilePopupChoices(result.courses,course=>course.id);
+  if(state.activeCourse&&!result.courses.some(course=>course.id===state.activeCourse))closeSelection(false);
+  const desired = selectedFirst(result.courses,course=>course.id).map(course => course.id);
   const pendingOrder = JSON.stringify([...list.children].map(item => item.firstElementChild.dataset.courseId)) !== JSON.stringify(desired);
   for (const course of result.courses) {
     let item = rankingNodes.get(course.id);
@@ -658,7 +677,7 @@ function renderRanking(result) {
       const article = item.firstElementChild;
       article.addEventListener("focusin", () => rowInteractions.add(`focus:${course.id}`));
       article.addEventListener("focusout", event => {
-        if (article.contains(event.relatedTarget)) return;
+        if (movingCourseCard || article.contains(event.relatedTarget)) return;
         const next = event.relatedTarget?.closest(".course-card");
         if (next && view.results.contains(next)) rowInteractions.add(`focus:${next.dataset.courseId}`);
         rowInteractions.delete(`focus:${course.id}`); renderCourses();
@@ -667,6 +686,7 @@ function renderRanking(result) {
       article.addEventListener("mouseleave", () => {rowInteractions.delete(`pointer:${course.id}`);renderCourses();});
     }
     const article = item.firstElementChild;
+    article.dataset.active=String(course.id===state.activeCourse);
     article.querySelector(".rank").textContent = rowInteractions.size && pendingOrder ? "…" : course.rank ?? "…";
     article.querySelectorAll(".score").forEach((score, index) => {
       const kind = index ? "combined" : "maximum", seconds = course[`${kind}_seconds`];
@@ -690,9 +710,13 @@ function renderRanking(result) {
       item.querySelectorAll(".golfer-time").forEach(n => n.textContent = "Unavailable");
     } else {item.remove();rankingNodes.delete(id);}
   }
+  if(rowInteractions.size&&state.activeCourse) {
+    const selected=rankingNodes.get(state.activeCourse);
+    if(selected&&list.firstElementChild!==selected)moveCourseCard(list,selected,list.firstElementChild);
+  }
   if (!rowInteractions.size) desired.forEach((id, index) => {
     const item = rankingNodes.get(id), current = list.children[index];
-    if (item !== current) list.insertBefore(item, current || null);
+    if (item !== current) moveCourseCard(list,item,current || null);
   });
   updateLoadedCount(result.courses.length);
   view.rankingDescription.textContent = result.blocked ? "Driving-time comparison is blocked." : result.error ? "Driving times are unavailable." : "";
@@ -729,11 +753,8 @@ const fmt = (n) => n.toLocaleString("en-US");
 const facilityDots = createFacilityDots(
   L,
   map,
-  (id) => selectFacilityById(id, false),
-  (ids, coordinate) => {
-    popupSelection = { kind: "coincident", ids, coordinate };
-    openSelectionPopup();
-  },
+  (id) => selectFacilityById(id, true),
+  (ids, coordinate) => selectCoincidentFacilities(ids, coordinate),
 );
 let catalogDate = "";
 let catalogModel = null,
@@ -743,7 +764,8 @@ let catalogModel = null,
 let activeFacility = null,
   popupSelection = null,
   browseMode = true,
-  browseScope = null;
+  browseScope = {kind:"viewport",label:"Courses in this map area"};
+let viewportFrame = null;
 let searchMatches = [],
   searchIndex = -1,
   listLimit = 60,
@@ -758,7 +780,7 @@ function node(tag, text, className) {
 function mobile() {
   return window.matchMedia("(max-width:800px)").matches;
 }
-function setDrawer(which, open) {
+function setDrawer(which, open, render = true) {
   const panel = which === "plan" ? $("plan-panel") : view.resultsPanel;
   const toggle = which === "plan" ? $("plan-toggle") : $("courses-grip");
   panel.hidden = !open;
@@ -778,7 +800,7 @@ function setDrawer(which, open) {
   if (!open && panel.contains(document.activeElement)) toggle.focus();
   coursesDrawer?.sync(!view.resultsPanel.hidden);
   if (view.resultsPanel.hidden) setFilterOpen(false);
-  if (which === "courses" && open) renderCourses();
+  if (which === "courses" && open && render) renderCourses();
 }
 function fitPadding() {
   if (mobile()) {
@@ -795,13 +817,13 @@ function fitPadding() {
     paddingBottomRight: [!view.resultsPanel.hidden ? view.resultsPanel.getBoundingClientRect().width + 44 : 60, 90],
   };
 }
-function fitPoints(points, maxZoom = 15) {
+function fitPoints(points, maxZoom = 15, animate = !REDUCED_MOTION) {
   if (!points.length) return;
   const bounds = L.latLngBounds(points);
   if (bounds.isValid())
     map.fitBounds(bounds, {
       maxZoom,
-      animate: !REDUCED_MOTION,
+      animate,
       ...fitPadding(),
     });
 }
@@ -809,178 +831,217 @@ function drawFacilities() {
   if (!catalogModel) return;
   facilityDots.update(catalogModel.facilities, activeFacility);
 }
-function websiteState(f) {
-  if (f.website_status === "not_found")
-    return `Website not found in check${f.website_checked_on ? ` · ${f.website_checked_on}` : ""}`;
-  if (f.website_status === "found")
-    return `Website checked${f.website_checked_on ? ` · ${f.website_checked_on}` : ""}`;
-  return "Website check not recorded";
+function knownLink(container, value, label) {
+  try {
+    const url = new URL(value);
+    if (!["http:", "https:"].includes(url.protocol)) return;
+    const link=node("a",label);link.href=url.href;link.target="_blank";link.rel="noopener noreferrer";
+    container.append(link);
+  } catch {}
 }
-function facilityDetails(f, compact = false) {
-  const article = node("article", undefined, "facility-card");
-  article.dataset.facilityId = f.facility_id;
-  article.dataset.active = String(activeFacility === f.facility_id);
-  const title = node("button", f.name);
-  title.type = "button";
-  title.addEventListener("click", () => selectFacilityById(f.facility_id, true));
-  article.append(title);
-  article.append(
-    node(
-      "p",
-      `${[cityLabel(f), f.state || "State not documented"].filter(Boolean).join(", ")} · ${f.physical_holes ?? "Unknown"} physical holes`,
-    ),
-  );
-  article.append(
-    node(
-      "p",
-      f.access ? `${f.access} facility access · course booking conditions may differ` : "Facility access unconfirmed",
-    ),
-  );
-  if (compact) {
-    article.append(
-      node(
-        "p",
-        mapEligible(f)
-          ? "On map"
-          : located(f)
-            ? "Point awaits property confirmation"
-            : "Awaiting a property point",
-      ),
-    );
-    return article;
+function knownAddress(container, address) {
+  if (address?.text || [address?.street_line1,address?.street_line2,address?.city,address?.region,address?.postal_code,address?.country].some(Boolean))
+    container.append(node("p",displayAddress(address)));
+}
+function appendKnownOptional(container, optional, subjectLabel) {
+  const details=renderKnownOptional(optional,{subjectLabel});
+  if(details)container.append(details);
+}
+function knownRounds(container, rounds) {
+  for(const round of rounds || []) {
+    const values=[round.name,round.round_holes!==null&&round.round_holes!==undefined?`${round.round_holes} holes`:null].filter(Boolean);
+    const details=node("details");details.append(node("summary",values.join(" · ") || "Round"));
+    if(round.description)details.append(node("p",round.description));
+    appendKnownOptional(details,round.optional,round.name || "Round");
+    if(details.children.length>1)container.append(details);
+    else if(values.length)container.append(node("p",values.join(" · ")));
   }
-  article.append(node("p", displayAddress(f.address)));
-  if (f.course_inventory?.length) {
-    const details = node("details");
-    details.append(
-      node(
-        "summary",
-        `${f.course_inventory.length} retained ${f.course_inventory.length === 1 ? "course" : "courses"}`,
-      ),
-    );
-    for (const c of f.course_inventory)
-      details.append(
-        node(
-          "p",
-          `${c.name || "Unnamed course"} · ${c.physical_holes ?? "?"} holes · ${accessLabel(c.access)}`,
-        ),
-      );
-    if (f.access_note) details.append(node("p", f.access_note));
-    article.append(details);
-  } else
-    article.append(node("p", "Individual course inventory not recorded; no course cards inferred"));
-  if (f.map_location)
-    article.append(
-      node(
-        "p",
-        f.map_location.kind === "address_range_estimate"
-          ? "Address estimate · property match unconfirmed"
-          : f.map_location.kind === "verified_entrance"
-            ? "Verified entrance point"
-            : "Property point · entrance unverified",
-      ),
-    );
-  else article.append(node("p", "Awaiting a property point"));
-  const times = (planningMode && !browseMode ? state.ranking?.courses || [] : []).filter(
-    (c) => c.facility_id === f.facility_id,
-  );
-  for (const c of times) {
-    article.append(
-      node(
-        "p",
-        `${c.name}: longest ${duration(c.maximum_seconds)} · combined ${duration(c.combined_seconds)}`,
-      ),
-    );
-    article.append(
-      node(
-        "p",
-        c.travel_times_seconds
-          .map((s, i) => `Golfer ${i + 1}: ${duration(s)}`)
-          .join(" · "),
-      ),
-    );
+}
+function coursePopupDetails(course) {
+  const article=node("article",undefined,"facility-card");
+  article.append(node("h3",course.name || course.facility_name));
+  if(course.name&&course.facility_name!==course.name)article.append(node("p",course.facility_name));
+  const facts=[Number.isFinite(course.physical_holes)?`${course.physical_holes} holes`:null,STYLES[course.style],course.access?accessLabel(course.access):null].filter(Boolean);
+  if(facts.length)article.append(node("p",facts.join(" · ")));
+  if(course.nonmember_bookable===true)article.append(node("p","Nonmember booking documented"));
+  if(course.nonmember_bookable===false)article.append(node("p","Nonmember booking: No"));
+  if(course.booking_conditions)article.append(node("p",course.booking_conditions));
+  if(course.access_qualification)article.append(node("p",course.access_qualification));
+  if(course.location_note)article.append(node("p",course.location_note));
+  knownAddress(article,course.address);
+  const entrance={verified_entrance:"Verified entrance",reviewed_osm_point:"Reviewed routing point"}[course.arrival?.kind];
+  if(entrance)article.append(node("p",entrance));
+  knownLink(article,course.website||course.facility_website,"Website");
+  knownLink(article,course.booking_url,"Booking");
+  knownLink(article,course.contact_url,"Contact");
+  appendKnownOptional(article,course.optional,course.name || course.facility_name);
+  for(const component of course.components||[]) {
+    const facts=[component.name,Number.isFinite(component.physical_holes)?`${component.physical_holes} holes`:null].filter(Boolean);
+    const details=node("details");details.append(node("summary",facts.join(" · ") || "Component"));
+    appendKnownOptional(details,component.optional,component.name || "Component");
+    if(details.children.length>1)article.append(details);
+    else if(facts.length)article.append(node("p",facts.join(" · ")));
   }
-  if (f.website) {
-    try {
-      const url = new URL(f.website);
-      if (["http:", "https:"].includes(url.protocol)) {
-        const a = node("a", "Website");
-        a.href = url.href;
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        article.append(a);
-      }
-    } catch {}
+  const tees=[...(course.tee_sets||[]),...(course.round_options||[]).flatMap(round=>(round.tee_sets||[]).map(tee=>({...tee,round:round.name})))];
+  if(tees.length) {
+    const details=node("details");details.append(node("summary","Tees"));
+    for(const tee of tees) {
+      const fields=node("dl",undefined,"observation-fields");
+      for(const [key,value] of Object.entries(tee))if(value!==null&&value!==undefined&&!['id','course_id','round_id'].includes(key))
+        fields.append(node("dt",key==='difficulty_rating'?'course difficulty rating (not a quality rating)':key.replaceAll('_',' ')),node("dd",String(value)));
+      if(fields.children.length)details.append(fields);
+    }
+    if(details.children.length>1)article.append(details);
   }
-  article.append(node("p", websiteState(f)),renderOptional(f.optional,{subjectLabel:'Facility: '+f.name}));
-  for(const round of f.round_options||[]){const part=node("details");part.append(node("summary",`Round: ${round.name||'Name unconfirmed'} · ${round.round_holes??'Unknown'} holes · facility-owned combination`),renderOptional(round.optional,{subjectLabel:'Round: '+(round.name||'name unconfirmed')}));article.append(part);}
+  knownRounds(article,course.round_options);
+  const facility=catalogModel?.facilityById.get(course.facility_id);
+  if(facility) {
+    appendKnownOptional(article,facility.optional,facility.name);
+    knownRounds(article,(facility.round_options||[]).filter(round=>!(course.round_options||[]).some(own=>own.id===round.id)));
+  }
   return article;
 }
-function selectFacilityById(id, fit = true) {
-  const f = catalogModel?.facilities.find((r) => r.facility_id === id);
-  if (!f) return;
-  activeFacility = id;
-  if (fit && located(f))
-    fitPoints([[f.map_location.latitude, f.map_location.longitude]], 15);
-  if (located(f) && mapEligible(f)) {
-    popupSelection = {
-      kind: "facility",
-      id,
-      coordinate: L.latLng(f.map_location.latitude, f.map_location.longitude),
-    };
-    openSelectionPopup();
-  } else {
-    setDrawer("courses", true);
-    renderCourses();
+function facilityDetails(f, compact = false) {
+  const article=node("article",undefined,"facility-card");
+  article.dataset.facilityId=f.facility_id;
+  const title=node("button",f.name);title.type="button";
+  title.addEventListener("click",()=>selectFacilityById(f.facility_id,true));article.append(title);
+  const facts=[cityLabel(f),f.state,Number.isFinite(f.physical_holes)?`${f.physical_holes} physical holes`:null].filter(Boolean);
+  if(facts.length)article.append(node("p",facts.join(" · ")));
+  if(f.access)article.append(node("p",`${accessLabel(f.access)} facility`));
+  if(compact)return article;
+  knownAddress(article,f.address);
+  if(f.course_inventory?.length) {
+    const details=node("details");details.append(node("summary",`${f.course_inventory.length} ${f.course_inventory.length===1?"course":"courses"}`));
+    for(const course of f.course_inventory) {
+      const values=[course.name,Number.isFinite(course.physical_holes)?`${course.physical_holes} holes`:null,course.access?accessLabel(course.access):null].filter(Boolean);
+      if(!values.length)continue;
+      if(selectableCourses().some(row=>(row.course_id||row.id)===course.course_id)) {
+        const button=node("button",values.join(" · "));button.type="button";
+        button.addEventListener("click",()=>selectCourse(course.course_id));details.append(button);
+      } else details.append(node("p",values.join(" · ")));
+    }
+    article.append(details.children.length>1?details:node("p",`${f.course_inventory.length} ${f.course_inventory.length===1?"course":"courses"}`));
   }
-  drawFacilities();
-  renderCourses();
+  const point={verified_entrance:"Verified entrance",reviewed_osm_point:"Reviewed map point",property_point:"Property point",address_range_estimate:"Address estimate"}[f.map_location?.kind];
+  if(point)article.append(node("p",point));
+  knownLink(article,f.website,"Website");knownLink(article,f.booking_url,"Booking");knownLink(article,f.contact_url,"Contact");
+  if(f.access_note)article.append(node("p",f.access_note));
+  appendKnownOptional(article,f.optional,f.name);
+  knownRounds(article,f.round_options);
+  return article;
+}
+function selectCoincidentFacilities(ids, coordinate) {
+  closeSelection(false);
+  popupSelection={kind:"coincident",ids,coordinate};
+  setDrawer("courses",true,false);
+  openSelectionPopup();renderCourses();
+}
+function selectFacilityById(id, fit = true) {
+  const facility=catalogModel?.facilityById.get(id);
+  if(!facility)return;
+  if(!planningMode&&browseScope?.ids&&!browseScope.ids.includes(id)&&located(facility)&&map.getBounds().contains([facility.map_location.latitude,facility.map_location.longitude]))
+    browseScope={kind:"viewport",label:"Courses in this map area"};
+  const courses=selectableCourses().filter(course=>course.facility_id===id);
+  if(courses.length===1)return selectCourse(courses[0].course_id||courses[0].id,fit);
+  if(!courses.some(course=>(course.course_id||course.id)===state.activeCourse))state.activeCourse=null;
+  activeFacility=id;
+  setDrawer("courses",true,false);
+  if(fit&&located(facility))fitPoints([[facility.map_location.latitude,facility.map_location.longitude]],15,!mobile()&&!REDUCED_MOTION);
+  popupSelection=located(facility)?{kind:"facility",id,coordinate:L.latLng(facility.map_location.latitude,facility.map_location.longitude)}:null;
+  if(popupSelection)openSelectionPopup();
+  else if(cataloguePopup){const previous=cataloguePopup;cataloguePopup=null;map.closePopup(previous);}
+  drawFacilities();renderCourses();view.results.scrollTop=0;
+}
+function selectionPopupOptions() {
+  const options={maxWidth:312,minWidth:280,maxHeight:null,autoPan:false,closeOnClick:false};
+  if(mobile()) {
+    let top=Math.max(120,document.querySelector(".map-actions").getBoundingClientRect().bottom+8);
+    coursesDrawer?.makeMapRoom(window.innerHeight-top-16-104);
+    const covered=!view.resultsPanel.hidden?view.resultsPanel.getBoundingClientRect().height:0;
+    let bottom=covered+16;
+    if(view.resultsPanel.hidden) {
+      top=$("catalog-search").getBoundingClientRect().bottom+8;
+      bottom=Math.max(16,window.innerHeight-document.querySelector(".map-actions").getBoundingClientRect().top+8);
+    }
+    const available=window.innerHeight-top-bottom-40;
+    if(available<1)return null;
+    options.maxHeight=Math.min(230,available);
+    options.autoPan=true;
+    options.autoPanPaddingTopLeft=[12,top];
+    options.autoPanPaddingBottomRight=[12,bottom];
+  }
+  return options;
 }
 function openSelectionPopup() {
-  if (!popupSelection || !catalogModel) return;
-  const content = node("div");
-  if (popupSelection.kind === "facility") {
-    const f = catalogModel.facilities.find((r) => r.facility_id === popupSelection.id);
-    if (!f) {
-      closeSelection();
-      return;
-    }
-    content.append(facilityDetails(f));
+  if(!popupSelection||!catalogModel)return;
+  const content=node("div");
+  content.addEventListener("click",event=>event.stopPropagation());
+  if(popupSelection.kind==="course") {
+    const course=catalogModel.courseById.get(popupSelection.id);
+    if(!course){closeSelection();return;}
+    content.append(coursePopupDetails(course));
+  } else if(popupSelection.kind==="facility") {
+    const facility=catalogModel.facilityById.get(popupSelection.id);
+    if(!facility){closeSelection();return;}
+    popupSelection.courseChoices=selectableCourses().filter(course=>course.facility_id===facility.facility_id).map(course=>course.course_id||course.id).sort();
+    content.append(facilityDetails(facility));
   } else {
-    content.append(
-      node("h3", `${popupSelection.ids.length} facilities at this point`),
-    );
-    for (const id of popupSelection.ids) {
-      const f = catalogModel.facilities.find((r) => r.facility_id === id);
-      if (f) content.append(facilityDetails(f, true));
-    }
+    content.append(node("h3",`${popupSelection.ids.length} facilities at this point`));
+    for(const id of popupSelection.ids){const facility=catalogModel.facilityById.get(id);if(facility)content.append(facilityDetails(facility,true));}
   }
-  if (cataloguePopup?.isOpen())
+  const options=selectionPopupOptions();
+  if(!options) {
+    const previous=cataloguePopup;cataloguePopup=null;
+    if(previous)map.closePopup(previous);
+    return;
+  }
+  if(cataloguePopup?.isOpen()) {
+    Object.assign(cataloguePopup.options,options);
     cataloguePopup.setLatLng(popupSelection.coordinate).setContent(content);
+  }
   else {
-    cataloguePopup = L.popup({
-      maxWidth: 312,
-      minWidth: 280,
-      autoPan: false,
-      closeOnClick: false,
-    })
-      .setLatLng(popupSelection.coordinate)
-      .setContent(content)
-      .openOn(map);
-    cataloguePopup.on("remove", () => {
-      popupSelection = null;
-      cataloguePopup = null;
-    });
+    const popup=L.popup(options).setLatLng(popupSelection.coordinate).setContent(content).openOn(map);
+    cataloguePopup=popup;
+    popup.on("remove",()=>{if(cataloguePopup===popup){cataloguePopup=null;closeSelection();}});
   }
 }
-function closeSelection() {
-  popupSelection = null;
-  activeFacility = null;
-  if (cataloguePopup) map.closePopup(cataloguePopup);
-  cataloguePopup = null;
+function closeSelection(render = true) {
+  popupSelection=null;activeFacility=null;state.activeCourse=null;
+  const previous=cataloguePopup;cataloguePopup=null;
+  const focusedPopup=previous?.getElement?.()?.contains(document.activeElement);
+  if(previous)map.closePopup(previous);
+  if(focusedPopup)$("courses-grip").focus({preventScroll:true});
   drawFacilities();
-  renderCourses();
+  if(render)renderCourses();
 }
+function reconcilePopupChoices(records, id = course => course.course_id) {
+  if(popupSelection?.kind!=="facility"||!popupSelection.courseChoices)return;
+  const current=records.filter(course=>course.facility_id===popupSelection.id).map(id).sort();
+  if(JSON.stringify(current)!==JSON.stringify(popupSelection.courseChoices))closeSelection(false);
+}
+function reconcileBrowseSelection(records) {
+  reconcilePopupChoices(records);
+  if(popupSelection?.kind==="coincident"&&browseScope?.kind==="viewport"&&!map.getBounds().contains(popupSelection.coordinate))closeSelection(false);
+  if(state.activeCourse&&!records.some(course=>course.course_id===state.activeCourse))closeSelection(false);
+  else if(!state.activeCourse&&activeFacility) {
+    const facility=catalogModel.facilityById.get(activeFacility);
+    if(!facility||browseScope?.kind==="viewport"&&(!located(facility)||!map.getBounds().contains([facility.map_location.latitude,facility.map_location.longitude])))closeSelection(false);
+  }
+}
+function selectedFirst(records, id = course => course.course_id) {
+  return [...records].sort((a,b)=>Number(id(b)===state.activeCourse)-Number(id(a)===state.activeCourse)||Number(b.facility_id===activeFacility)-Number(a.facility_id===activeFacility));
+}
+function refreshBrowseViewport() {
+  if(viewportFrame!==null)return;
+  viewportFrame=requestAnimationFrame(()=>{
+    viewportFrame=null;
+    if(planningMode||!catalogModel)return;
+    browseMode=true;browseScope={kind:"viewport",label:"Courses in this map area"};
+    renderCourses();
+  });
+}
+
 function filterOptions() {
   return {state:$("browse-state").value,access:$("browse-access").value,holes:$("browse-holes").value,
     roundHoles:$("browse-round").value,style:$("browse-style").value};
@@ -1036,37 +1097,35 @@ function renderCourses() {
     view.results.replaceChildren(node("p",message));
     return;
   }
-  const records = scopedRecords();
-  updateLoadedCount(Math.min(records.length, listLimit));
-  $("browse-description").textContent =
-    browseScope?.label || "Retained course records. Identities and booking may need review; unresolved facilities remain on the map.";
-  const nodes = [];
-  if (activeFacility) {
-    const selected = catalogModel.facilities.find((r) => r.facility_id === activeFacility);
-    if (selected) {
-      nodes.push(facilityDetails(selected));
-      nodes.push(node("hr"));
-    }
+  const records=scopedRecords();
+  reconcileBrowseSelection(records);
+  const held=new Set([...browseNodes].filter(([,item])=>item.contains(document.activeElement)||[...item.querySelectorAll("details")].some(details=>details.open)).map(([id])=>id));
+  const visible=selectedFirst(records).filter((course,index)=>index<listLimit||held.has(course.course_id));
+  updateLoadedCount(visible.length);
+  $("browse-description").textContent=browseScope?.label || "Courses in this map area";
+  let list=view.results.querySelector(".course-list");
+  if(!list||list.dataset.planning==="true") {
+    rankingNodes.clear();rowInteractions.clear();browseNodes.clear();
+    list=node("ol",undefined,"course-list");view.results.replaceChildren(list);
   }
-  const browseList = node("ol", undefined, "course-list");
-  for (const course of records.slice(0,listLimit)) browseList.append(courseCard(browseCard(course,catalogModel.destinations),selected("objective")));
-  nodes.push(browseList);
-  if (records.length > listLimit) {
-    const more = node("button", "Show more", "quiet-button");
-    more.addEventListener("click", () => {
-      listLimit += 60;
-      renderCourses();
-    });
-    nodes.push(more);
+  const desired=new Set(visible.map(course=>course.course_id));
+  for(const [id,item] of browseNodes)if(!desired.has(id)){item.remove();browseNodes.delete(id);}
+  const focused=document.activeElement;
+  visible.forEach((course,index)=>{
+    let item=browseNodes.get(course.course_id);
+    if(!item){item=courseCard(browseCard(course,catalogModel.destinations),selected("objective"));browseNodes.set(course.course_id,item);}
+    item.firstElementChild.dataset.active=String(course.course_id===state.activeCourse);
+    if(list.children[index]!==item)moveCourseCard(list,item,list.children[index]||null);
+  });
+  if(focused&&list.contains(focused)&&document.activeElement!==focused)focused.focus({preventScroll:true});
+  view.results.querySelector(".browse-more")?.remove();view.results.querySelector(".browse-empty")?.remove();
+  if(records.length>visible.length) {
+    const more=node("button","Show more","quiet-button browse-more");
+    more.addEventListener("click",()=>{listLimit+=60;renderCourses();});view.results.append(more);
   }
-  if (!records.length)
-    nodes.push(
-      node("p", "No matching catalog records. Discovery remains incomplete."),
-    );
-  const top = view.results.scrollTop;
-  view.results.replaceChildren(...nodes);
-  view.results.scrollTop = top;
+  if(!records.length)view.results.append(node("p","No matching catalog records. Discovery remains incomplete.","browse-empty"));
 }
+
 function closeSearch() {
   $("place-suggestions").replaceChildren();
   $("place-query").setAttribute("aria-expanded", "false");
@@ -1165,6 +1224,8 @@ function applyCatalog(next) {
   catalogDate = `revision ${next.revision}`;
   state.routingCatalogLabel = `Catalog ${catalogDate} · ${planningAdapter?.policy?.label || "driving times unavailable"}`;
   catalogModel = next;
+  browseNodes.clear();
+  view.results.replaceChildren();
   planningSession?.setCatalog(next);
   $("native-provenance-toggle").disabled=false;
   const selectedState = $("browse-state").value;
@@ -1187,6 +1248,7 @@ $("plan-toggle").onclick = () => {
   planningMode = $("plan-panel").hidden;
   $("browse-access").value = planningMode ? "nonmember" : "all";
   if (planningSession && planningMode) planningSession.accessPolicy = "nonmember";
+  if (!planningMode) {browseScope={kind:"viewport",label:"Courses in this map area"};listLimit=60;}
   setDrawer("plan", planningMode);
   browseMode = !planningMode;
   if (planningMode) syncPlanning(); else planningSession?.invalidate(committedOrigins());
@@ -1199,7 +1261,7 @@ window.addEventListener("resize",()=>coursesDrawer.sync(!view.resultsPanel.hidde
 document.addEventListener("focusout",()=>requestAnimationFrame(()=>{
   if (planningMode && state.ranking) openCoursesForOrigins(planningSession.origins);
 }));
-$("close-plan").onclick = () => {planningMode = false; browseMode = true; $("browse-access").value = "all"; planningSession?.invalidate(committedOrigins());setDrawer("plan", false);renderCourses();};
+$("close-plan").onclick = () => {planningMode = false; browseMode = true; browseScope={kind:"viewport",label:"Courses in this map area"};listLimit=60; $("browse-access").value = "all"; planningSession?.invalidate(committedOrigins());setDrawer("plan", false);renderCourses();};
 $("progress-toggle").onclick = () => $("catalog-progress").showModal();
 $("native-provenance-toggle").onclick = () => {renderProgress();$("catalog-progress").showModal();};
 $("close-progress").onclick = () => $("catalog-progress").close();
@@ -1222,15 +1284,6 @@ for (const id of ["browse-state", "browse-holes", "browse-round", "browse-access
     listLimit = 60;
     renderCourses();
   };
-$("search-area").onclick = () => {
-  planningMode = false; planningSession?.invalidate(committedOrigins()); $("browse-access").value = "all"; setDrawer("plan", false);
-  browseScope = { kind: "viewport", label: "Mapped facilities in this area" };
-  browseMode = true;
-  listLimit = 60;
-  setDrawer("courses", true);
-  renderCourses();
-  $("search-area").hidden = true;
-};
 $("place-query").oninput = showSearch;
 $("place-query").onkeydown = (e) => {
   const options = [...$("place-suggestions").querySelectorAll("button")];
@@ -1272,16 +1325,10 @@ document.addEventListener("keydown", (e) => {
 });
 map.on("moveend zoomend", () => {
   drawFacilities();
-  if (catalogModel) {
-    $("search-area").hidden = false;
-  }
+  refreshBrowseViewport();
 });
-map.on("popupclose", (e) => {
-  if (e.popup === cataloguePopup) {
-    popupSelection = null;
-    cataloguePopup = null;
-  }
-});
+map.on("click",()=>closeSelection());
+map.on("popupclose",event=>{if(event.popup===cataloguePopup){cataloguePopup=null;closeSelection();}});
 async function loadCatalog() {
   try {
     const r = await fetch("./research-map/boundaries.json");

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 import {PublicPlanningSession} from '../src/fairway/static/public-planning.mjs';
-import {renderOptional} from '../src/fairway/static/optional-facts.mjs';
+import {renderOptional,renderKnownOptional} from '../src/fairway/static/optional-facts.mjs';
 import {cityLabel,mapEligible,displayAddress,accessLabel} from '../src/fairway/static/catalog-read.mjs';
 import {fixture,document,expand} from './native5-fixture.mjs';
 const source=readFileSync(new URL('../src/fairway/static/app.js',import.meta.url),'utf8');
@@ -65,9 +65,9 @@ test('actual course details preserve typed tee unknowns and source scope without
   assert.match(element.textContent,/Preliminary public-play eligibility/);assert.match(element.textContent,/Component:/);assert.match(element.textContent,/facility-owned combination/);assert.match(element.textContent,/conflicting observations/);assert.match(element.textContent,/not a current quote/);assert.doesNotMatch(element.textContent,/restaurant available/);
 });
 
-test('actual full facility details retain only facility and owned-round optional scopes',()=>{
-  const context={URL,document,renderOptional:(o,options)=>renderOptional(o,{...options,document}),activeFacility:null,planningMode:false,browseMode:true,cityLabel,mapEligible,displayAddress,accessLabel};vm.createContext(context);
-  vm.runInContext(source.slice(source.indexOf('function node('),source.indexOf('function mobile('))+source.slice(source.indexOf('function websiteState('),source.indexOf('function selectFacilityById(')),context);
+test('actual popup facility details show known facility and owned-round scopes without unknown fields',()=>{
+  const context={URL,document,renderKnownOptional:(o,options)=>renderKnownOptional(o,{...options,document}),selectableCourses:()=>[],activeFacility:null,planningMode:false,browseMode:true,cityLabel,mapEligible,displayAddress,accessLabel};vm.createContext(context);
+  vm.runInContext(source.slice(source.indexOf('function node('),source.indexOf('function mobile('))+source.slice(source.indexOf('function knownLink('),source.indexOf('function selectFacilityById(')),context);
   const f=fixture().value.facilities.find(f=>f.optional.amenity_observation.length),element=context.facilityDetails(f);
-  assert.match(element.textContent,/Facility access unconfirmed/);assert.match(element.textContent,/restaurant available Yes/);assert.match(element.textContent,/Round:/);assert.match(element.textContent,/not a current quote/);assert.doesNotMatch(element.textContent,/driving range lighted|greens grass/);
+  assert.doesNotMatch(element.textContent,/Facility access unconfirmed|Unconfirmed|Not documented|unknown|not a current quote|Source license/);assert.match(element.textContent,/restaurant available Yes/);assert.match(element.textContent,/Documented paired 18/);assert.doesNotMatch(element.textContent,/driving range lighted|greens grass/);
 });
