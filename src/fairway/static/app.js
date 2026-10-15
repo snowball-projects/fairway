@@ -1129,14 +1129,7 @@ function renderCourses() {
     const more=node("button","Show more","quiet-button browse-more");
     more.addEventListener("click",()=>{listLimit+=60;renderCourses();});view.results.append(more);
   }
-  view.results.querySelector(".selected-facility-context")?.remove();
-  const facility=catalogModel.facilityById.get(activeFacility);
-  if(facility&&!records.some(course=>course.facility_id===activeFacility)) {
-    const context=node("aside",undefined,"selected-facility-context");context.dataset.facilityId=facility.facility_id;
-    context.append(node("p","Selected facility"),node("h3",facility.name),node("p",catalogModel.facilityCourses(activeFacility).length
-      ?"No courses at this facility match the current filters.":"No course records are available for this facility."));
-    view.results.insertBefore(context,list);
-  } else if(!records.length)view.results.append(node("p","No courses match this map area and filters.","browse-empty"));
+  if(!records.length)view.results.append(node("p","No matching courses.","browse-empty"));
 }
 
 function closeSearch() {

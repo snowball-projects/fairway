@@ -217,13 +217,13 @@ test('short-screen popup fallback retains selection and uses controls in their c
  h.ctx.window.innerHeight=90;h.ctx.openSelectionPopup();assert.equal(h.ctx.cataloguePopup,null);assert.equal(h.ctx.state.activeCourse,'c-c');assert.equal(h.ctx.popupSelection.id,'c-c');
 });
 
-test('facility-only pin has explicit selected context and no invented course, including neighboring results',()=>{
+test('facility-only pin keeps a minimal empty state and creates no course or duplicate facility summary',()=>{
  const h=harness(),facility=h.ctx.catalogModel.facilityById.get('f-one');
  h.ctx.catalogModel.courses=h.ctx.catalogModel.courses.filter(c=>c.facility_id!=='f-one');for(const id of ['c-a','c-b'])h.ctx.catalogModel.courseById.delete(id);facility.course_inventory=[];
  h.pan([40.9,-88.2,41.2,-87.8]);h.flush();h.ctx.selectFacilityById('f-one');
  assert.deepEqual(h.ids(),[]);assert.equal(h.ctx.state.activeCourse,null);assert.equal(h.ctx.activeFacility,'f-one');
- const context=h.view.results.querySelector('.selected-facility-context');assert.ok(context);assert.equal(context.dataset.facilityId,'f-one');assert.match(context.textContent,/Selected facility.*Shared facility.*No course records/);assert.doesNotMatch(h.view.results.textContent,/Discovery remains incomplete/);assert.equal(h.cards().length,0);
- h.pan([40,-90,43,-87]);h.flush();assert.deepEqual(h.ids(),['c-c']);assert.ok(h.view.results.querySelector('.selected-facility-context'));
+ assert.equal(h.view.results.textContent.trim(),'No matching courses.');assert.equal(h.view.results.querySelector('.selected-facility-context'),null);assert.equal(h.cards().length,0);
+ h.pan([40,-90,43,-87]);h.flush();assert.deepEqual(h.ids(),['c-c']);assert.equal(h.view.results.querySelector('.selected-facility-context'),null);assert.doesNotMatch(h.view.results.textContent,/Shared facility|No matching courses/);
  h.pan([41.8,-89.2,42.2,-88.8]);h.flush();assert.equal(h.ctx.activeFacility,null);assert.equal(h.view.results.querySelector('.selected-facility-context'),null);
 });
 test('visible facility pin selects its one actual eligible course despite a different course point',()=>{
@@ -239,7 +239,7 @@ test('shared facility choice includes actual filter-eligible courses outside the
  const button=h.popup().content.querySelectorAll('button').find(b=>b.textContent.includes('Charlie'));assert.ok(button);button.emit('click');assert.equal(h.ctx.state.activeCourse,'c-b');assert.equal(h.ids()[0],'c-b');
  h.controls['browse-holes'].value='18';h.ctx.renderCourses();assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),['c-a']);assert.equal(h.view.results.querySelector('.selected-facility-context'),null);
 });
-test('filters with no eligible course show selected-facility explanation, not missing inventory or a fake course',()=>{
+test('filters with no eligible course show only the neutral empty state and no fake course',()=>{
  const h=harness();h.controls['browse-holes'].value='9';h.ctx.selectFacilityById('f-one');assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),[]);
- assert.match(h.view.results.querySelector('.selected-facility-context').textContent,/No courses at this facility match the current filters/);assert.doesNotMatch(h.view.results.textContent,/No course records|Discovery remains incomplete/);
+ assert.equal(h.view.results.textContent.trim(),'No matching courses.');assert.equal(h.view.results.querySelector('.selected-facility-context'),null);assert.doesNotMatch(h.view.results.textContent,/Shared facility|No course records|Discovery remains incomplete/);
 });
