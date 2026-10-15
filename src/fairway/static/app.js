@@ -306,7 +306,7 @@ async function commitOrigin(row, trigger = "blur") {
     return true;
   }
   if (row.lookupPromise && row.lookupQuery === query && row.controller && !row.controller.signal.aborted) return row.lookupPromise;
-  if (!query) {if(planningMode&&(planningSession?.hasAdmitted||planningSession?.posting))syncPlanning();return false;}
+  if (!query) {if(planningMode)syncPlanning();return false;}
   if (query.length < 3 || query.length > 256) return false;
   const coordinate = parseCoordinate(query);
   if (coordinate) { if (!insideCore(coordinate)) { setStatus("Enter a valid lower 48 coordinate (latitude, longitude).", true); return false; } setOrigin(row, query, coordinate); return true; }

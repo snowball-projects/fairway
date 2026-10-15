@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
+import {PublicPlanningSession} from '../src/fairway/static/public-planning.mjs';
 const source=readFileSync(new URL('../src/fairway/static/app.js',import.meta.url),'utf8');
 function harness(resolveOrigin=async()=>({features:[]})){
   const row={input:{value:'A committed address'},coordinate:null,committedLabel:null,lookupPromise:null,controller:null};
@@ -34,6 +35,19 @@ test('actual typing handler only invalidates local state',()=>{
   const context={row,closeSuggestions:()=>{},updatePlan:()=>updated++,planningSession:{invalidate:()=>invalidated++},committedOrigins:()=>[]};vm.createContext(context);
   const start=source.indexOf('  row.input.oninput = '),end=source.indexOf('  row.input.onkeydown = ',start);
   vm.runInContext(source.slice(start,end),context);row.input.oninput();assert.equal(row.coordinate,null);assert.equal(invalidated,1);assert.equal(updated,1);
+});
+test('clearing one origin commits the remaining neighborhood on Enter/blur without private admission flags',async()=>{
+  const h=harness(),first=h.row,second={id:'two',coordinate:[42,-89],committedLabel:'42, -89',input:{value:'42, -89'}};
+  Object.assign(first,{id:'one',coordinate:[41,-88],committedLabel:'41, -88'});first.input.value='41, -88';h.context.state.rows.push(second);
+  const session=new PublicPlanningSession();session.setCatalog({catalogReleaseKey:'a'.repeat(64),destinations:new Map(),courses:[['one',41,-88],['two',42,-89]].map(([id,latitude,longitude])=>({course_id:`c-${id}`,facility_id:`f-${id}`,name:id,facility_name:id,plan_eligible:true,nonmember_bookable:true,access:'public',map_location:{latitude,longitude},destination_id:null,arrival:null}))});
+  const origins=()=>h.context.state.rows.filter(r=>r.coordinate).map(r=>({id:r.id,coordinate:r.coordinate}));
+  h.context.planningSession=session;h.context.committedOrigins=origins;h.context.syncPlanning=()=>session.update(origins());h.context.updatePlan=()=>{};h.context.row=first;
+  session.update(origins());assert.equal(session.cards.length,2);assert.equal(session.hasAdmitted,false);assert.equal(session.posting,false);
+  const start=source.indexOf('  row.input.oninput = '),end=source.indexOf('  row.input.onkeydown = ',start);vm.runInContext(source.slice(start,end),h.context);
+  first.input.value='';first.input.oninput();assert.equal(session.cards.length,0);
+  assert.equal(await h.commit('enter'),false);assert.deepEqual(session.cards.map(c=>c.id),['c-two']);assert.equal(session.origins.length,1);
+  assert.equal(await h.commit('blur'),false);assert.deepEqual(session.cards.map(c=>c.id),['c-two']);
+  second.input.value='';second.coordinate=null;session.invalidate([]);await h.context.commitOrigin(second,'blur');assert.equal(session.cards.length,0);assert.equal(session.origins.length,0);assert.equal(h.calls.length,0);
 });
 test('public entry never imports a private or fake planning transport or reads raw optional payloads',()=>{
   assert.doesNotMatch(source,/logical-plan|assembly-plan|fixture-only|\.payload\b|priceFacts|comparablePrice/);
