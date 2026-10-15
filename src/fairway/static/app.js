@@ -8,7 +8,7 @@ import {
 } from "./origin-rows.mjs";
 import {PublicPlanningSession,resolvePublicOrigin} from "./public-planning.mjs";
 import {loadPublicCatalog} from "./public-catalog.mjs";
-import {renderOptional,renderKnownOptional} from "./optional-facts.mjs";
+import {renderKnownOptional} from "./optional-facts.mjs";
 import { bindCoursesDrawer } from "./courses-drawer.mjs";
 
 // Public catalog selection owns no routing or native admission.
@@ -60,7 +60,6 @@ const view = {
   results: document.querySelector("#results"),
   resultCount: document.querySelector("#result-count"),
   rankingDescription: document.querySelector("#ranking-description"),
-  catalogName: document.querySelector("#catalog-name"),
 
   filterToggle: document.querySelector("#filter-toggle"),
   filterPopover: document.querySelector("#filter-popover"),
@@ -558,7 +557,7 @@ function courseCard(course, objective) {
   title.textContent = course.course_name === null ? course.facility_name : course.name;
   const meta = document.createElement("span");
   meta.className = "course-meta";
-  [course.course_name === null ? "Course name not recorded" : null, course.holes === null ? "Holes unconfirmed" : course.holes + " holes", course.course_name === null ? null : course.facility_name, course.access, course.identity_status === "needs_review" ? "Course identity unconfirmed" : course.identity_status === "component" ? "Component layout record; independent booking unconfirmed" : null].filter(Boolean).forEach((label) => {
+  [course.course_name === null ? "Course name not recorded" : null, course.holes === null ? "Holes unconfirmed" : course.holes + " holes", course.course_name === null ? null : course.facility_name, course.access === "Access unconfirmed" ? null : course.access, course.identity_status === "component" ? "Component layout record; independent booking unconfirmed" : null].filter(Boolean).forEach((label) => {
     const value = document.createElement("span");
     value.textContent = label;
     meta.append(value);
@@ -599,7 +598,7 @@ function courseCard(course, objective) {
   const footer = document.createElement("div");
   footer.className = "card-footer";
   const address = document.createElement("span");
-  address.textContent = `${course.address} · ${course.routing_basis === "arrival_unavailable" ? "Routing destination unavailable" : course.routing_basis === "approximate_facility_point" ? "approximate facility point, course arrival unverified" : course.destination_kind === "verified_entrance" ? "verified entrance" : course.destination_kind === "property_point" ? "property point, entrance unverified" : "reviewed OSM routing point"}`;
+  address.textContent = course.routing_basis === "approximate_facility_point" ? course.address : `${course.address} · ${course.routing_basis === "arrival_unavailable" ? "Routing destination unavailable" : course.destination_kind === "verified_entrance" ? "verified entrance" : course.destination_kind === "property_point" ? "property point, entrance unverified" : "reviewed OSM routing point"}`;
   const link = document.createElement("a");
   let safeWebsite=null;try{const candidate=new URL(course.website);if(["https:","http:"].includes(candidate.protocol))safeWebsite=candidate.href;}catch{}
   if(safeWebsite)link.href = safeWebsite;
@@ -609,50 +608,10 @@ function courseCard(course, objective) {
   footer.append(address);
   if (safeWebsite) footer.append(link);
   article.append(focus, times, footer);
-  article.append(courseMetadata(course));
   item.append(article);
   return item;
 }
 
-function courseMetadata(course) {
-  const details=node("details",undefined,"course-facts");details.append(node("summary","Course details"));
-  let populated=false;
-  details.addEventListener("toggle",()=>{
-    if(!details.open||populated)return;
-    populateCourseMetadata(details,course);
-    populated=true;
-  });
-  return details;
-}
-
-function populateCourseMetadata(details,course) {
-  details.append(node("p",course.game_kind==="obstacle_minigolf"?"Obstacle miniature golf":STYLES[course.style] || "Style unconfirmed"));
-  const rounds=course.round_options||[];
-  details.append(node("p",rounds.length?rounds.map(r=>`${r.round_holes} hole round${r.scope==='facility'?" · documented course combination":""}`).join("; "):"Round options not documented"));
-  if(course.booking_conditions)details.append(node("p",course.booking_conditions));
-  details.append(node("p",course.nonmember_bookable===true?"Nonmember booking documented; availability unknown":course.nonmember_bookable===false?"Ordinary nonmember booking unavailable":"Nonmember booking unconfirmed"));
-  const teeRecords=[...(course.tee_sets||[]),...(course.round_options||[]).flatMap(r=>(r.tee_sets||[]).map(t=>({...t,round_holes:r.round_holes})))];
-  if(teeRecords.length){const tees=node("details");tees.append(node("summary",`${teeRecords.length} tee observations`));for(const tee of teeRecords)tees.append(observationFields(tee));details.append(tees);}
-  else details.append(node("p","Tee yardage, rating and slope not documented"));
-  if(course.planning_basis==='accepted_public_play_with_qualification')details.append(node("p","Preliminary public-play eligibility; nonmember booking and availability remain unconfirmed."));
-  details.append(renderOptional(course.optional,{subjectLabel:'Course: '+(course.course_name??course.name??course.facility_name??'name unconfirmed')}));
-  for(const component of course.components||[]){const part=node("details");part.append(node("summary",`Component: ${component.name || 'Name unconfirmed'} · ${component.physical_holes??'Unknown'} physical holes · independent booking unconfirmed`),renderOptional(component.optional,{subjectLabel:'Component: '+(component.name||'name unconfirmed')}));details.append(part);}
-  for(const round of rounds){const part=node("details");part.append(node("summary",`Round: ${round.name || 'Name unconfirmed'} · ${round.round_holes??'Unknown'} holes · ${round.scope==='facility'?'facility-owned combination':'course-owned round'}`),renderOptional(round.optional,{subjectLabel:'Round: '+(round.name||'name unconfirmed')}));details.append(part);}
-}
-
-function observationFields(value) {
-  const list=node("dl",undefined,"observation-fields");
-  for(const [key,item] of Object.entries(value||{})){
-    if(['id','facility_id','course_id','round_id','source_id','batch_id'].includes(key))continue;
-    list.append(node("dt",key==='difficulty_rating'?'course difficulty rating (not a quality rating)':key.replaceAll('_',' ')));
-    const entry=node("dd");
-    if(item===null||item===undefined||(Array.isArray(item)&&!item.length))entry.textContent="Not documented";
-    else if(typeof item==='object'){if(Array.isArray(item))for(const part of item)entry.append(typeof part==='object'?observationFields(part):node("p",String(part)));else entry.append(observationFields(item));}
-    else entry.textContent=typeof item==='boolean'?(item?'Yes':'No'):String(item);
-    list.append(entry);
-  }
-  return list;
-}
 function renderRanking(result) {
   const sort = $("browse-sort").value;
   const originIndex = sort.startsWith("origin:") ? state.activeRows.findIndex(row => row?.id === sort.slice(7)) : -1;
@@ -889,7 +848,7 @@ function coursePopupDetails(course) {
     for(const tee of tees) {
       const fields=node("dl",undefined,"observation-fields");
       for(const [key,value] of Object.entries(tee))if(value!==null&&value!==undefined&&!['id','course_id','round_id'].includes(key))
-        fields.append(node("dt",key==='difficulty_rating'?'course difficulty rating (not a quality rating)':key.replaceAll('_',' ')),node("dd",String(value)));
+        fields.append(node("dt",key==='difficulty_rating'?'course difficulty rating (not a quality rating)':key.replace(/^physical_holes/, 'holes').replaceAll('_',' ')),node("dd",String(value)));
       if(fields.children.length)details.append(fields);
     }
     if(details.children.length>1)article.append(details);
@@ -907,7 +866,7 @@ function facilityDetails(f, compact = false) {
   article.dataset.facilityId=f.facility_id;
   const title=node("button",f.name);title.type="button";
   title.addEventListener("click",()=>selectFacilityById(f.facility_id,true));article.append(title);
-  const facts=[cityLabel(f),f.state,Number.isFinite(f.physical_holes)?`${f.physical_holes} physical holes`:null].filter(Boolean);
+  const facts=[cityLabel(f),f.state,Number.isFinite(f.physical_holes)?`${f.physical_holes} holes`:null].filter(Boolean);
   if(facts.length)article.append(node("p",facts.join(" · ")));
   if(f.access)article.append(node("p",`${accessLabel(f.access)} facility`));
   if(compact)return article;
@@ -924,7 +883,7 @@ function facilityDetails(f, compact = false) {
     }
     article.append(details.children.length>1?details:node("p",`${f.course_inventory.length} ${f.course_inventory.length===1?"course":"courses"}`));
   }
-  const point={verified_entrance:"Verified entrance",reviewed_osm_point:"Reviewed map point",property_point:"Property point",address_range_estimate:"Address estimate"}[f.map_location?.kind];
+  const point={verified_entrance:"Verified entrance",reviewed_osm_point:"Reviewed map point",address_range_estimate:"Address estimate"}[f.map_location?.kind];
   if(point)article.append(node("p",point));
   knownLink(article,f.website,"Website");knownLink(article,f.booking_url,"Booking");knownLink(article,f.contact_url,"Contact");
   if(f.access_note)article.append(node("p",f.access_note));
@@ -1073,9 +1032,6 @@ function updateLoadedCount(count) {
   view.resultCount.setAttribute("aria-label", `Number of courses loaded: ${count}`);
 }
 function renderCourses() {
-  view.catalogName.textContent = browseMode
-    ? `Catalog ${catalogDate || "date unknown"}`
-    : state.routingCatalogLabel;
   updateDisplaySortOptions();
   $("browse-access").querySelector('[value="nonmember"]').hidden = !planningMode;
   $("browse-description").hidden = !browseMode;
@@ -1209,21 +1165,16 @@ function renderProgress() {
   const counts = catalogCounts(catalogModel.facilities);
   $("progress-counts").replaceChildren(
     ...[
+      [counts.total, "Facilities"],
+      [catalogModel.courses.length, "Courses"],
       [counts.onMap, "On map"],
-      [counts.pending, "Not yet on map"],
+      [counts.pending, "Not yet mapped"],
     ].map(([n, label]) => {
       const d = node("div");
       d.append(node("strong", fmt(n)), node("span", label));
       return d;
     }),
   );
-  const provenance=$("native-provenance");
-  provenance.replaceChildren(node("p",`Catalog revision ${catalogModel.revision}. ${catalogModel.qualification || "Native read qualification unavailable."}`),
-    node("p","Facility property points are map context, not canonical course arrivals. Retained course records may need identity review; actual booking and availability remain separately qualified."));
-  provenance.append(node("p",`${fmt(catalogModel.optionalObservations.size)} distinct typed observations. Facility, course, component and round scopes are separate. Missing values are unconfirmed. Quality/star ratings are not supplied; tee rating describes playing difficulty.`));
-  provenance.append(node("p",`${fmt(catalogModel.provenance.sources.length)} registered public sources. Individual observation details show their source link, license and attribution.`));
-  for(const license of catalogModel.sourceLicenses||[]){const detail=node("details");detail.append(node("summary",`${license.source || "Data source"} · ${license.license || "See source policy"}`),observationFields(license));provenance.append(detail);}
-  $("activity-log").replaceChildren(node("p","This is a frozen published catalog, not live research activity."));
 }
 
 function applyCatalog(next) {
@@ -1233,13 +1184,12 @@ function applyCatalog(next) {
   browseNodes.clear();
   view.results.replaceChildren();
   planningSession?.setCatalog(next);
-  $("native-provenance-toggle").disabled=false;
   const selectedState = $("browse-state").value;
   $("browse-state").replaceChildren(new Option("All states","all"), ...[...new Set(next.facilities.map(f => f.state).filter(Boolean))].sort().map(state => new Option(geometry?.states.find(s => s.id === state)?.name || state,state)));
   if ([...$("browse-state").options].some(o => o.value === selectedState)) $("browse-state").value = selectedState;
   if (activeFacility && !next.facilityById.has(activeFacility)) closeSelection();
-  const counts = catalogCounts(next.facilities);
-  $("catalog-status").textContent = `${fmt(counts.onMap)} on map · ${fmt(counts.pending)} not mapped · catalog revision ${next.revision}`;
+  $("catalog-status").textContent = "";
+  $("catalog-status").hidden = true;
   drawFacilities();renderCourses();renderProgress();
   if (cataloguePopup?.isOpen() && popupSelection) openSelectionPopup();
 }
@@ -1269,7 +1219,6 @@ document.addEventListener("focusout",()=>requestAnimationFrame(()=>{
 }));
 $("close-plan").onclick = () => {planningMode = false; browseMode = true; browseScope={kind:"viewport",label:"Courses in this map area"};listLimit=60; $("browse-access").value = "all"; planningSession?.invalidate(committedOrigins());setDrawer("plan", false);renderCourses();};
 $("progress-toggle").onclick = () => $("catalog-progress").showModal();
-$("native-provenance-toggle").onclick = () => {renderProgress();$("catalog-progress").showModal();};
 $("close-progress").onclick = () => $("catalog-progress").close();
 $("catalog-progress").addEventListener("click", (e) => {
   if (e.target === $("catalog-progress")) {
@@ -1346,7 +1295,8 @@ async function loadCatalog() {
   try {
     applyCatalog(await loadPublicCatalog(new URL("./data/catalog-release.json",import.meta.url)));
   } catch {
-    $("catalog-status").textContent="Catalog unavailable. Published catalog could not be read.";
+    $("catalog-status").hidden=false;
+    $("catalog-status").textContent="Catalog unavailable.";
     if(planningMode && !browseMode && state.ranking)renderCourses();
     else view.results.replaceChildren(node("p","Catalog unavailable. No course list can be shown."));
   }

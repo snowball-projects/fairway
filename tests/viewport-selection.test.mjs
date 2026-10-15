@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
-import {CatalogRead,browseCard,courseMatches,sortCourses,STYLES,located,mapEligible,cityLabel,accessLabel,displayAddress} from '../src/fairway/static/catalog-read.mjs';
+import {CatalogRead,browseCard,courseMatches,sortCourses,STYLES,located,mapEligible,catalogCounts,cityLabel,accessLabel,displayAddress} from '../src/fairway/static/catalog-read.mjs';
 import {renderOptional,renderKnownOptional,OPTIONAL_DOMAINS} from '../src/fairway/static/optional-facts.mjs';
 import {fixture} from './native5-fixture.mjs';
 import {validatePublicCatalog} from '../src/fairway/static/public-catalog.mjs';
@@ -52,10 +52,10 @@ function harness(){
  const frames=[],events={},effects={fit:[],popups:0,draws:0,planning:0,render:0};let bounds=[40,-90,43,-87],openPopup=null;
  const map={getBounds:()=>({contains:p=>{const [lat,lng]=Array.isArray(p)?p:[p.lat,p.lng];return lat>=bounds[0]&&lat<=bounds[2]&&lng>=bounds[1]&&lng<=bounds[3];}}),on:(types,fn)=>{for(const t of types.split(' '))events[t]=fn;},closePopup:p=>{effects.closes=(effects.closes||0)+1;assert.ok(!p.closing,'must not close a popup during its close notification');p.closing=true;events.popupclose?.({popup:p});p.open=false;p.listeners.remove?.();p.closing=false;}};
  const L={latLng:(lat,lng)=>({lat,lng}),popup:options=>{effects.popups++;const p={options,listeners:{},setLatLng(c){this.coordinate=c;return this;},setContent(c){this.content=c;return this;},openOn(){this.open=true;openPopup=this;return this;},isOpen(){return this.open;},getElement(){return this.content;},on(t,fn){this.listeners[t]=fn;return this;}};return p;}};
- const ctx={URL,L,map,document,view,preparationFacilities:{clearLayers(){}},meetingLayer:{clearLayers(){}},STYLES,located,mapEligible,cityLabel,accessLabel,displayAddress,browseCard,courseMatches,sortCourses,catalogModel:catalog(),state:{activeCourse:null,activeRows:[],rows:[],ranking:null,routingCatalogLabel:'Catalog760'},COLORS:[],planningMode:false,browseMode:true,browseScope:{kind:'viewport',label:'Courses in this map area'},activeFacility:null,popupSelection:null,cataloguePopup:null,movingCourseCard:false,viewportFrame:null,listLimit:60,catalogDate:'revision760',rankingNodes:new Map(),browseNodes:new Map(),rowInteractions:new Set(),$:id=>controls[id],renderOptional:(o,p)=>renderOptional(o,{...p,document}),renderKnownOptional:(o,p)=>renderKnownOptional(o,{...p,document}),requestAnimationFrame:fn=>{frames.push(fn);return frames.length;},drawFacilities:()=>effects.draws++,fitPoints:(p,z)=>effects.fit.push([p,z]),setDrawer:()=>{view.resultsPanel.hidden=false;},selected:()=> 'maximum',updateDisplaySortOptions(){},duration:()=> 'Unavailable',planningSession:{update(){effects.planning++;throw Error('No automatic planning');},invalidate(){effects.planning++;throw Error('No browse invalidation');}}};
+ const ctx={URL,L,map,document,view,preparationFacilities:{clearLayers(){}},meetingLayer:{clearLayers(){}},STYLES,located,mapEligible,catalogCounts,cityLabel,accessLabel,displayAddress,browseCard,courseMatches,sortCourses,catalogModel:catalog(),state:{activeCourse:null,activeRows:[],rows:[],ranking:null,routingCatalogLabel:'Catalog760'},COLORS:[],planningMode:false,browseMode:true,browseScope:{kind:'viewport',label:'Courses in this map area'},activeFacility:null,popupSelection:null,cataloguePopup:null,movingCourseCard:false,viewportFrame:null,listLimit:60,catalogDate:'revision760',rankingNodes:new Map(),browseNodes:new Map(),rowInteractions:new Set(),$:id=>controls[id],renderOptional:(o,p)=>renderOptional(o,{...p,document}),renderKnownOptional:(o,p)=>renderKnownOptional(o,{...p,document}),requestAnimationFrame:fn=>{frames.push(fn);return frames.length;},drawFacilities:()=>effects.draws++,fitPoints:(p,z)=>effects.fit.push([p,z]),setDrawer:()=>{view.resultsPanel.hidden=false;},selected:()=> 'maximum',updateDisplaySortOptions(){},duration:()=> 'Unavailable',planningSession:{update(){effects.planning++;throw Error('No automatic planning');},invalidate(){effects.planning++;throw Error('No browse invalidation');}}};
  ctx.mobile=()=>false;ctx.REDUCED_MOTION=false;ctx.coursesDrawer=null;
  vm.createContext(ctx);
- for(const name of ['node','selectableCourses','selectCourse','moveCourseCard','courseCard','courseMetadata','populateCourseMetadata','observationFields','renderRanking','knownLink','knownAddress','appendKnownOptional','knownRounds','coursePopupDetails','facilityDetails','selectCoincidentFacilities','selectFacilityById','selectionPopupOptions','openSelectionPopup','closeSelection','reconcilePopupChoices','reconcileBrowseSelection','selectedFirst','refreshBrowseViewport','filterOptions','scopedRecords','matchesCourseFilters','updateLoadedCount','renderCourses'])vm.runInContext(actual(name),ctx);
+ for(const name of ['node','selectableCourses','selectCourse','moveCourseCard','courseCard','renderRanking','knownLink','knownAddress','appendKnownOptional','knownRounds','coursePopupDetails','facilityDetails','selectCoincidentFacilities','selectFacilityById','selectionPopupOptions','openSelectionPopup','closeSelection','reconcilePopupChoices','reconcileBrowseSelection','selectedFirst','refreshBrowseViewport','filterOptions','scopedRecords','matchesCourseFilters','updateLoadedCount','renderCourses'])vm.runInContext(actual(name),ctx);
  vm.runInContext(source.slice(source.indexOf('map.on("moveend zoomend"'),source.indexOf('async function loadCatalog()')),ctx);
  const real=ctx.renderCourses;ctx.renderCourses=()=>{effects.render++;return real();};ctx.renderCourses();
  return {ctx,view,effects,controls,document,frames,events,ids:()=>view.results.querySelector('.course-list').children.map(item=>item.firstElementChild.dataset.courseId),cards:()=>view.results.querySelectorAll('.course-card'),pan:box=>{bounds=box;events.moveend();events.zoomend();},flush:()=>{while(frames.length)frames.shift()();},popup:()=>openPopup};
@@ -65,9 +65,9 @@ test('move/zoom follows the viewport in one frame, drops stale selection and nev
  const before=h.effects.render;h.pan([41.8,-89.2,42.2,-88.8]);assert.equal(h.frames.length,1);h.flush();
  assert.equal(h.effects.render,before+1);assert.deepEqual(h.ids(),['c-c']);assert.equal(h.ctx.state.activeCourse,null);assert.equal(h.ctx.activeFacility,null);assert.equal(h.ctx.cataloguePopup,null);assert.equal(h.effects.planning,0);
 });
-test('zoom within an unchanged viewport preserves card nodes, expanded details and focus',()=>{
- const h=harness(),card=h.cards().find(c=>c.dataset.courseId==='c-a'),details=card.querySelector('.course-facts');details.open=true;details.emit('toggle');const count=details.children.length;details.children[0].focus();
- h.pan([40,-90,43,-87]);h.flush();assert.equal(h.cards().find(c=>c.dataset.courseId==='c-a'),card);assert.equal(card.querySelector('.course-facts'),details);assert.equal(details.open,true);assert.equal(details.children.length,count);assert.equal(h.document.activeElement,details.children[0]);
+test('zoom within an unchanged viewport preserves card nodes and course-button focus',()=>{
+ const h=harness(),card=h.cards().find(c=>c.dataset.courseId==='c-a'),focus=card.querySelector('.course-focus');focus.focus();
+ h.pan([40,-90,43,-87]);h.flush();assert.equal(h.cards().find(c=>c.dataset.courseId==='c-a'),card);assert.equal(card.querySelector('.course-focus'),focus);assert.equal(h.document.activeElement,focus);
 });
 test('card clicks select/highlight and promote exactly one existing card; repeated clicks never duplicate it',()=>{
  const h=harness(),item=h.view.results.querySelector('.course-list').children.find(item=>item.firstElementChild.dataset.courseId==='c-b'),card=item.firstElementChild;
@@ -108,7 +108,7 @@ test('popup projection omits nulls/empty sections and provenance but preserves f
 test('known popup facts preserve metadata-only empty arrays and do not mutate stored optional rows',()=>{
  const h=harness(),course=h.ctx.catalogModel.courses[0],before=JSON.stringify(course);
  assert.equal(renderKnownOptional(empty(),{subjectLabel:'Course',document:h.document}),null);h.ctx.coursePopupDetails(course);assert.equal(JSON.stringify(course),before);
- const f=h.ctx.catalogModel.facilities[0],text=h.ctx.facilityDetails(f).textContent;assert.doesNotMatch(text,/unknown|unconfirmed|not recorded|await|inventory|entrance unverified/i);assert.match(text,/36 physical holes/);assert.match(text,/2 courses/);
+ const f=h.ctx.catalogModel.facilities[0],text=h.ctx.facilityDetails(f).textContent;assert.doesNotMatch(text,/unknown|unconfirmed|not recorded|await|inventory|entrance unverified/i);assert.match(text,/36 holes/);assert.doesNotMatch(text,/physical holes|Property point/);assert.match(text,/2 courses/);
 });
 
 test('search-only unmapped records stay selectable until the next ordinary viewport change',()=>{
@@ -146,15 +146,15 @@ test('unmapped multi-course facility search closes a previous mapped popup witho
 });
 
 
-test('viewport updates preserve loaded windows above60 and focused/expanded eligible cards',()=>{
+test('viewport updates preserve loaded windows above60 and focused eligible cards',()=>{
  const h=harness(),base=h.ctx.catalogModel.courses[0];
  for(let i=0;i<100;i++){const c={...base,course_id:`c-loaded-${i}`,name:`ZZ${String(i).padStart(3,'0')}`};h.ctx.catalogModel.courses.push(c);h.ctx.catalogModel.courseById.set(c.course_id,c);}
  h.ctx.listLimit=120;h.ctx.renderCourses();assert.equal(h.ids().length,103);
- const card=h.cards().find(c=>c.dataset.courseId==='c-loaded-99'),details=card.querySelector('.course-facts');details.open=true;details.emit('toggle');details.children[0].focus();
- h.pan([40,-90,43,-87]);h.flush();assert.equal(h.ids().length,103);assert.equal(h.document.activeElement,details.children[0]);assert.ok(h.view.results.contains(card));
+ const card=h.cards().find(c=>c.dataset.courseId==='c-loaded-99'),focus=card.querySelector('.course-focus');focus.focus();
+ h.pan([40,-90,43,-87]);h.flush();assert.equal(h.ids().length,103);assert.equal(h.document.activeElement,focus);assert.ok(h.view.results.contains(card));
  // Newly entering alphabetically earlier records must not push a held eligible card out.
  for(let i=0;i<100;i++){const c={...base,course_id:`c-entered-${i}`,name:`AA${i}`};h.ctx.catalogModel.courses.push(c);h.ctx.catalogModel.courseById.set(c.course_id,c);}
- h.pan([40,-90,43,-87]);h.flush();assert.ok(h.ids().includes('c-loaded-99'));assert.equal(h.document.activeElement,details.children[0]);assert.equal(card.querySelector('.course-facts'),details);
+ h.pan([40,-90,43,-87]);h.flush();assert.ok(h.ids().includes('c-loaded-99'));assert.equal(h.document.activeElement,focus);assert.equal(card.querySelector('.course-focus'),focus);
 });
 test('changing filters after a multi-course popup is open closes stale choices and returns popup focus safely',()=>{
  const h=harness();h.ctx.catalogModel.courseById.get('c-b').physical_holes=9;
@@ -242,4 +242,50 @@ test('shared facility choice includes actual filter-eligible courses outside the
 test('filters with no eligible course show only the neutral empty state and no fake course',()=>{
  const h=harness();h.controls['browse-holes'].value='9';h.ctx.selectFacilityById('f-one');assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),[]);
  assert.equal(h.view.results.textContent.trim(),'No matching courses.');assert.equal(h.view.results.querySelector('.selected-facility-context'),null);assert.doesNotMatch(h.view.results.textContent,/Shared facility|No course records|Discovery remains incomplete/);
+});
+
+
+test('browse and planning pills omit requested uncertainty labels and details without changing data',()=>{
+ const h=harness(),native=h.ctx.catalogModel.courses[0];native.identity_status='needs_review';native.access=null;
+ const card={...browseCard(native,h.ctx.catalogModel.destinations),routing_basis:'approximate_facility_point'},before=JSON.stringify(card);
+ for(const browseOnly of [true,false]){
+  const pill=h.ctx.courseCard({...card,browseOnly},'maximum').firstElementChild;
+  assert.doesNotMatch(pill.textContent,/course identity unconfirmed|access unconfirmed|approximate facility point|course arrival unverified|Course details/i);
+  assert.equal(pill.querySelectorAll('details').length,0);assert.match(pill.textContent,/18 holes/);assert.ok(pill.textContent.includes(card.address));
+ }
+ assert.equal(JSON.stringify(card),before);assert.equal(native.identity_status,'needs_review');assert.equal(native.access,null);
+});
+test('pills retain known access and popup retains explicit restrictions, tee facts and scoped observations',()=>{
+ const h=harness(),native=h.ctx.catalogModel.courses[0];
+ for(const [access,label] of [['public','Public play'],['private','Private'],['restricted','Restricted']]){
+  native.access=access;const card=browseCard(native,h.ctx.catalogModel.destinations);
+  assert.ok(h.ctx.courseCard(card,'maximum').textContent.includes(label));
+ }
+ const {value,manifest}=fixture();h.ctx.catalogModel=validatePublicCatalog(value,manifest);
+ const course=value.courses.find(c=>c.plan_eligible===true);course.nonmember_bookable=false;course.booking_conditions='Members must accompany guests.';course.access_qualification='Walking only after 3pm.';
+ const before=JSON.stringify(course),popup=h.ctx.coursePopupDetails(course),text=popup.textContent;
+ assert.match(text,/Members must accompany guests/);assert.match(text,/Walking only after 3pm/);assert.match(text,/Nonmember booking: No/);assert.match(text,/course difficulty rating \(not a quality rating\)/);assert.match(text,/121/);
+ assert.equal(JSON.stringify(course),before);
+});
+test('compact pills do not construct optional observations or read removed dropdown fields',()=>{
+ const h=harness(),card=browseCard(h.ctx.catalogModel.courses[0],h.ctx.catalogModel.destinations);let reads=0;
+ for(const key of ['optional','tee_sets','components','round_options'])Object.defineProperty(card,key,{get(){reads++;throw Error('Removed pill details must not inspect '+key);}});
+ h.ctx.courseCard(card,'maximum');assert.equal(reads,0);
+});
+test('generated hole labels use holes while recorded keys, values and verified locations remain intact',()=>{
+ const h=harness(),{value}=fixture(),row=Object.fromEntries(Object.keys(OPTIONAL_SCHEMA.architecture_event).map(key=>[key,null]));
+ row.credits=[];row.physical_holes_before=18;row.physical_holes_after=27;const optional=empty();optional.architecture_event=[row];const before=JSON.stringify(optional);
+ const text=renderKnownOptional(optional,{subjectLabel:'Course',document:h.document}).textContent;assert.match(text,/holes before 18/);assert.match(text,/holes after 27/);assert.doesNotMatch(text,/physical holes/);assert.equal(JSON.stringify(optional),before);
+ const facility=h.ctx.catalogModel.facilities[0];facility.map_location.kind='verified_entrance';assert.match(h.ctx.facilityDetails(facility).textContent,/Verified entrance/);
+ facility.map_location.kind='property_point';const ftext=h.ctx.facilityDetails(facility).textContent;assert.match(ftext,/36 holes/);assert.doesNotMatch(ftext,/physical holes|Property point/);
+});
+
+
+test('catalog progress has exactly four concise stats with facility map-count semantics',()=>{
+ const h=harness();h.controls['progress-counts']=h.document.createElement('div');h.ctx.fmt=n=>n.toLocaleString('en-US');
+ h.ctx.catalogModel.facilities.push({...h.ctx.catalogModel.facilities[0],facility_id:'f-unmapped',map_location:null});
+ vm.runInContext(actual('renderProgress'),h.ctx);h.ctx.renderProgress();
+ const stats=h.controls['progress-counts'];assert.equal(stats.children.length,4);
+ assert.deepEqual(stats.children.map(n=>n.children.map(c=>c.textContent)),[['3','Facilities'],['3','Courses'],['2','On map'],['1','Not yet mapped']]);
+ assert.doesNotMatch(stats.textContent,/revision|qualification|SQLite|activity|unconfirmed|unknown/i);
 });
