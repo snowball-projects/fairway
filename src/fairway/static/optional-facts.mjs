@@ -30,7 +30,10 @@ function assertIds(actual,expected){if(!Array.isArray(actual)||new Set(actual).s
 export function rejectRawEvidence(value){
   if(Array.isArray(value)){for(const row of value)rejectRawEvidence(row);return;}
   if(object(value)){for(const [key,child] of Object.entries(value)){if(['fact_groups','payload','retained_pointer','retained_document','retained_evidence','controls_reference','capture_path','local_path'].includes(key))fail('Raw evidence is not operational transport');rejectRawEvidence(key);rejectRawEvidence(child);}return;}
-  if(typeof value==='string'&&/(?:^|[\s"'(\[={])\/{1,2}[^\s/]|file:\/\/|\b[A-Za-z]:[\\/]|\\{2}/i.test(value))fail('Private path in public transport');
+  if(typeof value==='string'){
+    const scan=value.replace(/\bhttps?:\/\/[^\s<>"'`]+/gi,'');
+    if(/(?:^|[\s"'`(\[={:;,<>|!?“”‘’«»])\/+[^\s/]|file:\/\/|\b[A-Za-z]:[\\/]|\\{2}/i.test(scan))fail('Private path in public transport');
+  }
 }
 export function validateScopedOptional(value){
   rejectRawEvidence(value);

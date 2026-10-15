@@ -17,11 +17,11 @@ The fixture remains byte-identical, 45,322 bytes, three facilities, three course
 two shared destinations and six distinct optional observations. Its revision2 is
 synthetic and is unrelated to the actual catalog revision758.
 
-The public evidence correction7236cff8ed048fa9eec9a489bb666560157febe6 is also
+The public evidence correction203fcd46c8ea93f191bd0d33d9f5abfcd5209b63 is also
 pinned: public provenance.notes contains exactly note IDs, never retained bodies.
 SQLite retains original bodies privately. The fixture's empty notes array is
 unchanged. BACKEND-CONTRACT.md is an exact copy of that corrected source contract.
-Writer correction review is separate; pinning is not independent clearance.
+Writer203fcd4 bounded source clearance is independently recorded in task11/native5-production-review/CLEARANCE-203fcd4.json. That source clearance does not adopt a schema or approve the remaining mapping/publication.
 
 ## Consumer behavior
 
@@ -48,8 +48,9 @@ Structured city fields support city search; addresses are never parsed for facts
 
 The UI renders canonical fields as textContent, with safe HTTP(S) source links,
 source license/attribution and dated qualifications. It does not render raw retained
-notes or private controls. Absolute POSIX, drive, UNC and file-URI tokens reject in
-public keys and values. Source registry data stays in the validated model; source
+notes or private controls. Absolute POSIX, drive, UNC and file-URI tokens, including punctuation-prefixed paths, reject in
+public keys and values. Complete HTTP(S) URL tokens are excluded from the validation
+scan only; their emitted text and slash-compound words remain unchanged. Source registry data stays in the validated model; source
 counts and per-observation provenance avoid eagerly creating thousands of registry
 DOM nodes. The existing single Courses drawer, filters, committed origins and
 coordinate selection remain. No routing implementation is added.
@@ -73,7 +74,7 @@ separate reviewed change.
 
 ## Verification and limits
 
-Author source checks:257 Python and98 JavaScript tests pass, including actual
+Author source checks:273 Python and114 JavaScript tests pass, including actual
 committed-origin handler and course-details execution, all ten optional domain
 arrays, four subject scopes, unknown/false behavior, shared rounds, architecture,
 full price conditions, source drift, note-body rejection and absolute-path rejection.

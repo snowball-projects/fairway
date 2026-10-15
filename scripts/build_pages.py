@@ -56,12 +56,14 @@ def public_projection(value):
         elif isinstance(item, list):
             for child in item:
                 visit(child)
-        elif isinstance(item, str) and re.search(
-            r"""(?:^|[\s"'(\[={])/{1,2}[^\s/]|file://|\b[A-Za-z]:[\\/]|\\{2}""",
-            item,
-            re.IGNORECASE,
-        ):
-            raise ValueError("private path in public transport")
+        elif isinstance(item, str):
+            scan = re.sub(r"\bhttps?://[^\s<>\"'`]+", "", item, flags=re.IGNORECASE)
+            if re.search(
+                r"""(?:^|[\s"'`(\[={:;,<>|!?“”‘’«»])/+[^\s/]|file://|\b[A-Za-z]:[\\/]|\\{2}""",
+                scan,
+                re.IGNORECASE,
+            ):
+                raise ValueError("private path in public transport")
 
     visit(value)
     for note in value.get("provenance", {}).get("notes", []):

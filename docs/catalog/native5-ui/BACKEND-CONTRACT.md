@@ -111,6 +111,8 @@ intake decisions and private control/capture pointers are excluded. Raw groups,
 retained payloads, correction proof bodies and arbitrary filesystem paths are not
 public operational data. Absolute POSIX, drive-qualified Windows, UNC and file-URI
 tokens in public values or keys cause export rejection rather than leakage.
+HTTP link tokens are excluded from that lexical validation scan; their emitted
+text is unchanged. Punctuation does not hide an absolute path.
 
 Export requires a closed checksummed native5 file with no WAL/SHM/journal sidecars.
 A single read transaction covers both resources and all children/provenance.

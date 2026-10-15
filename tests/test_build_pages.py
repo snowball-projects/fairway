@@ -138,3 +138,25 @@ def test_public_asset_rejects_note_bodies_and_retained_payload():
     ):
         with pytest.raises(ValueError):
             pages.public_projection(value)
+
+
+@pytest.mark.parametrize(
+    "prefix",
+    [":", ";", ",", "<", ">", "|", "!", "?", "“", "”", "‘", "’", "«", "»", "`"],
+)
+def test_public_asset_rejects_punctuation_prefixed_paths(prefix):
+    with pytest.raises(ValueError, match="private path"):
+        pages.public_projection({"safe": "label" + prefix + "/private/evidence"})
+
+
+def test_public_asset_preserves_urls_and_slash_compound_text():
+    for text in [
+        "clubhouse/range",
+        "https://official.example/path?next=/course",
+        "Source: https://official.example/golf/course; practice/range",
+    ]:
+        pages.public_projection({"safe": text})
+    with pytest.raises(ValueError, match="private path"):
+        pages.public_projection(
+            {"safe": "https://official.example/path then:/private/evidence"}
+        )

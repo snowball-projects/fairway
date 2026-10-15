@@ -82,3 +82,11 @@ test('text is rendered as textContent, without HTML or unsafe source URL links',
   const {value}=fixture(),optional=main(value).optional,row=optional.practice_observation[0];row.qualification='<img src=x onerror=alert(1)>';row.source_url='javascript:alert(1)';
   const output=renderOptional(optional,{subjectLabel:'Course',document});assert.ok(output.textContent.includes(row.qualification));assert.ok(output.children.every(n=>n.tag!=='img'));assert.ok(output.children[1].children.every(n=>n.tag!=='a'));
 });
+
+for(const prefix of [':',';',',','<','>','|','!','?','“','”','‘','’','«','»','`'])test(`punctuation-prefixed absolute path rejects: ${prefix}`,()=>{
+  assert.throws(()=>rejectRawEvidence('label'+prefix+'/private/evidence'),/Private path/);
+});
+test('URL tokens and ordinary slash-compound text remain unchanged',()=>{
+  for(const text of ['clubhouse/range', 'https://official.example/path?next=/course', 'Source: https://official.example/golf/course; practice/range'])assert.doesNotThrow(()=>rejectRawEvidence(text));
+  assert.throws(()=>rejectRawEvidence('https://official.example/path then:/private/evidence'),/Private path/);
+});
