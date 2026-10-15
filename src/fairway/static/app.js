@@ -953,6 +953,19 @@ function selectFacilityById(id, fit = true) {
   else if(cataloguePopup){const previous=cataloguePopup;cataloguePopup=null;map.closePopup(previous);}
   drawFacilities();renderCourses();view.results.scrollTop=0;
 }
+function selectionPopupOptions() {
+  const options={maxWidth:312,minWidth:280,maxHeight:null,autoPan:false,closeOnClick:false};
+  if(mobile()) {
+    const covered=!view.resultsPanel.hidden?view.resultsPanel.getBoundingClientRect().height:0;
+    const top=Math.max(120,document.querySelector(".map-actions").getBoundingClientRect().bottom+8);
+    const bottom=covered+16;
+    options.maxHeight=Math.max(48,Math.min(230,window.innerHeight-top-bottom-40));
+    options.autoPan=true;
+    options.autoPanPaddingTopLeft=[12,top];
+    options.autoPanPaddingBottomRight=[12,bottom];
+  }
+  return options;
+}
 function openSelectionPopup() {
   if(!popupSelection||!catalogModel)return;
   const content=node("div");
@@ -970,9 +983,13 @@ function openSelectionPopup() {
     content.append(node("h3",`${popupSelection.ids.length} facilities at this point`));
     for(const id of popupSelection.ids){const facility=catalogModel.facilityById.get(id);if(facility)content.append(facilityDetails(facility,true));}
   }
-  if(cataloguePopup?.isOpen())cataloguePopup.setLatLng(popupSelection.coordinate).setContent(content);
+  const options=selectionPopupOptions();
+  if(cataloguePopup?.isOpen()) {
+    Object.assign(cataloguePopup.options,options);
+    cataloguePopup.setLatLng(popupSelection.coordinate).setContent(content);
+  }
   else {
-    const popup=L.popup({maxWidth:312,minWidth:280,autoPan:false,closeOnClick:false}).setLatLng(popupSelection.coordinate).setContent(content).openOn(map);
+    const popup=L.popup(options).setLatLng(popupSelection.coordinate).setContent(content).openOn(map);
     cataloguePopup=popup;
     popup.on("remove",()=>{if(cataloguePopup===popup){cataloguePopup=null;closeSelection();}});
   }
