@@ -128,17 +128,17 @@ def test_serves_catalog_interface_and_routing_assets():
     assert b"Minimize combined driving time" in body
     assert b"Estimates" not in body
     assert b"Counties" not in body
-    assert b"Nationwide routing is not available yet" in body
-    assert b"Typed origin addresses go to Photon" in body
+    assert b"Driving-time comparison is not connected" in body
+    assert b"Addresses are sent to Photon only" in body
     assert body.index(b"How This Works") < body.index(
-        b"Nationwide routing is not available yet"
+        b"Driving-time comparison is not connected"
     )
     assert body.index(b"How This Works") < body.index(
-        b"Typed origin addresses go to Photon"
+        b"Addresses are sent to Photon only"
     )
     assert b'<script src="./leaflet.js" defer></script>' in body
     assert b"https://unpkg.com" not in body
-    for path in ["/app.js", "/catalog.mjs", "/origin-rows.mjs", "/styles.css"]:
+    for path in ["/app.js", "/catalog-read.mjs", "/origin-rows.mjs", "/styles.css"]:
         status, _body = request(path)
         assert status == "200 OK"
 

@@ -17,7 +17,7 @@ def test_build_orders_publication_and_stops_on_failure(tmp_path, failed_step):
     python.write_text(
         '#!/bin/sh\ncase "$*" in\n'
         '  "-m pip "*) echo bootstrap >> "$BUILD_LOG" ;;\n'
-        '  "scripts/publish_research_map.py")\n'
+        '  "scripts/build_pages.py --check")\n'
         '    echo publication >> "$BUILD_LOG"\n'
         '    [ "$FAILED_STEP" != publication ] ;;\n'
         "  *) exit 99 ;;\nesac\n"

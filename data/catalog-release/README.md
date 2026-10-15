@@ -1,0 +1,1 @@
+Generated native read transport from closed SQLite revision758. Do not edit these JSON/gzip bytes. Regenerate with scripts/export_native_catalog.py from the pinned closed private SQLite authority. No old-schema runtime catalog or browser SQLite engine is used. The full SQLite/evidence/SQL recovery inputs are not published to Pages or copied here.

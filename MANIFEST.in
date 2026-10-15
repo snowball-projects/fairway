@@ -1,7 +1,8 @@
 include AGENTS.md CLAUDE.md CONTRIBUTING.md SECURITY.md SERVICE.md
 include .env.example render.yaml uv.lock
 include data/README.md
-include data/catalog.json
+include PUBLIC-758-EXPORT-CONTRACT.md
+recursive-include data/catalog-release *.json *.gz *.md
 include data/migration-accounting.json
 include research/kansas-rural-20261013/apply_delta.py
 include research/kansas-rural-20261013/delta.json
