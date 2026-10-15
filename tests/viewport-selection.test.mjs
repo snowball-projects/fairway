@@ -216,3 +216,30 @@ test('short-screen popup fallback retains selection and uses controls in their c
  h.ctx.selectCourse('c-c');assert.equal(h.ctx.state.activeCourse,'c-c');assert.equal(h.view.resultsPanel.hidden,true);assert.equal(h.popup().options.autoPanPaddingTopLeft[1],118);assert.ok(h.popup().options.maxHeight+40+118+78<=390);
  h.ctx.window.innerHeight=90;h.ctx.openSelectionPopup();assert.equal(h.ctx.cataloguePopup,null);assert.equal(h.ctx.state.activeCourse,'c-c');assert.equal(h.ctx.popupSelection.id,'c-c');
 });
+
+test('facility-only pin has explicit selected context and no invented course, including neighboring results',()=>{
+ const h=harness(),facility=h.ctx.catalogModel.facilityById.get('f-one');
+ h.ctx.catalogModel.courses=h.ctx.catalogModel.courses.filter(c=>c.facility_id!=='f-one');for(const id of ['c-a','c-b'])h.ctx.catalogModel.courseById.delete(id);facility.course_inventory=[];
+ h.pan([40.9,-88.2,41.2,-87.8]);h.flush();h.ctx.selectFacilityById('f-one');
+ assert.deepEqual(h.ids(),[]);assert.equal(h.ctx.state.activeCourse,null);assert.equal(h.ctx.activeFacility,'f-one');
+ const context=h.view.results.querySelector('.selected-facility-context');assert.ok(context);assert.equal(context.dataset.facilityId,'f-one');assert.match(context.textContent,/Selected facility.*Shared facility.*No course records/);assert.doesNotMatch(h.view.results.textContent,/Discovery remains incomplete/);assert.equal(h.cards().length,0);
+ h.pan([40,-90,43,-87]);h.flush();assert.deepEqual(h.ids(),['c-c']);assert.ok(h.view.results.querySelector('.selected-facility-context'));
+ h.pan([41.8,-89.2,42.2,-88.8]);h.flush();assert.equal(h.ctx.activeFacility,null);assert.equal(h.view.results.querySelector('.selected-facility-context'),null);
+});
+test('visible facility pin selects its one actual eligible course despite a different course point',()=>{
+ const h=harness();h.ctx.catalogModel.courseById.get('c-b').physical_holes=9;h.controls['browse-holes'].value='18';
+ h.ctx.catalogModel.courseById.get('c-a').map_location={latitude:42,longitude:-89};h.pan([40.9,-88.2,41.2,-87.8]);h.flush();assert.deepEqual(h.ids(),[]);
+ h.ctx.selectFacilityById('f-one');assert.equal(h.ctx.state.activeCourse,'c-a');assert.equal(h.ids()[0],'c-a');assert.equal(h.cards()[0].dataset.active,'true');assert.equal(h.ctx.selectCourse('c-b'),false);assert.equal(h.ctx.selectCourse('c-c',true,'f-one'),false);
+ h.pan([41.8,-89.2,42.2,-88.8]);h.flush();assert.equal(h.ctx.state.activeCourse,'c-a');assert.equal(h.ids()[0],'c-a');
+ h.pan([20,-120,21,-119]);h.flush();assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),[]);assert.doesNotMatch(h.view.results.textContent,/Discovery remains incomplete/);
+});
+test('shared facility choice includes actual filter-eligible courses outside the pin viewport and reconciles after filter changes',()=>{
+ const h=harness();h.ctx.catalogModel.courseById.get('c-b').map_location={latitude:42,longitude:-89};h.ctx.catalogModel.courseById.get('c-b').physical_holes=9;
+ h.pan([40.9,-88.2,41.05,-87.8]);h.flush();h.ctx.selectFacilityById('f-one');assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(new Set(h.ids()),new Set(['c-a','c-b']));
+ const button=h.popup().content.querySelectorAll('button').find(b=>b.textContent.includes('Charlie'));assert.ok(button);button.emit('click');assert.equal(h.ctx.state.activeCourse,'c-b');assert.equal(h.ids()[0],'c-b');
+ h.controls['browse-holes'].value='18';h.ctx.renderCourses();assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),['c-a']);assert.equal(h.view.results.querySelector('.selected-facility-context'),null);
+});
+test('filters with no eligible course show selected-facility explanation, not missing inventory or a fake course',()=>{
+ const h=harness();h.controls['browse-holes'].value='9';h.ctx.selectFacilityById('f-one');assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),[]);
+ assert.match(h.view.results.querySelector('.selected-facility-context').textContent,/No courses at this facility match the current filters/);assert.doesNotMatch(h.view.results.textContent,/No course records|Discovery remains incomplete/);
+});

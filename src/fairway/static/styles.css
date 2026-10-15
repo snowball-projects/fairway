@@ -1458,3 +1458,14 @@ dialog > p:last-child {
 
 .review-fixture-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;margin:0;padding:4px;background:#352b1c;color:white;text-align:center;font-size:12px;pointer-events:none}
 .typed-observations h4{margin:12px 0 6px}.typed-observations>details{margin-block:8px}
+
+.selected-facility-context {
+  margin: 0 0 0.75rem;
+  padding: 0.85rem;
+  border: 1px solid #8ca99b;
+  border-radius: 0.75rem;
+  background: white;
+}
+.selected-facility-context p {
+  margin: 0.35rem 0;
+}
