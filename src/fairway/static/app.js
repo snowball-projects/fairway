@@ -1017,7 +1017,7 @@ function scopedRecords() {
 }
 function matchesCourseFilters(course) {return courseMatches(course,filterOptions());}
 function updateDisplaySortOptions() {
-  const sort = $("browse-sort"), choices = [["name","Name"],["holes","Physical course holes"]];
+  const sort = $("browse-sort"), choices = [["name","Name"],["holes","Holes"]];
   if (planningMode && state.ranking?.courses.some(c=>Number.isFinite(c.maximum_seconds))) choices.push(["maximum","Longest driving time"],["combined","Combined driving time"],
     ...state.rows.filter(row => row.coordinate).map(row => [`origin:${row.id}`,`Golfer ${state.rows.indexOf(row)+1} driving time`]));
   const key = JSON.stringify(choices);
