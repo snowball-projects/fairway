@@ -1,0 +1,25 @@
+{
+  "wisgolf.org": {
+    "kind": "technical_timeout_on_unverified_discovery_domain",
+    "url": "https://www.wisgolf.org/robots.txt",
+    "scope": "No retry/alias recovery on wisgolf.org. Official WSGA search identifies wsga.org; relationship to queried discovery domain is not verified, so WSGA is not claimed cleared or selected for fact intake."
+  },
+  "wsga.org": {
+    "reason": "Explicit current terms restrict use/download/republication of documents and information beyond personal non-commercial access without prior written consent. No directory/vendor request or facts admitted.",
+    "source_url": "https://wsga.org/terms-privacy/",
+    "sha256": "a19cef9ef31509731ce25ad49bd8173081c21d5ffc4a41b4c44463941199a0d5",
+    "ordinary_aliases": [
+      "www.wsga.org",
+      "wsga.org"
+    ],
+    "not_statewide_hold": true
+  },
+  "newtonma.gov": {
+    "reason": "robots.txt normal request403; no homepage or facility request, no retry or alias",
+    "sha256": "4b395840245ac6deabe0ac73b3200bd53599951eed78ee803f22305fc7ba5b28",
+    "ordinary_aliases": [
+      "www.newtonma.gov",
+      "newtonma.gov"
+    ]
+  }
+}

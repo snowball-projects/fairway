@@ -1,0 +1,11 @@
+{
+  "backend_commit": "52a7c3f370580c8eafb71ee15ffa184cdb522226",
+  "sql_sha256": "ab852cff6180dba03c4d7f780b2aded18ea962ed0664808887698c9cd78a34c6",
+  "fixture_sha256": "af80563e815aaedda424b24eeeb42b985e6edd8b746306a8804fca6bc3454bef",
+  "contract_sha256": "e3fa33b7fc01bb4da796567cf347a52841cad772deb80687b17e726d50c079bc",
+  "authority_adopted": false,
+  "base_frontend": "830bce48610d829457d0f5cd24cac9c7ab9aa7e3",
+  "public_projection_correction": "203fcd46c8ea93f191bd0d33d9f5abfcd5209b63",
+  "notes_projection": "IDs only; retained bodies remain private in SQLite",
+  "previous_public_projection": "7236cff8ed048fa9eec9a489bb666560157febe6"
+}

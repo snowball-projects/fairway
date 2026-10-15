@@ -1,0 +1,20 @@
+{
+  "authorization": "One parent-authorized read of actual linked/privacy, after retained/current-session source-control review; no guessed/stopped URLs requested.",
+  "requested_url": "https://www.sdga.org/privacy",
+  "request_started": "2026-10-13T19:08:35.765946+00:00",
+  "response_finished": "2026-10-13T19:08:38.780354+00:00",
+  "status": 301,
+  "location": "https://www.sdga.org/privacy/",
+  "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "body_bytes": 0,
+  "body_file": "6224ba2909665024.body",
+  "requests_made": 1,
+  "redirect_followed": false,
+  "pacing_gap_seconds": 3367.6348237991333,
+  "minimum_delay_seconds": 15,
+  "publisher_denial_or_restriction_observed": false,
+  "privacy_policy_body_reviewed": false,
+  "permitted_factual_intake_changed": false,
+  "publication_status": "held_for_unreviewed_linked_policy",
+  "retention": "Exact empty body and complete headers retained locally; delivered evidence excludes headers/cookies except public Location."
+}

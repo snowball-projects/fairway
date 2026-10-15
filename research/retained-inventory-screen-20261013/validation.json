@@ -1,0 +1,14 @@
+{
+  "request_count": 3,
+  "publisher_groups": 1,
+  "raw_hashes_and_lengths_verified": true,
+  "minimum_completion_to_next_start_gap_seconds": 15.00008749961853,
+  "last_gap_null": true,
+  "inventory_fact_requests": 0,
+  "accepted_facilities": 0,
+  "catalog_unchanged": true,
+  "product_files_unchanged": true,
+  "response_size_limit_bytes": 3000000,
+  "oversized_body_retained_as_prefix_only": true,
+  "no_retry": true
+}

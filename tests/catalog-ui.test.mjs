@@ -5,8 +5,9 @@ import {
   mapEligible,
   catalogCounts,
   searchCatalog,
-  shapeRings,
-} from "../src/fairway/static/catalog.mjs";
+} from "../src/fairway/static/catalog-read.mjs";
+import {shapeRings} from "../src/fairway/static/map-geometry.mjs";
+import {gunzipSync} from "node:zlib";
 import { project } from "../docs/research-map/model.mjs";
 import { createFacilityDots } from "../src/fairway/static/facility-dots.mjs";
 import {
@@ -15,14 +16,14 @@ import {
   requiredOriginRows,
 } from "../src/fairway/static/origin-rows.mjs";
 const facility = {
-  id: "f-example",
+  facility_id: "f-example",
   name: "Public 27",
   state: "NY",
   physical_holes: 27,
-  public_access: "public",
+  access: "public",
   website: null,
   courses: [],
-  address: { text: "72 Main St, Bemus Point, NY 14712" },
+  address: { text: "72 Main St, Bemus Point, NY 14712", city:"Bemus Point" },
   map_location: {
     latitude: 42.1576593,
     longitude: -79.3887563,
@@ -50,7 +51,7 @@ test("planning retains two origin rows through repeated removals and restored co
 });
 test("public 27-hole facility with no website or invented courses is eligible, estimates remain pending", () => {
   assert.equal(mapEligible(facility), true);
-  assert.equal(mapEligible({ ...facility, public_access: "unknown" }), false);
+  assert.equal(mapEligible({ ...facility, access: "unknown" }), true);
   assert.equal(
     mapEligible({
       ...facility,
@@ -64,18 +65,18 @@ test("public 27-hole facility with no website or invented courses is eligible, e
   assert.deepEqual(
     catalogCounts([
       facility,
-      { ...facility, id: "pending", map_location: null },
+      { ...facility, facility_id: "pending", map_location: null },
     ]),
-    { total: 2, onMap: 1, pending: 1, estimates: 0 },
+    { total: 2, onMap: 1, pending: 1 },
   );
 });
 test("facility/city/state search preserves duplicate-name geography and unmapped records", () => {
   const other = {
     ...facility,
-    id: "other",
+    facility_id: "other",
     state: "WI",
     map_location: null,
-    address: { text: "10 Main St, Bemus Point, WI 54321" },
+    address: { text: "10 Main St, Bemus Point, WI 54321", city:"Bemus Point" },
   };
   const results = searchCatalog(
     [facility, other],
@@ -179,12 +180,12 @@ test("canvas dots retain every eligible identity and coordinate across national 
     facility,
     {
       ...facility,
-      id: "nearby",
+      facility_id: "nearby",
       map_location: { ...facility.map_location, longitude: -79.389 },
     },
     {
       ...facility,
-      id: "estimate",
+      facility_id: "estimate",
       map_location: {
         ...facility.map_location,
         kind: "address_range_estimate",
@@ -195,7 +196,7 @@ test("canvas dots retain every eligible identity and coordinate across national 
   assert.equal(markers.size, 2);
   assert.equal(fake.paths.size, 2);
   assert.equal(fake.creations, 2);
-  const first = markers.get(facility.id);
+  const first = markers.get(facility.facility_id);
   assert.deepEqual(first.coordinates, [42.1576593, -79.3887563]);
   assert.equal(first.options.renderer, fake.renderer);
   assert.equal(first.options.radius, 2.5);
@@ -205,7 +206,7 @@ test("canvas dots retain every eligible identity and coordinate across national 
   for (let pan = 0; pan < 10; pan++) layer.update(records, null);
   assert.equal(first.styles, styles);
   fake.map.zoom = 15;
-  layer.update(records, facility.id);
+  layer.update(records, facility.facility_id);
   assert.equal(first.options.radius, 7);
   assert.equal(first.options.stroke, true);
   assert.equal(first.front, true);
@@ -213,7 +214,7 @@ test("canvas dots retain every eligible identity and coordinate across national 
   assert.equal(fake.creations, 2);
   assert.deepEqual(first.coordinates, [42.1576593, -79.3887563]);
   first.click();
-  assert.deepEqual(selected, [facility.id]);
+  assert.deepEqual(selected, [facility.facility_id]);
   layer.update(records, "nearby");
   assert.equal(first.options.stroke, false);
   assert.equal(markers.get("nearby").options.stroke, true);
@@ -228,30 +229,26 @@ test("snapshot refresh removes newly ineligible dots and updates coincident popu
     (id) => clicks.push(id),
     (ids, point) => clicks.push({ ids, point }),
   );
-  const duplicate = { ...facility, id: "same-point" };
+  const duplicate = { ...facility, facility_id: "same-point" };
   const markers = layer.update([facility, duplicate], null);
-  const retained = markers.get(facility.id);
+  const retained = markers.get(facility.facility_id);
   retained.click();
-  assert.deepEqual(clicks[0].ids, [facility.id, duplicate.id]);
+  assert.deepEqual(clicks[0].ids, [facility.facility_id, duplicate.facility_id]);
   const moved = {
     ...facility,
     map_location: { ...facility.map_location, longitude: -80 },
   };
-  layer.update([moved, { ...duplicate, public_access: "unknown" }], facility.id);
+  layer.update([moved, { ...duplicate, map_location:null }], facility.facility_id);
   assert.equal(markers.size, 1);
   assert.equal(fake.paths.size, 1);
-  assert.equal(markers.get(facility.id), retained);
+  assert.equal(markers.get(facility.facility_id), retained);
   assert.deepEqual(retained.coordinates, [42.1576593, -80]);
   retained.click();
-  assert.equal(clicks[1], facility.id);
+  assert.equal(clicks[1], facility.facility_id);
 });
 
 test("the published national catalog keeps one persistent canvas path per mapped facility", () => {
-  const catalog = JSON.parse(
-    readFileSync(
-      new URL("../src/fairway/static/data/public-courses.json", import.meta.url),
-    ),
-  );
+  const catalog = JSON.parse(gunzipSync(readFileSync(new URL("../data/catalog-release/catalog.json.gz",import.meta.url))));
   const eligible = catalog.facilities.filter(mapEligible);
   assert.ok(eligible.length > 4000);
   const fake = dotMap();

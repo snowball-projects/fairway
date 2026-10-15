@@ -1,0 +1,40 @@
+{
+  "factual_commit": "fa8b35160038d330f08af1f105bbef4b083c4792",
+  "catalog_schema": "pass",
+  "guarded_replay_and_preservation": "all7200 prior facility objects/research unchanged; all35 prior cohort IDs disjoint; prior histories/report order preserved",
+  "full_local_python_tests": 229,
+  "javascript_tests": 3,
+  "post_history_catalog_publication_tests": 17,
+  "ruff_lint": "pass",
+  "ruff_format": "pass",
+  "installed_wheel": "pass, actual wheel replaces editable project in isolated locked runtime",
+  "wheel_public_catalog_facilities": 7204,
+  "wheel_public_catalog_sha256": "814d53bb9636553851b5502ef33bf9eeddf46745f11542c2304a12fa238f2063",
+  "extracted_source_locked_python": "3.12.14",
+  "extracted_source_python_tests": 229,
+  "extracted_source_javascript_tests": 3,
+  "snapshot_validation": "pass, retained verified chicago-static-v1",
+  "rebuilt_index_exhaustive_cells": 507304,
+  "rebuilt_index_max_abs_difference_seconds": 0.0,
+  "ranking_courses": 8,
+  "green_dot_predicate": "real src/fairway/static/catalog.mjs mapEligible",
+  "eligible_green_dots": 4460,
+  "source_coordinates": 5203,
+  "UI_ranking_snapshot_bytes_changed": false,
+  "capture_hashes_independently_verified": 56,
+  "minimum_root_publisher_completion_gap_seconds": 16.945124,
+  "minimum_MS_publisher_completion_gap_seconds": 15.000091791152954,
+  "minimum_SW_publisher_completion_gap_seconds": 15.004619,
+  "raw_responses_in_Git": false,
+  "CI": "Final report-head CI checked after push; outcome in private checkpoint/PR metadata, not an invented pre-commit result",
+  "packaging_artifacts": {
+    "fairway-0.6.2.tar.gz": {
+      "sha256": "98c78f6d4afd59dcefbc8dce11692ba3e2f3ab46ec9deee906e6457668c19025",
+      "bytes": 7000404
+    },
+    "fairway-0.6.2-py3-none-any.whl": {
+      "sha256": "dff05fa2997e6eb1d7fbfd8e89117c50f683639b394dee13ea1ce8875efd1785",
+      "bytes": 2944900
+    }
+  }
+}

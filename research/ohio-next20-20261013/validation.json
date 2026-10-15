@@ -1,0 +1,28 @@
+{
+  "candidate_only": true,
+  "canonical_catalog_unchanged": true,
+  "base": "22f8d36cc217bf634b1c3dd848875e00cb418007",
+  "proposal_sha256": "eeb09c093e11284603572326e032f062d7849a648fefdf122f51ad7cf7c33314",
+  "Python_tests": {
+    "passed": 229,
+    "seconds": 17.66
+  },
+  "JavaScript_suites": {
+    "passed": 3,
+    "failed": 0
+  },
+  "Ruff_lint_and_format": "passed,70 files",
+  "catalog_schema_and_publication": "passed",
+  "independent_geometry": "17 points reproduced, strictly inside valid geometry; unique object IDs/hashes",
+  "snapshot": {
+    "courses": 8,
+    "edges": 166843,
+    "maximum_course_snap_kilometers": 0.38699980264236983,
+    "snapshot": "chicago-static-v1",
+    "vertices": 63413
+  },
+  "packaging": "wheel and source build passed",
+  "setup_limitations_resolved": "Validation checkout initially lacked generated exports/snapshot and selected uncached Python3.14. Switched to pinned cached3.12.14, used task-local uv cache, generated exports and copied existing verified snapshot. Failed JS/snapshot setup checks subsequently passed. No source retry or new dataset download.",
+  "CI": "No new branch push or PR; actual canonical integration/head CI reserved for PR17 owner.",
+  "history": "Owner must add actual integrating commit/UTC report; no worker canonical history/progress edit."
+}

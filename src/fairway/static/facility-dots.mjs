@@ -1,4 +1,4 @@
-import { mapEligible } from "./catalog.mjs";
+import { mapEligible } from "./catalog-read.mjs";
 
 // One persistent canvas path per eligible facility. Leaflet handles projection,
 // viewport clipping and hit testing; pan/zoom never rebuilds the catalog layer.
@@ -31,12 +31,12 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
     if (refreshed) {
       source = records;
       const eligible = records.filter(mapEligible);
-      const ids = new Set(eligible.map((f) => f.id));
+      const ids = new Set(eligible.map((f) => f.facility_id));
       coincident = new Map();
       for (const f of eligible) {
         const key = pointKey(f);
         const idsAtPoint = coincident.get(key) || [];
-        idsAtPoint.push(f.id);
+        idsAtPoint.push(f.facility_id);
         coincident.set(key, idsAtPoint);
       }
       for (const [id, marker] of markers) {
@@ -50,21 +50,21 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
           f.map_location.latitude,
           f.map_location.longitude,
         ];
-        let marker = markers.get(f.id);
+        let marker = markers.get(f.facility_id);
         if (marker) marker.setLatLng(coordinates);
         else {
           marker = L.circleMarker(coordinates, {
             renderer,
-            ...style(f.id === selected),
+            ...style(f.facility_id === selected),
             bubblingMouseEvents: false,
           });
           marker.on("click", () => {
             const ids = coincident.get(marker.facilityPointKey);
             if (ids?.length > 1) onCoincident(ids, marker.getLatLng());
-            else onSelect(f.id);
+            else onSelect(f.facility_id);
           });
           marker.addTo(layer);
-          markers.set(f.id, marker);
+          markers.set(f.facility_id, marker);
         }
         marker.facilityPointKey = pointKey(f);
       }

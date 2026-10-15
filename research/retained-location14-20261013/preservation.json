@@ -1,0 +1,65 @@
+{
+  "baseline_head": "d3c7bf02a61d6ab2549202a39136292877d530ae",
+  "baseline_sha256": "9ec292e37ad7182a1bd76fe0c6287e54c61cca7293f48dd0f525a456212ee89a",
+  "proposal_sha256": "005d43a50cbaca6af046dd3607a011b48316aa898b6241b6e2bc4f1dbb951cd7",
+  "facilities": 7200,
+  "accepted": 4,
+  "deferred": 10,
+  "changes": [
+    {
+      "id": "f-0ce78ef9-0d28-4efb-8181-e9553b9fcdca",
+      "name": "Pleasant Hill Golf Course",
+      "before": {
+        "latitude": 39.430636,
+        "longitude": -84.402732,
+        "kind": "address_range_estimate"
+      },
+      "after": {
+        "latitude": 39.4270965,
+        "longitude": -84.39913712,
+        "kind": "property_point"
+      }
+    },
+    {
+      "id": "f-49a7855b-b7d1-4213-a593-8c372f0efc6a",
+      "name": "Riverside Golf Course",
+      "before": {
+        "latitude": 30.236108,
+        "longitude": -97.703756,
+        "kind": "address_range_estimate"
+      },
+      "after": {
+        "latitude": 30.23683415,
+        "longitude": -97.70835751,
+        "kind": "property_point"
+      }
+    },
+    {
+      "id": "f-74930e2a-5523-48c6-a6ee-46379fe0092f",
+      "name": "Hancock Golf Course",
+      "before": null,
+      "after": {
+        "latitude": 30.29902665,
+        "longitude": -97.72531964,
+        "kind": "property_point"
+      }
+    },
+    {
+      "id": "f-ee14fc75-77ac-4295-881f-ff0d4bc90099",
+      "name": "Fox Run Golf Course",
+      "before": null,
+      "after": {
+        "latitude": 41.98403555,
+        "longitude": -79.95157553,
+        "kind": "property_point"
+      }
+    }
+  ],
+  "all31_prior_accepted_facility_and_research_objects_preserved": true,
+  "all_unrelated_facilities_research_registry_values_history_progress_and_counties_preserved": true,
+  "all_holes_courses_inventories_addresses_counties_public_access_arrivals_preserved": true,
+  "existing_research_support_and_note_order_preserved": true,
+  "two_nulls_and_two_address_estimates_replaced": true,
+  "raw_operator_fact_intake": 0,
+  "canonical_not_yet_written": true
+}

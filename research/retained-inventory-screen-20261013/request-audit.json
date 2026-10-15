@@ -1,0 +1,48 @@
+[
+  {
+    "url": "https://b2b.glaciermt.com/robots.txt",
+    "group": "glaciermt.com",
+    "start": "2026-10-13T21:07:30.195647+00:00",
+    "start_epoch": 1791925650.1956549,
+    "status": 404,
+    "complete": "2026-10-13T21:07:30.944262+00:00",
+    "complete_epoch": 1791925650.944274,
+    "sha256": "ab2960690ef2d62c2d7840abfb4328c3fe1a257e546437f3b334d03898efd7eb",
+    "bytes": 118,
+    "file": "35eb3866a4cf1ca7.body",
+    "completion_to_next_start_gap_seconds": 15.00008749961853,
+    "response_body_complete": true,
+    "retained_bytes_are_prefix_only": false
+  },
+  {
+    "url": "https://glaciermt.com/robots.txt",
+    "group": "glaciermt.com",
+    "start": "2026-10-13T21:07:45.944343+00:00",
+    "start_epoch": 1791925665.9443614,
+    "status": 200,
+    "complete": "2026-10-13T21:07:46.098685+00:00",
+    "complete_epoch": 1791925666.098697,
+    "sha256": "e5c4b84484ee4216e9373be99380320c25dd94805f99f0a805846f087636553f",
+    "bytes": 24,
+    "file": "4be79396ec976b28.body",
+    "completion_to_next_start_gap_seconds": 64.0777690410614,
+    "response_body_complete": true,
+    "retained_bytes_are_prefix_only": false
+  },
+  {
+    "url": "https://glaciermt.com/",
+    "group": "glaciermt.com",
+    "start": "2026-10-13T21:08:50.176458+00:00",
+    "start_epoch": 1791925730.176466,
+    "status": 200,
+    "error": "Response exceeds bounded size; no facts usable",
+    "complete": "2026-10-13T21:08:50.940158+00:00",
+    "complete_epoch": 1791925730.9401717,
+    "sha256": "0ed79045c450859082bcab0417e3d90b9a5faa6d0a5bd61a80dced8cf71c0340",
+    "bytes": 3000001,
+    "file": "37acbecd335e56e4.body",
+    "completion_to_next_start_gap_seconds": null,
+    "response_body_complete": false,
+    "retained_bytes_are_prefix_only": true
+  }
+]

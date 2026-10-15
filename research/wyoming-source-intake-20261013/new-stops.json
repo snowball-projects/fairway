@@ -1,0 +1,22 @@
+[
+  {
+    "host_group": "sheridanwyoming.org",
+    "kind": "publisher_restriction",
+    "policy_url": "https://www.sheridanwyoming.org/terms-conditions/",
+    "policy_sha256": "1259b5e6add02ce9f99b828b1e261b1b52f06008933de2dce78bb47d1e9c94f4",
+    "observed_on": "2026-10-13",
+    "reason": "Website/booking-engine terms limit use to personal/noncommercial purchase purposes and forbid automatedaccess without writtenpermission, republishing and derivatives.",
+    "facts_requested_after_policy": 0,
+    "disposition": "No golfdirectory request, retry, alias, cachedfacts or alternate route. Retain newpublisherhold."
+  },
+  {
+    "host_group": "travelwyoming.com",
+    "kind": "publisher_reuse_restriction",
+    "policy_url": "https://travelwyoming.com/privacy-policy/",
+    "policy_sha256": "483442926d78b557012c54ce8a135b19b002a69c4773ec3f9a1a294898d537a2",
+    "policy_updated": "2026-08-13",
+    "reason": "Currentpolicy covers text/images/data, limits permitteduse to noncommercialpersonal/educational purpose withattribution, and prohibits modification/distribution without writtenpermission. No public-catalog exception assumed.",
+    "facts_requested_after_policy": 0,
+    "disposition": "Golfinventorynotrequested; no retry/alias/cachedfactsubstitute."
+  }
+]

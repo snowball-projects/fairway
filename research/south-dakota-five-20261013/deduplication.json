@@ -1,0 +1,315 @@
+[
+  {
+    "name": "Murdo Golf Club",
+    "global_exact_normalized_name": [],
+    "SD_exact_normalized_address": [],
+    "exact_operator_url": [],
+    "SD_related_current_records": [],
+    "SD_related_history_including_null_ids": [],
+    "qualification": "SDGA profile locality: Murdo, South Dakota. Distinct from Grandpa\u2019s Woods in Murdock, Nebraska. Listed Facebook link was not requested or recorded as an independently found operator website. ",
+    "decision": "net_new"
+  },
+  {
+    "name": "Oahe Hills Golf Course",
+    "global_exact_normalized_name": [],
+    "SD_exact_normalized_address": [],
+    "exact_operator_url": [],
+    "SD_related_current_records": [],
+    "SD_related_history_including_null_ids": [],
+    "qualification": "SDGA profile locality: Mobridge, South Dakota. Website is the operator URL listed by SDGA, not independently visited or verified; website_status remains not_checked and website_checked_on remains null. ",
+    "decision": "net_new"
+  },
+  {
+    "name": "Lake Waggoner Golf Club",
+    "global_exact_normalized_name": [],
+    "SD_exact_normalized_address": [],
+    "exact_operator_url": [],
+    "SD_related_current_records": [
+      {
+        "id": "f-4f6fe264-0378-4720-a375-311cb91f5229",
+        "name": "Lakeview Municipal Golf Course",
+        "state": "SD",
+        "county": "Davison County",
+        "address": {
+          "text": "3300 N Ohlman Street, Mitchell, SD 57301",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 18,
+        "inventory_complete": true,
+        "website": "https://www.cityofmitchellsd.gov/181/Lakeview-Golf-Course",
+        "map_location": {
+          "latitude": 43.73898935,
+          "longitude": -98.03955038355292,
+          "kind": "property_point"
+        },
+        "courses": [
+          {
+            "name": null,
+            "holes": 18,
+            "access": "public",
+            "id": "c-d04b8315-bb1b-4e57-ba07-e014e3defeeb"
+          }
+        ],
+        "public_access": "public"
+      },
+      {
+        "id": "f-1f81089e-9906-4cf0-9e70-1ed22a61303a",
+        "name": "Madison Golf & Country Club",
+        "state": "SD",
+        "county": "Lake County",
+        "address": {
+          "text": "45152 233rd St, Madison, SD 57042",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 18,
+        "inventory_complete": true,
+        "website": "https://www.madisongolfsd.com/",
+        "map_location": {
+          "latitude": 44.0105887,
+          "longitude": -97.18319222839328,
+          "kind": "property_point"
+        },
+        "courses": [
+          {
+            "id": "c-9459cf5e-dd7f-42dc-8cdd-8f4a18bef9ac",
+            "name": null,
+            "holes": 18,
+            "access": "public"
+          }
+        ],
+        "public_access": "public"
+      },
+      {
+        "id": "f-5e6edb55-4c9b-4bbb-a2e1-b7bf711f9d5f",
+        "name": "Lake Region Golf Club",
+        "state": "SD",
+        "county": null,
+        "address": {
+          "text": "45373 Golf Course Road, Arlington, SD 57212",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 18,
+        "inventory_complete": true,
+        "website": "https://www.lakeregiongolfclub.com",
+        "map_location": null,
+        "courses": [
+          {
+            "name": null,
+            "holes": 18,
+            "access": "public",
+            "id": "c-480bbc78-b1b6-4f7b-8010-63a0f6c9626b"
+          }
+        ]
+      },
+      {
+        "id": "f-351ebeb8-9cb0-4f9d-87e6-f86c4154c94b",
+        "name": "Tomahawk Lake Country Club",
+        "state": "SD",
+        "county": "Lawrence County",
+        "address": {
+          "text": "21496 US Highway 385, Deadwood, SD 57732",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 9,
+        "inventory_complete": false,
+        "website": "https://www.golftomahawk.com/",
+        "map_location": {
+          "latitude": 44.28908725,
+          "longitude": -103.68956290917521,
+          "kind": "property_point"
+        },
+        "courses": [],
+        "public_access": "public"
+      },
+      {
+        "id": "f-635022c3-e1b8-4931-9546-f2323c845ad2",
+        "name": "Clear Lake Golf Club",
+        "state": "SD",
+        "county": null,
+        "address": {
+          "text": "603 Highway 22 West, Clear Lake, SD 57226",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 9,
+        "inventory_complete": true,
+        "website": "https://www.golf.gotoclearlake.com/",
+        "map_location": {
+          "latitude": 44.7491677,
+          "longitude": -96.68929554223092,
+          "kind": "property_point"
+        },
+        "courses": [
+          {
+            "name": null,
+            "holes": 9,
+            "access": "unknown",
+            "id": "c-1b99d9b0-fcb6-4bdb-ae80-a9a3d8558365"
+          }
+        ],
+        "public_access": "public"
+      },
+      {
+        "id": "f-f8d14f4d-0d80-4c03-b658-46774c0f0718",
+        "name": "Lakeside Country Club",
+        "state": "SD",
+        "county": null,
+        "address": {
+          "text": "111 Lake Drive, Faulkton, SD 57438",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 9,
+        "inventory_complete": true,
+        "website": "https://www.faulktonsd.com/tourism/attractions/lakeside-country-club",
+        "map_location": null,
+        "courses": [
+          {
+            "name": null,
+            "holes": 9,
+            "access": "public",
+            "id": "c-9764ef15-d3ef-421b-b003-64dbf8fa3c83"
+          }
+        ]
+      },
+      {
+        "id": "f-69bcb939-fa41-44ae-b3ec-1837f6b521d3",
+        "name": "Fish Lake Country Club",
+        "state": "SD",
+        "county": null,
+        "address": {
+          "text": "39051 253rd Street, Plankinton, SD 57368",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 9,
+        "inventory_complete": true,
+        "website": "https://www.fishlakecc.com/",
+        "map_location": {
+          "latitude": 43.71886355,
+          "longitude": -98.3971643623089,
+          "kind": "property_point"
+        },
+        "courses": [
+          {
+            "name": null,
+            "holes": 9,
+            "access": "unknown",
+            "id": "c-35f9b645-bc7e-4e45-89eb-09eeda0fef4a"
+          }
+        ],
+        "public_access": "public"
+      },
+      {
+        "id": "f-c15cc495-4a08-4aa5-a34b-a6633c1acba4",
+        "name": "Cattail Crossing Golf Course",
+        "state": "SD",
+        "county": null,
+        "address": {
+          "text": "351 S Lake Dr., Watertown, SD 57201",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 27,
+        "inventory_complete": false,
+        "website": "https://www.watertownsd.us/177/Cattail-Crossing-Golf-Course",
+        "map_location": null,
+        "courses": [],
+        "public_access": "public"
+      }
+    ],
+    "SD_related_history_including_null_ids": [
+      {
+        "name": "Lakeview Municipal Golf Course",
+        "state": "SD",
+        "address": "3300 N Ohlman Street, Mitchell, SD 57301",
+        "id": "f-4f6fe264-0378-4720-a375-311cb91f5229"
+      },
+      {
+        "name": "Lake Region Golf Club",
+        "state": "SD",
+        "address": "45373 Golf Course Road, Arlington, SD 57212",
+        "id": "f-5e6edb55-4c9b-4bbb-a2e1-b7bf711f9d5f"
+      },
+      {
+        "name": "Tomahawk Lake Country Club",
+        "state": "SD",
+        "address": "21496 US Highway 385, Deadwood, SD 57732",
+        "id": "f-351ebeb8-9cb0-4f9d-87e6-f86c4154c94b"
+      },
+      {
+        "name": "Clear Lake Golf Club",
+        "state": "SD",
+        "address": "603 Highway 22 West, Clear Lake, SD 57226",
+        "id": "f-635022c3-e1b8-4931-9546-f2323c845ad2"
+      },
+      {
+        "name": "Lakeside Country Club",
+        "state": "SD",
+        "address": "111 Lake Drive, Faulkton, SD 57438",
+        "id": "f-f8d14f4d-0d80-4c03-b658-46774c0f0718"
+      },
+      {
+        "name": "Fish Lake Country Club",
+        "state": "SD",
+        "address": "39051 253rd Street, Plankinton, SD 57368",
+        "id": "f-69bcb939-fa41-44ae-b3ec-1837f6b521d3"
+      },
+      {
+        "id": "f-c15cc495-4a08-4aa5-a34b-a6633c1acba4",
+        "name": "Cattail Crossing Golf Course",
+        "state": "SD",
+        "address": "351 S Lake Dr., Watertown, SD 57201"
+      }
+    ],
+    "qualification": "SDGA profile locality: Philip, South Dakota. Street and PO Box are combined in the published address; purpose remains unspecified. Held Philip municipal source was not requested and supplies no facts. Listed Facebook link was not requested or recorded as an independently found operator website. ",
+    "decision": "net_new"
+  },
+  {
+    "name": "Elkhorn Ridge Golf Club",
+    "global_exact_normalized_name": [],
+    "SD_exact_normalized_address": [],
+    "exact_operator_url": [],
+    "SD_related_current_records": [
+      {
+        "id": "f-62f8dbf2-52f1-4c96-b040-f00f989c7a3c",
+        "name": "Spearfish Canyon Golf Club",
+        "state": "SD",
+        "county": null,
+        "address": {
+          "text": "120 Spearfish Canyon Road, Spearfish, SD 57783",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 18,
+        "inventory_complete": true,
+        "website": "https://spearfishcanyongolf.com/",
+        "map_location": {
+          "latitude": 44.47864715,
+          "longitude": -103.84293505833236,
+          "kind": "property_point"
+        },
+        "courses": [
+          {
+            "name": "Canyon Nine",
+            "holes": 9,
+            "access": "public",
+            "id": "c-62a4b2e5-9c38-439c-abb4-e679c986cd59"
+          },
+          {
+            "name": "Lookout Nine",
+            "holes": 9,
+            "access": "public",
+            "id": "c-09036452-6e3a-49e1-ad4f-39a87c4bbfd5"
+          }
+        ],
+        "public_access": "public"
+      }
+    ],
+    "SD_related_history_including_null_ids": [
+      {
+        "name": "Spearfish Canyon Golf Club",
+        "state": "SD",
+        "address": "120 Spearfish Canyon Road, Spearfish, SD 57783",
+        "id": "f-62f8dbf2-52f1-4c96-b040-f00f989c7a3c"
+      }
+    ],
+    "qualification": "SDGA profile locality: Spearfish, South Dakota. The live profile has no street address; city/ZIP-only text remains null. Distinct from Elkhorn Ridge Golf Course in Elkhorn, Nebraska. Website is the operator URL listed by SDGA, not independently visited or verified; website_status remains not_checked and website_checked_on remains null. ",
+    "decision": "net_new"
+  }
+]

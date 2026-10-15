@@ -1,0 +1,22 @@
+{
+  "base_commit": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
+  "consolidation_commit": "8008b285db192f3bfbbf01a9925f8c13376ba114",
+  "distinct_facilities": 14,
+  "candidate_facilities": 7200,
+  "mapped_facilities": 4440,
+  "semantic_preservation": "passed;SDGA7 added onto7193 baseline, complete Ohio3/SDGA4 and all unrelated records preserved",
+  "python_tests": 229,
+  "catalog_publication_tests": 17,
+  "javascript_test_files": 3,
+  "ruff_check_format": "passed",
+  "accepted_cohort_files": "Original consolidation byte-preserved accepted files; later audit labels/Bison mirror and README corrected, raw timestamp/hash identities unchanged",
+  "cohort_history_commits_reachable": true,
+  "source_reads": 0,
+  "full_ci": "pending final cumulative checkpoint; previousaudit0a04022passedrun38461180728",
+  "audit_review": "passed nine rows, eight gaps >=15seconds, Bison mirror consistent, final gap null",
+  "canonical_catalog_sha256": "b46d664d26478039aaece7794ca92a01363e8dde33107ff68b15bfd045ee21f9",
+  "source_reads_this_cohort": 15,
+  "source_refetches_this_cohort": 0,
+  "offline_wheel_sdist": "passed;installed7200catalog/extracted229tests and3JS",
+  "snapshot_course_index": "passed;507304cells,maximumdifference0"
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "url": "https://www.sdga.org/golf_course/bison-country-club/",
+    "group": "sdga.org",
+    "start": "2026-10-13T18:12:10.444188+00:00",
+    "start_epoch": 1791915130.44418,
+    "status": 500,
+    "complete": "2026-10-13T18:12:11.658822+00:00",
+    "complete_epoch": 1791915131.6588323,
+    "sha256": "26606614db653bf313cb49c125986a68283da3fcaea9f16e5cb66c77f3fe3151",
+    "bytes": 134022,
+    "file": "a7be96907465b226.body",
+    "redirect": null,
+    "completion_to_next_start_gap_seconds": 15.000092267990112,
+    "kind": "profile_specific_http500",
+    "facts_used": false,
+    "disposition": "Exact profile stopped for unavailable response; no retry, cache/indexed substitute, operator alternative or replacement lead. No publisher-wide policy denial inferred."
+  }
+]
