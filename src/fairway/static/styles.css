@@ -1433,3 +1433,9 @@ dialog > p:last-child {
 
 .review-fixture-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;margin:0;padding:4px;background:#352b1c;color:white;text-align:center;font-size:12px;pointer-events:none}
 .typed-observations h4{margin:12px 0 6px}.typed-observations>details{margin-block:8px}
+
+body.credits-page {overflow: auto;}
+.credits-page main {max-width: 48rem; margin: 2rem auto; padding: 0 1.25rem;}
+.credits-page section {margin: 2rem 0;}
+.credits-page dt {font-weight: 600; margin-top: .75rem;}
+.credits-page dd {margin: .2rem 0 0; overflow-wrap: anywhere;}

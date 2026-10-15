@@ -52,5 +52,6 @@ are unchanged. Running or testing that API does not enable national browser rout
 
 Original software is MIT. OpenStreetMap-derived data remains subject to ODbL and
 attribution. Public source licenses, policies and scopes travel with the native
-transport and appear under Sources and qualifications. Leaflet is BSD-2-Clause;
+transport. The map’s Data credits link opens their generated attribution, license,
+source, scope and change notices. Leaflet is BSD-2-Clause;
 Census geometry is public domain. See LICENSE and THIRD-PARTY-NOTICES.md.

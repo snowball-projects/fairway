@@ -80,7 +80,7 @@ const map = L.map("map", {
   ],
   { padding: [40, 100] },
 );
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · <a href="./credits.html" target="_blank" rel="noopener noreferrer">Data credits</a>'}).addTo(map);
 meetingLayer.addTo(map);
 preparationFacilities.addTo(map);
 new ResizeObserver(() => map.invalidateSize()).observe(
