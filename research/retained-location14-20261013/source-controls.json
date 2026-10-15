@@ -1,0 +1,13 @@
+{
+  "source_acquisition_for_this_cohort": 0,
+  "operator_scraping": 0,
+  "new_operator_fact_intake": 0,
+  "retained_archive_text_members_screened": 1250,
+  "historical_and_latest_holds_preserved": true,
+  "current_canonical_facts_unchanged_except_map_locations": true,
+  "control_index_private": "retained-location14-evidence/retained-control-index.json",
+  "archive_input_hashes_verified": true,
+  "Austin_municipal_hold": "austintexas.gov remains held; later incident/raw scope is unresolved in retained classification. No request, policy inference, alias route or fact-cache recovery. Hancock point derives solely from independent licensed OSM geometry matched against standing canonical identity.",
+  "other_scoped_holds": "Allegheny County publisher remains held and North Park remains identity-deferred. South Hills contact HTTP406 remains held and its identity stays deferred. All MD/PA/PGA/Idaho/Kansas/SDGA/Wyoming/TravelIowa/Glacier holds remain.",
+  "scope": "Independent licensed geometry review only; no live status or new publisher clearance asserted."
+}

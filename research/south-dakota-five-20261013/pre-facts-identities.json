@@ -1,0 +1,180 @@
+[
+  {
+    "lead": "Murdo Golf Club",
+    "current_or_historical_SD_matches": [],
+    "shared_note_alias_matches": {},
+    "research_alias_matches": {
+      "f-c51e1efc-5fba-4be8-a5e7-a9a7c7ee3dc9": {
+        "grouping": "unreviewed",
+        "listed_sources": [
+          "s4199",
+          "s4193",
+          "s0005",
+          "s0303",
+          "s11730",
+          "s15001",
+          "s15331",
+          "s15002"
+        ],
+        "support": [
+          {
+            "fields": [
+              "map_location",
+              "county"
+            ],
+            "source": "s0005",
+            "observed_on": "2026-10-11",
+            "note": [
+              "n5557"
+            ]
+          },
+          {
+            "fields": [
+              "website"
+            ],
+            "source": "s11730",
+            "observed_on": "2026-10-11"
+          },
+          {
+            "fields": [
+              "map_location"
+            ],
+            "source": "s15001",
+            "observed_on": "2026-10-13"
+          },
+          {
+            "fields": [
+              "public_access"
+            ],
+            "source": "s15002",
+            "observed_on": null
+          }
+        ],
+        "notes": {
+          "location": [
+            "n8160"
+          ],
+          "source": [
+            "n8161"
+          ]
+        },
+        "county_match": {
+          "method": "census_exact_address",
+          "matched_address": "5497 310TH ST, MURDOCK, NE, 68407",
+          "county_fips": "31025",
+          "benchmark": "Public_AR_Current",
+          "geography_vintage": "Current_Current",
+          "match_status": "Match",
+          "match_type": "Exact",
+          "batch_id": "20261011-schema3-nebraska-coordinate01-77",
+          "request_id": "S3NE01-007",
+          "county_name_source": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2026_Gazetteer/2026_Gaz_counties_national.zip",
+          "validation": "Strict full-address and exact existing state/county-name/FIPS agreement; current corroboration, not the original county basis."
+        }
+      }
+    },
+    "source_matches": {}
+  },
+  {
+    "lead": "Oahe Hills Golf Course",
+    "current_or_historical_SD_matches": [],
+    "shared_note_alias_matches": {},
+    "research_alias_matches": {},
+    "source_matches": {}
+  },
+  {
+    "lead": "Lake Waggoner Golf Club",
+    "current_or_historical_SD_matches": [],
+    "shared_note_alias_matches": {},
+    "research_alias_matches": {},
+    "source_matches": {}
+  },
+  {
+    "lead": "Bison Country Club",
+    "current_or_historical_SD_matches": [],
+    "shared_note_alias_matches": {},
+    "research_alias_matches": {},
+    "source_matches": {
+      "s10759": "https://www.bisongolf.net/",
+      "s10760": "https://www.bisongolf.net/golf/rates"
+    }
+  },
+  {
+    "lead": "Elkhorn Ridge Golf Club",
+    "current_or_historical_SD_matches": [],
+    "shared_note_alias_matches": {},
+    "research_alias_matches": {
+      "f-04ea691b-b921-42e5-8adc-798bb9adc5fa": {
+        "grouping": "unreviewed",
+        "listed_sources": [
+          "s4221",
+          "s4193",
+          "s0005",
+          "s0303",
+          "s11794",
+          "s15001",
+          "s15346",
+          "s15002"
+        ],
+        "support": [
+          {
+            "fields": [
+              "map_location",
+              "county"
+            ],
+            "source": "s0005",
+            "observed_on": "2026-10-11",
+            "note": [
+              "n5557"
+            ]
+          },
+          {
+            "fields": [
+              "website"
+            ],
+            "source": "s11794",
+            "observed_on": "2026-10-11"
+          },
+          {
+            "fields": [
+              "map_location"
+            ],
+            "source": "s15001",
+            "observed_on": "2026-10-13"
+          },
+          {
+            "fields": [
+              "public_access"
+            ],
+            "source": "s15002",
+            "observed_on": null
+          }
+        ],
+        "notes": {
+          "location": [
+            "n8160"
+          ],
+          "source": [
+            "n8161"
+          ]
+        },
+        "county_match": {
+          "method": "census_exact_address",
+          "matched_address": "20033 ELKHORN RIDGE DR, ELKHORN, NE, 68022",
+          "county_fips": "31055",
+          "benchmark": "Public_AR_Current",
+          "geography_vintage": "Current_Current",
+          "match_status": "Match",
+          "match_type": "Exact",
+          "batch_id": "20261011-schema3-nebraska-coordinate01-77",
+          "request_id": "S3NE01-026",
+          "county_name_source": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2026_Gazetteer/2026_Gaz_counties_national.zip",
+          "validation": "Strict full-address and exact existing state/county-name/FIPS agreement; current corroboration, not the original county basis."
+        }
+      }
+    },
+    "source_matches": {
+      "s4221": "https://www.nebgolf.org/course-directory/elkhorn-ridge-golf-course/"
+    }
+  }
+]

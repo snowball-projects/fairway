@@ -1,0 +1,27 @@
+[
+  {
+    "publisher_group": "glaciermt.com",
+    "ordinary_aliases": [
+      "glaciermt.com",
+      "www.glaciermt.com",
+      "b2b.glaciermt.com"
+    ],
+    "kind": "technical_source_review_pause",
+    "inventory_robots": {
+      "url": "https://b2b.glaciermt.com/robots.txt",
+      "status": 404,
+      "sha256": "ab2960690ef2d62c2d7840abfb4328c3fe1a257e546437f3b334d03898efd7eb",
+      "body": "Meaningful WordPress robots directives were retained. HTTP 404 was not used as automatic clearance."
+    },
+    "policy_discovery_surface": {
+      "url": "https://glaciermt.com/",
+      "status": 200,
+      "retained_prefix_bytes": 3000001,
+      "sha256": "0ed79045c450859082bcab0417e3d90b9a5faa6d0a5bd61a80dced8cf71c0340",
+      "body_complete": false,
+      "error": "Response exceeds bounded size; no facts usable"
+    },
+    "facts_or_inventory_requests": 0,
+    "disposition": "Current reuse-policy scope is unconfirmed. Pause further requests and new fact intake. Do not retry, guess routes, use alternate inventory routes, assume policy contents, or substitute cached facts. No publisher legal prohibition is inferred. Previously accepted catalog facts remain unchanged."
+  }
+]

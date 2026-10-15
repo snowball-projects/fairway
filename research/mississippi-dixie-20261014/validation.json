@@ -1,0 +1,40 @@
+{
+  "base_commit": "853edd2c49ad6e69469e0cd49153312da3ceff83",
+  "source_sha256": "9005bc00a4419e9e52e15b7316a5ab3b760ba44f0bc947be64bd056d0f5f2bfd",
+  "candidate_facilities": 7201,
+  "map_counts": {
+    "before": {
+      "total": 7200,
+      "onMap": 4460,
+      "pending": 2740,
+      "estimates": 563
+    },
+    "after": {
+      "total": 7201,
+      "onMap": 4460,
+      "pending": 2741,
+      "estimates": 563
+    },
+    "dixie_mapEligible": false
+  },
+  "catalog_schema": "pass",
+  "existing_7200_facility_objects_and_research": "unchanged",
+  "existing_registries": "all prior keys/values preserved; one owner source and two qualification notes added",
+  "history_progress_metadata_county_checklist": "unchanged; integration owner will record actual fact commit/report",
+  "ranking_projection": "byte-equivalent encoded export",
+  "candidate_python_tests": {
+    "command": "python -m pytest -q tests/test_catalog_foundation.py tests/test_publish_research_map.py",
+    "passed": 17
+  },
+  "candidate_js_checks": {
+    "command": "node --test tests/research-map.test.mjs tests/research-refresh.test.mjs tests/catalog-ui.test.mjs",
+    "passed": 3,
+    "initial_missing_generated_assets": "First attempt lacked ignored generated assets in fresh clone; publication completed and rerun passed."
+  },
+  "script_ruff_check_and_format": "pass",
+  "raw_captures": "7 of 7 SHA256 verified; minimum completed publisher delay >=15s; no retries or redirects",
+  "scope": "Local isolated proposal validation; no full wheel/sdist/CI/deployment claimed. Temporary candidate catalog restored before evidence commit. Canonical files untouched.",
+  "candidate_catalog_sha256": "f15af34712a2cb4b484ab9e76f63965c265baf04d6beeeba061506b07a0937b6",
+  "canonical_source_unchanged": true,
+  "local_tracked_catalog_restored_sha256": "9005bc00a4419e9e52e15b7316a5ab3b760ba44f0bc947be64bd056d0f5f2bfd"
+}

@@ -1,0 +1,113 @@
+{
+  "base_commit": "f011e4b8330577613f781a6cc3e32b0a2915beb6",
+  "canonical_pr": 17,
+  "superseded_pr": 16,
+  "distinct_facilities": 39,
+  "facilities_added": 15,
+  "facilities_updated": 24,
+  "target_distinct_facilities": 100,
+  "target_is_practical_not_admission_requirement": true,
+  "cohorts": [
+    {
+      "name": "SDGA four public additions",
+      "evidence_commit": "83d7d8bf6f7bdc44aa048c3930b292af9610dfc3",
+      "accepted_pr_head": "564a75a8d4b3dca7ad406a3deadffca008e436d7",
+      "facility_ids": [
+        "f-715cbbe2-8092-4c17-9707-2faad1a1ded8",
+        "f-f75e10e2-e371-4c14-8bb7-e87d1ef3fe98",
+        "f-a45175da-b70c-436a-9bab-d9dd53e832b9",
+        "f-b93ebe7e-4986-4a13-8f2e-916f03e4cbd5"
+      ]
+    },
+    {
+      "name": "Ohio three property corrections",
+      "evidence_commit": "6e2b060bd819c7a4da1771aa5613f78b9ee0fdbf",
+      "accepted_pr_head": "8a20ce5506179812ad2eb3f5abcf08d005c16e53",
+      "facility_ids": [
+        "f-aad69510-e5f8-441b-bd1a-b6ad5173bd5c",
+        "f-3d47740c-fed4-4872-8451-7af7fb2f6637",
+        "f-9755d33d-078f-4665-9796-fb187c9c7831"
+      ]
+    },
+    {
+      "name": "SDGA directory seven public additions",
+      "evidence_commit": "734c400b9ec144cd874e2d509bdb4c467ef35adf",
+      "facility_ids": [
+        "f-5f4be9f9-969f-4fbd-bcad-fc5957b00d78",
+        "f-93a52bb5-afc9-489d-b8d2-8ce469d80ef9",
+        "f-37b11a95-0a1a-407f-8343-7c2002c85af7",
+        "f-b23450ce-eb1a-48bc-8752-39ea61b3a259",
+        "f-fadd9077-1685-47fd-a1b9-78c19282ddae",
+        "f-d82d0d3a-4750-4adc-93ed-0c934ac44036",
+        "f-bb2c3675-b155-4f10-8577-df9db74077aa"
+      ]
+    },
+    {
+      "name": "Ohio next20 seventeen property updates",
+      "evidence_commit": "05b3135489815d6cb52be11ebc0bca2c10ba5641",
+      "accepted_worker_head": "f65e0ac24aa9e7d5d15f73f0920352606aa14f4c",
+      "integration_commit": "22c802f0779cf436f473eaee2bbefe8cd35ae538",
+      "facility_ids": [
+        "f-f70c3e20-7ba1-4a7a-a540-60f0ece235c0",
+        "f-31c44cb8-5913-42fe-a966-fe6dbde73498",
+        "f-70e1c5da-f303-4259-85c6-ff44fcd55ea0",
+        "f-05868395-ac81-46b3-b185-e6ae4fba1dc7",
+        "f-7d176dfd-d346-4f83-84eb-16ab3433cfa4",
+        "f-cb1b17c2-515b-4b87-8471-a4d7c480ca6f",
+        "f-f1fbcf7e-2fe9-460c-aa5c-33126df79443",
+        "f-7d41a419-0b50-4c2d-985d-6e5507a2143f",
+        "f-a12fe7a4-4285-46d1-abd2-4be7b621c758",
+        "f-9a9c452a-2698-4ee8-85b4-a5ad8b89f7a6",
+        "f-a10fbdf4-c800-4f2d-925c-98c6b9c03553",
+        "f-36f8e931-4c13-4ca0-a561-55e6232260f2",
+        "f-68ce5000-97ab-4dc4-a898-fb82241f8a86",
+        "f-97d46af6-a97b-4d38-80b0-df6d5aa78e1d",
+        "f-267ad798-f712-4da8-84d3-5db1ce45bd6c",
+        "f-07fa99bb-c277-4d01-9db5-2fffe4462039",
+        "f-cd93e61f-3b83-4773-9080-ac8dcdb1b6a1"
+      ]
+    },
+    {
+      "name": "Retained location14 four specific-address corrections",
+      "evidence_commit": "22d6b4b6b3bb805731db11cad202bf2923609c16",
+      "facility_ids": [
+        "f-ee14fc75-77ac-4295-881f-ff0d4bc90099",
+        "f-74930e2a-5523-48c6-a6ee-46379fe0092f",
+        "f-49a7855b-b7d1-4213-a593-8c372f0efc6a",
+        "f-0ce78ef9-0d28-4efb-8181-e9553b9fcdca"
+      ],
+      "selected": 14,
+      "accepted": 4,
+      "deferred": 10,
+      "source_requests": 0
+    },
+    {
+      "name": "Three-source four public additions",
+      "evidence_commit": "fa8b35160038d330f08af1f105bbef4b083c4792",
+      "worker_evidence_commit": "f1a3ed5983e29161fd348233db2370508d39456e",
+      "facility_ids": [
+        "f-50b27f7a-bc51-4667-8411-0c263ebe53ec",
+        "f-54d50b23-1726-4f4b-96c7-bc49fb3a80d6",
+        "f-cceb5459-66a5-40bc-8ef0-da674fd0ae1e",
+        "f-d372a2b0-f8c9-4704-9ce2-7d8701689308"
+      ],
+      "source_cohorts": [
+        {
+          "publisher": "Boston municipal",
+          "facilities_added": 2
+        },
+        {
+          "publisher": "Louisiana Golf Association dated table",
+          "facilities_added": 1
+        },
+        {
+          "publisher": "Dixie operator",
+          "facilities_added": 1
+        }
+      ],
+      "new_green_dots": 0
+    }
+  ],
+  "public_raw_captures": false,
+  "no_new_source_collection_for_consolidation": true
+}

@@ -1,0 +1,130 @@
+{
+  "archives": [
+    {
+      "file": "fairway-map-national-remaining-20261013.zip",
+      "sha256": "0313862f44084a4a733b28e95d79f976970831b8844e8184e832543f1d5353e2"
+    },
+    {
+      "file": "fairway-map-batch01-pr8-portable.zip",
+      "sha256": "bf60bbbd0ad99f3918f000d8c15fb370cf1d3cedbbc6bcbf491f6e590a9f3477"
+    }
+  ],
+  "text_members_screened": 1003,
+  "complete_matching_controls": "historical-host-controls-full.json",
+  "exact_source_records": "full-source-control-review-records.json",
+  "no_applicable_historical_hold": [
+    "hiddenbridgegolf.com",
+    "starvalleywy.com",
+    "sheridanwyoming.org",
+    "travelwyoming.com",
+    "visitsublettecounty.org"
+  ],
+  "historical_review": "Each exact source has one retained robots200/page200 metadata record with no linked policies. No applicable denial/cancellation/alias hold found. Current robots/policies still required before facts.",
+  "current_control_files_screened": [
+    "sdga-four-integration/research",
+    "sdga-directory-next-evidence",
+    "south-dakota-next-evidence",
+    "idaho-research",
+    "kansas-worker/research"
+  ],
+  "excluded_host_groups": [
+    "svrawy.com robots500",
+    "starvalleyranchresort.com robots404 missingcontrols",
+    "wyogolf.org robots403",
+    "msgagolf.org403",
+    "powellgolfclub.com robots502"
+  ],
+  "cohort_maximum_leads": 20,
+  "facts_status": "No current content reads or facts accepted",
+  "additional_host_control_review": "additional-host-controls-full.json; Sheridan exactrecords prior200robot/golf/terms, no priorhold; currentrestrictiveterms nowheld. Newcastle restriction independently confirmed from full name-based retainedcontrolscope.",
+  "policy_stops": {
+    "sheridanwyoming.org": "Currentterms explicitly prohibit automatedaccess and republishing/derivativeuse; stop before golfcontent, no retries or cachedsubstitutes.",
+    "travelwyoming.com": "Currentpolicy restricts modification/distribution of text/images/data withoutwrittenpermission; no golfinventory request."
+  },
+  "confirmed_existing_facility_source_hold": {
+    "NewcastleCountryClub": "Owner/GetTermsW25n7 terms prohibitcopying/derivatives and limitpersonalnoncommercialdownload; originalwy-notes in source-hold-classification/50 retained. No owner/policy/fact-cache request."
+  },
+  "travelwyoming_review": "Complete exactpublisher/alias archive screen and independent local reviewer: retained200inventory andprivacymetadata; no applicable denial/reuse restriction. Actual policybody not retained; currentrobots andfull linked policies required beforefacts.",
+  "current_robots_review": [
+    {
+      "host_group": "hiddenbridgegolf.com",
+      "target": "https://www.hiddenbridgegolf.com/",
+      "raw_robots_sha256": "f8ceef6447fe9ba4a9646703a6f69b19f6724d4483c80571b06b5c5164e34f6d",
+      "observed_robots": "User-agent: *\nAllow: /\nDisallow: *?lightbox=\n\n# Optimization for Google Ads Bot\nUser-agent: AdsBot-Google-Mobile\nUser-agent: AdsBot-Google\nDisallow: /_partials*\nDisallow: /pro-gallery-webapp/v1/galleries/*\n\n# Block PetalBot\nUser-agent: PetalBot\nDisallow: /\n\n# Crawl delay for overly enthusiastic bots\nUser-agent: dotbot\nCrawl-delay: 10\nUser-agent: AhrefsBot\nCrawl-delay: 10\n\nSitemap: https://www.hiddenbridgegolf.com/sitemap.xml\n\n# Auto generated, go to SEO Tools > Robots.txt Editor to change this",
+      "literal_newline_encoding": false,
+      "analysis_normalization": "No normalization",
+      "agent_permissions": {
+        "FairwayResearch/1.0": true,
+        "GPTBot": true,
+        "OAI-SearchBot": true,
+        "ChatGPT-User": true,
+        "*": true
+      },
+      "minimum_delay_seconds": 15,
+      "decision": "Visible directives permit target; retain controls and use minimum15seconds. Content is initially for current policy-link discovery; no facts admitted before linked policy review."
+    },
+    {
+      "host_group": "starvalleywy.com",
+      "target": "https://starvalleywy.com/Golf/",
+      "raw_robots_sha256": "330c5ccc114a9933fc146c51012f8b7de9ba8aff1672fb846caf68cccf0b4dc8",
+      "observed_robots": "User-agent: *\nCrawl-delay: 10",
+      "literal_newline_encoding": false,
+      "analysis_normalization": "No normalization",
+      "agent_permissions": {
+        "FairwayResearch/1.0": true,
+        "GPTBot": true,
+        "OAI-SearchBot": true,
+        "ChatGPT-User": true,
+        "*": true
+      },
+      "minimum_delay_seconds": 15,
+      "decision": "Visible directives permit target; retain controls and use minimum15seconds. Content is initially for current policy-link discovery; no facts admitted before linked policy review."
+    }
+  ],
+  "policy_link_review": {
+    "hiddenbridgegolf.com": {
+      "response": "b6899267e34af4e7.body",
+      "all_html_anchor_links_reviewed": "b6899267e34af4e7.body.links.json",
+      "visible_footer_and_embedded_page_reviewed": true,
+      "linked_policy_endpoints": [],
+      "restriction_text_found": false,
+      "copyright": "2019 owner/all standard copyright; no open-license claim",
+      "admissible_scope": "Bare facility identity/address/county and admission facts only; no prose/artwork/rates reuse"
+    },
+    "starvalleywy.com": {
+      "response": "3265062ba348ff21.body",
+      "all_html_anchor_links_reviewed": "3265062ba348ff21.body.links.json",
+      "linked_policy_endpoints": [],
+      "identity": "Business directory/information center; official source characterization withdrawn",
+      "admissible_scope": "Discovery only; no current facility facts admitted"
+    }
+  },
+  "minimum_observed_same_group_completion_gap_seconds": 16.66088080406189,
+  "raw_captures_private": true,
+  "raw_capture_bytes": 1900158,
+  "new_policy_stops": [
+    "sheridanwyoming.org",
+    "travelwyoming.com"
+  ],
+  "external_HubSpot_policy_not_collected": "TravelWyominglink is email/analytics third-party service policy, not a grant of contentreuse rights; primarypolicy restriction already stops furthercollection.",
+  "current_policy_capture_hashes": {
+    "https://www.sheridanwyoming.org/terms-conditions/": "1259b5e6add02ce9f99b828b1e261b1b52f06008933de2dce78bb47d1e9c94f4",
+    "https://travelwyoming.com/privacy-policy/": "483442926d78b557012c54ce8a135b19b002a69c4773ec3f9a1a294898d537a2"
+  },
+  "archive_full_review_hashes": {
+    "historical-host-controls-full.json": "ea86d01cacecc1c21909c4c3f7f0ecc36951d95d5d10358c4ce0008258cc942b",
+    "additional-host-controls-full.json": "1484311b52f328dbbf44fec911bfe25497e6270040df1bc10f46153ea0152194",
+    "travelwyoming-controls-full.json": "555a18bf0290ad3f127692076a31ad2fca2533e6c541c15630dfd2109232db67",
+    "sublette-controls-full.json": "9d99204ff4e9e81fef6f502619860f3ab198add65e81d16716506f8759003849"
+  },
+  "newcastle_disposition": "Confirmed existing explicitowner/GetTermsW25n7 restriction. Earlier unresolvedscope wording is superseded; not a blanketGetTerms hosthold.",
+  "sublette_historical_review": "Botharchives plus currentstops screened; exactwww/golf robots200/page200/no policylinks metadata andexistingcatalog sourcecitations only. No applicable publisher/alias hold. Currentcontrols needed.",
+  "Sublette_current_review": {
+    "robots_sha256": "275ed53b7d08d4b860ecc3691d298a71300b70451e81be046c90d7399eb302b1",
+    "inventory_sha256": "5fd8c9fa69767aabd2b45c34d2cdf57c2bf1cf6199b221e2918b42b376aa46c8",
+    "all_html_anchor_policy_links": [],
+    "visible_restriction_found": false,
+    "copyright": "AllRightsReserved; no openlicense claimed",
+    "scope": "Officialvisitorcenter, onlyexplicitpubliccourse alreadyexists. No factsadmitted and no visitor-office addressused ascourseaddress."
+  }
+}

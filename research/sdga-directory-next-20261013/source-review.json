@@ -1,0 +1,37 @@
+{
+  "directory_preflight": {
+    "scope": "One official SDGA directory discovery read, followed by a separately persisted bounded shortlist of at most20 eligible net-new leads; no Bison retry, replacement collection from held operators or municipalities.",
+    "directory_url": "https://www.sdga.org/golf-courses/",
+    "policies_reviewed_today": [
+      "robots200 wildcard allowed",
+      "exact linked terms-of-use/ full reviewed",
+      "exact linked privacy/ full reviewed"
+    ],
+    "policy_scope": "No explicit open license; bare identity, published address, listed operator URL and individual Public label only. No protected prose/imagery/scorecards.",
+    "source_review": "../south-dakota-next-evidence/controls-831523ff6f4d.json",
+    "source_review_sha256": "988a2586757ac9eb5d59ed5b05328892de4abe0132eb1618879186e5a8685ed7",
+    "archive_text_files_screened": 1003,
+    "historical_matches": "Four directory citations only in each of two catalog snapshots; no SDGA hold.",
+    "current_session_holds": "Bison exactprofile500 excluded; guessed privacy-policy404 never retried; Philip wildcarddisallow, ParkstonTLS, Eureka missingrobots, Webster404 all stay excluded.",
+    "preflight": "Current canonical source-review/new-stops read; no new SDGA publisher-wide denial.",
+    "pacing_seconds": 15,
+    "redirects_followed": false
+  },
+  "prior_policy_review": "../south-dakota-five-20261013/source-review.json",
+  "prior_policy_audit": "../south-dakota-five-20261013/request-audit.json",
+  "robots_sha256": "df332093d58604590aa3a51a00003a2f3e930135d895f8f9e26775e855bde9d3",
+  "terms_sha256": "9dfd9b28e586474c2571a468fbf896a62b5f81e823e646a1c904fb26249290a5",
+  "privacy_sha256": "c8f1681be8014fcfb07326e3f2b47572be06e0bd853e080aecf212c0e6ef5b38",
+  "current_policy_age": "Same UTC day; all exact linked policies fully reviewed before this cohort. Profile footer links add no new policy endpoint.",
+  "lead_count": 14,
+  "directory_reads": 1,
+  "profile_requests": 14,
+  "operator_requests": 0,
+  "source_refetches": 0,
+  "replacement_leads": 0,
+  "minimum_completion_to_next_start_seconds": 15.000034809112549,
+  "first_request_gap_since_prior_privacy_seconds": 3714.7037131786346,
+  "raw_response_bytes_private": 3908572,
+  "source_license": "No explicit open license; bare profile facts only. Protected prose, imagery, scorecards and rates excluded.",
+  "identity_review": "All current7193 facilities, research/source/operator identities and historical/null-ID/alias records checked. Independent local reviewer agreed no same-SD identities for14 selected leads; exact addresses/operator URLs checked after profile review."
+}

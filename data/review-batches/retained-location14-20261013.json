@@ -1,0 +1,211 @@
+{
+  "batch_id": "retained-location14-20261013",
+  "baseline_commit": "d3c7bf02a61d6ab2549202a39136292877d530ae",
+  "baseline_catalog_sha256": "9ec292e37ad7182a1bd76fe0c6287e54c61cca7293f48dd0f525a456212ee89a",
+  "candidate_count": 14,
+  "accepted_count": 4,
+  "held_or_deferred_count": 10,
+  "new_facilities": 0,
+  "public_access_updates": 0,
+  "physical_hole_changes": 0,
+  "new_source_requests": 0,
+  "changes": [
+    {
+      "facility_id": "f-ee14fc75-77ac-4295-881f-ff0d4bc90099",
+      "name": "Fox Run Golf Course",
+      "identity_guard": {
+        "id": "f-ee14fc75-77ac-4295-881f-ff0d4bc90099",
+        "name": "Fox Run Golf Course",
+        "state": "PA",
+        "county": null,
+        "address": {
+          "text": "2123 Strong Rd, Waterford, PA 16441",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 9,
+        "inventory_complete": true,
+        "website": "https://www.facebook.com/Fox-Run-Golf-Course-173416369371344/",
+        "map_location": null,
+        "courses": [
+          {
+            "id": "c-178df247-2237-42d7-9379-59ed349768c6",
+            "name": null,
+            "holes": 9,
+            "access": "public"
+          }
+        ]
+      },
+      "facility_before_sorted_compact_sha256": "51e99748d5c67624265fcd43acac4fbf05e3008d81b7082afb28b78f0d09ebe2",
+      "changes": {
+        "map_location": {
+          "before": null,
+          "after": {
+            "latitude": 41.98403555,
+            "longitude": -79.95157553,
+            "kind": "property_point"
+          }
+        }
+      },
+      "location_qualification": "The accepted canonical address 2123 Strong Road, Waterford, PA 16441 exactly matches the retained OSM house, street, city and ZIP. The Beaver Falls canonical namesake has a different street address; the disjoint unbound alternate geometry is rejected. New coordinates are Shapely 2.1.2 PointOnSurface of complete retained valid OSM geometry, rounded to eight decimals and strictly contained. Existing canonical physical totals and nested public-course evidence are standing accepted values, not new operator findings. No public label, holes, courses, address, county, arrival or availability is inferred. Original ambiguous flags, all rejected candidates and old estimate/null values are retained. This is a dated property browsing point, not an entrance, legal parcel, survey or routable arrival.",
+      "geometry_evidence": {
+        "url": "https://github.com/snowball-projects/fairway/blob/main/data/source-layers/retained-location14-properties-20261011.json",
+        "osm_url": "https://www.openstreetmap.org/way/1016415497",
+        "source_data_through": "2026-10-11T20:21:06Z"
+      }
+    },
+    {
+      "facility_id": "f-74930e2a-5523-48c6-a6ee-46379fe0092f",
+      "name": "Hancock Golf Course",
+      "identity_guard": {
+        "id": "f-74930e2a-5523-48c6-a6ee-46379fe0092f",
+        "name": "Hancock Golf Course",
+        "state": "TX",
+        "county": null,
+        "address": {
+          "text": "811 E. 41st St., Austin, TX 78751",
+          "purpose": "course"
+        },
+        "physical_holes": 9,
+        "inventory_complete": true,
+        "website": "https://www.austintexas.gov/golfatx/hancock-course",
+        "map_location": null,
+        "courses": [
+          {
+            "id": "c-630e2ee5-d6b1-4b22-9a8a-03a58e003086",
+            "name": "Hancock Golf Course",
+            "holes": 9,
+            "access": "public"
+          }
+        ]
+      },
+      "facility_before_sorted_compact_sha256": "6532f00d8690d24d1c9596c0b87da5f48471bab03a1ed7188b6e393bdda28f47",
+      "changes": {
+        "map_location": {
+          "before": null,
+          "after": {
+            "latitude": 30.29902665,
+            "longitude": -97.72531964,
+            "kind": "property_point"
+          }
+        }
+      },
+      "location_qualification": "The accepted canonical address 811 East 41st Street, Austin, TX 78751 matches retained OSM house, street, city and ZIP. The Lampasas namesake instead has 700 Naruna Road, ZIP 76550, and is rejected. The Austin municipal publisher remains held; no owner content was requested or recovered, and existing canonical facts are unchanged. New coordinates are Shapely 2.1.2 PointOnSurface of complete retained valid OSM geometry, rounded to eight decimals and strictly contained. Existing canonical physical totals and nested public-course evidence are standing accepted values, not new operator findings. No public label, holes, courses, address, county, arrival or availability is inferred. Original ambiguous flags, all rejected candidates and old estimate/null values are retained. This is a dated property browsing point, not an entrance, legal parcel, survey or routable arrival.",
+      "geometry_evidence": {
+        "url": "https://github.com/snowball-projects/fairway/blob/main/data/source-layers/retained-location14-properties-20261011.json",
+        "osm_url": "https://www.openstreetmap.org/way/30764860",
+        "source_data_through": "2026-10-11T20:21:06Z"
+      }
+    },
+    {
+      "facility_id": "f-49a7855b-b7d1-4213-a593-8c372f0efc6a",
+      "name": "Riverside Golf Course",
+      "identity_guard": {
+        "id": "f-49a7855b-b7d1-4213-a593-8c372f0efc6a",
+        "name": "Riverside Golf Course",
+        "state": "TX",
+        "county": "Travis County",
+        "address": {
+          "text": "1020 Grove Boulevard, Austin, TX 78741",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 18,
+        "inventory_complete": true,
+        "website": "https://riverside-gc.com/",
+        "map_location": {
+          "latitude": 30.236108,
+          "longitude": -97.703756,
+          "kind": "address_range_estimate"
+        },
+        "courses": [
+          {
+            "id": "c-30029395-4721-4b85-9cad-a73a25b6b294",
+            "name": null,
+            "holes": 18,
+            "access": "public"
+          }
+        ]
+      },
+      "facility_before_sorted_compact_sha256": "e9af30ebdf88414da4b26f3439ab404e5f30a4207ebb65eb239487248bd0edd8",
+      "changes": {
+        "map_location": {
+          "before": {
+            "latitude": 30.236108,
+            "longitude": -97.703756,
+            "kind": "address_range_estimate"
+          },
+          "after": {
+            "latitude": 30.23683415,
+            "longitude": -97.70835751,
+            "kind": "property_point"
+          }
+        }
+      },
+      "location_qualification": "The accepted canonical address 1020 Grove Boulevard, Austin, TX 78741 matches retained OSM house, street, city and ZIP. The Victoria canonical namesake is 302 McCright Drive, ZIP 77901. Two disjoint, unbound same-name geometries are rejected for this UUID. The original Census address-range estimate remains in before-value evidence and supplies no new coordinates. New coordinates are Shapely 2.1.2 PointOnSurface of complete retained valid OSM geometry, rounded to eight decimals and strictly contained. Existing canonical physical totals and nested public-course evidence are standing accepted values, not new operator findings. No public label, holes, courses, address, county, arrival or availability is inferred. Original ambiguous flags, all rejected candidates and old estimate/null values are retained. This is a dated property browsing point, not an entrance, legal parcel, survey or routable arrival.",
+      "geometry_evidence": {
+        "url": "https://github.com/snowball-projects/fairway/blob/main/data/source-layers/retained-location14-properties-20261011.json",
+        "osm_url": "https://www.openstreetmap.org/way/30769048",
+        "source_data_through": "2026-10-11T20:21:06Z"
+      }
+    },
+    {
+      "facility_id": "f-0ce78ef9-0d28-4efb-8181-e9553b9fcdca",
+      "name": "Pleasant Hill Golf Course",
+      "identity_guard": {
+        "id": "f-0ce78ef9-0d28-4efb-8181-e9553b9fcdca",
+        "name": "Pleasant Hill Golf Course",
+        "state": "OH",
+        "county": "Butler County",
+        "address": {
+          "text": "6487 Hankins Road, Liberty Twp, OH 45044",
+          "purpose": "course"
+        },
+        "physical_holes": 18,
+        "inventory_complete": true,
+        "website": "https://playpleasanthill.com/",
+        "map_location": {
+          "latitude": 39.430636,
+          "longitude": -84.402732,
+          "kind": "address_range_estimate"
+        },
+        "courses": [
+          {
+            "id": "c-6dd68770-d213-439f-a4ce-88fcf28f8b17",
+            "name": null,
+            "holes": 18,
+            "access": "public"
+          }
+        ]
+      },
+      "facility_before_sorted_compact_sha256": "b06b08edc2d5da5f93fecd0914bd157c81bd696451b8552599d5f5e5cd0acfd8",
+      "changes": {
+        "map_location": {
+          "before": {
+            "latitude": 39.430636,
+            "longitude": -84.402732,
+            "kind": "address_range_estimate"
+          },
+          "after": {
+            "latitude": 39.4270965,
+            "longitude": -84.39913712,
+            "kind": "property_point"
+          }
+        }
+      },
+      "location_qualification": "The accepted canonical address 6487 Hankins Road, Liberty Twp, OH 45044 matches retained OSM house, street and ZIP. OSM city Middletown is preserved as a tag without adding an alias or changing the canonical address. Chardon/Aquilla Road 44024 and Perrysville/Pleasant Hill Road 44864 candidates conflict with the specific address and are rejected. New coordinates are Shapely 2.1.2 PointOnSurface of complete retained valid OSM geometry, rounded to eight decimals and strictly contained. Existing canonical physical totals and nested public-course evidence are standing accepted values, not new operator findings. No public label, holes, courses, address, county, arrival or availability is inferred. Original ambiguous flags, all rejected candidates and old estimate/null values are retained. This is a dated property browsing point, not an entrance, legal parcel, survey or routable arrival.",
+      "geometry_evidence": {
+        "url": "https://github.com/snowball-projects/fairway/blob/main/data/source-layers/retained-location14-properties-20261011.json",
+        "osm_url": "https://www.openstreetmap.org/way/33264518",
+        "source_data_through": "2026-10-11T20:21:06Z"
+      }
+    }
+  ],
+  "source_license_to_append": {
+    "source": "Retained location14 four existing public property corrections",
+    "attribution": "\u00a9 OpenStreetMap contributors",
+    "source_url": "https://github.com/snowball-projects/fairway/blob/main/data/source-layers/retained-location14-properties-20261011.json",
+    "license": "ODbL-1.0",
+    "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+    "applies_to": "Selected OSM geometry, derived interior property coordinates and OSM-dependent identity/location qualifications. Existing independent bare facts retain their original provenance. Companion separation does not waive applicable combined-database ODbL obligations; MIT applies to software.",
+    "changes": "Four existing UUIDs manually resolved by matching retained specific house/street/ZIP address components; derived rounded strictly interior points replace two nulls and two Census address-range estimates. No operator requests, public-access changes, physical inventories, county/address fixes or arrivals."
+  }
+}

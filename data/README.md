@@ -373,3 +373,104 @@ ranking selection remain unchanged. A facility total alone does not establish a
 course subdivision. No source fact here claims live operation or an entrance.
 
 The thirteen public-facility additions in `research/combined-public-20261013/` are documented with independent regional/official/operator facts, explicit admission evidence, source controls and rights qualifications. Idaho contributes two, Kansas three and South Dakota eight. Five physical totals remain unknown, Cattail component inventory is unresolved, all new counties/map/arrival coordinates are null, and Caney public play excludes Tuesdays. No explicit source-data open license is claimed.
+
+The bounded four-facility SDGA proposal in `research/south-dakota-five-20261013/` adds Murdo, Oahe Hills, Lake Waggoner and Elkhorn Ridge using individually Public classifications. Physical totals/inventories, counties and coordinates remain unknown. Operator URLs are listed links, not independently verified. Linked terms and canonical privacy policy were reviewed; no open license is claimed. Bison profile500 remains excluded. Raw captures stay private.
+
+The three existing Ohio property corrections in
+`review-batches/ohio-property-gaps-03-20261013.json` use retained ODbL golf
+geometry and matching operator identity/address evidence for Beavercreek,
+Eagle Creek in Norwalk, and Windy Knoll in Springfield. The companion
+`source-layers/ohio-property-gaps-03-20261011.json` retains complete selected
+areas, versions, tags, original automated flags, manual decisions, null prior
+coordinates and reproducible geometry hashes. Shapely 2.1.2 derives
+PointOnSurface from the selected-area union and checks strict containment after
+eight-decimal rounding. These browse points do not establish entrances or
+routing arrivals. Combined database reuse remains subject to applicable ODbL
+requirements; operator facts retain independent source provenance.
+
+Operator pages explicitly support public play. Beavercreek's owner-confirmed
+ZIP45431 resolves the retained ZIP45324 conflict. Windy Knoll's touching mapped
+areas remain components of the existing facility, without creating new courses
+or changing its eighteen-hole total. All existing hole totals, nested course
+facts, inventory completeness and unrelated records are preserved. Operator
+reads preceded robots attempts; the robots reads were unavailable without HTTP
+status or rules and were not retried. Retained excerpts are not raw HTML or
+complete exported response buffers. Review accepted the factual delta while
+preserving these limits, with no source-wide permission or live-availability
+claim.
+
+The next bounded SDGA directory cohort in `research/sdga-directory-next-20261013/`
+adds seven individually Public-labeled facilities from fourteen selected leads.
+Gettysburg, Red Rock, Hillcrest, Parkston, Prairie Ridge, River’s Bend and The
+Lakes have unknown physical hole totals and empty incomplete inventories. All
+new county/map/arrival fields remain null. Prairie Ridge also lists Non-Base
+guests; Gettysburg carries both Public and Semi-Private labels. Listed operator
+URLs remain unvisited/not_checked. Six profiles lacking a Public label are
+excluded; Leola profile500 is stopped without retry or replacement. Earlier
+Bison and operator/publisher holds remain active. Raw captures stay private.
+
+
+### Ohio seventeen-property reconciliation, October 13, 2026
+
+The accumulating draft PR #17 incorporates 17 existing Ohio property updates
+from the bounded 20-record review, with 16 explicit public-access updates and
+16 additional eligible green dots. It adds no facility or physical hole total.
+The candidate catalog contains 7,200 facilities and 4,456 eligible dots; the
+batch covers 31 distinct IDs (11 additions and 20 existing-record updates).
+Blacklick receives only retained licensed geometry and remains off map with an
+unknown total. Reeves, Twin Lakes and Kennsington remain unchanged.
+
+Complete selected ODbL geometry, versions, tags, original flags, identity
+qualifications and independently reproduced interior points remain in
+`data/source-layers/ohio-next20-properties-20261011.json`. Generalized retained
+Census county outlines corroborate locality only. The source layer separation
+does not waive applicable combined-database ODbL obligations. No arrival,
+clubhouse, legal parcel, address correction or course subdivision is inferred.
+
+Current operator and official association controls are recorded in
+`research/ohio-next20-20261013/source-controls.json`. The worker used at least
+10 seconds between request starts (minimum 10.000447), with a minimum 9.624367
+seconds from completion to the next start. It did not claim the 15-second
+completion convention used by other collectors. No longer admitted publisher
+delay was found in reviewed controls. Blacklick's linked policy-host stop and
+all historical holds remain; no new owner facts were admitted after that stop.
+Raw responses remain private. Integration made no source requests.
+
+Source commit `05b3135489815d6cb52be11ebc0bca2c10ba5641` and pacing correction
+`f65e0ac24aa9e7d5d15f73f0920352606aa14f4c` remain ancestors of the actual
+factual integration merge commit `22c802f0779cf436f473eaee2bbefe8cd35ae538`, committed at 2026-10-13T21:25:17Z.
+History records 17 updates at that real commit/time; report time is 2026-10-13T21:26:18Z.
+All previous history and report order are preserved. Independent review checks
+all 17 geometries and all 41 private capture hashes, and preserves the earlier
+14 accepted objects, unrelated research, all physical totals, inventories,
+addresses, counties and arrivals. Exact combined-head CI remains required.
+
+
+### Four retained property corrections, October 13, 2026
+
+The fixed 14 retained-data review accepts four location-only corrections and
+leaves ten identities unchanged. Fox Run Waterford, Hancock Austin, Riverside
+Austin and Pleasant Hill at 6487 Hankins Road match specific retained OSM address
+components to standing canonical addresses. Original ambiguous flags and
+complete rejected namesake geometry remain in the ODbL companion source layer
+`data/source-layers/retained-location14-properties-20261011.json`. No operator
+scraping, source request, held-source recovery, new admission claim, physical
+hole count, inventory, address, county or arrival update occurs. The Austin
+municipal publisher and all other holds remain active.
+
+Two null locations and two Census address-range estimates become rounded,
+strictly interior property points, independently reproduced with Shapely 2.1.2.
+They are dated browse locations, not legal parcels, surveys, entrances or
+routable arrivals. Four exact original input members match retained archive
+SHA256 values. Opaque original upstream geometry hashes are preserved without
+claiming reconstruction of the original hash serialization in this review; this review
+independently computes and checks sorted-compact GeoJSON hashes. ODbL
+attribution and applicable combined-database obligations remain.
+
+The actual factual commit `22d6b4b6b3bb805731db11cad202bf2923609c16` was committed at 2026-10-13T21:48:24Z;
+history records 4 updates and report time 2026-10-13T21:49:19Z. Previous history and
+report order are preserved. All31 earlier accepted facility/research objects
+and all unrelated fields remain unchanged. Candidate counts are 7,200 facilities
+and 4,460 eligible green dots; batch scope is 35 distinct IDs (11 added and 24 updated).
+Full controls, guarded delta, geometry and preservation audits are in
+`research/retained-location14-20261013/`. Final exact-head CI is required.

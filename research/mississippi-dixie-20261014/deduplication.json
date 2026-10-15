@@ -1,0 +1,84 @@
+{
+  "base_commit": "853edd2c49ad6e69469e0cd49153312da3ceff83",
+  "base_catalog_sha256": "9005bc00a4419e9e52e15b7316a5ab3b760ba44f0bc947be64bd056d0f5f2bfd",
+  "facilities_checked": 7200,
+  "mississippi_facilities_checked": 70,
+  "exact_normalized_facility_and_course_name_address_owner_and_research_matches": [],
+  "nearby_name_review": [
+    {
+      "id": "f-bf16bb6d-40ba-4e6f-9347-eb06f73b61ce",
+      "name": "Decatur Golf Club",
+      "state": "MS",
+      "address": {
+        "text": "Hwy 503, Decatur, MS 39327",
+        "purpose": "published_unspecified"
+      },
+      "identity_decision": "Distinct facility; name/locality/address or operator differ."
+    },
+    {
+      "id": "f-74c15f28-c57b-43fc-ac8c-058f533513d7",
+      "name": "Live Oaks Golf Club",
+      "state": "MS",
+      "address": {
+        "text": "11200 Hwy 49 N, Jackson, MS 39209",
+        "purpose": "published_unspecified"
+      },
+      "identity_decision": "Distinct facility; name/locality/address or operator differ."
+    },
+    {
+      "id": "f-e7d391f4-be73-43c6-9c86-f168b70629ba",
+      "name": "Shadow Ridge Golf Club",
+      "state": "MS",
+      "address": {
+        "text": "101 Shadow Lake Dr, Hattiesburg, MS 39402",
+        "purpose": "published_unspecified"
+      },
+      "identity_decision": "Distinct facility; name/locality/address or operator differ."
+    },
+    {
+      "id": "f-492468fb-7da4-4e36-9e77-632d8a98a0ca",
+      "name": "Timberton Golf Club",
+      "state": "MS",
+      "address": {
+        "text": "22 Clubhouse Dr, Hattiesburg, MS 39401",
+        "purpose": "published_unspecified"
+      },
+      "identity_decision": "Distinct facility; name/locality/address or operator differ."
+    },
+    {
+      "id": "f-870b3c70-4a70-49e3-bea2-290b2ce58039",
+      "name": "Pine Creek Golf Club",
+      "state": "MS",
+      "address": {
+        "text": "61 Club House Drive, Purvis, MS 39475",
+        "purpose": "published_unspecified"
+      },
+      "identity_decision": "Distinct facility; name/locality/address or operator differ."
+    },
+    {
+      "id": "f-a745c348-1a2f-465b-84be-2ad1307e06ce",
+      "name": "Yoda Creek Golf Club",
+      "state": "MS",
+      "address": {
+        "text": "70 County Road 259, Bruce, MS 38915-9539",
+        "purpose": "published_unspecified"
+      },
+      "identity_decision": "Distinct facility; name/locality/address or operator differ."
+    }
+  ],
+  "other_state_namesakes": [
+    {
+      "id": "f-52bb5d7d-0d66-43f9-8c60-89b006ee7e01",
+      "name": "Dixie Oaks Golf Club",
+      "state": "TN",
+      "decision": "Distinct state, facility name and published address."
+    },
+    {
+      "id": "f-0364d0dc-d850-4110-93b9-ad06f39f1378",
+      "name": "Dixie Red Hills Golf Course",
+      "state": "UT",
+      "decision": "Distinct state, facility name and published address."
+    }
+  ],
+  "history_progress_source_note_scope": "No same facility identity or owner host found in serialized canonical research/source/note/history/progress records; original retained archived candidates reviewed in mga-candidate-history.json, no prior hold or admission for Dixie."
+}

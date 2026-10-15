@@ -1,0 +1,35 @@
+{
+  "source_url": "https://www.dixiegolf.net/",
+  "raw_sha256": "695b53f92de3fd2dcc69650f1528a738e3525e255706629f22acfa4d0c7e66d1",
+  "private_raw_filename": "069206399ae4fb95.body",
+  "encoding": "UTF-8 HTML bytes",
+  "literal_byte_offsets": {
+    "Open to the public": [
+      697,
+      66629
+    ],
+    "Open to the Public": [
+      71602
+    ],
+    "18 hole golf course": [
+      715,
+      66651
+    ],
+    "18 holes of golf": [
+      71282
+    ],
+    "750 Hillcrest Drive": [
+      5580,
+      5933,
+      76445,
+      78596
+    ],
+    "Laurel, MS 39442": [
+      5600,
+      5953,
+      76468,
+      78616
+    ]
+  },
+  "purpose": "Audit anchors for independently inspected bare owner facts; no page prose replicated."
+}

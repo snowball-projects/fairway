@@ -1,0 +1,19 @@
+[
+  {
+    "url": "https://www.sdga.org/golf_course/leola-country-club/",
+    "group": "sdga.org",
+    "start": "2026-10-13T20:18:42.315581+00:00",
+    "start_epoch": 1791922722.3155725,
+    "status": 500,
+    "complete": "2026-10-13T20:18:43.672861+00:00",
+    "complete_epoch": 1791922723.672874,
+    "sha256": "486cc89141cb5de0e61c221d3d701ba532b6ce9702a61153e303b26dbd17133d",
+    "bytes": 133973,
+    "file": "0425e5d0dad29e54.body",
+    "redirect": null,
+    "completion_to_next_start_gap_seconds": 15.000066995620728,
+    "kind": "profile_specific_http500",
+    "facts_used": false,
+    "disposition": "Exact Leola profile unavailable; no retry, cached substitute, operator alternative or replacement. No publisher-wide policy denial."
+  }
+]

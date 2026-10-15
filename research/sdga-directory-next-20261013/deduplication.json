@@ -1,0 +1,130 @@
+[
+  {
+    "name": "Gettysburg Country Club",
+    "id": "f-5f4be9f9-969f-4fbd-bcad-fc5957b00d78",
+    "global_exact_names": [],
+    "SD_exact_address_matches": [],
+    "normalized_operator_url_matches": [],
+    "SD_history_including_null_id_matches": [],
+    "published_locality_tokens": [
+      "Great Lakes",
+      "Public",
+      "Semi-Private"
+    ],
+    "decision": "net_new",
+    "qualification": "The profile carries both Public and Semi-Private labels; the individual Public label is the admission evidence. Combined street and PO Box address purpose remains unspecified."
+  },
+  {
+    "name": "Golf Club at Red Rock",
+    "id": "f-93a52bb5-afc9-489d-b8d2-8ce469d80ef9",
+    "global_exact_names": [],
+    "SD_exact_address_matches": [],
+    "normalized_operator_url_matches": [],
+    "SD_history_including_null_id_matches": [],
+    "published_locality_tokens": [
+      "Black Hills",
+      "Public",
+      "Rapid City"
+    ],
+    "decision": "net_new",
+    "qualification": "Rapid City locality is published, but the street address is blank."
+  },
+  {
+    "name": "Hillcrest Golf & Country Club",
+    "id": "f-37b11a95-0a1a-407f-8343-7c2002c85af7",
+    "global_exact_names": [],
+    "SD_exact_address_matches": [],
+    "normalized_operator_url_matches": [],
+    "SD_history_including_null_id_matches": [],
+    "published_locality_tokens": [
+      "Public",
+      "Southeast",
+      "Yankton"
+    ],
+    "decision": "net_new",
+    "qualification": "Yankton city/ZIP-only text does not establish a street address. Existing Fox Run in Yankton has a different name, street and operator."
+  },
+  {
+    "name": "Parkston Country Club",
+    "id": "f-b23450ce-eb1a-48bc-8752-39ea61b3a259",
+    "global_exact_names": [],
+    "SD_exact_address_matches": [],
+    "normalized_operator_url_matches": [],
+    "SD_history_including_null_id_matches": [],
+    "published_locality_tokens": [
+      "Parkston",
+      "Public",
+      "Southeast"
+    ],
+    "decision": "net_new",
+    "qualification": "The listed operator URL is unvisited; its historical TLS stop remains active. Independent association evidence does not clear that operator."
+  },
+  {
+    "name": "Prairie Ridge Golf Course",
+    "id": "f-fadd9077-1685-47fd-a1b9-78c19282ddae",
+    "global_exact_names": [],
+    "SD_exact_address_matches": [],
+    "normalized_operator_url_matches": [],
+    "SD_history_including_null_id_matches": [],
+    "published_locality_tokens": [
+      "Black Hills",
+      "Box Elder",
+      "Public"
+    ],
+    "decision": "net_new",
+    "qualification": "The individual Public label is corroborated by a Non-Base guest category. No current fee, unrestricted base-entry or live-availability claim."
+  },
+  {
+    "name": "River’s Bend Country Club",
+    "id": "f-d82d0d3a-4750-4adc-93ed-0c934ac44036",
+    "global_exact_names": [],
+    "SD_exact_address_matches": [],
+    "normalized_operator_url_matches": [],
+    "SD_history_including_null_id_matches": [],
+    "published_locality_tokens": [
+      "Flandreau",
+      "Public",
+      "Southeast"
+    ],
+    "decision": "net_new",
+    "qualification": "Flandreau locality differs from River Ridge in Garretson and Two Rivers in Dakota Dunes. Listed Facebook link excluded."
+  },
+  {
+    "name": "The Lakes Golf Course",
+    "id": "f-bb2c3675-b155-4f10-8577-df9db74077aa",
+    "global_exact_names": [
+      {
+        "id": "f-aa91d9a3-cab9-43e7-99b0-f937381d9844",
+        "name": "The Lakes Golf Course",
+        "state": "KY",
+        "county": null,
+        "address": {
+          "text": "5549 St. Route 7, South Shore, KY 41175",
+          "purpose": "published_unspecified"
+        },
+        "physical_holes": 9,
+        "inventory_complete": true,
+        "website": null,
+        "map_location": null,
+        "courses": [
+          {
+            "id": "c-db2ab5c5-08e7-433c-879b-9783b83b4ca8",
+            "name": null,
+            "holes": 9,
+            "access": "public"
+          }
+        ]
+      }
+    ],
+    "SD_exact_address_matches": [],
+    "normalized_operator_url_matches": [],
+    "SD_history_including_null_id_matches": [],
+    "published_locality_tokens": [
+      "Public",
+      "Southeast",
+      "Wentworth"
+    ],
+    "decision": "net_new",
+    "qualification": "Wentworth locality differs from the same-named Kentucky facility and other South Dakota lake-name facilities; the street address is blank."
+  }
+]
