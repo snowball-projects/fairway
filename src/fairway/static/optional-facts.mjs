@@ -28,9 +28,16 @@ function unique(rows,key='id'){
 }
 function rawMatches(record,raw,schema){return Object.keys(schema).every(key=>Object.hasOwn(record,key)&&sameValue(record[key],raw[key]));}
 function assertIds(actual,expected){if(!Array.isArray(actual)||new Set(actual).size!==actual.length||actual.length!==expected.length||actual.some(id=>!expected.includes(id)))fail('Changed canonical relationship membership');}
+function priceConditionScan(row){
+  let text=row.conditions;
+  if(row.billing_basis!=='per_person'||!['id','observation_id','fee_kind','amount_kind','amount_min'].every(key=>Object.hasOwn(row,key)))return text;
+  // Scan the bounded each-unit notation only; never change the emitted claim.
+  text=text.replace(/^(\s*Printed\s+["'`]?)\/ea(?=["'`]?\s+with\s*\p{Nd}+\s*riders?\s+per\s+cart(?![\p{L}\p{N}_]))/iu,'$1each');
+  return text.replace(/^(\s*[$€£]\s*\p{Nd}+(?:[.,]\p{Nd}{1,2})?\s+)\/ea(?=$|\s|[.,;:!?)](?:\s|$))/iu,'$1each');
+}
 export function rejectRawEvidence(value){
   if(Array.isArray(value)){for(const row of value)rejectRawEvidence(row);return;}
-  if(object(value)){for(const [key,child] of Object.entries(value)){if(['fact_groups','payload','retained_pointer','retained_document','retained_evidence','controls_reference','capture_path','local_path'].includes(key))fail('Raw evidence is not operational transport');rejectRawEvidence(key);rejectRawEvidence(child);}return;}
+  if(object(value)){for(const [key,child] of Object.entries(value)){if(['fact_groups','payload','retained_pointer','retained_document','retained_evidence','controls_reference','capture_path','local_path'].includes(key))fail('Raw evidence is not operational transport');rejectRawEvidence(key);rejectRawEvidence(key==='conditions'&&typeof child==='string'?priceConditionScan(value):child);}return;}
   if(typeof value==='string'){
     const scan=value.replace(/\bhttps?:\/\/[^\s<>"'`]+/gi,'');
     if(/(?:^|[\s"'`(\[={:;,<>|!?“”‘’«»])\/+[^\s/]|file:\/\/|\b[A-Za-z]:[\\/]|\\{2}/i.test(scan))fail('Private path in public transport');

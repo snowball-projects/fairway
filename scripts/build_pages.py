@@ -33,6 +33,44 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def _price_condition_scan(row):
+    """Recognize a financial /ea token only in an explicit per-person SQL price.
+
+    This changes the validation scan, never the emitted operational text. A
+    leading path named /ea, a path suffix, and separate paths still reject.
+    """
+    text = row["conditions"]
+    if (
+        row.get("billing_basis") != "per_person"
+        or not {
+            "id",
+            "observation_id",
+            "fee_kind",
+            "amount_kind",
+            "amount_min",
+        }
+        <= row.keys()
+    ):
+        return text
+    # The actual shared-cart qualification states the printed each notation and
+    # rider basis. Do not exempt bare /ea in arbitrary prose or metadata.
+    text = re.sub(
+        r"(?i)\A(\s*Printed\s+[\"'`]?)\/ea"
+        r"(?=[\"'`]?\s+with\s*\d+\s*riders?\s+per\s+cart\b)",
+        r"\1each",
+        text,
+    )
+    # A monetary amount followed by the exact each-unit token is also ordinary
+    # price notation. A slash, extension, escape, or query suffix is not a unit.
+    return re.sub(
+        r"\A(\s*[$€£]\s*\d+(?:[.,]\d{1,2})?\s+)/ea"
+        r"(?=$|\s|[.,;:!?)](?:\s|$))",
+        r"\1each",
+        text,
+        flags=re.IGNORECASE,
+    )
+
+
 def public_projection(value):
     """Reject retained bodies and private path tokens before writing a public asset."""
     forbidden = {
@@ -52,7 +90,11 @@ def public_projection(value):
                 if key in forbidden:
                     raise ValueError("raw evidence in public transport")
                 visit(key)
-                visit(child)
+                visit(
+                    _price_condition_scan(item)
+                    if key == "conditions" and isinstance(child, str)
+                    else child
+                )
         elif isinstance(item, list):
             for child in item:
                 visit(child)

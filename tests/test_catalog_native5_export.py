@@ -100,6 +100,96 @@ def test_path_guard_preserves_normal_urls_and_operational_slash_text():
         export._public({"/mnt/private/proof.json": "key also stays private"})
 
 
+@pytest.mark.parametrize(
+    "conditions",
+    [
+        "Printed /ea with2riders per cart; ISOcurrency unknown.",
+        "Printed `/ea` with 2 riders per cart; ISOcurrency unknown.",
+        "Printed /EA with 1 rider per cart.",
+        "$18 /ea",
+        "$18.50 /ea; two riders per cart.",
+        "€18 /ea.",
+    ],
+)
+def test_per_each_price_conditions_export_byte_for_typed_value(db, conditions):
+    seed_typed(db)
+    with native.writer(db) as con:
+        con.execute(
+            "UPDATE price_observation SET conditions=? WHERE id=?",
+            (conditions, ident("n", 4)),
+        )
+        con.commit()
+    checksum = hashlib.sha256(db.read_bytes()).hexdigest()
+    value = export.build_transport(db, expected_sha256=checksum, revision=2)
+    facility = next(
+        row for row in value["facilities"] if row["facility_id"] == ident("f", 1)
+    )
+    price = facility["round_options"][0]["optional"]["price_observation"][0]
+    assert price["conditions"] == conditions
+    assert price["billing_basis"] == "per_person"
+    assert hashlib.sha256(db.read_bytes()).hexdigest() == checksum
+
+
+@pytest.mark.parametrize(
+    "conditions",
+    [
+        "/ea",
+        "Private capture: /ea",
+        "Printed /ea/private.json with2riders per cart",
+        "Printed /ea.json with2riders per cart",
+        "Printed /ea%2fprivate.json with2riders per cart",
+        "$18 /ea/private.json",
+        "$18 /ea.json",
+        "$18 /ea\\private.json",
+        "$18 /ea?private",
+        "$18 /ea#private",
+        "$18 /ea;private",
+        "Printed /ea with2riders per cart; capture:/mnt/private.json",
+        "$18 /ea; https://example.test/fees; `/var/tmp/proof.json`",
+    ],
+)
+def test_actual_paths_in_per_person_prices_still_fail_closed(db, tmp_path, conditions):
+    seed_typed(db)
+    with native.writer(db) as con:
+        con.execute(
+            "UPDATE price_observation SET conditions=? WHERE id=?",
+            (conditions, ident("n", 4)),
+        )
+        con.commit()
+    output = tmp_path / "private-price-must-not-export"
+    with pytest.raises(ValueError, match="local evidence path"):
+        export.export_transport(
+            db,
+            output,
+            expected_sha256=hashlib.sha256(db.read_bytes()).hexdigest(),
+            revision=2,
+        )
+    assert not output.exists()
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        {"conditions": "Printed /ea with2riders per cart"},
+        {"location_note": "$18 /ea"},
+        {"qualification": "Printed /ea with2riders per cart"},
+        {"/ea": "each-looking keys are not price conditions"},
+        {
+            "id": "price",
+            "observation_id": "observation",
+            "fee_kind": "golf_cart",
+            "amount_kind": "exact",
+            "amount_min": 18,
+            "billing_basis": "per_cart",
+            "conditions": "Printed /ea with2riders per cart",
+        },
+    ],
+)
+def test_each_exception_requires_explicit_per_person_price_context(value):
+    with pytest.raises(ValueError, match="local evidence path"):
+        export._public(value)
+
+
 @pytest.fixture
 def db(tmp_path):
     return base_db.__wrapped__(tmp_path)

@@ -69,17 +69,17 @@ test('address lookup has an injected deterministic transport and no private rout
   let call;const value=await resolvePublicOrigin('committed address',{fetcher:async(url,options)=>{call={url,options};return {ok:true,json:async()=>({features:[]})};}});
   assert.deepEqual(value.features,[]);assert.equal(call.url.origin,'https://photon.komoot.io');assert.equal(call.url.searchParams.get('q'),'committed address');assert.equal(call.options.credentials,'omit');
 });
-test('committed 760 release validates complete typed scope and rejects old-schema fallback',()=>{
+test('committed 768 release validates complete typed scope and rejects old-schema fallback',()=>{
   const raw=gunzipSync(readFileSync(new URL('../data/catalog-release/catalog.json.gz',import.meta.url)));
   const manifest=JSON.parse(readFileSync(new URL('../data/catalog-release/manifest.json',import.meta.url)));
   assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.files['catalog.json'].sha256);
-  assert.equal(manifest.revision,760);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
-  assert.equal(manifest.files['catalog.json'].sha256,'93848ee0c98056fa5b12ad32e725e486103f3402e508f70ba0bac26a69cc5323');
+  assert.equal(manifest.revision,768);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
+  assert.equal(manifest.files['catalog.json'].sha256,'d231a7c4f3081ffe2984931249909d6319723b9e1066bebe94e855950b88b6f0');
   const value=JSON.parse(raw),model=validatePublicCatalog(value,manifest);
   assert.throws(()=>validatePublicCatalog({...value,format_version:1,schema:4},{...manifest,format_version:1,schema:4}),/identity/);
-  assert.equal(model.facilities.length,7387);assert.equal(model.courses.length,3682);assert.equal(model.destinations.size,2179);
-  assert.deepEqual(catalogCounts(model.facilities),{total:7387,onMap:4640,pending:2747});
-  assert.equal(model.optionalObservations.size,2822);
+  assert.equal(model.facilities.length,7395);assert.equal(model.courses.length,3694);assert.equal(model.destinations.size,2179);
+  assert.deepEqual(catalogCounts(model.facilities),{total:7395,onMap:4640,pending:2755});
+  assert.equal(model.optionalObservations.size,3061);
   assert.ok([...model.facilities,...model.courses].every(r=>!Object.hasOwn(r,'fact_groups')));
   assert.equal(model.provenance.notes.length,8286);assert.ok(model.provenance.notes.every(n=>Object.keys(n).length===1&&typeof n.id==='string'));
   assert.ok(model.courses.some(c=>c.name===null&&c.nonmember_bookable===null));
