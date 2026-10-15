@@ -40,41 +40,52 @@ def _license(value):
     return value
 
 
-def _price_condition_scan(row):
-    """Recognize a financial /ea token only in an explicit per-person SQL price.
+# Explicit shared scan policy: no engine-dependent whitespace, casefold or boundary.
+_SCAN_SPACE = r"\u0009-\u000d\u001c-\u0020\u0085\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff"
+_URL_BOUNDARY = r"\x00-\x2f\x3a-\x40\x5b-\x5e\x60\x7b-\x7f“”‘’«»"
 
-    This changes the validation scan, never the emitted operational text. A
-    leading path named /ea, a path suffix, and separate paths still reject.
-    """
+
+def _validation_scan(text):
+    text = re.sub(f"[{_SCAN_SPACE}]", " ", text)
+    return re.sub(r"[A-Z]", lambda match: match[0].lower(), text)
+
+
+def _price_condition_scan(row):
+    """Scan bounded ASCII financial notation; never rewrite emitted claims."""
     text = row["conditions"]
     if (
         row.get("billing_basis") != "per_person"
-        or not {
-            "id",
-            "observation_id",
-            "fee_kind",
-            "amount_kind",
-            "amount_min",
-        }
+        or not {"id", "observation_id", "fee_kind", "amount_kind", "amount_min"}
         <= row.keys()
     ):
         return text
-    # The actual shared-cart qualification states the printed each notation and
-    # rider basis. Do not exempt bare /ea in arbitrary prose or metadata.
+    text = _validation_scan(text)
     text = re.sub(
-        r"(?i)\A(\s*Printed\s+[\"'`]?)\/ea"
-        r"(?=[\"'`]?\s+with\s*\d+\s*riders?\s+per\s+cart\b)",
+        r"""\A( *printed +["'`]?)\/ea(?=["'`]? +with *[0-9]+ *riders? +per +cart(?=$| |[.,;:!?)](?: |$)))""",
         r"\1each",
         text,
     )
-    # A monetary amount followed by the exact each-unit token is also ordinary
-    # price notation. A slash, extension, escape, or query suffix is not a unit.
     return re.sub(
-        r"\A(\s*[$€£]\s*\d+(?:[.,]\d{1,2})?\s+)/ea"
-        r"(?=$|\s|[.,;:!?)](?:\s|$))",
+        r"\A( *[$€£] *[0-9]+(?:[.,][0-9]{1,2})? +)/ea(?=$| |[.,;:!?)](?: |$))",
         r"\1each",
         text,
-        flags=re.IGNORECASE,
+    )
+
+
+def _without_http_links(text):
+    return re.sub(
+        rf"""(^|[{_URL_BOUNDARY}])https?://[^ <>"'`]+""",
+        r"\1",
+        _validation_scan(text),
+    )
+
+
+def _has_private_path(text):
+    return bool(
+        re.search(
+            r"""(?:^|[ "'`(\[={:;,<>|!?“”‘’«»])/+[^ /]|file://|[a-zİıſK]:[\\/]|\\{2}""",
+            _without_http_links(text),
+        )
     )
 
 
@@ -97,15 +108,8 @@ def _public(value):
         for child in value:
             _public(child)
     elif isinstance(value, str):
-        # Exclude HTTP link tokens from the validation scan only. Their emitted
-        # text is unchanged; a URL's path is not a local filesystem reference.
-        scan = re.sub(r"\bhttps?://[^\s<>\"'`]+", "", value, flags=re.IGNORECASE)
         require(
-            not re.search(
-                r"""(?:^|[\s"'`(\[={:;,<>|!?“”‘’«»])/+[^\s/]|file://|\b[A-Za-z]:[\\/]|\\{2}""",
-                scan,
-                re.IGNORECASE,
-            ),
+            not _has_private_path(value),
             "public transport contains a local evidence path",
         )
 

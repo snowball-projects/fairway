@@ -33,7 +33,11 @@ Exporter, Pages assembly and browser validation recognize bounded `/ea` notation
 only within explicit per-person price conditions. Validation scans a temporary
 representation; emitted conditions stay byte-exact. Shared acceptance/rejection
 cases cover all three guards, including path suffixes, other fields and keys,
-and extra private paths. There is no general slash-path exemption.
+and extra private paths. Explicit shared character and case rules are documented
+in [the public scan policy](PUBLIC-SCAN-POLICY.md). The public exporter copy has
+this narrow correction beyond writer source 4df3e0f; all generated data bytes and
+the remaining supplied writer files stay exact. There is no general slash-path
+exemption.
 
 Only the generated manifest/gzip are build inputs. No populated database, recovery
 SQL, retained payloads or private research controls are public assets. Existing

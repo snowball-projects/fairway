@@ -1,0 +1,530 @@
+[
+  {
+    "name": "'$25 /ea\\x85Dated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea\u0085Dated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'Printed /ea with 2 riders per cart\\x85Dated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Printed /ea with 2 riders per cart\u0085Dated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'$25 /ea then\\x85/private/evidence'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea then\u0085/private/evidence"
+    },
+    "python": {
+      "exporter": false,
+      "pages": false
+    }
+  },
+  {
+    "name": "'$25 /ea\\x1cDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea\u001cDated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'Printed /ea with 2 riders per cart\\x1cDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Printed /ea with 2 riders per cart\u001cDated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'$25 /ea then\\x1c/private/evidence'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea then\u001c/private/evidence"
+    },
+    "python": {
+      "exporter": false,
+      "pages": false
+    }
+  },
+  {
+    "name": "'$25 /ea\\x1dDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea\u001dDated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'Printed /ea with 2 riders per cart\\x1dDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Printed /ea with 2 riders per cart\u001dDated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'$25 /ea then\\x1d/private/evidence'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea then\u001d/private/evidence"
+    },
+    "python": {
+      "exporter": false,
+      "pages": false
+    }
+  },
+  {
+    "name": "'$25 /ea\\x1eDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea\u001eDated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'Printed /ea with 2 riders per cart\\x1eDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Printed /ea with 2 riders per cart\u001eDated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'$25 /ea then\\x1e/private/evidence'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea then\u001e/private/evidence"
+    },
+    "python": {
+      "exporter": false,
+      "pages": false
+    }
+  },
+  {
+    "name": "'$25 /ea\\x1fDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea\u001fDated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'Printed /ea with 2 riders per cart\\x1fDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Printed /ea with 2 riders per cart\u001fDated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'$25 /ea then\\x1f/private/evidence'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea then\u001f/private/evidence"
+    },
+    "python": {
+      "exporter": false,
+      "pages": false
+    }
+  },
+  {
+    "name": "'$25 /ea\\ufeffDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea\ufeffDated only."
+    },
+    "python": {
+      "exporter": false,
+      "pages": false
+    }
+  },
+  {
+    "name": "'Printed /ea with 2 riders per cart\\ufeffDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Printed /ea with 2 riders per cart\ufeffDated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'$25 /ea then\\ufeff/private/evidence'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea then\ufeff/private/evidence"
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'$25 /ea\\xa0Dated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea\u00a0Dated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'Printed /ea with 2 riders per cart\\xa0Dated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Printed /ea with 2 riders per cart\u00a0Dated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'$25 /ea then\\xa0/private/evidence'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea then\u00a0/private/evidence"
+    },
+    "python": {
+      "exporter": false,
+      "pages": false
+    }
+  },
+  {
+    "name": "'$25 /ea\\u202fDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea\u202fDated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'Printed /ea with 2 riders per cart\\u202fDated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Printed /ea with 2 riders per cart\u202fDated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'$25 /ea then\\u202f/private/evidence'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea then\u202f/private/evidence"
+    },
+    "python": {
+      "exporter": false,
+      "pages": false
+    }
+  },
+  {
+    "name": "'$25 /ea\\u2007Dated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea\u2007Dated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'Printed /ea with 2 riders per cart\\u2007Dated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Printed /ea with 2 riders per cart\u2007Dated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'$25 /ea then\\u2007/private/evidence'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea then\u2007/private/evidence"
+    },
+    "python": {
+      "exporter": false,
+      "pages": false
+    }
+  },
+  {
+    "name": "'$25 /ea\\u2028Dated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea\u2028Dated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'Printed /ea with 2 riders per cart\\u2028Dated only.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Printed /ea with 2 riders per cart\u2028Dated only."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'$25 /ea then\\u2028/private/evidence'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "$25 /ea then\u2028/private/evidence"
+    },
+    "python": {
+      "exporter": false,
+      "pages": false
+    }
+  },
+  {
+    "name": "'Pr\u0130nted /ea with 2 riders per cart.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Pr\u0130nted /ea with 2 riders per cart."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'Pr\u0131nted /ea with 2 riders per cart.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Pr\u0131nted /ea with 2 riders per cart."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  },
+  {
+    "name": "'Printed /ea with 2 r\u0130ders per cart.'",
+    "value": {
+      "id": "review-price",
+      "observation_id": "review-observation",
+      "fee_kind": "golf_cart",
+      "amount_kind": "exact",
+      "amount_min": 25,
+      "billing_basis": "per_person",
+      "conditions": "Printed /ea with 2 r\u0130ders per cart."
+    },
+    "python": {
+      "exporter": true,
+      "pages": true
+    }
+  }
+]
