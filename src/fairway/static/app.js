@@ -227,7 +227,7 @@ function selectCourse(courseId, focusMap = true) {
   const record = course.source_course || course;
   const coordinate = course.coordinate || (record.map_location ? [record.map_location.latitude, record.map_location.longitude] : null);
   setDrawer("courses", true, false);
-  if (focusMap && coordinate) fitPoints([coordinate], 14);
+  if (focusMap && coordinate) fitPoints([coordinate], 14, !mobile()&&!REDUCED_MOTION);
   popupSelection = coordinate ? {kind:"course",id:courseId,coordinate:L.latLng(...coordinate)} : null;
   if (popupSelection) openSelectionPopup();
   else if (cataloguePopup) {const previous=cataloguePopup;cataloguePopup=null;map.closePopup(previous);}
@@ -817,13 +817,13 @@ function fitPadding() {
     paddingBottomRight: [!view.resultsPanel.hidden ? view.resultsPanel.getBoundingClientRect().width + 44 : 60, 90],
   };
 }
-function fitPoints(points, maxZoom = 15) {
+function fitPoints(points, maxZoom = 15, animate = !REDUCED_MOTION) {
   if (!points.length) return;
   const bounds = L.latLngBounds(points);
   if (bounds.isValid())
     map.fitBounds(bounds, {
       maxZoom,
-      animate: !REDUCED_MOTION,
+      animate,
       ...fitPadding(),
     });
 }
@@ -947,7 +947,7 @@ function selectFacilityById(id, fit = true) {
   if(!courses.some(course=>(course.course_id||course.id)===state.activeCourse))state.activeCourse=null;
   activeFacility=id;
   setDrawer("courses",true,false);
-  if(fit&&located(facility))fitPoints([[facility.map_location.latitude,facility.map_location.longitude]],15);
+  if(fit&&located(facility))fitPoints([[facility.map_location.latitude,facility.map_location.longitude]],15,!mobile()&&!REDUCED_MOTION);
   popupSelection=located(facility)?{kind:"facility",id,coordinate:L.latLng(facility.map_location.latitude,facility.map_location.longitude)}:null;
   if(popupSelection)openSelectionPopup();
   else if(cataloguePopup){const previous=cataloguePopup;cataloguePopup=null;map.closePopup(previous);}
