@@ -38,7 +38,7 @@ def test_legacy_ids_mixed_access_and_nulls_survive(catalog):
     )
     assert (
         twigs["physical_holes"] is None
-        and twigs["access"] == "unknown"
+        and twigs["access"] is None
         and twigs["arrival"] is None
     )
 
@@ -68,10 +68,12 @@ def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert (
         sum(len(f["course_ids"]) for f in catalog["facilities"])
         == len(catalog["courses"])
-        == 3641
+        == 3682
     )
-    assert len(catalog["provenance"]["retained"]) == 7204
-    assert len(catalog["provenance"]["intake"]) == 8720
+    assert len(catalog["provenance"]["notes"]) == 8286
+    assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
+    assert len(catalog["provenance"]["sources"]) == 18403
+    assert len(catalog["provenance"]["intake"]) == 9385
     assert sum(c["arrival"] is not None for c in catalog["courses"]) == 8
     assert (
         not {"retained_document", "source_hold", "source_hold_scope"} & catalog.keys()

@@ -1,14 +1,11 @@
 # Public catalog service policy
 
-This describes the prepared public Pages release; publication is pending schema and
-release review. Independent deployments set their own policies. The existing
-calculation API is separate and its source, credentials and provider configuration
-are unchanged by this work.
-
-The public interface has no accounts, analytics, advertising or behavioral tracking.
-Catalog search, filters, committed-coordinate selection and map fitting run in the
-browser. The browser does not send origins to fairway's calculation service, modo,
-TomTom, Spark or another routing provider. Driving times are unavailable.
+The public Pages interface has no accounts, analytics, advertising or behavioral
+tracking. Catalog search, filters, committed-coordinate selection and map fitting
+run in the browser. The browser does not send origins to fairway's calculation
+service, modo, TomTom, Spark or another routing provider. Driving times are
+unavailable. The existing calculation API and its provider configuration remain
+separate and unchanged by this public catalog release.
 
 GitHub Pages serves static assets and a checksummed SQLite-derived read projection.
 Ordinary hosting requests expose standard connection metadata to GitHub. The full
@@ -22,16 +19,15 @@ Typing alone does not send a lookup. Manually entered coordinates remain local.
 No automatic browser location request or origin persistence is used. Operators'
 external website links open separately; fairway does not broker bookings.
 
-Catalog records are dated and incomplete. Property points are map context, not
-necessarily drivable entrances. Courses, components and scoring rounds are distinct;
-unknowns never mean zero, false or confirmed availability. At the frozen758 baseline,
-optional JSON observations and retained historical prose are not uniformly normalized.
-The consumer does not infer comparable prices, amenities or design credits from raw
-keys. Typed optional-field migration and exact layout confirmation remain pending.
-Quality/star ratings and live tee-time availability are not supplied. Tee difficulty
-rating measures playing difficulty, not quality.
+Catalog records are dated and incomplete. Property points provide map context,
+not necessarily drivable entrances. Courses, components and scoring rounds are
+distinct. Unknowns never mean zero, false, restricted or confirmed availability.
+Typed optional observations keep their exact scope, dates and conditions; retained
+historical prose is not a fallback and is not uniformly standardized. Prices are
+observations, not current quotes. Quality/star ratings and live tee-time
+availability are not supplied. Tee difficulty measures playing difficulty only.
 
-Source URLs, dates, scope, conflict qualifications, attribution and data licenses are
-retained with public observations. Software is MIT; third-party data retain their
+Source URLs, dates, scope, conflicts, qualifications, attribution and data licenses
+travel with public observations. Software is MIT; third-party data retain their
 own terms. Catalog browsing grants no permission to republish restricted source
-materials or to scrape external booking services.
+materials or scrape external booking services.

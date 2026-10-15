@@ -96,10 +96,31 @@ def test_corrupt_artifact_fails_before_output(tmp_path, defect):
     assert not output.exists()
 
 
-def test_default_build_rejects_unadopted_old_schema_before_output(tmp_path):
+def test_default_build_rejects_old_schema_before_output(tmp_path):
+    root = tmp_path / "old-source"
+    source = root / "data/catalog-release"
+    source.mkdir(parents=True)
+    (source / "manifest.json").write_text(
+        json.dumps({"format_version": 1, "schema": 4})
+    )
     with pytest.raises(ValueError, match="unsupported native catalog manifest"):
-        pages.build(ROOT, tmp_path / "not-published", "candidate")
+        pages.build(root, tmp_path / "not-published", "candidate")
     assert not (tmp_path / "not-published").exists()
+
+
+def test_default_build_uses_the_committed_real_release_without_fixture_fallback(
+    tmp_path,
+):
+    manifest = json.loads((ROOT / "data/catalog-release/manifest.json").read_text())
+    one = pages.build(ROOT, tmp_path / "one", "c" * 40)
+    two = pages.build(ROOT, tmp_path / "two", "c" * 40)
+    assert one == two
+    assert one["review_fixture"] is False
+    assert one["revision"] == manifest["revision"]
+    assert one["catalog_release_key"] == manifest["catalog_release_key"]
+    assert one["catalog_sha256"] == manifest["files"]["catalog.json"]["sha256"]
+    assert one["counts"] == manifest["counts"]
+    assert "REVIEW FIXTURE" not in (tmp_path / "one/index.html").read_text()
 
 
 def test_explicit_fixture_build_rejects_any_changed_literal(tmp_path):

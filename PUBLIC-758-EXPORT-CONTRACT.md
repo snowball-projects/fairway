@@ -1,3 +1,7 @@
+> Historical revision758 preparation note. The current public contract is
+> [PUBLIC-CATALOG-CONTRACT.md](PUBLIC-CATALOG-CONTRACT.md). Pins and pending gates
+> below describe that earlier candidate, not the final release.
+
 # Public native catalog seam (local candidate)
 
 Public release branch derives from main f011e4 and accepted PR17 ancestry. UI behavior

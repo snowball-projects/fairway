@@ -47,10 +47,25 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.13"
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
       - name: Validate native generated catalog identity
         run: python scripts/build_pages.py --output "$RUNNER_TEMP/catalog-validation" --commit "$GITHUB_SHA"
+      - name: Validate complete public catalog with the browser contract
+        run: |
+          node --input-type=module <<'JS'
+          import {readFileSync} from 'node:fs';
+          import {gunzipSync} from 'node:zlib';
+          import {validatePublicCatalog} from './src/fairway/static/public-catalog.mjs';
+          const manifest = JSON.parse(readFileSync('data/catalog-release/manifest.json'));
+          const catalog = JSON.parse(gunzipSync(readFileSync('data/catalog-release/catalog.json.gz')));
+          validatePublicCatalog(catalog, manifest);
+          JS
       - name: Check deterministic Pages assembly
-        run: python scripts/build_pages.py --output "$RUNNER_TEMP/catalog-repro" --commit "$GITHUB_SHA"
+        run: |
+          python scripts/build_pages.py --output "$RUNNER_TEMP/catalog-repro" --commit "$GITHUB_SHA"
+          diff -r "$RUNNER_TEMP/catalog-validation" "$RUNNER_TEMP/catalog-repro"
 
   verify:
     needs: catalog
