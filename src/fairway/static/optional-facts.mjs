@@ -33,12 +33,14 @@ const SCAN_SPACE=/[\u0009-\u000d\u001c-\u0020\u0085\u00a0\u1680\u2000-\u200a\u20
 function validationScan(text){return text.replace(SCAN_SPACE,' ').replace(/[A-Z]/g,letter=>letter.toLowerCase());}
 const HTTP_TOKEN=/(^|[\x00-\x2f\x3a-\x40\x5b-\x5e\x60\x7b-\x7f“”‘’«»])(https?:\/\/[^ <>"'`“”‘’«»]+)/g;
 const CREDENTIAL_URL_KEYS=new Set(["access_token", "access-token", "api_key", "api-key", "apikey", "authorization", "client_secret", "client-secret", "credential", "password", "passwd", "secret", "token"]);
-function credentialSyntax(text){
- for(const view of [text,text.replace(/[\t\n\r]/g,'')]){
-  const scan=validationScan(validationScan(view).replace(/%([0-9a-f]{2})/g,(whole,hex)=>{const c=String.fromCharCode(parseInt(hex,16));return /^[a-zA-Z0-9._~-]$/.test(c)?c:whole;}));
+const CREDENTIAL_KEY_PATTERN=new RegExp('(?:^|[^a-z0-9_])(?:'+[...CREDENTIAL_URL_KEYS].join('|')+') *=');
+function credentialSyntax(text,normalized){
+ const stripped=text.replace(/[\t\n\r]/g,'');
+ for(const view of stripped===text?[text]:[text,stripped]){
+  let scan=view===text?normalized:validationScan(view);
+  if(scan.includes('%'))scan=validationScan(scan.replace(/%([0-9a-f]{2})/g,(whole,hex)=>{const c=String.fromCharCode(parseInt(hex,16));return /^[a-zA-Z0-9._~-]$/.test(c)?c:whole;}));
   if(/https?:[\/\\]*[^\/\\?#]*(?:@|%40)/.test(scan))return true;
-  const keys=[...CREDENTIAL_URL_KEYS].join('|');
-  if(new RegExp('(?:^|[^a-z0-9_])(?:'+keys+') *=').test(scan))return true;
+  if(CREDENTIAL_KEY_PATTERN.test(scan))return true;
  }
  return false;
 }
@@ -69,8 +71,9 @@ function operationalTextPath(path){
   return false;
 }
 function hasPrivatePath(text,operational=false){
-  if(credentialSyntax(text))return true;
-  const scan=validationScan(text).replace(HTTP_TOKEN,'$1');
+  const normalized=validationScan(text);
+  if(credentialSyntax(text,normalized))return true;
+  const scan=normalized.replace(HTTP_TOKEN,'$1');
   if(EXPLICIT_PATH.test(scan))return true;
   if(!operational)return POSIX_PATH.test(scan);
   return LOCAL_ROOT.test(scan)||(POSIX_PATH.test(scan)&&(PRIVATE_COMPONENT.test(scan)||PRIVATE_DECLARATION.test(scan)));

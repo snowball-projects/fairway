@@ -94,7 +94,8 @@ def test_complete_credentials_and_path_boundary_normal_build(tmp_path, case):
     shutil.copytree(ROOT / "docs/research-map", source / "docs/research-map")
     out = tmp_path / "site"
     if case["accept"]:
-        assert pages.build(source, out, "0" * 40)["assets"] == 23
+        assert pages.build(source, out, "0" * 40)["assets"] == 24
+        assert "Data credits" in (out / "credits.html").read_text()
         assert (
             out / ("data/native-catalog-" + hashlib.sha256(raw).hexdigest() + ".json")
         ).read_bytes() == raw

@@ -119,7 +119,8 @@ def test_normal_build_preserves_or_rejects_complete_unicode_transport(
     out = tmp_path / "site"
     if accept:
         result = pages.build(source, out, "a" * 40)
-        assert result["assets"] == 23
+        assert result["assets"] == 24
+        assert "Data credits" in (out / "credits.html").read_text()
         assert (
             out / ("data/native-catalog-" + hashlib.sha256(raw).hexdigest() + ".json")
         ).read_bytes() == raw
