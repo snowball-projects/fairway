@@ -18,3 +18,17 @@ for(const text of [
   const value={facilities:[{name:text}]},before=structuredClone(value);
   assert.doesNotThrow(()=>rejectRawEvidence(value));assert.deepEqual(value,before);
 });
+
+test('repeated keys never suppress validation of a later private value',()=>{
+  const rows=Array.from({length:100},()=>({name:'Public name',booking_conditions:'Dated source only.'}));
+  rows.push({name:'Public name',booking_conditions:'Files kept in /tmp for review.'});
+  assert.throws(()=>rejectRawEvidence({facilities:rows}),/Private path/);
+});
+test('an operational value never grants a later property key an operational role',()=>{
+  const value={facilities:[{name:'/membership-info/'}],metadata:{'/membership-info/':'public'}};
+  assert.throws(()=>rejectRawEvidence(value),/Private path/);
+});
+test('known keys remain subject to each record public projection boundary',()=>{
+  assert.throws(()=>rejectRawEvidence({facilities:[{surprise:null}],source_licenses:[{surprise:null}]}),/nonpublic source-license/);
+  assert.throws(()=>rejectRawEvidence({facilities:[{status:'retained'}],provenance:{notes:[{id:'note-id',status:'retained'}]}}),/IDs only/);
+});

@@ -83,10 +83,21 @@ function projectionRecord(value,path){
   if(path.length===3&&path[0]==='provenance'&&path[1]==='notes'&&Number.isInteger(path[2])&&(!object(value)||Object.keys(value).length!==1||typeof value.id!=='string'||!value.id))fail('Public notes contain IDs only');
 }
 export function rejectRawEvidence(value,path=[]){
-  projectionRecord(value,path);
-  if(Array.isArray(value)){value.forEach((row,index)=>rejectRawEvidence(row,[...path,index]));return;}
-  if(object(value)){for(const [key,child] of Object.entries(value)){if(PRIVATE_KEYS.has(validationScan(key)))fail('Raw evidence is not operational transport');rejectRawEvidence(key);rejectRawEvidence(child,[...path,key]);}return;}
-  if(typeof value==='string'&&(value.includes('\0')||hasPrivatePath(value,operationalTextPath(path))))fail('Private path in public transport');
+  // Key checks have no field role. Reuse only those exact decisions within this call.
+  const checkedKeys=new Set();
+  function visit(node,at){
+    projectionRecord(node,at);
+    if(Array.isArray(node)){node.forEach((row,index)=>visit(row,[...at,index]));return;}
+    if(object(node)){for(const [key,child] of Object.entries(node)){
+      if(!checkedKeys.has(key)){
+        if(PRIVATE_KEYS.has(validationScan(key)))fail('Raw evidence is not operational transport');
+        visit(key,[]);checkedKeys.add(key);
+      }
+      visit(child,[...at,key]);
+    }return;}
+    if(typeof node==='string'&&(node.includes('\0')||hasPrivatePath(node,operationalTextPath(at))))fail('Private path in public transport');
+  }
+  visit(value,path);
 }
 export function validateScopedOptional(value){
   rejectRawEvidence(value);
