@@ -1,0 +1,4019 @@
+[
+  {
+    "name": "private artifact: price_observation.conditions /home/nas/proof.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "/home/nas/proof.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification /home/nas/proof.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "/home/nas/proof.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details /home/nas/proof.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "/home/nas/proof.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions /Users/nas/private.txt",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "/Users/nas/private.txt"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification /Users/nas/private.txt",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "/Users/nas/private.txt"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details /Users/nas/private.txt",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "/Users/nas/private.txt"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions /tmp/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "/tmp/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification /tmp/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "/tmp/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details /tmp/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "/tmp/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions /var/tmp/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "/var/tmp/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification /var/tmp/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "/var/tmp/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details /var/tmp/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "/var/tmp/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions /workspace/review/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "/workspace/review/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification /workspace/review/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "/workspace/review/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details /workspace/review/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "/workspace/review/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions /mnt/research",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "/mnt/research"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification /mnt/research",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "/mnt/research"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details /mnt/research",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "/mnt/research"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions /opt/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "/opt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification /opt/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "/opt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details /opt/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "/opt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions file:///arbitrary/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "file:///arbitrary/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification file:///arbitrary/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "file:///arbitrary/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details file:///arbitrary/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "file:///arbitrary/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions C:/arbitrary/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "C:/arbitrary/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification C:/arbitrary/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "C:/arbitrary/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details C:/arbitrary/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "C:/arbitrary/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions C:\\arbitrary\\proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "C:\\arbitrary\\proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification C:\\arbitrary\\proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "C:\\arbitrary\\proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details C:\\arbitrary\\proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "C:\\arbitrary\\proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions \\\\server\\proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "\\\\server\\proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification \\\\server\\proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "\\\\server\\proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details \\\\server\\proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "\\\\server\\proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions Private copy of 2025 RATES is at /2025 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy of 2025 RATES is at /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification Private copy of 2025 RATES is at /2025 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Private copy of 2025 RATES is at /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details Private copy of 2025 RATES is at /2025 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Private copy of 2025 RATES is at /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions Local file named 2024 FEES was saved at /2024 FEES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Local file named 2024 FEES was saved at /2024 FEES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification Local file named 2024 FEES was saved at /2024 FEES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Local file named 2024 FEES was saved at /2024 FEES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details Local file named 2024 FEES was saved at /2024 FEES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Local file named 2024 FEES was saved at /2024 FEES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions Evidence directory 2023 SCANS is located at /2023 SCANS.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Evidence directory 2023 SCANS is located at /2023 SCANS."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification Evidence directory 2023 SCANS is located at /2023 SCANS.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Evidence directory 2023 SCANS is located at /2023 SCANS."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details Evidence directory 2023 SCANS is located at /2023 SCANS.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Evidence directory 2023 SCANS is located at /2023 SCANS."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions Capture file: /unusual-root",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Capture file: /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification Capture file: /unusual-root",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Capture file: /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details Capture file: /unusual-root",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Capture file: /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions Recovery SQL: /unusual-root",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Recovery SQL: /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification Recovery SQL: /unusual-root",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Recovery SQL: /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details Recovery SQL: /unusual-root",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Recovery SQL: /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions 2025 Rates; capture: /2025 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "2025 Rates; capture: /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification 2025 Rates; capture: /2025 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "2025 Rates; capture: /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details 2025 Rates; capture: /2025 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "2025 Rates; capture: /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions /unusual/private-proof.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "/unusual/private-proof.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification /unusual/private-proof.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "/unusual/private-proof.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details /unusual/private-proof.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "/unusual/private-proof.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions See “https://official.example”/private/evidence",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See “https://official.example”/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification See “https://official.example”/private/evidence",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "See “https://official.example”/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details See “https://official.example”/private/evidence",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "See “https://official.example”/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions See ‘https://official.example’C:/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See ‘https://official.example’C:/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification See ‘https://official.example’C:/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "See ‘https://official.example’C:/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details See ‘https://official.example’C:/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "See ‘https://official.example’C:/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.conditions See «https://official.example»\\\\server\\proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See «https://official.example»\\\\server\\proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: price_observation.qualification See «https://official.example»\\\\server\\proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "See «https://official.example»\\\\server\\proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "private artifact: practice_observation.driving_range_details See «https://official.example»\\\\server\\proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "See «https://official.example»\\\\server\\proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "private artifact"
+  },
+  {
+    "name": "public operational text: price_observation.conditions Largebucket /75 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Largebucket /75 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification Largebucket /75 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Largebucket /75 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details Largebucket /75 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Largebucket /75 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions Smallbucket /45 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Smallbucket /45 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification Smallbucket /45 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Smallbucket /45 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details Smallbucket /45 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Smallbucket /45 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions Reciprocal /Calendar Card",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Reciprocal /Calendar Card"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification Reciprocal /Calendar Card",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Reciprocal /Calendar Card"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details Reciprocal /Calendar Card",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Reciprocal /Calendar Card"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions No year printed: /2026/ URL is resource context, not an effective year.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "No year printed: /2026/ URL is resource context, not an effective year."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification No year printed: /2026/ URL is resource context, not an effective year.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "No year printed: /2026/ URL is resource context, not an effective year."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details No year printed: /2026/ URL is resource context, not an effective year.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "No year printed: /2026/ URL is resource context, not an effective year."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions Resident definition is on /membership-info/; county alone does not qualify.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Resident definition is on /membership-info/; county alone does not qualify."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification Resident definition is on /membership-info/; county alone does not qualify.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Resident definition is on /membership-info/; county alone does not qualify."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details Resident definition is on /membership-info/; county alone does not qualify.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Resident definition is on /membership-info/; county alone does not qualify."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions Fees/private/resort/semi-private labels do not establish ordinary eligibility.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Fees/private/resort/semi-private labels do not establish ordinary eligibility."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification Fees/private/resort/semi-private labels do not establish ordinary eligibility.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Fees/private/resort/semi-private labels do not establish ordinary eligibility."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details Fees/private/resort/semi-private labels do not establish ordinary eligibility.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Fees/private/resort/semi-private labels do not establish ordinary eligibility."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions Private course / public guest product; eligibility unknown.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private course / public guest product; eligibility unknown."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification Private course / public guest product; eligibility unknown.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Private course / public guest product; eligibility unknown."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details Private course / public guest product; eligibility unknown.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Private course / public guest product; eligibility unknown."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions Cinn./Quicks.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Cinn./Quicks."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification Cinn./Quicks.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Cinn./Quicks."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details Cinn./Quicks.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Cinn./Quicks."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions Senior60+/junior17under",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Senior60+/junior17under"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification Senior60+/junior17under",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Senior60+/junior17under"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details Senior60+/junior17under",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Senior60+/junior17under"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions Weekend(Fri-Sun)/Holidays",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Weekend(Fri-Sun)/Holidays"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification Weekend(Fri-Sun)/Holidays",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "Weekend(Fri-Sun)/Holidays"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details Weekend(Fri-Sun)/Holidays",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "Weekend(Fri-Sun)/Holidays"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions 1 token /٣٠ balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "1 token /٣٠ balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification 1 token /٣٠ balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "1 token /٣٠ balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details 1 token /٣٠ balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "1 token /٣٠ balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions $18 /ea.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "$18 /ea.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification $18 /ea.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "$18 /ea.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details $18 /ea.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "$18 /ea.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions 2025 Rates /2025 RATES.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "2025 Rates /2025 RATES.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification 2025 Rates /2025 RATES.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "2025 Rates /2025 RATES.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details 2025 Rates /2025 RATES.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "2025 Rates /2025 RATES.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions 2025 RATES IS AT /2025 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "2025 RATES IS AT /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification 2025 RATES IS AT /2025 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "2025 RATES IS AT /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details 2025 RATES IS AT /2025 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "2025 RATES IS AT /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions /unknown-root",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "/unknown-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification /unknown-root",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "/unknown-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details /unknown-root",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "/unknown-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.conditions See “https://official.example/private/proof” for public rates.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See “https://official.example/private/proof” for public rates."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: price_observation.qualification See “https://official.example/private/proof” for public rates.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "qualification": "See “https://official.example/private/proof” for public rates."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "public operational text: practice_observation.driving_range_details See “https://official.example/private/proof” for public rates.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "practice_observation": [
+              {
+                "driving_range_details": "See “https://official.example/private/proof” for public rates."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "public operational text"
+  },
+  {
+    "name": "space U+0009 'Price\\t/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price\t/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+0009 'See\\t/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See\t/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+0009 'Private\\tcopy\\tat\\t/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private\tcopy\tat\t/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000A 'Price\\n/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price\n/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000A 'See\\n/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See\n/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000A 'Private\\ncopy\\nat\\n/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private\ncopy\nat\n/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000B 'Price\\x0b/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price\u000b/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000B 'See\\x0b/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See\u000b/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000B 'Private\\x0bcopy\\x0bat\\x0b/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private\u000bcopy\u000bat\u000b/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000C 'Price\\x0c/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price\f/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000C 'See\\x0c/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See\f/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000C 'Private\\x0ccopy\\x0cat\\x0c/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private\fcopy\fat\f/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000D 'Price\\r/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price\r/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000D 'See\\r/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See\r/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+000D 'Private\\rcopy\\rat\\r/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private\rcopy\rat\r/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001C 'Price\\x1c/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price\u001c/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001C 'See\\x1c/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See\u001c/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001C 'Private\\x1ccopy\\x1cat\\x1c/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private\u001ccopy\u001cat\u001c/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001D 'Price\\x1d/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price\u001d/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001D 'See\\x1d/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See\u001d/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001D 'Private\\x1dcopy\\x1dat\\x1d/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private\u001dcopy\u001dat\u001d/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001E 'Price\\x1e/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price\u001e/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001E 'See\\x1e/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See\u001e/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001E 'Private\\x1ecopy\\x1eat\\x1e/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private\u001ecopy\u001eat\u001e/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001F 'Price\\x1f/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price\u001f/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001F 'See\\x1f/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See\u001f/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+001F 'Private\\x1fcopy\\x1fat\\x1f/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private\u001fcopy\u001fat\u001f/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+0020 'Price /ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+0020 'See /mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+0020 'Private copy at /unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+0085 'Price\\x85/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+0085 'See\\x85/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+0085 'Private\\x85copy\\x85at\\x85/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Privatecopyat/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+00A0 'Price\\xa0/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+00A0 'See\\xa0/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+00A0 'Private\\xa0copy\\xa0at\\xa0/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+1680 'Price\\u1680/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+1680 'See\\u1680/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+1680 'Private\\u1680copy\\u1680at\\u1680/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2000 'Price\\u2000/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2000 'See\\u2000/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2000 'Private\\u2000copy\\u2000at\\u2000/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2001 'Price\\u2001/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2001 'See\\u2001/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2001 'Private\\u2001copy\\u2001at\\u2001/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2002 'Price\\u2002/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2002 'See\\u2002/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2002 'Private\\u2002copy\\u2002at\\u2002/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2003 'Price\\u2003/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2003 'See\\u2003/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2003 'Private\\u2003copy\\u2003at\\u2003/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2004 'Price\\u2004/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2004 'See\\u2004/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2004 'Private\\u2004copy\\u2004at\\u2004/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2005 'Price\\u2005/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2005 'See\\u2005/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2005 'Private\\u2005copy\\u2005at\\u2005/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2006 'Price\\u2006/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2006 'See\\u2006/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2006 'Private\\u2006copy\\u2006at\\u2006/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2007 'Price\\u2007/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2007 'See\\u2007/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2007 'Private\\u2007copy\\u2007at\\u2007/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2008 'Price\\u2008/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2008 'See\\u2008/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2008 'Private\\u2008copy\\u2008at\\u2008/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2009 'Price\\u2009/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2009 'See\\u2009/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2009 'Private\\u2009copy\\u2009at\\u2009/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+200A 'Price\\u200a/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+200A 'See\\u200a/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+200A 'Private\\u200acopy\\u200aat\\u200a/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2028 'Price\\u2028/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2028 'See\\u2028/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2028 'Private\\u2028copy\\u2028at\\u2028/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2029 'Price\\u2029/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2029 'See\\u2029/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+2029 'Private\\u2029copy\\u2029at\\u2029/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+202F 'Price\\u202f/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+202F 'See\\u202f/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+202F 'Private\\u202fcopy\\u202fat\\u202f/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+205F 'Price\\u205f/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price /ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+205F 'See\\u205f/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See /mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+205F 'Private\\u205fcopy\\u205fat\\u205f/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private copy at /unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+3000 'Price\\u3000/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price　/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+3000 'See\\u3000/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See　/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+3000 'Private\\u3000copy\\u3000at\\u3000/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private　copy　at　/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+FEFF 'Price\\ufeff/ea'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Price﻿/ea"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+FEFF 'See\\ufeff/mnt/proof'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "See﻿/mnt/proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "space U+FEFF 'Private\\ufeffcopy\\ufeffat\\ufeff/unusual-root'",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "conditions": "Private﻿copy﻿at﻿/unusual-root"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Shared explicit whitespace; validation only"
+  },
+  {
+    "name": "private key payload",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "payload": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key fact_groups",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "fact_groups": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key retained_pointer",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "retained_pointer": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key retained_document",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "retained_document": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key retained_evidence",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "retained_evidence": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key controls_reference",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "controls_reference": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key capture_path",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "capture_path": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key local_path",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "local_path": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key access_token",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "access_token": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key authorization",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "authorization": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key credential",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "credential": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key api_key",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "api_key": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key password",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "password": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key secret",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "secret": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key PAYLOAD",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "PAYLOAD": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "private key API_KEY",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "API_KEY": "innocent no-slash secret"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Private field rejected independent of content"
+  },
+  {
+    "name": "closed projection {'source_licenses': [{'facilities': [{'name': 'ordinary'}]}]}",
+    "value": {
+      "source_licenses": [
+        {
+          "facilities": [
+            {
+              "name": "ordinary"
+            }
+          ]
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Unknown license extension, nested raw payload or note body is not a public column"
+  },
+  {
+    "name": "closed projection {'source_licenses': [{'qualification': 'ordinary'}]}",
+    "value": {
+      "source_licenses": [
+        {
+          "qualification": "ordinary"
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Unknown license extension, nested raw payload or note body is not a public column"
+  },
+  {
+    "name": "closed projection {'source_licenses': [{'license': ['ordinary']}]}",
+    "value": {
+      "source_licenses": [
+        {
+          "license": [
+            "ordinary"
+          ]
+        }
+      ]
+    },
+    "accept": false,
+    "reason": "Unknown license extension, nested raw payload or note body is not a public column"
+  },
+  {
+    "name": "closed projection {'provenance': {'notes': [{'id': 'n', 'text': 'ordinary'}]}}",
+    "value": {
+      "provenance": {
+        "notes": [
+          {
+            "id": "n",
+            "text": "ordinary"
+          }
+        ]
+      }
+    },
+    "accept": false,
+    "reason": "Unknown license extension, nested raw payload or note body is not a public column"
+  },
+  {
+    "name": "closed projection {'provenance': {'notes': [{'id': ''}]}}",
+    "value": {
+      "provenance": {
+        "notes": [
+          {
+            "id": ""
+          }
+        ]
+      }
+    },
+    "accept": false,
+    "reason": "Unknown license extension, nested raw payload or note body is not a public column"
+  },
+  {
+    "name": "closed public projection {'source_licenses': [{'license': 'CC BY-SA', 'source_url': 'https://example.test/private/proof', 'policy_capture_sha256': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}]}",
+    "value": {
+      "source_licenses": [
+        {
+          "license": "CC BY-SA",
+          "source_url": "https://example.test/private/proof",
+          "policy_capture_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Declared public metadata or operational text"
+  },
+  {
+    "name": "closed public projection {'provenance': {'notes': [{'id': 'note-1'}]}}",
+    "value": {
+      "provenance": {
+        "notes": [
+          {
+            "id": "note-1"
+          }
+        ]
+      }
+    },
+    "accept": true,
+    "reason": "Declared public metadata or operational text"
+  },
+  {
+    "name": "closed public projection {'facilities': [{'name': 'ordinary /municipal rate'}]}",
+    "value": {
+      "facilities": [
+        {
+          "name": "ordinary /municipal rate"
+        }
+      ]
+    },
+    "accept": true,
+    "reason": "Declared public metadata or operational text"
+  }
+]

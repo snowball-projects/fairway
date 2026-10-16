@@ -31,20 +31,62 @@ function assertIds(actual,expected){if(!Array.isArray(actual)||new Set(actual).s
 // Shared explicit scan policy. Only the validation copy is normalized.
 const SCAN_SPACE=/[\u0009-\u000d\u001c-\u0020\u0085\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]/g;
 function validationScan(text){return text.replace(SCAN_SPACE,' ').replace(/[A-Z]/g,letter=>letter.toLowerCase());}
-function priceConditionScan(row){
-  let text=row.conditions;
-  if(row.billing_basis!=='per_person'||!['id','observation_id','fee_kind','amount_kind','amount_min'].every(key=>Object.hasOwn(row,key)))return text;
-  text=validationScan(text);
-  text=text.replace(/^( *printed +["'`]?)\/ea(?=["'`]? +with *[0-9]+ *riders? +per +cart(?=$| |[.,;:!?)](?: |$)))/,'$1each');
-  return text.replace(/^( *[$€£] *[0-9]+(?:[.,][0-9]{1,2})? +)\/ea(?=$| |[.,;:!?)](?: |$))/,'$1each');
+const HTTP_TOKEN=/(^|[\x00-\x2f\x3a-\x40\x5b-\x5e\x60\x7b-\x7f“”‘’«»])(https?:\/\/[^ <>"'`“”‘’«»]+)/g;
+const CREDENTIAL_URL_KEYS=new Set(["access_token", "access-token", "api_key", "api-key", "apikey", "authorization", "client_secret", "client-secret", "credential", "password", "passwd", "secret", "token"]);
+const CREDENTIAL_KEY_PATTERN=new RegExp('(?:^|[^a-z0-9_])(?:'+[...CREDENTIAL_URL_KEYS].join('|')+') *=');
+function credentialSyntax(text,normalized){
+ const stripped=text.replace(/[\t\n\r]/g,'');
+ for(const view of stripped===text?[text]:[text,stripped]){
+  let scan=view===text?normalized:validationScan(view);
+  if(scan.includes('%'))scan=validationScan(scan.replace(/%([0-9a-f]{2})/g,(whole,hex)=>{const c=String.fromCharCode(parseInt(hex,16));return /^[a-zA-Z0-9._~-]$/.test(c)?c:whole;}));
+  if(/https?:[\/\\]*[^\/\\?#]*(?:@|%40)/.test(scan))return true;
+  if(CREDENTIAL_KEY_PATTERN.test(scan))return true;
+ }
+ return false;
 }
-export function rejectRawEvidence(value){
-  if(Array.isArray(value)){for(const row of value)rejectRawEvidence(row);return;}
-  if(object(value)){for(const [key,child] of Object.entries(value)){if(['fact_groups','payload','retained_pointer','retained_document','retained_evidence','controls_reference','capture_path','local_path'].includes(key))fail('Raw evidence is not operational transport');rejectRawEvidence(key);rejectRawEvidence(key==='conditions'&&typeof child==='string'?priceConditionScan(value):child);}return;}
-  if(typeof value==='string'){
-    const scan=validationScan(value).replace(/(^|[\x00-\x2f\x3a-\x40\x5b-\x5e\x60\x7b-\x7f“”‘’«»])https?:\/\/[^ <>"'`“”‘’«»]+/g,'$1');
-    if(/(?:^|[ "'`(\[={:;,<>|!?“”‘’«»])\/+[^ /]|file:\/\/|[a-zİıſK]:[\\/]|\\{2}/.test(scan))fail('Private path in public transport');
+// Public SQL roles and private serialization boundaries, never notation grammars.
+const PRIVATE_KEYS=new Set(["access_token","api_key","authorization","capture_path","controls_reference","credential","fact_groups","local_path","password","payload","retained_document","retained_evidence","retained_pointer","secret"]);
+for(const key of CREDENTIAL_URL_KEYS)PRIVATE_KEYS.add(key);
+const PUBLIC_LICENSE_FIELDS=new Set(["applies_to","attribution","changes","collected_on","kind","license","license_url","policy_capture_sha256","policy_url","scope","source","source_id","source_url"]);
+const PUBLIC_DOMAIN_TEXT={"accessibility_observation":["qualification"],"amenity_observation":["qualification"],"architecture_event":["event_kind","project_state","qualification","target_area"],"operating_period":["aerification_method","affected_area","maintenance_kind","period_kind","qualification"],"physical_characteristics":["elevation_unit","fairway_grass_name","greens_grass_name","landscape","playing_surface","qualification","rough_grass_name","tee_grass_name","terrain"],"policy_observation":["arrival_access_condition","audience","cancellation_charge_basis","cancellation_charge_currency","qualification","season"],"practice_observation":["driving_range_details","driving_range_length_unit","putting_green_details","qualification","range_technology_name"],"price_observation":["amount_kind","audience","billing_basis","conditions","currency","fee_kind","product_name","qualification","residency","residency_area_name","season"],"quality_rating":["dimension","issuer_name","qualification"],"service_observation":["pro_shop_details","qualification","rental_details"]};
+const CORE_TEXT=new Set(["access_qualification","address_city","address_postal_code","address_region","address_street_line1","address_street_line2","address_text","arrival_reference","booking_conditions","country","county","description","facility_name","location_note","name","rated_category","state"]);
+const CHILD_ROWS=new Set(["aliases","components","course_inventory","round_options","tee_sets"]);
+const POSIX_PATH=new RegExp("(?:^|[ \"'`(\\[={:;,<>|!?“”‘’«»])/+[^ /]");
+const EXPLICIT_PATH=new RegExp("file://|[a-zİıſK]:[\\\\/]|\\\\{2}");
+const LOCAL_ROOT=new RegExp("(?:^|[ \"'`(\\[={:;,<>|!?\u201c\u201d\u2018\u2019\u00ab\u00bb])/+(?:home|users|root|tmp|var|private|mnt|media|volumes|workspace|workspaces|task|tasks|srv|opt|etc|usr|proc|sys|dev|run)(?=$|[ /\\\\?&#;=,:'\"`()<>\\[\\]{}|!?\u201c\u201d\u2018\u2019\u00ab\u00bb]|\\.+(?=$|[ /\\\\?&#;=,:'\"`()<>\\[\\]{}|!?\u201c\u201d\u2018\u2019\u00ab\u00bb]))");
+const PRIVATE_COMPONENT=new RegExp("(?:[/\\\\?&#;=]|%2f)(?:private|secret|evidence|capture|retained|recovery)(?=$|[-._]|[ /\\\\?&#;=,:'\"`()<>\\[\\]{}|!?\u201c\u201d\u2018\u2019\u00ab\u00bb])");
+const PRIVATE_DECLARATION=new RegExp("(?:^|[^a-z0-9_])(?:private +(?:copy|file|capture|path|directory|folder)|local +(?:copy|file|directory|folder)|evidence +(?:copy|file|directory|folder)|capture +(?:file|path)|capture *:|recovery +(?:sql|dump|file))(?=$|[^a-z0-9_])");
+function operationalTextPath(path){
+  if(path.length===4&&path[0]==='relationships')return ['component','round_option','tee_set','alias'].includes(path[1])&&Number.isInteger(path[2])&&CORE_TEXT.has(path[3]);
+  if(path.length<3||!['facilities','courses'].includes(path[0])||!Number.isInteger(path[1]))return false;
+  let parents=path.slice(2,-1);const field=path.at(-1);
+  while(parents.length>=2&&CHILD_ROWS.has(parents[0])&&Number.isInteger(parents[1]))parents=parents.slice(2);
+  if(!parents.length)return CORE_TEXT.has(field);
+  if(parents.length===1&&parents[0]==='address')return ['text','street_line1','street_line2','city','region','postal_code','country'].includes(field);
+  if(parents.length===1&&parents[0]==='arrival')return field==='reference';
+  if(parents.length>=3&&parents[0]==='optional'&&Object.hasOwn(PUBLIC_DOMAIN_TEXT,parents[1])&&Number.isInteger(parents[2])){
+    if(parents.length===3)return PUBLIC_DOMAIN_TEXT[parents[1]].includes(field);
+    return parents.length===5&&parents[1]==='architecture_event'&&parents[3]==='credits'&&Number.isInteger(parents[4])&&field==='name';
   }
+  return false;
+}
+function hasPrivatePath(text,operational=false){
+  const normalized=validationScan(text);
+  if(credentialSyntax(text,normalized))return true;
+  const scan=normalized.replace(HTTP_TOKEN,'$1');
+  if(EXPLICIT_PATH.test(scan))return true;
+  if(!operational)return POSIX_PATH.test(scan);
+  return LOCAL_ROOT.test(scan)||(POSIX_PATH.test(scan)&&(PRIVATE_COMPONENT.test(scan)||PRIVATE_DECLARATION.test(scan)));
+}
+function projectionRecord(value,path){
+  if(path.length===2&&path[0]==='source_licenses'&&Number.isInteger(path[1])&&(!object(value)||Object.keys(value).some(key=>!PUBLIC_LICENSE_FIELDS.has(key))||Object.values(value).some(v=>v!==null&&typeof v!=='string')))fail('Unknown or nonpublic source-license material');
+  if(path.length===3&&path[0]==='provenance'&&path[1]==='notes'&&Number.isInteger(path[2])&&(!object(value)||Object.keys(value).length!==1||typeof value.id!=='string'||!value.id))fail('Public notes contain IDs only');
+}
+export function rejectRawEvidence(value,path=[]){
+  projectionRecord(value,path);
+  if(Array.isArray(value)){value.forEach((row,index)=>rejectRawEvidence(row,[...path,index]));return;}
+  if(object(value)){for(const [key,child] of Object.entries(value)){if(PRIVATE_KEYS.has(validationScan(key)))fail('Raw evidence is not operational transport');rejectRawEvidence(key);rejectRawEvidence(child,[...path,key]);}return;}
+  if(typeof value==='string'&&(value.includes('\0')||hasPrivatePath(value,operationalTextPath(path))))fail('Private path in public transport');
 }
 export function validateScopedOptional(value){
   rejectRawEvidence(value);
@@ -76,6 +118,17 @@ export function validateScopedOptional(value){
     const key=tee.round_id??tee.course_id,rows=tees.get(key)||[];rows.push(tee);tees.set(key,rows);
   }
   for(const alias of maps.alias.values())if((alias.facility_id!==null)===(alias.course_id!==null)||alias.facility_id!==null&&!facilities.has(alias.facility_id)||alias.course_id!==null&&!courses.has(alias.course_id))fail('Invalid alias subject');
+  // Build each owner lookup once; retain the same raw rows and membership checks.
+  const append=(map,key,row)=>{const rows=map.get(key)||[];rows.push(row);map.set(key,rows);};
+  const group=(rows,key)=>{const map=new Map();for(const row of rows)append(map,row[key],row);return map;};
+  const coursesByFacility=group(courses.values(),'facility_id'),partsByCourse=group(maps.component.values(),'course_id');
+  const roundsByFacility=group(maps.round_option.values(),'facility_id'),roundsByCourse=new Map();
+  const aliasesByFacility=group(maps.alias.values(),'facility_id'),aliasesByCourse=group(maps.alias.values(),'course_id');
+  for(const round of maps.round_option.values()){
+    const owners=new Set();if(round.course_id!==null)owners.add(round.course_id);
+    for(const member of members.get(round.id)||[])owners.add(member.course_id??maps.component.get(member.component_id)?.course_id);
+    for(const owner of owners)append(roundsByCourse,owner,round);
+  }
   const observations=new Map(),envelopes=new Map(),roundViews=new Map(),parties=new Map();
   function optional(subject,column,id){
     const groups=subject.optional;
@@ -111,19 +164,19 @@ export function validateScopedOptional(value){
   for(const facility of facilities.values()){
     if(![null,'public','private','restricted'].includes(facility.access))fail('Invalid nullable facility access');
     optional(facility,'facility_id',facility.facility_id);
-    const own=[...courses.values()].filter(c=>c.facility_id===facility.facility_id);assertIds(facility.course_ids,own.map(c=>c.course_id));
+    const own=coursesByFacility.get(facility.facility_id)||[];assertIds(facility.course_ids,own.map(c=>c.course_id));
     const inventory=unique(facility.course_inventory,'course_id');assertIds([...inventory.keys()],own.map(c=>c.course_id));
     for(const row of inventory.values()){const course=courses.get(row.course_id);for(const key of ['name','physical_holes','identity_status','access','nonmember_bookable'])if(row[key]!==course[key])fail('Changed facility inventory view');}
-    rounds(facility,[...maps.round_option.values()].filter(r=>r.facility_id===facility.facility_id));
-    childRows(facility.aliases,[...maps.alias.values()].filter(r=>r.facility_id===facility.facility_id),RELATIONSHIP_SCHEMA.alias);
+    rounds(facility,roundsByFacility.get(facility.facility_id)||[]);
+    childRows(facility.aliases,aliasesByFacility.get(facility.facility_id)||[],RELATIONSHIP_SCHEMA.alias);
   }
   for(const course of courses.values()){
     if(![null,'public','private','restricted'].includes(course.access))fail('Invalid nullable course access');
     const facility=facilities.get(course.facility_id);if(!facility||course.facility_access!==facility.access||course.facility_name!==facility.name||course.state!==facility.state)fail('Changed course facility binding');
     optional(course,'course_id',course.course_id);
-    const parts=[...maps.component.values()].filter(r=>r.course_id===course.course_id);childRows(course.components,parts,RELATIONSHIP_SCHEMA.component);for(const part of course.components)optional(part,'component_id',part.id);
-    const expected=[...maps.round_option.values()].filter(r=>r.course_id===course.course_id||(members.get(r.id)||[]).some(m=>m.course_id===course.course_id||maps.component.get(m.component_id)?.course_id===course.course_id));rounds(course,expected);
-    childRows(course.tee_sets,tees.get(course.course_id)||[],RELATIONSHIP_SCHEMA.tee_set);childRows(course.aliases,[...maps.alias.values()].filter(r=>r.course_id===course.course_id),RELATIONSHIP_SCHEMA.alias);
+    const parts=partsByCourse.get(course.course_id)||[];childRows(course.components,parts,RELATIONSHIP_SCHEMA.component);for(const part of course.components)optional(part,'component_id',part.id);
+    rounds(course,roundsByCourse.get(course.course_id)||[]);
+    childRows(course.tee_sets,tees.get(course.course_id)||[],RELATIONSHIP_SCHEMA.tee_set);childRows(course.aliases,aliasesByCourse.get(course.course_id)||[],RELATIONSHIP_SCHEMA.alias);
   }
   return observations;
 }

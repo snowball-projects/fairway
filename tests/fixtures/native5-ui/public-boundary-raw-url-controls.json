@@ -1,0 +1,925 @@
+[
+  {
+    "name": "raw U+0009 license 'https://review-user:TEST_ONLY_PASSWORD\\t@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-user:TEST_ONLY_PASSWORD\t@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-user:TEST_ONLY_PASSWORD\t@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+0009 course 'https://review-user:TEST_ONLY_PASSWORD\\t@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://review-user:TEST_ONLY_PASSWORD\t@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://review-user:TEST_ONLY_PASSWORD\t@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+0009 license 'https://review-\\tuser:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-\tuser:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-\tuser:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+0009 course 'https://review-\\tuser:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://review-\tuser:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://review-\tuser:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+0009 license 'https://operator.example/fees?api_\\tkey=TEST_ONLY_KEY'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?api_\tkey=TEST_ONLY_KEY",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?api_\tkey=TEST_ONLY_KEY",
+    "accept": false
+  },
+  {
+    "name": "raw U+0009 course 'https://operator.example/fees?api_\\tkey=TEST_ONLY_KEY'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?api_\tkey=TEST_ONLY_KEY"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?api_\tkey=TEST_ONLY_KEY",
+    "accept": false
+  },
+  {
+    "name": "raw U+0009 license 'https://operator.example/fees?\\taccess_token=TEST_ONLY_TOKEN'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?\taccess_token=TEST_ONLY_TOKEN",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?\taccess_token=TEST_ONLY_TOKEN",
+    "accept": false
+  },
+  {
+    "name": "raw U+0009 course 'https://operator.example/fees?\\taccess_token=TEST_ONLY_TOKEN'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?\taccess_token=TEST_ONLY_TOKEN"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?\taccess_token=TEST_ONLY_TOKEN",
+    "accept": false
+  },
+  {
+    "name": "raw U+0009 license 'https://operator.example/fees#client_\\tsecret=TEST_ONLY_SECRET'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees#client_\tsecret=TEST_ONLY_SECRET",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees#client_\tsecret=TEST_ONLY_SECRET",
+    "accept": false
+  },
+  {
+    "name": "raw U+0009 course 'https://operator.example/fees#client_\\tsecret=TEST_ONLY_SECRET'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees#client_\tsecret=TEST_ONLY_SECRET"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees#client_\tsecret=TEST_ONLY_SECRET",
+    "accept": false
+  },
+  {
+    "name": "raw U+0009 license 'https://operator.example/fees?\\tq=public'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?\tq=public",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?\tq=public",
+    "accept": true
+  },
+  {
+    "name": "raw U+0009 course 'https://operator.example/fees?\\tq=public'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?\tq=public"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?\tq=public",
+    "accept": true
+  },
+  {
+    "name": "raw U+0009 license 'https://operator.example/fees?q=pub\\tlic'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?q=pub\tlic",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?q=pub\tlic",
+    "accept": true
+  },
+  {
+    "name": "raw U+0009 course 'https://operator.example/fees?q=pub\\tlic'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?q=pub\tlic"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?q=pub\tlic",
+    "accept": true
+  },
+  {
+    "name": "raw U+0009 course 'See https://operator.example/fees\\tfor public information.'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "See https://operator.example/fees\tfor public information."
+        }
+      ]
+    },
+    "target": "course",
+    "text": "See https://operator.example/fees\tfor public information.",
+    "accept": true
+  },
+  {
+    "name": "raw U+000A license 'https://review-user:TEST_ONLY_PASSWORD\\n@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-user:TEST_ONLY_PASSWORD\n@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-user:TEST_ONLY_PASSWORD\n@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+000A course 'https://review-user:TEST_ONLY_PASSWORD\\n@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://review-user:TEST_ONLY_PASSWORD\n@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://review-user:TEST_ONLY_PASSWORD\n@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+000A license 'https://review-\\nuser:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-\nuser:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-\nuser:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+000A course 'https://review-\\nuser:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://review-\nuser:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://review-\nuser:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+000A license 'https://operator.example/fees?api_\\nkey=TEST_ONLY_KEY'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?api_\nkey=TEST_ONLY_KEY",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?api_\nkey=TEST_ONLY_KEY",
+    "accept": false
+  },
+  {
+    "name": "raw U+000A course 'https://operator.example/fees?api_\\nkey=TEST_ONLY_KEY'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?api_\nkey=TEST_ONLY_KEY"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?api_\nkey=TEST_ONLY_KEY",
+    "accept": false
+  },
+  {
+    "name": "raw U+000A license 'https://operator.example/fees?\\naccess_token=TEST_ONLY_TOKEN'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?\naccess_token=TEST_ONLY_TOKEN",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?\naccess_token=TEST_ONLY_TOKEN",
+    "accept": false
+  },
+  {
+    "name": "raw U+000A course 'https://operator.example/fees?\\naccess_token=TEST_ONLY_TOKEN'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?\naccess_token=TEST_ONLY_TOKEN"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?\naccess_token=TEST_ONLY_TOKEN",
+    "accept": false
+  },
+  {
+    "name": "raw U+000A license 'https://operator.example/fees#client_\\nsecret=TEST_ONLY_SECRET'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees#client_\nsecret=TEST_ONLY_SECRET",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees#client_\nsecret=TEST_ONLY_SECRET",
+    "accept": false
+  },
+  {
+    "name": "raw U+000A course 'https://operator.example/fees#client_\\nsecret=TEST_ONLY_SECRET'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees#client_\nsecret=TEST_ONLY_SECRET"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees#client_\nsecret=TEST_ONLY_SECRET",
+    "accept": false
+  },
+  {
+    "name": "raw U+000A license 'https://operator.example/fees?\\nq=public'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?\nq=public",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?\nq=public",
+    "accept": true
+  },
+  {
+    "name": "raw U+000A course 'https://operator.example/fees?\\nq=public'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?\nq=public"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?\nq=public",
+    "accept": true
+  },
+  {
+    "name": "raw U+000A license 'https://operator.example/fees?q=pub\\nlic'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?q=pub\nlic",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?q=pub\nlic",
+    "accept": true
+  },
+  {
+    "name": "raw U+000A course 'https://operator.example/fees?q=pub\\nlic'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?q=pub\nlic"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?q=pub\nlic",
+    "accept": true
+  },
+  {
+    "name": "raw U+000A course 'See https://operator.example/fees\\nfor public information.'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "See https://operator.example/fees\nfor public information."
+        }
+      ]
+    },
+    "target": "course",
+    "text": "See https://operator.example/fees\nfor public information.",
+    "accept": true
+  },
+  {
+    "name": "raw U+000D license 'https://review-user:TEST_ONLY_PASSWORD\\r@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-user:TEST_ONLY_PASSWORD\r@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-user:TEST_ONLY_PASSWORD\r@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+000D course 'https://review-user:TEST_ONLY_PASSWORD\\r@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://review-user:TEST_ONLY_PASSWORD\r@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://review-user:TEST_ONLY_PASSWORD\r@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+000D license 'https://review-\\ruser:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-\ruser:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-\ruser:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+000D course 'https://review-\\ruser:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://review-\ruser:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://review-\ruser:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "raw U+000D license 'https://operator.example/fees?api_\\rkey=TEST_ONLY_KEY'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?api_\rkey=TEST_ONLY_KEY",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?api_\rkey=TEST_ONLY_KEY",
+    "accept": false
+  },
+  {
+    "name": "raw U+000D course 'https://operator.example/fees?api_\\rkey=TEST_ONLY_KEY'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?api_\rkey=TEST_ONLY_KEY"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?api_\rkey=TEST_ONLY_KEY",
+    "accept": false
+  },
+  {
+    "name": "raw U+000D license 'https://operator.example/fees?\\raccess_token=TEST_ONLY_TOKEN'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?\raccess_token=TEST_ONLY_TOKEN",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?\raccess_token=TEST_ONLY_TOKEN",
+    "accept": false
+  },
+  {
+    "name": "raw U+000D course 'https://operator.example/fees?\\raccess_token=TEST_ONLY_TOKEN'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?\raccess_token=TEST_ONLY_TOKEN"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?\raccess_token=TEST_ONLY_TOKEN",
+    "accept": false
+  },
+  {
+    "name": "raw U+000D license 'https://operator.example/fees#client_\\rsecret=TEST_ONLY_SECRET'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees#client_\rsecret=TEST_ONLY_SECRET",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees#client_\rsecret=TEST_ONLY_SECRET",
+    "accept": false
+  },
+  {
+    "name": "raw U+000D course 'https://operator.example/fees#client_\\rsecret=TEST_ONLY_SECRET'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees#client_\rsecret=TEST_ONLY_SECRET"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees#client_\rsecret=TEST_ONLY_SECRET",
+    "accept": false
+  },
+  {
+    "name": "raw U+000D license 'https://operator.example/fees?\\rq=public'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?\rq=public",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?\rq=public",
+    "accept": true
+  },
+  {
+    "name": "raw U+000D course 'https://operator.example/fees?\\rq=public'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?\rq=public"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?\rq=public",
+    "accept": true
+  },
+  {
+    "name": "raw U+000D license 'https://operator.example/fees?q=pub\\rlic'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?q=pub\rlic",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?q=pub\rlic",
+    "accept": true
+  },
+  {
+    "name": "raw U+000D course 'https://operator.example/fees?q=pub\\rlic'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example/fees?q=pub\rlic"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example/fees?q=pub\rlic",
+    "accept": true
+  },
+  {
+    "name": "raw U+000D course 'See https://operator.example/fees\\rfor public information.'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "See https://operator.example/fees\rfor public information."
+        }
+      ]
+    },
+    "target": "course",
+    "text": "See https://operator.example/fees\rfor public information.",
+    "accept": true
+  },
+  {
+    "name": "prefix boundary 'See\\thttps://review-user:TEST_ONLY_PASSWORD\\t@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "See\thttps://review-user:TEST_ONLY_PASSWORD\t@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "See\thttps://review-user:TEST_ONLY_PASSWORD\t@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "prefix boundary 'Public https://operator.example/fees\\thttps://review-user:TEST_ONLY_PASSWORD\\t@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "Public https://operator.example/fees\thttps://review-user:TEST_ONLY_PASSWORD\t@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "Public https://operator.example/fees\thttps://review-user:TEST_ONLY_PASSWORD\t@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "prefix boundary 'See\\nhttps://review-user:TEST_ONLY_PASSWORD\\n@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "See\nhttps://review-user:TEST_ONLY_PASSWORD\n@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "See\nhttps://review-user:TEST_ONLY_PASSWORD\n@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "prefix boundary 'Public https://operator.example/fees\\nhttps://review-user:TEST_ONLY_PASSWORD\\n@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "Public https://operator.example/fees\nhttps://review-user:TEST_ONLY_PASSWORD\n@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "Public https://operator.example/fees\nhttps://review-user:TEST_ONLY_PASSWORD\n@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "prefix boundary 'See\\rhttps://review-user:TEST_ONLY_PASSWORD\\r@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "See\rhttps://review-user:TEST_ONLY_PASSWORD\r@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "See\rhttps://review-user:TEST_ONLY_PASSWORD\r@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "prefix boundary 'Public https://operator.example/fees\\rhttps://review-user:TEST_ONLY_PASSWORD\\r@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "Public https://operator.example/fees\rhttps://review-user:TEST_ONLY_PASSWORD\r@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "Public https://operator.example/fees\rhttps://review-user:TEST_ONLY_PASSWORD\r@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "userinfo browser encoding 'https://review-user:TEST_ONLY_PASSWORD @operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-user:TEST_ONLY_PASSWORD @operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-user:TEST_ONLY_PASSWORD @operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "userinfo browser encoding 'Source: https://review-user:TEST_ONLY_PASSWORD @operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "Source: https://review-user:TEST_ONLY_PASSWORD @operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "Source: https://review-user:TEST_ONLY_PASSWORD @operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "userinfo browser encoding 'https://review-user:TEST_ONLY_PASSWORD\\xa0@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-user:TEST_ONLY_PASSWORD @operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-user:TEST_ONLY_PASSWORD @operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "userinfo browser encoding 'Source: https://review-user:TEST_ONLY_PASSWORD\\xa0@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "Source: https://review-user:TEST_ONLY_PASSWORD @operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "Source: https://review-user:TEST_ONLY_PASSWORD @operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "userinfo browser encoding 'https://review-user:TEST_ONLY_PASSWORD\\u202f@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-user:TEST_ONLY_PASSWORD @operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-user:TEST_ONLY_PASSWORD @operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "userinfo browser encoding 'Source: https://review-user:TEST_ONLY_PASSWORD\\u202f@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "Source: https://review-user:TEST_ONLY_PASSWORD @operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "Source: https://review-user:TEST_ONLY_PASSWORD @operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "userinfo browser encoding 'https://review-user:TEST_ONLY_PASSWORD\"@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-user:TEST_ONLY_PASSWORD\"@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-user:TEST_ONLY_PASSWORD\"@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "userinfo browser encoding 'Source: https://review-user:TEST_ONLY_PASSWORD\"@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "Source: https://review-user:TEST_ONLY_PASSWORD\"@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "Source: https://review-user:TEST_ONLY_PASSWORD\"@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "userinfo browser encoding \"https://review-user:TEST_ONLY_PASSWORD'@operator.example/fees\"",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-user:TEST_ONLY_PASSWORD'@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-user:TEST_ONLY_PASSWORD'@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "userinfo browser encoding \"Source: https://review-user:TEST_ONLY_PASSWORD'@operator.example/fees\"",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "Source: https://review-user:TEST_ONLY_PASSWORD'@operator.example/fees"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "Source: https://review-user:TEST_ONLY_PASSWORD'@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "public root URL and contact See https://operator.example contact owner@example.test",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "See https://operator.example contact owner@example.test"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "See https://operator.example contact owner@example.test",
+    "accept": true
+  },
+  {
+    "name": "public root URL and contact See https://operator.example:8443 contact owner@example.test",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "See https://operator.example:8443 contact owner@example.test"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "See https://operator.example:8443 contact owner@example.test",
+    "accept": true
+  },
+  {
+    "name": "public root URL and contact See https://[2001:db8::1]:443 contact owner@example.test",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "See https://[2001:db8::1]:443 contact owner@example.test"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "See https://[2001:db8::1]:443 contact owner@example.test",
+    "accept": true
+  },
+  {
+    "name": "public operational contact without prose prefix https://operator.example contact owner@example.test",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example contact owner@example.test"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example contact owner@example.test",
+    "accept": true
+  },
+  {
+    "name": "public operational contact without prose prefix https://operator.example:8443 contact owner@example.test",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://operator.example:8443 contact owner@example.test"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://operator.example:8443 contact owner@example.test",
+    "accept": true
+  },
+  {
+    "name": "public operational contact without prose prefix https://[2001:db8::1]:443 contact owner@example.test",
+    "value": {
+      "courses": [
+        {
+          "booking_conditions": "https://[2001:db8::1]:443 contact owner@example.test"
+        }
+      ]
+    },
+    "target": "course",
+    "text": "https://[2001:db8::1]:443 contact owner@example.test",
+    "accept": true
+  },
+  {
+    "name": "URI field username with browser encoding 'https://review-user @operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-user @operator.example/fees"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-user @operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "URI field username with browser encoding 'https://review-user\\xa0@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-user @operator.example/fees"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-user @operator.example/fees",
+    "accept": false
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "public root URL and contact See https://operator.example contact owner@example.test",
+    "old_accept": true,
+    "accept": false,
+    "reason": "Conservative userinfo-looking syntax before a path/query delimiter; no prose URL reconstruction. Not present in actual802."
+  },
+  {
+    "name": "public root URL and contact See https://operator.example:8443 contact owner@example.test",
+    "old_accept": true,
+    "accept": false,
+    "reason": "Conservative userinfo-looking syntax before a path/query delimiter; no prose URL reconstruction. Not present in actual802."
+  },
+  {
+    "name": "public root URL and contact See https://[2001:db8::1]:443 contact owner@example.test",
+    "old_accept": true,
+    "accept": false,
+    "reason": "Conservative userinfo-looking syntax before a path/query delimiter; no prose URL reconstruction. Not present in actual802."
+  },
+  {
+    "name": "public operational contact without prose prefix https://operator.example contact owner@example.test",
+    "old_accept": true,
+    "accept": false,
+    "reason": "Conservative userinfo-looking syntax before a path/query delimiter; no prose URL reconstruction. Not present in actual802."
+  },
+  {
+    "name": "public operational contact without prose prefix https://operator.example:8443 contact owner@example.test",
+    "old_accept": true,
+    "accept": false,
+    "reason": "Conservative userinfo-looking syntax before a path/query delimiter; no prose URL reconstruction. Not present in actual802."
+  },
+  {
+    "name": "public operational contact without prose prefix https://[2001:db8::1]:443 contact owner@example.test",
+    "old_accept": true,
+    "accept": false,
+    "reason": "Conservative userinfo-looking syntax before a path/query delimiter; no prose URL reconstruction. Not present in actual802."
+  }
+]

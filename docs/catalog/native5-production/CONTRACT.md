@@ -148,3 +148,44 @@ this source slice. Prices and architecture remain substantial separate families.
 FL43/44 are also still proposed: typed optional binding, ordinary scoped controls,
 current semantic/absence guards and actual transactional previews remain. No raw
 payload retention is claimed to complete their standardization or adoption.
+
+## Accepted single-course inventory reconciliation
+
+An empty facility can gain its explicitly accepted actual course through the
+same batch, `apply_batch`, preview/commit transaction and existing evidence
+ledger. No schema, provenance origin, source clearance or separate writer is
+added. This is not automatic course creation from a site's total or name.
+
+For a new course with `expected:null`, the `retained_normalization` evidence
+variant contains `facility_id`, `facility_digest`, `retained_evidence_digest`,
+`source_digests` (source ID to full stored-row digest), `note_digests` (note ID to full stored-row digest),
+`support_indexes`, and `review_reference`. The native transaction checks the
+existing facility/source/note/support rows and an empty course inventory. Every
+known physical-hole or selected-note support entry must be included, together
+with all of its source guards; a caller cannot omit a known held binding. An
+explicit `intake_policy:blocked` source rejects even without a duplicate URL
+hold. Held source scopes still reject. Source policies remain unchanged;
+original support objects and their observation dates/NULLs stay
+exact in the existing private intake payload. Collection date remains NULL.
+The ledger source ID is the single known source only when every selected note
+is explicitly linked and all relevant support has that source. Otherwise it is
+NULL: existing accepted notes without exact source/date bindings remain accepted
+claims with unknown provenance precision, never attributed to an unrelated
+address/map/website source. Original support stays exact even when empty or
+partially linked. No English text is used to guess its source. The ledger status
+describes the normalized result, not a new source extraction; original status
+is recorded as unknown.
+
+This bounded variant recovers one supported course in an empty inventory. The
+positive course hole count must agree with the accepted site count, but agreement
+alone is insufficient: the writer's saved note/source review must establish the
+actual single course. Its name may be NULL or the exact accepted facility name,
+a normal public label without a separately invented branded layout. Other new
+access, booking, style, arrival and optional attributes remain NULL, and site
+completeness does not change. Actual multiple-course/component inventories are
+reviewed distinctly and cannot use this single-course path to split totals.
+
+Many disjoint facilities can share one batch and normal rollback/idempotency
+checks. Stale evidence, occupied inventory, altered source identity or extra
+field promotion rejects. Notes and retained payloads remain private and are
+never interpreted by the runtime reader, exporter or browser.

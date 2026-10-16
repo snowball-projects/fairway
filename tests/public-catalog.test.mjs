@@ -69,19 +69,37 @@ test('address lookup has an injected deterministic transport and no private rout
   let call;const value=await resolvePublicOrigin('committed address',{fetcher:async(url,options)=>{call={url,options};return {ok:true,json:async()=>({features:[]})};}});
   assert.deepEqual(value.features,[]);assert.equal(call.url.origin,'https://photon.komoot.io');assert.equal(call.url.searchParams.get('q'),'committed address');assert.equal(call.options.credentials,'omit');
 });
-test('committed 768 release validates complete typed scope and rejects old-schema fallback',()=>{
+test('committed 818 release validates complete typed scope and rejects old-schema fallback',()=>{
   const raw=gunzipSync(readFileSync(new URL('../data/catalog-release/catalog.json.gz',import.meta.url)));
   const manifest=JSON.parse(readFileSync(new URL('../data/catalog-release/manifest.json',import.meta.url)));
   assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.files['catalog.json'].sha256);
-  assert.equal(manifest.revision,768);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
-  assert.equal(manifest.files['catalog.json'].sha256,'d231a7c4f3081ffe2984931249909d6319723b9e1066bebe94e855950b88b6f0');
+  assert.equal(manifest.revision,818);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
+  assert.equal(manifest.files['catalog.json'].sha256,'c253d381fbf148bcf7e6f60cdb601a3f68fc1f0c26b2c7303204d0d64eb77c8b');
   const value=JSON.parse(raw),model=validatePublicCatalog(value,manifest);
   assert.throws(()=>validatePublicCatalog({...value,format_version:1,schema:4},{...manifest,format_version:1,schema:4}),/identity/);
-  assert.equal(model.facilities.length,7395);assert.equal(model.courses.length,3694);assert.equal(model.destinations.size,2179);
-  assert.deepEqual(catalogCounts(model.facilities),{total:7395,onMap:4640,pending:2755});
-  assert.equal(model.optionalObservations.size,3061);
+  assert.equal(model.facilities.length,7430);assert.equal(model.courses.length,3813);assert.equal(model.destinations.size,2251);
+  assert.deepEqual(catalogCounts(model.facilities),{total:7430,onMap:4640,pending:2790});
+  assert.equal(model.optionalObservations.size,4826);
   assert.ok([...model.facilities,...model.courses].every(r=>!Object.hasOwn(r,'fact_groups')));
   assert.equal(model.provenance.notes.length,8286);assert.ok(model.provenance.notes.every(n=>Object.keys(n).length===1&&typeof n.id==='string'));
   assert.ok(model.courses.some(c=>c.name===null&&c.nonmember_bookable===null));
   assert.ok(model.facilities.some(f=>!f.course_ids.length));
+});
+
+
+test('loader reuses each bounded UTF8 body for byte length and checksum without redundant encodings',async()=>{
+ const t=transport(value=>value.source_licenses.push({source:'Équipe ⛳',license:'CC0-1.0',attribution:'Équipe ⛳'})),bodies=[JSON.stringify(t.manifest),t.raw],Encoder=globalThis.TextEncoder,encodings=[];let reads=0;
+ globalThis.TextEncoder=class extends Encoder{encode(text){encodings.push(text);return super.encode(text);}};
+ try {
+  const model=await loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>({ok:true,headers:{get:()=>null},text:async()=>bodies[reads++]})});
+  assert.equal(model.sourceLicenses.at(-1).attribution,'Équipe ⛳');assert.equal(reads,2);assert.deepEqual(encodings,bodies);
+ }finally{globalThis.TextEncoder=Encoder;}
+});
+test('same-byte-length changed payload still fails the original checksum before validation',async()=>{
+ const t=transport(),changed=t.raw.replace('Synthetic','Xynthetic');assert.notEqual(changed,t.raw);assert.equal(Buffer.byteLength(changed),Buffer.byteLength(t.raw));let count=0;
+ await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>new Response(++count===1?JSON.stringify(t.manifest):changed)}),/checksum/);assert.equal(count,2);
+});
+test('declared payload size remains UTF8 bytes rather than UTF16 character count',async()=>{
+ const t=transport(value=>value.source_licenses.push({source:'Équipe ⛳',license:'CC0-1.0',attribution:'Équipe ⛳'}));assert.ok(Buffer.byteLength(t.raw)>t.raw.length);t.manifest.files['catalog.json'].bytes=t.raw.length;
+ await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',t),/checksum/);assert.equal(t.calls.length,2);
 });

@@ -1,4 +1,4 @@
-"""Exporter and Pages accept the same bounded financial notation without rewriting it."""
+"""Replay every frozen notation fixture with explicit prospective role decisions."""
 
 import copy
 import gzip
@@ -18,12 +18,19 @@ spec = importlib.util.spec_from_file_location(
 )
 pages = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(pages)
+LEGACY = json.loads(
+    (
+        ROOT / "tests/fixtures/native5-ui/public-boundary-legacy-decisions.json"
+    ).read_text()
+)
+DECISIONS = {(r["fixture"], r["name"]): r for r in LEGACY["cases"]}
 CASES = [
-    case
+    dict(case, accept=DECISIONS[(name, case["name"])]["accept"])
     for name in (
         "per-each-guard.json",
         "per-each-unicode-policy.json",
         "public-url-termination.json",
+        "public-price-notation.json",
     )
     for case in json.loads((ROOT / "tests/fixtures/native5-ui" / name).read_text())
 ]
@@ -113,6 +120,7 @@ def test_normal_build_preserves_or_rejects_complete_unicode_transport(
     if accept:
         result = pages.build(source, out, "a" * 40)
         assert result["assets"] == 24
+        assert "Data credits" in (out / "credits.html").read_text()
         assert (
             out / ("data/native-catalog-" + hashlib.sha256(raw).hexdigest() + ".json")
         ).read_bytes() == raw

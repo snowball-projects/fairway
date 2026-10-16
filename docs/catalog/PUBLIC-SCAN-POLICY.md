@@ -1,48 +1,122 @@
-# Public text scan policy
+# Public serialization and text privacy policy
 
-The exporter, Pages builder and browser apply the same explicit character rules
-before accepting public text. This check rejects retained evidence and local path
-tokens. Full DTO validation still checks typed columns, scope and source bindings.
-Validation never changes the emitted text, stored observation or displayed claim.
+This prospective 802 correction replaces notation exceptions with an explicit
+public serialization boundary. It requires independent and parent source review.
+It selects no database and changes no SQL fact, source permission or serving pin.
+SQLite remains the sole maintained authority. JSON is generated transport only.
+
+The producer projects canonical SQL facility/course/relationship/optional views,
+selected public source fields, intake attribution and note IDs. Raw note bodies,
+retained claims, control documents, capture paths and recovery data remain private.
+Source-license objects have a finite public scalar field allowlist; the three
+known private pointer fields are excluded at projection. Unknown fields and nested
+values fail closed rather than being silently stripped. Source URL, license,
+attribution, source/date metadata, policy URL/hash and public scope remain exact.
+Pages and the browser reject those private keys too, even with innocent values.
+They reject note bodies and unknown or nested source-license material.
+
+Public operational text has a declared role at canonical facility/course paths,
+nested relationship paths or fields in the schema5 optional domain rows. Keys,
+IDs, dates, source metadata, licensing and other unstructured objects do not gain
+that role. Price-shaped metadata cannot authorize itself by adding amount or
+history columns. The browser continues its complete canonical column, type,
+relationship, duplicate, scope and immutable source-envelope checks.
+
+A slash in a declared operational string does not by itself identify a private
+filesystem artifact. Product labels, qualifications and conditions are preserved
+without parsing English titles, quantities, years, billing units or amounts.
+There is no `/ea`, quantity-ratio or historical-title grammar. This permits the
+actual 802 public route references, bucket labels, reciprocal product label and
+resource-context qualification without inferring currency, eligibility, dates,
+quantity, availability or anything else from their prose. Typed SQL columns remain
+exact, including null unknowns. Non-ASCII digits in prose are not typed numbers.
+
+Content safeguards still reject NUL, file URIs, drive-colon slash/backslash paths
+(ASCII plus the four confusables İ ı ſ K) and UNC tokens with two or more
+backslashes. Operational text additionally rejects recognizable absolute local
+roots (home, users, root, tmp, var, private, mnt, media, volumes, workspace,
+workspaces, task, tasks, srv, opt, etc, usr, proc, sys, dev, run), absolute path
+strings containing a private/secret/evidence/capture/retained/recovery component,
+and slash paths accompanied by an explicit private-copy/local-file/evidence-
+directory/capture-file/recovery-dump declaration. These categories include the
+three original N5S-1 private-locator reproductions and the real native intake
+reproduction. Ordinary slash compounds such as `Fees/private/resort` have no
+absolute path start and are preserved. All unstructured values, metadata and keys
+retain the stricter rejection of every absolute POSIX path token.
+
+This is a serialization contract with concrete artifact checks, not a guarantee
+that arbitrary English prose can reveal the origin of every slash reference.
+For example, `/unknown-root` or `2025 Rates /2025 RATES.json` in an approved public
+operational field has no inherent private provenance and is now permitted; the
+same string in evidence/credential fields or unstructured metadata is rejected.
+A private artifact intentionally mislabelled as ordinary public text with no
+recognizable private signal cannot be distinguished from a public route by text
+syntax alone. Intake and source review must maintain the public/private column
+contract. No private field may be made public by changing its wording.
 
 Only a temporary validation copy maps these 30 characters to ASCII space:
-U+0009 through U+000D, U+001C through U+0020, U+0085, U+00A0, U+1680,
-U+2000 through U+200A, U+2028, U+2029, U+202F, U+205F, U+3000 and U+FEFF.
-Only ASCII A through Z are folded to lowercase. No language engine's Unicode
-whitespace class, digit class, case folding or word boundary decides acceptance.
+U+0009..000D, U+001C..0020, U+0085, U+00A0, U+1680, U+2000..200A,
+U+2028, U+2029, U+202F, U+205F, U+3000 and U+FEFF. Only ASCII A..Z fold to
+lowercase. No engine-dependent Unicode whitespace, digit, word-boundary or
+casefold semantics are used. Output and displayed text remain unchanged.
 
-The bounded `/ea` financial exception applies only to `conditions` in an explicit
-`per_person` row with id, observation_id, fee_kind, amount_kind and amount_min.
-It accepts a leading currency amount or printed notation with a documented rider
-count per cart. Keywords and digits in this exception are ASCII. Termination is
-explicit space, end or listed punctuation. Unsupported non-ASCII financial syntax
-fails closed where it would otherwise resemble a path; it is never transliterated.
-No exception applies to other fields or a second private path later in the claim.
+Public HTTP(S) token exemptions retain the independently reviewed b2d28 character
+rules: start or explicit ASCII nonword/quote boundary, terminated by space, ASCII
+quotes/backtick, angle brackets and all six smart quotes “ ” ‘ ’ « ». A closing
+quote cannot swallow a following private path. Normal public links are retained.
 
-Public HTTP(S) links are excluded from the path scan only at the start or after
-an explicit ASCII nonword delimiter (U+0000..002F, 003A..0040, 005B..005E,
-0060, 007B..007F) or the listed quotes “ ” ‘ ’ « ».
-HTTP(S) tokens end at whitespace, ASCII quotes/backtick, angle brackets or any
-of those six smart quotes. A closing quote cannot swallow a following POSIX,
-drive or UNC path. Shared36-case URL controls and synchronized complete DTO
-qualification tests cover those terminations without rewriting the source text.
-Other Unicode prefixes are conservative: they do not grant a URL exemption.
-Absolute POSIX path tokens at start or after the listed punctuation/space,
-file URIs, drive-colon slash/backslash tokens and two or more consecutive
-backslashes are rejected. Drive letters include ASCII and the four Unicode
-casefold confusables İ, ı, ſ and K. Ordinary slash compounds remain unchanged.
+All four earlier fixture files (508 cases), the original 33 historical probes and
+the complete transport fixture remain byte-identical. The prospective
+`public-boundary-legacy-decisions.json` records every original and new decision,
+exact fixture hashes and reasons. No fixture is deleted or quietly reclassified.
+The new threat matrix separately checks operational, private and metadata roles,
+all 30 whitespace characters, private keys without paths, closed license/note
+projections and all 16 exact 802 occurrences. The original N5S-1 native import
+case and operational private-path export tests remain active. Full native exports,
+normal builds and browser loading must apply these guards without bypasses.
 
-The original independent 33-case finding is preserved byte-exact in
-`per-each-unicode-original.json` (SHA-256
-`f5544a6e7bc0121fa473cf244bb4297a3285d38c9255df4a52b095184dbfa9a9`).
-Its recorded historical decisions describe the rejected predecessor, not this
-policy. The separate 200-case normative fixture covers those exact strings,
-all 30 delimiters, unsupported case/digits, links, drive and UNC paths.
-Shared tests exercise all three validators and verify nonmutation. Complete
-transport tests exercise normal builds and two credential-free browser GETs,
-including U+0085 and U+FEFF acceptance and private-path rejection.
+The separately rejected cdc8f297 draft exposed C802-1 and C802-2 in independent
+review. Explicit credential syntax must be checked before public links are
+excluded from path validation. The finite names are access_token/access-token,
+api_key/api-key/apikey, authorization, client_secret/client-secret, credential,
+password/passwd, secret and token. The same names reject as object fields.
+Public queries (including opaque `key=x`), public email paths and ordinary
+fragments remain supported. No URL is visited and no emitted text is rewritten.
 
-This correction changes the public exporter copy beyond writer source 4df3e0f.
-The writer repository is untouched. Reviewed release768 JSON, gzip and manifest
-remain byte-identical. Later quantity or historical-heading exceptions are
-outside this release and need their own reviewed composition.
+Recognized local roots and private components end at explicit shared whitespace,
+punctuation or end-of-string as well as path separators. A trailing sentence dot
+terminates a root; a root prefix inside `home-page`, `homework`, `tmpdir` or
+`home.html` is not that root. The preserved independent credential/path probes,
+expanded public URL controls, all 30 whitespace endings, actual native SQL export
+failures and complete DTO/build/two-GET checks cover both corrections. No clearance
+from the rejected draft transfers to this successor.
+
+C802-4/-5 final reassessment removes the prose URL parser. No arbitrary embedded
+URL extraction, host inference, URL reconstruction or output canonicalization is
+performed. Canonical public URL columns retain their source bindings and public
+scalar projection. Before any public HTTP token exemption, every public string
+and key receives a conservative suspicious-credential check: HTTP userinfo-looking
+syntax before a path/query/fragment delimiter, or an explicit named credential
+assignment. The finite credential names listed above remain unchanged. Only
+unreserved percent encodings are decoded in a validation copy; reserved equals,
+ampersands and URL path characters are not decoded into invented structure.
+Both ordinary shared-space and raw-tab/LF/CR-removed validation copies are tested,
+so control characters cannot hide a name while removing a prose boundary cannot
+hide an ordinary assignment. Stored and emitted values are never rewritten.
+
+This intentionally holds ambiguous root-URL-plus-contact prose that looks like
+userinfo. Six synthetic prior positive cases are explicitly recorded in
+public-boundary-conservative-decisions.json; their original fixture bytes remain
+unchanged. This is a stricter suspicious-syntax hold, not a catalog phrase rule.
+All 16 legitimate actual802 rows and the complete802 output remain exact. Public
+quoted/spaced query values, noncredential parameters and reserved-encoded value
+words remain accepted. Explicit credential assignments are held regardless of
+whether their value looks harmless. Original rejected source/patches/reports are
+preserved separately; this proposal requires fresh independent and parent review.
+
+C802-6 correction recognizes the HTTP(S) scheme followed by userinfo-looking
+syntax with zero or more slash/backslash separators, rather than requiring
+literal double slashes. Browser URL normalization can turn `https:user:pass@host`
+into a credential-bearing link. These forms are conservatively held in every
+public role before link masking. Public links without userinfo, email addresses
+in URL paths and ordinary queries remain unchanged. No URL parser was added.

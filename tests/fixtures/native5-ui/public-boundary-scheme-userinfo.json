@@ -1,0 +1,542 @@
+[
+  {
+    "name": "private scheme authority license 'http:review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "http:review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "http:review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'http:review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "http:review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "http:review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'http:/review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "http:/review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "http:/review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'http:/review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "http:/review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "http:/review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'http://review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "http://review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "http://review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'http://review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "http://review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "http://review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'http:///review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "http:///review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "http:///review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'http:///review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "http:///review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "http:///review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'http:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "http:\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "http:\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'http:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "http:\\review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "http:\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'http:\\\\\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "http:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "http:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'http:\\\\\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "http:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "http:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'http:/\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "http:/\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "http:/\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'http:/\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "http:/\\review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "http:/\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "public scheme link license 'http://operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "http://operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "http://operator.example/fees",
+    "accept": true
+  },
+  {
+    "name": "public scheme link website 'http://operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "http://operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "http://operator.example/fees",
+    "accept": true
+  },
+  {
+    "name": "public scheme link license 'http://operator.example/contact/owner@example.test'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "http://operator.example/contact/owner@example.test",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "http://operator.example/contact/owner@example.test",
+    "accept": true
+  },
+  {
+    "name": "public scheme link website 'http://operator.example/contact/owner@example.test'",
+    "value": {
+      "courses": [
+        {
+          "website": "http://operator.example/contact/owner@example.test"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "http://operator.example/contact/owner@example.test",
+    "accept": true
+  },
+  {
+    "name": "public scheme link license 'http://operator.example/fees?q=public&year=2026'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "http://operator.example/fees?q=public&year=2026",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "http://operator.example/fees?q=public&year=2026",
+    "accept": true
+  },
+  {
+    "name": "public scheme link website 'http://operator.example/fees?q=public&year=2026'",
+    "value": {
+      "courses": [
+        {
+          "website": "http://operator.example/fees?q=public&year=2026"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "http://operator.example/fees?q=public&year=2026",
+    "accept": true
+  },
+  {
+    "name": "private scheme authority license 'https:review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https:review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https:review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'https:review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "https:review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "https:review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'https:/review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https:/review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https:/review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'https:/review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "https:/review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "https:/review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'https://review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'https://review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "https://review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "https://review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'https:///review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https:///review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https:///review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'https:///review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "https:///review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "https:///review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'https:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https:\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https:\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'https:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "https:\\review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "https:\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'https:\\\\\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'https:\\\\\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "https:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "https:\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority license 'https:/\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https:/\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https:/\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "private scheme authority website 'https:/\\\\review-user:TEST_ONLY_PASSWORD@operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "https:/\\review-user:TEST_ONLY_PASSWORD@operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "https:/\\review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "name": "public scheme link license 'https://operator.example/fees'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees",
+    "accept": true
+  },
+  {
+    "name": "public scheme link website 'https://operator.example/fees'",
+    "value": {
+      "courses": [
+        {
+          "website": "https://operator.example/fees"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "https://operator.example/fees",
+    "accept": true
+  },
+  {
+    "name": "public scheme link license 'https://operator.example/contact/owner@example.test'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/contact/owner@example.test",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/contact/owner@example.test",
+    "accept": true
+  },
+  {
+    "name": "public scheme link website 'https://operator.example/contact/owner@example.test'",
+    "value": {
+      "courses": [
+        {
+          "website": "https://operator.example/contact/owner@example.test"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "https://operator.example/contact/owner@example.test",
+    "accept": true
+  },
+  {
+    "name": "public scheme link license 'https://operator.example/fees?q=public&year=2026'",
+    "value": {
+      "source_licenses": [
+        {
+          "source_url": "https://operator.example/fees?q=public&year=2026",
+          "license": "CC BY-SA"
+        }
+      ]
+    },
+    "target": "license",
+    "text": "https://operator.example/fees?q=public&year=2026",
+    "accept": true
+  },
+  {
+    "name": "public scheme link website 'https://operator.example/fees?q=public&year=2026'",
+    "value": {
+      "courses": [
+        {
+          "website": "https://operator.example/fees?q=public&year=2026"
+        }
+      ]
+    },
+    "target": "website",
+    "text": "https://operator.example/fees?q=public&year=2026",
+    "accept": true
+  }
+]

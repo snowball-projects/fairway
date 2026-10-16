@@ -1,0 +1,86 @@
+[
+  {
+    "name": "product 1 token /30 balls",
+    "field": "product_name",
+    "text": "1 token /30 balls",
+    "accept": true
+  },
+  {
+    "name": "product 2 token /60 balls",
+    "field": "product_name",
+    "text": "2 token /60 balls",
+    "accept": true
+  },
+  {
+    "name": "product 3 token /90 balls",
+    "field": "product_name",
+    "text": "3 token /90 balls",
+    "accept": true
+  },
+  {
+    "name": "product 1token﻿/30 balls",
+    "field": "product_name",
+    "text": "1token﻿/30 balls",
+    "accept": true
+  },
+  {
+    "name": "heading Page explicitly titled 2025 Rates and Info /2025 RATES. All prices historical.",
+    "field": "qualification",
+    "text": "Page explicitly titled 2025 Rates and Info /2025 RATES. All prices historical.",
+    "accept": true
+  },
+  {
+    "name": "heading Published2024 Fees and Info﻿/2024 FEES. Dates unknown.",
+    "field": "qualification",
+    "text": "Published2024 Fees and Info﻿/2024 FEES. Dates unknown.",
+    "accept": true
+  },
+  {
+    "name": "private qualification Private copy of 2025 RATES is at /2025 RATES.",
+    "field": "qualification",
+    "text": "Private copy of 2025 RATES is at /2025 RATES.",
+    "accept": false
+  },
+  {
+    "name": "private qualification Local file named 2024 FEES was saved at /2024 FEES.",
+    "field": "qualification",
+    "text": "Local file named 2024 FEES was saved at /2024 FEES.",
+    "accept": false
+  },
+  {
+    "name": "private qualification Evidence directory 2023 SCANS is located at /2023 SCANS.",
+    "field": "qualification",
+    "text": "Evidence directory 2023 SCANS is located at /2023 SCANS.",
+    "accept": false
+  },
+  {
+    "name": "private qualification Published 2025 Rates /2025 RATES. Capture: /private/evidence",
+    "field": "qualification",
+    "text": "Published 2025 Rates /2025 RATES. Capture: /private/evidence",
+    "accept": false
+  },
+  {
+    "name": "private qualification See “https://official.example”/private/evidence",
+    "field": "qualification",
+    "text": "See “https://official.example”/private/evidence",
+    "accept": false
+  },
+  {
+    "name": "private or unsupported product 1 token /30 balls/private.json",
+    "field": "product_name",
+    "text": "1 token /30 balls/private.json",
+    "accept": false
+  },
+  {
+    "name": "private or unsupported product 1 token /30 balls/private/evidence",
+    "field": "product_name",
+    "text": "1 token /30 balls/private/evidence",
+    "accept": false
+  },
+  {
+    "name": "private or unsupported product 1 token /٣٠ balls",
+    "field": "product_name",
+    "text": "1 token /٣٠ balls",
+    "accept": false
+  }
+]

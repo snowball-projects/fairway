@@ -131,3 +131,30 @@ for(const foreign of ['course','component'])test(`course-owned round rejects ano
   }
   assert.throws(()=>validatePublicCatalog(value,manifest),/round component membership/);
 });
+
+test('one shared round can reach the same course through both a course member and its component',()=>{
+  const {value,manifest}=fixture(),owner=main(value),raw=value.relationships.round_component;
+  raw.push({...raw[0],id:'l-additional-direct-member',course_id:owner.course_id,ordinal:2});
+  for(const subject of [...value.facilities,...value.courses])for(const round of subject.round_options)round.members=structuredClone(raw);
+  const before=structuredClone(value),model=validatePublicCatalog(value,manifest);
+  assert.equal(model.optionalObservations.size,6);assert.equal(model.courseById.get(owner.course_id).round_options.length,1);
+  assert.deepEqual(value,before);
+  owner.round_options=[];assert.throws(()=>validatePublicCatalog(value,manifest),/relationship membership/);
+});
+test('owner-specific aliases remain separate when names match and reject a switched nested subject',()=>{
+  const {value,manifest}=fixture(),course=main(value),f=facility(value);
+  const fa={id:'a-facility',name:'Shared alias',facility_id:f.facility_id,course_id:null},ca={id:'a-course',name:'Shared alias',facility_id:null,course_id:course.course_id};
+  value.relationships.alias.push(fa,ca);f.aliases=[structuredClone(fa)];course.aliases=[structuredClone(ca)];
+  const model=validatePublicCatalog(value,manifest);assert.deepEqual(model.facilityById.get(f.facility_id).aliases,[fa]);assert.deepEqual(model.courseById.get(course.course_id).aliases,[ca]);
+  course.aliases=[structuredClone(fa)];assert.throws(()=>validatePublicCatalog(value,manifest),/relationship membership/);
+});
+test('valid relationship and subject ordering is retained without changing membership or input',()=>{
+  const {value,manifest}=fixture();value.facilities.reverse();value.courses.reverse();
+  for(const rows of Object.values(value.relationships))rows.reverse();
+  for(const subject of [...value.facilities,...value.courses]){
+    subject.course_ids?.reverse();subject.course_inventory?.reverse();subject.components?.reverse();subject.aliases.reverse();subject.tee_sets?.reverse();subject.round_options.reverse();
+    for(const round of subject.round_options){round.members.reverse();round.tee_sets.reverse();}
+  }
+  const before=structuredClone(value),model=validatePublicCatalog(value,manifest);
+  assert.deepEqual(model.courses.map(c=>c.course_id),value.courses.map(c=>c.course_id));assert.equal(model.optionalObservations.size,6);assert.deepEqual(value,before);
+});
