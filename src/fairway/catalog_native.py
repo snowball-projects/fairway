@@ -1,7 +1,8 @@
 """Native5 catalog transactions and SQL-only browse DTOs.
 
 No schema upgrade, legacy payload reader or automatic authority selection lives
-here. New retained promotions belong to the reviewed one-time migration.
+here. Reviewed retained single-course identity additions use the same batch
+transaction and evidence ledger, with guarded accepted SQLite references.
 Guarded corrections to existing typed rows preserve their retained envelopes;
 they never provide new extraction permission or add held-source records.
 """
@@ -230,8 +231,156 @@ def _permitted_source(db, source_id):
     return found
 
 
+def _retained_course_evidence(db, table, values, item, before):
+    """Normalize an explicitly reviewed accepted single-course identity, not holes."""
+    require(
+        table == "course" and before is None,
+        "retained inventory evidence only adds a missing course identity",
+    )
+    require(
+        set(item)
+        == {
+            "origin",
+            "facility_id",
+            "facility_digest",
+            "retained_evidence_digest",
+            "source_digests",
+            "note_digests",
+            "support_indexes",
+            "review_reference",
+        },
+        "invalid retained inventory evidence",
+    )
+    facility = _row(db, "facility", item["facility_id"])
+    require(
+        facility is not None
+        and values.get("facility_id") == facility["id"]
+        and digest(facility) == item["facility_digest"],
+        "stale retained facility guard or different subject",
+    )
+    require(
+        not db.execute(
+            "SELECT 1 FROM course WHERE facility_id=?", (facility["id"],)
+        ).fetchone(),
+        "retained single-course reconciliation requires empty inventory",
+    )
+    require(
+        values.get("name") in (None, facility["name"])
+        and values.get("physical_holes") == facility["physical_holes"]
+        and type(values.get("physical_holes")) is int
+        and values["physical_holes"] > 0
+        and values.get("identity_status") == "operator_defined"
+        and values.get("game_kind") == "golf"
+        and values.get("address_mode", "inherit") == "inherit"
+        and all(
+            v is None
+            for k, v in values.items()
+            if k
+            not in {
+                "id",
+                "facility_id",
+                "name",
+                "physical_holes",
+                "identity_status",
+                "game_kind",
+                "address_mode",
+            }
+        ),
+        "retained reconciliation cannot invent layout names or promote other fields",
+    )
+    retained = db.execute(
+        "SELECT * FROM retained_evidence WHERE facility_id=?", (facility["id"],)
+    ).fetchone()
+    require(
+        retained is not None
+        and digest(dict(retained)) == item["retained_evidence_digest"],
+        "stale accepted retained evidence guard",
+    )
+    accepted = json.loads(retained["payload"])
+    notes = item["note_digests"]
+    allowed = {
+        note
+        for refs in (accepted.get("notes") or {}).values()
+        if isinstance(refs, list)
+        for note in refs
+    }
+    require(
+        isinstance(notes, dict) and notes and notes.keys() <= allowed,
+        "accepted course-definition notes required",
+    )
+    for identifier, expected in notes.items():
+        found_note = db.execute(
+            "SELECT * FROM note WHERE id=?", (identifier,)
+        ).fetchone()
+        note = dict(found_note) if found_note else None
+        require(
+            note is not None and digest(note) == expected, "stale retained note guard"
+        )
+    indexes = item["support_indexes"]
+    supports = accepted.get("support", [])
+    require(
+        isinstance(indexes, list)
+        and len(indexes) == len(set(indexes))
+        and all(type(i) is int and 0 <= i < len(supports) for i in indexes),
+        "invalid retained support indexes",
+    )
+    # Include every known hole/definition binding, so a caller cannot hide a
+    # known held source by choosing only an unlinked note. Unbound accepted
+    # notes still remain usable with explicitly unknown source/date context.
+    relevant = [
+        i
+        for i, support in enumerate(supports)
+        if "physical_holes" in support.get("fields", [])
+        or set(notes).intersection(support.get("note") or [])
+    ]
+    require(indexes == relevant, "complete accepted inventory support required")
+    selected = [supports[i] for i in indexes]
+    source_ids = {support["source"] for support in selected if support.get("source")}
+    require(
+        isinstance(item["source_digests"], dict)
+        and item["source_digests"].keys() == source_ids,
+        "all known retained source guards required",
+    )
+    for source_id, expected in item["source_digests"].items():
+        found = db.execute("SELECT * FROM source WHERE id=?", (source_id,)).fetchone()
+        source = dict(found) if found else None
+        require(
+            source is not None
+            and digest(source) == expected
+            and source_id in accepted.get("listed_sources", []),
+            "stale or unrelated retained source",
+        )
+        require(source["intake_policy"] != "blocked", "retained source is blocked")
+        ensure_source_allowed(db, source["url"])
+    linked_notes = {
+        note for support in selected for note in (support.get("note") or [])
+    }
+    primary_source = (
+        next(iter(source_ids))
+        if len(source_ids) == 1
+        and notes.keys() <= linked_notes
+        and all(support.get("source") in source_ids for support in selected)
+        else None
+    )
+    require(
+        isinstance(item["review_reference"], str) and item["review_reference"].strip(),
+        "saved identity review required",
+    )
+    return {
+        "source_id": primary_source,
+        "collected_on": None,
+        "status": "extracted",
+        "origin": "retained_normalization",
+        "payload": encoded(
+            item | {"original_support": selected, "original_status": None}
+        ),
+    }
+
+
 def _evidence(db, table, values, item, before=None):
     require(isinstance(item, dict), "evidence must be an object")
+    if table == "course" and item.get("origin") == "retained_normalization":
+        return _retained_course_evidence(db, table, values, item, before)
     if table in DOMAINS or table == "architecture_credit":
         require(
             set(item)

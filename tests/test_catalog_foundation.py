@@ -61,19 +61,19 @@ def test_native_inventory_never_promotes_components_or_private_booking(catalog):
         and not c["tee_sets"]
         for c in courses
     )
-    assert sum(c["identity_status"] == "component" for c in catalog["courses"]) == 14
+    assert sum(c["identity_status"] == "component" for c in catalog["courses"]) == 17
 
 
 def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert (
         sum(len(f["course_ids"]) for f in catalog["facilities"])
         == len(catalog["courses"])
-        == 3694
+        == 3813
     )
     assert len(catalog["provenance"]["notes"]) == 8286
     assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
-    assert len(catalog["provenance"]["sources"]) == 18455
-    assert len(catalog["provenance"]["intake"]) == 9853
+    assert len(catalog["provenance"]["sources"]) == 18855
+    assert len(catalog["provenance"]["intake"]) == 13105
     assert sum(c["arrival"] is not None for c in catalog["courses"]) == 8
     assert (
         not {"retained_document", "source_hold", "source_hold_scope"} & catalog.keys()
