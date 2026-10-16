@@ -85,3 +85,21 @@ test('committed 768 release validates complete typed scope and rejects old-schem
   assert.ok(model.courses.some(c=>c.name===null&&c.nonmember_bookable===null));
   assert.ok(model.facilities.some(f=>!f.course_ids.length));
 });
+
+
+test('loader reuses each bounded UTF8 body for byte length and checksum without redundant encodings',async()=>{
+ const t=transport(value=>value.source_licenses.push({source:'Équipe ⛳',license:'CC0-1.0',attribution:'Équipe ⛳'})),bodies=[JSON.stringify(t.manifest),t.raw],Encoder=globalThis.TextEncoder,encodings=[];let reads=0;
+ globalThis.TextEncoder=class extends Encoder{encode(text){encodings.push(text);return super.encode(text);}};
+ try {
+  const model=await loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>({ok:true,headers:{get:()=>null},text:async()=>bodies[reads++]})});
+  assert.equal(model.sourceLicenses.at(-1).attribution,'Équipe ⛳');assert.equal(reads,2);assert.deepEqual(encodings,bodies);
+ }finally{globalThis.TextEncoder=Encoder;}
+});
+test('same-byte-length changed payload still fails the original checksum before validation',async()=>{
+ const t=transport(),changed=t.raw.replace('Synthetic','Xynthetic');assert.notEqual(changed,t.raw);assert.equal(Buffer.byteLength(changed),Buffer.byteLength(t.raw));let count=0;
+ await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>new Response(++count===1?JSON.stringify(t.manifest):changed)}),/checksum/);assert.equal(count,2);
+});
+test('declared payload size remains UTF8 bytes rather than UTF16 character count',async()=>{
+ const t=transport(value=>value.source_licenses.push({source:'Équipe ⛳',license:'CC0-1.0',attribution:'Équipe ⛳'}));assert.ok(Buffer.byteLength(t.raw)>t.raw.length);t.manifest.files['catalog.json'].bytes=t.raw.length;
+ await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',t),/checksum/);assert.equal(t.calls.length,2);
+});
