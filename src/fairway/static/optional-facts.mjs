@@ -76,6 +76,17 @@ export function validateScopedOptional(value){
     const key=tee.round_id??tee.course_id,rows=tees.get(key)||[];rows.push(tee);tees.set(key,rows);
   }
   for(const alias of maps.alias.values())if((alias.facility_id!==null)===(alias.course_id!==null)||alias.facility_id!==null&&!facilities.has(alias.facility_id)||alias.course_id!==null&&!courses.has(alias.course_id))fail('Invalid alias subject');
+  // Build each owner lookup once; retain the same raw rows and membership checks.
+  const append=(map,key,row)=>{const rows=map.get(key)||[];rows.push(row);map.set(key,rows);};
+  const group=(rows,key)=>{const map=new Map();for(const row of rows)append(map,row[key],row);return map;};
+  const coursesByFacility=group(courses.values(),'facility_id'),partsByCourse=group(maps.component.values(),'course_id');
+  const roundsByFacility=group(maps.round_option.values(),'facility_id'),roundsByCourse=new Map();
+  const aliasesByFacility=group(maps.alias.values(),'facility_id'),aliasesByCourse=group(maps.alias.values(),'course_id');
+  for(const round of maps.round_option.values()){
+    const owners=new Set();if(round.course_id!==null)owners.add(round.course_id);
+    for(const member of members.get(round.id)||[])owners.add(member.course_id??maps.component.get(member.component_id)?.course_id);
+    for(const owner of owners)append(roundsByCourse,owner,round);
+  }
   const observations=new Map(),envelopes=new Map(),roundViews=new Map(),parties=new Map();
   function optional(subject,column,id){
     const groups=subject.optional;
@@ -111,19 +122,19 @@ export function validateScopedOptional(value){
   for(const facility of facilities.values()){
     if(![null,'public','private','restricted'].includes(facility.access))fail('Invalid nullable facility access');
     optional(facility,'facility_id',facility.facility_id);
-    const own=[...courses.values()].filter(c=>c.facility_id===facility.facility_id);assertIds(facility.course_ids,own.map(c=>c.course_id));
+    const own=coursesByFacility.get(facility.facility_id)||[];assertIds(facility.course_ids,own.map(c=>c.course_id));
     const inventory=unique(facility.course_inventory,'course_id');assertIds([...inventory.keys()],own.map(c=>c.course_id));
     for(const row of inventory.values()){const course=courses.get(row.course_id);for(const key of ['name','physical_holes','identity_status','access','nonmember_bookable'])if(row[key]!==course[key])fail('Changed facility inventory view');}
-    rounds(facility,[...maps.round_option.values()].filter(r=>r.facility_id===facility.facility_id));
-    childRows(facility.aliases,[...maps.alias.values()].filter(r=>r.facility_id===facility.facility_id),RELATIONSHIP_SCHEMA.alias);
+    rounds(facility,roundsByFacility.get(facility.facility_id)||[]);
+    childRows(facility.aliases,aliasesByFacility.get(facility.facility_id)||[],RELATIONSHIP_SCHEMA.alias);
   }
   for(const course of courses.values()){
     if(![null,'public','private','restricted'].includes(course.access))fail('Invalid nullable course access');
     const facility=facilities.get(course.facility_id);if(!facility||course.facility_access!==facility.access||course.facility_name!==facility.name||course.state!==facility.state)fail('Changed course facility binding');
     optional(course,'course_id',course.course_id);
-    const parts=[...maps.component.values()].filter(r=>r.course_id===course.course_id);childRows(course.components,parts,RELATIONSHIP_SCHEMA.component);for(const part of course.components)optional(part,'component_id',part.id);
-    const expected=[...maps.round_option.values()].filter(r=>r.course_id===course.course_id||(members.get(r.id)||[]).some(m=>m.course_id===course.course_id||maps.component.get(m.component_id)?.course_id===course.course_id));rounds(course,expected);
-    childRows(course.tee_sets,tees.get(course.course_id)||[],RELATIONSHIP_SCHEMA.tee_set);childRows(course.aliases,[...maps.alias.values()].filter(r=>r.course_id===course.course_id),RELATIONSHIP_SCHEMA.alias);
+    const parts=partsByCourse.get(course.course_id)||[];childRows(course.components,parts,RELATIONSHIP_SCHEMA.component);for(const part of course.components)optional(part,'component_id',part.id);
+    rounds(course,roundsByCourse.get(course.course_id)||[]);
+    childRows(course.tee_sets,tees.get(course.course_id)||[],RELATIONSHIP_SCHEMA.tee_set);childRows(course.aliases,aliasesByCourse.get(course.course_id)||[],RELATIONSHIP_SCHEMA.alias);
   }
   return observations;
 }
