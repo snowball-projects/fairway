@@ -1439,3 +1439,7 @@ body.credits-page {overflow: auto;}
 .credits-page section {margin: 2rem 0;}
 .credits-page dt {font-weight: 600; margin-top: .75rem;}
 .credits-page dd {margin: .2rem 0 0; overflow-wrap: anywhere;}
+
+@media (max-width: 800px) {
+  .leaflet-control-attribution {max-width: calc(50vw - 40px); text-align: right;}
+}
