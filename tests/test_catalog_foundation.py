@@ -68,7 +68,7 @@ def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert (
         sum(len(f["course_ids"]) for f in catalog["facilities"])
         == len(catalog["courses"])
-        == 4437
+        == 4544
     )
     assert len(catalog["provenance"]["notes"]) == 8286
     assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
