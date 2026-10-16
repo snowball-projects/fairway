@@ -148,7 +148,9 @@ def test_per_each_price_conditions_export_byte_for_typed_value(db, conditions):
         "$18 /ea; https://example.test/fees; `/var/tmp/proof.json`",
     ],
 )
-def test_actual_paths_in_per_person_prices_still_fail_closed(db, tmp_path, conditions):
+def test_old_each_cases_follow_public_role_and_private_artifact_policy(
+    db, tmp_path, conditions
+):
     seed_typed(db)
     with native.writer(db) as con:
         con.execute(
@@ -157,14 +159,28 @@ def test_actual_paths_in_per_person_prices_still_fail_closed(db, tmp_path, condi
         )
         con.commit()
     output = tmp_path / "private-price-must-not-export"
-    with pytest.raises(ValueError, match="local evidence path"):
-        export.export_transport(
-            db,
-            output,
-            expected_sha256=hashlib.sha256(db.read_bytes()).hexdigest(),
-            revision=2,
+    # Slash syntax or a filename-like suffix alone does not establish private
+    # origin. Explicit private path components still reject.
+    public = {"/ea", "Printed /ea.json with2riders per cart", "$18 /ea.json"}
+    if conditions in public:
+        result = export.build_transport(
+            db, expected_sha256=hashlib.sha256(db.read_bytes()).hexdigest(), revision=2
         )
-    assert not output.exists()
+        assert any(
+            row["conditions"] == conditions
+            for fac in result["facilities"]
+            for rnd in fac["round_options"]
+            for row in rnd["optional"]["price_observation"]
+        )
+    else:
+        with pytest.raises(ValueError, match="local evidence path"):
+            export.export_transport(
+                db,
+                output,
+                expected_sha256=hashlib.sha256(db.read_bytes()).hexdigest(),
+                revision=2,
+            )
+        assert not output.exists()
 
 
 @pytest.mark.parametrize(

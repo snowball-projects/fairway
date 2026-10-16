@@ -31,20 +31,59 @@ function assertIds(actual,expected){if(!Array.isArray(actual)||new Set(actual).s
 // Shared explicit scan policy. Only the validation copy is normalized.
 const SCAN_SPACE=/[\u0009-\u000d\u001c-\u0020\u0085\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]/g;
 function validationScan(text){return text.replace(SCAN_SPACE,' ').replace(/[A-Z]/g,letter=>letter.toLowerCase());}
-function priceConditionScan(row){
-  let text=row.conditions;
-  if(row.billing_basis!=='per_person'||!['id','observation_id','fee_kind','amount_kind','amount_min'].every(key=>Object.hasOwn(row,key)))return text;
-  text=validationScan(text);
-  text=text.replace(/^( *printed +["'`]?)\/ea(?=["'`]? +with *[0-9]+ *riders? +per +cart(?=$| |[.,;:!?)](?: |$)))/,'$1each');
-  return text.replace(/^( *[$€£] *[0-9]+(?:[.,][0-9]{1,2})? +)\/ea(?=$| |[.,;:!?)](?: |$))/,'$1each');
+const HTTP_TOKEN=/(^|[\x00-\x2f\x3a-\x40\x5b-\x5e\x60\x7b-\x7f“”‘’«»])(https?:\/\/[^ <>"'`“”‘’«»]+)/g;
+const CREDENTIAL_URL_KEYS=new Set(["access_token", "access-token", "api_key", "api-key", "apikey", "authorization", "client_secret", "client-secret", "credential", "password", "passwd", "secret", "token"]);
+function credentialSyntax(text){
+ for(const view of [text,text.replace(/[\t\n\r]/g,'')]){
+  const scan=validationScan(validationScan(view).replace(/%([0-9a-f]{2})/g,(whole,hex)=>{const c=String.fromCharCode(parseInt(hex,16));return /^[a-zA-Z0-9._~-]$/.test(c)?c:whole;}));
+  if(/https?:[\/\\]*[^\/\\?#]*(?:@|%40)/.test(scan))return true;
+  const keys=[...CREDENTIAL_URL_KEYS].join('|');
+  if(new RegExp('(?:^|[^a-z0-9_])(?:'+keys+') *=').test(scan))return true;
+ }
+ return false;
 }
-export function rejectRawEvidence(value){
-  if(Array.isArray(value)){for(const row of value)rejectRawEvidence(row);return;}
-  if(object(value)){for(const [key,child] of Object.entries(value)){if(['fact_groups','payload','retained_pointer','retained_document','retained_evidence','controls_reference','capture_path','local_path'].includes(key))fail('Raw evidence is not operational transport');rejectRawEvidence(key);rejectRawEvidence(key==='conditions'&&typeof child==='string'?priceConditionScan(value):child);}return;}
-  if(typeof value==='string'){
-    const scan=validationScan(value).replace(/(^|[\x00-\x2f\x3a-\x40\x5b-\x5e\x60\x7b-\x7f“”‘’«»])https?:\/\/[^ <>"'`“”‘’«»]+/g,'$1');
-    if(/(?:^|[ "'`(\[={:;,<>|!?“”‘’«»])\/+[^ /]|file:\/\/|[a-zİıſK]:[\\/]|\\{2}/.test(scan))fail('Private path in public transport');
+// Public SQL roles and private serialization boundaries, never notation grammars.
+const PRIVATE_KEYS=new Set(["access_token","api_key","authorization","capture_path","controls_reference","credential","fact_groups","local_path","password","payload","retained_document","retained_evidence","retained_pointer","secret"]);
+for(const key of CREDENTIAL_URL_KEYS)PRIVATE_KEYS.add(key);
+const PUBLIC_LICENSE_FIELDS=new Set(["applies_to","attribution","changes","collected_on","kind","license","license_url","policy_capture_sha256","policy_url","scope","source","source_id","source_url"]);
+const PUBLIC_DOMAIN_TEXT={"accessibility_observation":["qualification"],"amenity_observation":["qualification"],"architecture_event":["event_kind","project_state","qualification","target_area"],"operating_period":["aerification_method","affected_area","maintenance_kind","period_kind","qualification"],"physical_characteristics":["elevation_unit","fairway_grass_name","greens_grass_name","landscape","playing_surface","qualification","rough_grass_name","tee_grass_name","terrain"],"policy_observation":["arrival_access_condition","audience","cancellation_charge_basis","cancellation_charge_currency","qualification","season"],"practice_observation":["driving_range_details","driving_range_length_unit","putting_green_details","qualification","range_technology_name"],"price_observation":["amount_kind","audience","billing_basis","conditions","currency","fee_kind","product_name","qualification","residency","residency_area_name","season"],"quality_rating":["dimension","issuer_name","qualification"],"service_observation":["pro_shop_details","qualification","rental_details"]};
+const CORE_TEXT=new Set(["access_qualification","address_city","address_postal_code","address_region","address_street_line1","address_street_line2","address_text","arrival_reference","booking_conditions","country","county","description","facility_name","location_note","name","rated_category","state"]);
+const CHILD_ROWS=new Set(["aliases","components","course_inventory","round_options","tee_sets"]);
+const POSIX_PATH=new RegExp("(?:^|[ \"'`(\\[={:;,<>|!?“”‘’«»])/+[^ /]");
+const EXPLICIT_PATH=new RegExp("file://|[a-zİıſK]:[\\\\/]|\\\\{2}");
+const LOCAL_ROOT=new RegExp("(?:^|[ \"'`(\\[={:;,<>|!?\u201c\u201d\u2018\u2019\u00ab\u00bb])/+(?:home|users|root|tmp|var|private|mnt|media|volumes|workspace|workspaces|task|tasks|srv|opt|etc|usr|proc|sys|dev|run)(?=$|[ /\\\\?&#;=,:'\"`()<>\\[\\]{}|!?\u201c\u201d\u2018\u2019\u00ab\u00bb]|\\.+(?=$|[ /\\\\?&#;=,:'\"`()<>\\[\\]{}|!?\u201c\u201d\u2018\u2019\u00ab\u00bb]))");
+const PRIVATE_COMPONENT=new RegExp("(?:[/\\\\?&#;=]|%2f)(?:private|secret|evidence|capture|retained|recovery)(?=$|[-._]|[ /\\\\?&#;=,:'\"`()<>\\[\\]{}|!?\u201c\u201d\u2018\u2019\u00ab\u00bb])");
+const PRIVATE_DECLARATION=new RegExp("(?:^|[^a-z0-9_])(?:private +(?:copy|file|capture|path|directory|folder)|local +(?:copy|file|directory|folder)|evidence +(?:copy|file|directory|folder)|capture +(?:file|path)|capture *:|recovery +(?:sql|dump|file))(?=$|[^a-z0-9_])");
+function operationalTextPath(path){
+  if(path.length===4&&path[0]==='relationships')return ['component','round_option','tee_set','alias'].includes(path[1])&&Number.isInteger(path[2])&&CORE_TEXT.has(path[3]);
+  if(path.length<3||!['facilities','courses'].includes(path[0])||!Number.isInteger(path[1]))return false;
+  let parents=path.slice(2,-1);const field=path.at(-1);
+  while(parents.length>=2&&CHILD_ROWS.has(parents[0])&&Number.isInteger(parents[1]))parents=parents.slice(2);
+  if(!parents.length)return CORE_TEXT.has(field);
+  if(parents.length===1&&parents[0]==='address')return ['text','street_line1','street_line2','city','region','postal_code','country'].includes(field);
+  if(parents.length===1&&parents[0]==='arrival')return field==='reference';
+  if(parents.length>=3&&parents[0]==='optional'&&Object.hasOwn(PUBLIC_DOMAIN_TEXT,parents[1])&&Number.isInteger(parents[2])){
+    if(parents.length===3)return PUBLIC_DOMAIN_TEXT[parents[1]].includes(field);
+    return parents.length===5&&parents[1]==='architecture_event'&&parents[3]==='credits'&&Number.isInteger(parents[4])&&field==='name';
   }
+  return false;
+}
+function hasPrivatePath(text,operational=false){
+  if(credentialSyntax(text))return true;
+  const scan=validationScan(text).replace(HTTP_TOKEN,'$1');
+  if(EXPLICIT_PATH.test(scan))return true;
+  if(!operational)return POSIX_PATH.test(scan);
+  return LOCAL_ROOT.test(scan)||(POSIX_PATH.test(scan)&&(PRIVATE_COMPONENT.test(scan)||PRIVATE_DECLARATION.test(scan)));
+}
+function projectionRecord(value,path){
+  if(path.length===2&&path[0]==='source_licenses'&&Number.isInteger(path[1])&&(!object(value)||Object.keys(value).some(key=>!PUBLIC_LICENSE_FIELDS.has(key))||Object.values(value).some(v=>v!==null&&typeof v!=='string')))fail('Unknown or nonpublic source-license material');
+  if(path.length===3&&path[0]==='provenance'&&path[1]==='notes'&&Number.isInteger(path[2])&&(!object(value)||Object.keys(value).length!==1||typeof value.id!=='string'||!value.id))fail('Public notes contain IDs only');
+}
+export function rejectRawEvidence(value,path=[]){
+  projectionRecord(value,path);
+  if(Array.isArray(value)){value.forEach((row,index)=>rejectRawEvidence(row,[...path,index]));return;}
+  if(object(value)){for(const [key,child] of Object.entries(value)){if(PRIVATE_KEYS.has(validationScan(key)))fail('Raw evidence is not operational transport');rejectRawEvidence(key);rejectRawEvidence(child,[...path,key]);}return;}
+  if(typeof value==='string'&&(value.includes('\0')||hasPrivatePath(value,operationalTextPath(path))))fail('Private path in public transport');
 }
 export function validateScopedOptional(value){
   rejectRawEvidence(value);

@@ -6,11 +6,13 @@ import {rejectRawEvidence,renderKnownOptional} from '../src/fairway/static/optio
 import {loadPublicCatalog,validatePublicCatalog} from '../src/fairway/static/public-catalog.mjs';
 import {fixture,document} from './native5-fixture.mjs';
 
-const cases=['per-each-guard.json','per-each-unicode-policy.json','public-url-termination.json'].flatMap(name=>JSON.parse(readFileSync(new URL('./fixtures/native5-ui/'+name,import.meta.url),'utf8')));
+const ledger=JSON.parse(readFileSync(new URL('./fixtures/native5-ui/public-boundary-legacy-decisions.json',import.meta.url),'utf8'));
+const decisions=new Map(ledger.cases.map(row=>[row.fixture+'\0'+row.name,row.accept]));
+const cases=['per-each-guard.json','per-each-unicode-policy.json','public-url-termination.json','public-price-notation.json'].flatMap(name=>JSON.parse(readFileSync(new URL('./fixtures/native5-ui/'+name,import.meta.url),'utf8')).map(item=>({...item,accept:decisions.get(name+'\0'+item.name)})));
 for(const item of cases)test('public financial scan: '+item.name,()=>{
  const value=structuredClone(item.value),before=structuredClone(value);
  if(item.accept)assert.doesNotThrow(()=>rejectRawEvidence(value));
- else assert.throws(()=>rejectRawEvidence(value),/Private path/);
+ else assert.throws(()=>rejectRawEvidence(value));
  assert.deepEqual(value,before);
 });
 for(const conditions of ['Printed /ea with 2 riders per cart.','$25 /ea; dated printed amount only.'])test('complete typed transport and popup preserve exact financial claim: '+conditions,()=>{

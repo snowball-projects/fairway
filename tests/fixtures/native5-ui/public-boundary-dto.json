@@ -1,0 +1,107 @@
+[
+  {
+    "target": "license",
+    "text": "https://review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "target": "course",
+    "text": "https://review-user:TEST_ONLY_PASSWORD@operator.example/fees",
+    "accept": false
+  },
+  {
+    "target": "license",
+    "text": "https://operator.example/fees?api_key=TEST_ONLY_KEY",
+    "accept": false
+  },
+  {
+    "target": "course",
+    "text": "https://operator.example/fees?api_key=TEST_ONLY_KEY",
+    "accept": false
+  },
+  {
+    "target": "license",
+    "text": "https://operator.example/fees?access_token=TEST_ONLY_TOKEN",
+    "accept": false
+  },
+  {
+    "target": "course",
+    "text": "https://operator.example/fees?access_token=TEST_ONLY_TOKEN",
+    "accept": false
+  },
+  {
+    "target": "license",
+    "text": "https://operator.example/fees?client_secret=TEST_ONLY_SECRET",
+    "accept": false
+  },
+  {
+    "target": "course",
+    "text": "https://operator.example/fees?client_secret=TEST_ONLY_SECRET",
+    "accept": false
+  },
+  {
+    "target": "license",
+    "text": "https://operator.example/fees?%61pi%5fkey=TEST_ONLY_KEY",
+    "accept": false
+  },
+  {
+    "target": "course",
+    "text": "https://operator.example/fees?%61pi%5fkey=TEST_ONLY_KEY",
+    "accept": false
+  },
+  {
+    "target": "course",
+    "text": "Files kept in /tmp for review.",
+    "accept": false
+  },
+  {
+    "target": "course",
+    "text": "See /home, then continue.",
+    "accept": false
+  },
+  {
+    "target": "course",
+    "text": "See /unusual/evidence for details.",
+    "accept": false
+  },
+  {
+    "target": "license",
+    "text": "https://operator.example/fees?q=public&year=2026",
+    "accept": true
+  },
+  {
+    "target": "course",
+    "text": "https://operator.example/fees?q=public&year=2026",
+    "accept": true
+  },
+  {
+    "target": "license",
+    "text": "https://operator.example/fees?key=x",
+    "accept": true
+  },
+  {
+    "target": "course",
+    "text": "https://operator.example/fees?key=x",
+    "accept": true
+  },
+  {
+    "target": "license",
+    "text": "https://operator.example/fees?q=api_key%3Dword",
+    "accept": true
+  },
+  {
+    "target": "course",
+    "text": "https://operator.example/fees?q=api_key%3Dword",
+    "accept": true
+  },
+  {
+    "target": "course",
+    "text": "Fees/private/resort",
+    "accept": true
+  },
+  {
+    "target": "course",
+    "text": "See /home-page for public information.",
+    "accept": true
+  }
+]

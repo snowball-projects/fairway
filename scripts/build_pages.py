@@ -44,84 +44,264 @@ def _validation_scan(text):
     return re.sub(r"[A-Z]", lambda match: match[0].lower(), text)
 
 
-def _price_condition_scan(row):
-    """Scan bounded ASCII financial notation; never rewrite emitted claims."""
-    text = row["conditions"]
-    if (
-        row.get("billing_basis") != "per_person"
-        or not {"id", "observation_id", "fee_kind", "amount_kind", "amount_min"}
-        <= row.keys()
-    ):
-        return text
-    text = _validation_scan(text)
-    text = re.sub(
-        r"""\A( *printed +["'`]?)\/ea(?=["'`]? +with *[0-9]+ *riders? +per +cart(?=$| |[.,;:!?)](?: |$)))""",
-        r"\1each",
-        text,
-    )
-    return re.sub(
-        r"\A( *[$€£] *[0-9]+(?:[.,][0-9]{1,2})? +)/ea(?=$| |[.,;:!?)](?: |$))",
-        r"\1each",
-        text,
-    )
+_HTTP_TOKEN = rf"""(^|[{_URL_BOUNDARY}])(https?://[^ <>"'`“”‘’«»]+)"""
+_CREDENTIAL_URL_KEYS = frozenset(
+    [
+        "access_token",
+        "access-token",
+        "api_key",
+        "api-key",
+        "apikey",
+        "authorization",
+        "client_secret",
+        "client-secret",
+        "credential",
+        "password",
+        "passwd",
+        "secret",
+        "token",
+    ]
+)
+
+
+def _credential_syntax(text):
+    # No URL extraction or reconstruction: conservatively hold explicit syntax.
+    for view in (text, re.sub(r"[\t\n\r]", "", text)):
+        scan = _validation_scan(view)
+        scan = re.sub(
+            r"%([0-9a-f]{2})",
+            lambda m: (
+                chr(int(m[1], 16))
+                if chr(int(m[1], 16))
+                in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._~-"
+                else m[0]
+            ),
+            scan,
+        )
+        scan = _validation_scan(scan)
+        if re.search(r"https?:[/\\]*[^/\\?#]*(?:@|%40)", scan):
+            return True
+        keys = "|".join(re.escape(key) for key in _CREDENTIAL_URL_KEYS)
+        if re.search(rf"(?:^|[^a-z0-9_])(?:{keys}) *=", scan):
+            return True
+    return False
 
 
 def _without_http_links(text):
-    return re.sub(
-        rf"""(^|[{_URL_BOUNDARY}])https?://[^ <>"'`“”‘’«»]+""",
-        r"\1",
-        _validation_scan(text),
-    )
+    return re.sub(_HTTP_TOKEN, r"\1", _validation_scan(text))
 
 
-def _has_private_path(text):
-    return bool(
-        re.search(
-            r"""(?:^|[ "'`(\[={:;,<>|!?“”‘’«»])/+[^ /]|file://|[a-zİıſK]:[\\/]|\\{2}""",
-            _without_http_links(text),
+# Canonical public text roles; private/provenance objects never gain this role.
+_PRIVATE_KEYS = frozenset(
+    [
+        "access_token",
+        "api_key",
+        "authorization",
+        "capture_path",
+        "controls_reference",
+        "credential",
+        "fact_groups",
+        "local_path",
+        "password",
+        "payload",
+        "retained_document",
+        "retained_evidence",
+        "retained_pointer",
+        "secret",
+    ]
+)
+_PRIVATE_KEYS |= _CREDENTIAL_URL_KEYS
+_PUBLIC_LICENSE_FIELDS = frozenset(
+    [
+        "applies_to",
+        "attribution",
+        "changes",
+        "collected_on",
+        "kind",
+        "license",
+        "license_url",
+        "policy_capture_sha256",
+        "policy_url",
+        "scope",
+        "source",
+        "source_id",
+        "source_url",
+    ]
+)
+_PUBLIC_DOMAIN_TEXT = {
+    kind: frozenset(fields.split())
+    for kind, fields in {
+        "accessibility_observation": "qualification",
+        "amenity_observation": "qualification",
+        "architecture_event": "event_kind project_state qualification target_area",
+        "operating_period": "aerification_method affected_area maintenance_kind period_kind qualification",
+        "physical_characteristics": "elevation_unit fairway_grass_name greens_grass_name landscape playing_surface qualification rough_grass_name tee_grass_name terrain",
+        "policy_observation": "arrival_access_condition audience cancellation_charge_basis cancellation_charge_currency qualification season",
+        "practice_observation": "driving_range_details driving_range_length_unit putting_green_details qualification range_technology_name",
+        "price_observation": "amount_kind audience billing_basis conditions currency fee_kind product_name qualification residency residency_area_name season",
+        "quality_rating": "dimension issuer_name qualification",
+        "service_observation": "pro_shop_details qualification rental_details",
+    }.items()
+}
+_CORE_TEXT = frozenset(
+    [
+        "access_qualification",
+        "address_city",
+        "address_postal_code",
+        "address_region",
+        "address_street_line1",
+        "address_street_line2",
+        "address_text",
+        "arrival_reference",
+        "booking_conditions",
+        "country",
+        "county",
+        "description",
+        "facility_name",
+        "location_note",
+        "name",
+        "rated_category",
+        "state",
+    ]
+)
+_CHILD_ROWS = frozenset(
+    ["aliases", "components", "course_inventory", "round_options", "tee_sets"]
+)
+_POSIX_PATH = r"""(?:^|[ "'`(\[={:;,<>|!?“”‘’«»])/+[^ /]"""
+_EXPLICIT_PATH = r"file://|[a-zİıſK]:[\\/]|\\{2}"
+_PATH_END = "[ /\\\\?&#;=,:'\"`()<>\\[\\]{}|!?“”‘’«»]"
+_LOCAL_ROOT = (
+    r"""(?:^|[ "'`(\[={:;,<>|!?“”‘’«»])/+"""
+    r"(?:home|users|root|tmp|var|private|mnt|media|volumes|workspace|workspaces|task|tasks|"
+    r"srv|opt|etc|usr|proc|sys|dev|run)"
+    rf"(?=$|{_PATH_END}|\.+(?=$|{_PATH_END}))"
+)
+_PRIVATE_COMPONENT = (
+    r"(?:[/\\?&#;=]|%2f)(?:private|secret|evidence|capture|retained|recovery)"
+    rf"(?=$|[-._]|{_PATH_END})"
+)
+_PRIVATE_DECLARATION = (
+    r"(?:^|[^a-z0-9_])(?:private +(?:copy|file|capture|path|directory|folder)|"
+    r"local +(?:copy|file|directory|folder)|evidence +(?:copy|file|directory|folder)|"
+    r"capture +(?:file|path)|capture *:|recovery +(?:sql|dump|file))(?=$|[^a-z0-9_])"
+)
+
+
+def _operational_text_path(path):
+    if len(path) == 4 and path[0] == "relationships":
+        return (
+            path[1] in {"component", "round_option", "tee_set", "alias"}
+            and type(path[2]) is int
+            and path[3] in _CORE_TEXT
         )
+    if (
+        len(path) < 3
+        or path[0] not in {"facilities", "courses"}
+        or type(path[1]) is not int
+    ):
+        return False
+    parents, field = path[2:-1], path[-1]
+    while len(parents) >= 2 and parents[0] in _CHILD_ROWS and type(parents[1]) is int:
+        parents = parents[2:]
+    if not parents:
+        return field in _CORE_TEXT
+    if parents == ("address",):
+        return field in {
+            "text",
+            "street_line1",
+            "street_line2",
+            "city",
+            "region",
+            "postal_code",
+            "country",
+        }
+    if parents == ("arrival",):
+        return field == "reference"
+    if (
+        len(parents) >= 3
+        and parents[0] == "optional"
+        and parents[1] in _PUBLIC_DOMAIN_TEXT
+        and type(parents[2]) is int
+    ):
+        if len(parents) == 3:
+            return field in _PUBLIC_DOMAIN_TEXT[parents[1]]
+        return (
+            len(parents) == 5
+            and parents[1] == "architecture_event"
+            and parents[3] == "credits"
+            and type(parents[4]) is int
+            and field == "name"
+        )
+    return False
+
+
+def _has_private_path(text, *, operational=False):
+    if _credential_syntax(text):
+        return True
+    scan = _without_http_links(text)
+    if re.search(_EXPLICIT_PATH, scan):
+        return True
+    if not operational:
+        return bool(re.search(_POSIX_PATH, scan))
+    # Ordinary slash notation belongs to the public fact, not a filesystem
+    # classifier. Still reject recognizable local artifacts or explicit evidence.
+    return bool(
+        re.search(_LOCAL_ROOT, scan)
+        or (re.search(_POSIX_PATH, scan) and re.search(_PRIVATE_COMPONENT, scan))
+        or (re.search(_POSIX_PATH, scan) and re.search(_PRIVATE_DECLARATION, scan))
     )
+
+
+def _projection_record(value, path):
+    if (
+        len(path) == 2
+        and path[0] == "source_licenses"
+        and type(path[1]) is int
+        and (
+            not isinstance(value, dict)
+            or not value.keys() <= _PUBLIC_LICENSE_FIELDS
+            or any(v is not None and not isinstance(v, str) for v in value.values())
+        )
+    ):
+        raise ValueError("unknown or nonpublic source-license material")
+    if (
+        len(path) == 3
+        and path[:2] == ("provenance", "notes")
+        and type(path[2]) is int
+        and (
+            not isinstance(value, dict)
+            or set(value) != {"id"}
+            or not isinstance(value["id"], str)
+            or not value["id"]
+        )
+    ):
+        raise ValueError("public notes contain IDs only")
 
 
 def public_projection(value):
-    """Reject retained bodies and private path tokens before writing a public asset."""
-    forbidden = {
-        "fact_groups",
-        "payload",
-        "retained_pointer",
-        "retained_document",
-        "retained_evidence",
-        "controls_reference",
-        "capture_path",
-        "local_path",
-    }
+    """Validate explicit public roles; never rewrite stored operational text."""
 
-    def visit(item):
+    def visit(item, path=()):
+        _projection_record(item, path)
         if isinstance(item, dict):
             for key, child in item.items():
-                if key in forbidden:
+                if not isinstance(key, str) or _validation_scan(key) in _PRIVATE_KEYS:
                     raise ValueError("raw evidence in public transport")
                 visit(key)
-                visit(
-                    _price_condition_scan(item)
-                    if key == "conditions" and isinstance(child, str)
-                    else child
-                )
+                visit(child, (*path, key))
         elif isinstance(item, list):
-            for child in item:
-                visit(child)
-        elif isinstance(item, str) and _has_private_path(item):
+            for index, child in enumerate(item):
+                visit(child, (*path, index))
+        elif isinstance(item, str) and (
+            "\0" in item
+            or _has_private_path(
+                item,
+                operational=_operational_text_path(path),
+            )
+        ):
             raise ValueError("private path in public transport")
 
     visit(value)
-    for note in value.get("provenance", {}).get("notes", []):
-        if (
-            not isinstance(note, dict)
-            or set(note) != {"id"}
-            or not isinstance(note["id"], str)
-            or not note["id"]
-        ):
-            raise ValueError("public notes contain IDs only")
 
 
 def native_transport(root, review_fixture=False):

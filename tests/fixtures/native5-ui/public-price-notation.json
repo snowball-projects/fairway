@@ -1,0 +1,4977 @@
+[
+  {
+    "name": "measure:1 token /30 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true
+  },
+  {
+    "name": "measure:2 token /60 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "2 token /60 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true
+  },
+  {
+    "name": "measure:3 token /90 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "3 token /90 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true
+  },
+  {
+    "name": "measure:4 vouchers /120 shots",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "4 vouchers /120 shots"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true
+  },
+  {
+    "name": "measure:1.5 credits /12.5 units",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1.5 credits /12.5 units"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true
+  },
+  {
+    "name": "heading:Page explicitly titled 2025 Rates and Info /2025 RATES. All prices marked historical.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Page explicitly titled 2025 Rates and Info /2025 RATES. All prices marked historical.",
+                "historical": true,
+                "effective_from": null,
+                "effective_to": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true
+  },
+  {
+    "name": "heading:Published 2024 Fees and Info /2024 FEES. Effective dates unknown.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Effective dates unknown.",
+                "historical": true,
+                "effective_from": null,
+                "effective_to": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true
+  },
+  {
+    "name": "heading:A 2023 Summer Tariff /2023 SUMMER TARIFF; historical publication.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "A 2023 Summer Tariff /2023 SUMMER TARIFF; historical publication.",
+                "historical": true,
+                "effective_from": null,
+                "effective_to": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": true
+  },
+  {
+    "name": "ratio-suffix:/private.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls/private.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "ratio-suffix:.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls.json"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "ratio-suffix:%2fproof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls%2fproof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "ratio-suffix:?proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls?proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "ratio-suffix:#proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls#proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "ratio-suffix:\\proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls\\proof"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "ratio-suffix:;private",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls;private"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:/30 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "/30 balls",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:/30",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "/30",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:1 token /30 balls /mnt/private",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "1 token /30 balls /mnt/private",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:capture: 1 token /30 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "capture: 1 token /30 balls",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:1 token //30 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "1 token //30 balls",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:1 token /30 balls.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "1 token /30 balls.json",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:2025 Rates /2025 RATES/private",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "2025 Rates /2025 RATES/private",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:2025 Rates /2025 RATES.json",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "2025 Rates /2025 RATES.json",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:2025 Rates /2025 RATES%2fprivate",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "2025 Rates /2025 RATES%2fprivate",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:2025 Rates /2025 RATES?private",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "2025 Rates /2025 RATES?private",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:2025 Rates /2025 RATES#private",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "2025 Rates /2025 RATES#private",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:2025 Rates /2025 RATES; /mnt/private",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "2025 Rates /2025 RATES; /mnt/private",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:2025 Rates; capture: /2025 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "2025 Rates; capture: /2025 RATES.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:2025 Rates /2024 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "2025 Rates /2024 RATES.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:/2025 RATES",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "/2025 RATES",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:/2025",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "/2025",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:/unknown-root",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "/unknown-root",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:/ea",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "/ea",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:/mnt/private",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "/mnt/private",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:/home/nas/private",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "/home/nas/private",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:/var/tmp/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "/var/tmp/proof",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:file:///tmp/proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "file:///tmp/proof",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:C:\\private\\proof",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "C:\\private\\proof",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "path:\\\\server\\private",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "\\\\server\\private",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "wrong-ratio-field:qualification",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "1 token /30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "wrong-ratio-field:conditions",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "conditions": "1 token /30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "wrong-ratio-field:location_note",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "location_note": "1 token /30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "wrong-ratio-field:source_attribution",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "source_attribution": "1 token /30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "wrong-heading-field:product_name",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "2025 Rates /2025 RATES.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "wrong-heading-field:conditions",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "conditions": "2025 Rates /2025 RATES.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "wrong-heading-field:location_note",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "location_note": "2025 Rates /2025 RATES.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "history:None",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "2025 Rates /2025 RATES.",
+                "historical": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "history:False",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "2025 Rates /2025 RATES.",
+                "historical": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "private-key:/30 balls",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls",
+                "/30 balls": "private"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "private-key:/2025 RATES",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls",
+                "/2025 RATES": "private"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "private-key:/ea",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls",
+                "/ea": "private"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "private-key:controls_reference",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls",
+                "controls_reference": "private"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "private-key:retained_pointer",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls",
+                "retained_pointer": "private"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "private-key:fact_groups",
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls",
+                "fact_groups": "private"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "unstructured:product_name",
+    "value": {
+      "product_name": "1 token /30 balls"
+    },
+    "accept": false
+  },
+  {
+    "name": "unstructured:qualification",
+    "value": {
+      "qualification": "2025 Rates /2025 RATES.",
+      "historical": true
+    },
+    "accept": false
+  },
+  {
+    "name": "metadata:source_licenses",
+    "value": {
+      "source_licenses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "metadata:provenance",
+    "value": {
+      "provenance": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "metadata:relationships",
+    "value": {
+      "relationships": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "credential-field:access_token",
+    "value": {
+      "access_token": "2025 Rates /2025 RATES."
+    },
+    "accept": false
+  },
+  {
+    "name": "credential-field:authorization",
+    "value": {
+      "authorization": "2025 Rates /2025 RATES."
+    },
+    "accept": false
+  },
+  {
+    "name": "credential-field:credential",
+    "value": {
+      "credential": "2025 Rates /2025 RATES."
+    },
+    "accept": false
+  },
+  {
+    "name": "credential-field:capture_path",
+    "value": {
+      "capture_path": "2025 Rates /2025 RATES."
+    },
+    "accept": false
+  },
+  {
+    "name": "locator-boundary:Private copy of 2025 RATES is at /2025 RATES.",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "green_fee",
+                "amount_kind": "exact",
+                "amount_min": 10,
+                "historical": true,
+                "qualification": "Private copy of 2025 RATES is at /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "locator-boundary:Local file named 2024 FEES was saved at /2024 FEES.",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "green_fee",
+                "amount_kind": "exact",
+                "amount_min": 10,
+                "historical": true,
+                "qualification": "Local file named 2024 FEES was saved at /2024 FEES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "locator-boundary:Evidence directory 2023 SCANS is located at /2023 SCANS.",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "green_fee",
+                "amount_kind": "exact",
+                "amount_min": 10,
+                "historical": true,
+                "qualification": "Evidence directory 2023 SCANS is located at /2023 SCANS."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "locator-boundary:2025 RATES IS AT /2025 RATES.",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "green_fee",
+                "amount_kind": "exact",
+                "amount_min": 10,
+                "historical": true,
+                "qualification": "2025 RATES IS AT /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "locator-boundary:2025 Rates and Info was saved at /2025 RATES.",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "green_fee",
+                "amount_kind": "exact",
+                "amount_min": 10,
+                "historical": true,
+                "qualification": "2025 Rates and Info was saved at /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "locator-boundary:2025 Rates with Info /2025 RATES.",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "green_fee",
+                "amount_kind": "exact",
+                "amount_min": 10,
+                "historical": true,
+                "qualification": "2025 Rates with Info /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "locator-boundary:2025 Rates and lower case prose /2025 RATES.",
+    "value": {
+      "courses": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "green_fee",
+                "amount_kind": "exact",
+                "amount_min": 10,
+                "historical": true,
+                "qualification": "2025 Rates and lower case prose /2025 RATES."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "quantity whitespace U+0009",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1\ttoken\t/\t30\tballs"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+0009",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published\t2024\tFees\tand\tInfo\t/2024\tFEES.\tDated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+0009",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls\t/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+0009",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES.\t/private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+000A",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1\ntoken\n/\n30\nballs"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+000A",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published\n2024\nFees\nand\nInfo\n/2024\nFEES.\nDated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+000A",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls\n/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+000A",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES.\n/private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+000B",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1\u000btoken\u000b/\u000b30\u000bballs"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+000B",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published\u000b2024\u000bFees\u000band\u000bInfo\u000b/2024\u000bFEES.\u000bDated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+000B",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls\u000b/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+000B",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES.\u000b/private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+000C",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1\ftoken\f/\f30\fballs"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+000C",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published\f2024\fFees\fand\fInfo\f/2024\fFEES.\fDated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+000C",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls\f/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+000C",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES.\f/private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+000D",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1\rtoken\r/\r30\rballs"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+000D",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published\r2024\rFees\rand\rInfo\r/2024\rFEES.\rDated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+000D",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls\r/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+000D",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES.\r/private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+001C",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1\u001ctoken\u001c/\u001c30\u001cballs"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+001C",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published\u001c2024\u001cFees\u001cand\u001cInfo\u001c/2024\u001cFEES.\u001cDated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+001C",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls\u001c/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+001C",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES.\u001c/private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+001D",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1\u001dtoken\u001d/\u001d30\u001dballs"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+001D",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published\u001d2024\u001dFees\u001dand\u001dInfo\u001d/2024\u001dFEES.\u001dDated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+001D",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls\u001d/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+001D",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES.\u001d/private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+001E",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1\u001etoken\u001e/\u001e30\u001eballs"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+001E",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published\u001e2024\u001eFees\u001eand\u001eInfo\u001e/2024\u001eFEES.\u001eDated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+001E",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls\u001e/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+001E",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES.\u001e/private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+001F",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1\u001ftoken\u001f/\u001f30\u001fballs"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+001F",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published\u001f2024\u001fFees\u001fand\u001fInfo\u001f/2024\u001fFEES.\u001fDated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+001F",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls\u001f/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+001F",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES.\u001f/private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+0020",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+0020",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+0020",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+0020",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+0085",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1token/30balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+0085",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published2024FeesandInfo/2024FEES.Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+0085",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+0085",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES./private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+00A0",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+00A0",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+00A0",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+00A0",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+1680",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+1680",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+1680",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+1680",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2000",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2000",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2000",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2000",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2001",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2001",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2001",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2001",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2002",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2002",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2002",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2002",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2003",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2003",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2003",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2003",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2004",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2004",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2004",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2004",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2005",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2005",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2005",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2005",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2006",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2006",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2006",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2006",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2007",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2007",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2007",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2007",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2008",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2008",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2008",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2008",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2009",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2009",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2009",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2009",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+200A",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+200A",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+200A",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+200A",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2028",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2028",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2028",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2028",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+2029",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+2029",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+2029",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+2029",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+202F",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+202F",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+202F",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+202F",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+205F",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token / 30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+205F",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees and Info /2024 FEES. Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+205F",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls /private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+205F",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES. /private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+3000",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1　token　/　30　balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+3000",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published　2024　Fees　and　Info　/2024　FEES.　Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+3000",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls　/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+3000",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES.　/private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity whitespace U+FEFF",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1﻿token﻿/﻿30﻿balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading whitespace U+FEFF",
+    "accept": true,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published﻿2024﻿Fees﻿and﻿Info﻿/2024﻿FEES.﻿Dated.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "quantity separate path U+FEFF",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 balls﻿/private/evidence"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "heading separate path U+FEFF",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2024 Fees /2024 FEES.﻿/private/evidence",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "unsupported numeric or unit ١ token /30 balls",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "١ token /30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "unsupported numeric or unit 1 token /٣٠ balls",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /٣٠ balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "unsupported numeric or unit 1 token /３０ balls",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /３０ balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "unsupported numeric or unit 1 token /30 bálls",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 token /30 bálls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "unsupported numeric or unit 1 toKen /30 balls",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "product_name": "1 toKen /30 balls"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "unsupported title case or digit Published 2025 Rates /２０２５ RATES.",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2025 Rates /２０２５ RATES.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "unsupported title case or digit Published 2025 Rates /2025 RATEſ.",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2025 Rates /2025 RATEſ.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "unsupported title case or digit Published 2025 Rateſ /2025 RATES.",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2025 Rateſ /2025 RATES.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "unsupported title case or digit Published 2025 Ratİng /2025 RATING.",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2025 Ratİng /2025 RATING.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "unsupported title case or digit Published 2025 RATEK /2025 RATEK.",
+    "accept": false,
+    "value": {
+      "facilities": [
+        {
+          "optional": {
+            "price_observation": [
+              {
+                "id": "n-00000000-0000-4000-8000-000000000001",
+                "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                "fee_kind": "range_balls",
+                "amount_kind": "exact",
+                "amount_min": 6.22,
+                "billing_basis": null,
+                "currency": null,
+                "qualification": "Published 2025 RATEK /2025 RATEK.",
+                "historical": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "round locator facilities Private copy of 2025 RATES is at /2025 RATES.",
+    "value": {
+      "facilities": [
+        {
+          "round_options": [
+            {
+              "optional": {
+                "price_observation": [
+                  {
+                    "id": "n-00000000-0000-4000-8000-000000000001",
+                    "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                    "fee_kind": "range_balls",
+                    "amount_kind": "exact",
+                    "amount_min": 6.22,
+                    "billing_basis": null,
+                    "currency": null,
+                    "qualification": "Private copy of 2025 RATES is at /2025 RATES.",
+                    "historical": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "round locator courses Private copy of 2025 RATES is at /2025 RATES.",
+    "value": {
+      "courses": [
+        {
+          "round_options": [
+            {
+              "optional": {
+                "price_observation": [
+                  {
+                    "id": "n-00000000-0000-4000-8000-000000000001",
+                    "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                    "fee_kind": "range_balls",
+                    "amount_kind": "exact",
+                    "amount_min": 6.22,
+                    "billing_basis": null,
+                    "currency": null,
+                    "qualification": "Private copy of 2025 RATES is at /2025 RATES.",
+                    "historical": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "round locator facilities Local file named 2024 FEES was saved at /2024 FEES.",
+    "value": {
+      "facilities": [
+        {
+          "round_options": [
+            {
+              "optional": {
+                "price_observation": [
+                  {
+                    "id": "n-00000000-0000-4000-8000-000000000001",
+                    "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                    "fee_kind": "range_balls",
+                    "amount_kind": "exact",
+                    "amount_min": 6.22,
+                    "billing_basis": null,
+                    "currency": null,
+                    "qualification": "Local file named 2024 FEES was saved at /2024 FEES.",
+                    "historical": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "round locator courses Local file named 2024 FEES was saved at /2024 FEES.",
+    "value": {
+      "courses": [
+        {
+          "round_options": [
+            {
+              "optional": {
+                "price_observation": [
+                  {
+                    "id": "n-00000000-0000-4000-8000-000000000001",
+                    "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                    "fee_kind": "range_balls",
+                    "amount_kind": "exact",
+                    "amount_min": 6.22,
+                    "billing_basis": null,
+                    "currency": null,
+                    "qualification": "Local file named 2024 FEES was saved at /2024 FEES.",
+                    "historical": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "round locator facilities Evidence directory 2023 SCANS is located at /2023 SCANS.",
+    "value": {
+      "facilities": [
+        {
+          "round_options": [
+            {
+              "optional": {
+                "price_observation": [
+                  {
+                    "id": "n-00000000-0000-4000-8000-000000000001",
+                    "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                    "fee_kind": "range_balls",
+                    "amount_kind": "exact",
+                    "amount_min": 6.22,
+                    "billing_basis": null,
+                    "currency": null,
+                    "qualification": "Evidence directory 2023 SCANS is located at /2023 SCANS.",
+                    "historical": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "accept": false
+  },
+  {
+    "name": "round locator courses Evidence directory 2023 SCANS is located at /2023 SCANS.",
+    "value": {
+      "courses": [
+        {
+          "round_options": [
+            {
+              "optional": {
+                "price_observation": [
+                  {
+                    "id": "n-00000000-0000-4000-8000-000000000001",
+                    "observation_id": "ob-00000000-0000-4000-8000-000000000001",
+                    "fee_kind": "range_balls",
+                    "amount_kind": "exact",
+                    "amount_min": 6.22,
+                    "billing_basis": null,
+                    "currency": null,
+                    "qualification": "Evidence directory 2023 SCANS is located at /2023 SCANS.",
+                    "historical": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "accept": false
+  }
+]

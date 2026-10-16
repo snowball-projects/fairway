@@ -1,0 +1,4214 @@
+{
+  "policy": "Prospective802 serialization boundary; requires independent and parent review. Original fixtures unchanged.",
+  "fixtures": {
+    "per-each-guard.json": "cfc1a5eaa50c628a92d49c671dd052a1a4c4cca9cfcf8494cefd752f95a5ab29",
+    "per-each-unicode-policy.json": "9aa0c80a0f923adcb197e19a08a1c148af27aadb50135d7327df881b86d270de",
+    "public-url-termination.json": "4430d41e457679187d7c77ea638dd3e4778c7df2028146280e7e67e4b0f231ec",
+    "public-price-notation.json": "7d57e8253cc417c5ccf8c8afa667921c01999a081191a0294856b03c524c672a"
+  },
+  "cases": [
+    {
+      "fixture": "per-each-guard.json",
+      "name": "financial Printed /ea with 2 riders per cart.",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "199029786d08208d1f0bbeb71d2cb4624de81aac6def0d80302872374dd065e1",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "financial Printed \"/ea\" with2riders per cart; dated source only.",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "0efb78dada80a46890259baf2d459475686783bd7facaa55070845863995e7c2",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "financial Printed '/ea' with 1 rider per cart.",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "de805b813e65b9d5f837a065621b0af22f9c1a3cd22909d91461a0d0d27213a3",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "financial   PRINTED `/EA` with ٢ riders per cart.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3d64d4e4897143841cc8cecf71fdb8d90cb2eded349600f2cc4b6649899256af",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "financial $25 /ea",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "c3a1a4872d8e1de9eeb820cfbfe0cb42312c050165b12b0dbaa9016b7a921690",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "financial $ 25.50 /EA; dated only.",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "b183add4c2c554661b64ec10f526c531cf2530df460d8b725fe6f5e4ad68833a",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "financial € 25,50 /ea) ",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "b1ddec3b9066894be500eb6dc15aa95f8db93097daf3672ac7cf600871c5ad18",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "financial £30 /ea.",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "c924ad82a2a4dfb4f5d6aa8f47edc02d734e65a1bd5e80342dbb1f8fd3d7145c",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "financial  $12 /ea, tax separate.",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "4b446e171935c7344320a7175c043393088f95833ff999a46514c3ce52991a77",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "money suffix /private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "fe2185069bec68e89cf39b29e380b89c66df80dd5185ca444a992e4d7aafaf94",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "printed path /private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "88c603f8aaf9f0fc72b620b73bb659f2e90491c857159adbe18333e69a2326a2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "money suffix \\private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "85e2b9951c358fb02f9127da7f128e9206afc3237c78377b1dab00276be1839b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "printed path \\private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6272224fa13401d511f0b9a8ea85cbb56b577920b3a2e0bb8acbabf3c6097733",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "money suffix .txt",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "ebc20af2cdc6635dae828a5c855523876c7d0ebe0092a9bf88074a43da71ef1b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "printed path .txt",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "83ed2605caac7c84328fa8f4023a8902f21e5ed43a7f48cb00f1e220d3e3a030",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "money suffix ?file=private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "319c5c7dbd1ee75653f4d36cdb5aaaa65c9a36a879a9798000797eb779e2bf23",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "printed path ?file=private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "0fdb576e1746d204a939abe5f4e3ec3a552c3b3627aa84e52f57fbaae4f4426a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "money suffix #private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6530a6fdcb580e995179c0b0da117868bfe039e7632ef44450f982b999134157",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "printed path #private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "00073de5ed3f304b0e4e62e85aa02fb3c39199dbb2b0e88aa298b7fc3f41fe3f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "money suffix %2Fprivate",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6ad8142c419b987f8fa072c7e295bcc018adf5fb4582a807b0c87013680d3cce",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "printed path %2Fprivate",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "eec756af582c899603088b526fd4ab70fb08cc36a79af6b7a969c9e35d0fd11e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "wrong basis None",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "9bbb0eedf5f1dcd471feed3c17c5cad58057986bffbc550901b655bdb702076c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "wrong basis per_round",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "ea591271f9606fa9b3ffa755891a1ece0dd1c94812575cf5d67379b7b7239820",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "wrong basis per_bucket",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5a4a4d09bad45b629a67b8fdc048b7ce9118b0ac89dcedb8531fb5cd6d961b65",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "wrong basis per_cart",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5d15f688360b66779f81f3066540284ec14a71a0a85a3a461021ee7a2728169f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "missing id",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4152214a325a1985fb0f842e8989ae14c91bf110ba640926e4ac28a426a60710",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "missing observation_id",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4bf3334ef1ce17c4891e12d29c965c1965a3647833e427a52811e43a0c749361",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "missing fee_kind",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "03af6586f08d30c7b86021997a23ea9712df0c4af4545f33b67870dcb732d714",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "missing amount_kind",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "722983f1dc179cf6a2a32743c77266f4b7ade10ed0d56e3d2aaf60a1f67fe0af",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "missing amount_min",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "383e9545086ab1adaa31058085ee9c702cc23230ae9d308174a83052db75d724",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject /ea",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "1518cc709692e9041105126e0aec848e97c6b2f2fd610ff9dfd96d1015eb1535",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject /ea/private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "14f8a387dd5dd54eb7cdf316da76df56e37fc8a63cf6568bfe19cea963714354",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject Printed /ea without rider basis.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "2a24ee532edfdcf013d93b0e7732939511960e99374a5a490ea7c50afe8851c0",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject Printed /ea with 2 riders per carton",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "214f072561860a7fe108689a9c9a1226f55362b8d68537a30d8dec9459d0e229",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject Printed /ea with 2 riders per carté",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "336fc01d37ea018389b955c9605d0c9e15b83886da5f6de3401aad7e34dad4a0",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject $25 /ea then /private/evidence",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "63dff3630701ce209fe693b338af02239731e35029707b14f6770f4433d0d93a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject Printed /ea with 2 riders per cart; C:/private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "78fb1df7b43355b99ac8c29556d38605a8f2720b5c4117f89201acdc545c18b5",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject Printed /ea with 2 riders per cart; file:///private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3676744f11af433c9185ad5b7697fed7fcd705901a63a03c958e42c4bfa0215b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject $25 /ea then \\\\server\\private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "90d67068c96b9324afbc3985b0786698df4403cfda6099054286cf7aefd1527c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject A price /ea with 2 riders per cart.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "48ffbbe0ed87803462b26b54686f8a91c41577aa3c9b77aabca8627d8102b7e8",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject Prices /ea",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "c281be526311f7338232a4aab459b862422aabffac4c74713cd2f36ce71934c8",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject /private/evidence",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "b9a993dee36f36441b5c73db28e65db47b0bac4179b44c48bb4c81a93b240d2b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "reject $25 /EA\\file",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "a9114e02c414169fe76341466a50aa25df7a3d6085fae692d2574f992c8fe356",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "no exemption in qualification",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "445d3ac671996ac6b92b1ef6b1c89572bb37af608f448963c97a501d4062e8b1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "no exemption in product_name",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7025aeebbf38a2650ee68d91188279b076196e9f26810be69b30c371cab2bfdd",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "no exemption in source_attribution",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4699cd80f83d6f85b1b5fb39a655a6359979a8ba7101164aae0d7c523cc4b3a2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "no exemption in source_url",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "df72a7c9cd256e7fb40d0e70275753d56cdd2fa121503c28a961c38ccaf71590",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter :",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "02635d50e434d9c18b386ca4e68968a219193a5ce022b557704b04271a01ae19",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter ;",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e46ddbb749ca6e40c99c37f75008887d170090f2efffad920ca3a24d60d05bdb",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter ,",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "f68e47f4b8d322d06fef5de8503423f500f82786524cde9fe34ddea50791d7e3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter <",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "bec659f547b710ff6fc3460c9e457769ec1a66dcd3c8be3b8d8466745a7d05e0",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter >",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "59266fe2c3fe9f822ac09cba7490e0a12843ecb5516b9be45382ff13f298df1e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter |",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "60451e8e0e108ceca9b1c6c6a654040e4051476a639f0ad47593c1e13dc90d48",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter !",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "85a2a74f5f4017399fc04b1fd6210f12f88f3324d4bf6a24da4b684d5bd7c84c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter ?",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "070c6f24438defb6e5644f60b2289f7b27b08d6997fc9a3c80d6a68053eb11c0",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter “",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3ee1e88acf9c1218118efc9983dca56fdd3cb02b097eee20f360af4db29f3c67",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter ”",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "60f251ac808193d3f07e75450e069bd61ff4aa09e6d80eb726ff2fcea15ca742",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter ‘",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "665ccf1d186d14b75fd8a8e1531b99bca3728c7b9d0fbb7603cbccbb7215ab67",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter ’",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3fddb071c448598aa638a24373bdaa448927cdddb1339f9214855cd35866a0c9",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter «",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "521e1f900126c8d0f86cf8b032e817ce6eb0f0d7178325df86bb8d06001b8530",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter »",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5b0ff4c86f6705c728a21d3346a2d72cbd0308149684b7c6f63798d6d4a2e5f2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "extra path delimiter `",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "46aece3e1a2d4c708ac2c8bdf9cd0d9130ee7f1a0dd99be0529716df9a277e94",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "ordinary existing text clubhouse/range",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "b1504cbdcee9949327a25d9269eaa81ad004c76d207242b64c5e8bc1b75ab737",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "ordinary existing text https://official.example/ea?next=/course",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "83875aa34495521c463cc314a4795587f1e2b8287be8c14941d9b3ab2bf79bf3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "ordinary existing text walking/riding conditions unchanged",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "080ef79b43c74a4d0ee08e9b2f724fcec873735d115ff0ff742f9459f8ddb049",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-guard.json",
+      "name": "financial-looking private dictionary key",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6e9129bb3b926a64cd7c45647a10212d9877d18c42edc787dc1681e581873d24",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea\\x85Dated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "74b0ae8849a50155c5f7098197c6f1dd337c434b3eb99ab2d1254cb78590a619",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Printed /ea with 2 riders per cart\\x85Dated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "0279146f6fb76816e419c97edd1c92d976b97f2a5235814c464eb391962989d8",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea then\\x85/private/evidence'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "b31477b6ade506d9a475311838e26d6f160cc0d43ce9648cdb79fc7e7641e1db",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea\\x1cDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "91619f7a199a98a1ea015df5da7f7d5385d50c010ca95dfada555fc264b18a71",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Printed /ea with 2 riders per cart\\x1cDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "9c10f66b808b2b897ec68109120f14f685c2b28418406a2cd0f2f7e3d2d28a06",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea then\\x1c/private/evidence'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6f24c4f855c407f8d0eb7158fc5d0e5b44fe380a02ea6dfda8467d1e7ec2ccc6",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea\\x1dDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "1313fbcfc6c78772bf488180e656c281c524c404193234af8c26b2571225255d",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Printed /ea with 2 riders per cart\\x1dDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "5f665cc7714821d1055da081d2b447e0df0549af1cfaab2d512d2ca2675f66c8",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea then\\x1d/private/evidence'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "43827b5013c5fdb622899d2b40f0b0406f02135fadc74326c48cdf8097c70980",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea\\x1eDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "a166810ccb1449f248938189bda0906003caf600c45508f6a49b125fcb079b09",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Printed /ea with 2 riders per cart\\x1eDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "de53c0c5489194c9c9cbb602864398f77a5a76603c21ed07b244c0b8695cf857",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea then\\x1e/private/evidence'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "b97860ac63c674fdab19ed248da16137ff19d18c4c0e5bc3a51a465a9f9df2e1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea\\x1fDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "21ec0b83c6ea1ad8c65056b81452c1f501e5e7c74f87bf024ec39bd40fc2ffca",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Printed /ea with 2 riders per cart\\x1fDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "8cf1a1dcf059493bfb3ca1997bb685b98b68a7f7552f4afd647a1f829dca978c",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea then\\x1f/private/evidence'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "be6e87de03e1b55ba0a510de96f11d50ec24bc80181ee126f98ecd31229e15b5",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea\\ufeffDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "096c986b7295d2c244b151f4985c3e803c8353476496532137699f98cc0be51b",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Printed /ea with 2 riders per cart\\ufeffDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "405df36f78aa64151e10ffb7094f1435bca1b00ad6384fc81f66176143d23aea",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea then\\ufeff/private/evidence'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4da29d7ef3898de04b6106a8710dc2ed9630f46e638a7ac7f6bee16b4e16e372",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea\\xa0Dated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "d403c50e1762fb6306b516aa4861b3c56aafb14f4803009649b6af183aa06065",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Printed /ea with 2 riders per cart\\xa0Dated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "d6b2279014875ba0c3ad1667a384dbe5ab8dd3c3d3492020f9480be8df78eb1e",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea then\\xa0/private/evidence'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "0dd632fa79e0a65f4dab7aea870dfe736146f3fcb0baa82646942e21c5d405c6",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea\\u202fDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "c0d1d6142ea834093572ea21ea19d84422b1407fc370e0239a48454cb5e0f216",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Printed /ea with 2 riders per cart\\u202fDated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "5f3da552b118fd718bf7ecd075eb84b329e38c6843f9cb1d4016421d00568c9a",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea then\\u202f/private/evidence'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5409eef4bb19ceb0d0b89162a0dc4dbf7df422adbf40f17742c2215562a0c5a5",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea\\u2007Dated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "872d79160d7b6190713cb9d739a27bef55527cd2676e775ce4497a568768cab4",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Printed /ea with 2 riders per cart\\u2007Dated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "eef0e8a848f357456d1be45135ae21af0e45f11abe38ae25f782e70688e85510",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea then\\u2007/private/evidence'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5bf1e997c674d6683c4650de746c919543e3f0e4ac43d10e0aecf3e8cd15606f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea\\u2028Dated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "232ae1843cafe82d276462a8c4eda3466acac99616ec43bdeef1a211782efdd1",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Printed /ea with 2 riders per cart\\u2028Dated only.'",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "0daa8a30fb5d70ede5179bdd55acd7be58afa65662c7267804481775ae47bb9b",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 '$25 /ea then\\u2028/private/evidence'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "95a5942dd3ddcdf0dce13370ffd02785c562478d24170c46e8a0ef7a7b14fec4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Prİnted /ea with 2 riders per cart.'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "abf87c4cded848c45d067dd93668b3df0f980a6754ee5aee57374e56af9170a1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Prınted /ea with 2 riders per cart.'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "fb5a645f1ff6ea1bc33e824715616ff42626e835716af6f8c11d5b5bd58c7336",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "reviewer33 'Printed /ea with 2 rİders per cart.'",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "efa363ab09f51786ca3f3da7264d1aeee126b108eb1715426b88b5059000a17d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+0009",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "6f6bd4eec5ff555cfe6933c6c85be64c67708e86a1bdcc2d5d4e5fe3d3fd8e9a",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+0009",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "8b41e950c8d40a11805187651f6dde123774d8d357e63b2035f325c876b00c54",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+0009",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5296ca9cd4379ff9b31f48dad2661acbb16e1593725925965145dd5b7374d69b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+0009",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "72283172646c74a31bcc48474d2099939fd954df87cc22a3d0780df6b7334d0d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+0009",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "fc964ccd184d43681512d7232a56090e5b79dd0568cd0ef04706712b549ec24b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+000A",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "1934ab916441879c15b5289b21333a37d8c314acf1ad836af69f82d7b6f34acd",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+000A",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "2b38c76af4e72b4da4afc8b88265cd9f5440710a93fc3e35146392dcc1851bf9",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+000A",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "b0045a960028a781dd2c1645871024021a69f57aad46a2399f347fb9fab82750",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+000A",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7684461a6c7a25f2e9f8c10ffbaee9b3f92bc5810f7b34df8af0a4831a14e4b2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+000A",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "354709d4604e9c0cc829acadca05b1d824b6fb45449baa609accbbb8b6673e81",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+000B",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "a0f589092811e11bb2becfa857936c5a8694a6db9ccb7a01b9e8edbfc421ecde",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+000B",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "2045ae2994eafe89f069a06fd83c3d8d98157835d4fd33b612262aff45c38f4d",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+000B",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "c6fd2a83f3e747031aabc83aab6aa50d2c52d1aa73ce7dcb52b12720453b7442",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+000B",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7706a3317ea8f3c056231e82d985a6776e93f93e938aa5fa96a4e32d6fb4f4e9",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+000B",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "c98af2ec30c172ed1d8cc5ac182c7485fb733319f320d44985235d688a1fa38b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+000C",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "96a1a3886ab8406c669de00e4444013bb703c2715860a4eb48e5e3847c377c1c",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+000C",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "6ca4cafb3aeeb6efd3891f3b44ce456af95958da12ac80a30e02fb270d95bb42",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+000C",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "fdfa683ae10b221638606a572a663af5dd40c569ee0dd70dc6b4247f350b431e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+000C",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "ceafd8d910cf00826b0ef84f65184a43725d5560383a80d65bc3047dd779eeae",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+000C",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "0f275e7bc62e15edf131885402b7f2dffdabe8e67184476548ad6913ca6317e2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+000D",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "3a8d2b5bd676891088e001067b49acfd46924a65d976fdf134f3259e132a2f54",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+000D",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "e898dfc5e9803e8583e659ca2356b5cb39ae145b27031486f8d74ef02952b510",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+000D",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "854a4346acab3a2c9197b44cfdd480caefe3d1ea6a14a984134054f9db54a7a8",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+000D",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6cc995f3379210ee546266ec2041b3919f0db89ffeb03820dba28ca3e9c1b40c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+000D",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "bb01e764dad70df22a03a84dd30f8fa6efe6bcee1cb249d977843400c60ef248",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+001C",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "2dee13e6b05dfbe2183b50014c65717e5885ab4cc1c1baac7bbf0c64719b55be",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+001C",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "6ad8a6ac50b7e84e2bed40d9f9817dc41afaa1217eab2c975e1071932ff70aa4",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+001C",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "50745ce848a8d55cc57aaf45ae7e87a3ef4a7f8226cb986aeab333443415a96a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+001C",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "a749a8129a5cfb373664f09c6a81f7896fdb3d85a7e8c15137cba9c09c6b6876",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+001C",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "4362caaf4f39ee5879cc7daf7d9255301388b8a6940027e71991350fec08d341",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+001D",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "10a3def88a28ff705f692f3998751863dfa1145c64978916398a53618cb806b7",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+001D",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "314b03af991569ecf4afaf150ef22cf9cfa18ab965cd1edc734784b188bd37ad",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+001D",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "416fa6bba8b848593a980a627f28ed46955d410b8542b203fe3f8518fba3e088",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+001D",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6311f81a553515dec898126f496c4b6b43548f290874aa7ae593c02cf5d0ce9b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+001D",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "1f128fac68518133bcf7226349482c36d61402150710eb5015337de94986f0b3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+001E",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "ea4c9727d953e1c428ccca0a978f5e10045cd4cb8f570477a68e16db8289073a",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+001E",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "1539a062d20afc28721dec3418b78d9ab8041047d716eee8de94b740f97fd95b",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+001E",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "0b68b6b6b195f37e6412af55fb2ee860a975d2076825d62c81aa0edddc90c217",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+001E",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7d4b5c4bfd601976ef8d080de12d06a0d80a29d848ad80bdb24732b246645345",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+001E",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "8ef7c561f5dbaf56b2e539304b022eba64617eb821f9dbb6b1a47712beb5eb22",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+001F",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "3401f4be341cbef5feeedff67e4a305a2a418c70087f734bfc10138e5d92935a",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+001F",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "33fff54bbdeb94f0e5a8d1a9ceebe336bc5094a4087a61f5383683d295978658",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+001F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "0beee383a8d869c95da5c249c2641990e12ff1ebe22962b7acfa9ea1b69745af",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+001F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "b3655eefae033bc09c64575b8821a201cbb441586cbb181dd88b2d0e73eb40cb",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+001F",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "82d76ad8c21a0b7abf79b27637db7392969be4cc9a8be3f3f7e7e8524274a75d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+0020",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "3674dc64c0ba77f9240f6d012a8eef9710760a08cf0e030c4785a1ed3165cbe7",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+0020",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "3e51c45923bdd8c6371b951299eef5b0973ca2aa5cc8c49c80ba9e2193461e04",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+0020",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "63dff3630701ce209fe693b338af02239731e35029707b14f6770f4433d0d93a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+0020",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7a2a1e44aaf21700c4b2de6037a8d73c977d9979dbcbe6fda5c237a3ab4867ff",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+0020",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "afeb1b2bdf83fd7c00451416a23c932545f481fcfe386642650facf360f120f1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+0085",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "1c2feca2f82915519fce4162de4904aa6435f62cdf4558ef02b20cf71444530e",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+0085",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "22073fcd41267e6375c217d94a8f6ec4175ae70a7b784a500f31d6c758468d49",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+0085",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "b3952c6e1f60509f7a56007f88abff93ded37682589b2ce24ccf5c1aa57bb75e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+0085",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "29d15eb1fae9edf11e5f23529eda0583c543557c96b4d6d7f71f43e95e11955b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+0085",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "72490d91891a15a32cc4820ff3654414f6525b98299b97724e1e39624bc996d9",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+00A0",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "9ed7534e6e17925f52488119309f991b521fc1add23ae6db490d4a6f32f0df73",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+00A0",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "fbba4eb6b4e9d732b7dcbf7690af52065fe4c8c58457ac927cf0974260a8e005",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+00A0",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6a3e7ab90f3b5e406249d049c83472baf3cf30ac3ba0bf30ad22d134df83202f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+00A0",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "c4c750f44017b3e11dbb42e6dfa035efce733c3adff6947533dc0c8df4db9df9",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+00A0",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "2362daaf4f1985c92087e780c55c1ffe5addb7ea5afb0d3a42e5c45a78e2a83c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+1680",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "02b29ed8a74fca8ef40abe2e5f09b51b1b94a2ec3c42f665b2132b4cea2c3bbb",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+1680",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "1708b66d97c40a7c2fe4da78aed91d7708ce5014e4e39fa1ea069899910ea106",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+1680",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "947e4db3c11fe26c9eca568d30dec77d597f06042fee1eb675cdc368946c0bc7",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+1680",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7ec2d7fa13d89401d3ae15c4fb159b74139e412dd6d4ad9c269c1a279b705396",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+1680",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "18b27521a4a5410801f526f83689b5b45efacd5e10a60ddf1e5bc2db212891d3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2000",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "14cc62690c8135c99bb62356d458d8e257fd732bce3dd333c4fddc853e4c4ede",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2000",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "c72262b202b862e7cfa8097021b84418ead6c70f79daa969f5165b17e285c0ca",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2000",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "26b1cb7b3029f9de4371373e97beaf8d3c09bf8f674be25f0b4083e509db3c68",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2000",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "06b3ead0ded8439b305c12293257d839be91cf9ece09223724d8eab4699dbcde",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2000",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "260283aaab672c8de78656b06718f4794e3071778e4f6839c776651ebba2f11d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2001",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "3af761ed33d51e9ad7fa1de0221fbea44e9e1703c77b17aa4550e826ccae4acd",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2001",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "c183c19e89364de252680b1ab10609a240f821592842c4b34d51f8d292311346",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2001",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "02dab96ddd5c82369e45aaeda8aa4078bb235db77640cfedff5be48952c3169a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2001",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "dc0be886cdfae442e3bd73bebad5bf2d52d087258173bdf85ec5ed977d77d9d3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2001",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "37df4fa8a8f57f8288151cb0068174f089df9bbae705aae76ba8a1a8f63485de",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2002",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "343df70dad1ca63daa4a7e73f5707af4770661fbb0bfbe65672cbe2d25720764",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2002",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "b67e3faff9e7b10785d95548afe4b84d28f48c4d7510d3a3512ab58c866fbaa1",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2002",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "36a1d833631e05930280f3ab4329909feb67c4c67f1e2e073434ebe057dec64f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2002",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "2d57b0ef03bcdb569fe7a27b1aefb2d8b4defb8f300485881f097e9bfa767a3c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2002",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "99f5d2cfb878c63557905df08ef3f04b230e11022f23a02e4f6e3c60b6eb9872",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2003",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "e8b5067c790bcc27befde53991f9600e844a23587970c50a7c85fbf929e7eb01",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2003",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "57ce54d71be5a60c4e4859d530cce3f8717ab24c5a9950af33a490b3ced3d622",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2003",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "1ffcd10835b9fff40a9ee1e2b29318aa420d2c79475538482ea8aa50c5a3877f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2003",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "cb5e8059157d4f0331e5025e5c7db5d8718a0cdfe7ab4f7ddf3bbc90feed820a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2003",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "ef3992c7794d573304915fb8d5e39a4f4b481fd817dfe59e1a96ccec1694330e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2004",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "16c2ef0e8645be68be70c9d8a7f66bf042dce8cbafa8310dcb06f02f153ee52c",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2004",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "0a19248da410bdecfcb92b821dfbfdd230109d6ea482177a3c4f92455302e2b3",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2004",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e59a32ae3da3831c2d1fbfe4d9d70379603da163d816f72d1576d9c4c1a1acaf",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2004",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "18edfe5b6c26bcbc440aad3d5369f6bd23647bed956ff9304694d50387291088",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2004",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "0d27c979a71ec4ed7375edca6ff89c12fe564e17638b6303029ddb09ca5027d3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2005",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "9fbc38b2c0395f368a52247672bdcf4f65d07caddc93f51bdf35780f0526fc7a",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2005",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "32aa734ef482fc3ab599d73089cada8595db4a35afe8fe9883f6f4195d577860",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2005",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "38d9c04978f7c088da42445fbc93c18f4fcadb7c06bf5894d2a4c8b8e0b435b2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2005",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "b215a3ba8089a018e3a4f6088fc2b30c3c127bb7c8cfc78da3f406a15d69bf52",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2005",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "8d0a9fccc4880bee381b3d0d64445a91e2e8dc630c0b90845fadd9811773353d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2006",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "0e68849be782cb580cb27f4b1feebd8926aaf348a309407c222ae379045c4a4c",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2006",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "31de98d2ae06c10ffee0f6caff6b1e2ad7bb2b5dcc95c217c3f6e03ae40d4c7e",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2006",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e73982bd2d2873be812a479e3727c9649da7796c01c31c6bdeb49aaecec0236f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2006",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "9507b2c6aadae4718dffe17a6be8e8ea801a88b6bebc60030815782dadb2f9a3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2006",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "48a6ef05a2544cb76f9bf56defb35c9f57ddfdfa3d2d76e704028ea774c07d1e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2007",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "724192ec23198d33ac60761f3f79a4e0993c4490f4d8240b71f567c10c7f28d5",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2007",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "dcb16f33927e5b2a7668649784712a71bb79c0ee9758760bf04940a69236192a",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2007",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "042aa5260226407754ee787e370bfb235748c0f0ecdfe41e55b0718d275fba74",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2007",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7dfe61b062278331c4ad41cc356143526faab3b3b0fddff6e759922d993d54a1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2007",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "f296a9c3d292177b3bc1afd92333d577cdae0f98322ac5174abd2238247c1bfd",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2008",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "59edf1aa46a32bd731a18fc69e4ffeb4ca38a730811a137789bcad828ef8f7a9",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2008",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "c6f9440ad8786e3a88a6649e0c350352b1e2e72e7ae36c82dfa67805559cd1bb",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2008",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "b1492660813240eaa8c88e562dcd44a0c88143c4489408774b5f95ff78266650",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2008",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "693d3b4d1cad4e4eddfee1ee08dac2e388d190e39b3e0facff1d402f3ef41ed9",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2008",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "9c7a03f6587d01f33e53210e6b8221a9f2d52030ff8df9f8036e04c8a09d7ee2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2009",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "455b375d02ad4eb477aff25a9757e7d7b9fb7851c870482fcd7dddde10f97c26",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2009",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "0d546d23b54ae554aa64a080392bedaad4bc4340e6c017603f226ab9444fad8e",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2009",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "614c77b04a4638695e36464ff010e482c40d53694d7d010f3a29d63a52ad89f9",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2009",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "20ea1e6475dcfe416182253d8c75266ec3f23c65bd66218ad82d55cd19000091",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2009",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "6fcb9afcaab343f5d06c315620849ba07eaa59f2e19c48133abb063f763097c2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+200A",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "f21ea8a22a90cd419fa3dacc479733c950077602a14ec67b7e48380388ebea4f",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+200A",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "2522865bee30d5326d46685176e02d06acfe03aa06a567370119649ef72ce599",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+200A",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6b3fefd0753878503ce7263d068fb9fea6adb2dfe8da15a3a442be254a3e16bb",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+200A",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "a2ad81e7031525b1ccb350dd4c082e4b36ae38208bd3e29ed69f6e2b716c9229",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+200A",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "6ba33b6491a7ffcaa130046a4cf203c7f79f0fd73d56f2d2243bdd9a23f294a3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2028",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "db61e1f91d48d8397146f3c3d5a34251fb3635cd3939b787dd2158f3ca9f34af",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2028",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "bc8e78a8f2563d03ad8eaf3bfc66abdec1875477bd225c3747af6d326faf8282",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2028",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4893bb8a05a9621f56882e495b2b710dacf9139fe292ee97656557f775604be2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2028",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "313e3893e325c7a95a881019e2dfbf6ffba0141f8de0f81ec7c4a52879c1c8af",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2028",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "7276e0efa038bf887c19d6b73b71dbeff1b333cb375571c7a7297236f89f5e73",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+2029",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "a6dcb2e8ddf8cb2fbae40787e492f7fa9077c9e3792534266ad532e187885338",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+2029",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "081732c57189f7d2c7fd074d07261838840946a144fd677c8704829649ba57f9",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+2029",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4b9b76787609e513d214218c078e08e7ddaea73655d8a1ee7724a740402daedb",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+2029",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4102bbfab6707ec82171534195b67f052e0339045d50a2dc6e1d4a334f366376",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+2029",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "9af175f0852db1212eb08f364ebc21eeb49cdde5024ab31ca5d1626016056801",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+202F",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "30438f9da86e9f522757b46b54e8d38ddedbf086a7e121c13404fbc11691782a",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+202F",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "85ba8c6cf26422ec7de8867aebba2d3c8a1b512f02df8e83293bba870247b043",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+202F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4164628d446bedbdc07b6a2f604b5d82ea21fc61dca07aa2037771466937e4d9",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+202F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "288b57d4db4f0fbc935135a88cb50621938cc7a25d669f02074c4938127427d4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+202F",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "a0c58899487515607f404eba8fa9286de0b267539f9878a9138053bc40b22344",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+205F",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "c3f4c36c2cabfddcf6a5b153e9dcdf1fb49549d8f8d7f0de907f59429ecc3ac5",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+205F",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "21ed4163fe7f3f500f580c6612af2ac9d8398778328cbc3489c0964e260efb5c",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+205F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "17a10bf9db0f4dcd2f7a6df4d116118d9b2acecca5063437fa4a3f92ea4e9928",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+205F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "829545e768ab2eb55d6738297a10c50fde29214ce3999be37cb81b1dd0c28234",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+205F",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "5e39e4cba2f2486b759338ca6105796d34f1affab2a267ab63cc8d8e2c9ea3ed",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+3000",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "a8e159f7f33f8800211ddc191b665afb14f7bb9820d29e61e6439469f247c1ab",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+3000",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "79db049015075ba161553518bee7f4237ba042780ac728fe4d77eec29cfd963c",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+3000",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "60a815d78efbcd7dd287c334926163392ea4d4042d68aebe8691eca94aad70b3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+3000",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "340bfdb725096fd0e4c0033eb0579e5a4c27f9761fd32b2831ada84ef3ae781e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+3000",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "6bb7c010a79ff1266a46a472c7dbd93155527b1a86791b6c6ebc1ad8f97d4c83",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "money delimiter U+FEFF",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "b55a23bc5c7926bf7bd2d67d8590cf37eb7a12ac75dc6dd3fc92e618c4235fb6",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "rider delimiter U+FEFF",
+      "original_accept": true,
+      "accept": false,
+      "value_sha256": "bbd0800712059bdb983c9f8c35d73327ca72ad6f6789577cdb70b5cbef2e83d2",
+      "reason": "Unstructured price-shaped object is metadata, not canonical operational text."
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "extra private delimiter U+FEFF",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "d173f531cc0aa47777e43b68eb8b13d7cb9ec476d6a278050bff1f15d42837b6",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "no metadata exemption U+FEFF",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "b4b7d8cb7b5545f873855b70e63676d839c8405cf6edd56f0f64b33301517980",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "public URL delimiter U+FEFF",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "fad673da0cb5a87a16f04bfc593596c1e3caee5c30ac3cdce0f45b5c84117d86",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "unsupported syntax Prİnted /ea with 2 riders per cart.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "1cfc0e79b8ea9c0f63c0ee6d23ba9f345bfd616f76816f92802e7d7386331535",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "unsupported syntax Prınted /ea with 2 riders per cart.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6bd2c7adb746039932fae9d937ba82e94ded1a0dfd08f77d49857f1e5b49c48c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "unsupported syntax Printed /ea with 2 riderſ per cart.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6167ac77309594bcfbe29a3ea64a6fe64a2f1b35624415ca756f7ac3e47232b6",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "unsupported syntax Printed /ea with ٢ riders per cart.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7cf2ceaa0e195ce5cbe0fffd4d47db39afdba8115061c2422fd76f6645a4c300",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "unsupported syntax $２５ /ea",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "351fffd00f0ad8d9fa89ece8923454d05e5dbac4d295fc53974b4edbb2810b37",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "unsupported syntax Printed /ea with 2 riders per cart/path",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7cd2f70929126b1a41ecea3be6073b11a6de245a3cb6db5527355027ffb2de2a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "unsupported syntax Printed /ea with 2 riders per cart.txt",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "2c225f811d9e6457eda80f5fec5963698894b3c26c49f20315977f214bdc8c54",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "unsupported syntax Printed /ea with 2 riders per cart;file",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "0960363f08b472b21c8d3c70249fa9ea06f44db69adc46eb72e42f7db09c31b4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "unsupported syntax éhttps://official.example/path",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "803286da46a656918606c2b4c4337a90f9f82414cbe1d67edf787ccbf88db7b4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "unsupported syntax _https://official.example/path",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3b99a5eed61dc64f6292f9c0b1fd947959438595b322a606be1d19d17a2bd1f1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "unsupported syntax httPſ://official.example/path",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e0ddeade71da9fa9b95fc108ad2cdb61f3ef4b73b8fcf80d81fbe0f1ed4d629e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "private drive or UNC \\\\server\\share",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4ce3c0946b34a007184b8c3d88da5a308792af9d0fe43dfd4342fb4bf7f618f0",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "private drive or UNC prefixİ:\\private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "54629df1862dfa5657cd6dddcd596f23287918a59b9748fdef664bd54933dd1d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "private drive or UNC prefixı:\\private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "87adeb10edb9abe8459548bb4e676a518058435860131e1ddaca0f20d6f43df1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "private drive or UNC prefixſ:\\private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "f6086cd17bcb936774fb3ac7540ba11da880a1c71d503c62395fe3d5490b4dc7",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "private drive or UNC prefixK:\\private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "36c2d83cd2a97e7dc2cb196ea4db7d8adf437683863dbe26d57254acad5d36a0",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "per-each-unicode-policy.json",
+      "name": "private drive or UNC nameC:\\private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "8d8147a8fe03dfe0d761897b56dc92043709dc439972a3b7d8f95ae567c61894",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 0 POSIX",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "087fab2dec4987016efb9bfdda7f0472c16a4a6c1f4ee92e626423dc9e87518f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 0 drive",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3ba196215008c6aa8f25fa452d03bfe28d469c4652cf361093564ba578e603ab",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 0 UNC",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "222e16f21aa1337a43917d92b2f9656089fd534785c7a0a08048ce84bb4d55e7",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 0 public",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "b1d7452fa452784408dbdedf39cd60abf08cc871b8fefb2ab789fd7c8c1672e3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 1 POSIX",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "d74de0baacd5af99c916675421bb68e6c22f6910f6e528ddf736ae8b98bdcbdb",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 1 drive",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e30a57f9623ed1777e4b134870cf2c075ab0bcb15d17515516eb869dd80c63f2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 1 UNC",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "27ce74da236a91f6353a9dab3fb0af10f1f2f607f06af3657ec2a1bb41493937",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 1 public",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "ca5214f64740f55bcce0e1c221ab362d72a5130320cf60242e973334b226747f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 2 POSIX",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "1a9354cc78e7e41277a1ca56f881bf9f40c40af0305f0be7c3bcdf063d3ca210",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 2 drive",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "032f960e5b02037d312f0446bc38ff2b6352b97565b3c35ec8292807346b78e6",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 2 UNC",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "32115a13290fd790aab7e065fabffc626895e01f08f1e45388e5046b24d8025a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 2 public",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "a86c89b20c2285c53a36e19d9b599f48f08aa64810b4a01905bdf5e4c07d11fd",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 3 POSIX",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "08adfe80db7d804451c9bff820b4192d744e8045565e39b083f4516e9ecaeb42",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 3 drive",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "b3324f320dcb3f561218c42f38cfd90c0074af923c42275fb15c5e83cc310eee",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 3 UNC",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "049210ddca3d249d22a33a9c6744eea8eea896d5ace93b4e3fad26188c362dc8",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 3 public",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "29681772820e871875f876989ea1bd31e78646330c4eae71bf81c905eb542f30",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 4 POSIX",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "da6bfce113613dd2cfd77a99291fbb821aa0a46b9897e24a89fbeaae17a63c57",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 4 drive",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "eaa36bfa827628f9245ede9e85d970babe9a0e7fc8e33e0ef10ff57bfd2c6ab2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 4 UNC",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "eb9b0a1c0205281f844068f95f5af9119acd02904203c44aad905fa74b8c8a55",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 4 public",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "e24458f6b0e5a98fae8aaf1a6585c56415e27af22a533b9a2bc5a3def94884f9",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 5 POSIX",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e4d86114209289192f6574cb6e278e1f8076b6d4dc5e131531fa0cc96399a5a7",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 5 drive",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "96a97d1355a63e383a2aa0ba1c8487524a5477262c676eca456d033805991d5a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 5 UNC",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5799cda6b970376b3f8a750083de0f24645e84dfbc981a6b1c0410e9552044cf",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 5 public",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "de9ff49bfec62f1bcb869299c101f29272cddc32731c4fd62a29eb31f7a8c40b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 6 POSIX",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5a36f437e22cf1bce8eeba3b6de3a081f67b0c8fcff1a6488f9688b689a1c9c1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 6 drive",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "9b13e34ee9a765cc65d765f6b60756bc496ce976382daa4685bb4555f11ec7bf",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 6 UNC",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5fd1e641a30e7f471624343bbd5704ce6989173483e437e6b48e434cce31a1a9",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 6 public",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "6b66efdaaa51bf912905f69c31a6b1169eb73d15132b1f3f3a6fd4ec64aa7d12",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 7 POSIX",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4a66a97a330548e5cc2f46050ee077dac3b072e541ef3b619ae36efcef029554",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 7 drive",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5d3278087f96522af229ceaf02a3a05b637eaac20e06112cd1cfe7edde083dc4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 7 UNC",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3da5df9e46ac75d7e6f8bd2a6497546ac24b2439174d660f2df8b57d008db042",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 7 public",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "b2ea06daa17d000c48e56948aa70e65899022061b389a6b7f91f7b0b18550bd8",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 8 POSIX",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "fe30c5dfe930403e8340cbe5eef2579bcfa5939a1c5e87051321f98e5fbcb9d9",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 8 drive",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "2c7c3966850612bbb16a1df2ce9535e43881cf348e2e85ed0f995f315ff8047b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 8 UNC",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "863b77a7a0a3a35dc152829088355b21ad7795d37d30a19cc34df3fa78a2173d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-url-termination.json",
+      "name": "URL quote 8 public",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "be098f7174b47ec975d5ec4ceb2e13c10ee7661a7dd6831331727fc81a7ecbb3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "measure:1 token /30 balls",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "71cfd39fd2c7846fe89becef1d9814415b27807ebef6f62d050907bede62a02b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "measure:2 token /60 balls",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "920a817c7a4a9963fc6840157ad6753ba30c3425c2bcdbbd0dd4e16c44ebc307",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "measure:3 token /90 balls",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "e11e72aaa55df45d4d3b6d317b9f0275330e4c47cfffa5550bae9f1f21b3e217",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "measure:4 vouchers /120 shots",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "87b9b8d26621f2ec41926852388dd44c7f5e56dffc3de37763bc5ec626af8c0e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "measure:1.5 credits /12.5 units",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "273cb393531458ec33b88e44f7a498723a1babf84b902012ded31f3ea3f82773",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading:Page explicitly titled 2025 Rates and Info /2025 RATES. All prices marked historical.",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "e8974dbcf72c5e1159ef6a4ebf90047697749c5aa4b8b9bc2cc183384110b72f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading:Published 2024 Fees and Info /2024 FEES. Effective dates unknown.",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "d450b39af2fa55a5f71409ee8bbd8854603281ec7869d1b1546a39c4a2f01f87",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading:A 2023 Summer Tariff /2023 SUMMER TARIFF; historical publication.",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "4d2bd29242438fb4fc1885bcaa28225797e3578a60199c6ca83c931375904a98",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "ratio-suffix:/private.json",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "73acd870e7b1aa6bb5dc9235138b20a6e6a320fedcd7f4f3333c08706e3b6729",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "ratio-suffix:.json",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "08437be4d6dbaef0e82c3c0c7fe1d4894454968e9b52cc1521758fba055cfdd1",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "ratio-suffix:%2fproof",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "821b08cfbb367ca3fdeb27d16ba99f528ed7b0914b96666440185c315723792a",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "ratio-suffix:?proof",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "7aa1a343e96e07bfbc5460a202d59947d57c1081a793e99fb6aa5f0bcc414dc0",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "ratio-suffix:#proof",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "76e01408a73ccb0370b40ebea77e500c05a049fe3bb2b920ea0570ec487a3198",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "ratio-suffix:\\proof",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "cc585ebc64dce828c05cfeb69a4ca74f52ffe6b690fd9f614fb669262a82010f",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "ratio-suffix:;private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "1087f529f9ab7084b4f601a7e3f978bf30a2e3b4f1e232097ac58ca4268ab10a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:/30 balls",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "376fb52561681b9fcbaae3effe09e118e2b24278f36014574d405d732b23b151",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:/30",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "66ae740ea398c3b4c30a97c7282c11a911424faaf96ea10fac31f67a54d25752",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:1 token /30 balls /mnt/private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "af6f98e99b0d805b751005e5899e9006ee3d31f81466fcf4df326799b0222ebc",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:capture: 1 token /30 balls",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "ffb355e31e3f42eded948229bbd2babc7c397df97656fa87b65bcd2c265a586a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:1 token //30 balls",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "d95feb3d70a31a13dbe04e4c31ca83c46ce466ea3c8610842c8b77c521efeabd",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:1 token /30 balls.json",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "9a369bf5d8a9661942b8550fe6cd2be5ed01b9f981b89f41b351b47d0a816ac7",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:2025 Rates /2025 RATES/private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "d3d5b5691cc4fda3be8369d4edb531b88620770c9d2ad4568e87bdcc00a2b9ef",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:2025 Rates /2025 RATES.json",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "3bbed709e3200e588a4f6d46d417a95b84824f4456624805427059faa11897a6",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:2025 Rates /2025 RATES%2fprivate",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "bd99ef8093c24e783d828bf04a54a97be59c1491e5bcf26abe684410e3036034",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:2025 Rates /2025 RATES?private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "154aa94dfe24ca7b64cae2c6251112bf12f554f472cb0b0fd323f772b6af27ed",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:2025 Rates /2025 RATES#private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4a97874075e72d0375d1e9b6d91417e232425ea4104d252005275e44e0163291",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:2025 Rates /2025 RATES; /mnt/private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "ce74fc416f1299d97236fbf24fa0de2d97e8b45d4ab25d80b87ff911507a87aa",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:2025 Rates; capture: /2025 RATES.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "677b574b2c2c1e2ffe80f70f1749c5ad40b422947997add5f0a8431b460996fb",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:2025 Rates /2024 RATES.",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "987b7a21251aff4e45469ec113d6b02cc62aa9e03b1f7e464f361fb13a3528dc",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:/2025 RATES",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "5f6ff300ee2a80137dc78f1f5dfad01192197deeca9eae9cbb96c5660a4342eb",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:/2025",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "1e5ce548a2b8d54ca7817422f79a1f68a2ab1c04afe75edc6c63f57ea34d714b",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:/unknown-root",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "23bdc1b0e4b886ad5e39570762d64e5fb13d745045b60cfe4e4e1c7fe19f214c",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:/ea",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "9f570bde44f3d0a842a71b975cf07f53cf87b73fe32f87ad57eccc2d134c9870",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:/mnt/private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "86c16df6652412e33ffd277c205cdd5046161871b30fe3f1f26dfab237f3ad04",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:/home/nas/private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "916237765b6d0967c127014c41e676486d351f7153fdee8d79cf55f67bc8b366",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:/var/tmp/proof",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "b79c2963fdb1b3c7126511e3e0b391bd56a3773776dcb0cbefd96c9c1254b63f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:file:///tmp/proof",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4fe17d3e300cdf4444cf6e48dad42f100344ee2f13b988189c3929ca5a1745d8",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:C:\\private\\proof",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4e2520fd3a4f6e8975c21b60303b3fa9e3b6ee25a53fecdd47100a1c94194ac7",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "path:\\\\server\\private",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "bef428d33d6f97ee60c46555b93e74cf4b1c4074a8af3a33e3c82ab4d4b83656",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "wrong-ratio-field:qualification",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "564bd878d0f19ce7267e1aa6ecc40aecf39cec427a0238fc23089925d7cd9d77",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "wrong-ratio-field:conditions",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "1e37e4a0976446b1ea2940e7c99ff821e6f9158676f25733d1eef66ce3654f7b",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "wrong-ratio-field:location_note",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3111f5fbee6df6dfe03dcc88de9408df3385eddee91b919d2ecc42e5f477cbea",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "wrong-ratio-field:source_attribution",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "f16abc452a336e43236c122c8a290e2d604beac1b34d4b225d56faded9f098e1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "wrong-heading-field:product_name",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "22592e609ec5f47f35579a1a34e57dbd1628ac2db342de308e8ab7d7b0c9b0c3",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "wrong-heading-field:conditions",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "45f4a6d9b55b218fb9e2dcadd1832689c4bd64e45657b8f5438e848499ce9d0e",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "wrong-heading-field:location_note",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "c60db74c30cc7c1ffe176bf4096be80f63b9ed3837940b7df5e4331634a3372c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "history:None",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "4710437f2093336e58fa7c1f77df0ade384f5163ac75a819b2bd85144f009285",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "history:False",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "5f1894a1a52101d308551157961b2db8e5305fc917662c9aa981a3f2df97baf4",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "private-key:/30 balls",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3259cfe2d40d6969105aa7adddd725be0de13fb7d3d39a892d665672a44ad022",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "private-key:/2025 RATES",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "0994befc8ecef2dc0b7f13beae8b9c2cdb221d6214f55a719771a669621202d9",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "private-key:/ea",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "19af9f6c1ea755ad6c82159dbbfc8c1b462b5efa553e35953fb5c7e182de2396",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "private-key:controls_reference",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "26bd874c1552c386ad4fb3bcbb3e1a9014b187044572544067484543158bee17",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "private-key:retained_pointer",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e2158a6b28a673e3e3d5c061539f41cdf93f3532cc7222163e98802bcb900d43",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "private-key:fact_groups",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "9f3636e3b181d0337a7619e58fff19c279b0d59a764bd479eaa84fd63355ff20",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unstructured:product_name",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "db49782273ed1621d2c406c50adb8ad6074ff28add764fd417c87992289e465f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unstructured:qualification",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "6f5c434b7b54093fe08670df02473f4a044ea8872dd65aa9baf2587baa83b7b7",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "metadata:source_licenses",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "f937c6174f0211bd1b7a58b58657118511a371d7bbb83bee54301c349c71e84d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "metadata:provenance",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5c9beaf6a05e5f029a8b3f450f5ddf3af757db6e105aa62f8b1051cb7c293758",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "metadata:relationships",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e20e70456b91f1896839acc1bfd208cde8e12c88e5f2ccf3c6f84c89c0e0cf70",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "credential-field:access_token",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e748b1eeec146fb3419704ec9beae34f5c5f76ab517a7382adb9d01f52fc80e8",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "credential-field:authorization",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "d0d7e100204b8f4f593dc80c07457eac16718764eedd61856881a71a9e2505d4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "credential-field:credential",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "df755659df4d5bbee48f7b6d61b3fb0dc6aae427977c274a0ad63372fd72e1d4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "credential-field:capture_path",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "8d2b3f7f10d7cf3b30ac1930fc3e8ae5454433e19cddf73a79afc54ef1427542",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "locator-boundary:Private copy of 2025 RATES is at /2025 RATES.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e19f50ba1c4f7213a88844fd3aa9b01c96b4c3bb47851b4b658856d9364ec6e3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "locator-boundary:Local file named 2024 FEES was saved at /2024 FEES.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "088397fd9aafcb8a19ecc8dbef5284312e37d67ed9a0b4c7c5125dd5fa64eee3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "locator-boundary:Evidence directory 2023 SCANS is located at /2023 SCANS.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "eb2a548212ad10d7aefd73d3cc48b638bc492a896bb16e637a8dd13036fa28f0",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "locator-boundary:2025 RATES IS AT /2025 RATES.",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "07a2d8f4ddb2e58625ef37f3713758cd95160d32f90112bd9108702444bfe823",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "locator-boundary:2025 Rates and Info was saved at /2025 RATES.",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "0e5cefc5b1bddf8ee67ebfdd56b2226c1eff91be72fad63e947c04fda7f7a3e6",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "locator-boundary:2025 Rates with Info /2025 RATES.",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "9d6df68516d83e6802714bb43faf87a3c935a7f175647aefe7ea58fb39c03495",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "locator-boundary:2025 Rates and lower case prose /2025 RATES.",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "8d629582f20460eefd0fdf89d2304b95b220cfe728b827600b5b4355e189ea01",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+0009",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "ed88c33eb5ddd11fd0dcfd8dadecae0600a8fc9ebb7688ee2c790fae2a886384",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+0009",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "f2f0d54fa532024809944785484a0f8f19dc671886cf7cac3db82c7b66b4a0a5",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+0009",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7dc4307353c4bed9718fb86dd48d3ede370c7f1e6321e0bcf7d9ce6eab9ea0e6",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+0009",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "82c18a6cf3debf314e1daea9175ab1c0d2461b303b9a4055656f126f4a6d2568",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+000A",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "cd5e097c47b355ea87417af04280678aaa2f109ff4784bc1096f8175927f7ff6",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+000A",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "b23525225c0b2208f235e5fe0b072aeb807dc87997762f950acb9617af855011",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+000A",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "9405a143e6b3d8db32a952372ee7e60d61ddf0cdb5e003c2c8ad5bf53d768958",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+000A",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "1ac9d2f38d90fd5c5d19cfcfecf5785f0ab8debca32c64331e68b0645284a956",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+000B",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "a6e7249f1591d65707dfa92f5c4cd15d6c2618407aafffdf8ed6a52980c23cb6",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+000B",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "e578a111a397369bb6b327d4762496ec4de31e9c1e9fffaf5e22986b65f49064",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+000B",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "59e9a8d47aedf60124ab21ede49c5e7013ce8a5966b5a0f6fb0913c775c9810f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+000B",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "88a0f3cddae9f9a3addacfb2e8cdee4626682e477bc979f05e58efc9a336358e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+000C",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "ae21afc87cc9806b38d597f24ddfcf7c356f4b559946a302938f0abd07ab06ae",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+000C",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "a517b04264be10954ec566ea48f4b2745239affe59d1ffcd63c3330f35806afc",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+000C",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "cfd6da0b1600783d0091f9a5f47c50791f6903ce92df61c1b4b1ff0031af78c6",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+000C",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4d6bd6c6dc793eb3e24113e498ae9b34b17788bbf4053de9a20df90189dcfab4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+000D",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "589876fc41a81964a0b52ec96a8c80fa392fe113fdff36a6f20e6e0a81ac114d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+000D",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "0bb556b20aa5e1dca866296a0fbcdd4c51ea7b1a70758e652c3fb0c7dc0c78a8",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+000D",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7fe126bafb586e9d189ac75fce80600dcd1bf8ef6766e17a8fbbf4943298ea56",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+000D",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "9c25449f08034f7994ae77c00e2b1289645a73e7072daaf7a9f2cd74e5a0f0fd",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+001C",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "9b611305140f08ad00268da29a79a30001ec1743f06e2139eee22a7c721f1326",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+001C",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "e8c9eb67ddeb787ecd6b11ff544850b67b75af59ab73ee586482742cbdc3d12f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+001C",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "d4fa8cc7cd8d1915bff85144626d6cd062f6dc0b9920f75d73a01f72e2cb0b40",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+001C",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "fcd2fe1e9ebebe0bef45728f13caaa5fd9254a20d55145b6e54e7269efae97f4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+001D",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "77b8add6bc3be362a6b6f01e1651c6414400768dd6dc552e31df5b5ff4ffecc2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+001D",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "a71d79ebd762e8a4b4320f207e38e443ace0a3687e753b199b1425eafe652324",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+001D",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "f7e2df8615b051fd5f7b4d646189805e3aef5aa8ac3b772774db727fa20aace7",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+001D",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4daabea21d3a08ffe8014e47adc15bc32eaa14857af2e011970a12b3ff9a7b8c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+001E",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "8e8f428d434f6fe59e86ff36989992729616746f48c1e7bb130b4a24477b2aa4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+001E",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "0d864e8c2e47e63d739ce1a35e55c3d3f293c79dc061ed36f74f005f031635ab",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+001E",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "f3a9325a53fc2eb4e1b4892d5810079dc6ddd907375af01e5d1e9004c97e799b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+001E",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3b94a28f629e6dd97941c2ce5b280737ec37a7d0d91a22eebc3445b60f854e1c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+001F",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "84865fa53d0f54ea7ecbfd9daad4670f7e24627fa75db0fbef267938ed88d725",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+001F",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "8f8004b8451a8050daf26c44a07a8c49ecf20205a00bfe906613e76a255f6d41",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+001F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "5a254db08b7edac400f65638f9e8d37f3581781b37440c9186d54eab488dba3e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+001F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "13ab8bc434a2b8c632725b7c2e2d561c0a4c2c2a72428e1ead5f4be8dc470fdd",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+0020",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "a5f057d21ebbd4cd964243c3fbc7f4554d8399c8892ef934a14f32955dafc9fb",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+0020",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "c6c5cea3bb3336e6578786646d956556530651f4b045f9b1d2d537cfdb64ff62",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+0020",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "fbd2cc4c777dfe9bbde498fb2355bb1e31e36deafe441787457c706eefb5f972",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+0020",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "286b449e5ceee752fe4cce4d346af4b3f3491391a2c6636e7a46c06a6d2bdc58",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+0085",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "f0793b9d3c354bb77b70cb6fc2180055f0402b70538887663845f8d363957ee4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+0085",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "2baa4f715840247b1be28e6cdf068a3bb41623f9db6f356b5bd06844e7f8e78a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+0085",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "58bcdd6d00511f7803bcfa7f836dd54a3d7364f402b9e21473ab6514f9bea85f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+0085",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "d2a8bc7c45710bf0aff38d2e31492a31541ffc23d54c5259b5312880596969c7",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+00A0",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "db17c93e718e53ad730991629a0e49eddceb9454e0e46d840515bdcf11dc900e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+00A0",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "92d73b66c40bcc0bad47696f6b861d25b3d08ef459fb2a5a3bee577dd5a52002",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+00A0",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "126ebd135d9e408711a585f36c076ff8d564eccf3bcd9a300e2339cc2df4ae27",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+00A0",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4a0316367795e3e9629ce570919889344ddea08ef14ee4243ed039ac5e86701d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+1680",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "ec54a3c5e40b8c221062569bb012243c60e49a017d4413650262e167391f54ca",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+1680",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "3ef0de4d1ec299ad590c66ce8b76dcb359bb2a81af9d822eaf6b64bd520fb345",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+1680",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "a8adcc2fa3547a4880d3c3e811761ec2a2d897c8cb246c7d87c5b76b66344e9c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+1680",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "53834f5e13035f14890475586056533625fb91bfbf57c931632ccac9dd4c47b1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2000",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "5bc9bb438699e2fcce3c39fe0d4581df58495f1486a4b5b3258d9de305bd2e9a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2000",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "0aa5f8c529443a1673f6b55a419fd1a2af25cafc2c5d328c6ef9861591b7c8eb",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2000",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "0e7d7006ed340d77e57ba7d200e20f0fda0517014eb2cc41fbf44bcb8bac7099",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2000",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "1b59f4f8a8d099decc844ca629b9c63d2db7055fef17029a98df613db8c53a73",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2001",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "8795b8482bfb504073be762e951ddb9db026d78909e8369de1012cd5e1ea1f56",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2001",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "ab40a6162efbb657f995fe5a8a9276bd24b76a9f5c566f09af1aa420a257b332",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2001",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "450a8e4ac8062d75cb3ae6efa5cbb3a030944134a8b5ee4bcbd231b89db8ba3a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2001",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "9cc20e6ccfa7a1b5937629693017b6dce3d946e619f7d5cae4342fe3c6b3f02c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2002",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "38d31f29328a53953789541a5e98e161ef45a54381c656a4c93f55913c4a637c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2002",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "3356b663f7ab125175d2b8194ab06b40c1a5c9a0675cdf6b28213eb19408dfe4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2002",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "84b9b2428a68a24aecfef5ab2fd088a30ea4c3c0fd015cbfe2a58ab5d8e83f98",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2002",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "1a5c0cbbdcfde2164c495fad9eb79fe0b93d9c06f31de43f0e2f4177cefb3d38",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2003",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "a90fabb289d5b419bf14942e4b28657aee8fa399a213ae07e8852a6f793b2e9e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2003",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "1c08670585bba12ead259312688035736fac8092f253918771089aa4437218a2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2003",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "ab9e8db911c50b68aef6c24661d6d60884846ec5175ab1ecb8265ab8bd6225f7",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2003",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "0ddd4750fbf47d94baecb46842cccbbcdeebe19f7d5fc5f9e27353e28450c2f2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2004",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "31c04497469e9e5c34db728813d3ad32a052a680b352afd7a108dd7fff79deaf",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2004",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "739829d586b3a4195eb9f4d3a17fa82499595b97819ee5d315160a75744d20e8",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2004",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "74736b03c47be39d619932ebbffcb63d23fbc86b46dcf9232ec59d87eeebb982",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2004",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3cc1983d8280aee7fc0fd03b448830d0e7fa2713f8684a5eb788b04ca6287dc2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2005",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "01352c560251fb3c07fe62612ea9ec20cbc2b50ddb5d22c03f857f407e8ebb0c",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2005",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "db075ed05c09aa52db4a962915fcbd970223c1583d0afe3f0235c2d9ec3ef74b",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2005",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "ed1a8411da07b563bed386eda8969d18f40e6d3dbf5da02713f3b23ed4fe79f3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2005",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "cc84c1c3b9dd9b263359adc7ba2c7bb13a9b41d072b1f373d8ea9612a9f2bb22",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2006",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "45c1a94684ee50fc3e6fab0662d42a645b01b9a61cdc96e87dbffe653867f188",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2006",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "9b0c1917f4aa65154ba9ada8ee7a78441d6ba108d932963e4b691d05dfb6a4ca",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2006",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "af4a355c7a7639238d5a34b27329fa5882fcbd8ec35949b5b9cc866913bc2eb7",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2006",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "2b2d0025518bac06bf5a0fbcfcb35b731673be08d92892b0cbba4cfb138a05bf",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2007",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "a17d5a177321a4505c899b75a69ee67ebb38a5219b4abda1c044c02510690739",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2007",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "971f56b26442065fae6fb99411de8915202031676a9a8e75bbc1c3c3fed53119",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2007",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "773b52c1aa37078980657b799604327610a4deecfcad99f297859cf62fd6bca2",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2007",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3416ff468006d5b348d033e98a98ba032a181d37acf14b88ad7e597716385082",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2008",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "3fbfc995caad97fa4b66a239018904ade4f8d408afd3077077eaee5d16b7d12f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2008",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "02c15ad5b53d16b05a7bda7126fb26757bc87e3d4e18198947ef7bec79f4e222",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2008",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "9fee40405ad2a7bd2a3e70c09dad0e91acf145f4a8543096cd6d820ad01ea96a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2008",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "c1329d039d9f9dcd16a0987141d5d9852c0958ff1a0ec4997b98c59b03ea6d08",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2009",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "bbffa6ddc716ea777bfb2084aed48ae1a37d0ceb4e2b8ede31f25bc6226084fd",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2009",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "53f7dd4535292ff41494265c37471e26cf4322eabf8236e19ddade70ef6d4560",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2009",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "a04dc7e275205b0a08a36ba40bb36c45680c8eac9abe087bf696b1b974930a7d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2009",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "f4d6ab7ab0ba649e24b5743299098f64b93b98d1e9cf48501658c458e1ba450a",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+200A",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "6ce8213144ed92aee135d4dc0639ad123c0939e65972276adf68b90f762699e5",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+200A",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "055c7cc9c0cea635393407f0141541dce2931148556d232d813b47ad5e75ccd7",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+200A",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "1343287793de1b4e159f112eafe4ac241474fce7126de3aa38dd77b3894ffbb1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+200A",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "99814d1bc405f94c7324bcef59bd64c935510e5ee3d774a45ccba49762ecaf00",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2028",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "dc39f73aa02239f2bd94a3809cf32d9379f47968e3d9a1a5947c7442ec924d09",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2028",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "8cd2e9520eea21a78c90d0fbc96261026916d67df46b04c856f376dd1d248e7f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2028",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "c01e18f8ae3c5384cd078ae74527ee15a724d34591a64efc7a916284664fec0f",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2028",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3f10172aee488e6d6c93c12f5881c6ee3df43bafb6de173e19c4721662273ede",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+2029",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "4599af81779b353263bbc73ac5a5abb245aa58d44294333c5a17f20e7ebe3e95",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+2029",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "a7fc1745a0419e35841c8c8df77b17369b4970c42e6effebbe347c6f9adbcdf0",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+2029",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "3bfd7acc1bae85fb6a98a21e1740a62038e0f0a4c9d7d18853a091bfe696df20",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+2029",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "49b11d0fd931ccb400101e06f9aab27e0c9b64e21099648527746f01889d55be",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+202F",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "d47a5a0cf16e34338bda3ad95724eb6094c468b819aac1962c851bab9ab30761",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+202F",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "863661a28c0e69bab2b036f48d1153aa92d040305453426344b8e94963a0c2e1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+202F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "92ef8dccfd27a26853f80f02dd4e232a425527758ec867857868682acd87b478",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+202F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "777d43dcb8a25d8ea9c70a9556a502c0b02311098f26b35d324cd88db94d95a1",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+205F",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "b842c07b7f5e191c686b02081c2cf42e5b449ba5a11bee07050b6126f4f7573e",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+205F",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "6989f5ac37ca2e7cd70259120016eb1b2ffa43983fa4f2fc9627c089b81131d0",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+205F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "1bf1ca39fe4deafb2add7af010744463909e1d283bc2c8338ff021835343e1e6",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+205F",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "7356fc08d58bef9065d7c1b8eacb34afebef39eca9721190211dcc56a3338225",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+3000",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "e1b60929db4d9d25a9dc05b85bffa832b1dab276bdc511bea405cff11b25b715",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+3000",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "7902f48f5c652ea40c7d33a652dde66c2720eba8ae68b0aa8f4c6d59789c5200",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+3000",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e7950936a685ee793b79729f405ce9ace2695c82f7e18ea38cc278cbac38276d",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+3000",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "c6c631001607f3bcc11248bbe5472b95361926a2db027d265412e5f0da50bd93",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity whitespace U+FEFF",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "27992ab3b4f79f196848f567017726098dcd6727b50ad62bd7d3d84b4de881a6",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading whitespace U+FEFF",
+      "original_accept": true,
+      "accept": true,
+      "value_sha256": "dc73783bd98498ee720bb0cc9a0da6d217d380d2e8c644cc6d51181ac0fe61e4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "quantity separate path U+FEFF",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "c603062001bfae18fbac4bbecfbb20c08495304f8e22785a6a55c7ddfb46d5a4",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "heading separate path U+FEFF",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "417dcae4ed6fe623df67b9fac93a7d38574a417d0b2a4297cb6ede4cc5c22535",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unsupported numeric or unit ١ token /30 balls",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "91c562adc6c91d34d306ffc801597eb8d1849ef8e59be4f907cf28f32ab0dfff",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unsupported numeric or unit 1 token /٣٠ balls",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "52e46dab41ca396bd85b5cc451fa7e97a505aef67934249a1486c5af8f90ec6a",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unsupported numeric or unit 1 token /３０ balls",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "555df12cdc580f079c4030a7c6bbf2ea58e7e897c1972460a16eb7941b54bab5",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unsupported numeric or unit 1 token /30 bálls",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "2c82e65bf57291064ca300511eb531dbea8dd49cc28c1f850b4eb7a966b5f61e",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unsupported numeric or unit 1 toKen /30 balls",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "a412916420f7b8aca18bf731c0f7d4815ec5f09762a5a8ec6d57ce9266bb9922",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unsupported title case or digit Published 2025 Rates /２０２５ RATES.",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "c1d9e7058dec5427be6fe4cb82203b605f38e985db6bb4ba751353fb159ea203",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unsupported title case or digit Published 2025 Rates /2025 RATEſ.",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "d4c1f6e506693c6ad12905a153cff954db8d2b4cbc1ecd87b1d6ca6959395b1b",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unsupported title case or digit Published 2025 Rateſ /2025 RATES.",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "86bbb5abc620cdbf17b49d733225aaeea0fe7eea5310c82c03b8005a32dd326e",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unsupported title case or digit Published 2025 Ratİng /2025 RATING.",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "bfbf71503f331a5b53fa6e1774da52af52bcaf1e624d05f7a647be44b6a27111",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "unsupported title case or digit Published 2025 RATEK /2025 RATEK.",
+      "original_accept": false,
+      "accept": true,
+      "value_sha256": "7b21499919e48923b326ec5cf2d84c30c24c2a0ebe26251772c31dfa10419cbe",
+      "reason": "Canonical operational text is preserved; slash syntax alone does not establish a local evidence artifact."
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "round locator facilities Private copy of 2025 RATES is at /2025 RATES.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "84e98de8e5fd8179d2db0f46d047f79d3bbe0fd500350c6fb9828f9d560654a3",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "round locator courses Private copy of 2025 RATES is at /2025 RATES.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "4090acc330df31108497c277c7e2ff714ce70029eb21ce2076132c475ad38176",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "round locator facilities Local file named 2024 FEES was saved at /2024 FEES.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "e15af87cea520ef6cbd743c569c54f1ec37f91a727dab4127ca1c46870ce0364",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "round locator courses Local file named 2024 FEES was saved at /2024 FEES.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "02283b38910a8a624aed57e05617b4c17adb94de0ea9b8dadba69beee2465c15",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "round locator facilities Evidence directory 2023 SCANS is located at /2023 SCANS.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "eaf42f90525c864c501f01b8f8d40433397b23f27c7252940f4ff32a400d0404",
+      "reason": "unchanged"
+    },
+    {
+      "fixture": "public-price-notation.json",
+      "name": "round locator courses Evidence directory 2023 SCANS is located at /2023 SCANS.",
+      "original_accept": false,
+      "accept": false,
+      "value_sha256": "f69b2ffe8f04a8ffa031e6421665cdee64b96b14678172f5499d55e7a516b1a3",
+      "reason": "unchanged"
+    }
+  ],
+  "complete_transport_fixture": {
+    "name": "price-notation-transport.json",
+    "sha256": "a9a62c9db5572b1567c389148b272665313d47c8559e66095ae39f274df85aaa",
+    "cases": [
+      {
+        "name": "product 1 token /30 balls",
+        "field": "product_name",
+        "text": "1 token /30 balls",
+        "original_accept": true,
+        "accept": true,
+        "reason": "unchanged"
+      },
+      {
+        "name": "product 2 token /60 balls",
+        "field": "product_name",
+        "text": "2 token /60 balls",
+        "original_accept": true,
+        "accept": true,
+        "reason": "unchanged"
+      },
+      {
+        "name": "product 3 token /90 balls",
+        "field": "product_name",
+        "text": "3 token /90 balls",
+        "original_accept": true,
+        "accept": true,
+        "reason": "unchanged"
+      },
+      {
+        "name": "product 1token﻿/30 balls",
+        "field": "product_name",
+        "text": "1token﻿/30 balls",
+        "original_accept": true,
+        "accept": true,
+        "reason": "unchanged"
+      },
+      {
+        "name": "heading Page explicitly titled 2025 Rates and Info /2025 RATES. All prices historical.",
+        "field": "qualification",
+        "text": "Page explicitly titled 2025 Rates and Info /2025 RATES. All prices historical.",
+        "original_accept": true,
+        "accept": true,
+        "reason": "unchanged"
+      },
+      {
+        "name": "heading Published2024 Fees and Info﻿/2024 FEES. Dates unknown.",
+        "field": "qualification",
+        "text": "Published2024 Fees and Info﻿/2024 FEES. Dates unknown.",
+        "original_accept": true,
+        "accept": true,
+        "reason": "unchanged"
+      },
+      {
+        "name": "private qualification Private copy of 2025 RATES is at /2025 RATES.",
+        "field": "qualification",
+        "text": "Private copy of 2025 RATES is at /2025 RATES.",
+        "original_accept": false,
+        "accept": false,
+        "reason": "unchanged"
+      },
+      {
+        "name": "private qualification Local file named 2024 FEES was saved at /2024 FEES.",
+        "field": "qualification",
+        "text": "Local file named 2024 FEES was saved at /2024 FEES.",
+        "original_accept": false,
+        "accept": false,
+        "reason": "unchanged"
+      },
+      {
+        "name": "private qualification Evidence directory 2023 SCANS is located at /2023 SCANS.",
+        "field": "qualification",
+        "text": "Evidence directory 2023 SCANS is located at /2023 SCANS.",
+        "original_accept": false,
+        "accept": false,
+        "reason": "unchanged"
+      },
+      {
+        "name": "private qualification Published 2025 Rates /2025 RATES. Capture: /private/evidence",
+        "field": "qualification",
+        "text": "Published 2025 Rates /2025 RATES. Capture: /private/evidence",
+        "original_accept": false,
+        "accept": false,
+        "reason": "unchanged"
+      },
+      {
+        "name": "private qualification See “https://official.example”/private/evidence",
+        "field": "qualification",
+        "text": "See “https://official.example”/private/evidence",
+        "original_accept": false,
+        "accept": false,
+        "reason": "unchanged"
+      },
+      {
+        "name": "private or unsupported product 1 token /30 balls/private.json",
+        "field": "product_name",
+        "text": "1 token /30 balls/private.json",
+        "original_accept": false,
+        "accept": false,
+        "reason": "unchanged"
+      },
+      {
+        "name": "private or unsupported product 1 token /30 balls/private/evidence",
+        "field": "product_name",
+        "text": "1 token /30 balls/private/evidence",
+        "original_accept": false,
+        "accept": false,
+        "reason": "unchanged"
+      },
+      {
+        "name": "private or unsupported product 1 token /٣٠ balls",
+        "field": "product_name",
+        "text": "1 token /٣٠ balls",
+        "original_accept": false,
+        "accept": true,
+        "reason": "No numeric interpretation of literal public prose"
+      }
+    ]
+  },
+  "independent_private_repro_provenance": {
+    "original_file_sha256": "99d623cd207772bd98200fc98dda4e0aa08cd57e6c0c595b6a3b341886dc7b00",
+    "original_file_copied_outside_source": "retained-independent-tests.py",
+    "N5S1_three_private_locator_and_native_intake_cases": "reject, unchanged",
+    "general_public_headings": "accept, unchanged",
+    "private_path_components_and_known_roots": "reject, unchanged",
+    "intentional_syntactic_decision_changes": [
+      {
+        "text": "2025 Rates /2025 RATES.json",
+        "original_accept": false,
+        "accept": true,
+        "reason": "Filename-like suffix in public operational text alone does not establish private evidence"
+      },
+      {
+        "text": "2025 Rates /2025 RATES?key=x",
+        "original_accept": false,
+        "accept": true,
+        "reason": "Opaque public route suffix alone does not establish private evidence; no secret field is serialized"
+      }
+    ]
+  }
+}
