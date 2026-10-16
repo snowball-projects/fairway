@@ -17,4 +17,3 @@ for(const item of cases){test('complete notation transport: '+item.name,async()=
  if(item.accept){const model=await pending,row=[...model.optionalObservations.values()].find(r=>r[item.field]===item.text);assert.ok(row);assert.equal(row.billing_basis,null);assert.equal(row.currency,null);assert.equal(row.quantity,null);assert.ok(renderKnownOptional({price_observation:[row]},{subjectLabel:'Dated price',document}).textContent.includes(item.text));}else await assert.rejects(pending,/Private path/);
  assert.equal(calls,2);assert.equal(JSON.stringify(value),before);
 });}
-

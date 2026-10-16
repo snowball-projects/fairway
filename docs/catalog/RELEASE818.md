@@ -23,6 +23,11 @@ remain unknown. These cohorts follow other reviewed research since release768, s
 their 57 rows are not the entire 768-to-818 inventory delta. Later pending proposals
 are excluded from this release.
 
+The complete release768-to-818 change adds 35 facilities and 119 course records:
+57 reconciled identities and 62 from reviewed discovery and inventory enrichment.
+It also adds 1,765 typed domain rows and 57 architecture credits. Those counts do not
+mean every record has complete optional facts or that any unknown is now confirmed.
+
 All 8,286 legacy public note IDs remain IDs only. Facility, course, component,
 round, tee and source scopes stay separate; empty observations and NULL cells retain
 their unknown semantics. No raw evidence or inferred facility-to-course facts fill
