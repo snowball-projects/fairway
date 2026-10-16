@@ -73,7 +73,7 @@ def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert len(catalog["provenance"]["notes"]) == 8286
     assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
     assert len(catalog["provenance"]["sources"]) == 18855
-    assert len(catalog["provenance"]["intake"]) == 13729
+    assert len(catalog["provenance"]["intake"]) == 13836
     assert sum(c["arrival"] is not None for c in catalog["courses"]) == 8
     assert (
         not {"retained_document", "source_hold", "source_hold_scope"} & catalog.keys()
