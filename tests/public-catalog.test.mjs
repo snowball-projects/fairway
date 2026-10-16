@@ -69,15 +69,15 @@ test('address lookup has an injected deterministic transport and no private rout
   let call;const value=await resolvePublicOrigin('committed address',{fetcher:async(url,options)=>{call={url,options};return {ok:true,json:async()=>({features:[]})};}});
   assert.deepEqual(value.features,[]);assert.equal(call.url.origin,'https://photon.komoot.io');assert.equal(call.url.searchParams.get('q'),'committed address');assert.equal(call.options.credentials,'omit');
 });
-test('committed 862 release validates complete typed scope and rejects old-schema fallback',()=>{
+test('committed 872 release validates complete typed scope and rejects old-schema fallback',()=>{
   const raw=gunzipSync(readFileSync(new URL('../data/catalog-release/catalog.json.gz',import.meta.url)));
   const manifest=JSON.parse(readFileSync(new URL('../data/catalog-release/manifest.json',import.meta.url)));
   assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.files['catalog.json'].sha256);
-  assert.equal(manifest.revision,862);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
-  assert.equal(manifest.files['catalog.json'].sha256,'690071903e8e92f8746008c8927399a94152e889f08bd7e1144c117857473140');
+  assert.equal(manifest.revision,872);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
+  assert.equal(manifest.files['catalog.json'].sha256,'a73c39bba30c97a4f34b206713ebf2e4c2872eeda986cd0f61efcafed5efcc4b');
   const value=JSON.parse(raw),model=validatePublicCatalog(value,manifest);
   assert.throws(()=>validatePublicCatalog({...value,format_version:1,schema:4},{...manifest,format_version:1,schema:4}),/identity/);
-  assert.equal(model.facilities.length,7430);assert.equal(model.courses.length,4437);assert.equal(model.destinations.size,2676);
+  assert.equal(model.facilities.length,7430);assert.equal(model.courses.length,4544);assert.equal(model.destinations.size,2747);
   assert.deepEqual(catalogCounts(model.facilities),{total:7430,onMap:4640,pending:2790});
   assert.equal(model.optionalObservations.size,4826);
   assert.ok([...model.facilities,...model.courses].every(r=>!Object.hasOwn(r,'fact_groups')));
