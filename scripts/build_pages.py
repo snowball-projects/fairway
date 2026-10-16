@@ -5,6 +5,7 @@ import gzip
 import hashlib
 import json
 import re
+from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -187,6 +188,62 @@ def native_transport(root, review_fixture=False):
     return manifest, raw
 
 
+def credits_html(licenses, policy):
+    """Keep public attribution accessible without adding catalog UI prose."""
+    license_urls = {
+        "CC-BY-4.0": "https://creativecommons.org/licenses/by/4.0/",
+        "CC-BY-SA-3.0-Unported": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "ODbL-1.0": "https://opendatacommons.org/licenses/odbl/1-0/",
+    }
+
+    def value_html(value, url=None):
+        text = escape(str(value))
+        if isinstance(url, str) and re.match(r"https?://[^\s]+\Z", url):
+            return f'<a href="{escape(url, quote=True)}" rel="noreferrer">{text}</a>'
+        return text
+
+    sections = []
+    for record in licenses:
+        title = record.get("source") or record.get("attribution") or "Data source"
+        fields = []
+        for key in (
+            "attribution",
+            "license",
+            "source_url",
+            "policy_url",
+            "changes",
+            "applies_to",
+            "scope",
+            "copyright_notice",
+            "disclaimer_notice",
+        ):
+            value = record.get(key)
+            if value is None:
+                continue
+            url = (
+                record.get("license_url") or license_urls.get(value)
+                if key == "license"
+                else value
+                if key.endswith("_url")
+                else None
+            )
+            fields.append(
+                f"<dt>{escape(key.replace('_', ' ').title())}</dt><dd>{value_html(value, url)}</dd>"
+            )
+        sections.append(
+            f"<section><h2>{escape(title)}</h2><dl>{''.join(fields)}</dl></section>"
+        )
+    return (
+        '<!doctype html><html lang="en"><meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width, initial-scale=1">'
+        f'<meta http-equiv="Content-Security-Policy" content="{escape(policy, quote=True)}">'
+        '<title>Data credits · fairway</title><link rel="stylesheet" href="./styles.css">'
+        '<body class="credits-page"><main><a href="./">fairway</a><h1>Data credits</h1>'
+        + "".join(sections)
+        + "</main></body></html>"
+    ).encode()
+
+
 def build(root, output, commit, review_fixture=False):
     if output.exists() and any(output.iterdir()):
         raise ValueError("Pages output must be new or empty")
@@ -209,6 +266,7 @@ def build(root, output, commit, review_fixture=False):
         b'<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=../"><title>fairway catalog</title><a href="../">Open the fairway catalog</a>'
     )
     policy = "default-src 'self'; base-uri 'none'; connect-src 'self' https://photon.komoot.io; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'none'; object-src 'none'"
+    payloads["credits.html"] = credits_html(json.loads(raw)["source_licenses"], policy)
     html = (
         payloads["index.html"]
         .decode()

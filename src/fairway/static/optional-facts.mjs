@@ -127,7 +127,7 @@ export function validateScopedOptional(value){
   }
   return observations;
 }
-const label=key=>key.replaceAll('_',' ');
+const label=key=>key.replace(/^physical_holes/, 'holes').replaceAll('_',' ');
 function scalar(value){return value===null?'Unconfirmed':typeof value==='boolean'?(value?'Yes':'No'):String(value);}
 export function renderOptional(optional,{subjectLabel,document=globalThis.document}={}){
   const el=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n;};
@@ -151,7 +151,7 @@ export function renderOptional(optional,{subjectLabel,document=globalThis.docume
   return holder;
 }
 
-// Popups show recorded values only. The full card retains the source envelope and unknowns.
+// Popups show recorded values only; canonical data retains the source envelope and unknowns.
 export function renderKnownOptional(optional,{subjectLabel,document=globalThis.document}={}){
   const el=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n;};
   const holder=el('section');holder.className='typed-observations';

@@ -38,7 +38,7 @@ def test_native_pages_are_reproducible_public_only_and_leave_source_unchanged(tm
         and "REVIEW FIXTURE: synthetic records" in html
     )
     assert one["review_fixture"] is True
-    assert one["assets"] == 23
+    assert one["assets"] == 24
     assert json.loads((output / "deployment.json").read_text())["commit"] == "a" * 40
     for name in [
         "catalog.mjs",
@@ -181,3 +181,56 @@ def test_public_asset_preserves_urls_and_slash_compound_text():
         pages.public_projection(
             {"safe": "https://official.example/path then:/private/evidence"}
         )
+
+
+def test_generated_credits_keep_public_license_notices_and_escape_markup(tmp_path):
+    records = [
+        {
+            "source": "Source <one>",
+            "attribution": "Author & team",
+            "license": "CC-BY-4.0",
+            "source_url": "https://official.example/?a=1&b=2",
+            "changes": "Adapted property points",
+            "applies_to": "Selected records",
+        },
+        {
+            "attribution": "City of Moorhead",
+            "license": "CC-BY-SA-3.0-Unported",
+            "policy_url": "https://official.example/policy",
+            "scope": "City-owned facts",
+        },
+        {"source": "Unsafe link", "source_url": "javascript:alert(1)"},
+    ]
+    before = json.dumps(records)
+    html = pages.credits_html(records, "default-src 'self'").decode()
+    assert "Source &lt;one&gt;" in html and "Author &amp; team" in html
+    assert 'href="https://creativecommons.org/licenses/by/4.0/"' in html
+    assert 'href="https://creativecommons.org/licenses/by-sa/3.0/"' in html
+    assert "Adapted property points" in html and "Selected records" in html
+    assert "City-owned facts" in html and "https://official.example/policy" in html
+    assert 'href="javascript:' not in html and "<script" not in html
+    assert json.dumps(records) == before
+    output = tmp_path / "site"
+    result = pages.build(ROOT, output, "c" * 40)
+    actual = (output / "credits.html").read_text()
+    public = json.loads(
+        gzip.decompress((ROOT / "data/catalog-release/catalog.json.gz").read_bytes())
+    )
+    for record in public["source_licenses"]:
+        for key in (
+            "source",
+            "attribution",
+            "license",
+            "changes",
+            "applies_to",
+            "scope",
+        ):
+            if record.get(key):
+                from html import escape
+
+                assert escape(record[key]) in actual
+    assert (
+        result["output_sha256"]["credits.html"]
+        == sha256((output / "credits.html").read_bytes()).hexdigest()
+    )
+    assert 'href="./credits.html"' in (output / "app.js").read_text()

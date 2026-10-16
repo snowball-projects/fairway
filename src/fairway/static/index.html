@@ -62,7 +62,7 @@
         ><button id="progress-toggle" class="pill">Catalog progress</button>
       </div>
       <p id="catalog-status" class="catalog-status" role="status">
-        Loading catalog…
+        Loading…
       </p>
       <aside class="controls" id="plan-panel" aria-label="Plan a round" hidden>
         <div class="drawer-heading">
@@ -180,7 +180,7 @@
         </header>
         <div id="filter-popover" class="filter-popover" hidden>
           <label>State<select id="browse-state"><option value="all">All states</option></select></label>
-          <label>Physical course holes<select id="browse-holes"><option value="all">All documented layouts</option><option value="9">9</option><option value="18">18</option></select></label>
+          <label>Holes<select id="browse-holes"><option value="all">All documented layouts</option><option value="9">9</option><option value="18">18</option></select></label>
           <label>Documented round<select id="browse-round"><option value="all">All rounds</option><option value="9">9 holes</option><option value="18">18 holes</option></select></label>
           <label>Course access<select id="browse-access">
             <option value="nonmember">Nonmember play (qualified)</option>
@@ -198,10 +198,6 @@
           Facilities in the catalog
         </p>
         <div id="results" class="results" aria-live="polite"></div>
-        <footer class="catalog-note">
-          <span id="catalog-name"></span
-          ><button id="native-provenance-toggle" class="provenance-button" type="button" aria-controls="catalog-progress" disabled>Sources and qualifications</button>
-        </footer>
       </aside>
       </div>
       <dialog id="catalog-progress" aria-labelledby="progress-heading">
@@ -216,19 +212,6 @@
           </button>
         </div>
         <div id="progress-counts" class="progress-counts"></div>
-        <p class="progress-note">
-          Facility map context includes all access types. Retained course
-          records and empty inventories keep their qualifications. National
-          discovery remains incomplete.
-        </p>
-        <h3>Sources and qualifications</h3>
-        <div id="native-provenance"></div>
-        <p><a href="./data/catalog-release.json">Generated catalog manifest</a></p>
-        <h3>Activity</h3>
-        <div id="activity-log"></div>
-        <p>
-          The catalog is derived from SQLite. Typed observations retain their source qualifications and exact subject scope. Missing attributes are unconfirmed; observations do not establish current availability.
-        </p>
       </dialog>
     </main>
     <noscript
