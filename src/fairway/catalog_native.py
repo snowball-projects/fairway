@@ -1,7 +1,7 @@
 """Native5 catalog transactions and SQL-only browse DTOs.
 
 No schema upgrade, legacy payload reader or automatic authority selection lives
-here. Reviewed retained single-course identity additions use the same batch
+here. Reviewed retained course identity additions use the same batch
 transaction and evidence ledger, with guarded accepted SQLite references.
 Guarded corrections to existing typed rows preserve their retained envelopes;
 they never provide new extraction permission or add held-source records.
@@ -231,24 +231,37 @@ def _permitted_source(db, source_id):
     return found
 
 
-def _retained_course_evidence(db, table, values, item, before):
-    """Normalize an explicitly reviewed accepted single-course identity, not holes."""
+def _course_inventory(db, facility_id, staged_courses=()):
+    return {
+        row["id"]: digest(dict(row))
+        for row in db.execute(
+            "SELECT * FROM course WHERE facility_id=?", (facility_id,)
+        )
+        if row["id"] not in staged_courses
+    }
+
+
+def _retained_course_evidence(
+    db, table, values, item, before, staged_courses, inventory_baselines
+):
+    """Bind reviewed retained course identities to guarded baseline inventory."""
     require(
         table == "course" and before is None,
         "retained inventory evidence only adds a missing course identity",
     )
+    extended = "course_inventory_digests" in item
+    fields = {
+        "origin",
+        "facility_id",
+        "facility_digest",
+        "retained_evidence_digest",
+        "source_digests",
+        "note_digests",
+        "support_indexes",
+        "review_reference",
+    }
     require(
-        set(item)
-        == {
-            "origin",
-            "facility_id",
-            "facility_digest",
-            "retained_evidence_digest",
-            "source_digests",
-            "note_digests",
-            "support_indexes",
-            "review_reference",
-        },
+        set(item) == fields | ({"course_inventory_digests"} if extended else set()),
         "invalid retained inventory evidence",
     )
     facility = _row(db, "facility", item["facility_id"])
@@ -258,18 +271,42 @@ def _retained_course_evidence(db, table, values, item, before):
         and digest(facility) == item["facility_digest"],
         "stale retained facility guard or different subject",
     )
+    if extended:
+        baseline = inventory_baselines.get(facility["id"])
+        require(
+            isinstance(item["course_inventory_digests"], dict)
+            and item["course_inventory_digests"] == baseline
+            and _course_inventory(db, facility["id"], staged_courses) == baseline,
+            "complete pre-batch retained course inventory guard required",
+        )
+        require(
+            values.get("name") is None
+            or isinstance(values["name"], str)
+            and values["name"].strip(),
+            "retained layout name must be literal or unknown",
+        )
+        require(
+            values.get("physical_holes") is None
+            or type(values["physical_holes"]) is int
+            and values["physical_holes"] > 0,
+            "retained individual physical holes must be positive or unknown",
+        )
+    else:
+        require(
+            not db.execute(
+                "SELECT 1 FROM course WHERE facility_id=?", (facility["id"],)
+            ).fetchone(),
+            "retained single-course reconciliation requires empty inventory",
+        )
+        require(
+            values.get("name") in (None, facility["name"])
+            and values.get("physical_holes") == facility["physical_holes"]
+            and type(values.get("physical_holes")) is int
+            and values["physical_holes"] > 0,
+            "retained reconciliation cannot invent layout names or split totals",
+        )
     require(
-        not db.execute(
-            "SELECT 1 FROM course WHERE facility_id=?", (facility["id"],)
-        ).fetchone(),
-        "retained single-course reconciliation requires empty inventory",
-    )
-    require(
-        values.get("name") in (None, facility["name"])
-        and values.get("physical_holes") == facility["physical_holes"]
-        and type(values.get("physical_holes")) is int
-        and values["physical_holes"] > 0
-        and values.get("identity_status") == "operator_defined"
+        values.get("identity_status") == "operator_defined"
         and values.get("game_kind") == "golf"
         and values.get("address_mode", "inherit") == "inherit"
         and all(
@@ -286,7 +323,7 @@ def _retained_course_evidence(db, table, values, item, before):
                 "address_mode",
             }
         ),
-        "retained reconciliation cannot invent layout names or promote other fields",
+        "retained inventory cannot promote other fields",
     )
     retained = db.execute(
         "SELECT * FROM retained_evidence WHERE facility_id=?", (facility["id"],)
@@ -377,10 +414,14 @@ def _retained_course_evidence(db, table, values, item, before):
     }
 
 
-def _evidence(db, table, values, item, before=None):
+def _evidence(
+    db, table, values, item, before=None, *, staged_courses=(), inventory_baselines=None
+):
     require(isinstance(item, dict), "evidence must be an object")
     if table == "course" and item.get("origin") == "retained_normalization":
-        return _retained_course_evidence(db, table, values, item, before)
+        return _retained_course_evidence(
+            db, table, values, item, before, staged_courses, inventory_baselines or {}
+        )
     if table in DOMAINS or table == "architecture_credit":
         require(
             set(item)
@@ -589,9 +630,25 @@ def apply_batch(path, batch, *, apply=False):
             )
             return json.loads(previous["report"]) | {"state": "already_applied"}
         try:
+            # Pin requested inventories before any source or entity mutation.
+            inventory_baselines = {}
+            for change in batch["changes"]:
+                evidence = change.get("evidence") if isinstance(change, dict) else None
+                if (
+                    isinstance(evidence, dict)
+                    and "course_inventory_digests" in evidence
+                ):
+                    facility_id = evidence.get("facility_id")
+                    require(
+                        isinstance(facility_id, str), "invalid retained facility ID"
+                    )
+                    if facility_id not in inventory_baselines:
+                        inventory_baselines[facility_id] = _course_inventory(
+                            db, facility_id
+                        )
             _new_sources(db, batch["sources"])
             report["source_ids_added"] = [s["id"] for s in batch["sources"]]
-            seen, facilities = set(), set()
+            seen, facilities, staged_courses = set(), set(), set()
             for change in batch["changes"]:
                 require(
                     isinstance(change, dict)
@@ -650,7 +707,15 @@ def apply_batch(path, batch, *, apply=False):
                         ),
                         "subject identity cannot be moved",
                     )
-                envelope = _evidence(db, table, values, change["evidence"], before)
+                envelope = _evidence(
+                    db,
+                    table,
+                    values,
+                    change["evidence"],
+                    before,
+                    staged_courses=staged_courses,
+                    inventory_baselines=inventory_baselines,
+                )
                 if before:
                     columns = list(change["values"])
                     if columns:
@@ -674,6 +739,8 @@ def apply_batch(path, batch, *, apply=False):
                         + ")",
                         list(values.values()),
                     )
+                if table == "course" and before is None:
+                    staged_courses.add(identifier)
                 after = _row(db, table, identifier)
                 facility = _facility(db, table, after)
                 if facility:
@@ -728,6 +795,11 @@ def apply_batch(path, batch, *, apply=False):
                         envelope["payload"],
                         envelope["status"],
                     ),
+                )
+            for facility_id, baseline in inventory_baselines.items():
+                require(
+                    _course_inventory(db, facility_id, staged_courses) == baseline,
+                    "pre-batch retained course inventory changed during transaction",
                 )
             report["checks"] = check(db)
             report["distinct_facilities"] = len(facilities)
