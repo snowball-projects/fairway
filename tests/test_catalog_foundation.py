@@ -68,12 +68,12 @@ def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert (
         sum(len(f["course_ids"]) for f in catalog["facilities"])
         == len(catalog["courses"])
-        == 4852
+        == 4909
     )
     assert len(catalog["provenance"]["notes"]) == 8286
     assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
-    assert len(catalog["provenance"]["sources"]) == 18964
-    assert len(catalog["provenance"]["intake"]) == 14570
+    assert len(catalog["provenance"]["sources"]) == 18984
+    assert len(catalog["provenance"]["intake"]) == 14627
     assert sum(c["arrival"] is not None for c in catalog["courses"]) == 8
     assert (
         not {"retained_document", "source_hold", "source_hold_scope"} & catalog.keys()
@@ -206,4 +206,43 @@ def test_reviewed_1089_keeps_short_courses_and_unknown_counts_distinct(catalog):
         assert course["style"] is None
         assert course["operating_status"] is None
         assert course["arrival"] is None
+        assert course["inventory_complete"] is False
+
+
+def test_reviewed_1124_keeps_unnamed_nines_and_status_unknowns(catalog):
+    def courses(facility_id):
+        return [c for c in catalog["courses"] if c["facility_id"] == facility_id]
+
+    heron = courses("f-17991622-233c-4bc1-9b43-d0cbb77ca22b")
+    assert {c["name"]: c["physical_holes"] for c in heron} == {
+        "Oaks Course": 9,
+        "Creek Course": 9,
+        "Marsh Course": 9,
+    }
+    unnamed_nines = []
+    for fid in [
+        "f-16f6088a-9053-4495-b868-3db97b4a9130",  # Twin Oaks.
+        "f-18521e40-c1ba-46da-9725-c11b68a1d1a3",  # Fellows Creek.
+    ]:
+        records = courses(fid)
+        assert len(records) == 3
+        assert all(c["name"] is None and c["physical_holes"] == 9 for c in records)
+        unnamed_nines.extend(records)
+    jester = courses("f-153f8613-a9e6-4a04-835f-31f1341430ab")
+    assert len(jester) == 2
+    assert sorted(c["physical_holes"] for c in jester) == [9, 18]
+    assert all(c["name"] is None for c in jester)
+    westwind = courses("f-1694333b-001e-4fb0-b8fd-65e08f9fad79")
+    assert len(westwind) == 1
+    assert westwind[0]["name"] is None
+    assert westwind[0]["physical_holes"] is None
+    for course in heron + unnamed_nines + jester + westwind:
+        for field in [
+            "access",
+            "nonmember_bookable",
+            "style",
+            "operating_status",
+            "arrival",
+        ]:
+            assert course[field] is None
         assert course["inventory_complete"] is False
