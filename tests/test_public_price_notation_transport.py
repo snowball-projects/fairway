@@ -79,7 +79,7 @@ def test_complete_notation_transport_build_and_unknowns(tmp_path, case):
     shutil.copytree(ROOT / "docs/research-map", source / "docs/research-map")
     out = tmp_path / "site"
     if accept:
-        assert pages.build(source, out, "b" * 40)["assets"] == 24
+        assert pages.build(source, out, "b" * 40)["assets"] == 25
         assert "Data credits" in (out / "credits.html").read_text()
         assert (
             out / ("data/native-catalog-" + hashlib.sha256(raw).hexdigest() + ".json")

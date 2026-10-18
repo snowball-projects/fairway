@@ -37,10 +37,21 @@ uncompressed hashes, release identity, public projection and row counts before
 writing a hash-named JSON asset. Decompression stops at the declared raw size
 plus one sentinel byte, with a 64 MiB raw ceiling. The browser validates complete
 relationships and scoped observations. CI checks both and compares two static builds byte for byte.
-The browser reads response streams with a 16 KiB manifest limit, 64 MiB catalog
-limit and one 30-second deadline covering both network requests and body reads.
+The builder also derives a hash-named initial map/search index from those same
+verified bytes. It preserves facility identity, location, city/state search and
+catalog counts. Opening Courses, Plan a Round or a pin loads the complete catalog
+on demand; filters, course relationships and observations use its existing full
+validation. The initial manifest stays pinned for that page, so a deployment
+between map and detail requests cannot mix releases. Hash-named responses may use
+the HTTP cache but always undergo checksum verification.
+
+The browser reads response streams with a 16 KiB manifest limit, 4 MiB initial-map
+limit and 64 MiB complete-catalog limit. Each load has one 30-second deadline
+covering its network requests and body reads.
 Oversized, stalled or cancelled streams fail closed. There is no legacy schema
 adapter or automatic fixture fallback.
+See [measured initial-map performance](docs/initial-catalog-performance.md) for
+conditions, timings and the deferred-detail tradeoff.
 
 For isolated regression work, `--review-fixture` selects the exact pinned synthetic
 fixture and visibly labels every resulting page. It never substitutes for the

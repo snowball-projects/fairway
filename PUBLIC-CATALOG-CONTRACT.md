@@ -34,6 +34,15 @@ relationship and observation bindings. CI checks generated hashes, invokes that
 same browser validator on the complete real catalog and compares two static builds.
 No browser SQLite engine or editable JSON authority is introduced.
 
+The builder also emits a derived, hash-named initial map index (`map_format:1`),
+bound by that manifest to the complete catalog checksum, revision, release key and
+counts. Its facility tuples retain only ID, name, state, city and map point; state
+geometry retains existing search fitting. It carries no course facts. The browser
+checks its hash, length, identity, counts and map shapes before drawing/searching.
+Opening a course view requests the complete catalog with the pinned manifest and
+performs the unchanged complete validation before showing course records. No
+partially verified course DTO or cross-release detail fallback is used.
+
 Plan a Round selects courses within the union of the chosen radius around current
 committed origins. All pending nearby courses stay visible. Radius and documented
 core filters apply; driving times remain unavailable. There is no routing POST,
