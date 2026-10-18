@@ -470,6 +470,56 @@ def initial_map_bytes(value, manifest, states):
     return raw
 
 
+def version_ui_assets(payloads):
+    """Publish one coherent content-addressed JS/module/CSS graph.
+
+    Keep the existing source URLs as compatibility aliases. The page itself
+    uses only hashed files, so fresh HTML cannot reuse older cached modules.
+    """
+    names = {name for name in ASSETS if Path(name).suffix in {".js", ".mjs", ".css"}}
+    paths, compiling = {}, set()
+
+    def compile_asset(name):
+        if name in paths:
+            return paths[name]
+        if name not in names or name in compiling:
+            raise ValueError("unknown or cyclic public UI module")
+        compiling.add(name)
+        body = payloads[name]
+        if Path(name).suffix in {".js", ".mjs"}:
+
+            def dependency(match):
+                target = compile_asset(match[3][2:])
+                return f"{match[1]}{match[2]}./{target}{match[2]}"
+
+            body = re.sub(
+                r"""(\bfrom\s+|\bimport\s*)(['"])(\./[^'"]+\.mjs)\2""",
+                dependency,
+                body.decode(),
+            ).encode()
+        path = Path(name)
+        target = f"{path.stem}-{digest(body)}{path.suffix}"
+        payloads[target] = body
+        paths[name] = target
+        compiling.remove(name)
+        return target
+
+    for name in sorted(names):
+        compile_asset(name)
+    return paths
+
+
+def version_ui_html(html, paths):
+    def reference(match):
+        return f"{match[1]}./{paths[match[2]]}{match[3]}"
+
+    return re.sub(
+        r"""((?:src|href)=['"])\./([^/'"]+\.(?:js|css))(['"])""",
+        reference,
+        html,
+    )
+
+
 def build(root, output, commit, review_fixture=False):
     if output.exists() and any(output.iterdir()):
         raise ValueError("Pages output must be new or empty")
@@ -477,6 +527,7 @@ def build(root, output, commit, review_fixture=False):
     payloads = {
         name: (root / "src/fairway/static" / name).read_bytes() for name in ASSETS
     }
+    ui_assets = version_ui_assets(payloads)
     payloads["research-map/boundaries.json"] = (
         root / "docs/research-map/boundaries.json"
     ).read_bytes()
@@ -504,7 +555,9 @@ def build(root, output, commit, review_fixture=False):
         b'<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=../"><title>fairway catalog</title><a href="../">Open the fairway catalog</a>'
     )
     policy = "default-src 'self'; base-uri 'none'; connect-src 'self' https://photon.komoot.io; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'none'; object-src 'none'"
-    payloads["credits.html"] = credits_html(value["source_licenses"], policy)
+    payloads["credits.html"] = version_ui_html(
+        credits_html(value["source_licenses"], policy).decode(), ui_assets
+    ).encode()
     html = (
         payloads["index.html"]
         .decode()
@@ -520,7 +573,7 @@ def build(root, output, commit, review_fixture=False):
             "<body>",
             '<body><p class="review-fixture-banner">REVIEW FIXTURE: synthetic records; not an adopted or published catalog.</p>',
         )
-    payloads["index.html"] = html.encode()
+    payloads["index.html"] = version_ui_html(html, ui_assets).encode()
     deployment = {
         "commit": commit,
         "revision": manifest["revision"],
@@ -528,6 +581,7 @@ def build(root, output, commit, review_fixture=False):
         "catalog_sha256": item["sha256"],
         "counts": manifest["counts"],
         "review_fixture": review_fixture,
+        "ui_assets": ui_assets,
     }
     payloads["deployment.json"] = (
         json.dumps(deployment, sort_keys=True) + "\n"
