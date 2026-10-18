@@ -7,7 +7,7 @@ import {
   requiredOriginRows,
 } from "./origin-rows.mjs";
 import {PublicPlanningSession,resolvePublicOrigin} from "./public-planning.mjs";
-import {loadPublicCatalog} from "./public-catalog.mjs";
+import {loadPublicCatalog,loadInitialMap} from "./public-catalog.mjs";
 import {renderKnownOptional} from "./optional-facts.mjs";
 import { bindCoursesDrawer } from "./courses-drawer.mjs";
 
@@ -722,6 +722,8 @@ let catalogModel = null,
   geometry = null,
   progress = null,
   additions = null;
+let initialMap = null, detailsRequest = null, deferredSelection = null;
+const catalogURL = new URL("./data/catalog-release.json",import.meta.url);
 let activeFacility = null,
   popupSelection = null,
   browseMode = true,
@@ -789,8 +791,8 @@ function fitPoints(points, maxZoom = 15, animate = !REDUCED_MOTION) {
     });
 }
 function drawFacilities() {
-  if (!catalogModel) return;
-  facilityDots.update(catalogModel.facilities, activeFacility);
+  if (catalogModel) facilityDots.update(catalogModel.facilities, activeFacility);
+  else if (initialMap) facilityDots.update(initialMap.facilities, activeFacility);
 }
 function knownLink(container, value, label) {
   try {
@@ -893,12 +895,14 @@ function facilityDetails(f, compact = false) {
   return article;
 }
 function selectCoincidentFacilities(ids, coordinate) {
+  if(!catalogModel){deferredSelection=()=>selectCoincidentFacilities(ids,coordinate);setDrawer("courses",true);ensureCatalog();return;}
   closeSelection(false);
   popupSelection={kind:"coincident",ids,coordinate};
   setDrawer("courses",true,false);
   openSelectionPopup();renderCourses();
 }
 function selectFacilityById(id, fit = true) {
+  if(!catalogModel){deferredSelection=()=>selectFacilityById(id,fit);setDrawer("courses",true);ensureCatalog();return;}
   const facility=catalogModel?.facilityById.get(id);
   if(!facility)return;
   if(!planningMode&&browseScope?.ids&&!browseScope.ids.includes(id)&&located(facility)&&map.getBounds().contains([facility.map_location.latitude,facility.map_location.longitude]))
@@ -968,6 +972,7 @@ function openSelectionPopup() {
   }
 }
 function closeSelection(render = true) {
+  if(!catalogModel)deferredSelection=null;
   popupSelection=null;activeFacility=null;state.activeCourse=null;
   const previous=cataloguePopup;cataloguePopup=null;
   const focusedPopup=previous?.getElement?.()?.contains(document.activeElement);
@@ -1052,8 +1057,8 @@ function renderCourses() {
     updateLoadedCount(0);view.rankingDescription.textContent="";
     view.rankingDescription.hidden=true;
     const message=$("catalog-status").textContent?.includes("unavailable")
-      ? "Catalog unavailable. No course list can be shown."
-      : "Catalog is still loading. No browse course list is available yet.";
+      ? "Course details unavailable. Reopen Courses or select a place to retry."
+      : "Course details are loading. The course list will appear when verified.";
     $("browse-description").textContent=message;
     view.results.replaceChildren(node("p",message));
     return;
@@ -1098,7 +1103,7 @@ function closeSearch() {
 function showSearch() {
   lastSearch = $("place-query").value;
   searchMatches = searchCatalog(
-    catalogModel?.facilities || [],
+    catalogModel?.facilities || initialMap?.facilities || [],
     geometry?.states || [],
     lastSearch,
   );
@@ -1132,6 +1137,7 @@ function showSearch() {
   );
 }
 function chooseSearch(result) {
+  if(!catalogModel)deferredSelection=null;
   planningMode = false; planningSession?.invalidate(committedOrigins()); $("browse-access").value = "all"; setDrawer("plan", false);
   closeSearch();
   $("place-query").value =
@@ -1147,7 +1153,7 @@ function chooseSearch(result) {
   } else {
     const records =
       result.kind === "state"
-        ? catalogModel.facilities.filter((f) => f.state === result.id)
+        ? (catalogModel?.facilities || initialMap.facilities).filter((f) => f.state === result.id)
         : result.records;
     browseScope = { ids: records.map((f) => f.facility_id), label: result.label };
     setDrawer("courses", true);
@@ -1162,12 +1168,12 @@ function chooseSearch(result) {
   }
 }
 function renderProgress() {
-  if (!catalogModel) return;
-  const counts = catalogCounts(catalogModel.facilities);
+  if (!catalogModel && !initialMap) return;
+  const counts = catalogCounts(catalogModel?.facilities || initialMap.facilities);
   $("progress-counts").replaceChildren(
     ...[
       [counts.total, "Facilities"],
-      [catalogModel.courses.length, "Courses"],
+      [catalogModel?.courses.length ?? initialMap.counts.courses, "Courses"],
       [counts.onMap, "On map"],
       [counts.pending, "Not yet mapped"],
     ].map(([n, label]) => {
@@ -1287,14 +1293,13 @@ map.on("click",()=>closeSelection());
 map.on("popupclose",event=>{if(event.popup===cataloguePopup){cataloguePopup=null;closeSelection();}});
 async function loadCatalog() {
   try {
-    const r = await fetch("./research-map/boundaries.json");
-    if (!r.ok) throw new Error();
-    geometry = await r.json();
-  } catch {
-    geometry = { states: [], counties: [] };
-  }
-  try {
-    applyCatalog(await loadPublicCatalog(new URL("./data/catalog-release.json",import.meta.url)));
+    initialMap=await loadInitialMap(catalogURL);
+    geometry={states:initialMap.states};
+    $("catalog-status").hidden=true;
+    drawFacilities();renderProgress();
+    performance.mark("fairway-map-ready");
+    // An interaction can precede the index. Honor it once the release is pinned.
+    if(!view.resultsPanel.hidden || !$("plan-panel").hidden)ensureCatalog();
   } catch {
     $("catalog-status").hidden=false;
     $("catalog-status").textContent="Catalog unavailable.";
@@ -1302,7 +1307,26 @@ async function loadCatalog() {
     else view.results.replaceChildren(node("p","Catalog unavailable. No course list can be shown."));
   }
 }
+function ensureCatalog() {
+  if(catalogModel||detailsRequest||!initialMap)return;
+  $("catalog-status").hidden=false;
+  $("catalog-status").textContent="Loading course details…";
+  detailsRequest=loadPublicCatalog(catalogURL,{pinnedManifest:initialMap.manifest}).then(next=>{
+    applyCatalog(next);
+    const select=deferredSelection;deferredSelection=null;
+    select?.();
+  }).catch(()=>{
+    $("catalog-status").hidden=false;
+    $("catalog-status").textContent="Course details unavailable. Reopen Courses or select a place to retry.";
+    renderCourses();
+  }).finally(()=>{detailsRequest=null;});
+}
 planningSession = new PublicPlanningSession({notify:renderPreparation});
+const detailsObserver=new MutationObserver(()=>{
+  if(!view.resultsPanel.hidden || !$("plan-panel").hidden)ensureCatalog();
+  else deferredSelection=null;
+});
+for(const panel of [view.resultsPanel,$("plan-panel")])detailsObserver.observe(panel,{attributes:true,attributeFilter:["hidden"]});
 
 for (let count = requiredOriginRows(state.rows.length); count > 0; count -= 1)
   addOrigin();

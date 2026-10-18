@@ -11,6 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_CATALOG_BYTES = 64 * 1024 * 1024
+MAX_INITIAL_MAP_BYTES = 4 * 1024 * 1024
 # Allow gzip framing overhead even for an incompressible maximum-size catalog.
 MAX_PACKED_BYTES = MAX_CATALOG_BYTES + 1024 * 1024
 ASSETS = (
@@ -433,6 +434,42 @@ def credits_html(licenses, policy):
     ).encode()
 
 
+def initial_map_bytes(value, manifest, states):
+    # A reproducible map/search view, never a second catalog authority. Course
+    # details still use the complete native projection and its browser validator.
+    initial_map = {
+        "map_format": 1,
+        "revision": manifest["revision"],
+        "catalog_release_key": manifest["catalog_release_key"],
+        "catalog_sha256": manifest["files"]["catalog.json"]["sha256"],
+        "counts": manifest["counts"],
+        "facilities": [
+            [
+                f["facility_id"],
+                f["name"],
+                f["state"],
+                (f.get("address") or {}).get("city"),
+                [point["latitude"], point["longitude"], point["kind"]]
+                if (point := f["map_location"]) is not None
+                else None,
+            ]
+            for f in value["facilities"]
+        ],
+        # State geometry supports the existing state search/fitting behavior;
+        # county geometry is not needed by this interface.
+        "states": states,
+    }
+    raw = (
+        json.dumps(
+            initial_map, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+        )
+        + "\n"
+    ).encode()
+    if len(raw) > MAX_INITIAL_MAP_BYTES:
+        raise ValueError("generated initial map too large")
+    return raw
+
+
 def build(root, output, commit, review_fixture=False):
     if output.exists() and any(output.iterdir()):
         raise ValueError("Pages output must be new or empty")
@@ -447,6 +484,18 @@ def build(root, output, commit, review_fixture=False):
     name = f"native-catalog-{item['sha256']}.json"
     payloads["data/" + name] = raw
     public = {**manifest, "files": {"catalog.json": {**item, "path": name}}}
+    value = json.loads(raw)
+    map_raw = initial_map_bytes(
+        value, manifest, json.loads(payloads["research-map/boundaries.json"])["states"]
+    )
+    map_sha = digest(map_raw)
+    map_name = f"initial-map-{map_sha}.json"
+    payloads["data/" + map_name] = map_raw
+    public["files"]["initial-map.json"] = {
+        "path": map_name,
+        "sha256": map_sha,
+        "bytes": len(map_raw),
+    }
     payloads["data/catalog-release.json"] = (
         json.dumps(public, sort_keys=True, separators=(",", ":")) + "\n"
     ).encode()
@@ -455,7 +504,7 @@ def build(root, output, commit, review_fixture=False):
         b'<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=../"><title>fairway catalog</title><a href="../">Open the fairway catalog</a>'
     )
     policy = "default-src 'self'; base-uri 'none'; connect-src 'self' https://photon.komoot.io; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'none'; object-src 'none'"
-    payloads["credits.html"] = credits_html(json.loads(raw)["source_licenses"], policy)
+    payloads["credits.html"] = credits_html(value["source_licenses"], policy)
     html = (
         payloads["index.html"]
         .decode()

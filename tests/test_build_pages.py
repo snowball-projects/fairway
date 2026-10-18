@@ -39,7 +39,7 @@ def test_native_pages_are_reproducible_public_only_and_leave_source_unchanged(tm
         and "REVIEW FIXTURE: synthetic records" in html
     )
     assert one["review_fixture"] is True
-    assert one["assets"] == 24
+    assert one["assets"] == 25
     assert json.loads((output / "deployment.json").read_text())["commit"] == "a" * 40
     for name in [
         "catalog.mjs",

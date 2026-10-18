@@ -9,8 +9,12 @@ separate from this public catalog release. The unfinished private national API
 prototype (PR15) is not a public service or an available routing fallback.
 
 GitHub Pages serves static assets and a checksummed SQLite-derived read projection.
-The browser enforces a 16 KiB manifest limit, 64 MiB raw catalog limit and a single
-30-second loading deadline. The Pages builder bounds gzip expansion before parsing.
+The browser first loads a derived map/search index, bounded to 4 MiB. Course
+details load on demand from the same pinned release. The browser enforces a
+16 KiB manifest limit, 64 MiB complete-catalog limit and a 30-second deadline per
+load. Cached hash-named assets are still checksummed; unavailable or mismatched
+details do not replace the map with data from another release.
+The Pages builder bounds gzip expansion before parsing.
 Ordinary hosting requests expose standard connection metadata to GitHub. The full
 SQLite, recovery SQL, private source controls and retained documents are not browser
 assets. There is no editable JSON catalog or browser SQLite engine.
