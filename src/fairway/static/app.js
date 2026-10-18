@@ -1174,7 +1174,12 @@ function chooseSearch(result) {
 function bindSearchChoices() {
   map.on("zoomstart movestart",()=>{searchCameraActive=true;});
   // Register after viewport reconciliation so the old camera settles first.
-  map.on("moveend",()=>{searchCameraActive=false;scheduleSearchChoice();});
+  map.on("moveend",()=>{
+    searchCameraActive=false;
+    if(searchChoiceFrame!==null)cancelAnimationFrame(searchChoiceFrame);
+    searchChoiceFrame=null;
+    scheduleSearchChoice();
+  });
   document.addEventListener("pointerdown",cancelSearchChoice);
   document.addEventListener("keydown",event=>{if(event.key==="Escape")cancelSearchChoice();});
   map.getContainer().addEventListener("wheel",cancelSearchChoice,{passive:true});

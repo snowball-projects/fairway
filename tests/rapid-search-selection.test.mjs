@@ -12,15 +12,15 @@ function actual(name){
 }
 function harness(){
  let next=0;const frames=new Map(),events={},inputs={},applied=[],order=[];
- const ctx=vm.createContext({searchChoiceFrame:null,pendingSearchChoice:null,searchCameraActive:false,
+ const ctx=vm.createContext({searchChoiceFrame:null,pendingSearchChoice:null,searchCameraActive:false,viewportFrame:null,planningMode:false,browseMode:false,browseScope:null,catalogModel:{},
   requestAnimationFrame:fn=>{const id=++next;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
-  applySearchChoice:result=>{applied.push(result);order.push(result.id);},closeSearch(){},
+  applySearchChoice:result=>{ctx.browseScope={ids:[result.id],label:'Facility search'};applied.push(result);order.push(result.id);},closeSearch(){},renderCourses(){order.push('old viewport');},
   document:{addEventListener:(name,fn)=>{inputs[name]=fn;}},$:id=>({addEventListener:(name,fn)=>{inputs[id+':'+name]=fn;}}),
   map:{on:(names,fn)=>{for(const name of names.split(' '))(events[name]??=[]).push(fn);},getContainer:()=>({addEventListener:(name,fn)=>{inputs['map:'+name]=fn;}})}
  });
- for(const name of ['cancelSearchChoice','scheduleSearchChoice','chooseSearch','bindSearchChoices'])vm.runInContext(actual(name),ctx);
+ for(const name of ['cancelSearchChoice','scheduleSearchChoice','chooseSearch','bindSearchChoices','refreshBrowseViewport'])vm.runInContext(actual(name),ctx);
  // The shipped viewport handler is registered before the search coordinator.
- ctx.map.on('moveend',()=>ctx.requestAnimationFrame(()=>order.push('old viewport')));
+ ctx.map.on('moveend zoomend',()=>ctx.refreshBrowseViewport());
  ctx.bindSearchChoices();
  const fire=name=>{for(const f of events[name]||[])f();};
  const frame=()=>{const batch=[...frames];frames.clear();for(const [,fn] of batch)fn();};
@@ -43,4 +43,15 @@ for(const input of ['pointerdown','map:wheel','place-query:input','plan-toggle:c
  const h=harness();h.fire('zoomstart');h.ctx.chooseSearch({id:'stale'});h.frame();
  h.inputs[input](input==='keydown'?{key:'Escape'}:{});h.fire('moveend');h.frame();assert.deepEqual(h.applied,[]);
  h.ctx.chooseSearch({id:'new'});h.frame();assert.deepEqual(h.applied,[{id:'new'}]);
+});
+
+test('moveend before the pending search frame requeues the latest choice behind the actual viewport refresh',()=>{
+ const h=harness();h.fire('zoomstart');h.ctx.chooseSearch({id:'latest-empty'});h.fire('moveend');h.frame();
+ assert.equal(h.ctx.browseScope.label,'Facility search');assert.deepEqual(h.order,['old viewport','latest-empty']);
+ assert.deepEqual(h.applied,[{id:'latest-empty'}]);h.frame();assert.equal(h.applied.length,1);
+});
+test('zoomend viewport work and repeated moveend events still apply the latest choice once',()=>{
+ const h=harness();h.fire('zoomstart');h.ctx.chooseSearch({id:'old'});h.ctx.chooseSearch({id:'latest'});
+ h.fire('zoomend');h.fire('moveend');h.fire('moveend');h.frame();
+ assert.equal(h.ctx.browseScope.label,'Facility search');assert.deepEqual(h.order,['old viewport','latest']);assert.equal(h.applied.length,1);
 });
