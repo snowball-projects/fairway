@@ -9,11 +9,14 @@ permissions:
   contents: read
 
 jobs:
-  # Generated catalog edits are hash-validated without installing the app.
+  # One complete production Pages integration; other jobs reuse this result.
   catalog:
     runs-on: ubuntu-latest
     outputs:
+      scope: ${{ steps.changes.outputs.scope }}
       app: ${{ steps.changes.outputs.app }}
+      archive_both: ${{ steps.changes.outputs.archive_both }}
+      snapshot: ${{ steps.changes.outputs.snapshot }}
       experiment: ${{ steps.changes.outputs.experiment }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -25,33 +28,21 @@ jobs:
         env:
           BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
           HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: |
-          app=false
-          experiment=false
-          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
-            app=true
-            experiment=true
-          else
-            git diff --name-only -z "$BASE" "$HEAD" > "$RUNNER_TEMP/changed-files"
-            while IFS= read -r -d '' path; do
-              case "$path" in
-                data/catalog-release/*|data/README.md|CHANGELOG.md) : ;;
-                experiments/catalog-expansion/*) experiment=true ;;
-                .github/workflows/*) app=true; experiment=true ;;
-                *) app=true ;;
-              esac
-            done < "$RUNNER_TEMP/changed-files"
-          fi
-          echo "app=$app" >> "$GITHUB_OUTPUT"
-          echo "experiment=$experiment" >> "$GITHUB_OUTPUT"
+        run: python scripts/ci_scope.py
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.13"
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "24"
-      - name: Validate native generated catalog identity
-        run: python scripts/build_pages.py --output "$RUNNER_TEMP/catalog-validation" --commit "$GITHUB_SHA"
+      - name: Install locked test tools
+        run: |
+          python -m pip install uv==0.12.18
+          uv sync --extra test --locked
+      - run: uv run --locked ruff check .
+      - run: uv run --locked ruff format --check .
+      - name: Complete production catalog and deterministic Pages integration
+        run: uv run --locked python -m pytest --strict-markers tests/test_build_pages.py -m catalog_integration --durations=5
       - name: Validate complete public catalog with the browser contract
         run: |
           node --input-type=module <<'JS'
@@ -62,14 +53,19 @@ jobs:
           const catalog = JSON.parse(gunzipSync(readFileSync('data/catalog-release/catalog.json.gz')));
           validatePublicCatalog(catalog, manifest);
           JS
-      - name: Check deterministic Pages assembly
+      - name: Browser behavior and invariant regressions
         run: |
-          python scripts/build_pages.py --output "$RUNNER_TEMP/catalog-repro" --commit "$GITHUB_SHA"
-          diff -r "$RUNNER_TEMP/catalog-validation" "$RUNNER_TEMP/catalog-repro"
+          node --check src/fairway/static/app.js
+          node --check src/fairway/static/leaflet.js
+          node --check docs/research-map/app.mjs
+          node --check docs/research-map/model.mjs
+          node --check docs/research-map/refresh.mjs
+          node --test tests/*.test.mjs
 
   verify:
     needs: catalog
-    if: needs.catalog.outputs.app == 'true'
+    # A failed prerequisite must fail these named checks, never become a skipped success.
+    if: always()
     runs-on: ubuntu-latest
     name: ${{ matrix.check-name }}
     strategy:
@@ -81,6 +77,14 @@ jobs:
           - python-version: "3.12"
             check-name: verify-python-3.12
     steps:
+      - name: Require catalog checks and report selected scope
+        env:
+          CATALOG_RESULT: ${{ needs.catalog.result }}
+          SCOPE: ${{ needs.catalog.outputs.scope }}
+          APP: ${{ needs.catalog.outputs.app }}
+        run: |
+          test "$CATALOG_RESULT" = success
+          echo "Verification scope: $SCOPE; full Python behavior: $APP" | tee -a "$GITHUB_STEP_SUMMARY"
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
@@ -88,38 +92,58 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
+      - name: Install locked dependencies
+        run: |
+          python -m pip install uv==0.12.18
+          uv sync --extra test --locked
+      - name: Catalog factual invariants (catalog or experiment scope)
+        if: needs.catalog.outputs.app != 'true'
+        run: uv run --locked python -m pytest --strict-markers tests/test_catalog_foundation.py tests/test_kansas_delta.py
+      - name: Fetch verified legacy snapshot for application behavior tests
+        if: needs.catalog.outputs.app == 'true'
+        run: uv run --locked python scripts/fetch_snapshot.py
+      - name: Python behavior (production Pages already checked)
+        if: needs.catalog.outputs.app == 'true'
+        run: uv run --locked python -m pytest --strict-markers -m 'not catalog_integration' --durations=10
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        if: needs.catalog.outputs.app == 'true' && (matrix.python-version == '3.13' || needs.catalog.outputs.archive_both == 'true')
         with:
           node-version: "24"
-      - run: bash scripts/build.sh
-      - run: uv sync --extra test --locked
-      - run: uv run --locked ruff check .
-      - run: uv run --locked ruff format --check .
-      - run: node --check src/fairway/static/app.js
-      - run: node --check src/fairway/static/leaflet.js
-      - run: node --check docs/research-map/app.mjs
-      - run: node --check docs/research-map/model.mjs
-      - run: node --check docs/research-map/refresh.mjs
-      - run: node --test tests/*.test.mjs
-      - run: uv run --locked python -m pytest
-      - run: uv build
+      - name: Build distribution artifacts
+        if: needs.catalog.outputs.app == 'true' && (matrix.python-version == '3.13' || needs.catalog.outputs.archive_both == 'true')
+        run: uv build
       - name: Smoke-test installed wheel command
+        if: needs.catalog.outputs.app == 'true' && (matrix.python-version == '3.13' || needs.catalog.outputs.archive_both == 'true')
         run: |
+          python - <<'PYTHON'
+          from pathlib import Path
+          from zipfile import ZipFile
+          with ZipFile(next(Path('dist').glob('fairway-*.whl'))) as wheel:
+              for path in Path('src/fairway').rglob('*'):
+                  if path.is_file() and '__pycache__' not in path.parts and path.suffix not in {'.pyc', '.pyo'}:
+                      assert wheel.read(path.relative_to('src').as_posix()) == path.read_bytes(), str(path)
+          PYTHON
           python -m venv /tmp/fairway-wheel
           /tmp/fairway-wheel/bin/pip install --no-deps dist/fairway-*.whl
           /tmp/fairway-wheel/bin/fairway-fetch-snapshot --help
       - name: Test extracted source distribution
+        if: needs.catalog.outputs.app == 'true' && (matrix.python-version == '3.13' || needs.catalog.outputs.archive_both == 'true')
         run: |
           mkdir "$RUNNER_TEMP/fairway-source"
           tar -xzf dist/fairway-*.tar.gz -C "$RUNNER_TEMP/fairway-source" --strip-components=1
+          for tree in src/fairway scripts tests data/catalog-release; do
+            diff -r --exclude=__pycache__ --exclude='*.py[co]' "$tree" "$RUNNER_TEMP/fairway-source/$tree"
+          done
           cd "$RUNNER_TEMP/fairway-source"
-          bash scripts/build.sh
           uv sync --extra test --locked
-          env -u PYTHONPATH uv run --locked python -m pytest
+          uv run --locked python scripts/fetch_snapshot.py
+          env -u PYTHONPATH uv run --locked python -m pytest --strict-markers -m 'not catalog_integration'
           node --test tests/*.test.mjs
-      - run: uv run --locked python scripts/validate_snapshot.py
-      - run: uv run --locked python scripts/build_course_index.py /tmp/fairway-courses.npz
-      - run: uv run --locked python scripts/validate_snapshot.py --course-index /tmp/fairway-courses.npz
+      - name: Validate real snapshot and exhaustive rebuilt course index
+        if: matrix.python-version == '3.13' && needs.catalog.outputs.snapshot == 'true'
+        run: |
+          uv run --locked python scripts/build_course_index.py /tmp/fairway-courses.npz
+          uv run --locked python scripts/validate_snapshot.py --course-index /tmp/fairway-courses.npz
 
   catalog-experiment:
     needs: catalog
@@ -140,7 +164,7 @@ jobs:
     if: >-
       always() && github.event_name == 'push' && github.ref == 'refs/heads/main' &&
       needs.catalog.result == 'success' &&
-      (needs.verify.result == 'success' || needs.verify.result == 'skipped')
+      needs.verify.result == 'success'
     runs-on: ubuntu-latest
     permissions:
       contents: read

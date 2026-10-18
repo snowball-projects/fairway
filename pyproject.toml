@@ -33,6 +33,7 @@ fairway = ["catalog_schema/*.sql", "data/*.json", "static/*", "static/research-m
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["catalog_integration: complete production catalog builds, run once in CI's catalog check"]
 
 [tool.ruff.lint.per-file-ignores]
 "src/fairway/fetch.py" = ["S310"] # URL and redirect targets are HTTPS-validated.
