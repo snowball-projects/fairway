@@ -24,11 +24,11 @@ no automatic upgrade or fallback to the older reader/export command.
 
 ```sh
 PYTHONPATH=src python scripts/native5_catalog.py --db /private/closed.sqlite \
-  export /private/new-export --sha256 CLOSED_BINARY_SHA256 --revision 979
+  export /private/new-export --sha256 CLOSED_BINARY_SHA256 --revision 981
 ```
 
-The selected revision 979 pins and accounting are in
-[RELEASE979.md](../docs/catalog/RELEASE979.md). Schema4 export and migration tools
+The selected revision 981 pins and accounting are in
+[RELEASE981.md](../docs/catalog/RELEASE981.md). Schema4 export and migration tools
 retained for historical tests are not the current native5 publication command.
 
 After the sole writer reviews an immutable export, copy its exact generated manifest

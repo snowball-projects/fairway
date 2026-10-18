@@ -1,17 +1,17 @@
-# Catalog release 979
+# Catalog release 981
 
 This native5/format2 projection comes from the sole writer's selected closed
-revision 979. SQLite remains the maintained authority. The private database,
+revision 981. SQLite remains the maintained authority. The private database,
 recovery SQL, retained evidence and source controls are not public build inputs.
 
-- Closed binary/release key: `0c6b4d9038ae693d9423fc9043d2ad51e193b01a3a4f189d888b585411c4f16a`.
-- JSON: `0924fdb68b075ef80052cdeb033cae83af369ba5e17d4d035da5cb467b37c11f`, 36,957,413 bytes.
-- Gzip: `dceda4efd90e5af80970f4f4b6813f808bf1d2629f59df1894fbb0463b2ad134`, 3,924,263 bytes.
-- Manifest: `9916943d92485c51bf443ac45bcc3efefe4625a4570b41a4edb861837674ca11`.
+- Closed binary/release key: `09bd5377d000077f86e32cd784bd9d8cc0fed019522cc94e7fcd68ba2b801e5a`.
+- JSON: `68cceb68dd19e255a552a85c6dec0a8cf3904ef817b2aca92a401517fc7e7d65`, 36,961,062 bytes.
+- Gzip: `a3704db1dcac8a48cbc84296c71bb7aae02b7335fbb7a53957d510d9ed3ae5c0`, 3,924,451 bytes.
+- Manifest: `bb133725cc478e607651c399a030d46debfb0ecd56e76cf64a948e23d1a747c9`.
 - Inventory remains 7,430 facilities, 4,682 courses and 2,852 destinations.
 - Typed domain observations: 5,014, including 2,159 qualified price observations.
   There are 2,803 tee/category rows, 594 rounds, 18,905 source records,
-  14,384 intake projections and 8,286 note IDs without bodies.
+  14,397 intake projections and 8,286 note IDs without bodies.
 
 Compared with release 967, eleven whole reviewed actual workflows add 73 typed
 records and update five existing course location notes, totaling 78 reviewed packet
@@ -23,6 +23,15 @@ rows, five source observations, four operating periods, twelve instruction-price
 observations and one programme policy. Tee/category observations do not establish
 51 physical tee configurations. Unknown units, categories, par, rating and slope
 remain unknown; distinct source alternatives remain separate.
+
+Two subsequent guarded corrective workflows change thirteen existing cells: the
+Agave Teal rated category from unknown to the exact retained source marker `W`,
+and twelve authored Bethpage product-name separators from an em dash to an ASCII
+hyphen. These are corrections, not thirteen new features or records. The category
+is a literal source marker, not an inferred gender enum; the other tee metrics and
+unknowns remain unchanged. Monetary values, currencies, dates, conditions,
+qualifications and immutable source-observation envelopes remain exact. Original
+revision 979, captures, receipts and review evidence remain preserved.
 
 Five Bethpage course notes now say "Starts from the clubhouse area." These notes
 supply no new entrance, routing coordinate or arrival qualification. All other
