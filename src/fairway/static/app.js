@@ -315,6 +315,7 @@ async function commitOrigin(row, trigger = "blur") {
     return true;
   }
   if (row.lookupPromise && row.lookupQuery === query && row.controller && !row.controller.signal.aborted) return row.lookupPromise;
+  closeSuggestions(row, true);
   if (!query) {if(planningMode)syncPlanning();return false;}
   if (query.length < 3 || query.length > 256) return false;
   const coordinate = parseCoordinate(query);
@@ -325,7 +326,7 @@ async function commitOrigin(row, trigger = "blur") {
   row.lookupPromise = (async () => {
     try {
       let result;
-      if (planningAdapter?.resolveOrigin) result = await planningAdapter.resolveOrigin(query);
+      if (planningAdapter?.resolveOrigin) result = await planningAdapter.resolveOrigin(query, {signal: controller.signal});
       else throw new Error("Address lookup unavailable");
       if (!state.rows.includes(row) || row.controller !== controller || row.input.value.trim() !== query) return false;
       const choices = (result.features || []).slice(0,5).map(feature => ({feature, coordinate:feature?.geometry?.coordinates}))
@@ -345,7 +346,7 @@ async function commitOrigin(row, trigger = "blur") {
       setStatus(choices.length ? "Choose the matching address." : "Address not found. Check the complete address.", !choices.length);
       return false;
     } catch (error) {
-      if (error.name !== "AbortError" && row.controller === controller) setStatus("Address suggestions are unavailable. Try the address again.", true);
+      if (!controller.signal.aborted && error.name !== "AbortError" && state.rows.includes(row) && row.controller === controller) setStatus("Address suggestions are unavailable. Try the address again.", true);
       return false;
     } finally {
       if (row.controller === controller) {

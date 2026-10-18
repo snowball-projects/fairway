@@ -87,13 +87,13 @@ test('committed 939 release validates complete typed scope and rejects old-schem
 });
 
 
-test('loader reuses each bounded UTF8 body for byte length and checksum without redundant encodings',async()=>{
- const t=transport(value=>value.source_licenses.push({source:'Équipe ⛳',license:'CC0-1.0',attribution:'Équipe ⛳'})),bodies=[JSON.stringify(t.manifest),t.raw],Encoder=globalThis.TextEncoder,encodings=[];let reads=0;
- globalThis.TextEncoder=class extends Encoder{encode(text){encodings.push(text);return super.encode(text);}};
- try {
-  const model=await loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>({ok:true,headers:{get:()=>null},text:async()=>bodies[reads++]})});
-  assert.equal(model.sourceLicenses.at(-1).attribution,'Équipe ⛳');assert.equal(reads,2);assert.deepEqual(encodings,bodies);
- }finally{globalThis.TextEncoder=Encoder;}
+test('streamed UTF8 chunks preserve original checksum bytes across split characters',async()=>{
+ const t=transport(value=>value.source_licenses.push({source:'Équipe ⛳',license:'CC0-1.0',attribution:'Équipe ⛳'}));let reads=0;
+ const model=await loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>{
+  const bytes=new TextEncoder().encode(++reads===1?JSON.stringify(t.manifest):t.raw);let offset=0;
+  return new Response(new ReadableStream({pull(controller){if(offset===bytes.length)controller.close();else controller.enqueue(bytes.slice(offset,++offset));}}));
+ }});
+ assert.equal(model.sourceLicenses.at(-1).attribution,'Équipe ⛳');assert.equal(reads,2);
 });
 test('same-byte-length changed payload still fails the original checksum before validation',async()=>{
  const t=transport(),changed=t.raw.replace('Synthetic','Xynthetic');assert.notEqual(changed,t.raw);assert.equal(Buffer.byteLength(changed),Buffer.byteLength(t.raw));let count=0;
@@ -102,4 +102,67 @@ test('same-byte-length changed payload still fails the original checksum before 
 test('declared payload size remains UTF8 bytes rather than UTF16 character count',async()=>{
  const t=transport(value=>value.source_licenses.push({source:'Équipe ⛳',license:'CC0-1.0',attribution:'Équipe ⛳'}));assert.ok(Buffer.byteLength(t.raw)>t.raw.length);t.manifest.files['catalog.json'].bytes=t.raw.length;
  await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',t),/checksum/);assert.equal(t.calls.length,2);
+});
+
+for(const declared of [null,'1'])test(`manifest streaming limit cancels excess bytes with content-length ${declared}`,async()=>{
+ let pulled=0,cancelled=0,calls=0;
+ const body=new ReadableStream({pull(controller){pulled++;controller.enqueue(new Uint8Array(1024));},cancel(){cancelled++;}});
+ await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>{calls++;return new Response(body,{headers:declared?{'content-length':declared}:{}});}}),/too large/);
+ assert.equal(calls,1);assert.equal(cancelled,1);assert.ok(pulled<=18);
+});
+test('catalog streaming limit cancels excess bytes before parsing or hashing',async()=>{
+ const t=transport();let pulled=0,cancelled=0,calls=0;
+ const body=new ReadableStream({pull(controller){pulled++;controller.enqueue(new Uint8Array(1024*1024));},cancel(){cancelled++;}});
+ await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>++calls===1?new Response(JSON.stringify(t.manifest)):new Response(body)}),/too large/);
+ assert.equal(calls,2);assert.equal(cancelled,1);assert.ok(pulled<=66);
+});
+for(const phase of ['headers','manifest','catalog'])test(`deadline terminates stalled ${phase} and cancels active streams`,async()=>{
+ const t=transport();let calls=0,cancelled=0,signal;
+ const stalled=()=>new Response(new ReadableStream({cancel(){cancelled++;return new Promise(()=>{});}}));
+ await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',{timeoutMs:30,fetcher:async(url,options)=>{
+  calls++;signal=options.signal;
+  if(phase==='headers')return new Promise(()=>{});
+  return phase==='catalog'&&calls===1?new Response(JSON.stringify(t.manifest)):stalled();
+ }}),{name:'TimeoutError'});
+ assert.equal(signal.aborted,true);assert.equal(calls,phase==='catalog'?2:1);assert.equal(cancelled,phase==='headers'?0:1);
+});
+test('caller cancellation terminates body consumption and pre-aborted loads make no requests',async()=>{
+ const controller=new AbortController();let calls=0,cancelled=0;
+ const pending=loadPublicCatalog('https://example.test/data/catalog-release.json',{signal:controller.signal,fetcher:async()=>{
+  calls++;return new Response(new ReadableStream({pull(){controller.abort();},cancel(){cancelled++;}}));
+ }});
+ await assert.rejects(pending,{name:'AbortError'});assert.equal(cancelled,1);
+ await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',{signal:controller.signal,fetcher:async()=>{calls++;}}),{name:'AbortError'});assert.equal(calls,1);
+});
+test('rejected HTTP bodies and declared oversize bodies are cancelled without reading',async()=>{
+ for(const options of [{status:503},{headers:{'content-length':'99999999'}}]){
+  let cancelled=false;
+  await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>new Response(new ReadableStream({cancel(){cancelled=true;}}),options)}));
+  assert.equal(cancelled,true);
+ }
+});
+function abortAwareFetch(signals){return async(url,{signal})=>{
+ signals.push(signal);signal.throwIfAborted();
+ return new Promise((resolve,reject)=>{
+  const timer=setTimeout(()=>resolve(new Response('{"features":[]}')),500);
+  signal.addEventListener('abort',()=>{clearTimeout(timer);reject(signal.reason);},{once:true});
+ });
+};}
+test('origin lookup composes caller cancellation and its deadline',async()=>{
+ const signals=[],controller=new AbortController();
+ const pending=resolvePublicOrigin('address',{signal:controller.signal,fetcher:abortAwareFetch(signals)});
+ controller.abort();await assert.rejects(pending,{name:'AbortError'});assert.equal(signals[0].aborted,true);
+ await assert.rejects(resolvePublicOrigin('address',{timeoutMs:20,fetcher:abortAwareFetch(signals)}),{name:'TimeoutError'});
+ assert.equal(signals[1].aborted,true);
+});
+test('exact manifest byte limit succeeds and a finished load leaves its request signal active',async()=>{
+ const t=transport();const manifest=JSON.stringify(t.manifest).padEnd(16384,' ');let calls=0,signal;
+ const model=await loadPublicCatalog('https://example.test/data/catalog-release.json',{timeoutMs:50,fetcher:async(url,options)=>{signal=options.signal;return new Response(++calls===1?manifest:t.raw);}});
+ assert.equal(model.revision,2);await new Promise(resolve=>setTimeout(resolve,60));assert.equal(signal.aborted,false);
+});
+test('invalid UTF8 fails closed instead of checksumming a replacement encoding',async()=>{
+ const t=transport(),bytes=new Uint8Array([123,34,128]),hash=createHash('sha256').update(bytes).digest('hex');let calls=0;
+ t.manifest.files['catalog.json']={bytes:bytes.length,sha256:hash,path:`native-catalog-${hash}.json`};
+ await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>new Response(++calls===1?JSON.stringify(t.manifest):bytes)}),TypeError);
+ assert.equal(calls,2);
 });

@@ -21,7 +21,8 @@ See [catalog authority and release identity](data/README.md), the
 
 ## Build and verify locally
 
-Python 3.12+ and Node are required. Building static assets starts no server and
+Python 3.12+ and Node 24+ are required. CI runs the application checks on Python
+3.12 and 3.13. Building static assets starts no server and
 needs no private SQLite database, provider credentials or network requests:
 
 ```sh
@@ -33,9 +34,13 @@ PYTHONPATH=src:tests python -m pytest -q
 
 The output directory must be new or empty. The builder validates compressed and
 uncompressed hashes, release identity, public projection and row counts before
-writing a hash-named JSON asset. The browser validates complete relationships and
-scoped observations. CI checks both and compares two static builds byte for byte.
-There is no legacy schema adapter or automatic fixture fallback.
+writing a hash-named JSON asset. Decompression stops at the declared raw size
+plus one sentinel byte, with a 64 MiB raw ceiling. The browser validates complete
+relationships and scoped observations. CI checks both and compares two static builds byte for byte.
+The browser reads response streams with a 16 KiB manifest limit, 64 MiB catalog
+limit and one 30-second deadline covering both network requests and body reads.
+Oversized, stalled or cancelled streams fail closed. There is no legacy schema
+adapter or automatic fixture fallback.
 
 For isolated regression work, `--review-fixture` selects the exact pinned synthetic
 fixture and visibly labels every resulting page. It never substitutes for the
@@ -45,8 +50,18 @@ clearances remain documented under `docs/catalog/native5-ui/`.
 ## Existing calculation API
 
 `src/fairway/app.py` and its bounded eight-course Chicago snapshot remain separate.
-Pages does not contact that API. Existing provider configuration and `render.yaml`
-are unchanged. Running or testing that API does not enable national browser routing.
+The unfinished private national API prototype (PR15) is separate work and has
+not been adopted as a public routing service. Pages does not contact either API.
+Existing provider configuration and `render.yaml` are unchanged. Running or testing that API does not enable national browser routing.
+
+## Release identity
+
+`.github/workflows/ci.yml` assembles and publishes Pages from main. Check its
+`deployment.json` for the deployed software commit, catalog revision, release key,
+and payload checksum. The Python package version (`0.6.2` in `pyproject.toml` and
+`uv.lock`) identifies the separate software package, not a catalog revision or
+proof of deployment. Unreleased software fixes are recorded in `CHANGELOG.md`;
+version bumps and catalog integration are coordinated with the release owner.
 
 ## License
 

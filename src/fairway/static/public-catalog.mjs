@@ -12,11 +12,55 @@ export function validatePublicCatalog(value,manifest){
   for(const f of model.facilities){const actual=(byFacility.get(f.facility_id)||[]).sort();if(!Array.isArray(f.course_ids)||JSON.stringify([...f.course_ids].sort())!==JSON.stringify(actual))throw new Error('Published course relationships mismatch');}
   return model;
 }
-export async function loadPublicCatalog(manifestURL,{fetcher=globalThis.fetch}={}){
-  const base=new URL(manifestURL);const read=async(url,max)=>{const response=await fetcher(url,{credentials:'omit',cache:'no-cache',mode:'same-origin'});if(!response.ok)throw new Error('Published catalog unavailable');const declared=Number(response.headers?.get?.('content-length'));if(declared>max)throw new Error('Published catalog too large');const text=await response.text(),bytes=new TextEncoder().encode(text);if(bytes.length>max)throw new Error('Published catalog too large');return {text,bytes};};
-  const manifest=JSON.parse((await read(base,16384)).text),file=manifest.files?.['catalog.json'];
-  if(manifest.format_version!==2||manifest.schema!==5||!file||!Number.isSafeInteger(file.bytes)||file.bytes<2||file.bytes>MAX_BYTES||! /^[a-f0-9]{64}$/.test(file.sha256)||file.path!==`native-catalog-${file.sha256}.json`)throw new Error('Invalid published catalog manifest');
-  const url=new URL(file.path,base);if(url.origin!==base.origin||url.pathname.substring(0,url.pathname.lastIndexOf('/'))!==base.pathname.substring(0,base.pathname.lastIndexOf('/')))throw new Error('Invalid catalog location');
-  const raw=await read(url,MAX_BYTES);if(raw.bytes.length!==file.bytes||await digest(raw.bytes)!==file.sha256)throw new Error('Published catalog checksum mismatch');
-  return validatePublicCatalog(JSON.parse(raw.text),manifest);
+// Race injected transports too: a stalled response must not outlive the deadline.
+async function abortable(work,signal){
+  signal.throwIfAborted();
+  let onAbort;
+  const aborted=new Promise((_,reject)=>{onAbort=()=>reject(signal.reason);signal.addEventListener('abort',onAbort,{once:true});});
+  try{return await Promise.race([work,aborted]);}
+  finally{signal.removeEventListener('abort',onAbort);}
+}
+async function readBounded(url,max,fetcher,signal){
+  const response=await abortable(fetcher(url,{credentials:'omit',cache:'no-cache',mode:'same-origin',signal}),signal);
+  let reader,complete=false;
+  try{
+    if(!response.ok)throw new Error('Published catalog unavailable');
+    const declared=Number(response.headers?.get?.('content-length'));
+    if(declared>max)throw new Error('Published catalog too large');
+    reader=response.body?.getReader();
+    if(!reader)throw new Error('Published catalog body unavailable');
+    const chunks=[];let size=0;
+    while(true){
+      const {done,value}=await abortable(reader.read(),signal);
+      if(done){complete=true;break;}
+      size+=value.byteLength;
+      if(size>max)throw new Error('Published catalog too large');
+      chunks.push(value);
+    }
+    const bytes=new Uint8Array(size);let offset=0;
+    for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.byteLength;}
+    return {text:new TextDecoder('utf-8',{fatal:true}).decode(bytes),bytes};
+  }finally{
+    if(!complete){
+      // Do not wait for a producer's cancellation hook to settle.
+      const cancellation=reader?reader.cancel():response.body?.cancel();
+      cancellation?.catch(()=>{});
+    }
+    reader?.releaseLock();
+  }
+}
+export async function loadPublicCatalog(manifestURL,{fetcher=globalThis.fetch,signal,timeoutMs=30000}={}){
+  const deadline=new AbortController();
+  const timer=setTimeout(()=>deadline.abort(new DOMException('Published catalog timed out','TimeoutError')),timeoutMs);
+  const combined=signal?AbortSignal.any([signal,deadline.signal]):deadline.signal;
+  try{
+    combined.throwIfAborted();
+    const base=new URL(manifestURL),read=(url,max)=>readBounded(url,max,fetcher,combined);
+    const manifest=JSON.parse((await read(base,16384)).text),file=manifest.files?.['catalog.json'];
+    if(manifest.format_version!==2||manifest.schema!==5||!file||!Number.isSafeInteger(file.bytes)||file.bytes<2||file.bytes>MAX_BYTES||! /^[a-f0-9]{64}$/.test(file.sha256)||file.path!==`native-catalog-${file.sha256}.json`)throw new Error('Invalid published catalog manifest');
+    const url=new URL(file.path,base);if(url.origin!==base.origin||url.pathname.substring(0,url.pathname.lastIndexOf('/'))!==base.pathname.substring(0,base.pathname.lastIndexOf('/')))throw new Error('Invalid catalog location');
+    const raw=await read(url,MAX_BYTES);if(raw.bytes.length!==file.bytes||await digest(raw.bytes)!==file.sha256)throw new Error('Published catalog checksum mismatch');
+    combined.throwIfAborted();
+    return validatePublicCatalog(JSON.parse(raw.text),manifest);
+  }finally{clearTimeout(timer);}
 }
