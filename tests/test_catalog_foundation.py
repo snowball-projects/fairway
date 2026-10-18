@@ -68,12 +68,12 @@ def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert (
         sum(len(f["course_ids"]) for f in catalog["facilities"])
         == len(catalog["courses"])
-        == 4909
+        == 4912
     )
     assert len(catalog["provenance"]["notes"]) == 8286
     assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
-    assert len(catalog["provenance"]["sources"]) == 18984
-    assert len(catalog["provenance"]["intake"]) == 14627
+    assert len(catalog["provenance"]["sources"]) == 18996
+    assert len(catalog["provenance"]["intake"]) == 14756
     assert sum(c["arrival"] is not None for c in catalog["courses"]) == 8
     assert (
         not {"retained_document", "source_hold", "source_hold_scope"} & catalog.keys()
@@ -246,3 +246,93 @@ def test_reviewed_1124_keeps_unnamed_nines_and_status_unknowns(catalog):
         ]:
             assert course[field] is None
         assert course["inventory_complete"] is False
+
+
+def test_completion_1138_keeps_physical_identity_and_arrivals_separate(catalog):
+    by_id = {c["course_id"]: c for c in catalog["courses"]}
+    kinzua = by_id["c-1608bfb4-18bf-459f-8fa4-5608ade2ae6b"]
+    assert kinzua["name"] == "Kinzua Hills Golf Club"
+    assert kinzua["physical_holes"] == 6
+    sunserra = by_id["c-38a1ebc1-0d53-40d5-ae4b-9dbe367a51c7"]
+    assert sunserra["physical_holes"] == 9 and sunserra["style"] == "par_3"
+    for cid in [
+        "c-18ed1f25-2590-489d-b3aa-72a9563632ed",  # Tired Creek.
+        "c-0b354fea-837a-4099-9b30-03965ed7db8e",  # Caswell Pines.
+        "c-0f0b0bec-7173-403a-b3fb-e6385a3acf07",  # Space Coast.
+    ]:
+        course = by_id[cid]
+        assert course["physical_holes"] == 18
+        assert course["arrival"] is None and course["operating_status"] is None
+        assert course["nonmember_bookable"] is None
+        assert course["inventory_complete"] is False
+    assert by_id["c-0b354fea-837a-4099-9b30-03965ed7db8e"]["access"] == "public"
+    space = by_id["c-0f0b0bec-7173-403a-b3fb-e6385a3acf07"]
+    assert space["map_location"]["kind"] == "address_range_estimate"
+
+
+def test_completion_1138_contacts_do_not_resolve_location_conflicts(catalog):
+    facilities = {f["facility_id"]: f for f in catalog["facilities"]}
+    tired = facilities["f-189e5a35-f1a3-44fa-bc45-73ba7f0ca5d8"]
+    assert tired["address"]["street_line1"] == "1701 US-84"
+    assert tired["address"]["purpose"] == "contact"
+    assert tired["address"]["postal_code"] is None
+    assert "39827" in tired["address"]["text"]
+    assert tired["map_location"] is None
+    firestone = facilities["f-000bc9d5-0b8f-4f35-a5f8-e07f8d499f23"]
+    assert firestone["address"]["city"] == "Columbiana"
+    assert firestone["address"]["postal_code"] == "44408"
+    assert firestone["map_location"] is None
+
+
+def test_completion_1138_booking_keeps_conditions_and_tee_unknowns(catalog):
+    by_id = {c["course_id"]: c for c in catalog["courses"]}
+    for cid, required in [
+        ("c-bf4f83ad-c1dd-4529-bdad-b00a9b26257e", ["7 days", "14-day", "after 10am"]),
+        (
+            "c-6b43cbe8-bd26-4606-be84-83e31a6e2115",
+            ["prior arrangement", "advance tee time", "ferry"],
+        ),
+        (
+            "c-a7ae369a-21ec-4192-a4b0-5462f8ed083f",
+            ["weather allows", "email ahead", "driver"],
+        ),
+    ]:
+        course = by_id[cid]
+        assert course["nonmember_bookable"] is True
+        assert course["planning_basis"] == "explicit_nonmember_fact"
+        assert course["booking_availability"] is None and course["arrival"] is None
+        assert all(word in course["booking_conditions"] for word in required)
+    madeline = by_id["c-6b43cbe8-bd26-4606-be84-83e31a6e2115"]
+    white = next(
+        t
+        for t in madeline["tee_sets"]
+        if t["id"] == "t-ad4ff0cd-38d6-5021-a17b-f03b9017faba"
+    )
+    assert white["name"] == "white" and white["yardage"] == 6026
+    assert white["slope"] == 119 and white["yardage_unit"] == "yards"
+    assert all(white[k] is None for k in ["par", "difficulty_rating", "rated_category"])
+
+
+def test_completion_1138_prices_keep_relative_time_and_age_conditions(catalog):
+    prices = {
+        row["id"]: row
+        for entity in catalog["facilities"] + catalog["courses"]
+        for row in entity["optional"]["price_observation"]
+    }
+    twilight = prices["n-3e0eb819-8309-5802-93b1-ee8f446480fc"]
+    assert twilight["amount_min"] == twilight["amount_max"] == 25
+    assert twilight["cart_included"] is True
+    assert "SUNSET" in twilight["conditions"]
+    assert twilight["start_minute_of_day"] is None
+    senior = prices["n-00565a92-6d27-516d-aed5-b136bb0b1e0c"]
+    assert senior["minimum_age"] == 62 and senior["end_minute_of_day"] == 900
+    assert senior["cart_included"] is False
+    assert senior["applies_on_holidays"] is None
+    assert "NOT tournaments, holidays or weekends" in senior["conditions"]
+    assert "tournaments" in senior["conditions"]
+    for price in [twilight, senior]:
+        assert all(
+            price[k] is None
+            for k in ["currency", "fee_kind", "amount_kind", "billing_basis"]
+        )
+        assert price["collected_on"] == "2026-10-18"
