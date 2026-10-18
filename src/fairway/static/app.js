@@ -734,6 +734,7 @@ let searchMatches = [],
   listLimit = 60,
   cataloguePopup = null;
 let lastSearch = "";
+let searchChoiceFrame = null, pendingSearchChoice = null, searchCameraActive = false;
 function node(tag, text, className) {
   const n = document.createElement(tag);
   if (text !== undefined) n.textContent = text;
@@ -1151,7 +1152,42 @@ function showSearch() {
     String(list.childElementCount > 0),
   );
 }
+function cancelSearchChoice() {
+  pendingSearchChoice=null;
+  if(searchChoiceFrame!==null)cancelAnimationFrame(searchChoiceFrame);
+  searchChoiceFrame=null;
+}
+function scheduleSearchChoice() {
+  if(pendingSearchChoice===null||searchChoiceFrame!==null)return;
+  searchChoiceFrame=requestAnimationFrame(()=>{
+    searchChoiceFrame=null;
+    if(searchCameraActive)return;
+    const result=pendingSearchChoice;pendingSearchChoice=null;
+    if(result)applySearchChoice(result);
+  });
+}
 function chooseSearch(result) {
+  pendingSearchChoice=result;
+  closeSearch();
+  scheduleSearchChoice();
+}
+function bindSearchChoices() {
+  map.on("zoomstart movestart",()=>{searchCameraActive=true;});
+  // Register after viewport reconciliation so the old camera settles first.
+  map.on("moveend",()=>{
+    searchCameraActive=false;
+    if(searchChoiceFrame!==null)cancelAnimationFrame(searchChoiceFrame);
+    searchChoiceFrame=null;
+    scheduleSearchChoice();
+  });
+  document.addEventListener("pointerdown",cancelSearchChoice);
+  document.addEventListener("keydown",event=>{if(event.key==="Escape")cancelSearchChoice();});
+  map.getContainer().addEventListener("wheel",cancelSearchChoice,{passive:true});
+  $("place-query").addEventListener("input",cancelSearchChoice);
+  $("plan-toggle").addEventListener("click",cancelSearchChoice);
+  $("courses-grip").addEventListener("click",cancelSearchChoice);
+}
+function applySearchChoice(result) {
   if(!catalogModel)deferredSelection=null;
   planningMode = false; planningSession?.invalidate(committedOrigins()); $("browse-access").value = "all"; setDrawer("plan", false);
   closeSearch();
@@ -1346,6 +1382,7 @@ function detailPanelsChanged() {
 }
 const detailsObserver=new MutationObserver(detailPanelsChanged);
 for(const panel of [view.resultsPanel,$("plan-panel")])detailsObserver.observe(panel,{attributes:true,attributeFilter:["hidden"]});
+bindSearchChoices();
 
 for (let count = requiredOriginRows(state.rows.length); count > 0; count -= 1)
   addOrigin();
