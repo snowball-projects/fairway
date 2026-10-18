@@ -6,7 +6,14 @@
 - Load the verified generated map/search index before complete course details. Preserve pinned catalog identity, counts and complete validation; defer course views until requested and respect current drawer and map selection intent.
 - Publish a content-hashed Pages JavaScript/module/CSS graph so normal reload adopts changed UI software instead of older cached scripts. Keep source URL aliases and record the compiled asset mapping in deployment metadata.
 
-## Catalog 1046 (unreleased)
+## Catalog 1089 (unreleased)
+
+- Document 56 reviewed course identities at 52 existing facilities, with no new facilities, optional observations or changes to prior course fields.
+- Preserve named nines and the distinct three-hole and four-hole courses without deriving identities from facility totals or offered rounds. Sixteen counts and one name remain unknown; access, bookability, style, operating status and arrival remain unknown on every new record.
+- Preserve all 4,796 preceding complete course records and existing facility business facts, qualified observations, relationships, provenance and licenses. Empty documented inventories decrease from 3,268 to 3,216; factual reconciliation remains incomplete.
+- Keep the deployed latest-selection fix, bounded loader, derived initial index and content-hashed UI graph unchanged. Software package version remains 0.6.3.
+
+## Catalog 1046 (released)
 
 - Link 49 reviewed course identities at 41 existing facilities. Add no facilities, optional observations, routing arrivals or existing course-field updates.
 - Preserve individually named nines and short courses without splitting totals or offered rounds. Thirteen new counts and three names remain unknown; access, bookability, style and operating status remain unknown on every new record.

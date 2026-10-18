@@ -68,12 +68,12 @@ def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert (
         sum(len(f["course_ids"]) for f in catalog["facilities"])
         == len(catalog["courses"])
-        == 4796
+        == 4852
     )
     assert len(catalog["provenance"]["notes"]) == 8286
     assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
-    assert len(catalog["provenance"]["sources"]) == 18947
-    assert len(catalog["provenance"]["intake"]) == 14514
+    assert len(catalog["provenance"]["sources"]) == 18964
+    assert len(catalog["provenance"]["intake"]) == 14570
     assert sum(c["arrival"] is not None for c in catalog["courses"]) == 8
     assert (
         not {"retained_document", "source_hold", "source_hold_scope"} & catalog.keys()
@@ -163,6 +163,44 @@ def test_new_individual_identities_keep_partial_counts_and_round_boundaries(cata
     assert all(c["name"] is None for c in five_waters)
     assert {c["physical_holes"] for c in five_waters} == {9, None}
     for course in legends + bangor + ocn + greenville + five_waters:
+        assert course["access"] is None
+        assert course["nonmember_bookable"] is None
+        assert course["style"] is None
+        assert course["operating_status"] is None
+        assert course["arrival"] is None
+        assert course["inventory_complete"] is False
+
+
+def test_reviewed_1089_keeps_short_courses_and_unknown_counts_distinct(catalog):
+    def courses(facility_id):
+        return [c for c in catalog["courses"] if c["facility_id"] == facility_id]
+
+    mid_vallee = courses("f-0ca2b774-f58c-4cc3-a1c6-a6fc86661d26")
+    assert {c["name"]: c["physical_holes"] for c in mid_vallee} == {
+        "Red Nine": 9,
+        "White Nine": 9,
+        "Blue Nine": 9,
+    }
+    randall = courses("f-0e0ffa09-a089-4635-8da5-cf071441ee6a")
+    assert {c["name"]: c["physical_holes"] for c in randall} == {
+        "Randall Oaks Golf Club": 18,
+        "Acorn Course": 3,
+        "The Links Learning Center": 4,
+    }
+    mount_ayr = courses("f-0d07895a-7d6c-4985-8043-70786a96236c")
+    assert len(mount_ayr) == 1
+    assert mount_ayr[0]["name"] is None
+    assert mount_ayr[0]["physical_holes"] is None
+    partials = []
+    for fid in [
+        "f-10e1344e-daea-4632-9954-7e89d04bb14c",  # Duke's tour is partial.
+        "f-1108cc89-893b-4474-b991-26d8543f1935",  # Taos offers scoring rounds.
+    ]:
+        records = courses(fid)
+        assert len(records) == 1
+        assert records[0]["physical_holes"] is None
+        partials.extend(records)
+    for course in mid_vallee + randall + mount_ayr + partials:
         assert course["access"] is None
         assert course["nonmember_bookable"] is None
         assert course["style"] is None
