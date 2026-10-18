@@ -6,7 +6,16 @@
 - Load the verified generated map/search index before complete course details. Preserve pinned catalog identity, counts and complete validation; defer course views until requested and respect current drawer and map selection intent.
 - Publish a content-hashed Pages JavaScript/module/CSS graph so normal reload adopts changed UI software instead of older cached scripts. Keep source URL aliases and record the compiled asset mapping in deployment metadata.
 
-## Catalog 1124 (unreleased)
+## Catalog 1139 (unreleased)
+
+- Add three reviewed eighteen-hole course identities and confirm three existing course names. Preserve Kinzua's six physical holes, Sunserra's nine-hole par-3 identity and all unknown operation and arrival fields.
+- Fill contact address components at eleven existing facilities without replacing old full-address text or changing coordinates, arrivals or inventory completeness. Preserve unresolved ZIP and structured-address conflicts.
+- Add 91 qualified typed observations, including 60 dated prices, and one named tee row. Structure directly supported amount forms, fee types, age, day, holiday, cart and per-person billing qualifiers. Keep ambiguous classifications, currency, billing units and tee metrics unknown.
+- Record conditional nonmember booking at three courses and two supported style values. These remain subject to their recorded conditions and do not establish live availability or physical-entry requirements.
+- Correct 180 previously omitted structured cells across the 60 new price observations using the same retained sources. These are corrections, not additional features; amounts, product labels, source dates and full conditions remain unchanged.
+- The two admitted batches contain 113 direct enhancements and 16 supporting source observations, not 129 new features. Software and runtime remain unchanged at package version 0.6.3.
+
+## Catalog 1124 (released)
 
 - Document 57 reviewed course identities at 48 existing facilities. Add no facilities or optional observations, and preserve every prior course field.
 - Preserve explicit named and unnamed nines, separate eighteen- and nine-hole courses, and partial identities. Eight counts and thirteen names remain unknown; every new record retains unknown access, bookability, style, operating status and arrival.
