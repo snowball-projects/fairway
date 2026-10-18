@@ -1,5 +1,10 @@
 # Changes
 
+## Unreleased software
+
+- Load the verified generated map/search index before complete course details. Preserve pinned catalog identity, counts and complete validation; defer course views until requested and respect current drawer and map selection intent.
+- Publish a content-hashed Pages JavaScript/module/CSS graph so normal reload adopts changed UI software instead of older cached scripts. Keep source URL aliases and record the compiled asset mapping in deployment metadata.
+
 ## Catalog 981 (unreleased)
 
 - Retain 4,682 courses and 7,430 facilities while adding 68 domain/relationship records and five course location-note enhancements: 73 direct improvements. Five supporting source observations bring the reviewed packet to 78 actions; provenance and storage rows are not counted again as features.
