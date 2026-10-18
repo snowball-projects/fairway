@@ -904,11 +904,12 @@ function selectCoincidentFacilities(ids, coordinate) {
 function selectFacilityById(id, fit = true) {
   if(!catalogModel){
     const facility=initialMap?.facilities?.find(f=>f.facility_id===id);
-    if(fit&&facility&&located(facility))fitPoints([[facility.map_location.latitude,facility.map_location.longitude]],15,!mobile()&&!REDUCED_MOTION);
+    setDrawer("courses",true);
+    if(fit&&facility&&located(facility))fitPoints([[facility.map_location.latitude,facility.map_location.longitude]],15,false);
     // Fit the verified map point now; replay only the latest detail selection.
     // A later pan while details load must not be undone by a second fit.
     deferredSelection=()=>selectFacilityById(id,false);
-    setDrawer("courses",true);ensureCatalog();return;
+    ensureCatalog();return;
   }
   const facility=catalogModel?.facilityById.get(id);
   if(!facility)return;
@@ -1009,9 +1010,9 @@ function refreshBrowseViewport() {
   if(viewportFrame!==null)return;
   viewportFrame=requestAnimationFrame(()=>{
     viewportFrame=null;
-    if(planningMode||!catalogModel)return;
+    if(planningMode)return;
     browseMode=true;browseScope={kind:"viewport",label:"Courses in this map area"};
-    renderCourses();
+    if(catalogModel)renderCourses();
   });
 }
 
@@ -1044,6 +1045,11 @@ function updateLoadedCount(count) {
   view.resultCount.textContent = String(count);
   view.resultCount.setAttribute("aria-label", `Number of courses loaded: ${count}`);
 }
+function catalogLoadMessage() {
+  const unavailable=$("catalog-status").textContent?.includes("unavailable");
+  if(!initialMap)return unavailable?"Catalog unavailable. Reload the page to retry.":"Catalog is still loading. No browse course list is available yet.";
+  return unavailable?"Course details unavailable. Reopen Courses or select a place to retry.":"Course details are loading. The course list will appear when verified.";
+}
 function renderCourses() {
   updateDisplaySortOptions();
   $("browse-access").querySelector('[value="nonmember"]').hidden = !planningMode;
@@ -1063,9 +1069,7 @@ function renderCourses() {
     view.results.setAttribute("aria-busy","false");
     updateLoadedCount(0);view.rankingDescription.textContent="";
     view.rankingDescription.hidden=true;
-    const message=$("catalog-status").textContent?.includes("unavailable")
-      ? "Course details unavailable. Reopen Courses or select a place to retry."
-      : "Course details are loading. The course list will appear when verified.";
+    const message=catalogLoadMessage();
     $("browse-description").textContent=message;
     view.results.replaceChildren(node("p",message));
     return;
@@ -1292,6 +1296,9 @@ document.addEventListener("keydown", (e) => {
     closeSelection();
   }
 });
+// Immediate pin fits are synchronous, before recording the deferred intent.
+// Any later camera start supersedes that pending selection while details load.
+map.on("movestart zoomstart",()=>{if(!catalogModel)deferredSelection=null;});
 map.on("moveend zoomend", () => {
   drawFacilities();
   refreshBrowseViewport();
@@ -1309,9 +1316,9 @@ async function loadCatalog() {
     if(!view.resultsPanel.hidden || !$("plan-panel").hidden)ensureCatalog();
   } catch {
     $("catalog-status").hidden=false;
-    $("catalog-status").textContent="Catalog unavailable.";
+    $("catalog-status").textContent="Catalog unavailable. Reload the page to retry.";
     if(planningMode && !browseMode && state.ranking)renderCourses();
-    else view.results.replaceChildren(node("p","Catalog unavailable. No course list can be shown."));
+    else view.results.replaceChildren(node("p","Catalog unavailable. Reload the page to retry."));
   }
 }
 function ensureCatalog() {

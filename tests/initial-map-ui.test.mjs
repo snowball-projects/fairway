@@ -64,3 +64,27 @@ test('pin fits its verified index point immediately and latest selection replays
  h.ctx.selectFacilityById=(id,fit)=>selected.push({id,fit});h.resolve({revision:981});await h.ctx.detailsRequest;
  assert.deepEqual(selected,[{id:'f-last',fit:false}]);assert.equal(fits.length,2);
 });
+test('drawer opens before synchronous index fit and a later camera start cancels pending selection',async()=>{
+ const h=harness(),events={},order=[],selected=[];let open=false;
+ h.ctx.initialMap.facilities=[{facility_id:'f-pin',map_location:{latitude:41,longitude:-88}}];
+ Object.assign(h.ctx,{map:{on:(names,handler)=>{for(const name of names.split(' '))events[name]=handler;}},located:()=>true,
+  setDrawer:(which,value)=>{open=value;order.push('drawer');},fitPoints:(points,zoom,animate)=>{assert.equal(open,true);assert.equal(animate,false);events.movestart();order.push('fit');}});
+ vm.runInContext(source.slice(source.indexOf('map.on("movestart zoomstart"'),source.indexOf('map.on("moveend zoomend"')),h.ctx);
+ h.ctx.selectFacilityById('f-pin');assert.deepEqual(order,['drawer','fit']);assert.ok(h.ctx.deferredSelection);
+ events.movestart();assert.equal(h.ctx.deferredSelection,null);
+ h.ctx.selectFacilityById=id=>selected.push(id);h.resolve({revision:981});await h.ctx.detailsRequest;assert.deepEqual(selected,[]);
+});
+test('initial failure offers page reload while detail failure offers the working pinned retry',()=>{
+ const h=harness();vm.runInContext(actual('catalogLoadMessage'),h.ctx);
+ h.ctx.initialMap=null;h.controls['catalog-status'].textContent='Catalog unavailable. Reload the page to retry.';
+ assert.equal(h.ctx.catalogLoadMessage(),'Catalog unavailable. Reload the page to retry.');
+ h.controls['catalog-status'].textContent='Loading…';assert.match(h.ctx.catalogLoadMessage(),/Catalog is still loading/);
+ h.ctx.initialMap={manifest:{revision:981}};h.controls['catalog-status'].textContent='Course details unavailable.';
+ assert.match(h.ctx.catalogLoadMessage(),/Reopen Courses or select a place to retry/);
+});
+test('a pan before detail readiness follows the new viewport without publishing course rows',()=>{
+ const h=harness();let frame,renders=0;
+ Object.assign(h.ctx,{viewportFrame:null,planningMode:false,browseMode:false,browseScope:{ids:['f-old']},requestAnimationFrame:fn=>{frame=fn;return 1;},renderCourses:()=>renders++});
+ vm.runInContext(actual('refreshBrowseViewport'),h.ctx);h.ctx.refreshBrowseViewport();frame();
+ assert.equal(h.ctx.browseScope.kind,'viewport');assert.equal(h.ctx.browseScope.ids,undefined);assert.equal(renders,0);
+});

@@ -92,6 +92,10 @@ wins; no course records appear before complete validation.
 Pin clicks fit their already verified index coordinates immediately. Detail
 completion does not fit again, and dismissing Courses cancels its pending
 selection even if Plan a Round remains open.
+The drawer opens before the synchronous initial fit so padding uses its real
+dimensions. A subsequent pan or zoom cancels pending selection and follows the
+new viewport. Initial-map failure offers page reload; only detail failure offers
+the in-page retry.
 
 Regression coverage exercises these paths and exact projection of every real
 facility, including unmapped and address-estimate points. Existing complete
@@ -104,6 +108,9 @@ The Plan-open/Courses-dismissed case is exercised by the actual handler regressi
 and an actual browser flow. Disposable mutation probes also confirm that removing
 checksum verification, manifest pinning, map revision checks or that dismissal
 guard causes the corresponding regression to fail.
+Browser regressions also confirm visible fitted points at 390 px and 900 px,
+preserved pans during detail loading, no stale popup/course replay, and honest
+initial-map failure recovery.
 
 ## Reproduce
 
