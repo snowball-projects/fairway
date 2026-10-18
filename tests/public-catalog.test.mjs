@@ -70,17 +70,22 @@ test('address lookup has an injected deterministic transport and no private rout
   let call;const value=await resolvePublicOrigin('committed address',{fetcher:async(url,options)=>{call={url,options};return {ok:true,json:async()=>({features:[]})};}});
   assert.deepEqual(value.features,[]);assert.equal(call.url.origin,'https://photon.komoot.io');assert.equal(call.url.searchParams.get('q'),'committed address');assert.equal(call.options.credentials,'omit');
 });
-test('committed 967 release validates complete typed scope and rejects old-schema fallback',()=>{
+test('committed 981 release validates complete typed scope and rejects old-schema fallback',()=>{
   const raw=gunzipSync(readFileSync(new URL('../data/catalog-release/catalog.json.gz',import.meta.url)));
   const manifest=JSON.parse(readFileSync(new URL('../data/catalog-release/manifest.json',import.meta.url)));
   assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.files['catalog.json'].sha256);
-  assert.equal(manifest.revision,967);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
-  assert.equal(manifest.files['catalog.json'].sha256,'dc037766bf1024d1292cf94a25a1c7fdcd402b5bcfbb8af33f625feb7841e8c8');
+  assert.equal(manifest.revision,981);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
+  assert.equal(manifest.files['catalog.json'].sha256,'68cceb68dd19e255a552a85c6dec0a8cf3904ef817b2aca92a401517fc7e7d65');
   const value=JSON.parse(raw),model=validatePublicCatalog(value,manifest);
   assert.throws(()=>validatePublicCatalog({...value,format_version:1,schema:4},{...manifest,format_version:1,schema:4}),/identity/);
   assert.equal(model.facilities.length,7430);assert.equal(model.courses.length,4682);assert.equal(model.destinations.size,2852);
   assert.deepEqual(catalogCounts(model.facilities),{total:7430,onMap:4640,pending:2790});
-  assert.equal(model.optionalObservations.size,4997);
+  assert.equal(model.optionalObservations.size,5014);
+  const teal=model.courses.flatMap(c=>c.tee_sets).find(t=>t.id==='t-ddc5031b-f1b3-4519-8d5a-74d6bd8159cd');
+  assert.equal(teal.rated_category,'W');assert.equal(teal.difficulty_rating,68.1);assert.equal(teal.slope,116);
+  assert.equal(teal.yardage,null);assert.equal(teal.yardage_unit,null);
+  const academy=model.facilities.find(f=>f.facility_id==='f-0129c277-d9de-4db0-b203-0d560081c668').optional.price_observation.filter(row=>row.fee_kind==='instruction'&&row.product_name?.startsWith('Bethpage'));
+  assert.equal(academy.length,12);assert.ok(academy.every(row=>row.product_name.includes(' - ')&&!row.product_name.includes('\u2014')&&row.currency===null));
   assert.ok([...model.facilities,...model.courses].every(r=>!Object.hasOwn(r,'fact_groups')));
   assert.equal(model.provenance.notes.length,8286);assert.ok(model.provenance.notes.every(n=>Object.keys(n).length===1&&typeof n.id==='string'));
   assert.ok(model.courses.some(c=>c.name===null&&c.nonmember_bookable===null));

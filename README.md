@@ -61,8 +61,8 @@ Existing provider configuration and `render.yaml` are unchanged. Running or test
 and payload checksum. The Python package version (`0.6.3` in `pyproject.toml` and
 `uv.lock`) identifies the separate software package, not a catalog revision or
 proof of deployment. Unreleased software fixes are recorded in `CHANGELOG.md`;
-version 0.6.3 is prepared for review and has not been tagged or published. Catalog
-integration and release publication are coordinated with the release owner.
+version 0.6.3 is [released](https://github.com/snowball-projects/fairway/releases/tag/v0.6.3).
+Catalog integration and release publication are coordinated with the release owner.
 
 ## License
 
