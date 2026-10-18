@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fairway"
-version = "0.6.2"
-description = "A group golf-course chooser ranked by road travel time."
+version = "0.6.3"
+description = "A golf-course catalog with nearby browsing and a separate travel-time API."
 authors = [{ name = "Nas Delevski" }]
 license = "MIT"
 license-files = ["LICENSE", "THIRD-PARTY-NOTICES.md"]

@@ -1,13 +1,13 @@
 # Changes
 
-## Unreleased software fixes
+## 0.6.3 (unreleased)
 
 - Read public catalog responses incrementally into a bounded growing buffer, with byte limits, cancellation and a 30-second network deadline. Tiny or empty chunks cannot accumulate retained objects or starve the deadline. Verify checksums over the original response bytes and cancel late response bodies after abort.
 - Bound Pages gzip expansion before parsing, including understated sizes and concatenated gzip members.
 - Cancel Photon requests when origins are edited, removed or superseded, while retaining the ten-second lookup deadline.
 - Document Pages publication, package/catalog/deployment identity and the separate unfinished private API. Exercise Python 3.12 and 3.13 in CI.
 - Upgrade the bootstrap uv pin to 0.12.18 for GHSA-2cv4-cqwr-gwf7 (Windows wheel-extraction path traversal).
-- Preserve public UI behavior and all catalog release bytes. Package remains 0.6.2 pending release-owner version coordination.
+- Prepare software package 0.6.3 without changing the public UI or the reviewed catalog 967 release bytes. Driving-time comparison remains unavailable in Pages.
 
 ## Public catalog release, October 15, 2026
 
