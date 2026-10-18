@@ -14,7 +14,10 @@ recovery SQL, retained evidence and source controls are not public build inputs.
   14,384 intake projections and 8,286 note IDs without bodies.
 
 Compared with release 967, eleven whole reviewed actual workflows add 73 typed
-records and update five existing course location notes, totaling 78 enhancements.
+records and update five existing course location notes, totaling 78 reviewed packet
+actions. Five of those records are supporting source observations. The direct
+domain/relationship additions and field enhancements total 73; provenance and
+storage rows are not additional course features.
 There are no new courses or facilities. The additions comprise 51 tee/category
 rows, five source observations, four operating periods, twelve instruction-price
 observations and one programme policy. Tee/category observations do not establish
