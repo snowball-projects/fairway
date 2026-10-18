@@ -68,12 +68,12 @@ def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert (
         sum(len(f["course_ids"]) for f in catalog["facilities"])
         == len(catalog["courses"])
-        == 4747
+        == 4796
     )
     assert len(catalog["provenance"]["notes"]) == 8286
     assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
-    assert len(catalog["provenance"]["sources"]) == 18930
-    assert len(catalog["provenance"]["intake"]) == 14465
+    assert len(catalog["provenance"]["sources"]) == 18947
+    assert len(catalog["provenance"]["intake"]) == 14514
     assert sum(c["arrival"] is not None for c in catalog["courses"]) == 8
     assert (
         not {"retained_document", "source_hold", "source_hold_scope"} & catalog.keys()
@@ -130,3 +130,42 @@ def test_existing_facility_course_roles_do_not_inherit_totals_or_offered_rounds(
     assert all(
         c["inventory_complete"] is False for c in common + green_knoll + brighton
     )
+
+
+def test_new_individual_identities_keep_partial_counts_and_round_boundaries(catalog):
+    def courses(facility_id):
+        return [c for c in catalog["courses"] if c["facility_id"] == facility_id]
+
+    legends = courses("f-08ab8d77-8ad8-4b41-aa42-97e71d70e21c")
+    assert {c["name"]: c["physical_holes"] for c in legends} == {
+        "EAST": 9,
+        "SOUTH": 9,
+        "NORTH": 9,
+    }
+    bangor = courses("f-062a1815-30b9-416e-8335-e91e08f5913d")
+    assert {c["name"]: c["physical_holes"] for c in bangor} == {
+        "Championship Course": None,
+        "Kelly Nine": 9,
+    }
+    ocn = courses("f-0dcafd54-4360-4899-8c8a-9a24fc7702ab")
+    assert {c["name"]: c["physical_holes"] for c in ocn} == {
+        "Crooked Cat": None,
+        "Panther Lake": None,
+        "Tooth": 9,
+    }
+    greenville = courses("f-eccc1370-8ba5-4858-a608-8853b61a7a35")
+    assert len(greenville) == 1
+    assert greenville[0]["name"] is None
+    assert greenville[0]["physical_holes"] is None
+    assert greenville[0]["facility_physical_holes"] == 12
+    five_waters = courses("f-07734373-1c22-4cfe-9cb8-dc662cb8e8a6")
+    assert len(five_waters) == 2
+    assert all(c["name"] is None for c in five_waters)
+    assert {c["physical_holes"] for c in five_waters} == {9, None}
+    for course in legends + bangor + ocn + greenville + five_waters:
+        assert course["access"] is None
+        assert course["nonmember_bookable"] is None
+        assert course["style"] is None
+        assert course["operating_status"] is None
+        assert course["arrival"] is None
+        assert course["inventory_complete"] is False

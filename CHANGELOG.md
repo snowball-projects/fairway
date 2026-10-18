@@ -1,12 +1,19 @@
 # Changes
 
-## Unreleased software
+## Software updates after 0.6.3
 
 - Keep the latest search choice when rapid selections overlap a normal map animation. Apply it after the older camera settles, and cancel queued choices when the user changes intent.
 - Load the verified generated map/search index before complete course details. Preserve pinned catalog identity, counts and complete validation; defer course views until requested and respect current drawer and map selection intent.
 - Publish a content-hashed Pages JavaScript/module/CSS graph so normal reload adopts changed UI software instead of older cached scripts. Keep source URL aliases and record the compiled asset mapping in deployment metadata.
 
-## Catalog 1019 (unreleased)
+## Catalog 1046 (unreleased)
+
+- Link 49 reviewed course identities at 41 existing facilities. Add no facilities, optional observations, routing arrivals or existing course-field updates.
+- Preserve individually named nines and short courses without splitting totals or offered rounds. Thirteen new counts and three names remain unknown; access, bookability, style and operating status remain unknown on every new record.
+- Preserve all 4,747 preceding complete course records and existing facility business facts, qualified observations, relationships, provenance and licenses. Empty documented inventories decrease from 3,309 to 3,268; factual reconciliation remains incomplete.
+- Keep the deployed latest-selection fix, bounded catalog loader, derived initial index and content-hashed asset graph unchanged. Software package version remains 0.6.3.
+
+## Catalog 1019 (released)
 
 - Link 65 documented course identities and confirm three existing identities across 59 existing facilities. Preserve unknown counts, names, access and operation; add no facilities or optional observations.
 - Keep distinct named nines, main and short courses separate from offered rounds, facility totals and incomplete inventory.
