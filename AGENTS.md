@@ -23,6 +23,11 @@ remain separate; do not connect them to the public interface without review.
 
 ## Development and verification
 
+Use the change-type matrix in [docs/verification.md](docs/verification.md) for CI
+and proportionate local checks. Production Pages integration runs once in CI;
+plain local pytest still includes it. Unknown, test-only and CI changes require
+full integration. Do not infer unexecuted checks from a successful scoped job.
+
 Use Python 3.12+ (CI covers 3.12 and 3.13), Node 24+, and the committed `uv.lock`:
 
 ```sh

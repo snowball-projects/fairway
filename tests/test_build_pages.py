@@ -3,6 +3,7 @@
 import gzip
 import importlib.util
 import json
+import os
 import re
 from hashlib import sha256
 from pathlib import Path
@@ -108,19 +109,37 @@ def test_default_build_rejects_old_schema_before_output(tmp_path):
     assert not (tmp_path / "not-published").exists()
 
 
-def test_default_build_uses_the_committed_real_release_without_fixture_fallback(
-    tmp_path,
-):
-    manifest = json.loads((ROOT / "data/catalog-release/manifest.json").read_text())
-    one = pages.build(ROOT, tmp_path / "one", "c" * 40)
-    two = pages.build(ROOT, tmp_path / "two", "c" * 40)
+@pytest.fixture(scope="module")
+def production_pages(tmp_path_factory):
+    root = tmp_path_factory.mktemp("production-pages")
+    commit = os.environ.get("GITHUB_SHA", "c" * 40)
+    one = pages.build(ROOT, root / "one", commit)
+    two = pages.build(ROOT, root / "two", commit)
     assert one == two
+    files = sorted(
+        p.relative_to(root / "one") for p in (root / "one").rglob("*") if p.is_file()
+    )
+    assert files == sorted(
+        p.relative_to(root / "two") for p in (root / "two").rglob("*") if p.is_file()
+    )
+    for path in files:
+        assert (root / "one" / path).read_bytes() == (root / "two" / path).read_bytes()
+    return root / "one", one, commit
+
+
+@pytest.mark.catalog_integration
+def test_default_build_uses_the_committed_real_release_without_fixture_fallback(
+    production_pages,
+):
+    output, one, commit = production_pages
+    manifest = json.loads((ROOT / "data/catalog-release/manifest.json").read_text())
     assert one["review_fixture"] is False
     assert one["revision"] == manifest["revision"]
     assert one["catalog_release_key"] == manifest["catalog_release_key"]
     assert one["catalog_sha256"] == manifest["files"]["catalog.json"]["sha256"]
     assert one["counts"] == manifest["counts"]
-    assert "REVIEW FIXTURE" not in (tmp_path / "one/index.html").read_text()
+    assert "REVIEW FIXTURE" not in (output / "index.html").read_text()
+    assert json.loads((output / "deployment.json").read_text())["commit"] == commit
 
 
 def test_explicit_fixture_build_rejects_any_changed_literal(tmp_path):
@@ -183,7 +202,7 @@ def test_public_asset_preserves_urls_and_slash_compound_text():
         )
 
 
-def test_generated_credits_keep_public_license_notices_and_escape_markup(tmp_path):
+def test_generated_credits_keep_public_license_notices_and_escape_markup():
     records = [
         {
             "source": "Source <one>",
@@ -210,8 +229,11 @@ def test_generated_credits_keep_public_license_notices_and_escape_markup(tmp_pat
     assert "City-owned facts" in html and "https://official.example/policy" in html
     assert 'href="javascript:' not in html and "<script" not in html
     assert json.dumps(records) == before
-    output = tmp_path / "site"
-    result = pages.build(ROOT, output, "c" * 40)
+
+
+@pytest.mark.catalog_integration
+def test_production_credits_preserve_all_public_license_notices(production_pages):
+    output, result, _commit = production_pages
     actual = (output / "credits.html").read_text()
     public = json.loads(
         gzip.decompress((ROOT / "data/catalog-release/catalog.json.gz").read_bytes())
