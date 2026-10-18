@@ -89,6 +89,9 @@ release identities, malformed/oversized/truncated/stalled map responses and abor
 loads fail closed. A failed detail transfer leaves the map/search available and
 can be retried explicitly against the same identity. The latest pending selection
 wins; no course records appear before complete validation.
+Pin clicks fit their already verified index coordinates immediately. Detail
+completion does not fit again, and dismissing Courses cancels its pending
+selection even if Plan a Round remains open.
 
 Regression coverage exercises these paths and exact projection of every real
 facility, including unmapped and address-estimate points. Existing complete
@@ -97,6 +100,10 @@ Actual desktop/mobile browser checks covered deferred Bethpage selection, all fo
 counts, course popups, state geometry search, interruption/retry, filter changes
 while details load, no horizontal overflow and no script errors. Screenshots and
 raw browser-flow receipts are local supporting evidence in the task workspace.
+The Plan-open/Courses-dismissed case is exercised by the actual handler regression
+and an actual browser flow. Disposable mutation probes also confirm that removing
+checksum verification, manifest pinning, map revision checks or that dismissal
+guard causes the corresponding regression to fail.
 
 ## Reproduce
 

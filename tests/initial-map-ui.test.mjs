@@ -39,3 +39,28 @@ test('failure retains the map and pinned identity, clears pending work, and perm
  h.ctx.ensureCatalog();assert.equal(h.calls.length,2);assert.equal(h.calls[1].options.pinnedManifest,index.manifest);
  h.resolve({revision:981});await h.ctx.detailsRequest;
 });
+test('closing Courses cancels pending selection even while Plan remains open',async()=>{
+ const h=harness(),selected=[];
+ const panel=()=>({hidden:false,contains:()=>false,setAttribute(){},focus(){}});
+ Object.assign(h.controls,{'plan-panel':panel(),'courses-grip':panel(),'plan-toggle':panel()});
+ h.ctx.view={resultsPanel:panel(),appShell:{classList:{toggle(){}}}};
+ Object.assign(h.ctx,{document:{activeElement:null},mobile:()=>false,coursesDrawer:null,setFilterOpen:()=>{}});
+ for(const name of ['setDrawer','detailPanelsChanged'])vm.runInContext(actual(name),h.ctx);
+ h.ctx.selectFacilityById('f-pending');assert.equal(h.calls.length,1);
+ assert.equal(h.controls['plan-panel'].hidden,false);
+ h.ctx.setDrawer('courses',false);h.ctx.detailPanelsChanged();
+ assert.equal(h.ctx.deferredSelection,null);assert.equal(h.ctx.view.resultsPanel.hidden,true);
+ h.ctx.selectFacilityById=id=>{selected.push(id);h.ctx.setDrawer('courses',true);};
+ h.resolve({revision:981});await h.ctx.detailsRequest;
+ assert.deepEqual(selected,[]);assert.equal(h.ctx.view.resultsPanel.hidden,true);assert.equal(h.controls['plan-panel'].hidden,false);
+});
+test('pin fits its verified index point immediately and latest selection replays without a second fit',async()=>{
+ const h=harness(),fits=[],selected=[];
+ h.ctx.initialMap.facilities=[{facility_id:'f-first',map_location:{latitude:41,longitude:-88}},{facility_id:'f-last',map_location:{latitude:42,longitude:-89}}];
+ Object.assign(h.ctx,{located:f=>Boolean(f.map_location),fitPoints:(points,zoom,animate)=>fits.push({points,zoom,animate}),mobile:()=>false,REDUCED_MOTION:true});
+ h.ctx.selectFacilityById('f-first');h.ctx.selectFacilityById('f-last');
+ assert.deepEqual(JSON.parse(JSON.stringify(fits)),[{points:[[41,-88]],zoom:15,animate:false},{points:[[42,-89]],zoom:15,animate:false}]);
+ assert.equal(h.calls.length,1);assert.equal(h.ctx.catalogModel,null);
+ h.ctx.selectFacilityById=(id,fit)=>selected.push({id,fit});h.resolve({revision:981});await h.ctx.detailsRequest;
+ assert.deepEqual(selected,[{id:'f-last',fit:false}]);assert.equal(fits.length,2);
+});

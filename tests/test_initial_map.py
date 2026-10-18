@@ -30,10 +30,10 @@ def test_map_is_exact_reproducible_projection_of_complete_released_catalog():
     index = json.loads(raw)
     assert index["catalog_sha256"] == manifest["files"]["catalog.json"]["sha256"]
     assert index["catalog_release_key"] == value["catalog_release_key"]
-    assert index["revision"] == 981
+    assert index["revision"] == manifest["revision"] == value["revision"]
     assert index["counts"] == manifest["counts"]
     assert index["states"] == states
-    assert len(index["facilities"]) == 7430
+    assert len(index["facilities"]) == manifest["counts"]["facilities"]
     for row, facility in zip(index["facilities"], value["facilities"], strict=True):
         identity, name, state, city, point = row
         assert (identity, name, state, city) == (

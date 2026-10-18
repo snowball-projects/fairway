@@ -52,6 +52,13 @@ test('cached wrong-version map bytes and later wrong-version details fail checks
   else {const map=await loadInitialMap(base,t);await assert.rejects(loadPublicCatalog(base,{pinnedManifest:map.manifest,fetcher:async()=>new Response(t.full+' ')}),/checksum/);}
  }
 });
+test('same-length cached map tampering is rejected by SHA independently of size and shape',async()=>{
+ const t=transport(),name=t.index.facilities[0][1],changed=(name.startsWith('X')?'Y':'X')+name.slice(1);
+ const tampered=t.raw.replace(JSON.stringify(name),JSON.stringify(changed));
+ assert.equal(Buffer.byteLength(tampered),Buffer.byteLength(t.raw));
+ assert.doesNotThrow(()=>validateInitialMap(JSON.parse(tampered),t.manifest));
+ await assert.rejects(loadInitialMap(base,{fetcher:async(url,o)=>String(url).includes('/initial-map-')?new Response(tampered):t.fetcher(url,o)}),/checksum/);
+});
 test('missing/misdirected/oversized initial index cannot fall back to the complete catalog',async()=>{
  for(const defect of ['missing','path','size']){
   const t=transport();if(defect==='missing')delete t.manifest.files['initial-map.json'];

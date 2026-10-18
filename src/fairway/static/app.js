@@ -902,7 +902,14 @@ function selectCoincidentFacilities(ids, coordinate) {
   openSelectionPopup();renderCourses();
 }
 function selectFacilityById(id, fit = true) {
-  if(!catalogModel){deferredSelection=()=>selectFacilityById(id,fit);setDrawer("courses",true);ensureCatalog();return;}
+  if(!catalogModel){
+    const facility=initialMap?.facilities?.find(f=>f.facility_id===id);
+    if(fit&&facility&&located(facility))fitPoints([[facility.map_location.latitude,facility.map_location.longitude]],15,!mobile()&&!REDUCED_MOTION);
+    // Fit the verified map point now; replay only the latest detail selection.
+    // A later pan while details load must not be undone by a second fit.
+    deferredSelection=()=>selectFacilityById(id,false);
+    setDrawer("courses",true);ensureCatalog();return;
+  }
   const facility=catalogModel?.facilityById.get(id);
   if(!facility)return;
   if(!planningMode&&browseScope?.ids&&!browseScope.ids.includes(id)&&located(facility)&&map.getBounds().contains([facility.map_location.latitude,facility.map_location.longitude]))
@@ -1322,10 +1329,11 @@ function ensureCatalog() {
   }).finally(()=>{detailsRequest=null;});
 }
 planningSession = new PublicPlanningSession({notify:renderPreparation});
-const detailsObserver=new MutationObserver(()=>{
+function detailPanelsChanged() {
+  if(view.resultsPanel.hidden)deferredSelection=null;
   if(!view.resultsPanel.hidden || !$("plan-panel").hidden)ensureCatalog();
-  else deferredSelection=null;
-});
+}
+const detailsObserver=new MutationObserver(detailPanelsChanged);
 for(const panel of [view.resultsPanel,$("plan-panel")])detailsObserver.observe(panel,{attributes:true,attributeFilter:["hidden"]});
 
 for (let count = requiredOriginRows(state.rows.length); count > 0; count -= 1)
