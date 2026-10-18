@@ -1,5 +1,11 @@
 # Changes
 
+## Catalog 979 (unreleased)
+
+- Retain 4,682 courses and 7,430 facilities while adding 68 domain/relationship records and five course location-note enhancements: 73 direct improvements. Five supporting source observations bring the reviewed packet to 78 actions; provenance and storage rows are not counted again as features.
+- Preserve qualified tee categories and partial metrics, documentary range conflicts, dated instructional programmes and unknown currencies. Add no courses, routing coordinates or current-availability claims.
+- Preserve all released software 0.6.3 runtime fixes. Catalog revision and software version remain separate identities.
+
 ## 0.6.3 (unreleased)
 
 - Read public catalog responses incrementally into a bounded growing buffer, with byte limits, cancellation and a 30-second network deadline. Tiny or empty chunks cannot accumulate retained objects or starve the deadline. Verify checksums over the original response bytes and cancel late response bodies after abort.
