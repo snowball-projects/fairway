@@ -1,17 +1,17 @@
-# Catalog release 1138
+# Catalog release 1139
 
 This native5/format2 transport selects exactly two admitted completion batches
-after released 1124. It is a fixed candidate, not a deployment claim. SQLite,
+after released 1124 and one bounded corrective batch. It is a fixed candidate, not a deployment claim. SQLite,
 recovery SQL, source controls and retained evidence remain private. Later work and
 32 candidate-only contexts are excluded.
 
-- Closed binary/release key: `cfd2fb1dd80d932445346dc1cc9a71b47c3768e3d8cfdc4327a8af8a6fdbc70b`.
-- JSON: `eeaaedc9255fe54b5ac5042d9b788ab8c96616d9961b7196a39de4d96a110ce6`, 37,765,876 bytes.
-- Gzip: `82786eb30917b9bd6f037938eb84c35f5fab1b63e2dd3f5d1a048761adde2d86`, 4,011,581 bytes.
-- Manifest: `7697aaccbb38d5dd268dbe224b49b4ed25b47477f6f56da3dc1f5ea0a8adde7f`.
+- Closed binary/release key: `eb9bd861d0ea89dff89be024cb211893396887202ad9c1eef6b6a0f7f3a4690d`.
+- JSON: `9c7699163015cb2397da764e3348adf370453ed8316d69f7819c00124caa57c7`, 37,783,729 bytes.
+- Gzip: `f462044cd546cca54e764473ca81e75f253e5d04e10381dd9c880fa76f876501`, 4,013,881 bytes.
+- Manifest: `d96c1bf4fbf02af142da185712ad3f962c78a13296ce6060de264e6e0536d3af`.
 - Inventory: 7,430 facilities, 4,912 course records and 2,990 destinations.
 - Typed inventory: 5,105 optional observations, 2,804 tee/category rows, 594 rounds
-  and 2,219 prices. Provenance contains 18,996 source records, 14,756 intake
+  and 2,219 prices. Provenance contains 18,996 source records, 14,816 intake
   projections and the same 8,286 note IDs without note bodies.
 
 The two batches contain 129 reviewed native intents: 113 direct enhancements and
@@ -48,17 +48,27 @@ document requirements. Cart-driver qualifications remain cart qualifications.
 New observations comprise nine practice, eight service, five amenity, four
 physical-characteristic, five policy and sixty price rows. Each stays at its exact
 facility or course scope. Prices retain their original age, weekday, holiday,
-cart, time, round, product and conflict conditions. Missing currency, fee kind,
-amount kind and billing basis remain unknown. Cedar's twilight offer is relative
+cart, time, round, product and conflict conditions. The retained-source correction fills 180 supported cells on those same sixty
+prices: sixty exact printed amount forms, fifty-two fee classifications, fourteen
+weekday masks, nineteen audiences, fifteen age bounds, six holiday flags, five
+per-person billing bases and nine cart-inclusion flags. These cells are not new
+features. Currency and unsupported classifications or billing bases remain unknown.
+Merrill senior prices explicitly exclude holidays and weekends; its weekend and
+holiday products include holidays but retain an unknown weekday mask because the
+contract does not define mask/holiday OR semantics. Four literal pull-cart products
+are not forced into the push_cart enum, and Madeline's Rider Fee is not assumed
+to mean nonplaying rider. Source prose, amounts and observation dates stay exact. Cedar's twilight offer is relative
 to sunset, not an invented fixed time. A dollar sign alone does not supply an ISO
 currency. Madeline's named white tee has 6,026 yards and slope 119; par, rating and
 rated category remain unknown. No quality ratings are introduced.
 
-All other prior native values and public projections remain exact. Existing
+All prior native values and public projections outside the reviewed completion
+changes and those 180 price cells remain exact. Existing
 optional rows, relationships, licenses, note IDs, source records, intake records
 and destinations are retained. Five derived inventory fields advance at nine
-parents. Private storage adds 278 rows, including 129 ledgers, two receipts,
-twelve sources and twenty-four controls. Twelve exact source-workflow cells
+parents. The two original batches add 278 private storage rows, including 129 ledgers, two
+receipts, twelve sources and twenty-four controls. The correction adds sixty
+immutable correction ledgers and one receipt without adding facts or sources. Twelve exact source-workflow cells
 advance under their original scoped reviews; all 540 native holds remain exact.
 Unknown source terms and licenses remain unknown rather than reuse permission.
 

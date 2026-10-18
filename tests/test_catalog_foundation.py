@@ -73,7 +73,7 @@ def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert len(catalog["provenance"]["notes"]) == 8286
     assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
     assert len(catalog["provenance"]["sources"]) == 18996
-    assert len(catalog["provenance"]["intake"]) == 14756
+    assert len(catalog["provenance"]["intake"]) == 14816
     assert sum(c["arrival"] is not None for c in catalog["courses"]) == 8
     assert (
         not {"retained_document", "source_hold", "source_hold_scope"} & catalog.keys()
@@ -327,12 +327,63 @@ def test_completion_1138_prices_keep_relative_time_and_age_conditions(catalog):
     senior = prices["n-00565a92-6d27-516d-aed5-b136bb0b1e0c"]
     assert senior["minimum_age"] == 62 and senior["end_minute_of_day"] == 900
     assert senior["cart_included"] is False
-    assert senior["applies_on_holidays"] is None
+    assert senior["applies_on_holidays"] is False
+    assert senior["weekday_mask"] == 31
     assert "NOT tournaments, holidays or weekends" in senior["conditions"]
     assert "tournaments" in senior["conditions"]
     for price in [twilight, senior]:
-        assert all(
-            price[k] is None
-            for k in ["currency", "fee_kind", "amount_kind", "billing_basis"]
-        )
+        assert all(price[k] is None for k in ["currency", "billing_basis"])
         assert price["collected_on"] == "2026-10-18"
+        assert price["amount_kind"] == "exact"
+        assert price["fee_kind"] == "green_fee"
+
+
+def test_corrected_prices_structure_source_qualifiers_without_defaulting_unknowns(
+    catalog,
+):
+    prices = {
+        row["id"]: row
+        for subject in catalog["facilities"] + catalog["courses"]
+        for row in subject["optional"]["price_observation"]
+    }
+    holiday = prices["n-fc31ef43-3cf2-5e11-a457-4bc003f07f44"]
+    assert holiday["applies_on_holidays"] is True
+    assert holiday["weekday_mask"] is None
+    assert holiday["cart_included"] is False
+    junior = prices["n-cf5e21c0-65c8-5190-a56d-f2f100b94bd8"]
+    assert (junior["audience"], junior["minimum_age"], junior["maximum_age"]) == (
+        "junior",
+        7,
+        17,
+    )
+    assert junior["weekday_mask"] == 31 and junior["applies_on_holidays"] is None
+    cart = prices["n-bae45594-1b08-5323-a9cc-00467a1f594a"]
+    assert (cart["fee_kind"], cart["billing_basis"], cart["amount_kind"]) == (
+        "golf_cart",
+        "per_person",
+        "exact",
+    )
+    member = prices["n-f9840f40-1195-5542-84c8-48252844f75f"]
+    assert member["fee_kind"] == "membership" and member["audience"] == "senior"
+    assert member["minimum_age"] is None and member["billing_basis"] is None
+    balls = prices["n-85c38733-36cd-599a-966c-cea1c2dcf9b5"]
+    assert balls["fee_kind"] == "range_balls" and balls["amount_min"] == 50
+    assert balls["quantity"] is None and balls["billing_basis"] is None
+    ride = prices["n-bd0d83ba-3491-5f32-b098-2535bc378473"]
+    assert (
+        ride["audience"],
+        ride["minimum_age"],
+        ride["maximum_age"],
+        ride["cart_included"],
+    ) == ("junior", 13, 17, True)
+    free = prices["n-1f6170f8-8d1d-5402-b732-0bde2c35772e"]
+    assert free["amount_min"] == 0 and free["amount_kind"] == "exact"
+    assert free["maximum_age"] == 11 and free["minimum_age"] is None
+    for pid in [
+        "n-9fc92641-57da-52ee-b9d5-40e57aff4ffb",  # Pull cart, not push_cart.
+        "n-30ccaa96-1faf-594e-bff8-4a4eaefea682",  # Rider not explicitly nonplayer.
+        "n-a71b6b48-6f32-55e7-abf6-b1467a2b8cee",  # Range product/unit unspecified.
+    ]:
+        assert prices[pid]["fee_kind"] is None
+        assert prices[pid]["currency"] is None
+        assert prices[pid]["amount_kind"] == "exact"
