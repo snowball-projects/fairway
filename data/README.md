@@ -24,11 +24,11 @@ no automatic upgrade or fallback to the older reader/export command.
 
 ```sh
 PYTHONPATH=src python scripts/native5_catalog.py --db /private/closed.sqlite \
-  export /private/new-export --sha256 CLOSED_BINARY_SHA256 --revision 981
+  export /private/new-export --sha256 CLOSED_BINARY_SHA256 --revision 1019
 ```
 
-The selected revision 981 pins and accounting are in
-[RELEASE981.md](../docs/catalog/RELEASE981.md). Schema4 export and migration tools
+The selected revision 1019 pins and accounting are in
+[RELEASE1019.md](../docs/catalog/RELEASE1019.md). Schema4 export and migration tools
 retained for historical tests are not the current native5 publication command.
 
 After the sole writer reviews an immutable export, copy its exact generated manifest
@@ -53,6 +53,22 @@ not current quotes or comparable price rankings. Unknown architecture roles/year
 stay unknown. Quality/star ratings remain empty; tee difficulty is not quality.
 Remaining raw evidence is preserved privately and is not uniformly standardized or
 used as a fallback. Public note provenance contains IDs only.
+
+## Existing facility relationships
+
+A facility's recorded hole total, rates, range, map location or name does not
+establish its individual course inventory. Review each distinct course or named
+layout against subject-bound evidence; scoring rounds and combinations remain
+separate. An empty inventory means no course records are documented, not that the
+property has no playable course or is range-only. Unknown counts, names, access,
+operation and completeness remain unknown.
+
+For a bounded review, check the exact publisher and applicable source controls,
+retain the complete relevant definition and qualifications, and freeze the source
+bindings and current native guards. Stop when the supported identity is resolved
+or a precise source, technical or subject-binding gap is recorded. A successful
+HTTP response or missing policy does not supply reuse permission. Do not bypass
+source stops, infer totals from fees or arithmetic, or fill a request quota.
 
 ## Routing is separate
 
