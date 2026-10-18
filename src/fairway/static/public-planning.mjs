@@ -24,7 +24,7 @@ export class PublicPlanningSession {
   accessChanged(value){if(!['nonmember','all','public','private','restricted','unknown'].includes(value))throw new Error('Invalid access');this.accessPolicy=value;return this.update(this.origins);}
 }
 // Existing public Photon service, invoked only by the committed Enter/blur handler.
-export async function resolvePublicOrigin(query,{fetcher=globalThis.fetch}={}){
+export async function resolvePublicOrigin(query,{fetcher=globalThis.fetch,signal,timeoutMs=10000}={}){
   const url=new URL('https://photon.komoot.io/api/');url.search=new URLSearchParams({q:query,limit:'5',bbox:'-125,24,-66,50'});
-  const response=await fetcher(url,{credentials:'omit',referrerPolicy:'no-referrer',signal:AbortSignal.timeout(10000)});if(!response.ok)throw new Error('Address lookup unavailable');const value=await response.json();if(!Array.isArray(value.features))throw new Error('Invalid address response');return value;
+  const response=await fetcher(url,{credentials:'omit',referrerPolicy:'no-referrer',signal:signal?AbortSignal.any([signal,AbortSignal.timeout(timeoutMs)]):AbortSignal.timeout(timeoutMs)});if(!response.ok)throw new Error('Address lookup unavailable');const value=await response.json();if(!Array.isArray(value.features))throw new Error('Invalid address response');return value;
 }

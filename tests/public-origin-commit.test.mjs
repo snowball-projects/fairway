@@ -10,7 +10,7 @@ const source=readFileSync(new URL('../src/fairway/static/app.js',import.meta.url
 function harness(resolveOrigin=async()=>({features:[]})){
   const row={input:{value:'A committed address'},coordinate:null,committedLabel:null,lookupPromise:null,controller:null};
   const commits=[],statuses=[],calls=[];
-  const context={AbortController,state:{rows:[row],coreBounds:[24,-125,50,-66]},planningMode:true,planningSession:{error:null,key:'existing'},planningAdapter:{resolveOrigin:async q=>{calls.push(q);return resolveOrigin(q);}},setOrigin:(r,label,coordinate)=>{commits.push(coordinate);r.coordinate=coordinate;r.committedLabel=label.trim();},setStatus:(...args)=>statuses.push(args),closeSuggestions:()=>{},address:()=>'',syncPlanning:()=>{},document:{createElement:()=>{throw Error('Multiple-choice DOM is outside this harness');}}};
+  const context={AbortController,state:{rows:[row],coreBounds:[24,-125,50,-66]},planningMode:true,planningSession:{error:null,key:'existing'},planningAdapter:{resolveOrigin:async (q,options)=>{calls.push({query:q,...options});return resolveOrigin(q,options);}},setOrigin:(r,label,coordinate)=>{commits.push(coordinate);r.coordinate=coordinate;r.committedLabel=label.trim();},setStatus:(...args)=>statuses.push(args),closeSuggestions:()=>{},address:()=>'',syncPlanning:()=>{},document:{createElement:()=>{throw Error('Multiple-choice DOM is outside this harness');}}};
   vm.createContext(context);
   vm.runInContext(source.slice(source.indexOf('function parseCoordinate('),source.indexOf('function formatCoordinate('))+source.slice(source.indexOf('function looksLikeCoordinateInput('),source.indexOf('function duration('))+source.slice(source.indexOf('async function commitOrigin('),source.indexOf('function unusedColor(')),context);
   return {row,commits,statuses,calls,context,commit:trigger=>context.commitOrigin(row,trigger)};
@@ -61,4 +61,33 @@ test('actual popup facility details show known facility and owned-round scopes w
   vm.runInContext(source.slice(source.indexOf('function node('),source.indexOf('function mobile('))+source.slice(source.indexOf('function knownLink('),source.indexOf('function selectFacilityById(')),context);
   const f=fixture().value.facilities.find(f=>f.optional.amenity_observation.length),element=context.facilityDetails(f);
   assert.doesNotMatch(element.textContent,/Facility access unconfirmed|Unconfirmed|Not documented|unknown|not a current quote|Source license/);assert.match(element.textContent,/restaurant available Yes/);assert.match(element.textContent,/Documented paired 18/);assert.doesNotMatch(element.textContent,/driving range lighted|greens grass/);
+});
+
+for(const action of ['edit','remove','escape'])test(`actual ${action} handler aborts the active lookup transport`,async()=>{
+ let seenSignal;
+ const h=harness((query,{signal})=>new Promise((resolve,reject)=>{seenSignal=signal;signal.addEventListener('abort',()=>reject(signal.reason),{once:true});}));
+ h.row.input.setAttribute=()=>{};h.row.input.removeAttribute=()=>{};h.row.suggestions={replaceChildren(){}};
+ h.context.row=h.row;h.context.updatePlan=()=>{};h.context.committedOrigins=()=>[];h.context.planningSession.invalidate=()=>{};
+ vm.runInContext(source.slice(source.indexOf('function closeSuggestions('),source.indexOf('function suggestionOptions(')),h.context);
+ const pending=h.commit('enter');assert.equal(seenSignal.aborted,false);
+ if(action==='edit'){
+  const start=source.indexOf('  row.input.oninput = '),end=source.indexOf('  row.input.onkeydown = ',start);
+  vm.runInContext(source.slice(start,end),h.context);h.row.input.value='Edited address';h.row.input.oninput();
+ }else if(action==='remove'){
+  h.context.state.rows.unshift({},{});Object.assign(h.context,{canRemoveOrigin:()=>true,element:{remove(){}},renumber(){},syncPlanning(){},fitCommittedOrigins(){},remove:{}});
+  const start=source.indexOf('  remove.onclick = '),end=source.indexOf('  element.append(',start);
+  vm.runInContext(source.slice(start,end),h.context);h.context.remove.onclick();
+ }else{
+  h.context.moveSuggestion=()=>false;
+  const start=source.indexOf('  row.input.onkeydown = '),end=source.indexOf('  row.input.onblur = ',start);
+  vm.runInContext(source.slice(start,end),h.context);h.row.input.onkeydown({key:'Escape'});
+ }
+ assert.equal(seenSignal.aborted,true);assert.equal(await pending,false);assert.equal(h.commits.length,0);assert.equal(h.statuses.length,0);
+});
+test('recommitting a different address cancels its superseded lookup',async()=>{
+ const signals=[],h=harness((query,{signal})=>{signals.push(signal);return new Promise((resolve,reject)=>signal.addEventListener('abort',()=>reject(signal.reason),{once:true}));});
+ h.context.closeSuggestions=(row,abort)=>{if(abort){row.controller?.abort();row.controller=null;row.lookupPromise=null;row.lookupQuery=null;}};
+ const first=h.commit('enter');h.row.input.value='Another address';const second=h.commit('enter');
+ assert.equal(signals[0].aborted,true);assert.equal(signals[1].aborted,false);assert.equal(await first,false);h.row.controller.abort();assert.equal(await second,false);
+ assert.equal(h.commits.length,0);assert.equal(h.statuses.length,0);
 });

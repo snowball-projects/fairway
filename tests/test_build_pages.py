@@ -234,3 +234,47 @@ def test_generated_credits_keep_public_license_notices_and_escape_markup(tmp_pat
         == sha256((output / "credits.html").read_bytes()).hexdigest()
     )
     assert 'href="./credits.html"' in (output / "app.js").read_text()
+
+
+@pytest.mark.parametrize(
+    "mode", ["oversize", "understated", "concatenated", "truncated", "packed"]
+)
+def test_bounded_gzip_rejects_before_output(tmp_path, monkeypatch, mode):
+    root = tmp_path / "source"
+    source = root / "data/catalog-release"
+    source.mkdir(parents=True)
+    manifest, _ = pages.native_transport(ROOT, review_fixture=True)
+    monkeypatch.setattr(pages, "MAX_CATALOG_BYTES", 4096)
+    raw = b"x" * 4096
+    packed = gzip.compress(raw, mtime=0)
+    declared = 4096
+    if mode == "oversize":
+        declared += 1
+    elif mode == "understated":
+        declared = 100
+    elif mode == "concatenated":
+        packed += gzip.compress(raw, mtime=0)
+    elif mode == "truncated":
+        packed = packed[:-8]
+    else:
+        monkeypatch.setattr(pages, "MAX_PACKED_BYTES", len(packed) - 1)
+    manifest["files"] = {
+        "catalog.json": {"bytes": declared, "sha256": sha256(raw).hexdigest()},
+        "catalog.json.gz": {"bytes": len(packed), "sha256": sha256(packed).hexdigest()},
+    }
+    (source / "manifest.json").write_text(json.dumps(manifest))
+    (source / "catalog.json.gz").write_bytes(packed)
+    reads = []
+    original = gzip.GzipFile.read
+
+    def bounded_read(stream, size=-1):
+        reads.append(size)
+        assert 0 < size <= 4097
+        return original(stream, size)
+
+    monkeypatch.setattr(gzip.GzipFile, "read", bounded_read)
+    output = tmp_path / "rejected"
+    with pytest.raises((ValueError, EOFError)):
+        pages.build(root, output, "rejected")
+    assert not output.exists()
+    assert reads == ([] if mode in {"oversize", "packed"} else [declared + 1])

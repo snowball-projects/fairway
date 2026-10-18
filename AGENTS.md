@@ -1,9 +1,9 @@
 # fairway
 
-An independent group golf-course chooser. It accepts two or more golfer origins
-and ranks a bounded course catalog by either the longest individual drive or
-combined driving time. It does not calculate or display an optimal midpoint or
-meeting region.
+fairway is a static GitHub Pages golf catalog with map browsing and nearby-course
+selection around committed origins. Public driving-time comparison is unavailable.
+The packaged eight-course calculation API and unfinished private national API work
+remain separate; do not connect them to the public interface without review.
 
 ## Scope and sources
 
@@ -17,27 +17,32 @@ meeting region.
 - Keep ranking inputs trustworthy and reproducible. The official catalog,
   supported filters, source links, routing points and update method are
   canonical in `data/README.md`.
-- Keep travel-time providers replaceable. TomTom supplies optional leave-now
-  matrices; modo supplies the static OpenStreetMap fallback. Do not make
-  fairway depend on a hosted modo interface or silently switch providers after
-  an error.
+- Public Pages uses no routing provider. Preserve the separation from the legacy
+  calculation API and private national API prototype (PR15). In legacy API work,
+  keep TomTom and modo replaceable and fail explicitly on provider errors.
 
 ## Development and verification
 
-Use Python 3.12+ and the committed `uv.lock`:
+Use Python 3.12+ (CI covers 3.12 and 3.13), Node 24+, and the committed `uv.lock`:
 
 ```sh
-python -m pip install uv==0.12.15
+python -m pip install uv==0.12.18
 uv sync --extra test --locked
 uv run --locked ruff check .
 uv run --locked ruff format --check .
 node --check src/fairway/static/app.js
 node --check src/fairway/static/leaflet.js
+node --test --test-isolation=none tests/*.test.mjs
+python scripts/build_pages.py --check
+python scripts/build_pages.py --output /tmp/fairway-pages --commit COMMIT
 uv run --locked python -m pytest
 uv build
 ```
 
-- To run the application, fetch the verified snapshot with
+- To browse Pages locally, serve the generated output with
+  `python -m http.server --directory /tmp/fairway-pages 8000`. Static builds need
+  no private database, credentials or road snapshot.
+- To run the separate legacy calculation API, fetch the verified snapshot with
   `uv run --locked python scripts/fetch_snapshot.py`, then run
   `uv run --locked gunicorn fairway.app:application` and open port 8000.
 - For routing, catalog or index changes, also run
@@ -50,7 +55,10 @@ uv build
 
 ## Implementation boundaries
 
-- `src/fairway/app.py` owns the stateless WSGI API and request limits;
+- `scripts/build_pages.py` and `.github/workflows/ci.yml` assemble and publish Pages.
+  `public-catalog.mjs` verifies bounded immutable transport; `public-planning.mjs`
+  selects nearby courses locally and makes committed-address Photon requests.
+- `src/fairway/app.py` owns the separate legacy WSGI API and request limits;
   `static/` owns the browser interface; `courses.py` and packaged `data/` own
   catalog validation and provenance. `matrix.py` is the routing-provider
   boundary, `tomtom.py` owns bounded external requests, and `course_index.py`
@@ -77,9 +85,16 @@ uv build
 
 ## Publication
 
-- `render.yaml` is the deployment source. Verify the release's installed wheel,
-  the extracted source archive's locked installation and tests, CI, hosted
-  `/health`, and a bounded ranking smoke test before describing it as deployed.
+- `.github/workflows/ci.yml` is the public Pages deployment source. Verify
+  deterministic assembly, the full browser catalog contract, relevant tests, CI,
+  and the hosted `deployment.json` identity before claiming a Pages deployment.
+- Package versions in `pyproject.toml` and `uv.lock` identify software, separately
+  from catalog revision/hash and deployed commit. Record unreleased changes in
+  `CHANGELOG.md`; coordinate version bumps and integration with the release owner.
+- `render.yaml` describes the separate legacy API. For an API release, verify the
+  installed wheel, extracted source archive installation/tests, hosted `/health`
+  and bounded ranking smoke test. Never infer public national routing readiness
+  from those checks.
 - Report any checks that could not run and why.
 
 ## Stewardship

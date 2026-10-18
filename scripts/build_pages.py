@@ -3,12 +3,16 @@
 import argparse
 import gzip
 import hashlib
+import io
 import json
 import re
 from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+MAX_CATALOG_BYTES = 64 * 1024 * 1024
+# Allow gzip framing overhead even for an incompressible maximum-size catalog.
+MAX_PACKED_BYTES = MAX_CATALOG_BYTES + 1024 * 1024
 ASSETS = (
     "index.html",
     "app.js",
@@ -335,17 +339,22 @@ def native_transport(root, review_fixture=False):
     manifest = json.loads((source / "manifest.json").read_text())
     if manifest.get("format_version") != 2 or manifest.get("schema") != 5:
         raise ValueError("unsupported native catalog manifest")
-    packed = (source / "catalog.json.gz").read_bytes()
+    item = manifest["files"]["catalog.json"]
+    if type(item["bytes"]) is not int or not 2 <= item["bytes"] <= MAX_CATALOG_BYTES:
+        raise ValueError("invalid generated catalog size")
     item = manifest["files"]["catalog.json.gz"]
+    if type(item["bytes"]) is not int or not 1 <= item["bytes"] <= MAX_PACKED_BYTES:
+        raise ValueError("invalid compressed catalog size")
+    with (source / "catalog.json.gz").open("rb") as stream:
+        packed = stream.read(item["bytes"] + 1)
     if len(packed) != item["bytes"] or digest(packed) != item["sha256"]:
         raise ValueError("generated compressed catalog changed")
-    raw = gzip.decompress(packed)
     item = manifest["files"]["catalog.json"]
-    if (
-        len(raw) != item["bytes"]
-        or len(raw) > 64 * 1024 * 1024
-        or digest(raw) != item["sha256"]
-    ):
+    # GzipFile.read(n) caps decompressed allocation, including concatenated members.
+    # The sentinel byte detects an understated size without expanding the rest.
+    with gzip.GzipFile(fileobj=io.BytesIO(packed)) as stream:
+        raw = stream.read(item["bytes"] + 1)
+    if len(raw) != item["bytes"] or digest(raw) != item["sha256"]:
         raise ValueError("generated catalog changed")
     value = json.loads(raw)
     public_projection(value)

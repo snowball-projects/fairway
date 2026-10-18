@@ -5,9 +5,12 @@ tracking. Catalog search, filters, committed-coordinate selection and map fittin
 run in the browser. The browser does not send origins to fairway's calculation
 service, modo, TomTom, Spark or another routing provider. Driving times are
 unavailable. The existing calculation API and its provider configuration remain
-separate and unchanged by this public catalog release.
+separate from this public catalog release. The unfinished private national API
+prototype (PR15) is not a public service or an available routing fallback.
 
 GitHub Pages serves static assets and a checksummed SQLite-derived read projection.
+The browser enforces a 16 KiB manifest limit, 64 MiB raw catalog limit and a single
+30-second loading deadline. The Pages builder bounds gzip expansion before parsing.
 Ordinary hosting requests expose standard connection metadata to GitHub. The full
 SQLite, recovery SQL, private source controls and retained documents are not browser
 assets. There is no editable JSON catalog or browser SQLite engine.
@@ -15,7 +18,9 @@ assets. There is no editable JSON catalog or browser SQLite engine.
 The map requests OpenStreetMap tiles; the tile service receives ordinary request
 metadata and the visible map area. Committing an address with Enter or blur sends
 the address directly to Photon, with omitted credentials and a ten-second timeout.
-Typing alone does not send a lookup. Manually entered coordinates remain local.
+Editing an origin, removing it or closing its suggestions cancels its active
+lookup. Typing alone does not send a lookup. Manually entered coordinates remain
+local.
 No automatic browser location request or origin persistence is used. Operators'
 external website links open separately; fairway does not broker bookings.
 
