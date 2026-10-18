@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {gunzipSync} from 'node:zlib';
 import vm from 'node:vm';
 import {CatalogRead,browseCard,courseMatches,sortCourses,STYLES,located,mapEligible,catalogCounts,cityLabel,accessLabel,displayAddress} from '../src/fairway/static/catalog-read.mjs';
 import {renderOptional,renderKnownOptional,OPTIONAL_DOMAINS} from '../src/fairway/static/optional-facts.mjs';
@@ -42,7 +43,7 @@ function catalog(){
  for(const f of facilities)f.course_inventory=courses.filter(c=>c.facility_id===f.facility_id).map(c=>({...c}));
  return new CatalogRead({revision:760,facilities,courses});
 }
-function harness(){
+function harness(model=catalog()){
  const document={activeElement:null,createElement:tag=>new Element(tag,document)};
  const controls=Object.fromEntries(['browse-state','browse-access','browse-holes','browse-round','browse-style','browse-sort','browse-description','preparation-status'].map(id=>[id,document.createElement('div')]));
  for(const c of Object.values(controls))c.value='all';controls['browse-sort'].value='name';
@@ -52,7 +53,7 @@ function harness(){
  const frames=[],events={},effects={fit:[],popups:0,draws:0,planning:0,render:0};let bounds=[40,-90,43,-87],openPopup=null;
  const map={getBounds:()=>({contains:p=>{const [lat,lng]=Array.isArray(p)?p:[p.lat,p.lng];return lat>=bounds[0]&&lat<=bounds[2]&&lng>=bounds[1]&&lng<=bounds[3];}}),on:(types,fn)=>{for(const t of types.split(' '))events[t]=fn;},closePopup:p=>{effects.closes=(effects.closes||0)+1;assert.ok(!p.closing,'must not close a popup during its close notification');p.closing=true;events.popupclose?.({popup:p});p.open=false;p.listeners.remove?.();p.closing=false;}};
  const L={latLng:(lat,lng)=>({lat,lng}),popup:options=>{effects.popups++;const p={options,listeners:{},setLatLng(c){this.coordinate=c;return this;},setContent(c){this.content=c;return this;},openOn(){this.open=true;openPopup=this;return this;},isOpen(){return this.open;},getElement(){return this.content;},on(t,fn){this.listeners[t]=fn;return this;}};return p;}};
- const ctx={URL,L,map,document,view,preparationFacilities:{clearLayers(){}},meetingLayer:{clearLayers(){}},STYLES,located,mapEligible,catalogCounts,cityLabel,accessLabel,displayAddress,browseCard,courseMatches,sortCourses,catalogModel:catalog(),state:{activeCourse:null,activeRows:[],rows:[],ranking:null,routingCatalogLabel:'Catalog760'},COLORS:[],planningMode:false,browseMode:true,browseScope:{kind:'viewport',label:'Courses in this map area'},activeFacility:null,popupSelection:null,cataloguePopup:null,movingCourseCard:false,viewportFrame:null,listLimit:60,catalogDate:'revision760',rankingNodes:new Map(),browseNodes:new Map(),rowInteractions:new Set(),$:id=>controls[id],renderOptional:(o,p)=>renderOptional(o,{...p,document}),renderKnownOptional:(o,p)=>renderKnownOptional(o,{...p,document}),requestAnimationFrame:fn=>{frames.push(fn);return frames.length;},drawFacilities:()=>effects.draws++,fitPoints:(p,z)=>effects.fit.push([p,z]),setDrawer:()=>{view.resultsPanel.hidden=false;},selected:()=> 'maximum',updateDisplaySortOptions(){},duration:()=> 'Unavailable',planningSession:{update(){effects.planning++;throw Error('No automatic planning');},invalidate(){effects.planning++;throw Error('No browse invalidation');}}};
+ const ctx={URL,L,map,document,view,preparationFacilities:{clearLayers(){}},meetingLayer:{clearLayers(){}},STYLES,located,mapEligible,catalogCounts,cityLabel,accessLabel,displayAddress,browseCard,courseMatches,sortCourses,catalogModel:model,state:{activeCourse:null,activeRows:[],rows:[],ranking:null,routingCatalogLabel:'Catalog760'},COLORS:[],planningMode:false,browseMode:true,browseScope:{kind:'viewport',label:'Courses in this map area'},activeFacility:null,popupSelection:null,cataloguePopup:null,movingCourseCard:false,viewportFrame:null,listLimit:60,catalogDate:'revision760',rankingNodes:new Map(),browseNodes:new Map(),rowInteractions:new Set(),$:id=>controls[id],renderOptional:(o,p)=>renderOptional(o,{...p,document}),renderKnownOptional:(o,p)=>renderKnownOptional(o,{...p,document}),requestAnimationFrame:fn=>{frames.push(fn);return frames.length;},drawFacilities:()=>effects.draws++,fitPoints:(p,z)=>effects.fit.push([p,z]),setDrawer:()=>{view.resultsPanel.hidden=false;},selected:()=> 'maximum',updateDisplaySortOptions(){},duration:()=> 'Unavailable',planningSession:{update(){effects.planning++;throw Error('No automatic planning');},invalidate(){effects.planning++;throw Error('No browse invalidation');}}};
  ctx.mobile=()=>false;ctx.REDUCED_MOTION=false;ctx.coursesDrawer=null;
  vm.createContext(ctx);
  for(const name of ['node','selectableCourses','selectCourse','moveCourseCard','courseCard','renderRanking','knownLink','knownAddress','appendKnownOptional','knownRounds','coursePopupDetails','facilityDetails','selectCoincidentFacilities','selectFacilityById','selectionPopupOptions','openSelectionPopup','closeSelection','reconcilePopupChoices','reconcileBrowseSelection','selectedFirst','refreshBrowseViewport','filterOptions','scopedRecords','matchesCourseFilters','updateLoadedCount','renderCourses'])vm.runInContext(actual(name),ctx);
@@ -222,7 +223,7 @@ test('facility-only pin keeps a minimal empty state and creates no course or dup
  h.ctx.catalogModel.courses=h.ctx.catalogModel.courses.filter(c=>c.facility_id!=='f-one');for(const id of ['c-a','c-b'])h.ctx.catalogModel.courseById.delete(id);facility.course_inventory=[];
  h.pan([40.9,-88.2,41.2,-87.8]);h.flush();h.ctx.selectFacilityById('f-one');
  assert.deepEqual(h.ids(),[]);assert.equal(h.ctx.state.activeCourse,null);assert.equal(h.ctx.activeFacility,'f-one');
- assert.equal(h.view.results.textContent.trim(),'No matching courses.');assert.equal(h.view.results.querySelector('.selected-facility-context'),null);assert.equal(h.cards().length,0);
+ assert.equal(h.view.results.textContent.trim(),'No course records documented for this facility.');assert.equal(h.view.results.querySelector('.selected-facility-context'),null);assert.equal(h.cards().length,0);
  h.pan([40,-90,43,-87]);h.flush();assert.deepEqual(h.ids(),['c-c']);assert.equal(h.view.results.querySelector('.selected-facility-context'),null);assert.doesNotMatch(h.view.results.textContent,/Shared facility|No matching courses/);
  h.pan([41.8,-89.2,42.2,-88.8]);h.flush();assert.equal(h.ctx.activeFacility,null);assert.equal(h.view.results.querySelector('.selected-facility-context'),null);
 });
@@ -288,4 +289,38 @@ test('catalog progress has exactly four concise stats with facility map-count se
  const stats=h.controls['progress-counts'];assert.equal(stats.children.length,4);
  assert.deepEqual(stats.children.map(n=>n.children.map(c=>c.textContent)),[['3','Facilities'],['3','Courses'],['2','On map'],['1','Not yet mapped']]);
  assert.doesNotMatch(stats.textContent,/revision|qualification|SQLite|activity|unconfirmed|unknown/i);
+});
+
+
+// Actual catalog regression cases; the synthetic range-only contract is separate.
+function releasedCatalog() {
+ const value=JSON.parse(gunzipSync(readFileSync(new URL('../data/catalog-release/catalog.json.gz',import.meta.url))));
+ const manifest=JSON.parse(readFileSync(new URL('../data/catalog-release/manifest.json',import.meta.url)));
+ return validatePublicCatalog(value,manifest);
+}
+test('actual Emerald Hill facility selects its real course without a placeholder',()=>{
+ const h=harness(releasedCatalog()),id='f-ac1969f3-8470-453a-8679-368195f6a15d',f=h.ctx.catalogModel.facilityById.get(id);
+ h.pan([f.map_location.latitude-.01,f.map_location.longitude-.01,f.map_location.latitude+.01,f.map_location.longitude+.01]);h.flush();h.ctx.selectFacilityById(id);
+ assert.equal(h.ctx.state.activeCourse,'c-9240a483-ccb0-4650-97fa-65115eed819f');
+ assert.equal(h.ids().filter(cid=>h.ctx.catalogModel.courseById.get(cid).facility_id===id).length,1);
+ assert.match(h.view.results.textContent,/Emerald Hill Golf Course/);assert.match(h.view.results.textContent,/18 holes/);
+});
+for(const [id,names] of [
+ ['f-b8517239-5369-4f16-be97-37d62a5eb2cc',['Great White','Hammerhead','Mako']],
+ ['f-db5245d7-c862-49d0-a761-c6e690402ce9',['The Black','The Gold']]
+])test('actual Tiburon inventory preserves distinct layouts '+id,()=>{
+ const h=harness(releasedCatalog()),f=h.ctx.catalogModel.facilityById.get(id),before=h.ctx.catalogModel.courses.length;
+ h.pan([f.map_location.latitude-.01,f.map_location.longitude-.01,f.map_location.latitude+.01,f.map_location.longitude+.01]);h.flush();h.ctx.selectFacilityById(id);
+ assert.equal(h.ctx.state.activeCourse,null);
+ const rows=h.ids().map(cid=>h.ctx.catalogModel.courseById.get(cid)).filter(c=>c.facility_id===id);
+ assert.deepEqual(rows.map(c=>c.name).sort(),names);assert.equal(h.ctx.catalogModel.courses.length,before);
+ for(const name of names)assert.ok(h.popup().content.textContent.includes(name));
+});
+test('synthetic range-only contract retains a facility pin and never fabricates a course',()=>{
+ const h=harness(),facility=h.ctx.catalogModel.facilityById.get('f-one');facility.name='Synthetic range-only facility';facility.physical_holes=null;
+ h.ctx.catalogModel.courses=h.ctx.catalogModel.courses.filter(c=>c.facility_id!=='f-one');for(const id of ['c-a','c-b'])h.ctx.catalogModel.courseById.delete(id);facility.course_inventory=[];
+ h.pan([40.9,-88.2,41.2,-87.8]);h.flush();h.ctx.selectFacilityById('f-one');
+ assert.ok(mapEligible(facility));assert.equal(h.ctx.activeFacility,'f-one');assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),[]);
+ assert.ok(h.popup().content.textContent.includes(facility.name));assert.equal(h.cards().length,0);assert.equal(h.view.results.textContent.trim(),'No course records documented for this facility.');
+ assert.equal(h.ctx.catalogModel.courses.length,1);assert.doesNotMatch(h.popup().content.textContent,/holes|course record|18/);
 });

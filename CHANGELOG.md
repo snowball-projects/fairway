@@ -5,7 +5,14 @@
 - Load the verified generated map/search index before complete course details. Preserve pinned catalog identity, counts and complete validation; defer course views until requested and respect current drawer and map selection intent.
 - Publish a content-hashed Pages JavaScript/module/CSS graph so normal reload adopts changed UI software instead of older cached scripts. Keep source URL aliases and record the compiled asset mapping in deployment metadata.
 
-## Catalog 981 (unreleased)
+## Catalog 1019 (unreleased)
+
+- Link 65 documented course identities and confirm three existing identities across 59 existing facilities. Preserve unknown counts, names, access and operation; add no facilities or optional observations.
+- Keep distinct named nines, main and short courses separate from offered rounds, facility totals and incomplete inventory.
+- Clarify the empty-facility message when no course records are documented, with Emerald Hill, both Tiburon properties and explicit range-only controls covered.
+- Preserve the bounded catalog loader, reviewed verification matrix, initial map index and versioned asset graph. Software package remains 0.6.3; catalog identity is separate.
+
+## Catalog 981 (released)
 
 - Retain 4,682 courses and 7,430 facilities while adding 68 domain/relationship records and five course location-note enhancements: 73 direct improvements. Five supporting source observations bring the reviewed packet to 78 actions; provenance and storage rows are not counted again as features.
 - Preserve qualified tee categories and partial metrics, documentary range conflicts, dated instructional programmes and unknown currencies. Add no courses, routing coordinates or current-availability claims.

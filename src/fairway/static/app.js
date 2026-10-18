@@ -1102,7 +1102,11 @@ function renderCourses() {
     const more=node("button","Show more","quiet-button browse-more");
     more.addEventListener("click",()=>{listLimit+=60;renderCourses();});view.results.append(more);
   }
-  if(!records.length)view.results.append(node("p","No matching courses.","browse-empty"));
+  if(!records.length) {
+    const message=activeFacility && !catalogModel.facilityCourses(activeFacility).length
+      ? "No course records documented for this facility." : "No matching courses.";
+    view.results.append(node("p",message,"browse-empty"));
+  }
 }
 
 function closeSearch() {

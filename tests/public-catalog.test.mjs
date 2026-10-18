@@ -70,15 +70,15 @@ test('address lookup has an injected deterministic transport and no private rout
   let call;const value=await resolvePublicOrigin('committed address',{fetcher:async(url,options)=>{call={url,options};return {ok:true,json:async()=>({features:[]})};}});
   assert.deepEqual(value.features,[]);assert.equal(call.url.origin,'https://photon.komoot.io');assert.equal(call.url.searchParams.get('q'),'committed address');assert.equal(call.options.credentials,'omit');
 });
-test('committed 981 release validates complete typed scope and rejects old-schema fallback',()=>{
+test('committed 1019 release validates complete typed scope and rejects old-schema fallback',()=>{
   const raw=gunzipSync(readFileSync(new URL('../data/catalog-release/catalog.json.gz',import.meta.url)));
   const manifest=JSON.parse(readFileSync(new URL('../data/catalog-release/manifest.json',import.meta.url)));
   assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.files['catalog.json'].sha256);
-  assert.equal(manifest.revision,981);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
-  assert.equal(manifest.files['catalog.json'].sha256,'68cceb68dd19e255a552a85c6dec0a8cf3904ef817b2aca92a401517fc7e7d65');
+  assert.equal(manifest.revision,1019);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
+  assert.equal(manifest.files['catalog.json'].sha256,'19860e8fc34466dec3ab6fd20e8d269b87ce24c75bfe2d4bd46a3f98c2643b6b');
   const value=JSON.parse(raw),model=validatePublicCatalog(value,manifest);
   assert.throws(()=>validatePublicCatalog({...value,format_version:1,schema:4},{...manifest,format_version:1,schema:4}),/identity/);
-  assert.equal(model.facilities.length,7430);assert.equal(model.courses.length,4682);assert.equal(model.destinations.size,2852);
+  assert.equal(model.facilities.length,7430);assert.equal(model.courses.length,4747);assert.equal(model.destinations.size,2889);
   assert.deepEqual(catalogCounts(model.facilities),{total:7430,onMap:4640,pending:2790});
   assert.equal(model.optionalObservations.size,5014);
   const teal=model.courses.flatMap(c=>c.tee_sets).find(t=>t.id==='t-ddc5031b-f1b3-4519-8d5a-74d6bd8159cd');
