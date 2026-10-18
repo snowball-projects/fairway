@@ -45,6 +45,11 @@ validation. The initial manifest stays pinned for that page, so a deployment
 between map and detail requests cannot mix releases. Hash-named responses may use
 the HTTP cache but always undergo checksum verification.
 
+Pages entry points also use content-hashed JavaScript, module and stylesheet
+filenames. The builder rewrites the complete static import graph and records it
+in `deployment.json` as `ui_assets`, so reloading fresh HTML cannot reuse older
+cached UI code. Original source URLs remain compatibility aliases.
+
 The browser reads response streams with a 16 KiB manifest limit, 4 MiB initial-map
 limit and 64 MiB complete-catalog limit. Each load has one 30-second deadline
 covering its network requests and body reads.

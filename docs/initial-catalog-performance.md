@@ -134,3 +134,29 @@ Run the same server and runner on the baseline output. Both the separate stages
 and each first-navigation resource's encoded/decoded/transfer sizes and timing are
 recorded in JSON. Stop the two local servers after measurement. The benchmark
 starts no routing server, changes no desktop settings and sends no origins.
+
+## Deployment cache acceptance
+
+The merged `1bdf05a` deployment passed its complete main CI and Pages publication.
+Hosted catalog validation matched all 7,430 map-index rows against the complete
+catalog981 payload, including its original checksum and relationship validation.
+Fresh and same-version warm desktop/touch-mobile browsing passed counts, actual
+mapped-pin selection, local search, deferred details and controlled error checks.
+These hosted observations use the real network and live map tiles, without the
+benchmark's CPU/network simulation; they are separate from the timing table above.
+
+A pre-deployment cached browser did expose an adoption problem: normal reload
+could retain unversioned `app.js` and `public-catalog.mjs` for the hosted
+`max-age=600` period, then fetch the new manifest through the old complete-catalog
+startup path. A controlled old-to-new server swap with the same cache policy
+reproduced zero transferred script bytes, old script checksums and no initial-map
+request. Catalog facts remained consistent; the new UI was not adopted.
+
+The follow-up builder emits content-hashed JS/module/CSS copies and rewrites their
+complete static import graph plus HTML references. Hashes include rewritten
+dependency names, so a changed leaf invalidates every affected importer. Unchanged
+assets retain their names; catalog-only changes need no UI redownload. Existing
+source URLs remain aliases for compatibility, while normal pages use the hashed
+graph. The mapping is recorded in deployment metadata. The catalog/index payloads,
+their checksums and native schema are unchanged. Next hosted deployment acceptance
+must still verify normal reload from the previously cached page.

@@ -32,14 +32,15 @@ def test_native_pages_are_reproducible_public_only_and_leave_source_unchanged(tm
     assert len(raw) == item["bytes"] and sha256(raw).hexdigest() == item["sha256"]
     assert one["counts"] == {"facilities": 3, "courses": 3, "destinations": 2}
     html = (output / "index.html").read_text()
-    assert 'src="./app.js"' in html and "Content-Security-Policy" in html
+    assert f'src="./{one["ui_assets"]["app.js"]}"' in html
+    assert "Content-Security-Policy" in html
     assert "photon.komoot.io" in html and "onrender.com" not in html
     assert (
         "data/catalog-release.json" in html
         and "REVIEW FIXTURE: synthetic records" in html
     )
     assert one["review_fixture"] is True
-    assert one["assets"] == 25
+    assert one["assets"] == 38
     assert json.loads((output / "deployment.json").read_text())["commit"] == "a" * 40
     for name in [
         "catalog.mjs",
