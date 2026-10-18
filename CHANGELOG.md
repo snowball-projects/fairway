@@ -2,6 +2,7 @@
 
 ## Unreleased software
 
+- Keep the latest search choice when rapid selections overlap a normal map animation. Apply it after the older camera settles, and cancel queued choices when the user changes intent.
 - Load the verified generated map/search index before complete course details. Preserve pinned catalog identity, counts and complete validation; defer course views until requested and respect current drawer and map selection intent.
 - Publish a content-hashed Pages JavaScript/module/CSS graph so normal reload adopts changed UI software instead of older cached scripts. Keep source URL aliases and record the compiled asset mapping in deployment metadata.
 
