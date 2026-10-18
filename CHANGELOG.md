@@ -2,7 +2,7 @@
 
 ## Unreleased software fixes
 
-- Read public catalog responses incrementally with byte limits, cancellation and a 30-second network deadline. Verify checksums over the original response bytes.
+- Read public catalog responses incrementally into a bounded growing buffer, with byte limits, cancellation and a 30-second network deadline. Tiny or empty chunks cannot accumulate retained objects or starve the deadline. Verify checksums over the original response bytes and cancel late response bodies after abort.
 - Bound Pages gzip expansion before parsing, including understated sizes and concatenated gzip members.
 - Cancel Photon requests when origins are edited, removed or superseded, while retaining the ten-second lookup deadline.
 - Document Pages publication, package/catalog/deployment identity and the separate unfinished private API. Exercise Python 3.12 and 3.13 in CI.

@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
 import {gunzipSync} from 'node:zlib';
 import {loadPublicCatalog,validatePublicCatalog} from '../src/fairway/static/public-catalog.mjs';
 import {PublicPlanningSession,resolvePublicOrigin} from '../src/fairway/static/public-planning.mjs';
@@ -165,4 +166,50 @@ test('invalid UTF8 fails closed instead of checksumming a replacement encoding',
  t.manifest.files['catalog.json']={bytes:bytes.length,sha256:hash,path:`native-catalog-${hash}.json`};
  await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>new Response(++calls===1?JSON.stringify(t.manifest):bytes)}),TypeError);
  assert.equal(calls,2);
+});
+
+test('a million empty chunks and reused one-byte buffers load within a bounded heap with exact checksum',()=>{
+ const t=transport(value=>value.source_licenses.push({source:'Équipe ⛳',license:'CC0-1.0',attribution:'Équipe ⛳'}));
+ const script=`
+  import assert from 'node:assert/strict';
+  import {loadPublicCatalog} from ${JSON.stringify(new URL('../src/fairway/static/public-catalog.mjs',import.meta.url).href)};
+  const manifest=${JSON.stringify(t.manifest)},raw=${JSON.stringify(t.raw)};
+  let calls=0,empty=1000000,offset=0;const bytes=new TextEncoder().encode(raw),one=new Uint8Array(1);
+  const model=await loadPublicCatalog('https://example.test/data/catalog-release.json',{fetcher:async()=>{
+   if(++calls===1)return new Response(JSON.stringify(manifest));
+   return {ok:true,body:{getReader:()=>({async read(){
+    if(empty-->0)return {done:false,value:new Uint8Array(0)};
+    if(offset===bytes.length)return {done:true};
+    one[0]=bytes[offset++];return {done:false,value:one};
+   },cancel(){throw Error('Successful load must not cancel');},releaseLock(){}})}};
+  }});
+  assert.equal(model.sourceLicenses.at(-1).attribution,'Équipe ⛳');assert.equal(calls,2);
+ `;
+ const result=spawnSync(process.execPath,['--max-old-space-size=64','--input-type=module','--eval',script],{encoding:'utf8',timeout:20000,maxBuffer:1024*1024});
+ assert.equal(result.error,undefined);assert.equal(result.status,0,result.stderr);
+});
+test('an endless stream of empty chunks still yields to the catalog deadline and cancels',async()=>{
+ let cancelled=0,reads=0;
+ await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',{timeoutMs:20,fetcher:async()=>({ok:true,body:{getReader:()=>({async read(){reads++;return {done:false,value:new Uint8Array(0)};},cancel(){cancelled++;return Promise.resolve();},releaseLock(){}})}})}),{name:'TimeoutError'});
+ assert.ok(reads>0);assert.equal(cancelled,1);
+});
+for(const phase of ['manifest','catalog'])for(const reason of ['caller','deadline'])test(`late ${phase} response after ${reason} cancellation has its body cancelled`,async()=>{
+ const t=transport(),controller=new AbortController();let release,calls=0,cancelled=0;
+ const pending=loadPublicCatalog('https://example.test/data/catalog-release.json',{signal:controller.signal,timeoutMs:20,fetcher:async()=>{
+  calls++;if(phase==='catalog'&&calls===1)return new Response(JSON.stringify(t.manifest));
+  return new Promise(resolve=>{release=resolve;});
+ }});
+ // Let the first response finish before cancelling the second request.
+ while(!release)await new Promise(resolve=>setImmediate(resolve));
+ if(reason==='caller')controller.abort();
+ await assert.rejects(pending,{name:reason==='caller'?'AbortError':'TimeoutError'});
+ release(new Response(new ReadableStream({cancel(){cancelled++;return Promise.reject(Error('Cleanup failure'));}})));
+ await new Promise(resolve=>setImmediate(resolve));assert.equal(cancelled,1);assert.equal(calls,phase==='catalog'?2:1);
+});
+test('a transport that aborts synchronously and returns a response still has its body cancelled',async()=>{
+ const controller=new AbortController();let cancelled=0;
+ await assert.rejects(loadPublicCatalog('https://example.test/data/catalog-release.json',{signal:controller.signal,fetcher:()=>{
+  controller.abort();return new Response(new ReadableStream({cancel(){cancelled++;}}));
+ }}),{name:'AbortError'});
+ assert.equal(cancelled,1);
 });

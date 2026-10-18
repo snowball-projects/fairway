@@ -14,37 +14,52 @@ export function validatePublicCatalog(value,manifest){
 }
 // Race injected transports too: a stalled response must not outlive the deadline.
 async function abortable(work,signal){
-  signal.throwIfAborted();
   let onAbort;
-  const aborted=new Promise((_,reject)=>{onAbort=()=>reject(signal.reason);signal.addEventListener('abort',onAbort,{once:true});});
-  try{return await Promise.race([work,aborted]);}
+  const aborted=new Promise((_,reject)=>{
+    onAbort=()=>reject(signal.reason);
+    if(signal.aborted)onAbort();else signal.addEventListener('abort',onAbort,{once:true});
+  });
+  try{return await Promise.race([aborted,work]);}
   finally{signal.removeEventListener('abort',onAbort);}
 }
+function cancelBody(body){
+  // A producer's throwing/rejecting/pending cancellation hook cannot hold cleanup up.
+  try{body?.cancel()?.catch(()=>{});}catch{}
+}
 async function readBounded(url,max,fetcher,signal){
-  const response=await abortable(fetcher(url,{credentials:'omit',cache:'no-cache',mode:'same-origin',signal}),signal);
+  signal.throwIfAborted();
+  const pending=Promise.resolve(fetcher(url,{credentials:'omit',cache:'no-cache',mode:'same-origin',signal})).then(response=>{
+    if(signal.aborted){cancelBody(response.body);throw signal.reason;}
+    return response;
+  });
+  const response=await abortable(pending,signal);
   let reader,complete=false;
   try{
+    signal.throwIfAborted();
     if(!response.ok)throw new Error('Published catalog unavailable');
     const declared=Number(response.headers?.get?.('content-length'));
     if(declared>max)throw new Error('Published catalog too large');
     reader=response.body?.getReader();
     if(!reader)throw new Error('Published catalog body unavailable');
-    const chunks=[];let size=0;
+    let buffer=new Uint8Array(Math.min(16384,max)),size=0,reads=0;
     while(true){
       const {done,value}=await abortable(reader.read(),signal);
       if(done){complete=true;break;}
-      size+=value.byteLength;
-      if(size>max)throw new Error('Published catalog too large');
-      chunks.push(value);
+      const next=size+value.byteLength;
+      if(next>max)throw new Error('Published catalog too large');
+      if(next>buffer.length){
+        const grown=new Uint8Array(Math.min(max,Math.max(next,buffer.length*2)));
+        grown.set(buffer.subarray(0,size));buffer=grown;
+      }
+      buffer.set(value,size);size=next;
+      // Empty/tiny synchronous chunks must not starve the deadline's timer task.
+      if(++reads%1024===0)await abortable(new Promise(resolve=>setTimeout(resolve,0)),signal);
     }
-    const bytes=new Uint8Array(size);let offset=0;
-    for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.byteLength;}
+    const bytes=buffer.subarray(0,size);
     return {text:new TextDecoder('utf-8',{fatal:true}).decode(bytes),bytes};
   }finally{
     if(!complete){
-      // Do not wait for a producer's cancellation hook to settle.
-      const cancellation=reader?reader.cancel():response.body?.cancel();
-      cancellation?.catch(()=>{});
+      cancelBody(reader||response.body);
     }
     reader?.releaseLock();
   }
