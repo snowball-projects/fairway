@@ -68,12 +68,12 @@ def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert (
         sum(len(f["course_ids"]) for f in catalog["facilities"])
         == len(catalog["courses"])
-        == 4912
+        == 4918
     )
     assert len(catalog["provenance"]["notes"]) == 8286
     assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
-    assert len(catalog["provenance"]["sources"]) == 18996
-    assert len(catalog["provenance"]["intake"]) == 14816
+    assert len(catalog["provenance"]["sources"]) == 19030
+    assert len(catalog["provenance"]["intake"]) == 15186
     assert sum(c["arrival"] is not None for c in catalog["courses"]) == 8
     assert (
         not {"retained_document", "source_hold", "source_hold_scope"} & catalog.keys()
@@ -387,3 +387,155 @@ def test_corrected_prices_structure_source_qualifiers_without_defaulting_unknown
         assert prices[pid]["fee_kind"] is None
         assert prices[pid]["currency"] is None
         assert prices[pid]["amount_kind"] == "exact"
+
+
+def test_completion_1163_preserves_partial_course_identity_and_round_scope(catalog):
+    courses = {c["course_id"]: c for c in catalog["courses"]}
+    sunny = courses["c-f81503ee-99c6-4cf2-aec3-e546c0fab1b6"]
+    assert sunny["name"] is None
+    assert (sunny["physical_holes"], sunny["access"], sunny["style"]) == (
+        18,
+        "public",
+        "executive",
+    )
+    creek = courses["c-30a36de0-6ce2-45de-81ad-7c1741f1a03d"]
+    assert creek["physical_holes"] is None and creek["access"] == "public"
+    assert creek["map_location"]["kind"] == "address_range_estimate"
+    shadow = courses["c-1462934a-55c8-4dbb-b26e-dce443eb5897"]
+    assert shadow["physical_holes"] == 18
+    assert {r["round_holes"] for r in shadow["round_options"]} == {9, 18}
+    assert all(r["course_id"] == shadow["course_id"] for r in shadow["round_options"])
+    assert all(
+        c["arrival"] is None and c["nonmember_bookable"] is None
+        for c in [sunny, creek, shadow]
+    )
+
+
+def test_completion_1163_property_context_does_not_create_arrivals(catalog):
+    by_id = {f["facility_id"]: f for f in catalog["facilities"]}
+    for fid, latitude, longitude in [
+        ("f-005bd2e9-b3fd-46f8-9ecf-8b0df5e7d3e5", 29.69799, -95.137051),
+        ("f-1b4feacc-0a88-4f73-b4ad-c1ba810ef8a2", 41.5493657, -75.9201033),
+        (
+            "f-01fbe6d3-8c81-47eb-a8c0-65f0fe831639",
+            46.01814113649568,
+            -83.68948710012675,
+        ),
+    ]:
+        facility = by_id[fid]
+        assert facility["map_location"] == {
+            "latitude": latitude,
+            "longitude": longitude,
+            "kind": "property_point",
+        }
+        assert all(
+            c["arrival"] is None for c in catalog["courses"] if c["facility_id"] == fid
+        )
+    lee = next(
+        c
+        for c in catalog["courses"]
+        if c["course_id"] == "c-a7a18a66-ed3e-464f-883a-24ab02810dc8"
+    )
+    assert (
+        lee["location_note"]
+        == "Mine Rd is the old entrance and does not provide access to the golf course."
+    )
+    assert lee["arrival"] is None
+
+
+def test_completion_1163_booking_retains_weekday_and_league_qualification(catalog):
+    coyote = next(
+        c
+        for c in catalog["courses"]
+        if c["course_id"] == "c-5f509a65-89e9-4560-b5f1-feeaac0c1775"
+    )
+    assert coyote["name"] == "Coyote Trails Golf Course"
+    assert "closed Mondays and Tuesdays" in coyote["booking_conditions"]
+    assert "exclusive to league participants" in coyote["booking_conditions"]
+    assert "7:00 AM Wednesday through Sunday" in coyote["booking_conditions"]
+    assert coyote["nonmember_bookable"] is None
+    assert coyote["access_qualification"] == coyote["booking_conditions"]
+
+
+def test_completion_1163_shadowbrook_price_scope_and_unknowns_survive(catalog):
+    shadow = next(
+        c
+        for c in catalog["courses"]
+        if c["course_id"] == "c-1462934a-55c8-4dbb-b26e-dce443eb5897"
+    )
+    direct = shadow["optional"]["price_observation"]
+    round_prices = [
+        p for r in shadow["round_options"] for p in r["optional"]["price_observation"]
+    ]
+    assert len(direct) == 4 and len(round_prices) == 16
+    prices = direct + round_prices
+    assert len({p["id"] for p in prices}) == 20
+    assert {p["source_id"] for p in prices} == {"s5705"}
+    assert all(
+        p["currency"] is None
+        and p["billing_basis"] is None
+        and p["effective_from"] is None
+        for p in prices
+    )
+    assert all(p["round_holes"] is None and p["cart_included"] is None for p in direct)
+    assert all(p["round_holes"] in {9, 18} for p in round_prices)
+    assert all(p["conditions"] and "2026" in p["conditions"] for p in prices)
+
+
+def test_completion_1163_price_dates_and_tee_units_are_source_bound(catalog):
+    golden = next(
+        c
+        for c in catalog["courses"]
+        if c["course_id"] == "c-5d0e5d69-be73-4ce6-8430-02824918e9f1"
+    )
+    prices = golden["optional"]["price_observation"]
+    assert len(prices) == 14
+    assert all(
+        p["observation_id"] == "o-6b2f0829-3f35-5d73-8ab3-f1f3fc651a37" for p in prices
+    )
+    assert all(
+        p["effective_from"] == "2026-04-01" and p["currency"] is None for p in prices
+    )
+    tees = {t["name"]: t for t in golden["tee_sets"]}
+    assert (tees["Blue"]["yardage"], tees["Blue"]["yardage_unit"]) == (6600, "yards")
+    assert all(
+        tees[name]["yardage"] is None and tees[name]["yardage_unit"] is None
+        for name in ["White", "Gold", "Red"]
+    )
+    roosevelt = next(
+        c
+        for c in catalog["courses"]
+        if c["course_id"] == "c-5117733b-e47c-4b08-9d0e-92ea0cc0e34e"
+    )
+    assert roosevelt["style"] == "executive"
+    tees = [t for t in roosevelt["tee_sets"] if t["id"].startswith("t-")]
+    assert len(tees) == 6 and {t["rated_category"] for t in tees} == {"M", "W"}
+    assert all(t["par"] == 33 and t["yardage"] is None for t in tees)
+
+
+def test_completion_1163_terra_copy_correction_preserves_conflicts(catalog):
+    terra = next(
+        f
+        for f in catalog["facilities"]
+        if f["facility_id"] == "f-024a2471-acc3-4109-a2ab-0123d622e29c"
+    )
+    ids = {
+        "n-0fa48260-9f21-5c39-8dd6-79adcfb376f5",
+        "n-5a4c6ff3-17db-5807-81fd-adff91c83ef8",
+        "n-352cd0b5-18aa-5c5b-a8d9-79748fcf0af7",
+        "n-5688cabb-74c6-59f3-a75c-2d9947de109c",
+        "n-67cce253-7b56-5d5f-8a95-9bd08955edc0",
+        "n-7ed94af5-64e3-5f42-8c3b-f657b0c4dfc6",
+        "n-1629e2a4-203b-5c6f-b015-7de3cb6cb7cc",
+    }
+    rows = [r for rows in terra["optional"].values() for r in rows if r["id"] in ids]
+    assert len(rows) == 7 and len({r["observation_id"] for r in rows}) == 3
+    for r in rows:
+        assert "field-source-bindings.json" not in r["qualification"]
+        assert (
+            "individual fields remain bound to their respective source pages"
+            in r["qualification"]
+        )
+        assert "pace4:10" in r["qualification"] and "4:30" in r["qualification"]
+        assert "stateproof OR verbalassurance" in r["qualification"]
+        assert r["collected_on"] == "2026-10-18" and r["effective_from"] is None

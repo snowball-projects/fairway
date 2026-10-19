@@ -6,7 +6,14 @@
 - Load the verified generated map/search index before complete course details. Preserve pinned catalog identity, counts and complete validation; defer course views until requested and respect current drawer and map selection intent.
 - Publish a content-hashed Pages JavaScript/module/CSS graph so normal reload adopts changed UI software instead of older cached scripts. Keep source URL aliases and record the compiled asset mapping in deployment metadata.
 
-## Catalog 1139 (unreleased)
+## Catalog 1163 (unreleased)
+
+- Complete four reviewed existing-record batches: six new course identities, eleven existing course updates and contact/location updates at twenty-seven facilities. Three qualified property points improve map context without establishing entrances, routes or arrivals.
+- Add seventeen tee/category records, two rounds and 258 typed observations, including 192 qualified prices. Preserve literal rating categories, unreported units, dated windows, source-specific conflicts and all age, cart, day, time and round conditions. Dated prices are not current quotes.
+- The existing batches contain 321 direct enhancements and 39 supporting source observations. A separate ten-intent copy correction appends three replacement source observations and rebinds seven rows to remove private workflow wording, preserving original immutable evidence and all factual qualifications. It adds no facts or features.
+- Preserve all 540 native hold scopes, existing arrivals and inventory-complete flags. No new facility or API/runtime change is included. Software package version remains 0.6.3; prior catalog 1139 is released.
+
+## Catalog 1139 (released)
 
 - Add three reviewed eighteen-hole course identities and confirm three existing course names. Preserve Kinzua's six physical holes, Sunserra's nine-hole par-3 identity and all unknown operation and arrival fields.
 - Fill contact address components at eleven existing facilities without replacing old full-address text or changing coordinates, arrivals or inventory completeness. Preserve unresolved ZIP and structured-address conflicts.
