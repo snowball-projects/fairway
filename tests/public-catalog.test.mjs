@@ -70,17 +70,17 @@ test('address lookup has an injected deterministic transport and no private rout
   let call;const value=await resolvePublicOrigin('committed address',{fetcher:async(url,options)=>{call={url,options};return {ok:true,json:async()=>({features:[]})};}});
   assert.deepEqual(value.features,[]);assert.equal(call.url.origin,'https://photon.komoot.io');assert.equal(call.url.searchParams.get('q'),'committed address');assert.equal(call.options.credentials,'omit');
 });
-test('committed 1139 release validates complete typed scope and rejects old-schema fallback',()=>{
+test('committed 1163 release validates complete typed scope and rejects old-schema fallback',()=>{
   const raw=gunzipSync(readFileSync(new URL('../data/catalog-release/catalog.json.gz',import.meta.url)));
   const manifest=JSON.parse(readFileSync(new URL('../data/catalog-release/manifest.json',import.meta.url)));
   assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.files['catalog.json'].sha256);
-  assert.equal(manifest.revision,1139);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
-  assert.equal(manifest.files['catalog.json'].sha256,'9c7699163015cb2397da764e3348adf370453ed8316d69f7819c00124caa57c7');
+  assert.equal(manifest.revision,1163);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
+  assert.equal(manifest.files['catalog.json'].sha256,'4f2832c24eba4a38ed1accfbfd907e60948637b8c9e4c28f0acc1fbe55faf6b6');
   const value=JSON.parse(raw),model=validatePublicCatalog(value,manifest);
   assert.throws(()=>validatePublicCatalog({...value,format_version:1,schema:4},{...manifest,format_version:1,schema:4}),/identity/);
-  assert.equal(model.facilities.length,7430);assert.equal(model.courses.length,4912);assert.equal(model.destinations.size,2990);
-  assert.deepEqual(catalogCounts(model.facilities),{total:7430,onMap:4640,pending:2790});
-  assert.equal(model.optionalObservations.size,5105);
+  assert.equal(model.facilities.length,7430);assert.equal(model.courses.length,4918);assert.equal(model.destinations.size,2993);
+  assert.deepEqual(catalogCounts(model.facilities),{total:7430,onMap:4643,pending:2787});
+  assert.equal(model.optionalObservations.size,5363);
   const teal=model.courses.flatMap(c=>c.tee_sets).find(t=>t.id==='t-ddc5031b-f1b3-4519-8d5a-74d6bd8159cd');
   assert.equal(teal.rated_category,'W');assert.equal(teal.difficulty_rating,68.1);assert.equal(teal.slope,116);
   assert.equal(teal.yardage,null);assert.equal(teal.yardage_unit,null);
