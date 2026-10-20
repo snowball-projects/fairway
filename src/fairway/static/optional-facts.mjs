@@ -7,6 +7,7 @@ const ENVELOPE=['source_id','source_url','source_license','source_attribution','
 const CREDIT={id:'text',party_id:'text',name:'text',party_kind:'text',role:'text'};
 const fail=message=>{throw new Error(message);};
 const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
+const validDate=v=>typeof v==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&Number.isFinite(Date.parse(v))&&new Date(v).toISOString().slice(0,10)===v;
 export function sameValue(a,b){
   if(a===b)return true;
   if(Array.isArray(a)&&Array.isArray(b))return a.length===b.length&&a.every((x,i)=>sameValue(x,b[i]));
@@ -101,13 +102,24 @@ export function rejectRawEvidence(value,path=[]){
 }
 export function validateScopedOptional(value){
   rejectRawEvidence(value);
-  const provenance=value.provenance;if(!object(provenance)||!Array.isArray(provenance.sources)||!Array.isArray(provenance.notes)||!Array.isArray(provenance.intake)||!Array.isArray(value.source_licenses))fail('Missing public SQL provenance');
+  const provenance=value.provenance;if(!object(provenance)||!Array.isArray(provenance.sources)||!Array.isArray(provenance.notes)||!Array.isArray(value.source_licenses))fail('Missing public SQL provenance');
   const sources=unique(provenance.sources);unique(provenance.notes);
   for(const note of provenance.notes)if(Object.keys(note).length!==1||!Object.hasOwn(note,'id'))fail('Public notes contain IDs only');
   const facilities=unique(value.facilities,'facility_id'),courses=unique(value.courses,'course_id');
   const relationships=value.relationships;
   if(!object(relationships)||!sameValue(Object.keys(relationships).sort(),Object.keys(RELATIONSHIP_SCHEMA).sort()))fail('Missing canonical relationship tables');
   const maps={};for(const [kind,schema] of Object.entries(RELATIONSHIP_SCHEMA)){maps[kind]=unique(relationships[kind]);for(const row of maps[kind].values())rowShape(row,schema);}
+  const citationSubjects={facility:facilities,course:courses,...maps},citationKeys=new Set();
+  if(provenance.citations!==undefined&&!Array.isArray(provenance.citations))fail('Invalid core citations');
+  for(const citation of provenance.citations||[]){
+    if(!object(citation)||Object.keys(citation).sort().join(',')!=='collected_on,entity_id,entity_type,source_id,status'||
+      !Object.hasOwn(citationSubjects,citation.entity_type)||!citationSubjects[citation.entity_type]?.has(citation.entity_id)||
+      citation.source_id!==null&&!sources.has(citation.source_id)||
+      citation.collected_on!==null&&!validDate(citation.collected_on)||
+      !['extracted','confirmed'].includes(citation.status))fail('Invalid core citation');
+    const key=JSON.stringify([citation.entity_type,citation.entity_id,citation.source_id,citation.collected_on,citation.status]);
+    if(citationKeys.has(key))fail('Duplicate core citation');citationKeys.add(key);
+  }
   const facilityForCourse=id=>courses.get(id)?.facility_id;
   const componentFacility=id=>facilityForCourse(maps.component.get(id)?.course_id);
   const roundFacility=row=>row.facility_id??facilityForCourse(row.course_id);

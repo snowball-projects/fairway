@@ -56,3 +56,22 @@ The user approved the native5 layout and functional preview on October 15, 2026.
 Visual and text polish are subsequent work. Final source/data composition review,
 required checks and actual hosted publication verification have their own evidence;
 this contract does not claim deployment or acceptance of unfinished routing.
+
+
+## Draft citation simplification
+
+The code in this draft replaces the native import ledger with core citations.
+New exports emit `provenance.citations`, with exactly `entity_type`, `entity_id`,
+`source_id`, `collected_on`, and `status`. Source/date may be null when unknown;
+status is `extracted` or `confirmed`. Subjects and known sources must resolve.
+The SQL `citation` table deduplicates those fields, treating nulls as equal.
+Typed optional observations retain their existing source envelopes and licenses.
+New imports keep row guards and atomic preview/apply but store no batch receipt or
+raw intake payload. The optional `--report` is local output only. A repeated stale
+import conflicts rather than returning a persisted receipt.
+
+The committed revision 1163 artifact is unchanged. Browser validation no longer
+requires its unused `intake` array and does not copy that array into the model.
+This draft does not migrate a database or publish replacement data. A real-data
+export from the proposed layout needs a suitable source database; reviewing the
+current public artifact does not. See the [reviewer map](docs/catalog/REVIEW.md).

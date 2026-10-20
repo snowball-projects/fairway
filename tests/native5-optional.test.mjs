@@ -158,3 +158,20 @@ test('valid relationship and subject ordering is retained without changing membe
   const before=structuredClone(value),model=validatePublicCatalog(value,manifest);
   assert.deepEqual(model.courses.map(c=>c.course_id),value.courses.map(c=>c.course_id));assert.equal(model.optionalObservations.size,6);assert.deepEqual(value,before);
 });
+
+
+test('core citations work without an import ledger and preserve source and date',()=>{
+  const {value,manifest}=fixture();delete value.provenance.intake;
+  const citation={entity_type:'course',entity_id:main(value).course_id,source_id:value.provenance.sources[0].id,collected_on:'2026-10-15',status:'extracted'};
+  value.provenance.citations=[citation];
+  assert.deepEqual(validatePublicCatalog(value,manifest).provenance.citations,[citation]);
+  assert.equal(Object.hasOwn(validatePublicCatalog(value,manifest).provenance,'intake'),false);
+});
+for(const [label,change] of Object.entries({orphan:c=>c.entity_id='missing',source:c=>c.source_id='missing',date:c=>c.collected_on='2026-02-30',status:c=>c.status='imported',process:c=>c.batch_id='old-run',kind:c=>c.entity_type='toString'}))test(`invalid core citation rejects: ${label}`,()=>{
+  const {value,manifest}=fixture();value.provenance.citations=[{entity_type:'course',entity_id:main(value).course_id,source_id:value.provenance.sources[0].id,collected_on:null,status:'confirmed'}];change(value.provenance.citations[0]);
+  assert.throws(()=>validatePublicCatalog(value,manifest),/core citation/);
+});
+test('duplicate core citation rejects',()=>{
+  const {value,manifest}=fixture(),citation={entity_type:'course',entity_id:main(value).course_id,source_id:null,collected_on:null,status:'extracted'};value.provenance.citations=[citation,{...citation}];
+  assert.throws(()=>validatePublicCatalog(value,manifest),/Duplicate core citation/);
+});

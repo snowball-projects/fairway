@@ -167,7 +167,7 @@ def state(path):
         return list(db.iterdump())
 
 
-def test_intake_preview_apply_idempotence_and_conflicting_batch_id(db):
+def test_import_preview_apply_and_stale_row_conflict(db):
     payload = batch(
         "practice",
         typed(
@@ -184,10 +184,12 @@ def test_intake_preview_apply_idempotence_and_conflicting_batch_id(db):
     assert preview["state"] == "preview" and state(db) == before
     applied = native.apply_batch(db, payload, apply=True)
     assert applied["state"] == "applied" and applied["revision_after"] == 2
-    assert native.apply_batch(db, payload, apply=True)["state"] == "already_applied"
+    after = state(db)
+    assert native.apply_batch(db, payload, apply=True)["state"] == "conflicted"
+    assert state(db) == after
     payload["changes"][0]["values"]["putting_green_count"] = 3
-    with pytest.raises(ValueError, match="different contents"):
-        native.apply_batch(db, payload, apply=True)
+    assert native.apply_batch(db, payload, apply=True)["state"] == "conflicted"
+    assert state(db) == after
     row = read.query_facilities(db)["facilities"][0]["optional"]["practice_observation"]
     assert row == []  # Sorted first is Antimeridian; no accidental inheritance.
     facility = next(
@@ -228,11 +230,7 @@ def test_rejected_types_unknown_keys_and_constraints_rollback(db, table, field, 
     payload = batch(
         "invalid", typed(table, 10, facility_id=ident("f", 1), **{field: value})
     )
-    if type(value) is float and not __import__("math").isfinite(value):
-        with pytest.raises(ValueError):
-            native.apply_batch(db, payload, apply=True)
-    else:
-        assert native.apply_batch(db, payload, apply=True)["state"] == "rejected"
+    assert native.apply_batch(db, payload, apply=True)["state"] == "rejected"
     assert state(db) == before
 
 
@@ -743,13 +741,12 @@ def test_native_preservation_only_correction_keeps_null_claim_source_date_and_ho
     with closing(native.connect(db)) as con:
         assert dict(con.execute("SELECT * FROM source_observation").fetchone()) == obs
         assert dict(con.execute("SELECT * FROM source").fetchone()) == source
-        intake = dict(
+        assert (
             con.execute(
-                "SELECT * FROM intake_evidence WHERE batch_id='preservation-only'"
-            ).fetchone()
+                "SELECT count(*) FROM citation WHERE entity_type='amenity_observation'"
+            ).fetchone()[0]
+            == 0
         )
-        assert intake["source_id"] is None and intake["collected_on"] is None
-        assert intake["origin"] == "retained_normalization"
         assert con.execute("SELECT count(*) FROM source_hold").fetchone()[0] == 1
         assert native.check(con)["foreign_key_check"] == []
 

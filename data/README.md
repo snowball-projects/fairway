@@ -15,6 +15,15 @@ private. Public source code may include the native SQL schema, never the populat
 recovery dump or evidence-bearing database. See the
 [public contract](../PUBLIC-CATALOG-CONTRACT.md) and final release evidence.
 
+## Independent review
+
+The committed revision 1163 manifest and gzip contain the complete catalog consumed
+by the website. Reviewers can inspect its facts, relationships, qualifications and
+public source/license metadata, validate it and reproduce static output without
+private SQLite. See the [reviewer map](../docs/catalog/REVIEW.md) for code entry
+points, commands and the distinction between artifact review and source-DB checks.
+A private database migration is not a prerequisite for that review.
+
 ## Generated public inputs
 
 Only `data/catalog-release/manifest.json` and `catalog.json.gz` are public build

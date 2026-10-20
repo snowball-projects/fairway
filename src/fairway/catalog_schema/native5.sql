@@ -1,4 +1,4 @@
--- PROPOSED complete native5 layout; build NEW EMPTY database only.
+-- Native5 layout; create a new empty database only.
 -- Existing v4 core relationships retained. Operational unknown access becomes NULL.
 PRAGMA foreign_keys=ON;
 CREATE TABLE alias (
@@ -58,17 +58,17 @@ CREATE TABLE fact_group (
  CHECK((facility_id IS NULL) != (course_id IS NULL))
 ) STRICT;
 
-CREATE TABLE import_batch (
- id TEXT PRIMARY KEY, digest TEXT NOT NULL, report TEXT NOT NULL CHECK(json_valid(report))
+-- Citations describe current core records, not import runs or raw evidence.
+CREATE TABLE citation (
+ entity_type TEXT NOT NULL CHECK(entity_type IN ('facility','course','component','round_option','round_component','tee_set','alias')),
+ entity_id TEXT NOT NULL,
+ source_id TEXT REFERENCES source(id),
+ collected_on TEXT CHECK(collected_on IS NULL OR (length(collected_on)=10 AND date(collected_on,'+0 days') IS NOT NULL AND date(collected_on,'+0 days')=collected_on)),
+ status TEXT NOT NULL CHECK(status IN ('extracted','confirmed'))
 ) STRICT;
-
-CREATE TABLE intake_evidence (
- batch_id TEXT NOT NULL, entity_type TEXT NOT NULL, entity_id TEXT NOT NULL,
- source_id TEXT REFERENCES source(id), collected_on TEXT,
- origin TEXT NOT NULL CHECK(origin IN ('new_extraction','retained_normalization')), payload TEXT CHECK(payload IS NULL OR json_valid(payload)),
- status TEXT NOT NULL CHECK(status IN ('extracted','confirmed')),
- PRIMARY KEY(batch_id,entity_type,entity_id)
-) STRICT;
+CREATE UNIQUE INDEX citation_identity ON citation(
+ entity_type,entity_id,coalesce(source_id,''),coalesce(collected_on,''),status
+);
 
 CREATE TABLE note(id TEXT PRIMARY KEY, text TEXT NOT NULL) STRICT;
 

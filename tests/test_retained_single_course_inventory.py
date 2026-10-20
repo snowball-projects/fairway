@@ -122,7 +122,7 @@ def rows(db):
 
 
 @pytest.mark.parametrize("named", [True, False])
-def test_preview_apply_read_and_idempotence_preserve_accepted_envelope(db, named):
+def test_preview_apply_read_and_stale_guard_preserve_accepted_envelope(db, named):
     original = rows(db)
     b = batch(proposal(db, named=named))
     assert n.apply_batch(db, b)["state"] == "preview"
@@ -135,17 +135,12 @@ def test_preview_apply_read_and_idempotence_preserve_accepted_envelope(db, named
     assert (
         final["facility"] == original["facility"] and final["note"] == original["note"]
     )
-    e = final["intake_evidence"][0]
+    e = final["citation"][0]
     assert (
-        e["origin"] == "retained_normalization"
+        e["entity_type"] == "course"
         and e["source_id"] == "retained"
         and e["collected_on"] is None
     )
-    assert [s["observed_on"] for s in json.loads(e["payload"])["original_support"]] == [
-        "2026-10-12",
-        None,
-    ]
-    assert json.loads(e["payload"])["original_status"] is None
     c = final["course"][0]
     assert c["name"] == ("Actual Course 1" if named else None)
     assert (
@@ -154,15 +149,14 @@ def test_preview_apply_read_and_idempotence_preserve_accepted_envelope(db, named
         and c["arrival_latitude"] is None
     )
     assert (
-        n.apply_batch(db, b, apply=True)["state"] == "already_applied"
-        and rows(db) == final
+        n.apply_batch(db, b, apply=True)["state"] == "conflicted" and rows(db) == final
     )
     result = read.query_courses(db, limit=10)
     assert len(result["courses"]) == 1 and result["courses"][0]["name"] == c["name"]
     bad = copy.deepcopy(b)
     bad["changes"][0]["values"]["name"] = None if named else "Actual Course 1"
-    with pytest.raises(ValueError, match="batch ID reused"):
-        n.apply_batch(db, bad, apply=True)
+    assert n.apply_batch(db, bad, apply=True)["state"] == "conflicted"
+    assert rows(db) == final
 
 
 @pytest.mark.parametrize(
@@ -339,10 +333,10 @@ def test_known_retained_claims_do_not_need_invented_binding_fields_or_dates(db, 
     result = n.apply_batch(db, batch(c), apply=True)
     assert result["state"] == "applied", result
     final = rows(db)
-    e = final["intake_evidence"][0]
+    e = final["citation"][0]
     assert e["source_id"] == ("retained" if shape == "note-only-support" else None)
     assert e["collected_on"] is None and final["source"] == before["source"]
-    assert json.loads(e["payload"])["original_support"] == p["support"]
+    assert final["retained_evidence"] == before["retained_evidence"]
 
 
 def test_known_held_binding_cannot_be_hidden_by_omitting_its_support(db):

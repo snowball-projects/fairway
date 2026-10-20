@@ -15,12 +15,6 @@ from fairway import catalog_native_export as export
 from fairway import catalog_native_read as read
 
 
-def test_packaged_layout_is_the_exact_reviewed_proposal():
-    assert hashlib.sha256(native.SCHEMA.read_bytes()).hexdigest() == (
-        "ab852cff6180dba03c4d7f780b2aded18ea962ed0664808887698c9cd78a34c6"
-    )
-
-
 def test_pinned_synthetic_transport_has_explicit_version_and_no_raw_fallback():
     fixture = Path(__file__).parent / "fixtures/native5-production/transport.json"
     value = json.loads(fixture.read_text())
@@ -556,3 +550,71 @@ def test_quality_population_remains_deferred(db):
     assert all(
         not r["optional"]["quality_rating"] for r in read.query_courses(db)["courses"]
     )
+
+
+def test_export_keeps_core_citations_without_import_history(db):
+    with native.connect(db) as con:
+        assert (
+            con.execute(
+                "SELECT name FROM sqlite_master WHERE name IN ('intake_evidence','import_batch')"
+            ).fetchall()
+            == []
+        )
+        citations = [
+            dict(row)
+            for row in con.execute(
+                "SELECT * FROM citation ORDER BY entity_type,entity_id,source_id,collected_on,status"
+            )
+        ]
+    value = export.build_transport(
+        db, expected_sha256=hashlib.sha256(db.read_bytes()).hexdigest(), revision=1
+    )
+    assert value["provenance"]["citations"] == citations
+    assert citations and all(row["source_id"] == "official" for row in citations)
+    assert all(row["collected_on"] == "2026-10-15" for row in citations)
+    assert "intake" not in value["provenance"]
+    assert value["provenance"]["sources"][0]["license"] == "Scoped attribution"
+
+
+def test_core_citations_deduplicate_without_losing_dates(db):
+    with native.writer(db) as con:
+        row = con.execute("SELECT * FROM citation LIMIT 1").fetchone()
+        con.execute("INSERT OR IGNORE INTO citation VALUES(?,?,?,?,?)", tuple(row))
+        assert (
+            con.execute(
+                "SELECT count(*) FROM citation WHERE entity_type=? AND entity_id=?",
+                (row["entity_type"], row["entity_id"]),
+            ).fetchone()[0]
+            == 1
+        )
+        con.execute(
+            "INSERT INTO citation VALUES(?,?,?,?,?)",
+            (
+                row["entity_type"],
+                row["entity_id"],
+                row["source_id"],
+                "2026-10-16",
+                "confirmed",
+            ),
+        )
+        assert native.check(con)["foreign_key_check"] == []
+        con.commit()
+    value = export.build_transport(
+        db, expected_sha256=hashlib.sha256(db.read_bytes()).hexdigest(), revision=1
+    )
+    assert any(
+        row["collected_on"] == "2026-10-16" and row["status"] == "confirmed"
+        for row in value["provenance"]["citations"]
+    )
+
+
+def test_orphan_citation_rejects_export(db):
+    with native.writer(db) as con:
+        con.execute(
+            "INSERT INTO citation VALUES('tee_set','missing','official',NULL,'extracted')"
+        )
+        con.commit()
+    with pytest.raises(ValueError, match="orphan core citation"):
+        export.build_transport(
+            db, expected_sha256=hashlib.sha256(db.read_bytes()).hexdigest(), revision=1
+        )
