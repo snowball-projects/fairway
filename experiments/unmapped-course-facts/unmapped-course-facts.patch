@@ -1,0 +1,86 @@
+diff --git a/src/fairway/static/app.js b/src/fairway/static/app.js
+index 88b01b5..46d7907 100644
+--- a/src/fairway/static/app.js
++++ b/src/fairway/static/app.js
+@@ -224,0 +225 @@ function selectCourse(courseId, focusMap = true, facilityId = null) {
++  closeCourseFacts();
+@@ -236,0 +238 @@ function selectCourse(courseId, focusMap = true, facilityId = null) {
++  if (!coordinate) openCourseFacts(record);
+@@ -719 +721 @@ const facilityDots = createFacilityDots(
+-let catalogDate = "";
++let catalogDate = "", courseFactsCourseId = null;
+@@ -863,0 +866,13 @@ function coursePopupDetails(course) {
++function closeCourseFacts() {
++  courseFactsCourseId=null;
++  const dialog=$("course-facts-dialog");
++  if(dialog.open)dialog.close();
++}
++function openCourseFacts(course) {
++  const dialog=$("course-facts-dialog"),content=coursePopupDetails(course);
++  courseFactsCourseId=course.course_id;
++  $("course-facts-title").textContent=course.name || course.facility_name;
++  content.firstElementChild.remove();
++  $("course-facts-body").replaceChildren(content);
++  if(!dialog.open)dialog.showModal();
++}
+@@ -969,0 +985,3 @@ function closeSelection(render = true) {
++  const factsFocused=$("course-facts-dialog").open && $("course-facts-dialog").contains(document.activeElement);
++  const factsId=courseFactsCourseId;
++  closeCourseFacts();
+@@ -976,0 +995,5 @@ function closeSelection(render = true) {
++  if(factsFocused) {
++    const card=[...view.results.querySelectorAll(".course-card")].find(card=>card.dataset.courseId===factsId);
++    const eligible=selectableCourses().some(course=>(course.course_id||course.id)===factsId);
++    (eligible&&card?card.querySelector(".course-focus"):$("courses-grip")).focus({preventScroll:true});
++  }
+@@ -1020 +1043 @@ function updateDisplaySortOptions() {
+-  const sort = $("browse-sort"), choices = [["name","Name"],["holes","Physical course holes"]];
++  const sort = $("browse-sort"), choices = [["name","Name"],["holes","Holes"]];
+@@ -1222,0 +1246,4 @@ $("close-progress").onclick = () => $("catalog-progress").close();
++$("close-course-facts").onclick = () => closeSelection();
++$("course-facts-dialog").addEventListener("close",()=>{
++  if(!$("course-facts-dialog").open && courseFactsCourseId!==null)closeSelection();
++});
+diff --git a/src/fairway/static/index.html b/src/fairway/static/index.html
+index 46ebeff..c60cc2c 100644
+--- a/src/fairway/static/index.html
++++ b/src/fairway/static/index.html
+@@ -183 +183 @@
+-          <label>Physical course holes<select id="browse-holes"><option value="all">All documented layouts</option><option value="9">9</option><option value="18">18</option></select></label>
++          <label>Holes<select id="browse-holes"><option value="all">All documented layouts</option><option value="9">9</option><option value="18">18</option></select></label>
+@@ -202,0 +203,7 @@
++      <dialog id="course-facts-dialog" aria-labelledby="course-facts-title">
++        <div class="drawer-heading">
++          <h2 id="course-facts-title"></h2>
++          <button id="close-course-facts" class="close-drawer" aria-label="Close course facts">×</button>
++        </div>
++        <div id="course-facts-body"></div>
++      </dialog>
+diff --git a/tests/viewport-selection.test.mjs b/tests/viewport-selection.test.mjs
+index f9a4217..0995a96 100644
+--- a/tests/viewport-selection.test.mjs
++++ b/tests/viewport-selection.test.mjs
+@@ -49 +49 @@ function harness(){
+- controls['courses-grip']=document.createElement('button');
++ controls['courses-grip']=document.createElement('button');for(const id of ['course-facts-dialog','course-facts-title','course-facts-body'])controls[id]=document.createElement('div');controls['course-facts-dialog'].open=false;controls['course-facts-dialog'].showModal=function(){this.open=true;};controls['course-facts-dialog'].close=function(){this.open=false;};
+@@ -55 +55 @@ function harness(){
+- const ctx={URL,L,map,document,view,preparationFacilities:{clearLayers(){}},meetingLayer:{clearLayers(){}},STYLES,located,mapEligible,catalogCounts,cityLabel,accessLabel,displayAddress,browseCard,courseMatches,sortCourses,catalogModel:catalog(),state:{activeCourse:null,activeRows:[],rows:[],ranking:null,routingCatalogLabel:'Catalog760'},COLORS:[],planningMode:false,browseMode:true,browseScope:{kind:'viewport',label:'Courses in this map area'},activeFacility:null,popupSelection:null,cataloguePopup:null,movingCourseCard:false,viewportFrame:null,listLimit:60,catalogDate:'revision760',rankingNodes:new Map(),browseNodes:new Map(),rowInteractions:new Set(),$:id=>controls[id],renderOptional:(o,p)=>renderOptional(o,{...p,document}),renderKnownOptional:(o,p)=>renderKnownOptional(o,{...p,document}),requestAnimationFrame:fn=>{frames.push(fn);return frames.length;},drawFacilities:()=>effects.draws++,fitPoints:(p,z)=>effects.fit.push([p,z]),setDrawer:()=>{view.resultsPanel.hidden=false;},selected:()=> 'maximum',updateDisplaySortOptions(){},duration:()=> 'Unavailable',planningSession:{update(){effects.planning++;throw Error('No automatic planning');},invalidate(){effects.planning++;throw Error('No browse invalidation');}}};
++ const ctx={URL,L,map,document,view,preparationFacilities:{clearLayers(){}},meetingLayer:{clearLayers(){}},STYLES,located,mapEligible,catalogCounts,cityLabel,accessLabel,displayAddress,browseCard,courseMatches,sortCourses,catalogModel:catalog(),state:{activeCourse:null,activeRows:[],rows:[],ranking:null,routingCatalogLabel:'Catalog760'},COLORS:[],planningMode:false,browseMode:true,browseScope:{kind:'viewport',label:'Courses in this map area'},activeFacility:null,courseFactsCourseId:null,popupSelection:null,cataloguePopup:null,movingCourseCard:false,viewportFrame:null,listLimit:60,catalogDate:'revision760',rankingNodes:new Map(),browseNodes:new Map(),rowInteractions:new Set(),$:id=>controls[id],renderOptional:(o,p)=>renderOptional(o,{...p,document}),renderKnownOptional:(o,p)=>renderKnownOptional(o,{...p,document}),requestAnimationFrame:fn=>{frames.push(fn);return frames.length;},drawFacilities:()=>effects.draws++,fitPoints:(p,z)=>effects.fit.push([p,z]),setDrawer:()=>{view.resultsPanel.hidden=false;},selected:()=> 'maximum',updateDisplaySortOptions(){},duration:()=> 'Unavailable',planningSession:{update(){effects.planning++;throw Error('No automatic planning');},invalidate(){effects.planning++;throw Error('No browse invalidation');}}};
+@@ -58 +58 @@ function harness(){
+- for(const name of ['node','selectableCourses','selectCourse','moveCourseCard','courseCard','renderRanking','knownLink','knownAddress','appendKnownOptional','knownRounds','coursePopupDetails','facilityDetails','selectCoincidentFacilities','selectFacilityById','selectionPopupOptions','openSelectionPopup','closeSelection','reconcilePopupChoices','reconcileBrowseSelection','selectedFirst','refreshBrowseViewport','filterOptions','scopedRecords','matchesCourseFilters','updateLoadedCount','renderCourses'])vm.runInContext(actual(name),ctx);
++ for(const name of ['node','selectableCourses','selectCourse','moveCourseCard','courseCard','renderRanking','knownLink','knownAddress','appendKnownOptional','knownRounds','coursePopupDetails','closeCourseFacts','openCourseFacts','facilityDetails','selectCoincidentFacilities','selectFacilityById','selectionPopupOptions','openSelectionPopup','closeSelection','reconcilePopupChoices','reconcileBrowseSelection','selectedFirst','refreshBrowseViewport','filterOptions','scopedRecords','matchesCourseFilters','updateLoadedCount','renderCourses'])vm.runInContext(actual(name),ctx);
+@@ -291,0 +292,14 @@ test('catalog progress has exactly four concise stats with facility map-count se
++
++
++test('unmapped selection opens known facts without a dropdown or invented coordinate and preserves scoped data',()=>{
++ const h=harness(),course=h.ctx.catalogModel.courses[0];course.map_location=null;course.booking_conditions='Cancellation before noon required.';course.nonmember_bookable=false;course.tee_sets=[{id:'tee-known',name:'White',yardage:6200,slope:121,difficulty_rating:70.5}];
++ const before=JSON.stringify(course);h.ctx.browseScope={ids:[course.facility_id],label:'Facility search'};h.ctx.renderCourses();h.ctx.selectCourse(course.course_id);
++ assert.equal(h.ctx.popupSelection,null);assert.equal(h.ctx.cataloguePopup,null);assert.equal(h.effects.fit.length,0);assert.equal(h.controls['course-facts-dialog'].open,true);assert.equal(h.ctx.courseFactsCourseId,course.course_id);
++ const text=h.controls['course-facts-body'].textContent;assert.match(text,/Cancellation before noon required/);assert.match(text,/Nonmember booking: No/);assert.match(text,/6200/);assert.match(text,/121/);assert.equal(h.controls['course-facts-title'].textContent,course.name);assert.equal(h.cards().find(card=>card.dataset.courseId===course.course_id).querySelectorAll('details').length,0);assert.equal(JSON.stringify(course),before);
++});
++test('unmapped facts close safely on deselect or exclusion and mapped selection closes prior non-map facts',()=>{
++ const h=harness(),course=h.ctx.catalogModel.courses[0];course.map_location=null;h.ctx.browseScope={ids:[course.facility_id],label:'Facility search'};h.ctx.renderCourses();h.ctx.selectCourse(course.course_id);
++ h.controls['course-facts-body'].firstElementChild.focus();h.controls['course-facts-dialog'].append(h.controls['course-facts-body']);h.ctx.closeSelection();assert.equal(h.controls['course-facts-dialog'].open,false);assert.equal(h.ctx.courseFactsCourseId,null);assert.equal(h.ctx.state.activeCourse,null);assert.equal(h.document.activeElement,h.cards().find(c=>c.dataset.courseId===course.course_id).querySelector('.course-focus'));
++ h.ctx.selectCourse(course.course_id);h.controls['browse-holes'].value='9';h.ctx.renderCourses();assert.equal(h.controls['course-facts-dialog'].open,false);assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),[]);
++ h.controls['browse-holes'].value='all';h.ctx.renderCourses();h.ctx.selectCourse(course.course_id);h.ctx.selectCourse('c-b');assert.equal(h.controls['course-facts-dialog'].open,false);assert.equal(h.ctx.courseFactsCourseId,null);assert.equal(h.ctx.popupSelection.id,'c-b');
++});
