@@ -1,0 +1,80 @@
+{
+  "revision": 21,
+  "facilities": [
+    {
+      "name": "Corica Park Golf Course",
+      "state": "CA",
+      "country": "US",
+      "county": null,
+      "address_text": "1 Clubhouse Memorial Road, Alameda, CA 94502",
+      "address_purpose": "published_unspecified",
+      "physical_holes": 45,
+      "inventory_complete": true,
+      "access": "public",
+      "ownership": null,
+      "setting": null,
+      "operating_status": null,
+      "website": "https://www.coricapark.com/",
+      "booking_url": null,
+      "contact_url": null,
+      "latitude": 37.738372850000005,
+      "longitude": -122.23225592101296,
+      "location_kind": "property_point",
+      "website_status": null,
+      "website_checked_on": null,
+      "facility_id": "f-c21758c4-9cb0-4c85-9ee8-3fe02ece7ac0",
+      "map_location": {
+        "latitude": 37.738372850000005,
+        "longitude": -122.23225592101296,
+        "kind": "property_point"
+      },
+      "address": {
+        "text": "1 Clubhouse Memorial Road, Alameda, CA 94502",
+        "purpose": "published_unspecified",
+        "scope": "facility"
+      },
+      "course_inventory": [
+        {
+          "course_id": "c-28dcf8f2-429e-4e04-8936-b534ddef5fbe",
+          "name": "North",
+          "physical_holes": 18,
+          "identity_status": "needs_review",
+          "access": "public",
+          "nonmember_bookable": null
+        },
+        {
+          "course_id": "c-3aa52bda-a8ad-4d45-82e4-f37f4378aaa6",
+          "name": "South",
+          "physical_holes": 18,
+          "identity_status": "needs_review",
+          "access": "public",
+          "nonmember_bookable": null
+        },
+        {
+          "course_id": "c-9791fed9-97ad-4bcf-9c3f-10cd12e9df72",
+          "name": "Mif Albright Par-3",
+          "physical_holes": 9,
+          "identity_status": "needs_review",
+          "access": "public",
+          "nonmember_bookable": null
+        }
+      ],
+      "course_ids": [
+        "c-28dcf8f2-429e-4e04-8936-b534ddef5fbe",
+        "c-3aa52bda-a8ad-4d45-82e4-f37f4378aaa6",
+        "c-9791fed9-97ad-4bcf-9c3f-10cd12e9df72"
+      ],
+      "course_count": 3,
+      "documented_course_ids": [],
+      "documented_course_count": 0,
+      "inventory_qualification": "retained records are not necessarily independent bookable courses; empty inventory does not establish zero physical courses",
+      "access_qualification": null,
+      "fact_groups": []
+    }
+  ],
+  "limit": 20,
+  "offset": 0,
+  "total": 1,
+  "has_more": false,
+  "qualification": "facility map context includes unresolved and empty inventories; no synthetic course cards or routing entrances inferred"
+}

@@ -1,0 +1,67 @@
+import assert from 'node:assert/strict';
+import {mkdir,writeFile} from 'node:fs/promises';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const origin=process.env.REVIEW_ORIGIN || 'http://127.0.0.1:8866';
+const output=process.env.REVIEW_OUTPUT || '/tmp/preparation-browser';await mkdir(output,{recursive:true});
+const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
+const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
+const external=[],errors=[],requests=[];
+await context.route('**/*',route=>{const url=route.request().url();requests.push(url);if(!url.startsWith(origin+'/')){external.push(url);return route.abort();}return route.continue();});
+if (!process.env.USE_PACKAGED_BOOTSTRAP) await context.addInitScript(({origin})=>{
+  if(location.origin!==origin)return;
+  globalThis.__fairwayCatalogAdapter=import("/tests/fixtures/native-catalog-adapter.mjs").then(m=>m.loadNativeCatalogAdapter()).then(a=>{globalThis.__nativeCatalog=a;return a;});
+  globalThis.__fairwayPlanningAdapter=import('/tests/fixtures/sqlite-preparation-adapter.mjs').then(module=>{
+    const adapter=module.createPreparationFixtureAdapter({largePool:new URLSearchParams(location.search).has('large')});globalThis.__mockAdapter=adapter;return adapter;
+  });
+},{origin});
+const create=async(query='',viewport)=>{
+  const p=await context.newPage();p.on('pageerror',e=>errors.push(e.message));if(viewport)await p.setViewportSize(viewport);await p.clock.install();
+  await p.goto(`${origin}/src/fairway/static/index.html${query}`);await p.waitForFunction(()=>document.querySelector('#catalog-status').textContent.includes('on map'));
+  await p.locator('#plan-toggle').click();return p;
+};
+const page=await create();const first=page.getByRole('combobox',{name:'Golfer 1 origin'}),second=page.getByRole('combobox',{name:'Golfer 2 origin'});
+await first.fill('333 Plum Grove Road, Elk Grove Village, IL 60007');await page.clock.runFor(1000);assert.equal(await page.evaluate(()=>__mockAdapter.metrics.resolutions),0);
+await first.press('Enter');await page.clock.runFor(80);await first.press('Tab');await page.waitForFunction(()=>__mockAdapter.metrics.operations===1);
+assert.equal(await page.locator('.origin-pin').count(),1);assert.equal(await page.locator('.course-card').count(),4);
+assert.equal(await page.locator('.preparation-facility').count(),2);
+assert.equal(await page.locator('#browse-access').inputValue(),'nonmember');assert.ok(await page.locator('.score strong').filter({hasText:'Pending'}).count()>0);
+assert.ok((await page.locator('.course-title').allTextContents()).some(t=>t==='Synthetic facility 2'));
+assert.ok((await page.locator('.course-meta').allTextContents()).some(t=>t.includes('Course name not recorded')));
+await page.screenshot({path:`${output}/01-api-course-pool-pending.png`});
+await page.clock.runFor(500);assert.equal(await page.locator('.score strong').filter({hasText:'Pending'}).count(),0);
+assert.equal(await page.evaluate(()=>__mockAdapter.metrics.cells),2);assert.equal(await page.locator('.course-card').count(),4);
+await second.fill('800 Shermer Road, Glenview, IL 60025');await second.press('Enter');await page.clock.runFor(80);await page.waitForFunction(()=>__mockAdapter.metrics.operations===2);
+assert.equal(await page.locator('.origin-pin').count(),2);assert.ok(await page.locator('.score strong').filter({hasText:'Pending'}).count()>0);
+await page.clock.runFor(500);assert.equal(await page.evaluate(()=>__mockAdapter.metrics.cells),4);
+assert.equal(await page.locator('.meeting-area-label').count(),0);await page.clock.runFor(900);
+assert.equal(await page.locator('.meeting-area-label').count(),1);assert.match(await page.locator('#preparation-status').innerText(),/4 nearby courses compared/);
+await page.waitForFunction(()=>__mockAdapter.metrics.active===0 && document.querySelector('#results').getAttribute('aria-busy')==='false');await page.clock.runFor(40);
+await page.locator('.meeting-area-label').waitFor({state:'visible'});
+assert.equal(await page.locator('.meeting-area-label').isVisible(),true);
+await page.screenshot({path:`${output}/02-api-point-area-ranked.png`});
+await page.locator('#filter-toggle').click();await page.locator('#browse-sort').selectOption('combined');
+assert.equal(await page.evaluate(()=>__mockAdapter.metrics.operations),2);assert.equal(await page.locator('[name=objective]:checked').inputValue(),'maximum');
+await page.locator('#planning-radius').selectOption('10');await page.waitForFunction(()=>document.querySelector('#preparation-status').dataset.error==='true');
+assert.equal(await page.locator('.course-card').count(),0);assert.equal(await page.evaluate(()=>__mockAdapter.metrics.operations),2);
+await page.locator('#close-plan').click();assert.equal(await page.locator('#browse-access').inputValue(),'all');
+assert.equal(await page.locator('.preparation-facility').count(),0);
+assert.equal(await page.locator('.score-row:visible,.golfer-times:visible').count(),0);await page.locator('#search-area').click();assert.equal(await page.evaluate(()=>__mockAdapter.metrics.operations),2);
+const large=await create('?large');const largeOrigin=large.getByRole('combobox',{name:'Golfer 1 origin'});
+await largeOrigin.fill('333 Plum Grove Road, Elk Grove Village, IL 60007');await largeOrigin.press('Enter');await large.clock.runFor(80);
+await large.waitForFunction(()=>__mockAdapter.metrics.operations===1);await large.clock.runFor(500);
+assert.equal(await large.locator('.course-card').count(),100);assert.equal(await large.locator('.score-row > .score:first-child strong').filter({hasText:'Pending'}).count(),76);
+await large.screenshot({path:`${output}/03-full-100-pool-24-scored.png`});await large.clock.runFor(1700);
+assert.equal(await large.locator('.course-card').count(),100);assert.equal(await large.locator('.score strong').filter({hasText:'Pending'}).count(),0);
+assert.match(await large.locator('#preparation-status').innerText(),/100 nearby courses compared/);
+await large.screenshot({path:`${output}/04-full-100-pool-complete.png`});
+const mobile=await create('',{width:390,height:844});const mobileOrigin=mobile.getByRole('combobox',{name:'Golfer 1 origin'});
+await mobileOrigin.fill('333 Plum Grove Road, Elk Grove Village, IL 60007');await mobileOrigin.press('Enter');await mobile.clock.runFor(80);
+await mobile.waitForFunction(()=>__mockAdapter.metrics.operations===1);assert.equal(await mobileOrigin.evaluate(el=>el===document.activeElement),true);
+await mobileOrigin.press('Tab');await mobile.clock.runFor(500);await mobile.locator('#courses-toggle').click();
+assert.equal(await mobile.locator('#results-panel').isVisible(),true);assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+await mobile.screenshot({path:`${output}/05-api-mobile-courses.png`});
+assert.deepEqual(external,[]);assert.deepEqual(errors,[]);assert.equal(requests.some(url=>/\/api\/|photon|tile.openstreetmap/.test(url)),false);
+const receipt={status:'Validated API-owner DTO replay through existing interface passed',fixture_commit:'e8d66be278af1425c15d972bf2c2563486d18c17',external_requests:external,application_api_requests:0,page_errors:errors,
+  metrics:await page.evaluate(()=>__mockAdapter.metrics),screenshots:5,native_admission_released:false,real_provider_bound:false,virtual_clock:true,
+  coverage:['no typing work','Enter-blur dedup','first-origin pin/Courses','4 course aliases2targets','group pending vectors','point-only distinct area','display sort independent from objective','unsupported fixture request visible error','ordinary browse no times/routing','100-course whole pool24then100scored','mobile focus and overflow']};
+await writeFile(`${output}/browser-results.json`,JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify(receipt,null,2));await browser.close();

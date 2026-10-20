@@ -1,0 +1,296 @@
+{
+  "repository": "snowball-projects/fairway",
+  "source_commit": "9086c6318de6c6cc7b141fc87bde5d4f11d4b219",
+  "catalog_sha256": "8541ba73b8ad87d425ef0347819db737ccea7ab8490d8e2e0fd090b390fd9a4a",
+  "facilities": [
+    {
+      "id": "f-7986a833-6901-4338-b1a5-0309a7f02036",
+      "name": "Columbus Park Golf Course",
+      "state": "IL",
+      "county": null,
+      "address": {
+        "text": "5701 W Jackson Boulevard, Chicago, IL 60644",
+        "purpose": "course"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://columbuspark.cpdgolf.com/",
+      "map_location": {
+        "latitude": 41.8763775,
+        "longitude": -87.7685259,
+        "kind": "reviewed_osm_point"
+      },
+      "courses": [
+        {
+          "id": "c-45c4148e-17d0-4071-b0af-ea82adf6e175",
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "arrival": {
+            "latitude": 41.8763775,
+            "longitude": -87.7685259,
+            "kind": "reviewed_osm_point",
+            "reference": "way/162517919"
+          }
+        }
+      ]
+    },
+    {
+      "id": "f-ae4b2e7b-5a4c-474e-ad29-5ec710401184",
+      "name": "Sydney R. Marovitz Golf Course",
+      "state": "IL",
+      "county": null,
+      "address": {
+        "text": "3701 N Recreation Drive, Chicago, IL 60613",
+        "purpose": "course"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://sydneymarovitz.cpdgolf.com/",
+      "map_location": {
+        "latitude": 41.951876,
+        "longitude": -87.6411208,
+        "kind": "reviewed_osm_point"
+      },
+      "courses": [
+        {
+          "id": "c-4afeb63a-972c-4ccb-afe3-0fab5866482d",
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "arrival": {
+            "latitude": 41.951876,
+            "longitude": -87.6411208,
+            "kind": "reviewed_osm_point",
+            "reference": "way/53582240"
+          }
+        }
+      ]
+    },
+    {
+      "id": "f-628385a7-1c37-469d-862b-f01138e19238",
+      "name": "Robert A. Black Golf Course",
+      "state": "IL",
+      "county": null,
+      "address": {
+        "text": "2045 W Pratt Boulevard, Chicago, IL 60645",
+        "purpose": "course"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://robertblack.cpdgolf.com/",
+      "map_location": {
+        "latitude": 42.0048705,
+        "longitude": -87.6817395,
+        "kind": "reviewed_osm_point"
+      },
+      "courses": [
+        {
+          "id": "c-fd48fd74-3e03-46c3-b855-0a4b2e44e4aa",
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "arrival": {
+            "latitude": 42.0048705,
+            "longitude": -87.6817395,
+            "kind": "reviewed_osm_point",
+            "reference": "way/209952284"
+          }
+        }
+      ]
+    },
+    {
+      "id": "f-e1c3670c-325e-4ff9-b236-02ccc3a96a54",
+      "name": "Billy Caldwell Golf Course",
+      "state": "IL",
+      "county": null,
+      "address": {
+        "text": "6150 N Caldwell Avenue, Chicago, IL 60646",
+        "purpose": "course"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://billycaldwell.forestpreservegolf.com/",
+      "map_location": {
+        "latitude": 41.9924068,
+        "longitude": -87.7569474,
+        "kind": "reviewed_osm_point"
+      },
+      "courses": [
+        {
+          "id": "c-cb7d39f6-7fb0-4c4a-bb0e-d19022212720",
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "arrival": {
+            "latitude": 41.9924068,
+            "longitude": -87.7569474,
+            "kind": "reviewed_osm_point",
+            "reference": "way/162836507"
+          }
+        }
+      ]
+    },
+    {
+      "id": "f-cddb8d97-70b0-4015-9439-026aeedcd632",
+      "name": "Edgebrook Golf Course",
+      "state": "IL",
+      "county": null,
+      "address": {
+        "text": "6100 N Central Avenue, Chicago, IL 60646",
+        "purpose": "course"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://edgebrook.forestpreservegolf.com/",
+      "map_location": {
+        "latitude": 41.9913002,
+        "longitude": -87.7695254,
+        "kind": "reviewed_osm_point"
+      },
+      "courses": [
+        {
+          "id": "c-f27918c9-01b7-47a3-bcc3-af1a3b69d49d",
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "arrival": {
+            "latitude": 41.9913002,
+            "longitude": -87.7695254,
+            "kind": "reviewed_osm_point",
+            "reference": "way/677597973"
+          }
+        }
+      ]
+    },
+    {
+      "id": "f-5b8cb152-652e-4196-a998-6121d21b8a3d",
+      "name": "Chick Evans Golf Course",
+      "state": "IL",
+      "county": null,
+      "address": {
+        "text": "6145 Golf Road, Morton Grove, IL 60053",
+        "purpose": "course"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://chickevans.forestpreservegolf.com/",
+      "map_location": {
+        "latitude": 42.0542286,
+        "longitude": -87.7808255,
+        "kind": "reviewed_osm_point"
+      },
+      "courses": [
+        {
+          "id": "c-01a43065-6ba8-467a-af48-0c828ec69f6f",
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "arrival": {
+            "latitude": 42.0542286,
+            "longitude": -87.7808255,
+            "kind": "reviewed_osm_point",
+            "reference": "way/202762135"
+          }
+        }
+      ]
+    },
+    {
+      "id": "f-c845440d-8037-458d-85f0-87a20294080f",
+      "name": "Indian Boundary Golf Course",
+      "state": "IL",
+      "county": null,
+      "address": {
+        "text": "8600 W Forest Preserve Avenue, Chicago, IL 60634",
+        "purpose": "course"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://indianboundary.forestpreservegolf.com/",
+      "map_location": {
+        "latitude": 41.9394098,
+        "longitude": -87.8441955,
+        "kind": "reviewed_osm_point"
+      },
+      "courses": [
+        {
+          "id": "c-df500ce8-fd1b-4979-8665-25f4bf0b4718",
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "arrival": {
+            "latitude": 41.9394098,
+            "longitude": -87.8441955,
+            "kind": "reviewed_osm_point",
+            "reference": "way/163450051"
+          }
+        }
+      ]
+    },
+    {
+      "id": "f-a2afe51b-5cfc-4495-9b7d-64f9c0b239f1",
+      "name": "Highland Woods Golf Course",
+      "state": "IL",
+      "county": null,
+      "address": {
+        "text": "2775 Ela Road, Hoffman Estates, IL 60192",
+        "purpose": "course"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://highlandwoods.forestpreservegolf.com/",
+      "map_location": {
+        "latitude": 42.067164,
+        "longitude": -88.092438,
+        "kind": "reviewed_osm_point"
+      },
+      "courses": [
+        {
+          "id": "c-029142b5-e19b-4923-ad91-8f7bb4a353be",
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "arrival": {
+            "latitude": 42.067164,
+            "longitude": -88.092438,
+            "kind": "reviewed_osm_point",
+            "reference": "way/29116340"
+          }
+        }
+      ]
+    },
+    {
+      "id": "f-714cb65b-5ed3-43d5-b892-9fa2ae5300c6",
+      "name": "Alondra Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "16400 South Prairie Avenue, Lawndale, CA 90260",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 36,
+      "inventory_complete": true,
+      "website": "https://www.alondragc.com/",
+      "map_location": {
+        "latitude": 33.88165565,
+        "longitude": -118.33949172800948,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": "Regulation",
+          "holes": 18,
+          "access": "public",
+          "id": "c-27b55bea-2232-4c83-8123-4d6ae21519c7"
+        },
+        {
+          "name": "Par 3",
+          "holes": 18,
+          "access": "public",
+          "id": "c-eac2d26f-8848-4a90-9e32-ec3a81cd7b21"
+        }
+      ],
+      "public_access": "public"
+    }
+  ]
+}

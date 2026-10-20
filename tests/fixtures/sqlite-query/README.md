@@ -1,0 +1,3 @@
+# Pinned SQLite query examples
+
+Generated read-only test transport from SQLite owner task 11, revision 1. Copied from `docs/catalog/fixtures/chicago-query.json` and `corica-query.json` after pagination metadata was added. Chicago contains eight selected canonical arrivals; Corica contains three retained course identities sharing one qualified facility estimate. These examples are not a full state response or an authoritative editable catalog. The contract regression checks nullable names/eligibility, arrival and map separation, destination aliases, physical-versus-round lengths and pagination metadata. Source owner imports PR17 head `98f68f75a100d8d7a2b35fcde42000c7c69d45c0`; no source intake or migration occurs here.

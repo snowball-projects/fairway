@@ -1,0 +1,51 @@
+{
+  "revision": 21,
+  "facilities": [
+    {
+      "name": "Cog Hill Golf and Country Club",
+      "state": "IL",
+      "country": "US",
+      "county": "Cook County",
+      "address_text": "12294 Archer Avenue, Lemont, IL 60439",
+      "address_purpose": "published_unspecified",
+      "physical_holes": 72,
+      "inventory_complete": false,
+      "access": "public",
+      "ownership": null,
+      "setting": null,
+      "operating_status": null,
+      "website": "https://coghillgolf.com/",
+      "booking_url": null,
+      "contact_url": null,
+      "latitude": 41.676396,
+      "longitude": -87.9564454,
+      "location_kind": "property_point",
+      "website_status": null,
+      "website_checked_on": null,
+      "facility_id": "f-f1bb0800-c51c-4918-bd1b-236dc36c0f3d",
+      "map_location": {
+        "latitude": 41.676396,
+        "longitude": -87.9564454,
+        "kind": "property_point"
+      },
+      "address": {
+        "text": "12294 Archer Avenue, Lemont, IL 60439",
+        "purpose": "published_unspecified",
+        "scope": "facility"
+      },
+      "course_inventory": [],
+      "course_ids": [],
+      "course_count": 0,
+      "documented_course_ids": [],
+      "documented_course_count": 0,
+      "inventory_qualification": "retained records are not necessarily independent bookable courses; empty inventory does not establish zero physical courses",
+      "access_qualification": null,
+      "fact_groups": []
+    }
+  ],
+  "limit": 20,
+  "offset": 0,
+  "total": 1,
+  "has_more": false,
+  "qualification": "facility map context includes unresolved and empty inventories; no synthetic course cards or routing entrances inferred"
+}
