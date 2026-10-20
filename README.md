@@ -19,10 +19,6 @@ retained note bodies and private evidence stay outside browser assets.
 See [catalog authority and release identity](data/README.md), the
 [public contract](PUBLIC-CATALOG-CONTRACT.md), and [service policy](SERVICE.md).
 
-For an independent review of the published data, code and verification limits,
-start with the [reviewer map](docs/catalog/REVIEW.md). The public generated artifact
-is sufficient to inspect the website's complete catalog without the private SQLite.
-
 ## Build and verify locally
 
 Python 3.12+ and Node 24+ are required. CI runs the application checks on Python
