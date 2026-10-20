@@ -2,7 +2,7 @@
 
 No schema upgrade, legacy payload reader or automatic authority selection lives
 here. Reviewed retained course identity additions use the same batch
-transaction and evidence ledger, with guarded accepted SQLite references.
+transaction, with guarded accepted SQLite references and current-record citations.
 Guarded corrections to existing typed rows preserve their retained envelopes;
 they never provide new extraction permission or add held-source records.
 """
@@ -146,6 +146,14 @@ def check(db):
         integrity == ["ok"] and not foreign_keys,
         "database integrity/foreign key failure",
     )
+    for citation in db.execute("SELECT * FROM citation"):
+        require(citation["entity_type"] in CORE, "invalid citation entity type")
+        require(
+            _row(db, citation["entity_type"], citation["entity_id"]) is not None,
+            "orphan core citation",
+        )
+        if citation["collected_on"] is not None:
+            valid_date(citation["collected_on"])
     for table in TABLES:
         numeric = [
             r["name"]
@@ -407,10 +415,6 @@ def _retained_course_evidence(
         "source_id": primary_source,
         "collected_on": None,
         "status": "extracted",
-        "origin": "retained_normalization",
-        "payload": encoded(
-            item | {"original_support": selected, "original_status": None}
-        ),
     }
 
 
@@ -482,8 +486,6 @@ def _evidence(
                 "status": observation["status"]
                 if observation["status"] in {"extracted", "confirmed"}
                 else "extracted",
-                "origin": "retained_normalization",
-                "payload": encoded(item | {"original_status": observation["status"]}),
             }
         require(
             set(item) == {"observation_id"},
@@ -511,7 +513,7 @@ def _evidence(
             all(values.get(k) == item[k] for k in item),
             "source observation envelope differs from evidence",
         )
-    return item | {"origin": "new_extraction", "payload": None}
+    return item
 
 
 def _facility(db, table, values):
@@ -611,7 +613,6 @@ def apply_batch(path, batch, *, apply=False):
     )
     report = {
         "batch_id": batch["batch_id"],
-        "digest": digest(batch),
         "state": "preview",
         "committed": False,
         "added": [],
@@ -620,15 +621,6 @@ def apply_batch(path, batch, *, apply=False):
         "flags": [],
     }
     with writer(path) as db:
-        previous = db.execute(
-            "SELECT digest,report FROM import_batch WHERE id=?", (batch["batch_id"],)
-        ).fetchone()
-        if previous:
-            require(
-                previous["digest"] == report["digest"],
-                "batch ID reused with different contents",
-            )
-            return json.loads(previous["report"]) | {"state": "already_applied"}
         try:
             # Pin requested inventories before any source or entity mutation.
             inventory_baselines = {}
@@ -783,19 +775,17 @@ def apply_batch(path, batch, *, apply=False):
                                 "candidates": duplicates,
                             }
                         )
-                db.execute(
-                    "INSERT INTO intake_evidence VALUES(?,?,?,?,?,?,?,?)",
-                    (
-                        batch["batch_id"],
-                        table,
-                        identifier,
-                        envelope["source_id"],
-                        envelope["collected_on"],
-                        envelope["origin"],
-                        envelope["payload"],
-                        envelope["status"],
-                    ),
-                )
+                if table in CORE:
+                    db.execute(
+                        "INSERT OR IGNORE INTO citation VALUES(?,?,?,?,?)",
+                        (
+                            table,
+                            identifier,
+                            envelope["source_id"],
+                            envelope["collected_on"],
+                            envelope["status"],
+                        ),
+                    )
             for facility_id, baseline in inventory_baselines.items():
                 require(
                     _course_inventory(db, facility_id, staged_courses) == baseline,
@@ -817,10 +807,6 @@ def apply_batch(path, batch, *, apply=False):
                 report["committed"] = True
                 report["revision_after"] = report["revision_before"] + 1
                 db.execute("UPDATE catalog_state SET revision=revision+1 WHERE id=1")
-                db.execute(
-                    "INSERT INTO import_batch VALUES(?,?,?)",
-                    (batch["batch_id"], report["digest"], encoded(report)),
-                )
                 db.commit()
             return report
         except (ValueError, sqlite3.Error, TypeError) as error:

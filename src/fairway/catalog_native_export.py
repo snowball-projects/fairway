@@ -356,10 +356,10 @@ def build_transport(path, *, expected_sha256, revision):
         # Retained note bodies are private evidence, not typed operational text.
         # Keep stable references without guessing which free text is public-safe.
         notes = [dict(r) for r in db.execute("SELECT id FROM note ORDER BY id")]
-        intake = [
+        citations = [
             dict(r)
             for r in db.execute(
-                "SELECT batch_id,entity_type,entity_id,source_id,collected_on,origin,status FROM intake_evidence ORDER BY batch_id,entity_type,entity_id"
+                "SELECT entity_type,entity_id,source_id,collected_on,status FROM citation ORDER BY entity_type,entity_id,source_id,collected_on,status"
             )
         ]
         licenses = [
@@ -375,7 +375,7 @@ def build_transport(path, *, expected_sha256, revision):
             "courses": courses,
             "destinations": list(destinations.values()),
             "relationships": relationships,
-            "provenance": {"sources": sources, "notes": notes, "intake": intake},
+            "provenance": {"sources": sources, "notes": notes, "citations": citations},
             "source_licenses": licenses,
             "authority": "generated read-only transport; edit facts only in SQLite",
             "qualification": "Dated typed SQL observations; missing values remain null. Physical holes, components and round length differ. Facility estimates are not canonical arrivals. No live prices, booking availability or travel times. Retained raw claims are evidence, not standardized output.",

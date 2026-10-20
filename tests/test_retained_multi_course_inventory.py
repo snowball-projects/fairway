@@ -1,7 +1,5 @@
 """Multi/partial retained identities guard complete baseline course inventory."""
 
-import json
-
 import pytest
 from test_retained_single_course_inventory import batch, ident, proposal, rows
 from test_retained_single_course_inventory import db as single_db
@@ -59,7 +57,7 @@ def seed_course(db):
         [(None, 9), (None, 9), (None, 9), (None, 3)],
     ],
 )
-def test_multi_identities_preview_apply_read_and_idempotence_preserve_every_other_table(
+def test_multi_identities_preview_apply_read_and_stale_guard_preserve_other_tables(
     db, identities
 ):
     changes = [
@@ -73,7 +71,7 @@ def test_multi_identities_preview_apply_read_and_idempotence_preserve_every_othe
     assert len(r["added"]) == len(changes) and not r["updated"]
     final = rows(db)
     for t in original:
-        if t not in {"course", "intake_evidence", "import_batch", "catalog_state"}:
+        if t not in {"course", "citation", "catalog_state"}:
             assert final[t] == original[t], t
     stored = {r["id"]: r for r in final["course"]}
     for c in changes:
@@ -87,13 +85,11 @@ def test_multi_identities_preview_apply_read_and_idempotence_preserve_every_othe
             for k in ["access", "nonmember_bookable", "style", "arrival_latitude"]
         )
     assert all(
-        e["collected_on"] is None
-        and json.loads(e["payload"])["course_inventory_digests"] == {}
-        for e in final["intake_evidence"]
+        e["collected_on"] is None and e["entity_type"] == "course"
+        for e in final["citation"]
     )
     assert (
-        n.apply_batch(db, b, apply=True)["state"] == "already_applied"
-        and rows(db) == final
+        n.apply_batch(db, b, apply=True)["state"] == "conflicted" and rows(db) == final
     )
     assert len(read.query_courses(db, limit=100)["courses"]) == len(changes)
 

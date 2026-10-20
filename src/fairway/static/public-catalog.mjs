@@ -7,7 +7,7 @@ export function validatePublicCatalog(value,manifest){
   for(const kind of ['facilities','courses','destinations'])if(!Array.isArray(value[kind])||value[kind].length!==manifest.counts?.[kind]||new Set(value[kind].map(r=>r[kind==='facilities'?'facility_id':kind==='courses'?'course_id':'id'])).size!==value[kind].length)throw new Error('Published catalog count or identity mismatch');
   const observations=validateScopedOptional(value);
   const model=new CatalogRead(value);model.catalogReleaseKey=value.catalog_release_key;model.sourceLicenses=value.source_licenses||[];
-  model.optionalObservations=structuredClone(observations);model.provenance=structuredClone(value.provenance);model.relationships=structuredClone(value.relationships);
+  model.optionalObservations=structuredClone(observations);model.provenance=structuredClone({sources:value.provenance.sources,notes:value.provenance.notes,citations:value.provenance.citations||[]});model.relationships=structuredClone(value.relationships);
   const byFacility=new Map();for(const c of model.courses){const ids=byFacility.get(c.facility_id)||[];ids.push(c.course_id);byFacility.set(c.facility_id,ids);}
   for(const f of model.facilities){const actual=(byFacility.get(f.facility_id)||[]).sort();if(!Array.isArray(f.course_ids)||JSON.stringify([...f.course_ids].sort())!==JSON.stringify(actual))throw new Error('Published course relationships mismatch');}
   return model;

@@ -20,7 +20,7 @@ def main():
     intake = sub.add_parser("import")
     intake.add_argument("batch", type=Path)
     intake.add_argument("--apply", action="store_true")
-    intake.add_argument("--report", type=Path, required=True)
+    intake.add_argument("--report", type=Path)
     clear = sub.add_parser("clear-source")
     clear.add_argument("source_id")
     clear.add_argument("--expected", required=True)
@@ -62,10 +62,11 @@ def main():
         result = native.apply_batch(
             args.db, json.loads(args.batch.read_text()), apply=args.apply
         )
-        args.report.write_text(native.summary(result))
-        args.report.with_suffix(args.report.suffix + ".json").write_text(
-            json.dumps(result, indent=2) + "\n"
-        )
+        if args.report:
+            args.report.write_text(native.summary(result))
+            args.report.with_suffix(args.report.suffix + ".json").write_text(
+                json.dumps(result, indent=2) + "\n"
+            )
     elif args.command == "clear-source":
         result = native.clear_source(
             args.db,
