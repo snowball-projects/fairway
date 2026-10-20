@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <title>fairway · progressive local prototype</title>
+  <link rel="stylesheet" href="../../src/fairway/static/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../../src/fairway/static/leaflet.js"></script>
+  <script type="module" src="ui.mjs"></script>
+</head>
+<body>
+<header><strong>fairway</strong><span>Local design prototype · synthetic times and meeting area</span></header>
+<main>
+  <section class="panel" aria-labelledby="plan-title">
+    <p class="eyebrow">Plan a round</p><h1 id="plan-title">A fair drive for everyone.</h1>
+    <p>Commit each origin with Enter or Tab. Preparation stays on this device. Search starts the mock modo area stage.</p>
+    <form id="plan">
+      <div id="origins"></div>
+      <button id="add" type="button">Add golfer</button>
+      <fieldset><legend>Group drive</legend>
+        <label><input type="radio" name="objective" value="maximum" checked> Minimize longest driving time</label>
+        <label><input type="radio" name="objective" value="combined"> Minimize total driving time</label>
+      </fieldset>
+      <p class="note">All public layouts. This snapshot contains six existing facilities; layout inventories remain unconfirmed.</p>
+      <label><input id="failure" type="checkbox"> Simulate routing failure after partial results</label>
+      <div class="actions"><button id="search" type="submit" disabled>Search</button><button id="cancel" type="button" hidden>Cancel</button></div>
+    </form>
+    <p id="preparation" class="note"></p>
+    <p id="status" role="status" aria-live="polite"></p>
+    <ol class="stages"><li id="area-stage">1. modo meeting area</li><li id="matrix-stage">2. fairway course drives</li><li id="score-stage">3. Comparable ranking</li></ol>
+    <dl id="timings"></dl>
+  </section>
+  <section class="view" aria-label="Meeting area and results">
+    <div id="map" role="region" aria-label="Local schematic map of origins, meeting area and catalog facilities"></div>
+    <p id="map-note" class="note">Local schematic map. No map tiles, location lookup or network geocoding.</p>
+    <div class="results-header"><h2>Nearby courses</h2><span id="ranking-note"></span></div>
+    <p id="sort-note" role="status"></p>
+    <div id="results" aria-busy="false"></div>
+  </section>
+</main>
+<footer>Software by snowball. Existing catalog property points approximate arrival; entrance, route access and timetable guarantees remain unverified. Road and OSM-derived catalog data © OpenStreetMap contributors, ODbL 1.0. No live traffic, prices or tee times.</footer>
+</body></html>
