@@ -136,27 +136,34 @@
             >
           </div>
         </fieldset>
-        <button id="calculate" class="pill" type="button" disabled>
-          Rank courses
-        </button>
+        <fieldset class="filter-group">
+          <legend>Nearby courses</legend>
+          <label for="planning-radius">Radius
+            <select id="planning-radius">
+              <option value="10">10 miles</option>
+              <option value="20" selected>20 miles</option>
+              <option value="25">25 miles</option>
+            </select>
+          </label>
+        </fieldset>
         <button id="cancel-calculate" class="quiet-button" type="button" hidden>
-          Cancel comparison
+          Clear inputs
         </button>
         <p id="status" class="status" role="status">
-          Add at least two golfer origins.
+          Enter a golfer coordinate.
         </p>
         <details class="method-note">
           <summary>How This Works</summary>
           <p id="routing-description">
-            Travel-time provider is checked when you rank.
+            Travel times are prepared after an origin is committed.
           </p>
           <p class="routing-limit">
-            Drive ranking currently covers eight Chicago courses. Nationwide
-            routing is not available yet.
+            This preview uses synthetic travel times. No live routing provider
+            is connected.
           </p>
           <p class="privacy-note">
-            Typed origin addresses go to Photon for suggestions. Confirmed
-            coordinates go to fairway when calculating.
+            This offline preview uses supplied synthetic coordinates only.
+            Addresses and locations are not transmitted.
           </p>
           <p>
             Prices, ratings and tee-time availability are not included. Software
@@ -189,46 +196,27 @@
           </button>
         </header>
         <div class="results-controls">
-          <button id="browse-mode" class="quiet-button" aria-pressed="true">
-            Catalog</button
-          ><button
-            id="ranking-mode"
-            class="quiet-button"
-            aria-pressed="false"
-            disabled
-          >
-            Group drives</button
-          ><button
-            id="filter-toggle"
-            class="quiet-button"
-            aria-controls="filter-popover"
-            aria-expanded="false"
-          >
-            Filter / sort
+          <button id="filter-toggle" class="quiet-button" aria-controls="filter-popover" aria-expanded="false" aria-label="Filter and sort courses" title="Filter and sort courses"          >
+            ☰
           </button>
         </div>
         <div id="filter-popover" class="filter-popover" hidden>
-          <label
-            >Physical holes<select id="browse-holes">
-              <option value="all">All totals</option>
-              <option>9</option>
-              <option>18</option>
-              <option>27</option>
-              <option>36</option>
-            </select></label
-          ><label
-            >Public play<select id="browse-access">
-              <option value="all">All records</option>
-              <option value="public">Known public play</option>
-            </select></label
-          ><label
-            >Sort<select id="browse-sort">
-              <option value="name">Name</option>
-              <option value="holes">Physical holes</option>
-            </select></label
-          >
+          <label>State<select id="browse-state"><option value="all">All states</option></select></label>
+          <label>Physical course holes<select id="browse-holes"><option value="all">All documented layouts</option><option value="9">9</option><option value="18">18</option></select></label>
+          <label>Documented round<select id="browse-round"><option value="all">All rounds</option><option value="9">9 holes</option><option value="18">18 holes</option></select></label>
+          <label>Course access<select id="browse-access">
+            <option value="nonmember">Nonmember play (qualified)</option>
+            <option value="all" selected>All documented access</option><option value="public">Public</option><option value="private">Private</option><option value="restricted">Restricted</option>
+            <option value="unknown">Access unconfirmed</option>
+          </select></label>
+          <label>Style<select id="browse-style"><option value="all">All styles</option>
+            <option value="regulation">Regulation</option><option value="executive">Executive</option><option value="putting">Grass Putting</option><option value="pitch_and_putt">Pitch and Putt</option><option value="par_3">Par3</option><option value="unknown">Style unconfirmed</option>
+          </select></label>
+          <label>Price information<select id="browse-price"><option value="all">All courses</option><option value="known">Recorded price information</option><option value="unknown">Price unconfirmed</option></select></label>
+          <label>Sort<select id="browse-sort"><option value="name">Name</option></select></label>
         </div>
         <p id="ranking-description" class="ranking-description"></p>
+        <p id="preparation-status" class="status preparation-status" role="status" hidden></p>
         <p id="browse-description" class="browse-description">
           Facilities in the catalog
         </p>
@@ -240,7 +228,7 @@
             href="https://www.tomtom.com/en-gb/legal/product-attributions/"
             hidden
             >Routing © TomTom</a
-          ><a href="./data/catalog-metadata.json">Sources and qualifications</a>
+          ><button id="native-provenance-toggle" class="provenance-button" type="button" aria-controls="catalog-progress" disabled>Sources and qualifications</button>
         </footer>
       </aside>
       <dialog id="catalog-progress" aria-labelledby="progress-heading">
@@ -256,22 +244,24 @@
         </div>
         <div id="progress-counts" class="progress-counts"></div>
         <p class="progress-note">
-          Public play, hole total and a matched property point are required for
-          the main map. Websites are optional. National discovery remains
-          incomplete.
+          Facility map context includes all access types. Retained course
+          records and empty inventories keep their qualifications. National
+          discovery remains incomplete.
         </p>
-        <h3>Activity <small>Central time</small></h3>
+        <h3>Sources and qualifications</h3>
+        <div id="native-provenance"></div>
+        <h3>Activity</h3>
         <div id="activity-log"></div>
         <p>
-          <a href="./data/catalog-additions.json">Full history</a> ·
-          <a href="./data/public-courses.json">Catalog</a>
+          Full catalog history and downloadable catalog exports are not supplied
+          by this native read interface.
         </p>
       </dialog>
     </main>
     <noscript
       ><p>
-        JavaScript is required for the map.
-        <a href="./data/public-courses.json">Read the catalog</a>.
+        JavaScript is required for the native catalog read and map. No static
+        catalog export is supplied in this prototype.
       </p></noscript
     >
   </body>

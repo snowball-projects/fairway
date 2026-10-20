@@ -1,0 +1,46 @@
+{
+  "purpose": "Pinned read-only facility DTO examples for frontend fake-fetch tests, never authority or import input.",
+  "query_contract": "docs/catalog/QUERY-FACILITIES.md",
+  "research_revision": 21,
+  "native_schema": 4,
+  "research_snapshot_sha256": "6de89391003829db80734c9cbf86f9a6ad3f00a323b9741ba1631e659d44542f",
+  "source_module_sha256": "0c9c3811436a76be8c973dd4595175386d7acf592666ad865fc30bcebb98ecd2",
+  "fixtures": [
+    {
+      "file": "facility-corica-example.json",
+      "query": {
+        "search": "Corica",
+        "limit": 20
+      },
+      "sha256": "bf376d316ee509630ad2d36f3306d572aa8f8ac50169f4c2abea23c30ec88646",
+      "facilities": 1,
+      "retained_courses": 3
+    },
+    {
+      "file": "facility-empty-cog-hill-example.json",
+      "query": {
+        "search": "Cog Hill",
+        "limit": 20
+      },
+      "sha256": "4d9b80c7d68a361d915e736ad52741f00a1726bf31508f6f6df48903ec99ccaa",
+      "facilities": 1,
+      "retained_courses": 0
+    }
+  ],
+  "matching_course_fixture": {
+    "file": "course-corica-research21-example.json",
+    "query": {
+      "bbox": [
+        37.73837185000001,
+        -122.23225692101296,
+        37.73837385,
+        -122.23225492101297
+      ],
+      "limit": 20
+    },
+    "source_dependency_commit": "af27fe88298f83ce0f78eed2a3139777bec9764d",
+    "revision": 21,
+    "sha256": "564026060ffe2de759cbfa2fcd1077ad151308222e496a70f5f6b02d25f85821",
+    "qualification": "Native readonly SQLite output; original revision1 course fixtures unchanged; no DB writes or synthetic metadata."
+  }
+}

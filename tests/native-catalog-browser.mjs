@@ -1,0 +1,71 @@
+import assert from 'node:assert/strict';
+import {mkdir,writeFile} from 'node:fs/promises';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const origin=process.env.REVIEW_ORIGIN || 'http://127.0.0.1:8877',output=process.env.REVIEW_OUTPUT || '/tmp/native-catalog-evidence';await mkdir(output,{recursive:true});
+const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
+const external=[],requests=[],errors=[];
+const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
+await context.route('**/*',route=>{const url=route.request().url();requests.push(url);if(!url.startsWith(origin+'/')){external.push(url);return route.abort();}return route.continue();});
+if(!process.env.USE_PACKAGED_BOOTSTRAP)await context.addInitScript(({origin})=>{
+  if(location.origin!==origin)return;
+  globalThis.__fairwayCatalogAdapter=import('/tests/fixtures/native-catalog-adapter.mjs').then(m=>m.loadNativeCatalogAdapter()).then(a=>{globalThis.__nativeCatalog=a;return a;});
+  const limited=new URLSearchParams(location.search).has('limited'),fatal=new URLSearchParams(location.search).has('fatal');
+  globalThis.__fairwayPlanningAdapter=import(limited?'/tests/fixtures/limited-preparation-adapter.mjs':'/tests/fixtures/sqlite-preparation-adapter.mjs').then(m=>{globalThis.__mockAdapter=limited?m.createLimitedPreparationFixtureAdapter({fatal}):m.createPreparationFixtureAdapter();return __mockAdapter;});
+},{origin});
+const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.clock.install();
+await page.goto(origin+'/src/fairway/static/');await page.waitForFunction(()=>document.querySelector('#catalog-status').textContent.includes('2 on map'));
+await page.locator('#courses-toggle').click();assert.equal(await page.locator('.course-card').count(),3);
+assert.equal(await page.locator('#browse-access').inputValue(),'all');assert.equal(await page.locator('.score-row:visible,.golfer-times:visible').count(),0);
+assert.equal(await page.evaluate(()=>__nativeCatalog.metrics.posts),0);assert.equal(await page.evaluate(()=>__nativeCatalog.metrics.reads),2);
+await page.screenshot({path:output+'/01-native-course-browse.png'});
+assert.equal(await page.locator('a[href*="./data/"]').count(),0);
+await page.getByRole('button',{name:'Sources and qualifications'}).click();
+assert.equal(await page.locator('#catalog-progress').isVisible(),true);
+assert.match(await page.locator('#native-provenance').innerText(),/Catalog revision 21/);
+assert.match(await page.locator('#native-provenance').innerText(),/Pinned read-only Corica and Cog Hill/);
+assert.match(await page.locator('#activity-log').innerText(),/not supplied/);
+await page.screenshot({path:output+'/07-native-provenance-dialog.png'});
+await page.locator('#close-progress').click();
+
+await page.locator('#filter-toggle').click();await page.locator('#browse-holes').selectOption('9');assert.equal(await page.locator('.course-card').count(),1);
+await page.locator('#browse-holes').selectOption('18');assert.equal(await page.locator('.course-card').count(),2);
+await page.locator('#browse-holes').selectOption('all');await page.locator('#browse-style').selectOption('par_3');assert.equal(await page.locator('.course-card').count(),0);
+await page.locator('#browse-style').selectOption('unknown');assert.equal(await page.locator('.course-card').count(),3);
+await page.locator('#browse-price').selectOption('known');assert.equal(await page.locator('.course-card').count(),0);
+await page.locator('#browse-price').selectOption('unknown');assert.equal(await page.locator('.course-card').count(),3);
+await page.locator('#browse-access').selectOption('private');assert.equal(await page.locator('.course-card').count(),0);
+await page.locator('#browse-access').selectOption('all');await page.locator('#filter-toggle').click();
+await page.locator('#place-query').fill('Cog Hill');await page.locator('#place-query').press('Enter');
+assert.equal(await page.locator('.course-card').count(),0);assert.equal(await page.locator('#results .facility-card').count(),1);
+assert.match(await page.locator('#results .facility-card').innerText(),/72 physical holes/);assert.match(await page.locator('#results .facility-card').innerText(),/no course cards inferred/);
+await page.screenshot({path:output+'/02-empty-facility-context.png'});
+await page.locator('#us-view').click();await page.locator('#plan-toggle').click();
+const first=page.getByRole('combobox',{name:'Golfer 1 origin'});await first.fill('333 Plum Grove Road, Elk Grove Village, IL 60007');await page.clock.runFor(1000);assert.equal(await page.evaluate(()=>__mockAdapter.metrics.resolutions),0);
+await first.press('Enter');await page.clock.runFor(80);await first.press('Tab');await page.waitForFunction(()=>__mockAdapter.metrics.operations===1);await page.clock.runFor(500);
+assert.equal(await page.locator('.course-card').count(),4);assert.equal(await page.locator('.score strong').filter({hasText:'Pending'}).count(),0);
+assert.match(await page.locator('#catalog-name').innerText(),/Deterministic preparation fixture/);
+const second=page.getByRole('combobox',{name:'Golfer 2 origin'});await second.fill('800 Shermer Road, Glenview, IL 60025');await second.press('Enter');await page.clock.runFor(80);await second.press('Tab');await page.waitForFunction(()=>__mockAdapter.metrics.operations===2);await page.clock.runFor(1600);
+assert.equal(await page.locator('.meeting-area-label').count(),1);await page.locator('.meeting-area-label').waitFor({state:'visible'});
+await page.screenshot({path:output+'/03-distinct-area-progressive-fixture.png'});
+await page.locator('#close-plan').click();await page.locator('#search-area').click();assert.equal(await page.locator('.score-row:visible,.golfer-times:visible').count(),0);
+assert.equal(await page.evaluate(()=>__mockAdapter.metrics.operations),2);assert.equal(await page.evaluate(()=>__nativeCatalog.metrics.posts),0);
+const mobile=await context.newPage();mobile.on('pageerror',e=>errors.push(e.message));await mobile.setViewportSize({width:390,height:844});await mobile.goto(origin+'/src/fairway/static/');await mobile.waitForFunction(()=>document.querySelector('#catalog-status').textContent.includes('2 on map'));await mobile.locator('#courses-toggle').click();
+assert.equal(await mobile.locator('.course-card').count(),3);assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+await mobile.locator('.course-facts summary').first().click();assert.match(await mobile.locator('.course-facts').first().innerText(),/Price information not recorded/);
+await mobile.screenshot({path:output+'/04-native-mobile-details.png'});
+for(const fatal of [false,true]) {
+  const limited=await context.newPage();limited.on('pageerror',e=>errors.push(e.message));await limited.clock.install();
+  await limited.goto(origin+'/src/fairway/static/?limited'+(fatal?'&fatal':''));await limited.waitForFunction(()=>document.querySelector('#catalog-status').textContent.includes('2 on map'));
+  await limited.locator('#plan-toggle').click();const field=limited.getByRole('combobox',{name:'Golfer 1 origin'});
+  await field.fill('333 Plum Grove Road, Elk Grove Village, IL 60007');await field.press('Enter');await limited.clock.runFor(80);await field.press('Tab');await limited.waitForFunction(()=>__mockAdapter.metrics.operations===1);await limited.clock.runFor(500);
+  assert.equal(await limited.locator('.course-card').count(),100);
+  const status=await limited.locator('#preparation-status').innerText();
+  if(fatal) {assert.match(status,/unavailable/);assert.equal(await limited.locator('.score strong').filter({hasText:'Unavailable'}).count(),200);}
+  else {assert.match(status,/24 provisional comparisons retained/);assert.match(status,/modo area search is incomplete/);assert.equal(await limited.locator('.score-row > .score:first-child strong').filter({hasText:'Pending'}).count(),76);}
+  assert.equal(await limited.evaluate(()=>__mockAdapter.metrics.operations),1);assert.equal(await limited.evaluate(()=>__mockAdapter.metrics.active),0);
+  await limited.screenshot({path:output+(fatal?'/06-fatal-provider-unavailable.png':'/05-finite-limit-warning.png')});
+}
+assert.equal(requests.some(url=>/catalog-metadata\.json|catalog-additions\.json|public-courses\.json/.test(url)),false);
+assert.deepEqual(external,[]);assert.deepEqual(errors,[]);assert.equal(requests.some(url=>/\/api\/|photon|tile.openstreetmap|public-courses\.json|publication\.json/.test(url)),false);
+const receipt={status:'native example browse and separate frozen progressive fixture passed',external_requests:external,application_api_requests:0,page_errors:errors,screenshots:7,native_catalog_revision:21,native_facilities:2,native_courses:3,preparation_fixture_separate:true,real_binding:false};
+await writeFile(output+'/browser-results.json',JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify(receipt));await browser.close();

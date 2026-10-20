@@ -573,10 +573,27 @@ h2 {
 }
 .course-meta {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.35rem;
   margin-top: 0.3rem;
   color: #64736a;
   font-size: 0.66rem;
+}
+.meeting-area-label,
+.preparation-facility-label {
+  position: absolute;
+  white-space: nowrap;
+  padding: 5px 8px;
+  border: 1px solid #d2a344;
+  border-radius: 6px;
+  background: #fff9e8;
+  color: #1d4035;
+  font-size: 0.75rem;
+  pointer-events: none;
+}
+.preparation-facility-label {border-color:#1d644b;background:#fff;}
+.results-panel .preparation-status {
+  margin: 0 18px 10px;
 }
 .course-meta span + span::before {
   margin-right: 0.35rem;
@@ -1344,3 +1361,11 @@ dialog > p:last-child {
     display: none;
   }
 }
+
+.course-facts {padding: .65rem .8rem; font-size: .75rem; line-height: 1.45;}
+.course-facts summary {cursor: pointer; font-weight: 600;}
+.course-facts p {margin: .5rem 0;}
+
+.catalog-note .provenance-button {border: 0; background: none; padding: 0; color: inherit; font: inherit; text-align: left; text-decoration: underline; cursor: pointer;}
+.catalog-note .provenance-button:disabled {text-decoration: none; cursor: default; opacity: .65;}
+#native-provenance p {font-size: .85rem; line-height: 1.45;}

@@ -1,0 +1,1085 @@
+{
+  "qualification": "Read-only bounded baseline LA extraction for retained historical cache regression only. Not native catalog authority or current UI transport.",
+  "source_commit": "9086c6318de6c6cc7b141fc87bde5d4f11d4b219",
+  "generated_baseline_sha256": "c7cff156afe925a390915c2288c305b6468054e87ed829448131ab55d4e3844e",
+  "facilities": [
+    {
+      "id": "f-749945ca-0224-435f-847e-d15c74448f4c",
+      "name": "Alhambra Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "630 South Almansor Street, Alhambra, CA 91801",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.alhambragolf.com/",
+      "map_location": {
+        "latitude": 34.088955049999996,
+        "longitude": -118.11280318523012,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "id": "c-26622e1b-c19b-4017-90a8-fcceb1dfb2f6"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-714cb65b-5ed3-43d5-b892-9fa2ae5300c6",
+      "name": "Alondra Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "16400 South Prairie Avenue, Lawndale, CA 90260",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 36,
+      "inventory_complete": true,
+      "website": "https://www.alondragc.com/",
+      "map_location": {
+        "latitude": 33.88165565,
+        "longitude": -118.33949172800948,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": "Regulation",
+          "holes": 18,
+          "access": "public",
+          "id": "c-27b55bea-2232-4c83-8123-4d6ae21519c7"
+        },
+        {
+          "name": "Par 3",
+          "holes": 18,
+          "access": "public",
+          "id": "c-eac2d26f-8848-4a90-9e32-ec3a81cd7b21"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-eb9790e1-7f36-4b3f-8b84-6c68f2fd468b",
+      "name": "Angeles National Golf Club",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "9401 Foothill Blvd., Sunland, CA 91040",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.angelesnational.com/",
+      "map_location": {
+        "latitude": 34.268472700000004,
+        "longitude": -118.33027715533957,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "id": "c-285ae23f-3a24-4f5e-8c5f-63af0ce66506"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-0df10444-b624-4b19-a8fd-fd6796cbe06d",
+      "name": "Chester L. Washington Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "1818 Charlie Sifford Drive, Los Angeles, CA 90047",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.chesterwashington.com/",
+      "map_location": {
+        "latitude": 33.9200304,
+        "longitude": -118.31346413728727,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "id": "c-676c33bf-e863-4ba1-898c-a0503b1c29f9"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-0edb2d03-e30b-41e3-8a3c-6db32a8621c7",
+      "name": "Don Knabe Golf Center & Junior Academy",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "13717 Shoemaker Avenue, Norwalk, CA 90650",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://www.playknabegolf.com/",
+      "map_location": {
+        "latitude": 33.9068591,
+        "longitude": -118.05676470847833,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "id": "c-357b7ea3-96ca-4f0c-a51d-d6696b10c160"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-99f9f097-b4eb-4f2b-8e3a-38fe62853a9f",
+      "name": "Eaton Canyon Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "1150 Sierra Madre Villa Avenue, Pasadena, CA 91107",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://www.playeatoncanyon.com/",
+      "map_location": {
+        "latitude": 34.1662274,
+        "longitude": -118.07958629227733,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "id": "c-36fe7f99-39eb-4ff0-adaa-5e531e645abb"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-328b24d9-c0c4-49a8-a8be-78ba75dacf6f",
+      "name": "El Cariso Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "13100 Eldridge Ave, Sylmar, CA 91342",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.playelcariso.com/",
+      "map_location": {
+        "latitude": 34.31221455,
+        "longitude": -118.4139748816433,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "id": "c-c94bde2d-a55e-4134-9d38-80b31b6f7380"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-71321995-15ab-44d9-aea3-9be43fbabced",
+      "name": "Encino Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "16821 Burbank Boulevard, Encino, CA 91436",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://golf.lacity.gov/course_encino/",
+      "map_location": {
+        "latitude": 34.1709107,
+        "longitude": -118.48889099660114,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "id": "c-a6ff4f70-fdad-441b-ba76-6053f6ece730"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-c436aca5-341a-45be-9c9f-635070ad94f3",
+      "name": "Hansen Dam Municipal Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "10400 Glenoaks Boulevard, Pacoima, CA 91331",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://golf.lacity.gov/course_hansen_dam/",
+      "map_location": {
+        "latitude": 34.2606444,
+        "longitude": -118.39444740299982,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "id": "c-ec9d94e3-b243-46c6-acc5-3b9adf4fef6c"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-6c25ea91-46b8-4caf-abf2-77c33091a48c",
+      "name": "Harbor Park Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "1235 North Figueroa Place, Wilmington, CA 90744",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://golf.lacity.gov/course_harbor_park/",
+      "map_location": {
+        "latitude": 33.7860383,
+        "longitude": -118.28961997585142,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "id": "c-b9393408-9ba9-4025-8331-16e90f66147e"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-9c4c8883-5841-4f33-a455-070323dd6717",
+      "name": "Knollwood Country Club",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "12040 Balboa Boulevard, Granada Hills, CA 91344",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.knollwoodgc.com/",
+      "map_location": {
+        "latitude": 34.2892809,
+        "longitude": -118.49895142689729,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "id": "c-4db404a1-499b-4ed5-8726-eed80cf7e181"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-9ee3caaa-b129-4c0c-8e7d-9e209536109b",
+      "name": "La Mirada Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "15501 E. Alicante Road, La Mirada, CA 90638",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.lamiradagc.com/",
+      "map_location": {
+        "latitude": 33.9066048,
+        "longitude": -117.99785944655002,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "id": "c-641f00b3-7c97-44aa-b706-5735314d9963"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-6be4351c-c57f-4897-b619-5617ab5a7c4d",
+      "name": "Lakewood Country Club",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "3101 Carson Street, Lakewood, CA 90712",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.lakewoodgolfcc.com/",
+      "map_location": {
+        "latitude": 33.83599425,
+        "longitude": -118.14785830282429,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "id": "c-33238d02-6a76-4ecb-a29d-965bb1577ba7"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-2b3b96a1-b1c6-4910-8146-b2c5ba045c5d",
+      "name": "Los Amigos Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "7295 Quill Drive, Downey, CA 90242",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.losamigosgc.com/",
+      "map_location": {
+        "latitude": 33.937305699999996,
+        "longitude": -118.15937202949652,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "id": "c-f23ad136-c61f-4f94-aa2b-1780ec9fcf1a"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-597435cb-52e2-44b2-81c3-677eb4a74b71",
+      "name": "Los Feliz 3-Par Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "3207 Los Feliz Boulevard, Los Angeles, CA 90039",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://golf.lacity.gov/course_los_feliz_3_par/",
+      "map_location": {
+        "latitude": 34.124615750000004,
+        "longitude": -118.27034371464768,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "id": "c-d8f21d6e-5e8c-46da-8108-1435cad17840"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-31657aa6-63f0-474a-8a35-36ceed04ad85",
+      "name": "Maggie Hathaway Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "1921 W. 98th Street, Los Angeles, CA 90047",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": false,
+      "website": "https://www.maggiehathawaygolf.com/",
+      "map_location": {
+        "latitude": 33.94742785,
+        "longitude": -118.3127991197486,
+        "kind": "property_point"
+      },
+      "courses": [],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-8f1da431-e5f2-416e-8e9f-7a2b8b7c3f02",
+      "name": "Penmar Municipal Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "1233 Rose Avenue, Venice, CA 90291",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://golf.lacity.gov/course_penmar/",
+      "map_location": {
+        "latitude": 34.00671575,
+        "longitude": -118.46006159620265,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "id": "c-3dfed329-93c6-4424-9245-ee8509055760"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-e4668c55-ff5c-4c59-b129-7f5ef199072b",
+      "name": "Rancho Park Golf Club",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "10460 W. Pico Boulevard, Los Angeles, CA 90064",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 27,
+      "inventory_complete": true,
+      "website": "https://golf.lacity.gov/course_rancho_park/",
+      "map_location": {
+        "latitude": 34.04411195,
+        "longitude": -118.41105340709194,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": "Rancho Park",
+          "holes": 18,
+          "access": "public",
+          "id": "c-d0576d11-9b92-44ab-8d2a-0271013f28a9"
+        },
+        {
+          "name": "Rancho Park 3-Par",
+          "holes": 9,
+          "access": "public",
+          "id": "c-29fa2dd2-b478-4aaf-9c52-4fe7683f1f2e"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-0217b771-1c17-43ce-88a0-e6f0f65db9de",
+      "name": "Roosevelt Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "2650 North Vermont Avenue, Los Angeles, CA 90027",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://golf.lacity.gov/",
+      "map_location": {
+        "latitude": 34.120098150000004,
+        "longitude": -118.29063042447436,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 9,
+          "access": "public",
+          "id": "c-5117733b-e47c-4b08-9d0e-92ea0cc0e34e"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-23f69cfb-289f-46fe-9b4e-25cb6495e3c3",
+      "name": "Santa Anita Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "405 S. Santa Anita Avenue, Arcadia, CA 91006",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": false,
+      "website": "https://www.santaanitagc.com/",
+      "map_location": {
+        "latitude": 34.133433749999995,
+        "longitude": -118.03637595473344,
+        "kind": "property_point"
+      },
+      "courses": [],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-bd3dfce8-e86c-4115-ac21-8e3e92f6ce37",
+      "name": "Whittier Narrows Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "8640 Rush Street, Rosemead, CA 91770",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 27,
+      "inventory_complete": true,
+      "website": "https://www.whittiernarrowsgc.com/",
+      "map_location": {
+        "latitude": 34.0509342,
+        "longitude": -118.0770415903821,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": "River",
+          "holes": 9,
+          "access": "public",
+          "id": "c-d0de65a4-a836-4c54-97b1-425583b93631"
+        },
+        {
+          "name": "Pine",
+          "holes": 9,
+          "access": "public",
+          "id": "c-25ddb80f-87e9-4f5b-812b-2180ddb6fc09"
+        },
+        {
+          "name": "Mountain",
+          "holes": 9,
+          "access": "public",
+          "id": "c-5406bb9b-ea73-4195-9a8c-9d3a8f77f97b"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-a2149334-d4c5-4484-ba4c-d24c0a1056c5",
+      "name": "Woodley Lakes Golf Course",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "6331 Woodley Avenue, Van Nuys, CA 91406",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://golf.lacity.gov/course_woodley_lakes/",
+      "map_location": {
+        "latitude": 34.180060600000004,
+        "longitude": -118.48832149719973,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": null,
+          "holes": 18,
+          "access": "public",
+          "id": "c-33ba81ff-1263-4467-80a2-481140f40e6b"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-81709a0e-4672-40d1-b6bd-aa50bb70a1dd",
+      "name": "DeBell Golf Club",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "1500 East Walnut Avenue, Burbank, CA 91501",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 27,
+      "inventory_complete": true,
+      "website": "http://www.debellgolf.com",
+      "map_location": {
+        "latitude": 34.206861,
+        "longitude": -118.30277062163233,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "name": "18-Hole Course",
+          "holes": 18,
+          "access": "public",
+          "id": "c-4ebec708-5dd0-4c25-8563-eadb11c14051"
+        },
+        {
+          "name": "Par 3",
+          "holes": 9,
+          "access": "public",
+          "id": "c-02aa60f1-7c66-4203-9c02-6be8233c7c7d"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-b5d38c0a-0194-4782-be15-c867534fac90",
+      "name": "El Dorado Park Golf Course",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "2400 Studebaker Road, Long Beach, CA 90815",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": false,
+      "website": "https://www.eldoradoparkgc.com/",
+      "map_location": {
+        "latitude": 33.8000981,
+        "longitude": -118.09386376148525,
+        "kind": "property_point"
+      },
+      "courses": [],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-504e3a52-e913-4879-bfed-bf603c980c8d",
+      "name": "Recreation Park 18",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "5001 Deukmejian Dr., Long Beach, CA",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": false,
+      "website": "https://www.recpark18.com/",
+      "map_location": {
+        "latitude": 33.778995249999994,
+        "longitude": -118.13306333773329,
+        "kind": "property_point"
+      },
+      "courses": [],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-d71118ba-5b45-4bab-bec1-e74a2fb2f891",
+      "name": "Monterey Park Golf Club",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "3600 W Ramona Blvd, Monterey Park, CA 91754",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://www.mpgolfclub.com/",
+      "map_location": {
+        "latitude": 34.05799605,
+        "longitude": -118.16215765725615,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-bf4871bb-a51a-489b-aae9-074ab489cb16",
+          "name": null,
+          "holes": 9,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-47acb684-0a48-4ce7-8e42-4eb3d22ed774",
+      "name": "Arcadia Par 3 Golf Course",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "620 E. Live Oak Avenue, Arcadia, CA 91006",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://arcadiagc.com/",
+      "map_location": {
+        "latitude": 34.10311045,
+        "longitude": -118.01668474578615,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-d72b723f-b62c-4d12-95e5-239e4125754f",
+          "name": null,
+          "holes": 18,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-653a3ae2-6ae6-447d-8f89-1fa41599bd42",
+      "name": "The Lakes at El Segundo",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "398 S Pacific Coast Highway, El Segundo, CA 90245",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 10,
+      "inventory_complete": true,
+      "website": "https://www.golfthelakes.com/",
+      "map_location": {
+        "latitude": 33.912032249999996,
+        "longitude": -118.39429425674868,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-bbafb10e-e9ec-47f5-bfd2-7587c4124c2e",
+          "name": null,
+          "holes": 10,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-f9615f29-67f2-4dc2-aefd-9e3b8348285c",
+      "name": "Arroyo Seco Golf Course",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "1055 Lohman Lane, South Pasadena, CA 91030",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.arroyosecogc.com/",
+      "map_location": {
+        "latitude": 34.11534345,
+        "longitude": -118.16927729627272,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-caa254de-4ad6-4c85-a81c-59e9c80824dd",
+          "name": null,
+          "holes": 18,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-be5af264-c8bd-4940-a07d-675273a3ab0e",
+      "name": "Rio Hondo Golf Club",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "10627 Old River School Road, Downey, CA 90241",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.riohondogc.com/",
+      "map_location": {
+        "latitude": 33.95525835,
+        "longitude": -118.1484266545694,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-c8d7d051-f91a-4509-820d-84e40263b49c",
+          "name": null,
+          "holes": 18,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-6c2162a5-2701-47c8-9268-9e6c9e0e8730",
+      "name": "Heartwell Golf Course",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "6700 E. Carson Street, Long Beach, CA 90808",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.heartwellgc.com/",
+      "map_location": {
+        "latitude": 33.831287,
+        "longitude": -118.10357562221051,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-082aa19f-5512-416f-b559-5b93899a3a8e",
+          "name": null,
+          "holes": 18,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-55e01909-b0a2-49ac-90ed-5531dab26d23",
+      "name": "Brookside at the Rose Bowl",
+      "state": "CA",
+      "county": "Los Angeles County",
+      "address": {
+        "text": "1133 Rosemont Ave., Pasadena, CA 91103",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 36,
+      "inventory_complete": true,
+      "website": "https://www.brooksidegc.com/",
+      "map_location": {
+        "latitude": 34.16725715,
+        "longitude": -118.17014921812935,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-3e92cbd7-213b-4a7f-acf1-a519d3fc0a51",
+          "name": "C.W. Koiner Golf Course",
+          "holes": 18,
+          "access": "public"
+        },
+        {
+          "id": "c-9e8b5fe8-bdf0-44f4-8024-fa95c33b5ede",
+          "name": "E.O. Nay Golf Course",
+          "holes": 18,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-767ab17a-3382-4211-a37a-3aca20efe1da",
+      "name": "Westchester Golf Course",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "6900 W. Manchester Avenue, Los Angeles, CA 90045",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.westchestergc.com/",
+      "map_location": {
+        "latitude": 33.95682055,
+        "longitude": -118.40907602704891,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-6eb4f566-336a-4ef9-ab27-3699849cfd8b",
+          "name": null,
+          "holes": 18,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-8559ded4-bf5e-4ff5-aea7-188f6db8d374",
+      "name": "Skylinks at Long Beach Golf Course",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "4800 E. Wardlow Road, Long Beach, CA 90808",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.skylinksgc.com/",
+      "map_location": {
+        "latitude": 33.817665149999996,
+        "longitude": -118.1365167390405,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-6ed2268b-2187-4663-ac16-ac4cf83223a0",
+          "name": null,
+          "holes": 18,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-abd05d33-ff80-44b2-9d9d-b4823141301c",
+      "name": "StarX Golf (Rancho Duarte Golf Course)",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "1000 Las Lomas Road, Duarte, CA 91010",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 9,
+      "inventory_complete": true,
+      "website": "https://www.ranchoduartegolfcourse.org/",
+      "map_location": {
+        "latitude": 34.14068695,
+        "longitude": -117.94379304409722,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-62b0a2a5-47f3-4268-80fe-56af1270accc",
+          "name": null,
+          "holes": 9,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-1febf3d3-0c6d-4353-8a68-fbdccdf8f02e",
+      "name": "Westridge Golf Club",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "1400 South La Habra Hills Drive, La Habra, CA 90631",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.westridgegolfclub.com/",
+      "map_location": {
+        "latitude": 33.9108912,
+        "longitude": -117.96948519753207,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-218ff47f-a590-437a-8538-9f52f112a1c2",
+          "name": null,
+          "holes": 18,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-02f30c8b-c175-4c7d-bdfe-6e8955307513",
+      "name": "Scholl Canyon Golf and Tennis Club",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "3800 East Glenoaks Boulevard, Glendale, CA 91206",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 18,
+      "inventory_complete": true,
+      "website": "https://www.schollcanyongc.com/",
+      "map_location": {
+        "latitude": 34.1597868,
+        "longitude": -118.19867913812315,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-8f4f94d9-3963-4494-8ab0-868962d77f89",
+          "name": null,
+          "holes": 18,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    },
+    {
+      "id": "f-5f101511-633e-40c1-82b5-851a57233da9",
+      "name": "Van Nuys Golf Club",
+      "state": "CA",
+      "county": null,
+      "address": {
+        "text": "6550 Odessa Avenue, Van Nuys, CA 91406",
+        "purpose": "published_unspecified"
+      },
+      "physical_holes": 27,
+      "inventory_complete": true,
+      "website": "https://www.vannuysgolfclub.com/",
+      "map_location": {
+        "latitude": 34.19031215,
+        "longitude": -118.4886567576063,
+        "kind": "property_point"
+      },
+      "courses": [
+        {
+          "id": "c-f8760f8d-ed21-4657-b288-5256fbb8e20b",
+          "name": "Par 3 Course",
+          "holes": 18,
+          "access": "public"
+        },
+        {
+          "id": "c-498d5e8d-191d-4e4a-a814-2d0e91c911cf",
+          "name": "Executive Course",
+          "holes": 9,
+          "access": "public"
+        }
+      ],
+      "public_access": "public",
+      "access_note": null
+    }
+  ]
+}
