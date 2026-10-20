@@ -4,12 +4,14 @@ One practical path uses Spark's existing normal-user rootless Docker daemon:
 prepare public Python code offline in one capped container, remove it, then run
 the synthetic API/fixture pair with narrow read-only code mounts. The controller
 has no pull, build, commit, import, image-removal or persistent-service path.
-This namespace-client revision is an uncommitted local proposal based on reviewed
-commit `a0aa503e47bc5881ca10ee033a4fb6977ac448d0`. It needs independent source
-review and a fresh approval before acquisition, staging or execution. Local pipe
+The diagnostic/preparation changes are committed at `a0aa503`; the namespace
+client and its regressions are committed at `9086c63`. This is unfinished source
+work shared for contributor development, not an executed container review.
+A fresh execution review and separate approval are still required before
+acquisition, staging or execution. Local pipe
 and temporary loopback HTTP tests exercise the actual client dispatcher and host
 adapter with Docker policy mocked. No Spark staging, image pull, installer,
-container, network or routing traffic was executed for this revision.
+real container/bridge execution or live routing traffic occurred for this revision.
 
 ## Inputs and separate approval boundaries
 
@@ -416,9 +418,9 @@ distinguishable, and late owned creations are still reconciled during cleanup.
 The existing subprocess.run/communicate path drains stdout and stderr together,
 including Docker cp; no separate unconsumed stderr pipe is introduced. Preview
 bounds limit persisted diagnostics, not total CLI capture or Docker daemon use.
-These diagnostics are committed locally at `a0aa503`, separately from the
-published PR15 head `86f54e5`. The namespace-client diff above remains uncommitted
-and unreviewed. Earlier bundles retain their original identities and are paused;
+These diagnostics and the namespace client are included in this PR's source
+history at `a0aa503` and `9086c63`. Local tests do not establish real Docker or
+Spark behavior. Earlier bundles retain their original identities and are paused;
 a fresh18-file bundle (17 payload files plus SHA256SUMS) is needed after review. Runtime still uses log-driver
 none without local-driver options, so native's max-file/compression conflict does
 not apply; no daemon setting, log-driver switch or failed-stage retry is proposed.
