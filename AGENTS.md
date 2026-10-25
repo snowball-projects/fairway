@@ -1,10 +1,13 @@
 # snowball rules
+
 Stage
+
 - Early-stage project with one user, the founder. Build for that.
   No guards, migrations, compatibility code, release processes or docs
   for users who don't exist yet.
 
 Design
+
 - Choose the simplest, least costly design that works, in everything:
   architecture, hosting, backend, frontend and data.
 - Within that, make it as fast and light as possible.
@@ -14,6 +17,7 @@ Design
   mention them.
 
 Less is more
+
 - Prefer deleting to adding. At the end of each task, say what can now
   be removed, and remove it if it is in scope.
 - No dead code, old experiments, research notes or drafts in the repo.
@@ -23,6 +27,7 @@ Less is more
   docs unless asked, and don't edit AGENTS.md unless asked.
 
 Work
+
 - Keep each PR to one coherent piece of work, then stop and report.
 - Ask the founder first before anything irreversible (force-push,
   deleting unmerged work, changing repo settings, spending money) or
@@ -32,6 +37,7 @@ Work
   one machine.
 
 Public copy and data
+
 - Write snowball and every project name in lowercase.
 - Never label anything as made by or with AI, anywhere.
 - Never use em dashes.
