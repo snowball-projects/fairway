@@ -35,7 +35,7 @@ test('failure retains the map and pinned identity, clears pending work, and perm
  const h=harness(),index=h.ctx.initialMap;
  h.ctx.ensureCatalog();h.reject();await h.ctx.detailsRequest;
  assert.equal(h.ctx.catalogModel,null);assert.equal(h.ctx.initialMap,index);assert.equal(h.ctx.detailsRequest,null);
- assert.match(h.controls['catalog-status'].textContent,/unavailable.*retry/);
+ assert.match(h.controls['catalog-status'].textContent,/Course details unavailable/);
  h.ctx.ensureCatalog();assert.equal(h.calls.length,2);assert.equal(h.calls[1].options.pinnedManifest,index.manifest);
  h.resolve({revision:981});await h.ctx.detailsRequest;
 });
@@ -74,13 +74,13 @@ test('drawer opens before synchronous index fit and a later camera start cancels
  events.movestart();assert.equal(h.ctx.deferredSelection,null);
  h.ctx.selectFacilityById=id=>selected.push(id);h.resolve({revision:981});await h.ctx.detailsRequest;assert.deepEqual(selected,[]);
 });
-test('initial failure offers page reload while detail failure offers the working pinned retry',()=>{
+test('initial and detail failures state the unavailable data without instructions',()=>{
  const h=harness();vm.runInContext(actual('catalogLoadMessage'),h.ctx);
- h.ctx.initialMap=null;h.controls['catalog-status'].textContent='Catalog unavailable. Reload the page to retry.';
- assert.equal(h.ctx.catalogLoadMessage(),'Catalog unavailable. Reload the page to retry.');
+ h.ctx.initialMap=null;h.controls['catalog-status'].textContent='Catalog unavailable.';
+ assert.equal(h.ctx.catalogLoadMessage(),'Catalog unavailable.');
  h.controls['catalog-status'].textContent='Loading…';assert.match(h.ctx.catalogLoadMessage(),/Catalog is still loading/);
  h.ctx.initialMap={manifest:{revision:981}};h.controls['catalog-status'].textContent='Course details unavailable.';
- assert.match(h.ctx.catalogLoadMessage(),/Reopen Courses or select a place to retry/);
+ assert.match(h.ctx.catalogLoadMessage(),/Course details unavailable/);
 });
 test('a pan before detail readiness follows the new viewport without publishing course rows',()=>{
  const h=harness();let frame,renders=0;

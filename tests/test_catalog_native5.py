@@ -10,7 +10,7 @@ import pytest
 
 from fairway import catalog_native as native
 from fairway import catalog_native_read as read
-from fairway.catalog_store import digest
+from fairway.catalog_native_common import digest
 
 
 def ident(prefix, number):
@@ -499,17 +499,6 @@ def test_whole_native5_snapshot_roundtrip_and_wrong_hash_cleanup(db, tmp_path):
     with pytest.raises(ValueError, match="checksum"):
         native.restore(snap, rejected, expected_sha256="0" * 64)
     assert not rejected.exists()
-
-
-def test_real_native4_is_explicitly_rejected_without_migration(db, tmp_path):
-    from fairway.catalog_store import create
-
-    old = tmp_path / "old.sqlite"
-    create(old)
-    before = old.read_bytes()
-    with pytest.raises(ValueError, match="native5"):
-        native.connect(old)
-    assert old.read_bytes() == before
 
 
 def test_importer_does_not_accept_raw_fact_groups(db):

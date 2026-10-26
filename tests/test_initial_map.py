@@ -21,9 +21,7 @@ def test_map_is_exact_reproducible_projection_of_complete_released_catalog():
         gzip.decompress((ROOT / "data/catalog-release/catalog.json.gz").read_bytes())
     )
     manifest = json.loads((ROOT / "data/catalog-release/manifest.json").read_bytes())
-    states = json.loads((ROOT / "docs/research-map/boundaries.json").read_bytes())[
-        "states"
-    ]
+    states = json.loads((ROOT / "data/map-boundaries.json").read_bytes())["states"]
     before = json.dumps(value, sort_keys=True)
     raw = pages.initial_map_bytes(value, manifest, states)
     assert raw == pages.initial_map_bytes(value, manifest, states)

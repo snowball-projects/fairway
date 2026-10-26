@@ -8,7 +8,6 @@ import {
 } from "../src/fairway/static/catalog-read.mjs";
 import {shapeRings} from "../src/fairway/static/map-geometry.mjs";
 import {gunzipSync} from "node:zlib";
-import { project } from "../docs/research-map/model.mjs";
 import { createFacilityDots } from "../src/fairway/static/facility-dots.mjs";
 import {
   canRemoveOrigin,
@@ -99,7 +98,8 @@ test("facility/city/state search preserves duplicate-name geography and unmapped
   );
 });
 test("Census state geometry inverts its projection without supplying fabricated facility bounds", () => {
-  const [x, y] = project(-89, 42, "IL");
+  // Independent known Albers point at 42 N, 89 W.
+  const [x, y] = [609.0744224868213, 188.86980716407058];
   const rings = shapeRings({ state: "IL", d: `M${x},${y}L${x},${y}Z` });
   assert.ok(Math.abs(rings[0][0][0] - 42) < 1e-9);
   assert.ok(Math.abs(rings[0][0][1] + 89) < 1e-9);

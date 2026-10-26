@@ -21,7 +21,6 @@ spec.loader.exec_module(pages)
 def test_native_pages_are_reproducible_public_only_and_leave_source_unchanged(tmp_path):
     source = ROOT / "data/catalog-release/catalog.json.gz"
     before = source.read_bytes()
-    ranking = (ROOT / "src/fairway/data/course-catalog.json").read_bytes()
     output = tmp_path / "one"
     one = pages.build(ROOT, output, "a" * 40, review_fixture=True)
     two = pages.build(ROOT, tmp_path / "two", "a" * 40, review_fixture=True)
@@ -40,7 +39,7 @@ def test_native_pages_are_reproducible_public_only_and_leave_source_unchanged(tm
         and "REVIEW FIXTURE: synthetic records" in html
     )
     assert one["review_fixture"] is True
-    assert one["assets"] == 38
+    assert one["assets"] == 36
     assert json.loads((output / "deployment.json").read_text())["commit"] == "a" * 40
     for name in [
         "catalog.mjs",
@@ -54,9 +53,7 @@ def test_native_pages_are_reproducible_public_only_and_leave_source_unchanged(tm
     for suffix in ["*.sqlite", "*.sql", "*.gz", "*.npz"]:
         assert not list(output.rglob(suffix))
     assert (output / ".nojekyll").exists()
-    assert 'href="../"' in (output / "research-map/index.html").read_text()
     assert source.read_bytes() == before
-    assert (ROOT / "src/fairway/data/course-catalog.json").read_bytes() == ranking
     with pytest.raises(ValueError, match="new or empty"):
         pages.build(ROOT, output, "b" * 40)
     for module in output.glob("*.mjs"):

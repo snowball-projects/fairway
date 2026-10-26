@@ -319,7 +319,7 @@ async function commitOrigin(row, trigger = "blur") {
   if (!query) {if(planningMode)syncPlanning();return false;}
   if (query.length < 3 || query.length > 256) return false;
   const coordinate = parseCoordinate(query);
-  if (coordinate) { if (!insideCore(coordinate)) { setStatus("Enter a valid lower 48 coordinate (latitude, longitude).", true); return false; } setOrigin(row, query, coordinate); return true; }
+  if (coordinate) { if (!insideCore(coordinate)) { setStatus("Coordinates are outside the lower 48.", true); return false; } setOrigin(row, query, coordinate); return true; }
   if (looksLikeCoordinateInput(query)) return false;
   const controller = new AbortController();
   row.controller = controller; row.lookupQuery = query;
@@ -343,10 +343,10 @@ async function commitOrigin(row, trigger = "blur") {
         const item = document.createElement("li"); item.role = "none"; item.append(button); row.suggestions.append(item);
       }
       row.input.setAttribute("aria-expanded", String(choices.length > 0));
-      setStatus(choices.length ? "Choose the matching address." : "Address not found. Check the complete address.", !choices.length);
+      setStatus(choices.length ? "Address matches available." : "Address not found.", !choices.length);
       return false;
     } catch (error) {
-      if (!controller.signal.aborted && error.name !== "AbortError" && state.rows.includes(row) && row.controller === controller) setStatus("Address suggestions are unavailable. Try the address again.", true);
+      if (!controller.signal.aborted && error.name !== "AbortError" && state.rows.includes(row) && row.controller === controller) setStatus("Address suggestions unavailable.", true);
       return false;
     } finally {
       if (row.controller === controller) {
@@ -485,7 +485,7 @@ function updatePlan() {
   clearRanking();
   const count = state.rows.filter((row) => row.coordinate).length;
   setStatus(
-    count ? "Selecting nearby catalog courses…" : "Enter a golfer address.",
+    count ? "Selecting nearby catalog courses…" : "No golfer origins.",
   );
 }
 
@@ -520,7 +520,7 @@ function renderPreparation(session) {
   }
   view.results.setAttribute("aria-busy", String(Boolean(session.active || session.pending)));
   $("cancel-calculate").hidden = !session.origins.length || ["complete", "partial", "error"].includes(session.phase);
-  setStatus(session.origins.length ? "Driving times are unavailable. These courses are within the selected straight-line radius of at least one golfer." : "Enter a golfer address or coordinate.");
+  setStatus(session.origins.length ? "Driving times are unavailable. These courses are within the selected straight-line radius of at least one golfer." : "No golfer origins.");
 }
 
 function moveCourseCard(list, item, before) {
@@ -1048,8 +1048,8 @@ function updateLoadedCount(count) {
 }
 function catalogLoadMessage() {
   const unavailable=$("catalog-status").textContent?.includes("unavailable");
-  if(!initialMap)return unavailable?"Catalog unavailable. Reload the page to retry.":"Catalog is still loading. No browse course list is available yet.";
-  return unavailable?"Course details unavailable. Reopen Courses or select a place to retry.":"Course details are loading. The course list will appear when verified.";
+  if(!initialMap)return unavailable?"Catalog unavailable.":"Catalog is still loading. No browse course list is available yet.";
+  return unavailable?"Course details unavailable.":"Course details are loading. The course list will appear when verified.";
 }
 function renderCourses() {
   updateDisplaySortOptions();
@@ -1356,9 +1356,9 @@ async function loadCatalog() {
     if(!view.resultsPanel.hidden || !$("plan-panel").hidden)ensureCatalog();
   } catch {
     $("catalog-status").hidden=false;
-    $("catalog-status").textContent="Catalog unavailable. Reload the page to retry.";
+    $("catalog-status").textContent="Catalog unavailable.";
     if(planningMode && !browseMode && state.ranking)renderCourses();
-    else view.results.replaceChildren(node("p","Catalog unavailable. Reload the page to retry."));
+    else view.results.replaceChildren(node("p","Catalog unavailable."));
   }
 }
 function ensureCatalog() {
@@ -1371,7 +1371,7 @@ function ensureCatalog() {
     select?.();
   }).catch(()=>{
     $("catalog-status").hidden=false;
-    $("catalog-status").textContent="Course details unavailable. Reopen Courses or select a place to retry.";
+    $("catalog-status").textContent="Course details unavailable.";
     renderCourses();
   }).finally(()=>{detailsRequest=null;});
 }

@@ -5,35 +5,23 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "fairway"
 version = "0.6.3"
-description = "A golf-course catalog with nearby browsing and a separate travel-time API."
+description = "A static golf-course catalog with map browsing and nearby selection."
 authors = [{ name = "Nas Delevski" }]
 license = "MIT"
 license-files = ["LICENSE", "THIRD-PARTY-NOTICES.md"]
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-  "gunicorn>=26.2,<27",
-  "networkx>=3.4,<4",
-  "numpy>=1.26,<3",
-  "scipy>=1.12,<2",
-  "modo @ git+https://github.com/adelevski/modo.git@925312e48f4933512bf653ad58b005d4fba461ec",
-]
+dependencies = []
 
 [project.optional-dependencies]
 test = ["pytest>=9.0.3,<10", "ruff>=0.12,<1"]
-
-[project.scripts]
-fairway-fetch-snapshot = "fairway.fetch:main"
 
 [project.urls]
 Repository = "https://github.com/snowball-projects/fairway"
 
 [tool.setuptools.package-data]
-fairway = ["catalog_schema/*.sql", "data/*.json", "static/*", "static/research-map/*", "static/data/*.json"]
+fairway = ["catalog_schema/*.sql", "static/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 markers = ["catalog_integration: complete production catalog builds, run once in CI's catalog check"]
-
-[tool.ruff.lint.per-file-ignores]
-"src/fairway/fetch.py" = ["S310"] # URL and redirect targets are HTTPS-validated.
