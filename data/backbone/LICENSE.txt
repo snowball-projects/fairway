@@ -1,0 +1,11 @@
+fairway source-feature backbone
+
+Database contributions: Open Data Commons Open Database License 1.0.
+https://opendatacommons.org/licenses/odbl/1-0/
+
+OpenStreetMap features and derived positions: copyright OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright
+
+Wikidata structured data: CC0 1.0. https://www.wikidata.org/wiki/Wikidata:Licensing
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Source rights and credits are retained separately. ODbL does not replace the CC0 dedication of Wikidata contents. Source versions, retrieval dates and qualifications are recorded in the data.

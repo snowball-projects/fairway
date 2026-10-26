@@ -269,6 +269,35 @@ def clean_structure(value):
     return value
 
 
+def selection_snapshot(national, linked, query_url, checked_on):
+    """Keep the successful query's facts even when entity detail reads must wait."""
+    return {
+        "checked_on": checked_on,
+        "license": "CC0-1.0",
+        "license_url": "https://www.wikidata.org/wiki/Wikidata:Licensing",
+        "query": QUERY,
+        "query_url": query_url,
+        "national_query_count": len(national),
+        "linked_osm_count": len(linked),
+        "status": "selection_only",
+        "entities": {
+            qid: {
+                "id": qid,
+                "lastrevid": None,
+                "modified": None,
+                "label": None,
+                "source_url": query_url,
+                "checked_on": checked_on,
+                "from_national_query": True,
+                "claims": {},
+                "qualification": "Query membership only; entity details and revision unknown.",
+            }
+            for qid in sorted(national)
+        },
+        "excluded_human_targets": [],
+    }
+
+
 def enrich(args):
     rows = json.loads((args.work / "osm-features.json").read_text())
     linked = {qid for row in rows for qid in row["wikidata_ids"]}
@@ -280,17 +309,7 @@ def enrich(args):
         row["item"]["value"].rsplit("/", 1)[-1] for row in query["results"]["bindings"]
     }
     identities = sorted(linked | national)
-    snapshot = {
-        "checked_on": args.checked_on,
-        "license": "CC0-1.0",
-        "license_url": "https://www.wikidata.org/wiki/Wikidata:Licensing",
-        "query": QUERY,
-        "query_url": query_url,
-        "national_query_count": len(national),
-        "linked_osm_count": len(linked),
-        "entities": {},
-        "excluded_human_targets": [],
-    }
+    snapshot = selection_snapshot(national, linked, query_url, args.checked_on)
     for start in range(0, len(identities), 50):
         group = identities[start : start + 50]
         url = "https://www.wikidata.org/w/api.php?" + urlencode(
@@ -305,9 +324,8 @@ def enrich(args):
         )
         response = request_json(url)
         if "error" in response:
-            raise ValueError(
-                "Wikidata source error: " + response["error"].get("code", "unknown")
-            )
+            snapshot["blocked_reason"] = response["error"].get("code", "unknown")
+            break
         for qid, entity in response["entities"].items():
             if "missing" in entity:
                 continue
@@ -317,6 +335,7 @@ def enrich(args):
             }
             if "Q5" in kinds:
                 snapshot["excluded_human_targets"].append(qid)
+                snapshot["entities"].pop(qid, None)
                 continue
             snapshot["entities"][qid] = {
                 "id": qid,
@@ -337,6 +356,8 @@ def enrich(args):
             flush=True,
         )
         time.sleep(0.25)
+    else:
+        snapshot["status"] = "entity_reads_complete"
     # Human targets are omitted from public files, including their IDs/labels.
     excluded = set(snapshot.pop("excluded_human_targets"))
     snapshot["excluded_human_target_count"] = len(excluded)
@@ -348,6 +369,8 @@ def enrich(args):
             row["tags"].pop("wikidata", None)
     (args.work / "osm-features.json").write_text(encoded(rows) + "\n")
     (args.work / "wikidata.json").write_text(encoded(clean_structure(snapshot)) + "\n")
+    if snapshot.get("blocked_reason"):
+        raise ValueError("Wikidata source error: " + snapshot["blocked_reason"])
 
 
 def write_csv(path, rows):
@@ -425,6 +448,8 @@ def publish_files(args):
             "wikidata_query": wiki["query"],
             "wikidata_query_url": wiki["query_url"],
             "wikidata_checked_on": wiki["checked_on"],
+            "wikidata_status": wiki["status"],
+            "wikidata_blocked_reason": wiki.get("blocked_reason"),
         },
         "counts": {
             "osm_features": len(rows),
@@ -434,6 +459,9 @@ def publish_files(args):
             "features_with_position": sum(r["position"] is not None for r in rows),
             "features_with_wikidata": sum(bool(r["wikidata"]) for r in rows),
             "wikidata_items": len(wiki["entities"]),
+            "wikidata_items_with_entity_revision": sum(
+                e["lastrevid"] is not None for e in wiki["entities"].values()
+            ),
             "wikidata_only_items": len(unlinked),
             "excluded_human_targets": wiki["excluded_human_target_count"],
         },
@@ -455,6 +483,7 @@ def publish_files(args):
         ],
         "qualification": "A source-feature backbone, not a count of independently bookable courses. Features and QIDs are not merged by name, proximity or shared identifiers. Facility/course decomposition, course entrances and booking remain unknown. Polygon points are derived inside valid source polygons, not entrances. OSM and Wikidata claims keep separate source identities, versions, dates and rights. Phone/email values and unrelated operator/person details are excluded. No routing computation.",
         "checked_on_semantics": "Date this source snapshot was read. Real-world verification remains unknown; original OSM check_date tags, source edit times and Wikidata reference dates remain distinct.",
+        "csv_encoding": "UTF-8; \\N denotes null/unknown; objects and arrays are JSON cells.",
         "files": {
             p.name: {
                 "bytes": p.stat().st_size,

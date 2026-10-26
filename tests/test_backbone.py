@@ -59,6 +59,7 @@ def test_extract_keeps_feature_identity_and_null_geometry(tmp_path):
 <node id="4" version="1" timestamp="2026-10-20T00:00:00Z" lat="40" lon="-74.99"/>
 <way id="10" version="2" timestamp="2026-10-21T00:00:00Z"><nd ref="1"/><nd ref="2"/><nd ref="3"/><nd ref="4"/><nd ref="1"/><tag k="leisure" v="golf_course"/><tag k="name" v="Shared name"/><tag k="wikidata" v="Q123"/></way>
 <way id="11" version="1" timestamp="2026-10-20T00:00:00Z"><nd ref="2"/><nd ref="3"/><tag k="golf" v="course"/><tag k="name" v="Unclosed course"/></way>
+<way id="12" version="1" timestamp="2026-10-20T00:00:00Z"><nd ref="1"/><nd ref="2"/><nd ref="999"/><nd ref="1"/><tag k="leisure" v="golf_course"/></way>
 <relation id="20" version="3" timestamp="2026-10-22T00:00:00Z"><member type="way" ref="10" role=""/><member type="way" ref="11" role=""/><tag k="type" v="site"/><tag k="leisure" v="golf_course"/></relation>
 </osm>""")
     args = Namespace(
@@ -72,12 +73,19 @@ def test_extract_keeps_feature_identity_and_null_geometry(tmp_path):
     backbone.extract(args)
     records = json.loads((args.work / "osm-features.json").read_text())
     rows = {row["feature_id"]: row for row in records}
-    assert set(rows) == {"osm/node/1", "osm/way/10", "osm/way/11", "osm/relation/20"}
+    assert set(rows) == {
+        "osm/node/1",
+        "osm/way/10",
+        "osm/way/11",
+        "osm/way/12",
+        "osm/relation/20",
+    }
     assert rows["osm/node/1"]["wikidata_ids"] == rows["osm/way/10"]["wikidata_ids"]
     assert rows["osm/way/10"]["position_kind"] == "derived_inside_source_polygon"
     lon, lat = rows["osm/way/10"]["position"]
     assert -75 < lon < -74.99 and 40 < lat < 40.01
     assert rows["osm/way/11"]["position"] is None
+    assert rows["osm/way/12"]["position"] is None
     assert rows["osm/relation/20"]["member_feature_ids"] == ["osm/way/10", "osm/way/11"]
     assert rows["osm/node/1"]["osm_last_edit"] == "2026-10-20T00:00:00Z"
     assert rows["osm/node/1"]["checked_on"] == "2026-10-26"
@@ -134,4 +142,38 @@ def test_wikidata_matches_only_explicit_qids_and_keeps_unmatched_items(tmp_path)
     changed = json.loads((tmp_path / "osm-features.json").read_text())
     assert changed[0]["wikidata_ids"] == changed[1]["wikidata_ids"] == ["Q123"]
     assert changed[2]["wikidata_ids"] == [] and changed[2]["tags"] == {}
+    assert len(calls) == 2
+
+
+def test_source_backpressure_preserves_query_facts_without_inventing_details(tmp_path):
+    args = Namespace(work=tmp_path, checked_on="2026-10-26")
+    (tmp_path / "osm-features.json").write_text(
+        json.dumps([{"wikidata_ids": ["Q123"], "tags": {"wikidata": "Q123"}}])
+    )
+    calls = []
+
+    def source(url):
+        calls.append(url)
+        if "sparql" in url:
+            return {
+                "results": {
+                    "bindings": [
+                        {"item": {"value": "http://www.wikidata.org/entity/Q456"}}
+                    ]
+                }
+            }
+        return {"error": {"code": "maxlag"}}
+
+    with pytest.MonkeyPatch.context() as patch:
+        patch.setattr(backbone, "request_json", source)
+        with pytest.raises(ValueError, match="maxlag"):
+            backbone.enrich(args)
+    snapshot = json.loads((tmp_path / "wikidata.json").read_text())
+    assert snapshot["status"] == "selection_only"
+    assert snapshot["blocked_reason"] == "maxlag"
+    assert set(snapshot["entities"]) == {"Q456"}
+    entity = snapshot["entities"]["Q456"]
+    assert entity["lastrevid"] is None and entity["label"] is None
+    assert entity["claims"] == {} and entity["checked_on"] == "2026-10-26"
+    assert "query=" in entity["source_url"]
     assert len(calls) == 2
