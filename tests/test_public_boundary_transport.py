@@ -91,10 +91,12 @@ def test_complete_credentials_and_path_boundary_normal_build(tmp_path, case):
     (data / "manifest.json").write_text(json.dumps(manifest))
     (data / "catalog.json.gz").write_bytes(packed)
     shutil.copytree(ROOT / "src/fairway/static", source / "src/fairway/static")
-    shutil.copytree(ROOT / "docs/research-map", source / "docs/research-map")
+    shutil.copyfile(
+        ROOT / "data/map-boundaries.json", source / "data/map-boundaries.json"
+    )
     out = tmp_path / "site"
     if case["accept"]:
-        assert pages.build(source, out, "0" * 40)["assets"] == 38
+        assert pages.build(source, out, "0" * 40)["assets"] == 36
         assert "Data credits" in (out / "credits.html").read_text()
         assert (
             out / ("data/native-catalog-" + hashlib.sha256(raw).hexdigest() + ".json")

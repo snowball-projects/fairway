@@ -65,7 +65,7 @@ test('actual drawer wiring preserves filter focus and closes popover when panel 
   const first={focus(){this.focused=true;}},popover={hidden:true,querySelector:()=>first},toggle={setAttribute(){}};context.view.filterPopover=popover;context.view.filterToggle=toggle;panel.hidden=false;vm.runInContext(extract('setFilterOpen'),context);vm.runInContext('setFilterOpen(true,true)',context);assert.equal(first.focused,true);
 });
 test('header exposes numeric loaded count and requested controls without redundant Courses/X/US controls',()=>{
-  const html=readFileSync(new URL('../src/fairway/static/index.html',import.meta.url),'utf8');assert.doesNotMatch(html,/id="(?:courses-toggle|close-courses|us-view)"/);assert.match(html,/title="Number of courses loaded"/);assert.match(html,/aria-describedby="courses-grip-help"/);
+  const html=readFileSync(new URL('../src/fairway/static/index.html',import.meta.url),'utf8');assert.doesNotMatch(html,/id="(?:courses-toggle|close-courses|us-view)"/);assert.match(html,/title="Number of courses loaded"/);assert.match(html,/aria-keyshortcuts="ArrowLeft ArrowRight ArrowUp ArrowDown Home End"/);
   const span={setAttribute(name,value){this[name]=value;}},context=vm.createContext({view:{resultCount:span}});vm.runInContext(extract('updateLoadedCount'),context);for(const count of [0,24,100]){context.count=count;vm.runInContext('updateLoadedCount(count)',context);assert.equal(span.textContent,String(count));assert.equal(span['aria-label'],`Number of courses loaded: ${count}`);}
   assert.doesNotMatch(app,/Nearby courses shown|Driving times are being prepared|Some driving times are pending|ranking is provisional|Sorted by/);
 });
@@ -101,20 +101,6 @@ test('actual mobile grip keyboard and cancellation also cancel deferred auto-ope
   const focused=mobileWiring();focused.grip.focus();focused.send('focus');focused.frames.shift()();assert.equal(focused.panel.hidden,true);focused.send('click',{detail:0});assert.equal(focused.panel.hidden,false);
   for(const key of ['Enter',' ','ArrowUp','Home','End']){const f=mobileWiring();f.send('keydown',{key,detail:0});assert.equal(f.c.automaticCoursesKey,JSON.stringify(f.c.planningSession.origins));if(['Enter',' '].includes(key))f.send('click',{detail:0});assert.equal(f.panel.hidden,key==='End');}
   const f=mobileWiring();f.send('pointerdown');f.frames.shift()();f.send('pointercancel');f.c.document.activeElement={};vm.runInContext('openCoursesForOrigins(planningSession.origins)',f.c);assert.equal(f.panel.hidden,true);f.send('click',{detail:0});assert.equal(f.panel.hidden,false);
-});
-
-
-test('actual hidden-help CSS bounds its clipped box inside the viewport even at zero drawer width, preserving its accessible description',()=>{
-  const css=readFileSync(new URL('../src/fairway/static/styles.css',import.meta.url),'utf8'),html=readFileSync(new URL('../src/fairway/static/index.html',import.meta.url),'utf8');
-  const declarations=selector=>{
-    const escaped=selector.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),body=css.match(new RegExp(escaped+'\\s*\\{([^}]+)\\}'))?.[1]||'';
-    return Object.fromEntries(body.split(';').map(s=>s.trim().split(/:\s*/)).filter(x=>x.length===2));
-  };
-  const hidden=declarations('.visually-hidden'),anchor=declarations('#courses-grip-help');
-  assert.equal(hidden.position,'absolute');assert.equal(hidden.width,'1px');assert.equal(hidden.overflow,'hidden');assert.ok(hidden.clip||hidden['clip-path']);
-  assert.notEqual(anchor.right,undefined,'The zero-width shell must give hidden help an explicit trailing inset');assert.equal(Number.parseFloat(anchor.right),0);assert.equal(anchor.bottom,'0');assert.notEqual(anchor.display,'none');assert.notEqual(anchor.visibility,'hidden');
-  const help=html.match(/<span id="courses-grip-help"[^>]*>([^<]+)<\/span>/);assert.ok(help);assert.match(help[1],/Enter or Space/);assert.doesNotMatch(help[0],/aria-hidden|\shidden[\s>]/);assert.match(html,/aria-describedby="courses-grip-help"/);
-  for(const viewport of [320,390,800,1440]){const f=harness(viewport);for(const open of [false,true]){if(open)f.send('click');const shellWidth=f.shell.style.width==='100%'?viewport:Number.parseFloat(f.shell.style.width),shellLeft=viewport-shellWidth;const helpRight=shellLeft+shellWidth-Number.parseFloat(anchor.right),helpLeft=helpRight-Number.parseFloat(hidden.width);assert.ok(helpRight<=viewport);assert.ok(helpLeft>=0);}}
 });
 
 

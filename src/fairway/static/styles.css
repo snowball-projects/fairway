@@ -1356,10 +1356,6 @@ dialog > p:last-child {
   max-width: calc(100% - 44px);
   pointer-events: none;
 }
-#courses-grip-help {
-  right: 0;
-  bottom: 0;
-}
 .courses-drawer > .results-panel {
   z-index: 0;
   inset: 0;

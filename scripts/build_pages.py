@@ -528,16 +528,15 @@ def build(root, output, commit, review_fixture=False):
         name: (root / "src/fairway/static" / name).read_bytes() for name in ASSETS
     }
     ui_assets = version_ui_assets(payloads)
-    payloads["research-map/boundaries.json"] = (
-        root / "docs/research-map/boundaries.json"
-    ).read_bytes()
     item = manifest["files"]["catalog.json"]
     name = f"native-catalog-{item['sha256']}.json"
     payloads["data/" + name] = raw
     public = {**manifest, "files": {"catalog.json": {**item, "path": name}}}
     value = json.loads(raw)
     map_raw = initial_map_bytes(
-        value, manifest, json.loads(payloads["research-map/boundaries.json"])["states"]
+        value,
+        manifest,
+        json.loads((root / "data/map-boundaries.json").read_bytes())["states"],
     )
     map_sha = digest(map_raw)
     map_name = f"initial-map-{map_sha}.json"
@@ -550,10 +549,6 @@ def build(root, output, commit, review_fixture=False):
     payloads["data/catalog-release.json"] = (
         json.dumps(public, sort_keys=True, separators=(",", ":")) + "\n"
     ).encode()
-    # Retire the old coverage application; its URL leads to the same native catalog UI.
-    payloads["research-map/index.html"] = (
-        b'<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=../"><title>fairway catalog</title><a href="../">Open the fairway catalog</a>'
-    )
     policy = "default-src 'self'; base-uri 'none'; connect-src 'self' https://photon.komoot.io; img-src 'self' data: https://tile.openstreetmap.org; font-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'none'; object-src 'none'"
     payloads["credits.html"] = version_ui_html(
         credits_html(value["source_licenses"], policy).decode(), ui_assets
