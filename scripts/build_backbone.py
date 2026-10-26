@@ -280,6 +280,7 @@ def selection_snapshot(national, linked, query_url, checked_on):
         "national_query_count": len(national),
         "linked_osm_count": len(linked),
         "status": "selection_only",
+        "missing_entity_ids": [],
         "entities": {
             qid: {
                 "id": qid,
@@ -328,6 +329,9 @@ def enrich(args):
             break
         for qid, entity in response["entities"].items():
             if "missing" in entity:
+                snapshot["missing_entity_ids"].append(qid)
+                if qid in snapshot["entities"]:
+                    snapshot["entities"][qid]["entity_status"] = "missing_at_read"
                 continue
             kinds = {
                 c.get("mainsnak", {}).get("datavalue", {}).get("value", {}).get("id")
@@ -450,6 +454,7 @@ def publish_files(args):
             "wikidata_checked_on": wiki["checked_on"],
             "wikidata_status": wiki["status"],
             "wikidata_blocked_reason": wiki.get("blocked_reason"),
+            "wikidata_missing_entity_ids": wiki["missing_entity_ids"],
         },
         "counts": {
             "osm_features": len(rows),

@@ -99,6 +99,7 @@ def test_wikidata_matches_only_explicit_qids_and_keeps_unmatched_items(tmp_path)
         {"wikidata_ids": ["Q123"], "tags": {"wikidata": "Q123"}},
         {"wikidata_ids": ["Q123"], "tags": {"wikidata": "Q123"}},
         {"wikidata_ids": ["Q5"], "tags": {"wikidata": "Q5"}},
+        {"wikidata_ids": ["Q789"], "tags": {"wikidata": "Q789"}},
     ]
     (tmp_path / "osm-features.json").write_text(json.dumps(rows))
     calls = []
@@ -115,6 +116,7 @@ def test_wikidata_matches_only_explicit_qids_and_keeps_unmatched_items(tmp_path)
             }
         return {
             "entities": {
+                "Q789": {"missing": ""},
                 "Q123": {
                     "lastrevid": 10,
                     "labels": {"en": {"value": "Test course"}},
@@ -139,9 +141,11 @@ def test_wikidata_matches_only_explicit_qids_and_keeps_unmatched_items(tmp_path)
     assert snapshot["entities"]["Q456"]["from_national_query"] is True
     assert snapshot["entities"]["Q123"]["source_url"].endswith("oldid=10")
     assert snapshot["excluded_human_target_count"] == 1
+    assert snapshot["missing_entity_ids"] == ["Q789"]
     changed = json.loads((tmp_path / "osm-features.json").read_text())
     assert changed[0]["wikidata_ids"] == changed[1]["wikidata_ids"] == ["Q123"]
     assert changed[2]["wikidata_ids"] == [] and changed[2]["tags"] == {}
+    assert changed[3]["wikidata_ids"] == ["Q789"]
     assert len(calls) == 2
 
 
