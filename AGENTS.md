@@ -41,6 +41,7 @@ Public copy and data
 - Write snowball and every project name in lowercase.
 - Never label anything as made by or with AI, anywhere.
 - Never use em dashes.
+- No instructions in the interface. Make it obvious to use; on-screen text states facts, like data dates and sources, never how to use the app.
 - Code is MIT. Data we create is CC0. Data from others keeps its
   source's license and credit.
 - Store each fact with its source link and the date checked, never
