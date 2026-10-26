@@ -1,19 +1,19 @@
-"""Build public native catalog browsing from immutable SQLite-generated transport."""
+"""Build static browsing directly from the maintained plain CSV catalog."""
 
 import argparse
-import gzip
 import hashlib
-import io
 import json
 import re
+import sys
 from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+from fairway.open_catalog import transport
+
 MAX_CATALOG_BYTES = 64 * 1024 * 1024
 MAX_INITIAL_MAP_BYTES = 4 * 1024 * 1024
-# Allow gzip framing overhead even for an incompressible maximum-size catalog.
-MAX_PACKED_BYTES = MAX_CATALOG_BYTES + 1024 * 1024
 ASSETS = (
     "index.html",
     "app.js",
@@ -336,45 +336,10 @@ def native_transport(root, review_fixture=False):
             },
             "files": {"catalog.json": {"sha256": digest(raw), "bytes": len(raw)}},
         }, raw
-    source = root / "data/catalog-release"
-    manifest = json.loads((source / "manifest.json").read_text())
-    if manifest.get("format_version") != 2 or manifest.get("schema") != 5:
-        raise ValueError("unsupported native catalog manifest")
-    item = manifest["files"]["catalog.json"]
-    if type(item["bytes"]) is not int or not 2 <= item["bytes"] <= MAX_CATALOG_BYTES:
-        raise ValueError("invalid generated catalog size")
-    item = manifest["files"]["catalog.json.gz"]
-    if type(item["bytes"]) is not int or not 1 <= item["bytes"] <= MAX_PACKED_BYTES:
-        raise ValueError("invalid compressed catalog size")
-    with (source / "catalog.json.gz").open("rb") as stream:
-        packed = stream.read(item["bytes"] + 1)
-    if len(packed) != item["bytes"] or digest(packed) != item["sha256"]:
-        raise ValueError("generated compressed catalog changed")
-    item = manifest["files"]["catalog.json"]
-    # GzipFile.read(n) caps decompressed allocation, including concatenated members.
-    # The sentinel byte detects an understated size without expanding the rest.
-    with gzip.GzipFile(fileobj=io.BytesIO(packed)) as stream:
-        raw = stream.read(item["bytes"] + 1)
-    if len(raw) != item["bytes"] or digest(raw) != item["sha256"]:
-        raise ValueError("generated catalog changed")
-    value = json.loads(raw)
-    public_projection(value)
-    for key in ("format_version", "revision", "schema", "catalog_release_key"):
-        if value[key] != manifest[key]:
-            raise ValueError("native release identity mismatch")
-    for kind, identity in (
-        ("facilities", "facility_id"),
-        ("courses", "course_id"),
-        ("destinations", "id"),
-    ):
-        rows = value[kind]
-        if len(rows) != manifest["counts"][kind] or len(
-            {r[identity] for r in rows}
-        ) != len(rows):
-            raise ValueError("native identity or count mismatch")
-    facilities = {r["facility_id"] for r in value["facilities"]}
-    if any(c["facility_id"] not in facilities for c in value["courses"]):
-        raise ValueError("orphan native course")
+    manifest, raw, _ = transport(root)
+    if len(raw) > MAX_CATALOG_BYTES:
+        raise ValueError("catalog exceeds browser size limit")
+    public_projection(json.loads(raw))
     return manifest, raw
 
 

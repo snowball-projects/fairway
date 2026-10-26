@@ -1,0 +1,24 @@
+fairway open catalog
+
+Database rights contributed by snowball are licensed under the Open Database
+License 1.0: https://opendatacommons.org/licenses/odbl/1-0/
+© OpenStreetMap contributors. https://www.openstreetmap.org/copyright
+
+ODbL does not replace rights in individual contents. Each source keeps its own
+license, credit, scope and change notice in metadata.json (source_licenses) and
+in fact_sources / the observation's source envelope. Utah UGRC attributes retain
+CC-BY-4.0 attribution and adaptation notices. Scoped City of Moorhead facts retain
+the recorded CC-BY-SA-3.0-Unported notice. Source license null means no license is
+recorded for that individual source; it is not a grant of rights over its page.
+The inherited catalog records bare facts and explicitly licensed attributes;
+private source prose, evidence, notes, controls and saved pages are not included.
+No permission to reuse third-party writing or artwork is asserted.
+
+The CSV files are maintained source files. GeoJSON and compressed browser JSON
+are reproducible projections. Unknown check dates remain null. Historical-catalog
+citations identify the exact earlier published catalog when an upstream field
+binding is unresolved; they are not newly verified primary-source citations.
+Coordinates retain their recorded kinds. Course map points inherited from their
+facility do not establish course entrances. Missing geometry remains null.
+Phone/email fields and embedded contact values have been removed. Designer names
+and their credits have been retained with the owner's explicit approval.

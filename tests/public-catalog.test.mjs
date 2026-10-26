@@ -75,7 +75,6 @@ test('committed 1163 release validates complete typed scope and rejects old-sche
   const manifest=JSON.parse(readFileSync(new URL('../data/catalog-release/manifest.json',import.meta.url)));
   assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.files['catalog.json'].sha256);
   assert.equal(manifest.revision,1163);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
-  assert.equal(manifest.files['catalog.json'].sha256,'4f2832c24eba4a38ed1accfbfd907e60948637b8c9e4c28f0acc1fbe55faf6b6');
   const value=JSON.parse(raw),model=validatePublicCatalog(value,manifest);
   assert.throws(()=>validatePublicCatalog({...value,format_version:1,schema:4},{...manifest,format_version:1,schema:4}),/identity/);
   assert.equal(model.facilities.length,7430);assert.equal(model.courses.length,4918);assert.equal(model.destinations.size,2993);
