@@ -27,6 +27,7 @@ jobs:
           uv sync --extra test --locked
       - run: uv run --locked ruff check .
       - run: uv run --locked ruff format --check .
+      - run: uv run --locked python scripts/export_catalog.py --check
       - name: Complete deterministic Pages integration
         run: uv run --locked python -m pytest --strict-markers tests/test_build_pages.py -m catalog_integration
       - name: Validate public catalog with the browser contract

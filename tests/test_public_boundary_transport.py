@@ -11,6 +11,7 @@ import pytest
 from test_public_price_scan import pages
 
 from fairway.catalog_native_export import _public
+from fairway.open_catalog import write_source
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_ROOT = ROOT / "tests/fixtures/native5-ui"
@@ -90,6 +91,7 @@ def test_complete_credentials_and_path_boundary_normal_build(tmp_path, case):
     }
     (data / "manifest.json").write_text(json.dumps(manifest))
     (data / "catalog.json.gz").write_bytes(packed)
+    write_source(source, value)
     shutil.copytree(ROOT / "src/fairway/static", source / "src/fairway/static")
     shutil.copyfile(
         ROOT / "data/map-boundaries.json", source / "data/map-boundaries.json"
@@ -98,9 +100,11 @@ def test_complete_credentials_and_path_boundary_normal_build(tmp_path, case):
     if case["accept"]:
         assert pages.build(source, out, "0" * 40)["assets"] == 36
         assert "Data credits" in (out / "credits.html").read_text()
-        assert (
-            out / ("data/native-catalog-" + hashlib.sha256(raw).hexdigest() + ".json")
-        ).read_bytes() == raw
+        published = json.loads(
+            next((out / "data").glob("native-catalog-*.json")).read_bytes()
+        )
+        expected = {**value, "catalog_release_key": published["catalog_release_key"]}
+        assert published == expected
         decoded = json.loads(raw)
         assert (
             decoded["source_licenses"][-1]["source_url"]

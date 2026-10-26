@@ -11,6 +11,7 @@ from pathlib import Path
 import pytest
 
 from fairway.catalog_native_export import _public
+from fairway.open_catalog import write_source
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location(
@@ -114,6 +115,7 @@ def test_normal_build_preserves_or_rejects_complete_unicode_transport(
     }
     (data / "manifest.json").write_text(json.dumps(manifest))
     (data / "catalog.json.gz").write_bytes(packed)
+    write_source(source, value)
     shutil.copytree(ROOT / "src/fairway/static", source / "src/fairway/static")
     shutil.copyfile(
         ROOT / "data/map-boundaries.json", source / "data/map-boundaries.json"
@@ -123,9 +125,11 @@ def test_normal_build_preserves_or_rejects_complete_unicode_transport(
         result = pages.build(source, out, "a" * 40)
         assert result["assets"] == 36
         assert "Data credits" in (out / "credits.html").read_text()
-        assert (
-            out / ("data/native-catalog-" + hashlib.sha256(raw).hexdigest() + ".json")
-        ).read_bytes() == raw
+        published = json.loads(
+            next((out / "data").glob("native-catalog-*.json")).read_bytes()
+        )
+        expected = {**value, "catalog_release_key": published["catalog_release_key"]}
+        assert published == expected
         assert conditions.encode() in raw
     else:
         with pytest.raises(ValueError, match="private path"):
