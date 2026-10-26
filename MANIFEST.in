@@ -1,4 +1,4 @@
-include AGENTS.md CLAUDE.md CONTRIBUTING.md SECURITY.md SERVICE.md CHANGELOG.md
+include AGENTS.md CLAUDE.md SERVICE.md CHANGELOG.md
 include .env.example render.yaml uv.lock
 include data/README.md
 include PUBLIC-758-EXPORT-CONTRACT.md PUBLIC-CATALOG-CONTRACT.md
