@@ -24,9 +24,11 @@ jobs:
       - name: Install locked test tools
         run: |
           python -m pip install uv==0.12.18
-          uv sync --extra test --locked
+          uv sync --extra test --extra backbone --locked
       - run: uv run --locked ruff check .
       - run: uv run --locked ruff format --check .
+      - name: Backbone source and geometry invariants
+        run: uv run --locked --extra backbone python -m pytest tests/test_backbone.py
       - name: Complete deterministic Pages integration
         run: uv run --locked python -m pytest --strict-markers tests/test_build_pages.py -m catalog_integration
       - name: Validate public catalog with the browser contract
