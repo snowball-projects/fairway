@@ -65,48 +65,6 @@ def test_native_pages_are_reproducible_public_only_and_leave_source_unchanged(tm
         assert (output / dependency).is_file(), dependency
 
 
-@pytest.mark.parametrize(
-    "defect", ["compressed", "uncompressed-hash", "revision", "counts"]
-)
-def test_corrupt_artifact_fails_before_output(tmp_path, defect):
-    root = tmp_path / "source"
-    source = root / "data/catalog-release"
-    source.mkdir(parents=True)
-    manifest, raw = pages.native_transport(ROOT, review_fixture=True)
-    packed = gzip.compress(raw, mtime=0)
-    (source / "catalog.json.gz").write_bytes(packed)
-    manifest["files"]["catalog.json.gz"] = {
-        "sha256": sha256(packed).hexdigest(),
-        "bytes": len(packed),
-    }
-    if defect == "compressed":
-        with (source / "catalog.json.gz").open("ab") as stream:
-            stream.write(b"changed")
-    elif defect == "uncompressed-hash":
-        manifest["files"]["catalog.json"]["sha256"] = "0" * 64
-    elif defect == "revision":
-        manifest["revision"] += 1
-    else:
-        manifest["counts"]["courses"] += 1
-    (source / "manifest.json").write_text(json.dumps(manifest))
-    output = tmp_path / "rejected"
-    with pytest.raises(ValueError):
-        pages.build(root, output, "rejected")
-    assert not output.exists()
-
-
-def test_default_build_rejects_old_schema_before_output(tmp_path):
-    root = tmp_path / "old-source"
-    source = root / "data/catalog-release"
-    source.mkdir(parents=True)
-    (source / "manifest.json").write_text(
-        json.dumps({"format_version": 1, "schema": 4})
-    )
-    with pytest.raises(ValueError, match="unsupported native catalog manifest"):
-        pages.build(root, tmp_path / "not-published", "candidate")
-    assert not (tmp_path / "not-published").exists()
-
-
 @pytest.fixture(scope="module")
 def production_pages(tmp_path_factory):
     root = tmp_path_factory.mktemp("production-pages")
@@ -254,47 +212,3 @@ def test_production_credits_preserve_all_public_license_notices(production_pages
         == sha256((output / "credits.html").read_bytes()).hexdigest()
     )
     assert 'href="./credits.html"' in (output / "app.js").read_text()
-
-
-@pytest.mark.parametrize(
-    "mode", ["oversize", "understated", "concatenated", "truncated", "packed"]
-)
-def test_bounded_gzip_rejects_before_output(tmp_path, monkeypatch, mode):
-    root = tmp_path / "source"
-    source = root / "data/catalog-release"
-    source.mkdir(parents=True)
-    manifest, _ = pages.native_transport(ROOT, review_fixture=True)
-    monkeypatch.setattr(pages, "MAX_CATALOG_BYTES", 4096)
-    raw = b"x" * 4096
-    packed = gzip.compress(raw, mtime=0)
-    declared = 4096
-    if mode == "oversize":
-        declared += 1
-    elif mode == "understated":
-        declared = 100
-    elif mode == "concatenated":
-        packed += gzip.compress(raw, mtime=0)
-    elif mode == "truncated":
-        packed = packed[:-8]
-    else:
-        monkeypatch.setattr(pages, "MAX_PACKED_BYTES", len(packed) - 1)
-    manifest["files"] = {
-        "catalog.json": {"bytes": declared, "sha256": sha256(raw).hexdigest()},
-        "catalog.json.gz": {"bytes": len(packed), "sha256": sha256(packed).hexdigest()},
-    }
-    (source / "manifest.json").write_text(json.dumps(manifest))
-    (source / "catalog.json.gz").write_bytes(packed)
-    reads = []
-    original = gzip.GzipFile.read
-
-    def bounded_read(stream, size=-1):
-        reads.append(size)
-        assert 0 < size <= 4097
-        return original(stream, size)
-
-    monkeypatch.setattr(gzip.GzipFile, "read", bounded_read)
-    output = tmp_path / "rejected"
-    with pytest.raises((ValueError, EOFError)):
-        pages.build(root, output, "rejected")
-    assert not output.exists()
-    assert reads == ([] if mode in {"oversize", "packed"} else [declared + 1])

@@ -29,6 +29,7 @@ jobs:
       - run: uv run --locked ruff format --check .
       - name: Backbone source and geometry invariants
         run: uv run --locked --extra backbone python -m pytest tests/test_backbone.py
+      - run: uv run --locked python scripts/export_catalog.py --check
       - name: Complete deterministic Pages integration
         run: uv run --locked python -m pytest --strict-markers tests/test_build_pages.py -m catalog_integration
       - name: Validate public catalog with the browser contract

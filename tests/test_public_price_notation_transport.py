@@ -11,6 +11,7 @@ from pathlib import Path
 import pytest
 
 from fairway.catalog_native_export import _public
+from fairway.open_catalog import write_source
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location(
@@ -75,6 +76,7 @@ def test_complete_notation_transport_build_and_unknowns(tmp_path, case):
     }
     (data / "manifest.json").write_text(json.dumps(manifest))
     (data / "catalog.json.gz").write_bytes(packed)
+    write_source(source, value)
     shutil.copytree(ROOT / "src/fairway/static", source / "src/fairway/static")
     shutil.copyfile(
         ROOT / "data/map-boundaries.json", source / "data/map-boundaries.json"
@@ -83,9 +85,11 @@ def test_complete_notation_transport_build_and_unknowns(tmp_path, case):
     if accept:
         assert pages.build(source, out, "b" * 40)["assets"] == 36
         assert "Data credits" in (out / "credits.html").read_text()
-        assert (
-            out / ("data/native-catalog-" + hashlib.sha256(raw).hexdigest() + ".json")
-        ).read_bytes() == raw
+        published = json.loads(
+            next((out / "data").glob("native-catalog-*.json")).read_bytes()
+        )
+        expected = {**value, "catalog_release_key": published["catalog_release_key"]}
+        assert published == expected
         assert case["text"].encode() in raw
         assert all(
             r["billing_basis"] is r["currency"] is r["quantity"] is None
