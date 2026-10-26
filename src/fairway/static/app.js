@@ -1,4 +1,4 @@
-import {located,mapEligible,catalogCounts,cityLabel,searchCatalog,courseMatches,sortCourses,browseCard,STYLES,accessLabel,displayAddress} from "./catalog-read.mjs";
+import {located,mapEligible,catalogCounts,cityLabel,searchCatalog,courseMatches,sortCourses,browseCard,STYLES,accessLabel,displayAddress,recordLabel} from "./catalog-read.mjs";
 import {shapeRings} from "./map-geometry.mjs";
 import { createFacilityDots } from "./facility-dots.mjs";
 import {
@@ -223,7 +223,7 @@ function selectCourse(courseId, focusMap = true, facilityId = null) {
     || (!planningMode && facilityId ? catalogModel.facilityCourses(facilityId).find(course=>course.course_id===courseId&&matchesCourseFilters(course)) : null);
   if (!course) return false;
   state.activeCourse = courseId;
-  activeFacility = course.facility_id;
+  activeFacility = course.facility_id ?? course.course_id ?? course.id;
   const record = course.source_course || course;
   const coordinate = course.coordinate || (record.map_location ? [record.map_location.latitude, record.map_location.longitude] : null);
   setDrawer("courses", true, false);
@@ -555,7 +555,7 @@ function courseCard(course, objective) {
   title.className = "course-title";
   title.setAttribute("role", "heading");
   title.setAttribute("aria-level", "3");
-  title.textContent = course.course_name === null ? course.facility_name : course.name;
+  title.textContent = course.name;
   const meta = document.createElement("span");
   meta.className = "course-meta";
   [course.course_name === null ? "Course name not recorded" : null, course.holes === null ? "Holes unconfirmed" : course.holes + " holes", course.course_name === null ? null : course.facility_name, course.access === "Access unconfirmed" ? null : course.access, course.identity_status === "component" ? "Component layout record; independent booking unconfirmed" : null].filter(Boolean).forEach((label) => {
@@ -792,8 +792,8 @@ function fitPoints(points, maxZoom = 15, animate = !REDUCED_MOTION) {
     });
 }
 function drawFacilities() {
-  if (catalogModel) facilityDots.update(catalogModel.facilities, activeFacility);
-  else if (initialMap) facilityDots.update(initialMap.facilities, activeFacility);
+  if (catalogModel) facilityDots.update(catalogModel.mapRecords, activeFacility);
+  else if (initialMap) facilityDots.update(initialMap.mapRecords, activeFacility);
 }
 function knownLink(container, value, label) {
   try {
@@ -823,7 +823,7 @@ function knownRounds(container, rounds) {
 }
 function coursePopupDetails(course) {
   const article=node("article",undefined,"facility-card");
-  article.append(node("h3",course.name || course.facility_name));
+  article.append(node("h3",recordLabel(course,"course")));
   if(course.name&&course.facility_name!==course.name)article.append(node("p",course.facility_name));
   const facts=[Number.isFinite(course.physical_holes)?`${course.physical_holes} holes`:null,STYLES[course.style],course.access?accessLabel(course.access):null].filter(Boolean);
   if(facts.length)article.append(node("p",facts.join(" · ")));
@@ -838,7 +838,7 @@ function coursePopupDetails(course) {
   knownLink(article,course.website||course.facility_website,"Website");
   knownLink(article,course.booking_url,"Booking");
   knownLink(article,course.contact_url,"Contact");
-  appendKnownOptional(article,course.optional,course.name || course.facility_name);
+  appendKnownOptional(article,course.optional,recordLabel(course,"course"));
   for(const component of course.components||[]) {
     const facts=[component.name,Number.isFinite(component.physical_holes)?`${component.physical_holes} holes`:null].filter(Boolean);
     const details=node("details");details.append(node("summary",facts.join(" · ") || "Component"));
@@ -868,7 +868,7 @@ function coursePopupDetails(course) {
 function facilityDetails(f, compact = false) {
   const article=node("article",undefined,"facility-card");
   article.dataset.facilityId=f.facility_id;
-  const title=node("button",f.name);title.type="button";
+  const title=node("button",recordLabel(f));title.type="button";
   title.addEventListener("click",()=>selectFacilityById(f.facility_id,true));article.append(title);
   const facts=[cityLabel(f),f.state,Number.isFinite(f.physical_holes)?`${f.physical_holes} holes`:null].filter(Boolean);
   if(facts.length)article.append(node("p",facts.join(" · ")));
@@ -889,9 +889,13 @@ function facilityDetails(f, compact = false) {
   }
   const point={verified_entrance:"Verified entrance",reviewed_osm_point:"Reviewed map point",address_range_estimate:"Address estimate"}[f.map_location?.kind];
   if(point)article.append(node("p",point));
+  if(f.osm_identity&&f.map_location?.reference){
+    article.append(node("p",`OSM source checked ${f.map_location.checked_on}; entrance unconfirmed`));
+    knownLink(article,f.map_location.reference,"OpenStreetMap");
+  }
   knownLink(article,f.website,"Website");knownLink(article,f.booking_url,"Booking");knownLink(article,f.contact_url,"Contact");
   if(f.access_note)article.append(node("p",f.access_note));
-  appendKnownOptional(article,f.optional,f.name);
+  appendKnownOptional(article,f.optional,recordLabel(f));
   knownRounds(article,f.round_options);
   return article;
 }
@@ -904,7 +908,7 @@ function selectCoincidentFacilities(ids, coordinate) {
 }
 function selectFacilityById(id, fit = true) {
   if(!catalogModel){
-    const facility=initialMap?.facilities?.find(f=>f.facility_id===id);
+    const facility=initialMap?.mapRecords?.find(f=>f.facility_id===id);
     setDrawer("courses",true);
     if(fit&&facility&&located(facility))fitPoints([[facility.map_location.latitude,facility.map_location.longitude]],15,false);
     // Fit the verified map point now; replay only the latest detail selection.
@@ -912,6 +916,7 @@ function selectFacilityById(id, fit = true) {
     deferredSelection=()=>selectFacilityById(id,false);
     ensureCatalog();return;
   }
+  if(catalogModel?.courseById.has(id))return selectCourse(id,fit,id);
   const facility=catalogModel?.facilityById.get(id);
   if(!facility)return;
   if(!planningMode&&browseScope?.ids&&!browseScope.ids.includes(id)&&located(facility)&&map.getBounds().contains([facility.map_location.latitude,facility.map_location.longitude]))
@@ -961,8 +966,8 @@ function openSelectionPopup() {
     popupSelection.courseChoices=selectableCourses().filter(course=>course.facility_id===facility.facility_id).map(course=>course.course_id||course.id).sort();
     content.append(facilityDetails(facility));
   } else {
-    content.append(node("h3",`${popupSelection.ids.length} facilities at this point`));
-    for(const id of popupSelection.ids){const facility=catalogModel.facilityById.get(id);if(facility)content.append(facilityDetails(facility,true));}
+    content.append(node("h3",`${popupSelection.ids.length} golf records at this point`));
+    for(const id of popupSelection.ids){const course=catalogModel.courseById.get(id),facility=catalogModel.facilityById.get(id);if(course)content.append(coursePopupDetails(course));else if(facility)content.append(facilityDetails(facility,true));}
   }
   const options=selectionPopupOptions();
   if(!options) {
@@ -1024,10 +1029,10 @@ function filterOptions() {
 function scopedRecords() {
   if (!catalogModel) return [];
   const bounds=browseScope?.kind === "viewport"?map.getBounds():null;
-  const facility=popupSelection?catalogModel.facilityById.get(activeFacility):null;
+  const facility=popupSelection?catalogModel.mapRecordById.get(activeFacility):null;
   const selectedFacilityVisible=bounds&&located(facility||{})&&bounds.contains([facility.map_location.latitude,facility.map_location.longitude]);
   return sortCourses(catalogModel.courses.filter(course=>courseMatches(course,{...filterOptions(),
-    bounds:selectedFacilityVisible&&course.facility_id===activeFacility?null:bounds,
+    bounds:selectedFacilityVisible&&(course.facility_id??course.course_id)===activeFacility?null:bounds,
     facilityIds:browseScope?.ids?new Set(browseScope.ids):null})), $("browse-sort").value);
 }
 function matchesCourseFilters(course) {return courseMatches(course,filterOptions());}
@@ -1119,7 +1124,7 @@ function closeSearch() {
 function showSearch() {
   lastSearch = $("place-query").value;
   searchMatches = searchCatalog(
-    catalogModel?.facilities || initialMap?.facilities || [],
+    catalogModel?.mapRecords || initialMap?.mapRecords || [],
     geometry?.states || [],
     lastSearch,
   );
@@ -1198,13 +1203,13 @@ function applySearchChoice(result) {
   browseMode = true;
   listLimit = 60;
   if (result.kind === "facility") {
-    browseScope = { ids: [result.id], label: "Facility search" };
+    browseScope = { ids: [result.id], label: result.facility?.record_kind==="course"?"Course search":"Facility search" };
     selectFacilityById(result.id, true);
     setDrawer("courses", true);
   } else {
     const records =
       result.kind === "state"
-        ? (catalogModel?.facilities || initialMap.facilities).filter((f) => f.state === result.id)
+        ? (catalogModel?.mapRecords || initialMap.mapRecords).filter((f) => f.state === result.id)
         : result.records;
     browseScope = { ids: records.map((f) => f.facility_id), label: result.label };
     setDrawer("courses", true);
@@ -1220,10 +1225,10 @@ function applySearchChoice(result) {
 }
 function renderProgress() {
   if (!catalogModel && !initialMap) return;
-  const counts = catalogCounts(catalogModel?.facilities || initialMap.facilities);
+  const counts = catalogCounts(catalogModel?.mapRecords || initialMap.mapRecords);
   $("progress-counts").replaceChildren(
     ...[
-      [counts.total, "Facilities"],
+      [catalogModel?.facilities.length ?? initialMap.counts.facilities, "Facilities"],
       [catalogModel?.courses.length ?? initialMap.counts.courses, "Courses"],
       [counts.onMap, "On map"],
       [counts.pending, "Not yet mapped"],
@@ -1243,9 +1248,9 @@ function applyCatalog(next) {
   view.results.replaceChildren();
   planningSession?.setCatalog(next);
   const selectedState = $("browse-state").value;
-  $("browse-state").replaceChildren(new Option("All states","all"), ...[...new Set(next.facilities.map(f => f.state).filter(Boolean))].sort().map(state => new Option(geometry?.states.find(s => s.id === state)?.name || state,state)));
+  $("browse-state").replaceChildren(new Option("All states","all"), ...[...new Set(next.mapRecords.map(f => f.state).filter(Boolean))].sort().map(state => new Option(geometry?.states.find(s => s.id === state)?.name || state,state)));
   if ([...$("browse-state").options].some(o => o.value === selectedState)) $("browse-state").value = selectedState;
-  if (activeFacility && !next.facilityById.has(activeFacility)) closeSelection();
+  if (activeFacility && !next.mapRecordById.has(activeFacility)) closeSelection();
   $("catalog-status").textContent = "";
   $("catalog-status").hidden = true;
   drawFacilities();renderCourses();renderProgress();

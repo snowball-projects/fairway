@@ -9,7 +9,7 @@ const base='https://example.test/fairway/data/catalog-release.json';
 function transport(){
  const {value,manifest}=fixture(),full=JSON.stringify(value),sha=hash(full);
  manifest.files={'catalog.json':{sha256:sha,bytes:Buffer.byteLength(full),path:`native-catalog-${sha}.json`}};
- const index={map_format:1,revision:manifest.revision,catalog_release_key:manifest.catalog_release_key,catalog_sha256:sha,counts:manifest.counts,
+ const index={courses:[],map_format:2,revision:manifest.revision,catalog_release_key:manifest.catalog_release_key,catalog_sha256:sha,counts:manifest.counts,
   facilities:value.facilities.map(f=>[f.facility_id,f.name,f.state,f.address?.city??null,f.map_location?[f.map_location.latitude,f.map_location.longitude,f.map_location.kind]:null]),
   states:[{id:'IL',state:'IL',name:'Illinois',d:'M0,0L1,1Z'}]};
  const raw=JSON.stringify(index),mapSHA=hash(raw);
@@ -83,4 +83,15 @@ test('interrupted details can retry against same immutable release and retain co
  assert.equal(t.calls.length,2);
  const full=await loadPublicCatalog(base,{fetcher:t.fetcher,pinnedManifest:map.manifest});
  for(const f of full.facilities)assert.deepEqual([...f.course_ids].sort(),full.facilityCourses(f.facility_id).map(c=>c.course_id).sort());
+});
+
+test('initial map retains null names and independent course markers without manufacturing facilities',()=>{
+ const t=transport();t.index.facilities[0][0]='osm/way/88';t.index.facilities[0][1]=null;
+ t.index.courses=[['osm/way/99',null,null,null,[41,-88,'property_point']]];
+ const map=validateInitialMap(t.index,t.manifest);
+ assert.equal(map.facilities.length,t.value.facilities.length);
+ assert.equal(map.facilities[0].name,null);
+ assert.equal(map.mapRecords.length,map.facilities.length+1);
+ assert.equal(map.mapRecords.at(-1).record_kind,'course');
+ assert.equal(map.courses[0].facility_id,null);
 });

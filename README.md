@@ -19,13 +19,12 @@ uv build
 ```
 
 Serve the new output directory with `python3 -m http.server --directory /tmp/fairway-pages`.
-GitHub Pages publishes from main. The maintained [CSV and GeoJSON catalog](data/catalog/)
-contains 7,430 facilities and 4,918 courses from revision 1163. CSV is the source;
-`python3 scripts/export_catalog.py` regenerates GeoJSON and browser projections.
-CSV uses `\N` for null and JSON cells for scoped facts/relationships. Fact-source
-bindings retain known links/dates; unknown historical checks stay null. No phone
-or email values are published. Designer credits retain their original attribution.
-The original SQLite and source evidence are preserved privately.
+GitHub Pages publishes from main. One maintained CSV catalog contains 19,437
+facility records and 4,952 course records, rebuilt from the pinned 2026-10-25 US
+OSM extract and released facts joined by exact stored OSM identity. Wikidata facts
+use explicit links. Sources, dates, licenses and unknowns remain in the plain files.
+Unnamed records retain null names and use their OSM identity as the map label.
+Property points do not establish entrances or independently bookable layouts.
 
 Software is MIT. The database is ODbL; contents keep their source licenses and attribution, including
 OpenStreetMap under ODbL; the site's Data credits lists them. Leaflet is BSD-2-Clause.

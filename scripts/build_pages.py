@@ -403,7 +403,7 @@ def initial_map_bytes(value, manifest, states):
     # A reproducible map/search view, never a second catalog authority. Course
     # details still use the complete native projection and its browser validator.
     initial_map = {
-        "map_format": 1,
+        "map_format": 2,
         "revision": manifest["revision"],
         "catalog_release_key": manifest["catalog_release_key"],
         "catalog_sha256": manifest["files"]["catalog.json"]["sha256"],
@@ -419,6 +419,19 @@ def initial_map_bytes(value, manifest, states):
                 else None,
             ]
             for f in value["facilities"]
+        ],
+        "courses": [
+            [
+                c["course_id"],
+                c["name"],
+                c["state"],
+                (c.get("address") or {}).get("city"),
+                [p["latitude"], p["longitude"], p["kind"]]
+                if (p := c["map_location"])
+                else None,
+            ]
+            for c in value["courses"]
+            if c["facility_id"] is None
         ],
         # State geometry supports the existing state search/fitting behavior;
         # county geometry is not needed by this interface.

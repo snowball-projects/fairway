@@ -183,7 +183,7 @@ export function validateScopedOptional(value){
   }
   for(const course of courses.values()){
     if(![null,'public','private','restricted'].includes(course.access))fail('Invalid nullable course access');
-    const facility=facilities.get(course.facility_id);if(!facility||course.facility_access!==facility.access||course.facility_name!==facility.name||course.state!==facility.state)fail('Changed course facility binding');
+    const facility=facilities.get(course.facility_id);if(course.facility_id===null ? course.facility_name!==null||course.facility_access!==null : !facility||course.facility_access!==facility.access||course.facility_name!==facility.name||course.state!==facility.state)fail('Changed course facility binding');
     optional(course,'course_id',course.course_id);
     const parts=partsByCourse.get(course.course_id)||[];childRows(course.components,parts,RELATIONSHIP_SCHEMA.component);for(const part of course.components)optional(part,'component_id',part.id);
     rounds(course,roundsByCourse.get(course.course_id)||[]);

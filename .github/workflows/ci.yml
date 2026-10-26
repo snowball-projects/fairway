@@ -27,8 +27,8 @@ jobs:
           uv sync --extra test --extra backbone --locked
       - run: uv run --locked ruff check .
       - run: uv run --locked ruff format --check .
-      - name: Backbone source and geometry invariants
-        run: uv run --locked --extra backbone python -m pytest tests/test_backbone.py
+      - name: Catalog source, identity and geometry invariants
+        run: uv run --locked --extra backbone python -m pytest tests/test_backbone.py tests/test_catalog_rebuild.py
       - run: uv run --locked python scripts/export_catalog.py --check
       - name: Complete deterministic Pages integration
         run: uv run --locked python -m pytest --strict-markers tests/test_build_pages.py -m catalog_integration

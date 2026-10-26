@@ -1,12 +1,10 @@
-"""Build a source-feature golf backbone from one pinned US PBF and Wikidata.
+"""Rebuild the maintained golf catalog from one pinned US PBF and Wikidata.
 
 No routing graph, travel times or network paths are computed.
 """
 
 import argparse
-import csv
 import hashlib
-import importlib.metadata
 import json
 import re
 import time
@@ -377,129 +375,13 @@ def enrich(args):
         raise ValueError("Wikidata source error: " + snapshot["blocked_reason"])
 
 
-def write_csv(path, rows):
-    columns = list(rows[0]) if rows else []
-    with path.open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=columns, lineterminator="\n")
-        writer.writeheader()
-        for row in rows:
-            writer.writerow(
-                {
-                    key: r"\N"
-                    if value is None
-                    else value
-                    if isinstance(value, str)
-                    else encoded(value)
-                    for key, value in row.items()
-                }
-            )
-
-
 def publish_files(args):
-    rows = json.loads((args.work / "osm-features.json").read_text())
-    wiki = json.loads((args.work / "wikidata.json").read_text())
-    linked = set()
-    for row in rows:
-        row["wikidata"] = [
-            wiki["entities"][qid]
-            for qid in row["wikidata_ids"]
-            if qid in wiki["entities"]
-        ]
-        linked.update(row["wikidata_ids"])
-    rows.sort(key=lambda r: (r["osm_type"], r["osm_id"]))
-    unlinked = [
-        entity
-        for qid, entity in sorted(wiki["entities"].items())
-        if entity["from_national_query"] and qid not in linked
-    ]
-    args.output.mkdir(parents=True, exist_ok=True)
-    write_csv(args.output / "features.csv", rows)
-    geo = {
-        "type": "FeatureCollection",
-        "features": [
-            {
-                "type": "Feature",
-                "id": row["feature_id"],
-                "geometry": {"type": "Point", "coordinates": row["position"]}
-                if row["position"]
-                else None,
-                "properties": row,
-            }
-            for row in rows
-        ],
-    }
-    (args.output / "features.geojson").write_text(encoded(geo) + "\n")
-    (args.output / "wikidata-only.json").write_text(encoded(unlinked) + "\n")
-    (args.output / "LICENSE.txt").write_text(
-        "fairway source-feature backbone\n\n"
-        "Database contributions: Open Data Commons Open Database License 1.0.\n"
-        "https://opendatacommons.org/licenses/odbl/1-0/\n\n"
-        "OpenStreetMap features and derived positions: copyright OpenStreetMap "
-        "contributors, ODbL 1.0. https://www.openstreetmap.org/copyright\n\n"
-        "Wikidata structured data: CC0 1.0. "
-        "https://www.wikidata.org/wiki/Wikidata:Licensing\n"
-        "https://creativecommons.org/publicdomain/zero/1.0/\n\n"
-        "Source rights and credits are retained separately. ODbL does not "
-        "replace the CC0 dedication of Wikidata contents. Source versions, "
-        "retrieval dates and qualifications are recorded in the data.\n"
-    )
-    pin = json.loads((args.work / "osm-pin.json").read_text())
-    manifest = {
-        "format": 1,
-        "osm_extract": pin,
-        "selection": {
-            "osm_tags": ["leisure=golf_course", "golf=course"],
-            "wikidata_query": wiki["query"],
-            "wikidata_query_url": wiki["query_url"],
-            "wikidata_checked_on": wiki["checked_on"],
-            "wikidata_status": wiki["status"],
-            "wikidata_blocked_reason": wiki.get("blocked_reason"),
-            "wikidata_missing_entity_ids": wiki["missing_entity_ids"],
-        },
-        "counts": {
-            "osm_features": len(rows),
-            "osm_nodes": sum(r["osm_type"] == "node" for r in rows),
-            "osm_ways": sum(r["osm_type"] == "way" for r in rows),
-            "osm_relations": sum(r["osm_type"] == "relation" for r in rows),
-            "features_with_position": sum(r["position"] is not None for r in rows),
-            "features_with_wikidata": sum(bool(r["wikidata"]) for r in rows),
-            "wikidata_items": len(wiki["entities"]),
-            "wikidata_items_with_entity_revision": sum(
-                e["lastrevid"] is not None for e in wiki["entities"].values()
-            ),
-            "wikidata_only_items": len(unlinked),
-            "excluded_human_targets": wiki["excluded_human_target_count"],
-        },
-        "tools": {
-            name: importlib.metadata.version(name) for name in ["osmium", "shapely"]
-        },
-        "licenses": [
-            {
-                "source": "OpenStreetMap",
-                "license": "ODbL-1.0",
-                "credit": "© OpenStreetMap contributors",
-                "url": "https://www.openstreetmap.org/copyright",
-            },
-            {
-                "source": "Wikidata structured claims",
-                "license": "CC0-1.0",
-                "url": "https://www.wikidata.org/wiki/Wikidata:Licensing",
-            },
-        ],
-        "qualification": "A source-feature backbone, not a count of independently bookable courses. Features and QIDs are not merged by name, proximity or shared identifiers. Facility/course decomposition, course entrances and booking remain unknown. Polygon points are derived inside valid source polygons, not entrances. OSM and Wikidata claims keep separate source identities, versions, dates and rights. Phone/email values and unrelated operator/person details are excluded. No routing computation.",
-        "checked_on_semantics": "Date this source snapshot was read. Real-world verification remains unknown; original OSM check_date tags, source edit times and Wikidata reference dates remain distinct.",
-        "csv_encoding": "UTF-8; \\N denotes null/unknown; objects and arrays are JSON cells.",
-        "files": {
-            p.name: {
-                "bytes": p.stat().st_size,
-                "sha256": hashlib.sha256(p.read_bytes()).hexdigest(),
-            }
-            for p in sorted(args.output.iterdir())
-            if p.is_file() and p.name != "manifest.json"
-        },
-    }
-    (args.output / "manifest.json").write_text(encoded(manifest) + "\n")
-    print(json.dumps(manifest["counts"], indent=2))
+    import sys
+
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+    from fairway.rebuild_catalog import build
+
+    print(json.dumps(build(args.output, args.work, args.released_root), indent=2))
 
 
 def main():
@@ -511,7 +393,8 @@ def main():
     parser.add_argument("--source-url")
     parser.add_argument("--source-date")
     parser.add_argument("--checked-on", default=datetime.now(UTC).date().isoformat())
-    parser.add_argument("--output", type=Path, default=Path("data/backbone"))
+    parser.add_argument("--output", type=Path, default=Path("."))
+    parser.add_argument("--released-root", type=Path)
     args = parser.parse_args()
     if args.stage == "extract":
         if not all([args.pbf, args.md5, args.source_url, args.source_date]):
@@ -522,6 +405,10 @@ def main():
     elif args.stage == "enrich":
         enrich(args)
     else:
+        if not args.released_root:
+            parser.error(
+                "write requires --released-root with the pinned released catalog"
+            )
         publish_files(args)
 
 

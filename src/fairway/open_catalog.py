@@ -80,12 +80,38 @@ def load_source(root):
     return metadata, rows
 
 
+def display_location(row):
+    osm = row.get("osm")
+    if osm and osm.get("position"):
+        lon, lat = osm["position"]
+        return {
+            "latitude": lat,
+            "longitude": lon,
+            "kind": "property_point",
+            "reference": osm["source_url"],
+            "checked_on": osm["checked_on"],
+            "qualification": osm["position_kind"] + "; entrance unconfirmed",
+        }
+    return row.get("map_location")
+
+
 def transport(root):
     metadata, rows = load_source(root)
     for items in rows.values():
         for row in items:
+            row["map_location"] = display_location(row)
             row.pop("fact_sources", None)
+            # Full source observations stay in the maintained CSV/GeoJSON;
+            # the browser projection carries the operational view only.
+            row.pop("osm", None)
+            row.pop("wikidata", None)
     value = metadata | rows
+    if "rebuild" in value:
+        value["rebuild"] = {
+            k: v
+            for k, v in value["rebuild"].items()
+            if k not in {"preservation", "released_columns"}
+        }
     target = Path(root) / "data/catalog"
     value["catalog_release_key"] = hashlib.sha256(
         b"".join(
@@ -128,11 +154,11 @@ def geojson(rows, identity):
                 "geometry": {
                     "type": "Point",
                     "coordinates": [
-                        row["map_location"]["longitude"],
-                        row["map_location"]["latitude"],
+                        display_location(row)["longitude"],
+                        display_location(row)["latitude"],
                     ],
                 }
-                if row.get("map_location")
+                if display_location(row)
                 else None,
                 "properties": row,
             }

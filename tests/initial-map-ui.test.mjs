@@ -56,7 +56,7 @@ test('closing Courses cancels pending selection even while Plan remains open',as
 });
 test('pin fits its verified index point immediately and latest selection replays without a second fit',async()=>{
  const h=harness(),fits=[],selected=[];
- h.ctx.initialMap.facilities=[{facility_id:'f-first',map_location:{latitude:41,longitude:-88}},{facility_id:'f-last',map_location:{latitude:42,longitude:-89}}];
+ h.ctx.initialMap.mapRecords=[{facility_id:'f-first',map_location:{latitude:41,longitude:-88}},{facility_id:'f-last',map_location:{latitude:42,longitude:-89}}];
  Object.assign(h.ctx,{located:f=>Boolean(f.map_location),fitPoints:(points,zoom,animate)=>fits.push({points,zoom,animate}),mobile:()=>false,REDUCED_MOTION:true});
  h.ctx.selectFacilityById('f-first');h.ctx.selectFacilityById('f-last');
  assert.deepEqual(JSON.parse(JSON.stringify(fits)),[{points:[[41,-88]],zoom:15,animate:false},{points:[[42,-89]],zoom:15,animate:false}]);
@@ -66,7 +66,7 @@ test('pin fits its verified index point immediately and latest selection replays
 });
 test('drawer opens before synchronous index fit and a later camera start cancels pending selection',async()=>{
  const h=harness(),events={},order=[],selected=[];let open=false;
- h.ctx.initialMap.facilities=[{facility_id:'f-pin',map_location:{latitude:41,longitude:-88}}];
+ h.ctx.initialMap.mapRecords=[{facility_id:'f-pin',map_location:{latitude:41,longitude:-88}}];
  Object.assign(h.ctx,{map:{on:(names,handler)=>{for(const name of names.split(' '))events[name]=handler;}},located:()=>true,
   setDrawer:(which,value)=>{open=value;order.push('drawer');},fitPoints:(points,zoom,animate)=>{assert.equal(open,true);assert.equal(animate,false);events.movestart();order.push('fit');}});
  vm.runInContext(source.slice(source.indexOf('map.on("movestart zoomstart"'),source.indexOf('map.on("moveend zoomend"')),h.ctx);

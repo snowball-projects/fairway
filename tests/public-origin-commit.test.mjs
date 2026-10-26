@@ -1,3 +1,4 @@
+import {recordLabel} from '../src/fairway/static/catalog-read.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -57,7 +58,7 @@ test('public entry never imports a private or fake planning transport or reads r
   assert.doesNotMatch(source,/fetch\([^)]*api\//);
 });
 test('actual popup facility details show known facility and owned-round scopes without unknown fields',()=>{
-  const context={URL,document,renderKnownOptional:(o,options)=>renderKnownOptional(o,{...options,document}),selectableCourses:()=>[],activeFacility:null,planningMode:false,browseMode:true,cityLabel,mapEligible,displayAddress,accessLabel};vm.createContext(context);
+  const context={URL,document,renderKnownOptional:(o,options)=>renderKnownOptional(o,{...options,document}),selectableCourses:()=>[],activeFacility:null,planningMode:false,browseMode:true,cityLabel,mapEligible,displayAddress,accessLabel,recordLabel};vm.createContext(context);
   vm.runInContext(source.slice(source.indexOf('function node('),source.indexOf('function mobile('))+source.slice(source.indexOf('function knownLink('),source.indexOf('function selectFacilityById(')),context);
   const f=fixture().value.facilities.find(f=>f.optional.amenity_observation.length),element=context.facilityDetails(f);
   assert.doesNotMatch(element.textContent,/Facility access unconfirmed|Unconfirmed|Not documented|unknown|not a current quote|Source license/);assert.match(element.textContent,/restaurant available Yes/);assert.match(element.textContent,/Documented paired 18/);assert.doesNotMatch(element.textContent,/driving range lighted|greens grass/);

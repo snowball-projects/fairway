@@ -18,7 +18,8 @@ def catalog():
 
 def test_legacy_ids_mixed_access_and_nulls_survive(catalog):
     lake = next(f for f in catalog["facilities"] if f["name"] == "Lake of Isles")
-    assert lake["facility_id"] == "f-f6463598-f26c-404e-9584-2abace25109d"
+    assert lake["released_id"] == "f-f6463598-f26c-404e-9584-2abace25109d"
+    assert lake["facility_id"] == lake["osm_identity"]
     assert lake["physical_holes"] == 36
     courses = {
         c["name"]: c
@@ -66,9 +67,8 @@ def test_native_inventory_never_promotes_components_or_private_booking(catalog):
 
 def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert (
-        sum(len(f["course_ids"]) for f in catalog["facilities"])
-        == len(catalog["courses"])
-        == 4918
+        sum(len(f["course_ids"]) for f in catalog["facilities"]) == 4918
+        and len(catalog["courses"]) == 4952
     )
     assert len(catalog["provenance"]["notes"]) == 8286
     assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
@@ -85,7 +85,12 @@ def test_existing_facility_course_roles_do_not_inherit_totals_or_offered_rounds(
     catalog,
 ):
     def courses(facility_id):
-        return [c for c in catalog["courses"] if c["facility_id"] == facility_id]
+        current = next(
+            f["facility_id"]
+            for f in catalog["facilities"]
+            if f["released_id"] == facility_id
+        )
+        return [c for c in catalog["courses"] if c["facility_id"] == current]
 
     heron = courses("f-bdb8f9c8-e82c-477d-9472-0af471020bb1")
     assert len(heron) == 1
@@ -134,7 +139,12 @@ def test_existing_facility_course_roles_do_not_inherit_totals_or_offered_rounds(
 
 def test_new_individual_identities_keep_partial_counts_and_round_boundaries(catalog):
     def courses(facility_id):
-        return [c for c in catalog["courses"] if c["facility_id"] == facility_id]
+        current = next(
+            f["facility_id"]
+            for f in catalog["facilities"]
+            if f["released_id"] == facility_id
+        )
+        return [c for c in catalog["courses"] if c["facility_id"] == current]
 
     legends = courses("f-08ab8d77-8ad8-4b41-aa42-97e71d70e21c")
     assert {c["name"]: c["physical_holes"] for c in legends} == {
@@ -173,7 +183,12 @@ def test_new_individual_identities_keep_partial_counts_and_round_boundaries(cata
 
 def test_reviewed_1089_keeps_short_courses_and_unknown_counts_distinct(catalog):
     def courses(facility_id):
-        return [c for c in catalog["courses"] if c["facility_id"] == facility_id]
+        current = next(
+            f["facility_id"]
+            for f in catalog["facilities"]
+            if f["released_id"] == facility_id
+        )
+        return [c for c in catalog["courses"] if c["facility_id"] == current]
 
     mid_vallee = courses("f-0ca2b774-f58c-4cc3-a1c6-a6fc86661d26")
     assert {c["name"]: c["physical_holes"] for c in mid_vallee} == {
@@ -211,7 +226,12 @@ def test_reviewed_1089_keeps_short_courses_and_unknown_counts_distinct(catalog):
 
 def test_reviewed_1124_keeps_unnamed_nines_and_status_unknowns(catalog):
     def courses(facility_id):
-        return [c for c in catalog["courses"] if c["facility_id"] == facility_id]
+        current = next(
+            f["facility_id"]
+            for f in catalog["facilities"]
+            if f["released_id"] == facility_id
+        )
+        return [c for c in catalog["courses"] if c["facility_id"] == current]
 
     heron = courses("f-17991622-233c-4bc1-9b43-d0cbb77ca22b")
     assert {c["name"]: c["physical_holes"] for c in heron} == {
@@ -271,7 +291,11 @@ def test_completion_1138_keeps_physical_identity_and_arrivals_separate(catalog):
 
 
 def test_completion_1138_contacts_do_not_resolve_location_conflicts(catalog):
-    facilities = {f["facility_id"]: f for f in catalog["facilities"]}
+    facilities = {
+        f["released_id"]: f
+        for f in catalog["facilities"]
+        if f["released_id"] is not None
+    }
     tired = facilities["f-189e5a35-f1a3-44fa-bc45-73ba7f0ca5d8"]
     assert tired["address"]["street_line1"] == "1701 US-84"
     assert tired["address"]["purpose"] == "contact"
@@ -412,7 +436,11 @@ def test_completion_1163_preserves_partial_course_identity_and_round_scope(catal
 
 
 def test_completion_1163_property_context_does_not_create_arrivals(catalog):
-    by_id = {f["facility_id"]: f for f in catalog["facilities"]}
+    by_id = {
+        f["released_id"]: f
+        for f in catalog["facilities"]
+        if f["released_id"] is not None
+    }
     for fid, latitude, longitude in [
         ("f-005bd2e9-b3fd-46f8-9ecf-8b0df5e7d3e5", 29.69799, -95.137051),
         ("f-1b4feacc-0a88-4f73-b4ad-c1ba810ef8a2", 41.5493657, -75.9201033),
@@ -429,7 +457,9 @@ def test_completion_1163_property_context_does_not_create_arrivals(catalog):
             "kind": "property_point",
         }
         assert all(
-            c["arrival"] is None for c in catalog["courses"] if c["facility_id"] == fid
+            c["arrival"] is None
+            for c in catalog["courses"]
+            if c["facility_id"] == facility["facility_id"]
         )
     lee = next(
         c
@@ -517,7 +547,7 @@ def test_completion_1163_terra_copy_correction_preserves_conflicts(catalog):
     terra = next(
         f
         for f in catalog["facilities"]
-        if f["facility_id"] == "f-024a2471-acc3-4109-a2ab-0123d622e29c"
+        if f["released_id"] == "f-024a2471-acc3-4109-a2ab-0123d622e29c"
     )
     ids = {
         "n-0fa48260-9f21-5c39-8dd6-79adcfb376f5",
