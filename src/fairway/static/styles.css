@@ -524,6 +524,70 @@ h2 {
   padding: 0;
   list-style: none;
 }
+.facility-group {
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid #d6d9d1;
+  border-radius: 1rem;
+  background: #f8faf5;
+}
+.facility-group[data-active="true"] {
+  border-color: #8ca99b;
+  background: #eaf0e1;
+}
+.facility-group h3 {
+  margin: 0 0 0.6rem;
+}
+.facility-focus {
+  border: 0;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  font: 600 0.88rem/1.4 system-ui, sans-serif;
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.facility-focus:disabled {
+  color: var(--muted);
+  cursor: default;
+}
+.facility-facts {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+.facility-facts > div {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 0.4rem;
+}
+.facility-facts dt {
+  color: var(--muted);
+}
+.facility-facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.facility-facts a {
+  color: var(--green);
+}
+.facility-address,
+.facility-empty {
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+.facility-courses {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+}
 .course-card {
   border: 1px solid #d6d9d1;
   border-radius: 0.75rem;
@@ -569,6 +633,7 @@ h2 {
   color: #1d4035;
   font-size: 0.84rem;
   line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 .course-meta {
   display: flex;
@@ -593,10 +658,6 @@ h2 {
 .preparation-facility-label {border-color:#1d644b;background:#fff;}
 .results-panel .preparation-status {
   margin: 0 18px 10px;
-}
-.course-meta span + span::before {
-  margin-right: 0.35rem;
-  content: "·";
 }
 .score-row {
   display: grid;
@@ -639,21 +700,6 @@ h2 {
   font-size: 0.65rem;
   font-weight: 750;
 }
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin-left: 3.55rem;
-  padding: 0 0.85rem 0.75rem 0;
-  color: #64736a;
-  font-size: 0.64rem;
-}
-.card-footer a {
-  color: #315f4e;
-  font-weight: 750;
-  text-underline-offset: 0.16em;
-}
-
 .origin-pin {
   display: grid;
   place-items: center;
