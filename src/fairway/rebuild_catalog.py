@@ -1,6 +1,7 @@
 """One maintained catalog, joined through stored OSM identities only."""
 
 import copy
+import gzip
 import hashlib
 import json
 import re
@@ -220,6 +221,7 @@ def rebuild(metadata, released, features, wiki, pin, bindings):
                 "sha256": checksum(original),
                 "citation_count": len(original["fact_sources"]),
             }
+    excluded_outlines = 0
     for key, feature in sorted(features.items()):
         if key in indexes["facilities"]:
             row = indexes["facilities"][key]
@@ -229,6 +231,15 @@ def rebuild(metadata, released, features, wiki, pin, bindings):
             kind = (
                 "courses" if feature["tags"].get("golf") == "course" else "facilities"
             )
+            # Source observations remain in the pinned build inputs. Only new,
+            # unnamed facility polygons are withheld; released facts always stay.
+            if (
+                kind == "facilities"
+                and not feature["name"]
+                and feature.get("geometry_status") == "source_polygon"
+            ):
+                excluded_outlines += 1
+                continue
             row = new_record(feature, released[kind][0], kind)
             row.update(
                 released_id=None,
@@ -297,14 +308,16 @@ def rebuild(metadata, released, features, wiki, pin, bindings):
         "matched_released_courses": sum(
             r["course_id"] in mapping for r in released["courses"]
         ),
-        "new_osm_features": len(features) - len(mapping),
+        "new_osm_features": len(features) - len(mapping) - excluded_outlines,
         "catalog_only_facilities": sum(
             r["facility_id"] not in mapping for r in released["facilities"]
         ),
         "catalog_only_courses": sum(
             r["course_id"] not in mapping for r in released["courses"]
         ),
-        "osm_features": len(features),
+        "input_osm_features": len(features),
+        "excluded_unnamed_osm_outlines": excluded_outlines,
+        "osm_features": len(features) - excluded_outlines,
         "facilities": len(value["facilities"]),
         "courses": len(value["courses"]),
         "unnamed_facilities": sum(r["name"] is None for r in value["facilities"]),
@@ -314,6 +327,7 @@ def rebuild(metadata, released, features, wiki, pin, bindings):
         "released_commit": RELEASE,
         "released_source_key": RELEASE_SOURCE_KEY,
         "osm_extract": pin,
+        "public_catalog_policy": "New unnamed OSM facility polygons are retained in pinned build inputs only. Source points, unassembled geometry, course features and every released record remain eligible for the public catalog.",
         "map_geometry": "Pinned OSM display positions where available, otherwise the released location. Released coordinate facts remain unchanged in row fields; all display positions remain unverified as entrances.",
         "wikidata_status": wiki["status"],
         "wikidata_missing_entity_ids": wiki["missing_entity_ids"],
@@ -361,9 +375,23 @@ def build(root, work, released_root):
     if source_key != RELEASE_SOURCE_KEY:
         raise ValueError("Released input differs from the pinned #56 catalog")
     metadata, released = load_source(released_root)
-    features = json.loads((work / "osm-features.json").read_text())
-    wiki = json.loads((work / "wikidata.json").read_text())
-    pin = json.loads((work / "osm-pin.json").read_text())
+    inputs = {}
+    input_pins = {}
+    for name in ["osm-features.json", "wikidata.json", "osm-pin.json"]:
+        path = Path(work) / name
+        raw = (
+            path.read_bytes()
+            if path.exists()
+            else gzip.decompress(path.with_suffix(path.suffix + ".gz").read_bytes())
+        )
+        inputs[name] = json.loads(raw)
+        input_pins[name] = {
+            "bytes": len(raw),
+            "sha256": hashlib.sha256(raw).hexdigest(),
+        }
+    features = inputs["osm-features.json"]
+    wiki = inputs["wikidata.json"]
+    pin = inputs["osm-pin.json"]
     bindings = stored_bindings(released_root, released["facilities"])
     bindings.update(
         {
@@ -372,5 +400,6 @@ def build(root, work, released_root):
         }
     )
     value = rebuild(metadata, released, features, wiki, pin, bindings)
+    value["rebuild"]["build_inputs"] = input_pins
     write_source(root, value)
     return value["rebuild"]["counts"]

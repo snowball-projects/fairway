@@ -1,7 +1,10 @@
 """Exact identity joins preserve released facts without inventing layouts."""
 
 import copy
+import gzip
+import hashlib
 import json
+from collections import Counter
 from pathlib import Path
 
 import pytest
@@ -167,7 +170,7 @@ def test_every_released_fact_and_source_scope_survives_in_the_single_catalog():
     osm = [
         r["osm_identity"] for group in rows.values() for r in group if r["osm_identity"]
     ]
-    assert len(osm) == len(set(osm)) == 16516
+    assert len(osm) == len(set(osm)) == 13413
     assert sum(r["released_id"] is not None for r in rows["facilities"]) == 7430
     assert sum(r["released_id"] is not None for r in rows["courses"]) == 4918
     assert not (ROOT / "data/backbone").exists()
@@ -182,6 +185,91 @@ def test_identity_rekeying_never_rewrites_names_or_source_identifiers():
     assert row["name"] == "f-old"
     assert value["provenance"]["sources"][0]["id"] == "f-old"
     assert_preserved(value)
+
+
+@pytest.mark.parametrize(
+    ("geometry", "course", "excluded"),
+    [
+        ("source_polygon", False, True),
+        ("source_point", False, False),
+        ("not_assembled", False, False),
+        ("source_polygon", True, False),
+    ],
+)
+def test_only_new_unnamed_facility_polygons_are_withheld(geometry, course, excluded):
+    data = inputs()
+    feature = data[2][1]
+    feature.update(name=None, geometry_status=geometry)
+    feature["tags"] = {"golf": "course"} if course else {}
+    original = copy.deepcopy(data)
+    value = rebuild(*data)
+    ids = {r.get("course_id") or r["facility_id"] for k in data[1] for r in value[k]}
+    assert (feature["feature_id"] not in ids) == excluded
+    assert value["rebuild"]["counts"]["excluded_unnamed_osm_outlines"] == int(excluded)
+    assert data == original  # The source observation, geometry and rights remain.
+    assert_preserved(value)
+
+
+def test_unnamed_released_match_and_unmatched_records_always_survive():
+    data = inputs()
+    for row in data[1]["facilities"]:
+        row["name"] = None
+    data[2][0].update(name=None, geometry_status="source_polygon")
+    value = rebuild(*data)
+    assert_preserved(value)
+    matched = next(r for r in value["facilities"] if r["released_id"] == "f-old")
+    assert matched["facility_id"] == "osm/way/1" and matched["name"] is None
+    assert any(r["facility_id"] == "f-ambiguous" for r in value["facilities"])
+    assert value["courses"][0]["facility_id"] == matched["facility_id"]
+
+
+def test_naming_a_withheld_source_feature_restores_its_exact_identity():
+    data = inputs()
+    feature = data[2][1]
+    feature.update(name=None, geometry_status="source_polygon")
+    assert rebuild(*data)["rebuild"]["counts"]["excluded_unnamed_osm_outlines"] == 1
+    feature["name"] = "Verified source name"
+    value = rebuild(*data)
+    row = next(
+        r for r in value["facilities"] if r["facility_id"] == feature["feature_id"]
+    )
+    assert (
+        row["name"] == feature["name"] and row["osm_identity"] == feature["feature_id"]
+    )
+    assert value["rebuild"]["counts"]["excluded_unnamed_osm_outlines"] == 0
+    assert_preserved(value)
+
+
+def test_pinned_inputs_retain_every_withheld_outline_without_a_second_catalog():
+    metadata, rows = load_source(ROOT)
+    inputs = {}
+    for name, pin in metadata["rebuild"]["build_inputs"].items():
+        path = ROOT / "data/catalog-inputs" / name
+        raw = (
+            path.read_bytes()
+            if path.exists()
+            else gzip.decompress(path.with_suffix(path.suffix + ".gz").read_bytes())
+        )
+        assert len(raw) == pin["bytes"]
+        assert hashlib.sha256(raw).hexdigest() == pin["sha256"]
+        inputs[name] = json.loads(raw)
+    features = {r["feature_id"]: r for r in inputs["osm-features.json"]}
+    published = {
+        r["osm_identity"] for group in rows.values() for r in group if r["osm_identity"]
+    }
+    excluded = set(features) - published
+    assert len(features) == 16516 and len(excluded) == 3103
+    assert all(
+        not features[key]["name"]
+        and features[key]["geometry_status"] == "source_polygon"
+        and features[key]["tags"].get("golf") != "course"
+        for key in excluded
+    )
+    assert Counter(
+        r["osm"]["geometry_status"] for r in rows["facilities"] if not r["name"]
+    ) == {"source_point": 94, "not_assembled": 3}
+    assert sum(r["name"] is None for r in rows["courses"]) == 2437
+    assert inputs["osm-pin.json"] == metadata["rebuild"]["osm_extract"]
 
 
 def test_an_explicit_course_identity_keeps_its_scope_and_layout_facts():

@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_full_plain_rows_and_geojson_preserve_geometryless_records_and_relationships():
     _, rows = load_source(ROOT)
     assert {kind: len(items) for kind, items in rows.items()} == {
-        "facilities": 19437,
+        "facilities": 16334,
         "courses": 4952,
     }
     for kind, key, missing in (
