@@ -26,8 +26,10 @@ use explicit links. Sources, dates, licenses and unknowns remain in the plain fi
 Unnamed records retain null names and use their OSM identity as the map label.
 Property points do not establish entrances or independently bookable layouts.
 
-Software is MIT. The database is ODbL; contents keep their source licenses and attribution, including
-OpenStreetMap under ODbL; the site's Data credits lists them. Leaflet is BSD-2-Clause.
+The fairway course catalog is © OpenStreetMap contributors, licensed under the [Open Database License (ODbL) 1.0](https://opendatacommons.org/licenses/odbl/1-0/). Data we create from scratch is [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+
+Software is MIT. Contents keep their source licenses and attribution; the site's Data credits lists them.
+Leaflet is BSD-2-Clause.
 See [third-party notices](THIRD-PARTY-NOTICES.md).
 
 See [data terms](data/catalog/LICENSE.txt) and scoped licenses in metadata.json.
