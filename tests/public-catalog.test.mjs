@@ -74,11 +74,11 @@ test('rebuilt catalog validates complete typed scope and rejects old-schema fall
   const raw=gunzipSync(readFileSync(new URL('../data/catalog-release/catalog.json.gz',import.meta.url)));
   const manifest=JSON.parse(readFileSync(new URL('../data/catalog-release/manifest.json',import.meta.url)));
   assert.equal(createHash('sha256').update(raw).digest('hex'),manifest.files['catalog.json'].sha256);
-  assert.equal(manifest.revision,1164);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
+  assert.equal(manifest.revision,1165);assert.equal(manifest.schema,5);assert.equal(manifest.format_version,2);
   const value=JSON.parse(raw),model=validatePublicCatalog(value,manifest);
   assert.throws(()=>validatePublicCatalog({...value,format_version:1,schema:4},{...manifest,format_version:1,schema:4}),/identity/);
-  assert.equal(model.facilities.length,16334);assert.equal(model.courses.length,4952);assert.equal(model.destinations.size,2993);
-  assert.equal(catalogCounts(model.facilities).total,16334);
+  assert.equal(model.facilities.length,16180);assert.equal(model.courses.length,4985);assert.equal(model.destinations.size,2993);
+  assert.equal(catalogCounts(model.facilities).total,16180);
   assert.equal(model.optionalObservations.size,5363);
   const teal=model.courses.flatMap(c=>c.tee_sets).find(t=>t.id==='t-ddc5031b-f1b3-4519-8d5a-74d6bd8159cd');
   assert.equal(teal.rated_category,'W');assert.equal(teal.difficulty_rating,68.1);assert.equal(teal.slope,116);

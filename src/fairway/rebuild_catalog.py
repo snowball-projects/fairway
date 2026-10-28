@@ -394,6 +394,10 @@ def rebuild(metadata, released, features, wiki, pin, bindings):
 
 
 def assert_preserved(value):
+    if value.get("rebuild", {}).get("preservation", {}).get("reconciliation"):
+        from .catalog_reconcile import restore_before_reconciliation
+
+        value = restore_before_reconciliation(value)
     rebuild = value["rebuild"]
     inverse = {
         entry["record_id"]: old
@@ -461,5 +465,16 @@ def build(root, work, released_root):
     )
     value = rebuild(metadata, released, features, wiki, pin, bindings)
     value["rebuild"]["build_inputs"] = input_pins
+    decisions_path = Path(root) / "data/catalog-inputs/facility-reconciliation.json"
+    if decisions_path.exists():
+        from .catalog_reconcile import apply_reconciliation
+
+        raw = decisions_path.read_bytes()
+        value["rebuild"]["build_inputs"][decisions_path.name] = {
+            "bytes": len(raw),
+            "sha256": hashlib.sha256(raw).hexdigest(),
+        }
+        value = apply_reconciliation(value, json.loads(raw))
+        assert_preserved(value)
     write_source(root, value)
     return value["rebuild"]["counts"]

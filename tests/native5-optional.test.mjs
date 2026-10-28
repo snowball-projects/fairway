@@ -24,6 +24,22 @@ test('nullable access stays unconfirmed and never becomes restricted or confirme
   assert.equal(cityLabel({address:{text:'Do not parse this, Chicago, IL'}}),null);
   assert.equal(displayAddress({street_line1:'1 Recorded Rd',city:'Recorded City',region:'IL',postal_code:'60000'}),'1 Recorded Rd, Recorded City, IL, 60000');
 });
+for(const address_mode of ['own','override'])test(`unknown facility state preserves an explicit ${address_mode} course address region`,()=>{
+  const {value}=fixture(),course=main(value),f=facility(value);
+  f.state=null;for(const row of value.courses)if(row.facility_id===f.facility_id)row.state=null;
+  Object.assign(course,{address_mode,address_region:'TX',state:'TX'});
+  assert.doesNotThrow(()=>validateScopedOptional(value));assert.equal(f.state,null);
+});
+for(const forged of ['different region','missing region','inherited address','known parent'])test(`course state rejects unsupported own-address override: ${forged}`,()=>{
+  const {value}=fixture(),course=main(value),f=facility(value);
+  f.state=null;for(const row of value.courses)if(row.facility_id===f.facility_id)row.state=null;
+  Object.assign(course,{address_mode:'own',address_region:'TX',state:'TX'});
+  if(forged==='different region')course.state='NY';
+  if(forged==='missing region')course.address_region=null;
+  if(forged==='inherited address')course.address_mode='inherit';
+  if(forged==='known parent')f.state='NY';
+  assert.throws(()=>validateScopedOptional(value),/Changed course facility binding/);
+});
 test('rendered false lighting preserves unknown range existence and scope without facility inheritance',()=>{
   const course=main(fixture().value),output=renderOptional(course.optional,{subjectLabel:'Course: synthetic',document});
   const text=output.textContent;
