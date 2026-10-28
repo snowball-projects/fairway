@@ -282,3 +282,96 @@ def test_an_explicit_course_identity_keeps_its_scope_and_layout_facts():
     assert value["rebuild"]["counts"]["matched_released_courses"] == 1
     assert len(value["courses"]) == 1
     assert_preserved(value)
+
+
+@pytest.mark.parametrize(
+    ("tags", "expected"),
+    [
+        ({}, None),
+        ({"fee": "yes"}, None),
+        ({"fee": "no"}, None),
+        ({"access": "yes", "fee": "yes"}, "public"),
+        ({"access": "public"}, "public"),
+        ({"access": "private", "fee": "no"}, "private"),
+        *[
+            ({"access": value, "fee": "yes"}, "restricted")
+            for value in (
+                "no",
+                "restricted",
+                "customers",
+                "permissive",
+                "permit",
+                "guests",
+                "residents",
+            )
+        ],
+        ({"access": "unknown"}, None),
+        ({"access": "yes;private"}, None),
+    ],
+)
+def test_osm_access_never_infers_permission_from_fees(tags, expected):
+    from fairway.rebuild_catalog import osm_values
+
+    assert osm_values(tags)["access"] == expected
+
+
+@pytest.mark.parametrize(
+    ("tags", "expected"),
+    [
+        ({}, None),
+        ({"holes": "9"}, 9),
+        ({"golf:holes": "18"}, 18),
+        ({"holes": "18", "golf:holes": "18"}, 18),
+        ({"holes": "9", "golf:holes": "18"}, None),
+        ({"holes": "unknown", "golf:holes": "18"}, None),
+        ({"holes": "18", "golf:holes": "0"}, None),
+        *[
+            ({"golf:holes": value}, None)
+            for value in ("0", "-1", "9;18", "18.0", "eighteen", "９")
+        ],
+    ],
+)
+def test_osm_holes_require_positive_agreeing_integers(tags, expected):
+    from fairway.rebuild_catalog import osm_values
+
+    assert osm_values(tags)["physical_holes"] == expected
+
+
+def test_osm_enrichment_fills_nulls_and_preserves_released_facts_and_citations():
+    data = inputs()
+    for row in data[1]["facilities"]:
+        row.update(access=None, physical_holes=None)
+    data[1]["facilities"][0]["access"] = "public"
+    data[2][0]["tags"] = {"access": "private", "golf:holes": "18", "fee": "yes"}
+    data[2][1]["tags"] = {"access": "customers", "holes": "9", "golf:holes": "18"}
+    value = rebuild(*data)
+    assert_preserved(value)
+    rows = {r["facility_id"]: r for r in value["facilities"]}
+    matched = rows["osm/way/1"]
+    assert matched["access"] == "public"  # Contradictory source stays observable.
+    assert matched["osm"]["tags"]["access"] == "private"
+    assert matched["physical_holes"] == 18
+    assert matched["fact_sources"][0] == data[1]["facilities"][0]["fact_sources"][0]
+    citation = next(
+        c for c in matched["fact_sources"] if c["fields"] == ["physical_holes"]
+    )
+    assert citation["source_url"] == data[2][0]["source_url"]
+    assert citation["checked_on"] == "2026-10-26" and citation["license"] == "ODbL-1.0"
+    assert rows["osm/way/2"]["access"] == "restricted"
+    assert rows["osm/way/2"]["physical_holes"] is None
+    assert rows["osm/way/2"]["osm"]["tags"]["golf:holes"] == "18"
+    assert len(value["courses"]) == 2  # No new layouts or course identities.
+    matched["physical_holes"] = 27
+    with pytest.raises(ValueError, match="OSM enrichment changed"):
+        assert_preserved(value)
+
+
+def test_known_holes_win_over_osm_without_losing_the_disagreeing_observation():
+    data = inputs()
+    data[1]["facilities"][0].update(access=None, physical_holes=27)
+    data[2][0]["tags"] = {"holes": "18", "fee": "yes"}
+    value = rebuild(*data)
+    row = next(r for r in value["facilities"] if r["released_id"] == "f-old")
+    assert row["physical_holes"] == 27 and row["access"] is None
+    assert row["osm"]["tags"] == {"holes": "18", "fee": "yes"}
+    assert_preserved(value)

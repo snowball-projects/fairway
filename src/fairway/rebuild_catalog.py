@@ -101,6 +101,58 @@ def source_facts(feature, wiki):
     return osm, linked
 
 
+# OSM access is legal access, not ownership or a booking promise. The catalog
+# has three coarse values; exact restrictions and fee facts remain in osm.tags.
+# https://wiki.openstreetmap.org/wiki/Key:access
+# https://wiki.openstreetmap.org/wiki/Key:fee
+OSM_ACCESS = {
+    "yes": "public",
+    "public": "public",
+    "private": "private",
+    "no": "restricted",
+    "restricted": "restricted",
+    "customers": "restricted",
+    "permissive": "restricted",
+    "permit": "restricted",
+    "guests": "restricted",
+    "residents": "restricted",
+}
+
+
+def osm_values(tags):
+    """No fee-based access inference; disagreeing hole tags have no winner."""
+    counts = [tags[k] for k in ("holes", "golf:holes") if tags.get(k)]
+    valid = [int(v) if re.fullmatch(r"[0-9]+", v) else None for v in counts]
+    holes = (
+        valid[0]
+        if valid and None not in valid and len(set(valid)) == 1 and valid[0] > 0
+        else None
+    )
+    return {"access": OSM_ACCESS.get(tags.get("access")), "physical_holes": holes}
+
+
+def enrich_record(row, feature):
+    """Fill unknown scalar facts only. Keep known values and source disagreements."""
+    filled = []
+    for field, value in osm_values(feature["tags"]).items():
+        if row.get(field) is None and value is not None:
+            row[field] = value
+            filled.append(field)
+    if filled:
+        row["fact_sources"].append(
+            {
+                "fields": filled,
+                "source_kind": "osm_snapshot",
+                "source_url": feature["source_url"],
+                "checked_on": feature["checked_on"],
+                "license": "ODbL-1.0",
+                "credit": feature["credit"],
+                "qualification": "OSM snapshot observation, not real-world verification. access=yes/public maps to public; private maps to private; no, restricted, customers, permissive, permit, guests and residents map to restricted. Exact access and fee tags remain in osm.tags; fee alone never establishes access. holes is used when present, otherwise golf:holes; both must agree as positive integers when present. Known released values take precedence; disagreements remain in osm.tags.",
+            }
+        )
+    return filled
+
+
 def new_record(feature, template, kind):
     row = blank(template)
     tags = feature["tags"]
@@ -114,8 +166,6 @@ def new_record(feature, template, kind):
         if re.fullmatch(r"https?://[^\s]+", tags.get("website", ""))
         else None
     )
-    holes = tags.get("holes", "")
-    row["physical_holes"] = int(holes) if holes.isdecimal() else None
     if feature["position"]:
         lon, lat = feature["position"]
         row["map_location"] = {
@@ -249,6 +299,9 @@ def rebuild(metadata, released, features, wiki, pin, bindings):
             )
             value[kind].append(row)
             indexes[kind][key] = row
+        filled = enrich_record(row, feature)
+        if row["released_id"] and filled:
+            preservation["rows"][row["released_id"]]["filled_fields"] = filled
         row["osm"], row["wikidata"] = source_facts(feature, wiki)
         row["fact_sources"].append(
             {
@@ -355,6 +408,13 @@ def assert_preserved(value):
         row = by_id[receipt["record_id"]]
         original = {k: row[k] for k in rebuild["released_columns"][receipt["kind"]]}
         original["fact_sources"] = original["fact_sources"][: receipt["citation_count"]]
+        for field in receipt.get("filled_fields", []):
+            if (
+                field not in {"access", "physical_holes"}
+                or row[field] != osm_values(row["osm"]["tags"])[field]
+            ):
+                raise ValueError("OSM enrichment changed: " + old)
+            original[field] = None
         if checksum(rekey(original, inverse)) != receipt["sha256"]:
             raise ValueError("Released fact changed: " + old)
     for key, expected in rebuild["preservation"]["metadata"].items():

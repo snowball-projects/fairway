@@ -25,6 +25,7 @@ TAGS = frozenset(
         "leisure",
         "golf",
         "holes",
+        "golf:holes",
         "par",
         "access",
         "fee",
@@ -234,6 +235,51 @@ def extract(args):
     )
 
 
+def refresh_tags(args):
+    """Recover whitelisted tags from the exact PBF without re-fetching Wikidata."""
+    import gzip
+
+    import osmium
+
+    path = args.work / "osm-features.json"
+    raw = (
+        path.read_bytes()
+        if path.exists()
+        else gzip.decompress(path.with_suffix(".json.gz").read_bytes())
+    )
+    rows = json.loads(raw)
+    pin = json.loads((args.work / "osm-pin.json").read_text())
+    sha, md5 = hash_file(args.pbf)
+    if (
+        sha != pin["sha256"]
+        or md5 != pin["publisher_md5"]
+        or args.pbf.stat().st_size != pin["bytes"]
+    ):
+        raise ValueError("PBF differs from the pinned catalog input")
+    by_id = {r["feature_id"]: r for r in rows}
+    seen = set()
+    for obj in osmium.FileProcessor(str(args.pbf)).with_filter(
+        osmium.filter.TagFilter(("leisure", "golf_course"), ("golf", "course"))
+    ):
+        kind = "node" if obj.is_node() else "way" if obj.is_way() else "relation"
+        key = f"osm/{kind}/{obj.id}"
+        row = by_id[key]
+        if row["osm_version"] != obj.version:
+            raise ValueError("OSM feature version differs: " + key)
+        # Preserve every existing observation, including approved privacy exclusions.
+        tags = source_tags(dict(obj.tags))
+        for tag in TAGS - {"wikidata"}:
+            if tag in tags:
+                if tag in row["tags"] and row["tags"][tag] != tags[tag]:
+                    raise ValueError("OSM observation differs: " + key + " " + tag)
+                row["tags"][tag] = tags[tag]
+        seen.add(key)
+    if seen != set(by_id):
+        raise ValueError("OSM feature identities differ from pinned input")
+    path.write_text(encoded(rows) + "\n")
+    print("Refreshed pinned OSM tags:", len(rows))
+
+
 def claim_projection(claim):
     # Structured claims and source references only; no page prose or media copies.
     return {
@@ -386,7 +432,7 @@ def publish_files(args):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("stage", choices=["extract", "enrich", "write"])
+    parser.add_argument("stage", choices=["extract", "refresh-tags", "enrich", "write"])
     parser.add_argument("--work", type=Path, required=True)
     parser.add_argument("--pbf", type=Path)
     parser.add_argument("--md5")
@@ -402,6 +448,10 @@ def main():
                 "extract requires --pbf, --md5, --source-url and --source-date"
             )
         extract(args)
+    elif args.stage == "refresh-tags":
+        if not args.pbf:
+            parser.error("refresh-tags requires --pbf")
+        refresh_tags(args)
     elif args.stage == "enrich":
         enrich(args)
     else:

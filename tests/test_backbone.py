@@ -1,5 +1,6 @@
 """Source identity, privacy and geometry checks for the independent backbone."""
 
+import gzip
 import importlib.util
 import json
 from argparse import Namespace
@@ -22,11 +23,14 @@ def test_contact_fields_and_embedded_values_are_excluded():
             "email": "person@example.test",
             "operator": "Unrelated private person",
             "designer": "Approved designer",
+            "golf:holes": "18",
+            "fee": "yes",
+            "access": "customers",
             "website": "mailto:person@example.test",
             "alt_name": "Booking 212-555-0123 person@example.test",
         }
     )
-    assert set(tags) == {"name", "designer", "alt_name"}
+    assert set(tags) == {"name", "designer", "alt_name", "golf:holes", "fee", "access"}
     assert tags["designer"] == "Approved designer"
     assert tags["alt_name"] == "Booking [contact removed] [contact removed]"
 
@@ -181,3 +185,35 @@ def test_source_backpressure_preserves_query_facts_without_inventing_details(tmp
     assert entity["claims"] == {} and entity["checked_on"] == "2026-10-26"
     assert "query=" in entity["source_url"]
     assert len(calls) == 2
+
+
+def test_refresh_tags_requires_exact_pin_and_retains_privacy_exclusions(tmp_path):
+    pytest.importorskip("osmium")
+    source = tmp_path / "tiny.osm"
+    source.write_text(
+        """<osm version="0.6"><node id="1" version="2" timestamp="2026-10-20T00:00:00Z" lat="40" lon="-75"><tag k="leisure" v="golf_course"/><tag k="golf:holes" v="18"/><tag k="wikidata" v="Q5"/><tag k="phone" v="212-555-0123"/></node></osm>"""
+    )
+    sha, md5 = backbone.hash_file(source)
+    pin = {"sha256": sha, "publisher_md5": md5, "bytes": source.stat().st_size}
+    (tmp_path / "osm-pin.json").write_text(json.dumps(pin))
+    rows = [
+        {
+            "feature_id": "osm/node/1",
+            "osm_version": 2,
+            "tags": {"leisure": "golf_course"},
+            "wikidata_ids": [],
+        }
+    ]
+    path = tmp_path / "osm-features.json"
+    path.with_suffix(".json.gz").write_bytes(
+        gzip.compress(json.dumps(rows).encode(), mtime=0)
+    )
+    args = Namespace(pbf=source, work=tmp_path)
+    backbone.refresh_tags(args)
+    updated = json.loads(path.read_text())
+    assert updated[0]["tags"] == {"leisure": "golf_course", "golf:holes": "18"}
+    assert updated[0]["wikidata_ids"] == []
+    source.write_text(source.read_text() + "\n")
+    with pytest.raises(ValueError, match="PBF differs"):
+        backbone.refresh_tags(args)
+    assert json.loads(path.read_text()) == updated
