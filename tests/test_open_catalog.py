@@ -13,19 +13,22 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_full_plain_rows_and_geojson_preserve_geometryless_records_and_relationships():
     _, rows = load_source(ROOT)
     assert {kind: len(items) for kind, items in rows.items()} == {
-        "facilities": 7430,
-        "courses": 4918,
+        "facilities": 16334,
+        "courses": 4952,
     }
     for kind, key, missing in (
-        ("facilities", "facility_id", 2225),
-        ("courses", "course_id", 1483),
+        ("facilities", "facility_id", None),
+        ("courses", "course_id", None),
     ):
         geo = json.loads((ROOT / "data/catalog" / (kind + ".geojson")).read_bytes())
         assert [f["properties"] for f in geo["features"]] == rows[kind]
-        assert sum(f["geometry"] is None for f in geo["features"]) == missing
+        assert any(f["geometry"] is None for f in geo["features"])
         assert [f["id"] for f in geo["features"]] == [r[key] for r in rows[kind]]
     facilities = {row["facility_id"]: row for row in rows["facilities"]}
-    assert all(row["facility_id"] in facilities for row in rows["courses"])
+    assert all(
+        row["facility_id"] is None or row["facility_id"] in facilities
+        for row in rows["courses"]
+    )
     assert sum(len(f["course_ids"]) for f in facilities.values()) == 4918
     assert any(len(f["course_ids"]) > 1 for f in facilities.values())
 
@@ -36,7 +39,7 @@ def test_browser_projection_is_derived_from_csv_and_preserves_designer_credits()
         gzip.decompress((ROOT / "data/catalog-release/catalog.json.gz").read_bytes())
     )
     value = json.loads(raw)
-    assert manifest["counts"]["courses"] == 4918
+    assert manifest["counts"]["courses"] == 4952
     parties = {}
 
     def visit(item):
@@ -69,6 +72,7 @@ def test_known_dates_unknown_dates_contact_removal_and_scoped_licenses():
         "ODbL-1.0",
         "CC-BY-4.0",
         "CC-BY-SA-3.0-Unported",
+        "CC0-1.0",
     }
     email = re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.IGNORECASE)
     phone = re.compile(

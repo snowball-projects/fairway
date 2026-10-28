@@ -1,4 +1,4 @@
-import {CatalogRead} from './catalog-read.mjs';
+import {CatalogRead,validIdentity,mapRecords} from './catalog-read.mjs';
 import {validateScopedOptional} from './optional-facts.mjs';
 const MAX_BYTES=64*1024*1024;
 const digest=async bytes=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(n=>n.toString(16).padStart(2,'0')).join('');
@@ -88,17 +88,26 @@ export const loadPublicCatalog=(url,options)=>loadPublished(url,options);
 export const loadInitialMap=(url,options)=>loadPublished(url,options,true);
 
 export function validateInitialMap(value,manifest){
-  if(manifest.format_version!==2||manifest.schema!==5||value?.map_format!==1||!Number.isSafeInteger(value.revision)||value.revision<0||! /^[a-f0-9]{64}$/.test(value.catalog_release_key)||value.revision!==manifest.revision||value.catalog_release_key!==manifest.catalog_release_key||value.catalog_sha256!==manifest.files?.['catalog.json']?.sha256)throw new Error('Published map identity mismatch');
+  if(manifest.format_version!==2||manifest.schema!==5||value?.map_format!==2||!Number.isSafeInteger(value.revision)||value.revision<0||! /^[a-f0-9]{64}$/.test(value.catalog_release_key)||value.revision!==manifest.revision||value.catalog_release_key!==manifest.catalog_release_key||value.catalog_sha256!==manifest.files?.['catalog.json']?.sha256)throw new Error('Published map identity mismatch');
   if(!Array.isArray(value.facilities)||value.facilities.length!==manifest.counts?.facilities||['facilities','courses','destinations'].some(k=>!Number.isSafeInteger(value.counts?.[k])||value.counts[k]<0||value.counts[k]!==manifest.counts[k]))throw new Error('Published map counts mismatch');
   const ids=new Set(),nullableText=v=>v===null||typeof v==='string';
   const facilities=value.facilities.map(row=>{
     if(!Array.isArray(row)||row.length!==5)throw new Error('Invalid map facility');
     const [facility_id,name,state,city,point]=row;
-    if(typeof facility_id!=='string'||!facility_id.startsWith('f-')||ids.has(facility_id)||typeof name!=='string'||!name||!nullableText(state)||!nullableText(city))throw new Error('Invalid map facility identity');
+    if(typeof facility_id!=='string'||!validIdentity(facility_id,'f-')||ids.has(facility_id)||!nullableText(name)||!nullableText(state)||!nullableText(city))throw new Error('Invalid map facility identity');
     ids.add(facility_id);
     if(point!==null&&(!Array.isArray(point)||point.length!==3||!Number.isFinite(point[0])||Math.abs(point[0])>90||!Number.isFinite(point[1])||Math.abs(point[1])>180||!['property_point','reviewed_osm_point','verified_entrance','address_range_estimate'].includes(point[2])))throw new Error('Invalid map location');
     return {facility_id,name,state,address:city===null?null:{city},map_location:point===null?null:{latitude:point[0],longitude:point[1],kind:point[2]}};
   });
+  if(!Array.isArray(value.courses)||value.courses.length>manifest.counts.courses)throw new Error('Invalid map courses');
+  const courses=value.courses.map(row=>{
+    if(!Array.isArray(row)||row.length!==5)throw new Error('Invalid map course');
+    const [course_id,name,state,city,point]=row;
+    if(!validIdentity(course_id,'c-')||ids.has(course_id)||!nullableText(name)||!nullableText(state)||!nullableText(city))throw new Error('Invalid map course identity');
+    ids.add(course_id);
+    if(point!==null&&(!Array.isArray(point)||point.length!==3||!Number.isFinite(point[0])||Math.abs(point[0])>90||!Number.isFinite(point[1])||Math.abs(point[1])>180||!['property_point','reviewed_osm_point','verified_entrance','address_range_estimate'].includes(point[2])))throw new Error('Invalid map course location');
+    return {course_id,facility_id:null,name,state,address:city===null?null:{city},map_location:point===null?null:{latitude:point[0],longitude:point[1],kind:point[2]}};
+  });
   if(!Array.isArray(value.states)||new Set(value.states.map(s=>s.id)).size!==value.states.length||value.states.some(s=>typeof s.id!=='string'||typeof s.name!=='string'||typeof s.d!=='string'||typeof s.state!=='string'))throw new Error('Invalid map states');
-  return {facilities,states:value.states,counts:value.counts,revision:value.revision};
+  return {facilities,courses,mapRecords:mapRecords({facilities,courses}),states:value.states,counts:value.counts,revision:value.revision};
 }

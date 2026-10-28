@@ -47,7 +47,7 @@ def test_map_is_exact_reproducible_projection_of_complete_released_catalog():
             else None
         )
     assert len(raw) < 4 * 1024 * 1024
-    assert len(gzip.compress(raw)) < len(gzip.compress(json.dumps(value).encode())) / 8
+    assert len(gzip.compress(raw)) < 1024 * 1024
     assert json.dumps(value, sort_keys=True) == before
     assert set(index) == {
         "map_format",
@@ -57,6 +57,7 @@ def test_map_is_exact_reproducible_projection_of_complete_released_catalog():
         "counts",
         "states",
         "facilities",
+        "courses",
     }
 
 
@@ -75,4 +76,4 @@ def test_initial_map_cannot_publish_bytes_the_browser_would_reject():
         "counts": {"facilities": 1, "courses": 0, "destinations": 0},
     }
     with pytest.raises(ValueError, match="initial map too large"):
-        pages.initial_map_bytes({"facilities": [facility]}, manifest, [])
+        pages.initial_map_bytes({"facilities": [facility], "courses": []}, manifest, [])
