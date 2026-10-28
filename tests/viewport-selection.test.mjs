@@ -56,10 +56,10 @@ function harness(model=catalog()){
  const ctx={URL,L,map,document,view,preparationFacilities:{clearLayers(){}},meetingLayer:{clearLayers(){}},STYLES,located,mapEligible,catalogCounts,cityLabel,accessLabel,displayAddress,recordLabel,browseCard,courseMatches,sortCourses,catalogModel:model,state:{activeCourse:null,activeRows:[],rows:[],ranking:null,routingCatalogLabel:'Catalog760'},COLORS:[],planningMode:false,browseMode:true,browseScope:{kind:'viewport',label:'Courses in this map area'},activeFacility:null,popupSelection:null,cataloguePopup:null,movingCourseCard:false,viewportFrame:null,listLimit:60,catalogDate:'revision760',rankingNodes:new Map(),browseNodes:new Map(),rowInteractions:new Set(),$:id=>controls[id],renderOptional:(o,p)=>renderOptional(o,{...p,document}),renderKnownOptional:(o,p)=>renderKnownOptional(o,{...p,document}),requestAnimationFrame:fn=>{frames.push(fn);return frames.length;},drawFacilities:()=>effects.draws++,fitPoints:(p,z)=>effects.fit.push([p,z]),setDrawer:()=>{view.resultsPanel.hidden=false;},selected:()=> 'maximum',updateDisplaySortOptions(){},duration:()=> 'Unavailable',planningSession:{update(){effects.planning++;throw Error('No automatic planning');},invalidate(){effects.planning++;throw Error('No browse invalidation');}}};
  ctx.mobile=()=>false;ctx.REDUCED_MOTION=false;ctx.coursesDrawer=null;
  vm.createContext(ctx);
- for(const name of ['node','selectableCourses','selectCourse','moveCourseCard','courseCard','renderRanking','knownLink','knownAddress','appendKnownOptional','knownRounds','coursePopupDetails','facilityDetails','selectCoincidentFacilities','selectFacilityById','selectionPopupOptions','openSelectionPopup','closeSelection','reconcilePopupChoices','reconcileBrowseSelection','selectedFirst','refreshBrowseViewport','filterOptions','scopedRecords','matchesCourseFilters','scopedFacilities','browseRecordId','facilityBrowseCard','updateLoadedCount','renderCourses'])vm.runInContext(actual(name),ctx);
+ for(const name of ['node','selectableCourses','selectCourse','moveCourseCard','courseCard','renderRanking','knownLink','knownAddress','appendKnownOptional','knownRounds','coursePopupDetails','facilityDetails','selectCoincidentFacilities','selectFacilityById','selectionPopupOptions','openSelectionPopup','closeSelection','reconcilePopupChoices','reconcileBrowseSelection','selectedFirst','refreshBrowseViewport','filterOptions','scopedRecords','matchesCourseFilters','scopedFacilities','browseRecordId','facilityGroup','renderFacilityGroups','updateLoadedCount','renderCourses'])vm.runInContext(actual(name),ctx);
  vm.runInContext(source.slice(source.indexOf('map.on("moveend zoomend"'),source.indexOf('async function loadCatalog()')),ctx);
  const real=ctx.renderCourses;ctx.renderCourses=()=>{effects.render++;return real();};ctx.renderCourses();
- return {ctx,view,effects,controls,document,frames,events,ids:()=>view.results.querySelector('.course-list').children.map(item=>item.firstElementChild.dataset.courseId).filter(Boolean),cards:()=>view.results.querySelectorAll('.course-card'),pan:box=>{bounds=box;events.moveend();events.zoomend();},flush:()=>{while(frames.length)frames.shift()();},popup:()=>openPopup};
+ return {ctx,view,effects,controls,document,frames,events,ids:()=>view.results.querySelectorAll('.course-card').map(card=>card.dataset.courseId),cards:()=>view.results.querySelectorAll('.course-card'),pan:box=>{bounds=box;events.moveend();events.zoomend();},flush:()=>{while(frames.length)frames.shift()();},popup:()=>openPopup};
 }
 test('move/zoom follows the viewport in one frame, drops stale selection and never routes',()=>{
  const h=harness();assert.deepEqual(h.ids(),['c-c','c-a','c-b']);h.ctx.selectCourse('c-b');assert.equal(h.ids()[0],'c-b');
@@ -71,9 +71,9 @@ test('zoom within an unchanged viewport preserves card nodes and course-button f
  h.pan([40,-90,43,-87]);h.flush();assert.equal(h.cards().find(c=>c.dataset.courseId==='c-a'),card);assert.equal(card.querySelector('.course-focus'),focus);assert.equal(h.document.activeElement,focus);
 });
 test('card clicks select/highlight and promote exactly one existing card; repeated clicks never duplicate it',()=>{
- const h=harness(),item=h.view.results.querySelector('.course-list').children.find(item=>item.firstElementChild.dataset.courseId==='c-b'),card=item.firstElementChild;
+ const h=harness(),item=h.cards().find(card=>card.dataset.courseId==='c-b').parent,card=item.firstElementChild;
  for(let i=0;i<8;i++)card.querySelector('.course-focus').onclick();
- assert.equal(h.ids()[0],'c-b');assert.equal(new Set(h.ids()).size,3);assert.equal(h.cards().filter(c=>c.dataset.active==='true').length,1);assert.equal(h.view.results.querySelector('.course-list').children[0],item);assert.equal(h.effects.popups,1);assert.equal(h.effects.fit.length,8);assert.equal(h.ctx.popupSelection.kind,'course');assert.equal(h.ctx.popupSelection.id,'c-b');assert.equal(h.view.results.children.length,1);assert.equal(h.view.results.querySelector('.facility-card'),null);
+ assert.equal(h.ids()[0],'c-b');assert.equal(new Set(h.ids()).size,3);assert.equal(h.cards().filter(c=>c.dataset.active==='true').length,1);assert.equal(h.view.results.querySelector('.facility-courses').children[0],item);assert.equal(h.effects.popups,1);assert.equal(h.effects.fit.length,8);assert.equal(h.ctx.popupSelection.kind,'course');assert.equal(h.ctx.popupSelection.id,'c-b');assert.equal(h.view.results.children.length,1);assert.equal(h.view.results.querySelectorAll('.facility-group').length,2);
 });
 test('shared-facility pin promotes its normal cards without inventing a selected individual; choosing an inventory course selects it',()=>{
  const h=harness();h.ctx.selectFacilityById('f-one');assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),['c-a','c-b','c-c']);assert.equal(h.ctx.popupSelection.kind,'facility');
@@ -86,10 +86,10 @@ test('closing a popup and filtering out a selected course both clear stale highl
  const h=harness();h.ctx.selectCourse('c-a');h.events.popupclose({popup:h.ctx.cataloguePopup});assert.equal(h.ctx.state.activeCourse,null);
  h.ctx.selectCourse('c-b');h.controls['browse-holes'].value='9';h.ctx.renderCourses();assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),[]);assert.equal(h.ctx.cataloguePopup,null);
 });
-test('explicit selection beyond the display window is promoted before the 60-card slice',()=>{
+test('explicit selection promotes its whole facility before the 60-facility window',()=>{
  const h=harness(),base=h.ctx.catalogModel.courses[0];
- for(let i=0;i<80;i++){const c={...base,course_id:`c-extra-${i}`,name:`ZZ${String(i).padStart(2,'0')}`};h.ctx.catalogModel.courses.push(c);h.ctx.catalogModel.courseById.set(c.course_id,c);}
- h.ctx.renderCourses();assert.equal(h.ids().length,60);assert.ok(!h.ids().includes('c-extra-79'));h.ctx.selectCourse('c-extra-79');assert.equal(h.ids()[0],'c-extra-79');assert.equal(h.ids().length,60);assert.equal(new Set(h.ids()).size,60);
+ for(let i=0;i<80;i++){const f={...h.ctx.catalogModel.facilities[0],facility_id:`f-extra-${i}`};h.ctx.catalogModel.facilities.push(f);h.ctx.catalogModel.facilityById.set(f.facility_id,f);const c={...base,facility_id:f.facility_id,course_id:`c-extra-${i}`,name:`ZZ${String(i).padStart(2,'0')}`};h.ctx.catalogModel.courses.push(c);h.ctx.catalogModel.courseById.set(c.course_id,c);}
+ h.ctx.renderCourses();assert.equal(h.ids().length,61);assert.ok(!h.ids().includes('c-extra-79'));h.ctx.selectCourse('c-extra-79');assert.equal(h.ids()[0],'c-extra-79');assert.equal(h.ids().length,61);assert.equal(new Set(h.ids()).size,61);
 });
 test('a selected course with its own visible point is not cleared because its facility point is outside',()=>{
  const h=harness(),course=h.ctx.catalogModel.courseById.get('c-a');course.map_location={latitude:42,longitude:-89};h.pan([41.8,-89.2,42.2,-88.8]);h.flush();h.ctx.selectCourse('c-a');h.ctx.renderCourses();assert.equal(h.ctx.state.activeCourse,'c-a');assert.equal(h.ids()[0],'c-a');
@@ -223,8 +223,8 @@ test('facility-only pin has one reusable facility entry without creating a cours
  h.ctx.catalogModel.courses=h.ctx.catalogModel.courses.filter(c=>c.facility_id!=='f-one');for(const id of ['c-a','c-b'])h.ctx.catalogModel.courseById.delete(id);facility.course_inventory=[];
  h.pan([40.9,-88.2,41.2,-87.8]);h.flush();h.ctx.selectFacilityById('f-one');
  assert.deepEqual(h.ids(),[]);assert.equal(h.ctx.state.activeCourse,null);assert.equal(h.ctx.activeFacility,'f-one');
- assert.match(h.view.results.textContent,/holes and access not recorded yet/);assert.equal(h.view.results.querySelectorAll('.facility-card').length,1);assert.equal(h.view.results.querySelector('.selected-facility-context'),null);assert.equal(h.cards().length,0);
- h.pan([40,-90,43,-87]);h.flush();assert.deepEqual(h.ids(),['c-c']);assert.equal(h.view.results.querySelectorAll('.facility-card').length,1);assert.doesNotMatch(h.view.results.textContent,/No matching courses/);
+ assert.match(h.view.results.textContent,/Access not recorded Facility holes 36 holes/);assert.equal(h.view.results.querySelectorAll('.facility-group').length,1);assert.equal(h.view.results.querySelector('.selected-facility-context'),null);assert.equal(h.cards().length,0);
+ h.pan([40,-90,43,-87]);h.flush();assert.deepEqual(h.ids(),['c-c']);assert.equal(h.view.results.querySelectorAll('.facility-group').length,2);assert.doesNotMatch(h.view.results.textContent,/No matching courses/);
  h.pan([41.8,-89.2,42.2,-88.8]);h.flush();assert.equal(h.ctx.activeFacility,null);assert.equal(h.view.results.querySelector('.selected-facility-context'),null);
 });
 test('visible facility pin selects its one actual eligible course despite a different course point',()=>{
@@ -252,15 +252,15 @@ test('browse and planning pills omit requested uncertainty labels and details wi
  for(const browseOnly of [true,false]){
   const pill=h.ctx.courseCard({...card,browseOnly},'maximum').firstElementChild;
   assert.doesNotMatch(pill.textContent,/course identity unconfirmed|access unconfirmed|approximate facility point|course arrival unverified|Course details/i);
-  assert.equal(pill.querySelectorAll('details').length,0);assert.match(pill.textContent,/18 holes/);assert.ok(pill.textContent.includes(card.address));
+  assert.equal(pill.querySelectorAll('details').length,0);assert.match(pill.textContent,/18 holes/);assert.doesNotMatch(pill.textContent,/Address|Routing/);
  }
  assert.equal(JSON.stringify(card),before);assert.equal(native.identity_status,'needs_review');assert.equal(native.access,null);
 });
-test('pills retain known access and popup retains explicit restrictions, tee facts and scoped observations',()=>{
+test('facility pills retain known access and popup retains explicit restrictions, tee facts and scoped observations',()=>{
  const h=harness(),native=h.ctx.catalogModel.courses[0];
  for(const [access,label] of [['public','Public play'],['private','Private'],['restricted','Restricted']]){
-  native.access=access;const card=browseCard(native,h.ctx.catalogModel.destinations);
-  assert.ok(h.ctx.courseCard(card,'maximum').textContent.includes(label));
+  const facility=h.ctx.catalogModel.facilities[0];facility.access=access;
+  assert.ok(h.ctx.facilityGroup(facility,facility.facility_id).textContent.includes(label));
  }
  const {value,manifest}=fixture();h.ctx.catalogModel=validatePublicCatalog(value,manifest);
  const course=value.courses.find(c=>c.plan_eligible===true);course.nonmember_bookable=false;course.booking_conditions='Members must accompany guests.';course.access_qualification='Walking only after 3pm.';
@@ -318,10 +318,10 @@ for(const [releasedId,names] of [
 });
 test('synthetic range-only contract retains a facility pin and never fabricates a course',()=>{
  const h=harness(),facility=h.ctx.catalogModel.facilityById.get('f-one');facility.name='Synthetic range-only facility';facility.physical_holes=null;
- h.ctx.catalogModel.courses=h.ctx.catalogModel.courses.filter(c=>c.facility_id!=='f-one');for(const id of ['c-a','c-b'])h.ctx.catalogModel.courseById.delete(id);facility.course_inventory=[];
+ h.ctx.catalogModel.courses=h.ctx.catalogModel.courses.filter(c=>c.facility_id!=='f-one');for(const id of ['c-a','c-b'])h.ctx.catalogModel.courseById.delete(id);facility.course_inventory=[];h.view.results.replaceChildren();
  h.pan([40.9,-88.2,41.2,-87.8]);h.flush();h.ctx.selectFacilityById('f-one');
  assert.ok(mapEligible(facility));assert.equal(h.ctx.activeFacility,'f-one');assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),[]);
- assert.ok(h.popup().content.textContent.includes(facility.name));assert.equal(h.cards().length,0);assert.match(h.view.results.textContent,/holes and access not recorded yet/);assert.equal(h.view.results.querySelectorAll('.facility-card').length,1);
+ assert.ok(h.popup().content.textContent.includes(facility.name));assert.equal(h.cards().length,0);assert.match(h.view.results.textContent,/Access not recorded Facility holes not recorded/);assert.equal(h.view.results.querySelectorAll('.facility-group').length,1);
  assert.equal(h.ctx.catalogModel.courses.length,1);assert.doesNotMatch(h.popup().content.textContent,/holes|course record|18/);
 });
 
@@ -358,13 +358,69 @@ test('actual Palatine Twin Lakes stays one facility through selection, reopen, s
  h.pan([42.104,-88.017,42.105,-88.016]);h.flush();
  const item=h.view.results.querySelector('.course-list').firstElementChild,card=item.firstElementChild;
  for(let i=0;i<8;i++)card.querySelector('button').emit('click');
- assert.equal(h.view.results.querySelectorAll('.facility-card').length,1);assert.equal(h.view.results.querySelector('.course-list').firstElementChild,item);assert.equal(card.dataset.active,'true');assert.equal(card.dataset.facilityId,id);assert.equal(card.dataset.courseId,undefined);
+ assert.equal(h.view.results.querySelectorAll('.facility-group').length,1);assert.equal(h.view.results.querySelector('.course-list').firstElementChild,item);assert.equal(card.dataset.active,'true');assert.equal(card.dataset.facilityId,id);assert.equal(card.dataset.courseId,undefined);
  assert.equal(h.ctx.state.activeCourse,null);assert.equal(h.view.resultCount.textContent,'1');assert.equal(h.view.resultCount.attrs['aria-label'],'Number of entries loaded: 1 (0 courses, 1 facilities)');
- h.ctx.closeSelection();h.view.resultsPanel.hidden=true;h.ctx.selectFacilityById(id);assert.equal(h.view.resultsPanel.hidden,false);assert.equal(h.view.results.querySelectorAll('.facility-card').length,1);
- h.ctx.browseScope={ids:[id],label:'Facility search'};h.ctx.renderCourses();assert.equal(h.view.results.querySelectorAll('.facility-card').length,1);assert.deepEqual(h.ids(),[]);
- h.controls['browse-holes'].value='18';h.ctx.renderCourses();assert.equal(h.ctx.activeFacility,null);assert.equal(h.view.results.querySelectorAll('.facility-card').length,0);assert.equal(h.view.results.textContent.trim(),'No matching courses.');
- h.controls['browse-holes'].value='all';h.controls['browse-access'].value='public';h.ctx.renderCourses();assert.equal(h.view.results.querySelectorAll('.facility-card').length,0);
- h.controls['browse-access'].value='unknown';h.ctx.renderCourses();assert.equal(h.view.results.querySelectorAll('.facility-card').length,1);
- h.pan([40,-90,41,-89]);h.flush();assert.equal(h.view.results.querySelectorAll('.facility-card').some(c=>c.dataset.facilityId===id),false);
+ h.ctx.closeSelection();h.view.resultsPanel.hidden=true;h.ctx.selectFacilityById(id);assert.equal(h.view.resultsPanel.hidden,false);assert.equal(h.view.results.querySelectorAll('.facility-group').length,1);
+ h.ctx.browseScope={ids:[id],label:'Facility search'};h.ctx.renderCourses();assert.equal(h.view.results.querySelectorAll('.facility-group').length,1);assert.deepEqual(h.ids(),[]);
+ h.controls['browse-holes'].value='18';h.ctx.renderCourses();assert.equal(h.ctx.activeFacility,null);assert.equal(h.view.results.querySelectorAll('.facility-group').length,0);assert.equal(h.view.results.textContent.trim(),'No matching courses.');
+ h.controls['browse-holes'].value='all';h.controls['browse-access'].value='public';h.ctx.renderCourses();assert.equal(h.view.results.querySelectorAll('.facility-group').length,0);
+ h.controls['browse-access'].value='unknown';h.ctx.renderCourses();assert.equal(h.view.results.querySelectorAll('.facility-group').length,1);
+ h.pan([40,-90,41,-89]);h.flush();assert.equal(h.view.results.querySelectorAll('.facility-group').some(c=>c.dataset.facilityId===id),false);
  assert.equal(JSON.stringify(model.courses),before);assert.equal(model.courseById.has(id),false);assert.equal(model.facilityCourses(id).length,0);
+});
+
+test('Village Links has one facility pill containing its two real courses through selection and filters',()=>{
+ const model=releasedCatalog(),h=harness(model),id='osm/way/188163012',before=JSON.stringify({facilities:model.facilities,courses:model.courses});
+ h.ctx.browseScope={ids:[id],label:'Facility search'};h.ctx.selectFacilityById(id);
+ const group=h.view.results.querySelector('.facility-group'),rows=group.querySelectorAll('.course-card');
+ assert.equal(h.view.results.querySelectorAll('.facility-group').length,1);assert.equal(rows.length,2);
+ assert.deepEqual(rows.map(row=>row.querySelector('.course-title').textContent),['18-hole course','9-hole course']);
+ assert.match(group.textContent,/Village Links of Glen Ellyn/);assert.match(group.textContent,/Public play/);assert.match(group.textContent,/27 holes/);
+ assert.equal(group.querySelector('a').href,'https://villagelinksgolf.com/about-us/');
+ assert.match(group.textContent,/485 Winchell Way, Glen Ellyn, IL 60137/);
+ for(let i=0;i<8;i++){rows[1].querySelector('.course-focus').onclick();h.ctx.closeSelection();}
+ assert.equal(h.view.results.querySelector('.facility-group'),group);assert.equal(h.cards().length,2);
+ h.controls['browse-holes'].value='9';h.ctx.renderCourses();assert.equal(h.cards().length,1);assert.match(h.cards()[0].textContent,/9-hole course/);
+ h.controls['browse-holes'].value='18';h.ctx.renderCourses();assert.equal(h.cards().length,1);assert.match(h.cards()[0].textContent,/18-hole course/);
+ h.controls['browse-holes'].value='all';h.ctx.renderCourses();assert.equal(h.cards().length,2);
+ assert.equal(JSON.stringify({facilities:model.facilities,courses:model.courses}),before);
+});
+test('Headwaters keeps its public access and 18 facility holes without fabricating a course',()=>{
+ const model=releasedCatalog(),h=harness(model),id='osm/way/974432437',before=JSON.stringify({facilities:model.facilities,courses:model.courses});
+ h.ctx.browseScope={ids:[id],label:'Facility search'};h.ctx.selectFacilityById(id);
+ const group=h.view.results.querySelector('.facility-group');
+ assert.equal(h.view.results.querySelectorAll('.facility-group').length,1);assert.equal(h.cards().length,0);
+ assert.deepEqual(group.querySelectorAll('dt').map(row=>row.textContent),['Town','Website','Access','Facility holes']);
+ assert.deepEqual(group.querySelectorAll('dd').map(row=>row.textContent),['not recorded','Website','Public play','18 holes']);
+ assert.equal(group.querySelector('a').href,'https://www.headwaters.golf/');assert.match(group.textContent,/Courses: not recorded/);
+ for(let i=0;i<8;i++){group.querySelector('button').emit('click');h.ctx.closeSelection();}
+ assert.equal(h.view.results.querySelector('.facility-group'),group);assert.equal(h.ctx.state.activeCourse,null);
+ h.controls['browse-access'].value='public';h.controls['browse-holes'].value='18';h.ctx.renderCourses();assert.equal(h.view.results.querySelector('.facility-group'),group);
+ h.controls['browse-access'].value='private';h.ctx.renderCourses();assert.equal(h.view.results.querySelectorAll('.facility-group').length,0);assert.equal(h.ctx.activeFacility,null);
+ h.controls['browse-access'].value='public';h.ctx.renderCourses();assert.equal(h.view.results.querySelectorAll('.facility-group').length,1);
+ assert.equal(model.facilityCourses(id).length,0);assert.equal(model.courseById.has(id),false);
+ assert.equal(JSON.stringify({facilities:model.facilities,courses:model.courses}),before);
+});
+test('missing facts occupy the same individual fields for every source and preserve an unknown facility identity',()=>{
+ const h=harness(),f=h.ctx.catalogModel.facilities[0],unknown={...f,name:null,state:null,access:null,website:null,address:null,physical_holes:null};
+ for(const catalog_origin of ['osm','matched_release','catalog_only']){
+  const group=h.ctx.facilityGroup({...unknown,catalog_origin},f.facility_id).firstElementChild;
+  assert.equal(group.querySelector('.facility-focus').textContent,'not recorded');
+  assert.deepEqual(group.querySelectorAll('dt').map(row=>row.textContent),['Town','Website','Access','Facility holes']);
+  assert.deepEqual(group.querySelectorAll('dd').map(row=>row.textContent),Array(4).fill('not recorded'));
+ }
+ const card=h.ctx.courseCard({...browseCard(h.ctx.catalogModel.courses[0],h.ctx.catalogModel.destinations),course_name:null,holes:9},'maximum');
+ assert.equal(card.querySelector('.course-title').textContent,'not recorded');assert.equal(card.querySelector('.course-meta').textContent,'9 holes');
+ const c={...h.ctx.catalogModel.courses[0],course_id:'osm/way/99',facility_id:null,facility_name:null};
+ const model=new CatalogRead({revision:1,facilities:[],courses:[c]}),orphan=harness(model),group=orphan.view.results.querySelector('.facility-group');
+ assert.equal(group.dataset.facilityId,undefined);assert.equal(group.querySelector('.facility-focus').disabled,true);
+ assert.equal(orphan.cards().length,1);assert.equal(model.facilities.length,0);assert.equal(model.courseById.get(c.course_id).facility_id,null);
+});
+test('a display window never splits sibling courses and browse and planning share facility fields',()=>{
+ const h=harness(),base=h.ctx.catalogModel.courses[0];
+ for(let i=0;i<80;i++){const c={...base,course_id:`c-extra-${i}`,name:`ZZ${i}`};h.ctx.catalogModel.courses.push(c);h.ctx.catalogModel.courseById.set(c.course_id,c);}
+ h.ctx.renderCourses();assert.equal(h.cards().length,83);assert.equal(h.view.results.querySelectorAll('.facility-group').length,2);
+ const fields=h.view.results.querySelectorAll('.facility-group').map(group=>group.querySelector('.facility-facts').textContent);
+ h.ctx.planningMode=true;h.ctx.browseMode=false;h.ctx.state.ranking={courses:h.ctx.catalogModel.courses.map(c=>({...browseCard(c,h.ctx.catalogModel.destinations),browseOnly:false})),objective:'maximum'};
+ h.ctx.renderCourses();assert.equal(h.cards().length,83);assert.deepEqual(h.view.results.querySelectorAll('.facility-group').map(group=>group.querySelector('.facility-facts').textContent),fields);
 });
