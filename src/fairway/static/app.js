@@ -534,6 +534,22 @@ function moveCourseCard(list, item, before) {
   } finally {movingCourseCard=false;}
 }
 
+function bindPillSelection(article, focus, select) {
+  const selectingText=()=>{
+    const selection=document.getSelection?.();
+    return selection&&!selection.isCollapsed&&selection.containsNode(article,true);
+  };
+  // The native button remains the only selection tab stop, alongside any links.
+  focus.onclick=event=>{if(!event?.detail||!selectingText())select();};
+  article.classList.toggle("selectable-pill",true);
+  article.addEventListener("click",event=>{
+    if(event.defaultPrevented||event.button>0||
+      event.target.closest(".facility-group, .course-card")!==article||
+      event.target.closest("a, button, input, select, textarea, summary, [role='button'], [contenteditable]")||selectingText())return;
+    focus.focus({preventScroll:true});select();
+  });
+}
+
 function courseCard(course, objective) {
   const item = document.createElement("li");
   const article = document.createElement("article");
@@ -543,9 +559,7 @@ function courseCard(course, objective) {
   const focus = document.createElement("button");
   focus.type = "button";
   focus.className = "course-focus";
-  focus.onclick = () => {
-    selectCourse(course.id);
-  };
+  bindPillSelection(article,focus,()=>selectCourse(course.id));
   const rank = document.createElement("span");
   rank.className = "rank";
   rank.textContent = course.rank ?? "…";
@@ -1033,7 +1047,7 @@ function facilityGroup(facility, id) {
   if(facility)article.dataset.facilityId=facility.facility_id;
   const heading=node("h3"),title=node("button",facility?.name??"not recorded","facility-focus");
   title.type="button";title.setAttribute("aria-label",`Facility name: ${title.textContent}`);
-  if(facility)title.addEventListener("click",()=>selectFacilityById(facility.facility_id,true));
+  if(facility)bindPillSelection(article,title,()=>selectFacilityById(facility.facility_id,true));
   else title.disabled=true;
   heading.append(title);
   const facts=node("dl",undefined,"facility-facts");
