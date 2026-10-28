@@ -26,7 +26,7 @@ def test_native_pages_are_reproducible_public_only_and_leave_source_unchanged(tm
     two = pages.build(ROOT, tmp_path / "two", "a" * 40, review_fixture=True)
     assert one == two
     manifest = json.loads((output / "data/catalog-release.json").read_text())
-    item = manifest["files"]["catalog.json"]
+    item = manifest["files"]["browser-details.json"]
     raw = (output / "data" / item["path"]).read_bytes()
     assert len(raw) == item["bytes"] and sha256(raw).hexdigest() == item["sha256"]
     assert one["counts"] == {"facilities": 3, "courses": 3, "destinations": 2}
@@ -212,3 +212,41 @@ def test_production_credits_preserve_all_public_license_notices(production_pages
         == sha256((output / "credits.html").read_bytes()).hexdigest()
     )
     assert 'href="./credits.html"' in (output / "app.js").read_text()
+
+
+def test_browser_details_keep_display_facts_without_duplicate_transport_material():
+    value = json.loads((ROOT / "tests/fixtures/native5-ui/transport.json").read_bytes())
+    before = json.dumps(value, sort_keys=True)
+    details = json.loads(pages.browser_details_bytes(value))
+    assert set(details) == {
+        "revision",
+        "catalog_release_key",
+        "facilities",
+        "courses",
+        "destinations",
+    }
+    for original, actual in zip(value["courses"], details["courses"], strict=True):
+        assert actual["course_id"] == original["course_id"]
+        assert actual["facility_id"] == original["facility_id"]
+        assert actual["access"] == original["access"]
+        assert actual.get("nonmember_bookable") == original["nonmember_bookable"]
+        assert actual.get("plan_eligible") == original["plan_eligible"]
+        for removed in (
+            "address_text",
+            "address_region",
+            "arrival_latitude",
+            "aliases",
+            "inventory_qualification",
+        ):
+            assert removed not in actual
+    main = next(c for c in details["courses"] if c.get("plan_eligible"))
+    assert main["optional"]["practice_observation"][0]["driving_range_lighted"] is False
+    price = main["round_options"][0]["optional"]["price_observation"][0]
+    original_price = next(c for c in value["courses"] if c["plan_eligible"])[
+        "round_options"
+    ][0]["optional"]["price_observation"][0]
+    assert price["conditions"] == original_price["conditions"]
+    assert price["qualification"] == original_price["qualification"]
+    assert price["historical"] is True
+    assert "observation_id" not in price and "source_id" not in price
+    assert json.dumps(value, sort_keys=True) == before

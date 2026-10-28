@@ -1421,8 +1421,8 @@ async function loadCatalog() {
     $("catalog-status").hidden=true;
     drawFacilities();renderProgress();
     performance.mark("fairway-map-ready");
-    // An interaction can precede the index. Honor it once the release is pinned.
-    if(!view.resultsPanel.hidden || !$("plan-panel").hidden)ensureCatalog();
+    // Let the initial canvas paint before starting the background details load.
+    requestAnimationFrame(()=>setTimeout(ensureCatalog,0));
   } catch {
     $("catalog-status").hidden=false;
     $("catalog-status").textContent="Catalog unavailable.";
@@ -1436,6 +1436,7 @@ function ensureCatalog() {
   $("catalog-status").textContent="Loading course details…";
   detailsRequest=loadPublicCatalog(catalogURL,{pinnedManifest:initialMap.manifest}).then(next=>{
     applyCatalog(next);
+    performance.mark("fairway-details-ready");
     const select=deferredSelection;deferredSelection=null;
     select?.();
   }).catch(()=>{

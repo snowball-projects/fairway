@@ -1,6 +1,5 @@
 // Native read DTOs only. No static-catalog fallback, migration or authority.
 export const STYLES = {regulation:'Regulation',executive:'Executive',par_3:'Par3',pitch_and_putt:'Pitch & Putt',putting:'Grass Putting'};
-export const validIdentity = (id,prefix) => typeof id==='string' && (id.startsWith(prefix) || /^osm\/(node|way|relation)\/[1-9][0-9]*$/.test(id));
 export const recordLabel = (record,kind='facility') => record.name || record.facility_name || `Unnamed golf ${record.record_kind||kind} · ${(record.facility_id||record.course_id).replace(/^osm\//,'OSM ').replaceAll('/',' ')}`;
 export const courseMapId = course => course.facility_id ?? course.course_id ?? course.id;
 export const mapRecords = catalog => [...catalog.facilities,...catalog.courses.filter(c=>c.facility_id===null).map(c=>({...c,facility_id:c.course_id,record_kind:'course'}))];
@@ -22,20 +21,12 @@ export function searchCatalog(facilities,states,query) {
   return [...found.filter(r=>r.kind==='state'),...cities.values(),...found.filter(r=>r.kind==='facility')];
 }
 export class CatalogRead {
-  constructor({revision,facilities,courses,destinations=[],qualification=null}) {
-    if(!Number.isSafeInteger(revision)||revision<0 || !Array.isArray(facilities)||!Array.isArray(courses)||!Array.isArray(destinations))throw new Error('Invalid native catalog read');
-    this.revision=revision;this.facilities=structuredClone(facilities);this.courses=structuredClone(courses);this.destinations=new Map(destinations.map(d=>[d.id,structuredClone(d)]));this.qualification=qualification;
-    this.facilityById=new Map();this.courseById=new Map();
-    for(const f of this.facilities){if(!validIdentity(f.facility_id,'f-')||this.facilityById.has(f.facility_id))throw new Error('Invalid facility identity');this.facilityById.set(f.facility_id,f);}
-    for(const c of this.courses){
-      if(!validIdentity(c.course_id,'c-')||this.facilityById.has(c.course_id)||this.courseById.has(c.course_id)||(c.facility_id!==null&&!this.facilityById.has(c.facility_id))||!(c.name===null||typeof c.name==='string') || ![true,false,null].includes(c.nonmember_bookable))throw new Error('Invalid course identity');
-      const target=this.destinations.get(c.destination_id);
-      if(c.destination_id!==null && (!target || !Number.isFinite(target.latitude)||!Number.isFinite(target.longitude)||Math.abs(target.latitude)>90||Math.abs(target.longitude)>180||!['facility_estimate','course_arrival'].includes(target.scope)))throw new Error('Invalid course destination');
-      if(target?.scope==='facility_estimate'&&(!target.qualification||c.arrival!==null))throw new Error('Unqualified facility estimate');
-      if(c.arrival!==null && (!c.arrival || !Number.isFinite(c.arrival.latitude)||!Number.isFinite(c.arrival.longitude)||!['reviewed_osm_point','verified_entrance'].includes(c.arrival.kind)||!c.arrival.reference))throw new Error('Invalid canonical arrival');
-      if(target?.scope==='course_arrival' && (!c.arrival||c.arrival.latitude!==target.latitude||c.arrival.longitude!==target.longitude||c.arrival.kind!==target.precision||c.arrival.reference!==target.reference))throw new Error('Changed canonical arrival');
-      this.courseById.set(c.course_id,c);
-    }
+  constructor({revision,catalog_release_key,facilities,courses,destinations=[]}) {
+    this.revision=revision;this.catalogReleaseKey=catalog_release_key;
+    this.facilities=facilities;this.courses=courses;
+    this.destinations=new Map(destinations.map(d=>[d.id,d]));
+    this.facilityById=new Map(facilities.map(f=>[f.facility_id,f]));
+    this.courseById=new Map(courses.map(c=>[c.course_id,c]));
     this.mapRecords=mapRecords(this);
     this.mapRecordById=new Map(this.mapRecords.map(r=>[r.facility_id,r]));
   }

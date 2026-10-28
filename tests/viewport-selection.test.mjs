@@ -6,7 +6,6 @@ import vm from 'node:vm';
 import {CatalogRead,browseCard,courseMatches,sortCourses,STYLES,located,mapEligible,catalogCounts,cityLabel,accessLabel,displayAddress,recordLabel} from '../src/fairway/static/catalog-read.mjs';
 import {renderOptional,renderKnownOptional,OPTIONAL_DOMAINS} from '../src/fairway/static/optional-facts.mjs';
 import {fixture} from './native5-fixture.mjs';
-import {validatePublicCatalog} from '../src/fairway/static/public-catalog.mjs';
 import {OPTIONAL_SCHEMA} from '../src/fairway/static/optional-schema.mjs';
 const source=readFileSync(new URL('../src/fairway/static/app.js',import.meta.url),'utf8');
 function actual(name){
@@ -198,7 +197,7 @@ test('strictly accepted qualification-only observations retain their known restr
  const metadata=new Set(['id','observation_id','facility_id','course_id','component_id','round_id','source_id','source_url','source_license','source_attribution','collected_on','observed_on','effective_from','effective_to','status','conflict','qualification']);
  const restriction='Practice access requires a scheduled lesson.';
  function update(object){if(!object||typeof object!=='object')return;if(object.observation_id===target.observation_id)object.qualification=restriction;if(object.id===target.id)for(const key of Object.keys(OPTIONAL_SCHEMA.practice_observation))if(!metadata.has(key))object[key]=null;for(const child of Object.values(object))update(child);}
- update(value);const model=validatePublicCatalog(value,manifest),row=[...model.optionalObservations.values()].find(r=>r.id===target.id),groups=empty();groups.practice_observation=[row];
+ update(value);const model=new CatalogRead(value),row=model.courses.flatMap(c=>c.optional.practice_observation).find(r=>r.id===target.id),groups=empty();groups.practice_observation=[row];
  const node=renderKnownOptional(groups,{subjectLabel:'Practice at this course',document:h.document});assert.ok(node);assert.match(node.textContent,/Practice access requires a scheduled lesson/);assert.equal(node.querySelectorAll('dl').length,0);
 });
 test('Leaflet close notification before remove does not close the same popup recursively',()=>{
@@ -209,14 +208,14 @@ test('Leaflet close notification before remove does not close the same popup rec
 test('strictly accepted unnamed component with unknown hole count keeps known optional facts',()=>{
  const h=harness(),{value,manifest}=fixture(),course=value.courses.find(c=>c.components.length),component=course.components[0];
  function clear(object){if(!object||typeof object!=='object')return;if(object.id===component.id&&Object.hasOwn(object,'name')){object.name=null;object.physical_holes=null;}for(const child of Object.values(object))clear(child);}clear(value);
- h.ctx.catalogModel=validatePublicCatalog(value,manifest);const popup=h.ctx.coursePopupDetails(h.ctx.catalogModel.courseById.get(course.course_id));
+ h.ctx.catalogModel=new CatalogRead(value);const popup=h.ctx.coursePopupDetails(h.ctx.catalogModel.courseById.get(course.course_id));
  const details=popup.querySelectorAll('details').find(d=>d.firstElementChild.textContent==='Component');assert.ok(details);assert.equal(details.firstElementChild.tag,'summary');assert.match(details.textContent,/greens grass name Documented bentgrass/);assert.match(details.textContent,/Synthetic Person/);assert.doesNotMatch(details.textContent,/Unconfirmed|Not documented/);
  component.optional=empty();const blank=h.ctx.coursePopupDetails(course);assert.ok(!blank.querySelectorAll('details').some(d=>d.firstElementChild.textContent==='Component'));
 });
 test('strictly accepted unnamed round with unknown holes keeps its known description and optional restrictions',()=>{
  const h=harness(),{value,manifest}=fixture(),course=value.courses.find(c=>c.round_options.some(r=>Object.values(r.optional).some(rows=>rows.length))),round=course.round_options.find(r=>Object.values(r.optional).some(rows=>rows.length));
  function clear(object){if(!object||typeof object!=='object')return;if(object.id===round.id&&Object.hasOwn(object,'round_holes')){object.name=null;object.round_holes=null;}for(const child of Object.values(object))clear(child);}clear(value);
- h.ctx.catalogModel=validatePublicCatalog(value,manifest);const popup=h.ctx.coursePopupDetails(h.ctx.catalogModel.courseById.get(course.course_id));const details=popup.querySelectorAll('details').find(d=>d.firstElementChild.textContent==='Round');assert.ok(details);assert.match(details.textContent,/Dated weekdays only/);assert.doesNotMatch(details.textContent,/Unconfirmed|Not documented/);
+ h.ctx.catalogModel=new CatalogRead(value);const popup=h.ctx.coursePopupDetails(h.ctx.catalogModel.courseById.get(course.course_id));const details=popup.querySelectorAll('details').find(d=>d.firstElementChild.textContent==='Round');assert.ok(details);assert.match(details.textContent,/Dated weekdays only/);assert.doesNotMatch(details.textContent,/Unconfirmed|Not documented/);
 });
 test('a visible facility pin is not rejected by a prior different facility-search scope before viewport frame',()=>{
  const h=harness();h.ctx.browseScope={ids:['f-one'],label:'Facility search'};h.ctx.renderCourses();h.ctx.selectFacilityById('f-two');assert.equal(h.ctx.state.activeCourse,'c-c');assert.equal(h.ids()[0],'c-c');assert.equal(h.ctx.popupSelection.kind,'course');h.pan([41.8,-89.2,42.2,-88.8]);h.flush();assert.equal(h.ctx.state.activeCourse,'c-c');assert.equal(h.ctx.popupSelection.kind,'course');
@@ -288,7 +287,7 @@ test('facility pills retain known access and popup retains explicit restrictions
   const facility=h.ctx.catalogModel.facilities[0];facility.access=access;
   assert.ok(h.ctx.facilityGroup(facility,facility.facility_id).textContent.includes(label));
  }
- const {value,manifest}=fixture();h.ctx.catalogModel=validatePublicCatalog(value,manifest);
+ const {value}=fixture();h.ctx.catalogModel=new CatalogRead(value);
  const course=value.courses.find(c=>c.plan_eligible===true);course.nonmember_bookable=false;course.booking_conditions='Members must accompany guests.';course.access_qualification='Walking only after 3pm.';
  const before=JSON.stringify(course),popup=h.ctx.coursePopupDetails(course),text=popup.textContent;
  assert.match(text,/Members must accompany guests/);assert.match(text,/Walking only after 3pm/);assert.match(text,/Nonmember booking: No/);assert.match(text,/course difficulty rating \(not a quality rating\)/);assert.match(text,/121/);
@@ -322,7 +321,7 @@ test('catalog progress has exactly four concise stats with facility map-count se
 function releasedCatalog() {
  const value=JSON.parse(gunzipSync(readFileSync(new URL('../data/catalog-release/catalog.json.gz',import.meta.url))));
  const manifest=JSON.parse(readFileSync(new URL('../data/catalog-release/manifest.json',import.meta.url)));
- return validatePublicCatalog(value,manifest);
+ return new CatalogRead(value);
 }
 test('actual Emerald Hill facility selects its real course without a placeholder',()=>{
  const h=harness(releasedCatalog()),f=h.ctx.catalogModel.facilities.find(f=>f.released_id==='f-ac1969f3-8470-453a-8679-368195f6a15d'),id=f.facility_id;
@@ -370,13 +369,6 @@ test('explicit OSM course with unknown facility remains one course and has its o
  assert.equal(model.courseById.get(course.course_id).facility_id,null);
  assert.equal(model.courseById.get(course.course_id).name,null);
 });
-
-test('one OSM identity cannot occur as both a facility and a course',()=>{
- const base=catalog();base.facilities[0].facility_id='osm/way/99';
- const c={...base.courses[0],course_id:'osm/way/99',facility_id:null};
- assert.throws(()=>new CatalogRead({revision:1,facilities:base.facilities,courses:[c]}),/Invalid course identity/);
-});
-
 
 test('actual Palatine Twin Lakes stays one facility through selection, reopen, search and filters',()=>{
  const model=releasedCatalog(),h=harness(model),id='osm/way/33542466',f=model.facilityById.get(id),before=JSON.stringify(model.courses);

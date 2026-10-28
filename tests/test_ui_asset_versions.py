@@ -53,11 +53,16 @@ def test_leaf_change_invalidates_its_complete_import_chain_only():
     for name in [
         "optional-schema.mjs",
         "optional-facts.mjs",
-        "public-catalog.mjs",
         "app.js",
     ]:
         assert before_paths[name] != after_paths[name]
-    for name in ["catalog-read.mjs", "courses-drawer.mjs", "leaflet.js", "styles.css"]:
+    for name in [
+        "catalog-read.mjs",
+        "public-catalog.mjs",
+        "courses-drawer.mjs",
+        "leaflet.js",
+        "styles.css",
+    ]:
         assert before_paths[name] == after_paths[name]
 
 
