@@ -1,0 +1,3798 @@
+{
+  "format_version": 1,
+  "checked_on": "2026-10-28",
+  "frozen_commit": "388939b76a1a3a7bab9249d148e25863c5bfd961",
+  "base_commit": "4f2ba610ccd423cce4f6d253bf942ce980aa7834",
+  "source_licenses": [
+    {
+      "source": "OpenStreetMap contributors",
+      "license": "ODbL-1.0",
+      "credit": "© OpenStreetMap contributors",
+      "source_url": "https://www.openstreetmap.org/copyright"
+    }
+  ],
+  "input_hashes": {
+    "data/catalog/facilities.geojson": "90efefcabb0131c412eb69b9b4ff67f9862b962c5a82fbc6d7746edcbdead6d2",
+    "data/catalog/courses.geojson": "4b250904fd43d0a3e2c5c630c0f7f9d0565a1400e5ce5fef6c5bc75719c6ac15",
+    "data/catalog-inputs/osm-features.json.gz": "f8fce6877304047a89a6e0ecf6c635598d53aeadec327faf31922ce6755c705c",
+    "data/catalog-inputs/osm-pin.json": "7dcd063381a1f387ee05b36512647241c1c4a9acd4f7594e569f58923d684be5"
+  },
+  "protocol": {
+    "candidate_population": "Frozen zero-actual-linked-course facilities:147 fully covered, 155strict partial,84 reverse-containment-only unchanged. Full containment priority; boundary touches excluded.",
+    "a": "Exact normalized full catalog/source name orpolygon IoU>=0.98, plus explicit reviewed same-place membership/alias decisions. Canonical equal-area survivor prefers released identity then relation then stable ID. Distinct named sibling layouts excluded.",
+    "b": "Explicit non-course name/tag, plus individually reviewed practice-center source. Playable par-three/academy layouts are not non-course components.",
+    "c": "Contained separate layout, reusing reviewed existing course ID. Unresolved identity/scope conflicts remain unchanged. No booking/arrival inference.",
+    "d": "Only reviewed exact same-name way/relation strict partial pairs. No relation/relation, fuzzy names, or overlap-percentage broadening.",
+    "e": "The 14 reported unique point-to-existing-course matches, inclusive 2 km haversine to stored parent display position. Unicode NFKD/casefold/combining-mark and intra-word-apostrophe removal; other punctuation to spaces. Exact names/literal composites; onlyState Park / Course suffix variant. No broader descriptors.",
+    "bethpage": "Specific approved identity exception tojoin composite area into existing five-course facility; no extra course."
+  },
+  "counts": {
+    "a": 54,
+    "b": 29,
+    "bethpage": 1,
+    "c": 52,
+    "d": 10,
+    "e": 14,
+    "c_existing_course": 13,
+    "c_new_course": 39,
+    "held_contained": 8
+  },
+  "decisions": [
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/12130890",
+      "source_name": "Esplanade Golf & Country Club",
+      "source_sha256": "792ae0785efa4180a1f7ef274fb521801a579c48a1d778fc3636244f065c20df",
+      "target_facility_id": "osm/relation/12130891",
+      "target_facility_name": "Esplanade Golf & Country Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/12130890/1",
+        "https://www.openstreetmap.org/api/0.6/relation/12130891/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.37811342267074116,
+        "iou": 0.3781134226707411,
+        "source_geometry_sha256": "6c711bec43458e232c0abe636b7f35ba8dfa8dd358d4304dfb57288d79602db0",
+        "target_geometry_sha256": "775ace3541516a515b4980d735cab1d36cb4f1dda48a5a1243ff4e4d4493a3de"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/12343575",
+      "source_name": "The Reserve Golf Club",
+      "source_sha256": "e485b35eb7bc65004f4c3c00715edb940a7b25a8a8ecf8e3d1b4065e63ad6a57",
+      "target_facility_id": "osm/way/342217465",
+      "target_facility_name": "The Reserve Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/12343575/2",
+        "https://www.openstreetmap.org/api/0.6/way/342217465/4"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.11921648236757394,
+        "iou": 0.1192164823675739,
+        "source_geometry_sha256": "24b88dd57facd825c1eafe9e1a7fc0e93e0869d049428d664a0b213f150db38a",
+        "target_geometry_sha256": "fd7c827f543b30de9fe1593934cee51d0d8f88e3b4fc8fc691416eb6768a8151"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/12360155",
+      "source_name": "Saucon Valley Country Club",
+      "source_sha256": "f858ea0914e3ebf07a8c9d8cfa4d3c069a35320644bbccdee5bebad77466093b",
+      "target_facility_id": "osm/relation/21460267",
+      "target_facility_name": "Saucon Valley Country Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/12360155/6",
+        "https://www.openstreetmap.org/api/0.6/relation/21460267/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000009,
+        "target_fraction_in_source": 0.9673495325925863,
+        "iou": 0.9673495325925855,
+        "source_geometry_sha256": "3b6faf3ffede5809c1f239f6a3b310835d8fed7e2a0f6c83663aecf9b2bdaa13",
+        "target_geometry_sha256": "25dabaee619b494e7695444bbb5f7010c2561b5e82166aa5f145164a0fcaa7cc"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/1391306",
+      "source_name": "Desert Mountain Apache Golf Course",
+      "source_sha256": "82fdd515931503bd79f718bbb2275e95d826f75f17947839b18bc0787818e2d1",
+      "target_facility_id": "osm/way/696530302",
+      "target_facility_name": "Desert Mountain Apache Golf Course",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/1391306/16",
+        "https://www.openstreetmap.org/api/0.6/way/696530302/4"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.010761034567360524,
+        "iou": 0.010761034567360548,
+        "source_geometry_sha256": "8f6ec01ad14b9564aeee61ac6f61bf46c87c53dc50b6468034217657dcb2d26b",
+        "target_geometry_sha256": "1324ea48dea63ccf8b3db30e3e6acc45f31b875e3a631839cf3cdf1d42391bf5"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/14336652",
+      "source_name": "North Creek Golf Club",
+      "source_sha256": "fa58777b7192d7bc7f4b80a545b45f70801c9a521bc134598a0a9741782d62fc",
+      "target_facility_id": "osm/way/1546201837",
+      "target_facility_name": "North Creek Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/14336652/2",
+        "https://www.openstreetmap.org/api/0.6/way/1546201837/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.9143981268842303,
+        "iou": 0.9143981268842306,
+        "source_geometry_sha256": "a3c2c61ae361c89810c4d86646e21f198efea55493fd94f6545d13a797cbf15d",
+        "target_geometry_sha256": "a09d9257222e0c01b140aea8564ce96c2ce8e1bc421fd148dae0db598580d141"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/1703110",
+      "source_name": "Palmer Course - General nine",
+      "source_sha256": "b5c14488a4d5f3ba78a1ac166b927145934ba934693a59f395ca7fff880648a3",
+      "target_facility_id": "osm/way/219583737",
+      "target_facility_name": "Palmer Course - General nine",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/1703110/10",
+        "https://www.openstreetmap.org/api/0.6/way/219583737/9"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000013,
+        "target_fraction_in_source": 0.5624540945207076,
+        "iou": 0.5624540945207072,
+        "source_geometry_sha256": "73c6109429ae6a8b04353ef512bb64bf3404e53d5004022b461ada8df7e691bb",
+        "target_geometry_sha256": "fab89494b960c61251337a0b84f92054a9751d9e126eb4636d54c578ef13ee39"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/1836463",
+      "source_name": "The Legacy Golf Club",
+      "source_sha256": "d4d17bd545faaac590da3c168da6cd9462e1e64c2d0547e56d5be5e809da981f",
+      "target_facility_id": "osm/way/136332086",
+      "target_facility_name": "The Legacy Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/1836463/6",
+        "https://www.openstreetmap.org/api/0.6/way/136332086/9"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999991,
+        "target_fraction_in_source": 0.6096851097667315,
+        "iou": 0.609685109766732,
+        "source_geometry_sha256": "f714a26e2768f6cf76123536539da487b4bacafd3ed2ae5bc2fbef24d414a932",
+        "target_geometry_sha256": "7273a7db26886e8f8d7461f7004a78f69ec6c2065c0a905340d0b3586c72849a"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/3475699",
+      "source_name": "University of Texas Golf Club",
+      "source_sha256": "80d80d57652fea2d791420f0d4ad7ba4a141148b1e1247bf42731974d8c18eb5",
+      "target_facility_id": "osm/relation/17973325",
+      "target_facility_name": "University of Texas Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/17973325/1",
+        "https://www.openstreetmap.org/api/0.6/relation/3475699/3"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 0.7794661515908318,
+        "iou": 0.7794661515908315,
+        "source_geometry_sha256": "15d47665a14613d63f70e5b0347f9fe2d9c9c59276eb99a6dd4d8bcda1f7b0cf",
+        "target_geometry_sha256": "dc4eafac03a6c73ea589ee014f1dea592f360983405f6eef19a4630daf9d06bf"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/3939926",
+      "source_name": "Heritage of Hawk Ridge",
+      "source_sha256": "9ef41b743913560817eca2420e5c4542ed9aa5b25e0b0bb9aa461932140c92a4",
+      "target_facility_id": "osm/way/1296119881",
+      "target_facility_name": "Heritage of Hawk Ridge Golf Club",
+      "reason": "Frozen raw OSM name is Heritage of Hawk Ridge on both source and containing way; only public catalog appends Golf Club. Official operator confirms one executive-nine venue.",
+      "evidence": [
+        "https://heritageofhawkridge.com/golf/",
+        "https://www.openstreetmap.org/api/0.6/relation/3939926/4",
+        "https://www.openstreetmap.org/api/0.6/way/1296119881/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.30981907363507316,
+        "iou": 0.309819073635073,
+        "source_geometry_sha256": "bee23906013cb954f748dd0ddefd2f54a080303a33aaeaad9daa99b80d766de3",
+        "target_geometry_sha256": "60e8607f87a97f014b897b435933163c00c6f8c6a05ee9633cf96492acd976e2"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/4015713",
+      "source_name": "Heritage Isles Golf and Country Club",
+      "source_sha256": "24a49abef335d9d1c189ce8d368455a6c2259d19a6c2700eb59984e91e431b6e",
+      "target_facility_id": "osm/way/302007388",
+      "target_facility_name": "Heritage Isles",
+      "reason": "explicitly reviewed same-place relation-member alias; distinct named layouts excluded",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/4015713/3",
+        "https://www.openstreetmap.org/api/0.6/way/302007388/4"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999989,
+        "target_fraction_in_source": 0.7936167928165844,
+        "iou": 0.793616792816585,
+        "source_geometry_sha256": "4cc04f5230341b512698f9a675f2667fb3caae940903fe64ce35a1586ad05811",
+        "target_geometry_sha256": "d4f2620247ebdad61ca4eb188573134ec47bd59cd13af5d566b744cc7111762f"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/4680202",
+      "source_name": "Marsh Creek Country Club",
+      "source_sha256": "ce21c33b38193f1f66f50f9725002a4876e028eefabe940e53b60e3c9323e86b",
+      "target_facility_id": "osm/way/1546323804",
+      "target_facility_name": "Marsh Creek",
+      "reason": "Official operator uses Marsh Creek and Marsh Creek Country Club for same St Augustine venue and identifies one 18-hole layout; frozen parent is Marsh Creek in Saint Augustine 32080. Explicit facility alias, not a named sibling layout.",
+      "evidence": [
+        "https://www.invitedclubs.com/clubs/marsh-creek-country-club",
+        "https://www.openstreetmap.org/api/0.6/relation/4680202/3",
+        "https://www.openstreetmap.org/api/0.6/way/1546323804/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.2523888154966695,
+        "iou": 0.25238881549666947,
+        "source_geometry_sha256": "23700e1f27c1b73512bb41770aebe4bec8fcbc706bf3a7a5e45ed79e93f460e8",
+        "target_geometry_sha256": "237545089c49f0b966380babcb3bb1529e3c758085aaae420b1c7a811f441415"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/5170961",
+      "source_name": "Charwood Golf Club",
+      "source_sha256": "3ddcc66e764b92dce4d07f8d4fe6d752fd98e4795d4fd20b2a16cdec33091176",
+      "target_facility_id": "osm/way/346679463",
+      "target_facility_name": "Charwood Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/5170961/3",
+        "https://www.openstreetmap.org/api/0.6/way/346679463/5"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.8838740461288768,
+        "iou": 0.8838740461288767,
+        "source_geometry_sha256": "af257f39b0af50a82bd69ffe9bd2669edb1ec8a0e821012f42ef5a619f3e9366",
+        "target_geometry_sha256": "dda5a55eb7c17489f75fbc3e597856033ae24114fe0b0dbc18606aaefdaa2705"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/6413045",
+      "source_name": "Mill Creek Golf Club",
+      "source_sha256": "bd4aae22b7c356ce044538d9ceef2b25878200dfd9736c6699a7b0e0eb42f456",
+      "target_facility_id": "osm/way/1550646771",
+      "target_facility_name": "Mill Creek",
+      "reason": "Official directions use Golf Mill Creek and Mill Creek interchangeably, with copyright Mill Creek Golf Club and matching 1700 St Andrews Drive, Mebane. Contained parent name/locality identifies same venue.",
+      "evidence": [
+        "https://www.golfmillcreek.com/contact-us/directions/",
+        "https://www.openstreetmap.org/api/0.6/relation/6413045/2",
+        "https://www.openstreetmap.org/api/0.6/way/1550646771/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 0.32016271166180027,
+        "iou": 0.32016271166180027,
+        "source_geometry_sha256": "6d10a09852c96cc51d5feaaec990b859d9b7ded12f6f9913d66323cecc28cbf4",
+        "target_geometry_sha256": "58b80a0c04ce925c3259299e9ab31c9745237a3ce06e3da0ab9553ef6c49ddd1"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/7881067",
+      "source_name": "Orchard Valley Golf Course",
+      "source_sha256": "0e470235f9ffc193599641b1d1c89c20b5155e3930d33b1161230c2bab07f720",
+      "target_facility_id": "osm/way/478328355",
+      "target_facility_name": "Orchard Vally Golf Course",
+      "reason": "explicitly reviewed same-place relation-member alias; distinct named layouts excluded",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/7881067/2",
+        "https://www.openstreetmap.org/api/0.6/way/478328355/11"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999997,
+        "target_fraction_in_source": 0.6767111152635686,
+        "iou": 0.6767111152635689,
+        "source_geometry_sha256": "b37641d308ad56228c9e6d0154141817ae6d64eefaaf10d2a46154114885d818",
+        "target_geometry_sha256": "f6a1bc9e916a1e9ca82ab8449a0d282fd202ff98f01f5b5b4f3dd028f7e773d4"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/8064379",
+      "source_name": "Slick Rock",
+      "source_sha256": "9c672c6ee924626677672d3c8a093a360049d39c67b969b9405e738a7f330eb4",
+      "target_facility_id": "osm/way/563513967",
+      "target_facility_name": "Slick Rock Golf Course",
+      "reason": "explicitly reviewed same-place relation-member alias; distinct named layouts excluded",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/8064379/1",
+        "https://www.openstreetmap.org/api/0.6/way/563513967/6"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999996,
+        "target_fraction_in_source": 0.7125646347568986,
+        "iou": 0.7125646347568988,
+        "source_geometry_sha256": "7d449f479c9b5e64f097242110e5349f15506da654f4fd5c3d283678dc43eb71",
+        "target_geometry_sha256": "d86c7b82830b9dc8cf5577b5558414dbe0a360eefa202a7049f7a0c1ce22d0d1"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/8347071",
+      "source_name": "Springbrook Golf Club",
+      "source_sha256": "f0de93ecba9e3c335dc17656e938ad057010a0cac6b6d62931c9dddcf75ac9fa",
+      "target_facility_id": "osm/way/467827648",
+      "target_facility_name": "Springbrook Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/8347071/4",
+        "https://www.openstreetmap.org/api/0.6/way/467827648/5"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.999999999999999,
+        "target_fraction_in_source": 0.8829238628460108,
+        "iou": 0.8829238628460114,
+        "source_geometry_sha256": "711587bdf3c06de93fdfebeb3d91041b3e27b106ba4f520d9df1817d8e40f755",
+        "target_geometry_sha256": "4300338feb70221a8c83f7caf5207a06aa905b3d68e6c65d641ba0f98f467c5b"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/relation/9690623",
+      "source_name": "The Golf Club of Amelia Island",
+      "source_sha256": "9e0e50e3f8974e079df5b2a4696440869446e99839a0fdf484b53bee769f19dc",
+      "target_facility_id": "osm/relation/9690622",
+      "target_facility_name": "The Golf Club of Amelia Island",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/9690622/2",
+        "https://www.openstreetmap.org/api/0.6/relation/9690623/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.000000000000001,
+        "target_fraction_in_source": 0.7757073173094741,
+        "iou": 0.7757073173094734,
+        "source_geometry_sha256": "15571ea066a4f1fcda08fb960fa47cbc64b1156e2ebe4b3bcd99ba2f30fa79e3",
+        "target_geometry_sha256": "25c722bc2d46cd947317de34be618f2fba4beeb53ead0ec938299650536189fd"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1004609967",
+      "source_name": "Fox Den Country Club",
+      "source_sha256": "e5ac9b7c5550caaf5cb6b45c1cd3b5b27254ce3165192b539addeeb61db8ee37",
+      "target_facility_id": "osm/relation/20769235",
+      "target_facility_name": "Fox Den Golf and Country Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/20769235/1",
+        "https://www.openstreetmap.org/api/0.6/way/1004609967/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999997,
+        "target_fraction_in_source": 0.3767037840153464,
+        "iou": 0.3767037840153465,
+        "source_geometry_sha256": "cdf00897321215b480e45617d6802cff3c52f55aa98485a164a7bbbcb81c9a8a",
+        "target_geometry_sha256": "578279b8726a9887b8f6f0e3b5be8341761dc6491e897056c0b7798a41fcd4e2"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1026613499",
+      "source_name": "Territory Golf & Country Club",
+      "source_sha256": "9be959664709baf4749f5646381bcc1fb652a6c61723e488ebd963724cd993ed",
+      "target_facility_id": "osm/way/1317006683",
+      "target_facility_name": "The Territory Golf & Country Club",
+      "reason": "Official Territory membership page establishes the named facility at 800 Territory Lane in Duncan, matching child address; containing parent differs only by The. Tiny child area does not establish a separately named layout.",
+      "evidence": [
+        "https://territorygolf.com/Membership---New-2023",
+        "https://www.openstreetmap.org/api/0.6/way/1026613499/2",
+        "https://www.openstreetmap.org/api/0.6/way/1317006683/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.00037111857781652757,
+        "iou": 0.00037111857781652757,
+        "source_geometry_sha256": "cd8c601bcacc0f986c3090a21ec35f35739d681ad3c6d977fe7f106470ececdb",
+        "target_geometry_sha256": "b10326df4b361e9e36288497fb3a7e0a0f024e0c847591c34b970800eb8d734e"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1026628307",
+      "source_name": "Twin Oaks Golf Club",
+      "source_sha256": "219d3df477cf0f9fa181724b114d171fcac4286f55ee2d246304d4b0cabf3410",
+      "target_facility_id": "osm/way/362084670",
+      "target_facility_name": "Twin Oaks Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1026628307/2",
+        "https://www.openstreetmap.org/api/0.6/way/362084670/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.0006752018996812033,
+        "iou": 0.0006752018996812034,
+        "source_geometry_sha256": "450c4cb3d220c456834fd2f09e749fa270b78d147d05b1d832ba91cb28774620",
+        "target_geometry_sha256": "db465ff05af9a80d64318c029403526496833e1aa85a49b895e44267ced45032"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1026675410",
+      "source_name": "Twin Oaks Golf Course",
+      "source_sha256": "8952fad15f0f3e094f74ccf624b0e2abf45c3a2f7c51a1884c6199155c91aed7",
+      "target_facility_id": "osm/way/351271586",
+      "target_facility_name": "Twin Oaks Golf Course",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1026675410/1",
+        "https://www.openstreetmap.org/api/0.6/way/351271586/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.0007759538260797744,
+        "iou": 0.0007759538260797743,
+        "source_geometry_sha256": "498a943552369b918bc210bc8dc6463c4bb2b84292905d8e94f122978bd81737",
+        "target_geometry_sha256": "0a4d9c4558691e38114141346f3b654f1304e8d8b81d48a78e6f9fa7545b4aae"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1097136830",
+      "source_name": "Harbour Pointe Golf Club",
+      "source_sha256": "03db6fae19ef2c09968a76bbb5bbbf41800a67f596c815fbc1a390ddd7247d1b",
+      "target_facility_id": "osm/relation/296832",
+      "target_facility_name": "Harbour Pointe Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/296832/6",
+        "https://www.openstreetmap.org/api/0.6/way/1097136830/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.014310778355351913,
+        "iou": 0.014310778355351906,
+        "source_geometry_sha256": "d176321485f2a8c9eba32024e05bfe04898737d18355d91a622b7f44a44782d5",
+        "target_geometry_sha256": "aa9574a0a8d9a9512211744f8b06fe12959b36613a37f31173b1026e986d6138"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1111533765",
+      "source_name": "Weston Hills Country Club Golf Course",
+      "source_sha256": "e34ad8af0c2b5bb8c3adf5a47deeaf607a42630e97c9a1d9500e5b6b1d047e8f",
+      "target_facility_id": "osm/relation/9329885",
+      "target_facility_name": "Weston Hills Golf Course",
+      "reason": "Both frozen sources share exact 2600 Country Club Way address and same official website. Operator confirms Weston Hills venue there; no individual Tour/Players course label on child. Explicit same-facility merge, not new generic course.",
+      "evidence": [
+        "https://arcisgolf.com/clubs/the-club-at-weston-hills/home",
+        "https://www.openstreetmap.org/api/0.6/relation/9329885/6",
+        "https://www.openstreetmap.org/api/0.6/way/1111533765/3"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.03465162881931193,
+        "iou": 0.03465162881931195,
+        "source_geometry_sha256": "007acb156b0f6f8344d4895c43a66b0e0f2a579db93dbd8cba0cc1bf396424c5",
+        "target_geometry_sha256": "e6a9c9d29e8b69c582e0f0e6d9bc27fa9442d557e941b1533f2c7115f84bc63d"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1240649685",
+      "source_name": "Brentwood Country Club",
+      "source_sha256": "76e68d729ab4d4d6dc2ef490d04a1f7f890400ff41f8e3519cccedf0d0ce03c3",
+      "target_facility_id": "osm/relation/18254485",
+      "target_facility_name": "Brentwood Country Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/18254485/1",
+        "https://www.openstreetmap.org/api/0.6/way/1240649685/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 0.002486542639792504,
+        "iou": 0.0024865426397925046,
+        "source_geometry_sha256": "22a99b34431652fbc604ff241c3818a484dd781acdd6f9a820dc3db9bc369089",
+        "target_geometry_sha256": "1a4d746602d9373d6749ce2118d66567041dd003f15249966b13a99ddc4e3827"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/129019595",
+      "source_name": "Windy Knoll Golf Club",
+      "source_sha256": "22eecd300b864a1bf90041d54196a1d8447eeac47ef7d4f23d1aecd9bb589f6f",
+      "target_facility_id": "f-9755d33d-078f-4665-9796-fb187c9c7831",
+      "target_facility_name": "Windy Knoll Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/129019595/7",
+        "https://www.openstreetmap.org/f-9755d33d-078f-4665-9796-fb187c9c7831"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 0.5346004816948374,
+        "iou": 0.5346004816948375,
+        "source_geometry_sha256": "05e3fb515fc568c28c95a9d8144fb86a72d4ed985d56a50210414ce99839ff8d",
+        "target_geometry_sha256": "b1930e7cfddd4eee5211b3ef1f938a268a5ff4a2f9c5a2f5543733b74a793b5a"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/129021257",
+      "source_name": "Windy Knoll Golf Club",
+      "source_sha256": "36e1fac1abff146ebf0dd48441b2e0517412fb04a286105ec86523b9fae8e623",
+      "target_facility_id": "f-9755d33d-078f-4665-9796-fb187c9c7831",
+      "target_facility_name": "Windy Knoll Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/129021257/10",
+        "https://www.openstreetmap.org/f-9755d33d-078f-4665-9796-fb187c9c7831"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.46539951830516213,
+        "iou": 0.4653995183051622,
+        "source_geometry_sha256": "07333bca13d484ef059f593c2b14d8e73b167e4a4f33248f712808adafbd9ca6",
+        "target_geometry_sha256": "b1930e7cfddd4eee5211b3ef1f938a268a5ff4a2f9c5a2f5543733b74a793b5a"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1309052835",
+      "source_name": "Tower Tee Golf & Recreation",
+      "source_sha256": "1495654909d26be9d91696e222591584ab08cf60925d01d93839fb5df030451d",
+      "target_facility_id": "osm/way/151292016",
+      "target_facility_name": "Tower Tee",
+      "reason": "Official operator uses Tower Tee and Tower Tee Golf & Recreation interchangeably at exact child address 6727 Heege Road. Child is tiny named venue feature, not explicitly the par-three course; preserve venue scope.",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1309052835/3",
+        "https://www.openstreetmap.org/api/0.6/way/151292016/3",
+        "https://www.towertee.com/"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999997,
+        "target_fraction_in_source": 0.0062159886097444645,
+        "iou": 0.006215988609744465,
+        "source_geometry_sha256": "015423cc4ac77e76ec708ef8b3c0ceea622ed10b46cb260ba3b7182b48e013ed",
+        "target_geometry_sha256": "b31c1edc0683c79b5457359cdf29679ed74381c65a599aa69b0e1566fccbf2c1"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1520259591",
+      "source_name": "Fox Den Country Club",
+      "source_sha256": "4fd936a28a3024826d673575d22a150171274c557f8b5819619af05d624b4103",
+      "target_facility_id": "osm/relation/20769235",
+      "target_facility_name": "Fox Den Golf and Country Club",
+      "reason": "polygon IoU >= 0.98",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/20769235/1",
+        "https://www.openstreetmap.org/api/0.6/way/1520259591/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 1.0000000000000004,
+        "iou": 1.0,
+        "source_geometry_sha256": "578279b8726a9887b8f6f0e3b5be8341761dc6491e897056c0b7798a41fcd4e2",
+        "target_geometry_sha256": "578279b8726a9887b8f6f0e3b5be8341761dc6491e897056c0b7798a41fcd4e2"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1547185716",
+      "source_name": "Woodlands",
+      "source_sha256": "afee98733144ffc88dc61f8345f9c7b67f879c7a560006f9ff753d63544f4990",
+      "target_facility_id": "osm/relation/21187204",
+      "target_facility_name": "Woodlands Championship Golf Course",
+      "reason": "explicitly reviewed same-place relation-member alias; distinct named layouts excluded",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/21187204/3",
+        "https://www.openstreetmap.org/api/0.6/way/1547185716/3"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 0.22621447338298872,
+        "iou": 0.22621447338298878,
+        "source_geometry_sha256": "373ad1f5f6cf9c2c709c852fa3fa3522b89cc8d7f3ed004024e076d13cf7b4af",
+        "target_geometry_sha256": "076d851df8894f31e31aac2b16b648d66f8295e8e2c413b287784ba02e2cfea8"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1547240468",
+      "source_name": "Woodlands",
+      "source_sha256": "da28a149ce34710c2cf3abaca8968e36ceb7818a6d200daa0e011f8907e79008",
+      "target_facility_id": "osm/relation/21187204",
+      "target_facility_name": "Woodlands Championship Golf Course",
+      "reason": "explicitly reviewed same-place relation-member alias; distinct named layouts excluded",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/21187204/3",
+        "https://www.openstreetmap.org/api/0.6/way/1547240468/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.09722326545829679,
+        "iou": 0.09722326545829683,
+        "source_geometry_sha256": "020ee31a8a9d54dbcfdbbec8184de64a320e11413f38e3c9e3e2f7d02a5754b4",
+        "target_geometry_sha256": "076d851df8894f31e31aac2b16b648d66f8295e8e2c413b287784ba02e2cfea8"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1547303905",
+      "source_name": "Woodlands",
+      "source_sha256": "f40ca978b3c470ba7bcd3b11c39a7797b9740f4745f620111463b8a1c1ef6740",
+      "target_facility_id": "osm/relation/21187204",
+      "target_facility_name": "Woodlands Championship Golf Course",
+      "reason": "explicitly reviewed same-place relation-member alias; distinct named layouts excluded",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/21187204/3",
+        "https://www.openstreetmap.org/api/0.6/way/1547303905/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.6765622611587147,
+        "iou": 0.6765622611587145,
+        "source_geometry_sha256": "4c3bb81af4044ed1629529ae0c4c4b6bd92ad721b6f74144b4b492ce61587a04",
+        "target_geometry_sha256": "076d851df8894f31e31aac2b16b648d66f8295e8e2c413b287784ba02e2cfea8"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/1553336228",
+      "source_name": "Glade Valley Golf Club",
+      "source_sha256": "0521b828275dbb83283302db2119f41b1011e239c1c814998e83b4134f4b1000",
+      "target_facility_id": "osm/way/298237540",
+      "target_facility_name": "Glade Valley Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1553336228/1",
+        "https://www.openstreetmap.org/api/0.6/way/298237540/4"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.0006376955632804687,
+        "iou": 0.0006376955632804687,
+        "source_geometry_sha256": "3751053d557c1fa26b9b7faa1600484194fd0517336f4449bfa389a26eee3a1e",
+        "target_geometry_sha256": "72b082a476fa1241b0796fd92997075ecd72b889be22e651139d0a459aec575a"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/231875601",
+      "source_name": "Sioux City Country Club",
+      "source_sha256": "bdbe237c71fa9c96eaa9942985972b02ce3a44cd61b42f8c94d28fdc4716827a",
+      "target_facility_id": "osm/way/231875593",
+      "target_facility_name": "Sioux City Country Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/231875593/4",
+        "https://www.openstreetmap.org/api/0.6/way/231875601/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.002178867344201457,
+        "iou": 0.002178867344201456,
+        "source_geometry_sha256": "d33fa9368109426bf81c04203358999eb5a40fa1b1db4b6496f78c1729d842d6",
+        "target_geometry_sha256": "8f3de4d5f7b790f9d24410909e30e1a49b6e3099a163feb09b45c3fc6f3f5000"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/232819008",
+      "source_name": "Stallion Mountain",
+      "source_sha256": "cf37890229e4d7704bbc05b5dcb2e748fad459838f25481d8d1f20bf80687e6b",
+      "target_facility_id": "osm/relation/3558655",
+      "target_facility_name": "Stallion Mountain Golf Club",
+      "reason": "explicitly reviewed same-place relation-member alias; distinct named layouts excluded",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3558655/6",
+        "https://www.openstreetmap.org/api/0.6/way/232819008/7"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 0.9548075009044109,
+        "iou": 0.9548075009044105,
+        "source_geometry_sha256": "8a4fdcb0a5e675619bb0fbd871f155a1bcfbf9b9cea7572b6bbe83f2883f0c48",
+        "target_geometry_sha256": "dfa99054d618c42477cdad7d1c86cf30a32e9742c6856cd7f1d0b5c301e7e8fb"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/239958041",
+      "source_name": "Ko'olau Golf Club",
+      "source_sha256": "1a9786aea550755c42954dc721a89222d4d2ab536d282a3ea8bd4f2f3194732e",
+      "target_facility_id": "osm/relation/11124772",
+      "target_facility_name": "Ko'olau Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/11124772/24",
+        "https://www.openstreetmap.org/api/0.6/way/239958041/10"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.9999999999999998,
+        "iou": 1.0,
+        "source_geometry_sha256": "58f7d3cf269e35c2b66dc4c0c50c17c797fc785e628d2cc62570f7a41ac49127",
+        "target_geometry_sha256": "58f7d3cf269e35c2b66dc4c0c50c17c797fc785e628d2cc62570f7a41ac49127"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/252220497",
+      "source_name": "Hidden Trails Golf & Country Club",
+      "source_sha256": "f3b1b06faafe320522096be18ad4ff14c725e75c0e1be64cdf6deb9f4504863a",
+      "target_facility_id": "osm/way/270520986",
+      "target_facility_name": "Hidden Trails Golf & Country Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/252220497/3",
+        "https://www.openstreetmap.org/api/0.6/way/270520986/8"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999993,
+        "target_fraction_in_source": 0.004404477883523393,
+        "iou": 0.00440447788352339,
+        "source_geometry_sha256": "9857eb0f53a3aec10cfebf5aff9023579e35511f301b1343a13a676822718010",
+        "target_geometry_sha256": "070e4fb4b8144985d918f486694041113956af895c584fba72d667bf78b6acc7"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/393079215",
+      "source_name": "Old Kinderhook Resort, Golf, Club & Spa",
+      "source_sha256": "5981affa45afd59d9b40be0287816ae323b77006585c8c21a4c229a23d4a9da3",
+      "target_facility_id": "osm/relation/11275143",
+      "target_facility_name": "Old Kinderhook Resort, Golf, Club & Spa",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/11275143/1",
+        "https://www.openstreetmap.org/api/0.6/way/393079215/16"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.9999999999999998,
+        "iou": 1.0,
+        "source_geometry_sha256": "fbf2c01c12e31e4ef2c272c48abfb4b427d6eab09fd6d0b30564dfac19ceb8ab",
+        "target_geometry_sha256": "fbf2c01c12e31e4ef2c272c48abfb4b427d6eab09fd6d0b30564dfac19ceb8ab"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/405199506",
+      "source_name": "Belle Glade Municipal Golf Club",
+      "source_sha256": "83dcbedc949c470c8971167383e5dbd661ee2252c4aa2b5f8d19bb4bfb7769d1",
+      "target_facility_id": "osm/relation/21669302",
+      "target_facility_name": "Belle Glade Municipal Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/21669302/1",
+        "https://www.openstreetmap.org/api/0.6/way/405199506/5"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.3623838286991083,
+        "iou": 0.3623838286991083,
+        "source_geometry_sha256": "73f5e82e8d0b0cda10b23e25efe7a5673f8c8e019cb87324ec34fad9a7af6e0f",
+        "target_geometry_sha256": "6f569b0f9d334c7cd2e655032568c4329a30cda216e857cc084bff845419999b"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/405236502",
+      "source_name": "Belle Glade Municipal Golf Club",
+      "source_sha256": "19d3ece496a10d63047d52eceb90d1aac5d5615e936ded0ceadac7c6ba627843",
+      "target_facility_id": "osm/relation/21669302",
+      "target_facility_name": "Belle Glade Municipal Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/21669302/1",
+        "https://www.openstreetmap.org/api/0.6/way/405236502/3"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.6376161713008917,
+        "iou": 0.6376161713008917,
+        "source_geometry_sha256": "b27098142e2c41e69a8c67c757baa97aed563fedefdf862ca29d9ae06d71908a",
+        "target_geometry_sha256": "6f569b0f9d334c7cd2e655032568c4329a30cda216e857cc084bff845419999b"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/412547640",
+      "source_name": "Lake Arlington Golf Course",
+      "source_sha256": "801ce7dbfa2a271b405ae3c0660f5dbece5af5b427b53cb7baf931c8e3113b4f",
+      "target_facility_id": "osm/way/412547642",
+      "target_facility_name": "Lake Arlington Golf Course",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/412547640/2",
+        "https://www.openstreetmap.org/api/0.6/way/412547642/4"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.0004401839476283323,
+        "iou": 0.0004401839476283321,
+        "source_geometry_sha256": "b068f55a2a5e53deed3f7e1c7a61ed9b103be4d552f71767d236b3a1072b5e10",
+        "target_geometry_sha256": "1b49ff1c10c307cf8f4a0da5d0f5d7ebff42909a394797ac99d99ba56c77622c"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/42160369",
+      "source_name": "Fox Hollow",
+      "source_sha256": "180a684c8a21e692c7cc9cf07c29bb20f75bcb19889fcf29af86d77eedb04014",
+      "target_facility_id": "osm/way/1509566450",
+      "target_facility_name": "Fox Hollow Golf Course",
+      "reason": "Official city operator explicitly uses Fox Hollow and Fox Hollow Golf Course for the same 27-hole venue. Child has only generic venue name and no Canyon/Meadow/Links layout label. Frozen contained geometry supports explicit venue alias merge.",
+      "evidence": [
+        "https://www.golflakewood.com/Fox-Hollow-Golf-Course",
+        "https://www.openstreetmap.org/api/0.6/way/1509566450/1",
+        "https://www.openstreetmap.org/api/0.6/way/42160369/4"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.999999999999999,
+        "target_fraction_in_source": 0.24221959066744922,
+        "iou": 0.2422195906674492,
+        "source_geometry_sha256": "0a12069f257a9a6d41f84a6f85211beae72a5cdf0b7d35d498574dc8c45e9ee4",
+        "target_geometry_sha256": "f48aceb407cb0c747ed886e6629f07ed9749609e1e04559d3963b2395f7a41a8"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/44500947",
+      "source_name": "The Heights Country Club",
+      "source_sha256": "5db0adc7896b83a4cece8f0ea4c3897d90c84b4221f8225445144d0caa429a3d",
+      "target_facility_id": "osm/relation/3566984",
+      "target_facility_name": "Bernardo Heights Country Club",
+      "reason": "Explicit frozen member of Bernardo Heights relation3566984. Official Heights course matches venue/address, a single par72 championship layout. Member name is whole club alias, not named sibling layout.",
+      "evidence": [
+        "https://www.invitedclubs.com/clubs/the-heights-golf-club/our-story",
+        "https://www.openstreetmap.org/api/0.6/relation/3566984/3",
+        "https://www.openstreetmap.org/api/0.6/way/44500947/9"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.2127428409958111,
+        "iou": 0.21274284099581117,
+        "source_geometry_sha256": "f44d86aa9ddf0b1d2200cf3d62d295297a76315c066148d2cb06d0175cd28dc8",
+        "target_geometry_sha256": "e7fa4816bcec29af2b12a7368acb6a54d65a217472da28d454e59afa6596e3c6"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/44501324",
+      "source_name": "The Heights Country Club",
+      "source_sha256": "4f61579f74c19f8a529455dec7e541edae2fc3229819171905563695fa79e10d",
+      "target_facility_id": "osm/relation/3566984",
+      "target_facility_name": "Bernardo Heights Country Club",
+      "reason": "Explicit frozen member of Bernardo Heights relation3566984; child address16066 Bernardo Heights Parkway matches official Heights. Single par72 layout supports whole-club alias, not another course.",
+      "evidence": [
+        "https://www.invitedclubs.com/clubs/the-heights-golf-club/our-story",
+        "https://www.openstreetmap.org/api/0.6/relation/3566984/3",
+        "https://www.openstreetmap.org/api/0.6/way/44501324/11"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000009,
+        "target_fraction_in_source": 0.4396276117325311,
+        "iou": 0.43962761173253107,
+        "source_geometry_sha256": "c654381b782bdfd9f2568e48be4e4b3b86f5f634bce0aa94a686ecb839d14a5b",
+        "target_geometry_sha256": "e7fa4816bcec29af2b12a7368acb6a54d65a217472da28d454e59afa6596e3c6"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/456281177",
+      "source_name": "Indian Hills Golf Club",
+      "source_sha256": "f5a797c167b5326ed22b5ae76a388adedc92498275fa21e3e97033466b4a6773",
+      "target_facility_id": "osm/relation/14515231",
+      "target_facility_name": "Indian Hills Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/14515231/3",
+        "https://www.openstreetmap.org/api/0.6/way/456281177/14"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999996,
+        "target_fraction_in_source": 0.9999999999999996,
+        "iou": 1.0,
+        "source_geometry_sha256": "981f3c5c2cc008033d1889474f74384c1728b399578b80e28bc2b5bf26cb4cb0",
+        "target_geometry_sha256": "981f3c5c2cc008033d1889474f74384c1728b399578b80e28bc2b5bf26cb4cb0"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/505062133",
+      "source_name": "Rolling Fields Golf Course",
+      "source_sha256": "4b2b19272ce27a2d93d840e91cf45eb0385b6ce9609c2a90876271d595602362",
+      "target_facility_id": "osm/relation/7374706",
+      "target_facility_name": "Rolling Fields Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/7374706/2",
+        "https://www.openstreetmap.org/api/0.6/way/505062133/3"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.4495504214714399,
+        "iou": 0.4495504214714399,
+        "source_geometry_sha256": "2ab79b849ef820dad1d4a88dceacac06e5272c5c59060822f14fc48e96e2592e",
+        "target_geometry_sha256": "87107129b0d88f4cf0f1cd28a0f3ee8a178f7e933fdebbd2e1fa8a2043cc1837"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/505062134",
+      "source_name": "Rolling Fields Golf Course",
+      "source_sha256": "b32d3c5661d876be57719ce5a1abdd328201900aa43e2287e4bcb5928491fcc7",
+      "target_facility_id": "osm/relation/7374706",
+      "target_facility_name": "Rolling Fields Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/7374706/2",
+        "https://www.openstreetmap.org/api/0.6/way/505062134/4"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.55044957852856,
+        "iou": 0.5504495785285601,
+        "source_geometry_sha256": "5c2ac6a1bd26476370b777680b9288f039993ded921fea7ebbd1f436c9df0692",
+        "target_geometry_sha256": "87107129b0d88f4cf0f1cd28a0f3ee8a178f7e933fdebbd2e1fa8a2043cc1837"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/548260932",
+      "source_name": "Stonebridge Golf Club",
+      "source_sha256": "7ebcdfddf35e349a91e6900cf08ffa35c6979e25808c2030a6d60cf211b135d7",
+      "target_facility_id": "osm/relation/21291293",
+      "target_facility_name": "Stonebridge Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/21291293/1",
+        "https://www.openstreetmap.org/api/0.6/way/548260932/4"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.0013215402743898142,
+        "iou": 0.0013215402743898149,
+        "source_geometry_sha256": "3bd3871fa6ffd4a4c7b77b9b2093d9886d55affb11b84720a3782c59ab00a783",
+        "target_geometry_sha256": "71114ac6299b4427581cfc89d208288ce75a1c3cb617fc22105a180ae6b17be0"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/565507812",
+      "source_name": "Gulf Shores Gulf Club",
+      "source_sha256": "c163bca15548ba006ad81664ae297bf6f75dafe659521d871a169a90bda1a94e",
+      "target_facility_id": "osm/relation/20708793",
+      "target_facility_name": "Gulf Shores Golf Club",
+      "reason": "Official Gulf Shores Golf Club address520 Clubhouse Drive matches both source features. Retained source-layer identity note explicitly binds Gulf Shores old_name to parent raw name The Golf Club of the Wharf. Gulf/Golf typo child is same facility; reuse existing course inventory.",
+      "evidence": [
+        "https://gulfshoresgolfclub.com/",
+        "https://www.openstreetmap.org/api/0.6/relation/20708793/1",
+        "https://www.openstreetmap.org/api/0.6/way/565507812/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.0012069194910035244,
+        "iou": 0.001206919491003525,
+        "source_geometry_sha256": "bb3bc03279ae4b34310ca90006a1b37dbdb2452346efcaaac705bb268636b41c",
+        "target_geometry_sha256": "ad02eb758057633638c336c5f13054712cf43e83a88a9307cc9194f598fc9302"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/606783231",
+      "source_name": "Mount Prospect Golf Course",
+      "source_sha256": "db36f2fe6bc484c48077201e2d2cdfd4e42ebed4c068a46b11316a5d39c4d91e",
+      "target_facility_id": "osm/way/22176790",
+      "target_facility_name": "Mount Prospect Golf Course",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/22176790/18",
+        "https://www.openstreetmap.org/api/0.6/way/606783231/12"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 1.0000000000000002,
+        "iou": 1.0,
+        "source_geometry_sha256": "55e39cfcfabdac24e5a5ed6460474d019fceb213f635cdecaed6461e66cc0ce6",
+        "target_geometry_sha256": "55e39cfcfabdac24e5a5ed6460474d019fceb213f635cdecaed6461e66cc0ce6"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/621343784",
+      "source_name": "Spring Valley Golf Course",
+      "source_sha256": "02d9fb314072e303a04d978cb0053ed449dfad080581449c33857748f7acba85",
+      "target_facility_id": "osm/way/632676435",
+      "target_facility_name": "Spring Valley Golf Club",
+      "reason": "Both frozen source features have exact42350 County Road17/21 Elizabeth80107 address. Official Spring Valley site uses Golf Course within Golf Club page at same address, supporting explicit same-facility alias.",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/621343784/3",
+        "https://www.openstreetmap.org/api/0.6/way/632676435/8",
+        "https://www.springvalleygolf.com/contact-us/",
+        "https://www.springvalleygolf.com/course-details/"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.0007684827330217287,
+        "iou": 0.0007684827330217287,
+        "source_geometry_sha256": "7aa0796b82ce30c9ffe72ae603eac6b84cf594499396988fefdde3f2ccdfc2a8",
+        "target_geometry_sha256": "36e462d6142b728de62e232a11212c79c9850d42304c43d35444bb0a96d391c4"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/670618911",
+      "source_name": "Donald Ross Golf Club",
+      "source_sha256": "cff4cb33acf8977be7532cf717d4d6bd5fd1f8d3b1367b7e0a8f1911598e3f7b",
+      "target_facility_id": "osm/way/30967460",
+      "target_facility_name": "Donald Ross Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/30967460/5",
+        "https://www.openstreetmap.org/api/0.6/way/670618911/3"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.002925173131186947,
+        "iou": 0.0029251731311869473,
+        "source_geometry_sha256": "9dc3c006eb2e6c720d4736f25214bdf9cf406c70522dd7a404f78799f33d236f",
+        "target_geometry_sha256": "ca17caa894218733bf98fc969e9c9f8914bfa0a8935dc7889dc75c682ce13344"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/728173804",
+      "source_name": "Trout Lake Golf Club",
+      "source_sha256": "6817020b150f66d6ca23cb9c8b14fa60fd68cbb142c2acf31c3e20d4e359ce39",
+      "target_facility_id": "osm/relation/11553172",
+      "target_facility_name": "Trout Lake Golf Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/11553172/3",
+        "https://www.openstreetmap.org/api/0.6/way/728173804/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.00021260951859162475,
+        "iou": 0.00021260951859162502,
+        "source_geometry_sha256": "7559239b04eed7965476caff1bbc164a2a79bf9a64db4e13bcbbfc8cf324d9d7",
+        "target_geometry_sha256": "f87d09f7b0ac915d3b9877e1c43d3444a4d33511faa5282e148a25f1ac901190"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/736671946",
+      "source_name": "Dead Horse Lake",
+      "source_sha256": "cff7a3bc7348afd5fbd3304f66251560a185f0136f37b9b913d6198ef5e50aa2",
+      "target_facility_id": "osm/relation/13646276",
+      "target_facility_name": "Dead Horse Lake Golf Course",
+      "reason": "Official operator uses Dead Horse Lake and Dead Horse Lake Golf Course interchangeably for one18-hole venue at555 Frank Gardner Lane. Source is generic venue alias, not a separately named layout.",
+      "evidence": [
+        "https://deadhorselake.com/",
+        "https://www.openstreetmap.org/api/0.6/relation/13646276/4",
+        "https://www.openstreetmap.org/api/0.6/way/736671946/4"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999997,
+        "target_fraction_in_source": 0.051298990189258466,
+        "iou": 0.051298990189258487,
+        "source_geometry_sha256": "fb8e944cc0cbf84dbdb8858f3a307bc1801ec5135fb08eed2272ffcf3e1cf4f2",
+        "target_geometry_sha256": "9714f5e9f0297095814941a87bc6dedae970fe7a84ebedb79a9f039b33d8849a"
+      }
+    },
+    {
+      "rule": "a",
+      "action": "merge_facility",
+      "source_id": "osm/way/969679887",
+      "source_name": "Del Mar Country Club",
+      "source_sha256": "089b57ab3f15cfcd99045cdee0c564a5a9df97a30612f8497f26b7f99c3eb058",
+      "target_facility_id": "osm/relation/20410537",
+      "target_facility_name": "Del Mar Country Club",
+      "reason": "exact normalized full catalog/source name",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/20410537/2",
+        "https://www.openstreetmap.org/api/0.6/way/969679887/4"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 0.8475882382543976,
+        "iou": 0.8475882382543973,
+        "source_geometry_sha256": "72433ad2e51401bae9f048e1efd0687d850ffda419c8f7b2ce72bc06602e440b",
+        "target_geometry_sha256": "aeff6f6c2c66816ea8186673a01f862a363b100e6406e8f9ab906f6b605f703c"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/relation/7091534",
+      "source_name": "George W. Dunne National Driving Range",
+      "source_sha256": "02bb3f4b161c02fe215d0a9d02a1be57243ef926670813a5b2e73d53c2a15b3b",
+      "target_facility_id": "osm/way/175667463",
+      "target_facility_name": "George W. Dunne National Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/7091534/1",
+        "https://www.openstreetmap.org/api/0.6/way/175667463/11"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.0017458854487152088,
+        "iou": 0.001745885448715208,
+        "source_geometry_sha256": "cf14439f14be2608bf678fa0d57ff181507ca4767f65816a7d6ab5157f216bfc",
+        "target_geometry_sha256": "17c55eb29b23eeeebb87614d51854854095968cdedcf64d7c98b4c37069762e6"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/1263548317",
+      "source_name": "driving range",
+      "source_sha256": "14f143d099e0c2514a2594fa7e94a680968f2e147d91aa9def195f15f68577a7",
+      "target_facility_id": "osm/way/295678321",
+      "target_facility_name": "Oak Brook Golf Club - Edwardsville",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1263548317/1",
+        "https://www.openstreetmap.org/api/0.6/way/295678321/7"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.01650421505122924,
+        "iou": 0.01650421505122924,
+        "source_geometry_sha256": "b537ff71d16e5a4d6813523fdcf0ee8ec74c83e55850edcdadcf375579738f35",
+        "target_geometry_sha256": "c3c9b3342b12e2bd679800abf27f012130a2307add0677446a7902951c6b813c"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/131466644",
+      "source_name": "Driving Range",
+      "source_sha256": "52353b5b3f8597acb513fc07dfab102b798c4c78cec724fb4c054b39f7bf40d1",
+      "target_facility_id": "osm/way/52014082",
+      "target_facility_name": "Stonewall Golf Club",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/131466644/3",
+        "https://www.openstreetmap.org/api/0.6/way/52014082/20"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.03964948156192736,
+        "iou": 0.03964948156192731,
+        "source_geometry_sha256": "73e6a68dc637845039f39f03ef6e1e7d60ab246680c714e676a34594516587ed",
+        "target_geometry_sha256": "8150691a728a039f7c394685010e4e2942271191cb986e2bae9c2ec63b90c765"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/1314716906",
+      "source_name": "Driving Range",
+      "source_sha256": "9cbba0c5282adf7053f9cfa9b542274af80dc4cd46639612a2c2be61c1b24b55",
+      "target_facility_id": "osm/way/292927535",
+      "target_facility_name": "Gentz's Homestead Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1314716906/1",
+        "https://www.openstreetmap.org/api/0.6/way/292927535/3"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.05562577592777008,
+        "iou": 0.05562577592777008,
+        "source_geometry_sha256": "416e2dd1beac502c27a39740663b350f12448f1e7eacf2d78a3aeac8f5611027",
+        "target_geometry_sha256": "a3a390d7597b1dbc69f1460959fafc4c7db94d3c538a6588df758a035df67db5"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/142543656",
+      "source_name": "Practice Green",
+      "source_sha256": "565ea6899badfec1d6902c555eaa93fd733a0de6a2b77b01013211f192f89b9c",
+      "target_facility_id": "osm/way/1185624939",
+      "target_facility_name": "Surfside Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1185624939/5",
+        "https://www.openstreetmap.org/api/0.6/way/142543656/3"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.0015029776228388397,
+        "iou": 0.0015029776228388397,
+        "source_geometry_sha256": "57981a8ce11405328116010305bed6db44049cfb70fddc6157efaabbceda46d2",
+        "target_geometry_sha256": "cd5053cffdf5f1f0029af1925f20fb8a97245f6b8ce4bfc8deb878cb0019c83e"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/1441497013",
+      "source_name": "#8 White Tee",
+      "source_sha256": "8c04570bc6cba72645c115d06388bf2a8b27f6878e0af1c6441b826f08fe929b",
+      "target_facility_id": "osm/relation/3525035",
+      "target_facility_name": "Laughlin Ranch Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3525035/4",
+        "https://www.openstreetmap.org/api/0.6/way/1441497013/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.0008775976129047504,
+        "iou": 0.0008775976129047507,
+        "source_geometry_sha256": "705a29b22b5ff372943d1614500fd8cb6964cf919f4e06594fb2df8c0eb90394",
+        "target_geometry_sha256": "d333429fe04d2a90ff24da7f95b8475a4876ba474d69c7a3cb870da0993a6784"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/1453813225",
+      "source_name": "#2 Tee White",
+      "source_sha256": "7063bbe0e814797814038c5c03bf4204effabe752a0e3753c721c8e98b2b6ce7",
+      "target_facility_id": "osm/relation/3525035",
+      "target_facility_name": "Laughlin Ranch Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3525035/4",
+        "https://www.openstreetmap.org/api/0.6/way/1453813225/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999997,
+        "target_fraction_in_source": 0.0004988347177423581,
+        "iou": 0.0004988347177423584,
+        "source_geometry_sha256": "b20300fe0c92f9c2ade9b824e414e680f538afc4f5184ad8c386809e6c70554f",
+        "target_geometry_sha256": "d333429fe04d2a90ff24da7f95b8475a4876ba474d69c7a3cb870da0993a6784"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/1453813226",
+      "source_name": "#2 Tee Red",
+      "source_sha256": "c2574b3328e3603d2710a77513a89be4d9c925e60925879c36d6e050e44829ff",
+      "target_facility_id": "osm/relation/3525035",
+      "target_facility_name": "Laughlin Ranch Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3525035/4",
+        "https://www.openstreetmap.org/api/0.6/way/1453813226/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 7.688747669091383e-05,
+        "iou": 7.688747669091386e-05,
+        "source_geometry_sha256": "f3960db8831ed9ed05d97ba9f5c0b8190bd1ee7be2f8fa8e1f117b1607578bd9",
+        "target_geometry_sha256": "d333429fe04d2a90ff24da7f95b8475a4876ba474d69c7a3cb870da0993a6784"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/1453813227",
+      "source_name": "#2 Green",
+      "source_sha256": "636a5a8d5476e0f148e9f1c3899956039d0021da9fc9b4d726dc85fd94be2f05",
+      "target_facility_id": "osm/relation/3525035",
+      "target_facility_name": "Laughlin Ranch Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3525035/4",
+        "https://www.openstreetmap.org/api/0.6/way/1453813227/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999996,
+        "target_fraction_in_source": 0.0005702275240428847,
+        "iou": 0.0005702275240428848,
+        "source_geometry_sha256": "c2a944a53eac60775fa2c76f7f73fdf463365cf14e4f6ecdadf2c970c88f3a91",
+        "target_geometry_sha256": "d333429fe04d2a90ff24da7f95b8475a4876ba474d69c7a3cb870da0993a6784"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/1453813238",
+      "source_name": "green #4",
+      "source_sha256": "87c5dba9b677c72da01aba7d5106d88f93c326952f8af4897a56955b0e5dbabb",
+      "target_facility_id": "osm/relation/3525035",
+      "target_facility_name": "Laughlin Ranch Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3525035/4",
+        "https://www.openstreetmap.org/api/0.6/way/1453813238/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.0009381079465905197,
+        "iou": 0.00093810794659052,
+        "source_geometry_sha256": "40c4e336fce9b96c74f0ee2599e05cae3ee3c18e8e97a1d28216bac3f2a6fed9",
+        "target_geometry_sha256": "d333429fe04d2a90ff24da7f95b8475a4876ba474d69c7a3cb870da0993a6784"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/312856371",
+      "source_name": "Clubhouse",
+      "source_sha256": "4c0ee4b06ea7c16482bdec57be0195650740eea8e261886e40223c9fe79fc2b3",
+      "target_facility_id": "osm/way/312084411",
+      "target_facility_name": "Quiet Pines Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/312084411/8",
+        "https://www.openstreetmap.org/api/0.6/way/312856371/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.0013859637834267742,
+        "iou": 0.0013859637834267742,
+        "source_geometry_sha256": "210185afd3f350a3ef6f36775765de3e8e01b7898b59db66bf3e6ec4259667c6",
+        "target_geometry_sha256": "012eb7dc7dc3f56652b056afb2dce99201e982ed6279b9129510636beec37c97"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/342631909",
+      "source_name": "Driving Range",
+      "source_sha256": "d0e9eba8f522d1de6cb6ddb42d5d7ab82060b660ee1bfe948c877195a124ecbc",
+      "target_facility_id": "osm/way/273638782",
+      "target_facility_name": "Long Prairie Country Club",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/273638782/5",
+        "https://www.openstreetmap.org/api/0.6/way/342631909/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.039181612363949056,
+        "iou": 0.039181612363949056,
+        "source_geometry_sha256": "69bdd4e87ad7e0ae9d3ae5dd9ac1018a83b16e93069ed24d32a1eea609d1f8d0",
+        "target_geometry_sha256": "9c0e5f5d20a1bd4bbb3cc276e7e9688bfd3f06eccbdabf2a0ecee8bc94abac97"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/350458321",
+      "source_name": "Northampton Country Club Clubhouse",
+      "source_sha256": "b3ee066ebb234868f25cbffbe794dc65cfdf35af32f77639e9def7b00e13f9b3",
+      "target_facility_id": "osm/way/350458320",
+      "target_facility_name": "Northampton Country Club",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/350458320/7",
+        "https://www.openstreetmap.org/api/0.6/way/350458321/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.0022669091158973357,
+        "iou": 0.0022669091158973357,
+        "source_geometry_sha256": "482ff4827511f0e7b777a30848275a4251da2f1e1bcd441324c5c2c368a045b3",
+        "target_geometry_sha256": "319c0cc1b90c911cf68f15f4423a29cecb07fafcd92ea5cb7a03e81570a322f7"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/382540222",
+      "source_name": "George W. Dunne National Driving Range",
+      "source_sha256": "902cc425cd9c78e00bcc9dec3f538063ee4cfae9f6764206ce51f4c1d228ae07",
+      "target_facility_id": "osm/way/175667463",
+      "target_facility_name": "George W. Dunne National Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/175667463/11",
+        "https://www.openstreetmap.org/api/0.6/way/382540222/3"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.002240799056482598,
+        "iou": 0.002240799056482597,
+        "source_geometry_sha256": "8a64b2dce2c89932245355604571a88dbbb69090d6458a568273017d7e6be113",
+        "target_geometry_sha256": "17c55eb29b23eeeebb87614d51854854095968cdedcf64d7c98b4c37069762e6"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/386103438",
+      "source_name": "Clubhouse",
+      "source_sha256": "954f3aa1d3c921f65bb788030bfe1937762ac64a977cd104b238c1ce34be8ee4",
+      "target_facility_id": "osm/way/386102155",
+      "target_facility_name": "Wood Hollow Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/386102155/7",
+        "https://www.openstreetmap.org/api/0.6/way/386103438/3"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.00032922979579269243,
+        "iou": 0.0003292297957926924,
+        "source_geometry_sha256": "a44b0fb1ea5249622bcd79966c954e41c835f22965dfaaab51ad5a7ee3e915e0",
+        "target_geometry_sha256": "5c301a46bdbffa96b6423a14d7374df79f28d45b652e6c3cfc6893a65fe5ed63"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/545364225",
+      "source_name": "Driving Range Main Building",
+      "source_sha256": "11ec6f47a82de278de37d7bd87d3d1232164ed13f610761f5642d9b58279006c",
+      "target_facility_id": "osm/way/545364224",
+      "target_facility_name": "Driving Range",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/545364224/4",
+        "https://www.openstreetmap.org/api/0.6/way/545364225/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.002441710155759838,
+        "iou": 0.0024417101557598383,
+        "source_geometry_sha256": "9a452cbca995c03267cab15b168283ab02b5f32e648f9469b12b12344631d1ad",
+        "target_geometry_sha256": "6bd97c77fe941ca72e89a0a1f93d1f6ccbb685690db3ce9931835b3f4292838c"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/548723120",
+      "source_name": "Woodgate Pines Pro Shop and Bar",
+      "source_sha256": "6e0e87322c8ebf0892d273f1fc70bdee4368c4c3341db4333743e8be2b9d4b81",
+      "target_facility_id": "osm/relation/17502738",
+      "target_facility_name": "Woodgate Pines Golf Club",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/17502738/1",
+        "https://www.openstreetmap.org/api/0.6/way/548723120/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.0008830590896091251,
+        "iou": 0.0008830590896091256,
+        "source_geometry_sha256": "2cf22f0d89a5039a9493e943a406e64321aca695a39e956ec1a69b0adfa4feb9",
+        "target_geometry_sha256": "9d2635ab28f33ec84f30365ec985ae8fb7dc3c39ee15101ac9b8a7825665f348"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/668278543",
+      "source_name": "Clubhouse",
+      "source_sha256": "d9a52d3edc0fa2ddb1c759e86cb07f279d48f3e24121304a957f6af3a243c6e5",
+      "target_facility_id": "osm/way/550943599",
+      "target_facility_name": "Rusted Rail Golf Club",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/550943599/9",
+        "https://www.openstreetmap.org/api/0.6/way/668278543/3"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.001183840295650936,
+        "iou": 0.0011838402956509367,
+        "source_geometry_sha256": "b32324eb186800a5288c4f947478ad937d80043b060e4f3bfad3348966249f06",
+        "target_geometry_sha256": "85adf3dc03eb6569cee5b7932323546d5a08977b54f4e0d6acee56a0919fb047"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/668492539",
+      "source_name": "Clubhouse",
+      "source_sha256": "9f16ff4bc52aab2ac996f3beba925148bab7f047031ae10b9dad0cdb0cb1adbc",
+      "target_facility_id": "osm/relation/3987833",
+      "target_facility_name": "The Cascades Golf Club",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3987833/5",
+        "https://www.openstreetmap.org/api/0.6/way/668492539/4"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999997,
+        "target_fraction_in_source": 0.007343437683114748,
+        "iou": 0.007343437683114748,
+        "source_geometry_sha256": "19797054b0fca855e911ad9075adf84dae1c2acb9bf232ae05b7b13cb13993e0",
+        "target_geometry_sha256": "d9e4ea5c3aa678a2fc3587fed791e3915c556c14e2c75013a10ee9d1cc22e0e4"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/668501023",
+      "source_name": "The Cascades Driving Range",
+      "source_sha256": "57d462249d40d8ac1bfcbbd7ef7dfed24699c677e8acce6770f4faae53f40a16",
+      "target_facility_id": "osm/relation/3987833",
+      "target_facility_name": "The Cascades Golf Club",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3987833/5",
+        "https://www.openstreetmap.org/api/0.6/way/668501023/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999996,
+        "target_fraction_in_source": 0.04003098310712563,
+        "iou": 0.04003098310712563,
+        "source_geometry_sha256": "1828bf4246ce47b5fd1fe31b74bb319bb7fdc4a7471a0bf0962cb08762207f94",
+        "target_geometry_sha256": "d9e4ea5c3aa678a2fc3587fed791e3915c556c14e2c75013a10ee9d1cc22e0e4"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/676646740",
+      "source_name": "Clubhouse",
+      "source_sha256": "39f879e6a21f7d8bc7771e68bd1ff4935f4b8d5642f0213599eb469e899e4c5a",
+      "target_facility_id": "osm/way/676646735",
+      "target_facility_name": "Pine Springs Golf Club",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/676646735/5",
+        "https://www.openstreetmap.org/api/0.6/way/676646740/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.0005993296342290751,
+        "iou": 0.0005993296342290751,
+        "source_geometry_sha256": "423bbb21971b846fd95fd1e111b14407ecbeb2baf713ab2ccf38d4853f95d768",
+        "target_geometry_sha256": "a8a3df437e3c337ca96c3f00e554eb0af07fbff7d85a7e8f503253154a2bb9e5"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/793086935",
+      "source_name": "Prescott Club",
+      "source_sha256": "58a111c76ddb930d8656de7db079e93edec068c460e4ca8e6643d7bf10d37226",
+      "target_facility_id": "osm/relation/3522884",
+      "target_facility_name": "StoneRidge Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3522884/63",
+        "https://www.openstreetmap.org/api/0.6/way/793086935/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.0012225536474552636,
+        "iou": 0.0012225536474552638,
+        "source_geometry_sha256": "68a5ad363bec60ad3e908e9dcceaa3e5bb91bbca568afa3ec1859d040a39e11a",
+        "target_geometry_sha256": "090677b2432ca22b02c34814f89b71f898e0372b608a2ddc51327f58a9be7d93"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/799123151",
+      "source_name": "Practice Area - Driving Range",
+      "source_sha256": "850e6eb411f1a9cfc2253c1b3e7c373361aedd5bba259e536978481e023a30e4",
+      "target_facility_id": "osm/way/799110379",
+      "target_facility_name": "The Golf Club at Yankee Trace",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/799110379/6",
+        "https://www.openstreetmap.org/api/0.6/way/799123151/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.02361953204445718,
+        "iou": 0.023619532044457194,
+        "source_geometry_sha256": "346a79a3145d64e08cefb7ad76e89444a725af67aea38cd279b8309c95b092aa",
+        "target_geometry_sha256": "e610007ed0706fe09169ad233b0ceca26b4eff945eefdb90fc3dec9d22b1e25f"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/836909226",
+      "source_name": "Practice Range",
+      "source_sha256": "1bf2eca81a7613dab190d691f70414e3de31555140662972be75573d2d2e1451",
+      "target_facility_id": "osm/way/12055561",
+      "target_facility_name": "Conewango Valley Country Club",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/12055561/6",
+        "https://www.openstreetmap.org/api/0.6/way/836909226/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.04275903106694983,
+        "iou": 0.042759031066949824,
+        "source_geometry_sha256": "0c31b71b7609f4d8501c4b2aeefc5280db963c7945cd1c15b7c2d1bfa2576106",
+        "target_geometry_sha256": "505c08ec7ef5aa451d05c7d5e0efd62e0bf67494b8bb7c0266fcc7c7d05a33b3"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/840732986",
+      "source_name": "Driving Range",
+      "source_sha256": "7f4c5af12463b4a736ca79c7a0d189fa0d3f7f4ec651a7fea9b40d15cf28c318",
+      "target_facility_id": "osm/way/863148416",
+      "target_facility_name": "Pitman Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/840732986/5",
+        "https://www.openstreetmap.org/api/0.6/way/863148416/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.06772825571318947,
+        "iou": 0.06772825571318944,
+        "source_geometry_sha256": "0983a667c8b1afa610a8f4080aa79e9f3189ce6ed2e0b9b71d3b2245ac01cefa",
+        "target_geometry_sha256": "8c77f0bb183551c4987ce05128b979471f3e297ebac4a7a76eb2ee4d7fac7eaf"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/880014054",
+      "source_name": "Fore Seasons Center",
+      "source_sha256": "03cdb310b1a99da4c48aa970406248eec1922a9f77428271a821484588c206c1",
+      "target_facility_id": "osm/way/1067013701",
+      "target_facility_name": "Pebble Creek Golf Course",
+      "reason": "Official municipal operator identifies Fore Seasons as indoor practice range and pro shop at Pebble Creek, not an additional outdoor course.",
+      "evidence": [
+        "https://www.bisparks.org/facilities/fore-seasons-center/",
+        "https://www.openstreetmap.org/api/0.6/way/1067013701/2",
+        "https://www.openstreetmap.org/api/0.6/way/880014054/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.007730968218112409,
+        "iou": 0.007730968218112409,
+        "source_geometry_sha256": "3e743bf26bdba22cc56bf767ee1da66445ddc6104be960df08a7bb85d1894878",
+        "target_geometry_sha256": "bca16872adc970d977461725d7640fdb475465b39fe2bab282d64bca3290f3e9"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/915325051",
+      "source_name": "Tee Box 1",
+      "source_sha256": "e1d47d56564ba6f22e0d8e093cf010a1aaf42ce12996e488fc2e690b388e33b7",
+      "target_facility_id": "osm/relation/1589171",
+      "target_facility_name": "Loblolly",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/1589171/6",
+        "https://www.openstreetmap.org/api/0.6/way/915325051/1"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.0023785134992004545,
+        "iou": 0.0023785134992004536,
+        "source_geometry_sha256": "793071f5b505d5c10e58c62725d93e6448a2a3e38e319731e336fceb6cb2f410",
+        "target_geometry_sha256": "f245153a49e58cb8575478bf43596001387ae7701bcd43cc7aa432678fc3345a"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/93261559",
+      "source_name": "Pro Shop at Eagle Mountain Golf Course",
+      "source_sha256": "fe22344aed6d3c40dc52c5a9404859c3d8ab84c8692a744400f744146bed0591",
+      "target_facility_id": "osm/relation/1355966",
+      "target_facility_name": "Eagle Mountain Golf Course",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/1355966/5",
+        "https://www.openstreetmap.org/api/0.6/way/93261559/5"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.0014888024446021914,
+        "iou": 0.0014888024446021908,
+        "source_geometry_sha256": "9dc974a03df9d06b16b7534cf52432a38f687b828958dc717688009a2f9a1abe",
+        "target_geometry_sha256": "6769e0a7efd8e68ffa6d30c1b2dc4c66920ed8c3744ec06f35d49faf8f8aebb5"
+      }
+    },
+    {
+      "rule": "b",
+      "action": "remove_component",
+      "source_id": "osm/way/961157213",
+      "source_name": "Steele Canyon Golf Club",
+      "source_sha256": "606c254e3715a75307164175db47b95bae4c57b30216f55730501d136de8c9b5",
+      "target_facility_id": "osm/way/468534491",
+      "target_facility_name": "Steele Canyon Golf",
+      "reason": "explicit non-course component name/tag or reviewed practice center",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/468534491/5",
+        "https://www.openstreetmap.org/api/0.6/way/961157213/2"
+      ],
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.0007671051264282711,
+        "iou": 0.0007671051264282713,
+        "source_geometry_sha256": "a7f5e1d0767e56a09ad4a3cf879cde6de082d1deae4839093f38c871d6c833d0",
+        "target_geometry_sha256": "e1257c8d92b2446ddbc22dfc5c26b114b64897576d68ac314704876e65033d45"
+      }
+    },
+    {
+      "rule": "bethpage",
+      "action": "merge_facility",
+      "source_id": "osm/way/29468839",
+      "source_name": "Bethpage State Park Golf Courses",
+      "source_sha256": "14f6e43b1c6217e77fc0e49fb9414f544f22f550fc3297193672fe58d4762c81",
+      "target_facility_id": "f-0129c277-d9de-4db0-b203-0d560081c668",
+      "target_facility_name": "Bethpage State Park",
+      "reason": "explicitly approved Bethpage identity exception; operator confirms one facility with five named courses",
+      "evidence": [
+        "https://www.bethpagegolfcourse.com/about/",
+        "https://parks.ny.gov/visit/golf-courses/bethpage-state-park-golf-courses",
+        "https://www.openstreetmap.org/way/29468839"
+      ]
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/12317451",
+      "source_name": "Randolph (North) Course",
+      "source_sha256": "8060536ac0c9b92860c660282b0549091d1e90a4d02551505a78f7cd7974f043",
+      "target_facility_id": "osm/relation/3535718",
+      "target_facility_name": "Randolph Golf Complex",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/12317451/3",
+        "https://www.openstreetmap.org/api/0.6/relation/3535718/6"
+      ],
+      "target_course_id": "c-1a09184e-304a-4504-98ce-cd73e874f4ad",
+      "target_course_name": "Randolph North",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.5602119562894999,
+        "iou": 0.5602119562894998,
+        "source_geometry_sha256": "b6a4882e49210bda11fce8097cc3c5ed8db10abd6852333a68a2a9904602e2a3",
+        "target_geometry_sha256": "b4eb450c649f1c129cd9e7350abbf3c60fe8a629d3a7a1539d82f0e40ffbccd2"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/12736703",
+      "source_name": "Cañada Course",
+      "source_sha256": "6a6f22e9c571df3af78af559bf353af03de160e9c0a6d4ca5247801a8e0a2925",
+      "target_facility_id": "osm/relation/3552031",
+      "target_facility_name": "El Conquistador",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/12736703/2",
+        "https://www.openstreetmap.org/api/0.6/relation/3552031/10"
+      ],
+      "target_course_id": "osm/relation/12736703",
+      "target_course_name": "Cañada Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999993,
+        "target_fraction_in_source": 0.4517310013769497,
+        "iou": 0.45173100137694994,
+        "source_geometry_sha256": "906c943e2e0a4977ee02e678395b4a5eaca00957ee4f5d30721ab3c9f98bae3c",
+        "target_geometry_sha256": "df69207954a1429a2180b7162b21ca446b3101ef78231bec50bcba36830d21af"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/14989971",
+      "source_name": "Shenvalee Miller Course",
+      "source_sha256": "37a1784d75625d7796c69071e86387c89d3216bc92deb61c76364a68c91636bb",
+      "target_facility_id": "osm/way/1023342529",
+      "target_facility_name": "Shenvalee Golf Resort",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/14989971/1",
+        "https://www.openstreetmap.org/api/0.6/way/1023342529/5"
+      ],
+      "target_course_id": "c-102bdb58-0045-4e4e-b9a7-8b3d97fa9509",
+      "target_course_name": "Miller",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 0.3464282812497665,
+        "iou": 0.34642828124976643,
+        "source_geometry_sha256": "89ce3d303536ebb6bf95283db737736590cc83ceb02be706c6fd6d352480d311",
+        "target_geometry_sha256": "1d97caa1865e7b352f7190ff2262d03f63fb416315e70e21ed366ba5306fa764"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/21058473",
+      "source_name": "Heron Lakes Greenback",
+      "source_sha256": "6135e31855d83a12a91605b73dbf192727c35a6e2710b07a14491c8d152aca08",
+      "target_facility_id": "osm/relation/21058474",
+      "target_facility_name": "Heron Lakes Golf Course",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/21058473/1",
+        "https://www.openstreetmap.org/api/0.6/relation/21058474/1"
+      ],
+      "target_course_id": "c-742e3a13-ff6a-4997-a06c-26f079bf8e96",
+      "target_course_name": "Greenback",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.47641361437046825,
+        "iou": 0.47641361437046814,
+        "source_geometry_sha256": "c16df2aeced00eee79607d53ded69464ea124c9c22fc71152db28664bc11ccc1",
+        "target_geometry_sha256": "6ed82bad79f51402d020b22969bc61669ffe6807b90656f410d96a45b189ea30"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/3540824",
+      "source_name": "Pusch Ridge Golf Course",
+      "source_sha256": "809b076d4950aace6c38dd8bf3ed26241692f09a3da0f247294c7d480a98496f",
+      "target_facility_id": "osm/relation/3552031",
+      "target_facility_name": "El Conquistador",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3540824/6",
+        "https://www.openstreetmap.org/api/0.6/relation/3552031/10"
+      ],
+      "target_course_id": "osm/relation/3540824",
+      "target_course_name": "Pusch Ridge Golf Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.1420097014713463,
+        "iou": 0.1420097014713464,
+        "source_geometry_sha256": "f1b49752107394cba24c5067b0898f0b990557c05813bb41e431fe8735404200",
+        "target_geometry_sha256": "df69207954a1429a2180b7162b21ca446b3101ef78231bec50bcba36830d21af"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/4036800",
+      "source_name": "Turtle Run Course",
+      "source_sha256": "1d8e00899f7e0f1405f55715fe20e05074f98f2770f17a3fcd3e25e45afc41d6",
+      "target_facility_id": "osm/relation/5464369",
+      "target_facility_name": "Sun 'N Lake Golf Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/4036800/3",
+        "https://www.openstreetmap.org/api/0.6/relation/5464369/3"
+      ],
+      "target_course_id": "osm/relation/4036800",
+      "target_course_name": "Turtle Run Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999996,
+        "target_fraction_in_source": 0.45929506286935506,
+        "iou": 0.45929506286935434,
+        "source_geometry_sha256": "a376260929e72e36fea77554753a90ad98df85edfc5a8ea6827c67e5e5cd7cf4",
+        "target_geometry_sha256": "2eb2471f4f9d39db1b4a8228de4eae66927d380c6a7c51161dfbca3673bd9071"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/4036801",
+      "source_name": "Deer Run Course",
+      "source_sha256": "58d18ae1f94654b1099daeb87191c5ad70991bac561e574af4a85c01584af6b8",
+      "target_facility_id": "osm/relation/5464369",
+      "target_facility_name": "Sun 'N Lake Golf Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/4036801/3",
+        "https://www.openstreetmap.org/api/0.6/relation/5464369/3"
+      ],
+      "target_course_id": "osm/relation/4036801",
+      "target_course_name": "Deer Run Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000022,
+        "target_fraction_in_source": 0.5407049371306462,
+        "iou": 0.5407049371306463,
+        "source_geometry_sha256": "352a31aa305a8e5b426e722583a10de5b9e3344e4b0614c507fb29d42a765899",
+        "target_geometry_sha256": "2eb2471f4f9d39db1b4a8228de4eae66927d380c6a7c51161dfbca3673bd9071"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/4445095",
+      "source_name": "PGA National Resort Palmer course",
+      "source_sha256": "876bfa365b4a66e3e8e7542b2e32fe31d44059ad129fcba2e86bedb662d3a227",
+      "target_facility_id": "osm/way/1483954804",
+      "target_facility_name": "PGA National Resort",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/4445095/10",
+        "https://www.openstreetmap.org/api/0.6/way/1483954804/2"
+      ],
+      "target_course_id": "osm/relation/4445095",
+      "target_course_name": "PGA National Resort Palmer course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.05239836051066959,
+        "iou": 0.05239836051066959,
+        "source_geometry_sha256": "219594f525885fa382391a57018cd1d4dc702c2132059507ac8e29228f855934",
+        "target_geometry_sha256": "97e350cafc8555b4ceb1809cf6480773a75085fef690fe65dc79475f3b902fcc"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/4445130",
+      "source_name": "PGA National Resort The Squire",
+      "source_sha256": "d0b30fceb083dfd38dc0b612ea11045f4e23212f90de97a578278243410423a5",
+      "target_facility_id": "osm/way/1483954804",
+      "target_facility_name": "PGA National Resort",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/4445130/8",
+        "https://www.openstreetmap.org/api/0.6/way/1483954804/2"
+      ],
+      "target_course_id": "osm/relation/4445130",
+      "target_course_name": "PGA National Resort The Squire",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.04622501000445087,
+        "iou": 0.04622501000445087,
+        "source_geometry_sha256": "579de54d5f8a635a1e160eb68b4064d145b37503a09d11323bd50b647bb8596b",
+        "target_geometry_sha256": "97e350cafc8555b4ceb1809cf6480773a75085fef690fe65dc79475f3b902fcc"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/4445317",
+      "source_name": "PGA National Resort Fazio course",
+      "source_sha256": "4d32d99fe653d47ba88f9f5355dede6a57aa0ccf2aef2afb306c189ce589fb3d",
+      "target_facility_id": "osm/way/1483954804",
+      "target_facility_name": "PGA National Resort",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/4445317/7",
+        "https://www.openstreetmap.org/api/0.6/way/1483954804/2"
+      ],
+      "target_course_id": "osm/relation/4445317",
+      "target_course_name": "PGA National Resort Fazio course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999994,
+        "target_fraction_in_source": 0.02172426190124988,
+        "iou": 0.02172426190124988,
+        "source_geometry_sha256": "4e83465a513ce0062afdcec444d892617155baa6451c83f2654d51dcf03a1100",
+        "target_geometry_sha256": "97e350cafc8555b4ceb1809cf6480773a75085fef690fe65dc79475f3b902fcc"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/5454240",
+      "source_name": "Mustang Course at Lely Resort",
+      "source_sha256": "bc5900e195bf3ecb68fa535c6aeee7cfa6854f613c01c2ba9509839985864ca0",
+      "target_facility_id": "osm/relation/5454242",
+      "target_facility_name": "Lely Resort Golf And Country Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/5454240/22",
+        "https://www.openstreetmap.org/api/0.6/relation/5454242/30"
+      ],
+      "target_course_id": "osm/relation/5454240",
+      "target_course_name": "Mustang Course at Lely Resort",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.000000000000001,
+        "target_fraction_in_source": 0.46768697517482033,
+        "iou": 0.46768697517482005,
+        "source_geometry_sha256": "1d3d124da62bc30470fb1ccaf5ad07ae7dad7e82cb30bac7cbb3c4b204318333",
+        "target_geometry_sha256": "8d42d0f1763edc81104d91aa17b8985296bf4a4348321cceb302e33f0f3c20b1"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/8608093",
+      "source_name": "Lake Havasu Golf Course",
+      "source_sha256": "d08b13af9ed4f8907206129a541c11560fc9bf85dfccaafdff2f52016a645f5f",
+      "target_facility_id": "osm/relation/3538078",
+      "target_facility_name": "London Bridge Golf Club",
+      "reason": "Distinct contained polygon, not duplicate of relation8611121. Official venue inventory confirms two 18-hole layouts (Desert East and Desert West). Preserve original generic source name until source-to-East/West mapping is verified; do not coalesce the two equal names.",
+      "evidence": [
+        "https://lakehavasugolfclub.com/",
+        "https://www.openstreetmap.org/api/0.6/relation/3538078/7",
+        "https://www.openstreetmap.org/api/0.6/relation/8608093/6"
+      ],
+      "target_course_id": "osm/relation/8608093",
+      "target_course_name": "Lake Havasu Golf Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.4693903754822009,
+        "iou": 0.46939037548220097,
+        "source_geometry_sha256": "15b517b1f718ea71a741810ee436e376b54fc5dfaa1f1ed01bfca3ba0fed0b66",
+        "target_geometry_sha256": "3c8c1c664ba0f224f5e773a579a502ad04c502fa511cc45baefd573438a2006b"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/8611121",
+      "source_name": "Lake Havasu Golf Course",
+      "source_sha256": "e87a18f8bb4e4a673f601e8f2250a14347f24d833a29a34f46bb34670aefd59b",
+      "target_facility_id": "osm/relation/3538078",
+      "target_facility_name": "London Bridge Golf Club",
+      "reason": "Distinct contained polygon, not duplicate of relation8608093. Official venue inventory confirms two 18-hole layouts (Desert East and Desert West). Preserve original generic source name until source-to-East/West mapping is verified; do not coalesce the two equal names.",
+      "evidence": [
+        "https://lakehavasugolfclub.com/",
+        "https://www.openstreetmap.org/api/0.6/relation/3538078/7",
+        "https://www.openstreetmap.org/api/0.6/relation/8611121/4"
+      ],
+      "target_course_id": "osm/relation/8611121",
+      "target_course_name": "Lake Havasu Golf Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000007,
+        "target_fraction_in_source": 0.4842851993467091,
+        "iou": 0.48428519934670905,
+        "source_geometry_sha256": "84df86b15cbfaa18d330135ac29da5be78294681b784394ab76845fcfb7c28f2",
+        "target_geometry_sha256": "3c8c1c664ba0f224f5e773a579a502ad04c502fa511cc45baefd573438a2006b"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/relation/9389563",
+      "source_name": "North Course",
+      "source_sha256": "ef47edf67df051e8324c461016a690b4ed0098da58d2b13d1f62ac9435589497",
+      "target_facility_id": "osm/relation/909401",
+      "target_facility_name": "Detroit Golf Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/909401/9",
+        "https://www.openstreetmap.org/api/0.6/relation/9389563/2"
+      ],
+      "target_course_id": "osm/relation/9389563",
+      "target_course_name": "North Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999996,
+        "target_fraction_in_source": 0.5389128110244273,
+        "iou": 0.5389128110244273,
+        "source_geometry_sha256": "4bba09067313521a99101e3bfed19b112911cd6ebb35178ccf7a0cf118ad7566",
+        "target_geometry_sha256": "593e65cf6ac8c99dbb1c356da2859b55afe48d2f0c934c55fc8ccfd35f65095b"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1023342531",
+      "source_name": "Shenvalee Creek Course",
+      "source_sha256": "867001674825cbaa7279ef3d024d2de5441ba51ab2fcad12110b8e3f3c0cd654",
+      "target_facility_id": "osm/way/1023342529",
+      "target_facility_name": "Shenvalee Golf Resort",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1023342529/5",
+        "https://www.openstreetmap.org/api/0.6/way/1023342531/2"
+      ],
+      "target_course_id": "c-975df96e-cad2-4074-90fa-0329a12bad40",
+      "target_course_name": "Creek",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.30409247361560876,
+        "iou": 0.30409247361560887,
+        "source_geometry_sha256": "b6b9d604b75e67dfda7429bb737e8cf8c3663c971012997b4799d6f47997d828",
+        "target_geometry_sha256": "1d97caa1865e7b352f7190ff2262d03f63fb416315e70e21ed366ba5306fa764"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1257062334",
+      "source_name": "The Industry Hills Golf Club - Babe Zaharias Course",
+      "source_sha256": "accc0a9ff6a64ba0093cc340ad024294f0f4db7cd3e84eb528cdaf292aba5806",
+      "target_facility_id": "osm/relation/17299322",
+      "target_facility_name": "The Industry Hills Golf Club (Dwight D Eisenhower & Babe Zaharias)",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/17299322/2",
+        "https://www.openstreetmap.org/api/0.6/way/1257062334/4"
+      ],
+      "target_course_id": "osm/way/1257062334",
+      "target_course_name": "The Industry Hills Golf Club - Babe Zaharias Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.5077728938427917,
+        "iou": 0.5077728938427913,
+        "source_geometry_sha256": "6b8a14a2d79fb5a37e5720079b9cc081973662bc02ebe4ffe9d88e1bfbc841ef",
+        "target_geometry_sha256": "49cdca75d609d770713b97acdf209ff3d2434041331b39e3f7d2df319b0d3255"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1391589839",
+      "source_name": "Eagle Hills Academy Golf Course",
+      "source_sha256": "949d7dc8c26ded4eb713a31093104a1e54e38deb65f7c6593d69d10aa3153b47",
+      "target_facility_id": "osm/way/184522769",
+      "target_facility_name": "Eagle Hills Golf Course",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1391589839/1",
+        "https://www.openstreetmap.org/api/0.6/way/184522769/6"
+      ],
+      "target_course_id": "osm/way/1391589839",
+      "target_course_name": "Eagle Hills Academy Golf Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.08008240803511606,
+        "iou": 0.08008240803511603,
+        "source_geometry_sha256": "86296fce5ab5e758674c16f33026d41091dc2e8b4828a71b6b62532da2ccd681",
+        "target_geometry_sha256": "f738c0102a84630bb0bc1259a01a69a1835bf3c1e28825331627929f963a191d"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1478640027",
+      "source_name": "Par 3 Course",
+      "source_sha256": "0b8d80b8bebc77a65b30e36497347a360da2d62c011a42b46eeeb9d2ba69c399",
+      "target_facility_id": "osm/way/84584669",
+      "target_facility_name": "Chester Valley Golf Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1478640027/1",
+        "https://www.openstreetmap.org/api/0.6/way/84584669/8"
+      ],
+      "target_course_id": "osm/way/1478640027",
+      "target_course_name": "Par 3 Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.06053402170865497,
+        "iou": 0.06053402170865497,
+        "source_geometry_sha256": "66694447dead4b1eb303bdb9b1d6d2344c9799d100231041ad47b7fc572e4e7b",
+        "target_geometry_sha256": "6bd6e2e39968d254102d8e5a6885455278854b56baf616fa8e5824dc79c1959d"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1482367255",
+      "source_name": "Rush Creek Golf Club - Mac 9",
+      "source_sha256": "c436e1b832aa31722f7bac9ea3f83dcde980c28afbf72e72d33c97876b57611e",
+      "target_facility_id": "osm/way/1040390809",
+      "target_facility_name": "Rush Creek Golf Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1040390809/3",
+        "https://www.openstreetmap.org/api/0.6/way/1482367255/1"
+      ],
+      "target_course_id": "c-80dd1193-ba09-4b9b-87d3-f77126eb2e10",
+      "target_course_name": "Mac Nine",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.06012592584372858,
+        "iou": 0.06012592584372857,
+        "source_geometry_sha256": "4351d31fb621c666bc141c74a16928d5a29ea2f8520f5e3defc40aa8dbeb4209",
+        "target_geometry_sha256": "d351ba668a9a44bced463dfab1f5798bdc80470e9adcf06f78fffb326add5a69"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1530362969",
+      "source_name": "Oaks North Golf Course - East",
+      "source_sha256": "6ad61b7d192a3368c6503d6859821d72a0edffc52bf8954b0caeb63280f62109",
+      "target_facility_id": "osm/way/44500735",
+      "target_facility_name": "Oaks North Golf Course",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1530362969/1",
+        "https://www.openstreetmap.org/api/0.6/way/44500735/17"
+      ],
+      "target_course_id": "osm/way/1530362969",
+      "target_course_name": "Oaks North Golf Course - East",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999997,
+        "target_fraction_in_source": 0.2901895195163227,
+        "iou": 0.29018951951632277,
+        "source_geometry_sha256": "23c29df313ba5aa0b7c67276f8313f02b079411c054276d988410d452472acc6",
+        "target_geometry_sha256": "ff6ce0a6373738bfaf94b52fd80c7cc6ccebdd53e0b56e096b5f28e26869842b"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1530362970",
+      "source_name": "Oaks North Golf Course - South",
+      "source_sha256": "5bfb18b9e4d0497e1722574d5bcaeed37aee1d830b9d574859e87311a845253d",
+      "target_facility_id": "osm/way/44500735",
+      "target_facility_name": "Oaks North Golf Course",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1530362970/1",
+        "https://www.openstreetmap.org/api/0.6/way/44500735/17"
+      ],
+      "target_course_id": "osm/way/1530362970",
+      "target_course_name": "Oaks North Golf Course - South",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.34859583808008904,
+        "iou": 0.34859583808008887,
+        "source_geometry_sha256": "be4d0846d6ac4f33dbf51fa5403c2b2123d61aee1c88ce820c048ef8553146e1",
+        "target_geometry_sha256": "ff6ce0a6373738bfaf94b52fd80c7cc6ccebdd53e0b56e096b5f28e26869842b"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1530362971",
+      "source_name": "Oaks North Golf Course - North",
+      "source_sha256": "d11cc1917c147b804ab9d67e9665542051722f46d83b83725f7c794e79334177",
+      "target_facility_id": "osm/way/44500735",
+      "target_facility_name": "Oaks North Golf Course",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1530362971/1",
+        "https://www.openstreetmap.org/api/0.6/way/44500735/17"
+      ],
+      "target_course_id": "osm/way/1530362971",
+      "target_course_name": "Oaks North Golf Course - North",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.999999999999999,
+        "target_fraction_in_source": 0.2768270099775562,
+        "iou": 0.2768270099775562,
+        "source_geometry_sha256": "34a71a5b6834d4dfd126fd74630f8e90c8963b08832d972aedab319e7a19e687",
+        "target_geometry_sha256": "ff6ce0a6373738bfaf94b52fd80c7cc6ccebdd53e0b56e096b5f28e26869842b"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1548721422",
+      "source_name": "Saxon East at Saxon Golf Course",
+      "source_sha256": "0250cc23d72bbf7068900f78906c058a676130e206c8de154a182a8528030ec2",
+      "target_facility_id": "osm/way/402632138",
+      "target_facility_name": "Saxon Golf Course",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1548721422/2",
+        "https://www.openstreetmap.org/api/0.6/way/402632138/7"
+      ],
+      "target_course_id": "osm/way/1548721422",
+      "target_course_name": "Saxon East at Saxon Golf Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999996,
+        "target_fraction_in_source": 0.281957916300073,
+        "iou": 0.281957916300073,
+        "source_geometry_sha256": "a7cf1dc026b20ec6a6c65db390751d4d91338b4659704a99759244044b249530",
+        "target_geometry_sha256": "385135d20273cbec7a12d1d9657a3a630b94c33b8adb733b874d38588af274dd"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1549440465",
+      "source_name": "Arroyo Del Oso Dam 9",
+      "source_sha256": "811bb4e9c02817cd05fc998927e85b70f765e6d3c58c902b92c5eccca8c85269",
+      "target_facility_id": "osm/way/167529001",
+      "target_facility_name": "Arroyo Del Oso Championship",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1549440465/2",
+        "https://www.openstreetmap.org/api/0.6/way/167529001/11"
+      ],
+      "target_course_id": "osm/way/1549440465",
+      "target_course_name": "Arroyo Del Oso Dam 9",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.2778890191356551,
+        "iou": 0.2778890191356551,
+        "source_geometry_sha256": "78162047f1337384d17ea69088a7dfdb522a4a5d0b3556be21e63904a2bfe221",
+        "target_geometry_sha256": "129a4bf4fe7e080172673c1a93c950a16acec9f2374745424c07214e6a99fb19"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1550423604",
+      "source_name": "Santa Ana Golf Course Tamaya 9",
+      "source_sha256": "0961e80d40e34df9d62ab7546eeaf2d907c3d59258c89b46f830ebb084a41fe3",
+      "target_facility_id": "osm/way/267240768",
+      "target_facility_name": "Santa Ana Golf Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1550423604/1",
+        "https://www.openstreetmap.org/api/0.6/way/267240768/9"
+      ],
+      "target_course_id": "c-476742b4-5dc5-4ca8-837a-ab8edaf721fa",
+      "target_course_name": "Tamaya",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.2950902747908669,
+        "iou": 0.2950902747908669,
+        "source_geometry_sha256": "0d57df525213d72c4d35a76c9c7b0311a0698f848496c5d549d9868cc2fc0832",
+        "target_geometry_sha256": "ead2722dc0ae45c96df78b852471d2b68e45d0efdd1c55c729f7afb455edd439"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1550423605",
+      "source_name": "Santa Ana Golf Course Cheena 9",
+      "source_sha256": "bf6c1215e0b240a2e078f1b7329243dd7fdff7e6519a9b507d0d789121e417e7",
+      "target_facility_id": "osm/way/267240768",
+      "target_facility_name": "Santa Ana Golf Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1550423605/1",
+        "https://www.openstreetmap.org/api/0.6/way/267240768/9"
+      ],
+      "target_course_id": "c-6f966b98-4bc3-4bbc-a7fb-5e903b89c932",
+      "target_course_name": "Cheena",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999993,
+        "target_fraction_in_source": 0.30968815755668366,
+        "iou": 0.30968815755668366,
+        "source_geometry_sha256": "d6d7185cc5269c0ee04f89024f280e422b31e5e6da197c5ebad89fce9690c09c",
+        "target_geometry_sha256": "ead2722dc0ae45c96df78b852471d2b68e45d0efdd1c55c729f7afb455edd439"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1552049150",
+      "source_name": "Sandbox at Sand Valley",
+      "source_sha256": "2262f84d71e1bd7bf369126f10eef69d308400b5d4a93cfab97d1f61732882fb",
+      "target_facility_id": "osm/relation/20579379",
+      "target_facility_name": "Sand Valley Golf Resort",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/20579379/1",
+        "https://www.openstreetmap.org/api/0.6/way/1552049150/1"
+      ],
+      "target_course_id": "osm/way/1552049150",
+      "target_course_name": "Sandbox at Sand Valley",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.02707511585660274,
+        "iou": 0.027075115856602758,
+        "source_geometry_sha256": "4aa83b42f02db54455ba8fa24706ce4d067bcf792b3fbfcab6ec76b60018906b",
+        "target_geometry_sha256": "8403c7db7e5bca734754d7b26a6060595405f0692949af8867153c027348286f"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1564571705",
+      "source_name": "mississippi national golf links-lowlands",
+      "source_sha256": "ad106a21b156413ce92f5dd4c33ae6bbdf0d332b7660ca20e46d07fac48e96c1",
+      "target_facility_id": "osm/way/296377724",
+      "target_facility_name": "Mississippi National Golf Links",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1564571705/1",
+        "https://www.openstreetmap.org/api/0.6/way/296377724/12"
+      ],
+      "target_course_id": "c-8baee116-4527-4cd8-8590-e2a473ce21fc",
+      "target_course_name": "Lowlands",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.30867707313341497,
+        "iou": 0.30867707313341497,
+        "source_geometry_sha256": "73153a160a646581be875839b9a92b7117c2d1588ae62735fdfcd8208a76e9e3",
+        "target_geometry_sha256": "ae145ca48ad09984c50da09c5dba099f147d0efc0fa4ad1b0a142e64bdb8b149"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/1566339044",
+      "source_name": "Saguaro Golf Course",
+      "source_sha256": "38ecbc4df912cdef81d6d9264c59a0055483b7e0d53a5150d9d389932510db79",
+      "target_facility_id": "osm/way/262825784",
+      "target_facility_name": "We-Ko-Pa Golf Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/1566339044/1",
+        "https://www.openstreetmap.org/api/0.6/way/262825784/13"
+      ],
+      "target_course_id": "c-5b391993-e51f-40ea-a4e3-4dd08c145c27",
+      "target_course_name": "Saguaro Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999997,
+        "target_fraction_in_source": 0.4328713981570277,
+        "iou": 0.4328713981570283,
+        "source_geometry_sha256": "ef07ff33f8d85b4936eb1aaaebd30047dc362f90307b7366b88f5c1a076f3e17",
+        "target_geometry_sha256": "fa1744cf4fb23f0b2cb4799cfb5a4c19ab9a42659b5dfc14af17e461b874b727"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/183815258",
+      "source_name": "Mini Golf",
+      "source_sha256": "4b79863d854c153740fa063e4b11c64ce611d67ea6dbf4fc329af0c935263527",
+      "target_facility_id": "osm/relation/3864176",
+      "target_facility_name": "Pacific Springs Golf Course",
+      "reason": "Playable putting layout rather than a tee, green or practice component; official operator distinguishes its natural-grass putting course from the short-game practice center. Preserve original OSM name; no new hole, booking or entrance assumption.",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3864176/2",
+        "https://www.openstreetmap.org/api/0.6/way/183815258/2",
+        "https://www.pacificsprings.com/",
+        "https://www.pacificsprings.com/golf/practice"
+      ],
+      "target_course_id": "osm/way/183815258",
+      "target_course_name": "Mini Golf",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.007168619449629012,
+        "iou": 0.00716861944962901,
+        "source_geometry_sha256": "5694cb010d1e4977a7532a02aa7e71c729c39e8fdd0f1bee9ba3e19b720a1198",
+        "target_geometry_sha256": "de8a4f320c3ba264ccefcd1d9449077dc2927a0b8415a5127367dc2e92041ad8"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/189758853",
+      "source_name": "Harbor Links Executive Course",
+      "source_sha256": "9ea9f44c6087bcdb7acb392e23c5e07daeca44e1f2db6563006d16fcc2eb0ff7",
+      "target_facility_id": "osm/relation/14774635",
+      "target_facility_name": "Harbor Links Golf Course",
+      "reason": "Official course page explicitly describes Lower Course as the nine-hole executive-styled course, par31; venue history lists Championship18 and Executive9. Same parent; no third course.",
+      "evidence": [
+        "https://www.harborlinks.com/golf-courses/",
+        "https://www.openstreetmap.org/api/0.6/relation/14774635/4",
+        "https://www.openstreetmap.org/api/0.6/way/189758853/22"
+      ],
+      "target_course_id": "c-95043e31-068e-4c64-bacc-6cd4a3b07573",
+      "target_course_name": "The Lower Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 0.10144497319995273,
+        "iou": 0.10144497319995277,
+        "source_geometry_sha256": "987fea7175dacb16d7c98b4df86c35c433140b89ec3686adac15afb7c98d8fdd",
+        "target_geometry_sha256": "25a225351f7a0c1b5146459f4ecb1c67ba8077c5041caeaf7ebc0f4c90579b2f"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/193396473",
+      "source_name": "Member Course",
+      "source_sha256": "284afb25d161ca3645a87557fdb4414e86e7fd20f22d150ae9d667e554eae366",
+      "target_facility_id": "osm/way/193396475",
+      "target_facility_name": "Golf Club of Houston",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/193396473/5",
+        "https://www.openstreetmap.org/api/0.6/way/193396475/10"
+      ],
+      "target_course_id": "osm/way/193396473",
+      "target_course_name": "Member Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999994,
+        "target_fraction_in_source": 0.33213151330931956,
+        "iou": 0.33213151330931945,
+        "source_geometry_sha256": "6fc93c773ed448559aca55360ca5f972d996b887889ce6553c716e85a73a59d7",
+        "target_geometry_sha256": "d652889a530eb2a5a2ab19856b82192592e23df90e7e5939bd2fe3a87b207be1"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/193396474",
+      "source_name": "Tournament Course",
+      "source_sha256": "13406deb8bcde2d35ceb22214f2dafa3e138dea68c667b596729ae77a3959576",
+      "target_facility_id": "osm/way/193396475",
+      "target_facility_name": "Golf Club of Houston",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/193396474/4",
+        "https://www.openstreetmap.org/api/0.6/way/193396475/10"
+      ],
+      "target_course_id": "osm/way/193396474",
+      "target_course_name": "Tournament Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.465066402524892,
+        "iou": 0.4650664025248916,
+        "source_geometry_sha256": "8203676946823034966d2a91e9c3e226884094be42505ad520fe2c17821fb526",
+        "target_geometry_sha256": "d652889a530eb2a5a2ab19856b82192592e23df90e7e5939bd2fe3a87b207be1"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/221560406",
+      "source_name": "The Industry Hills Golf Club - Ike (Dwight D Eisenhower) Course",
+      "source_sha256": "92456d439f5c589ecf3f3ee6d9fcb074ca42db64456f13eb4dbe1b55a251f2f3",
+      "target_facility_id": "osm/relation/17299322",
+      "target_facility_name": "The Industry Hills Golf Club (Dwight D Eisenhower & Babe Zaharias)",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/17299322/2",
+        "https://www.openstreetmap.org/api/0.6/way/221560406/10"
+      ],
+      "target_course_id": "osm/way/221560406",
+      "target_course_name": "The Industry Hills Golf Club - Ike (Dwight D Eisenhower) Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.49222710615720855,
+        "iou": 0.4922271061572082,
+        "source_geometry_sha256": "1161c20e775598d094ff1ec0e34828afc7302128ef4ee88645df82727db22389",
+        "target_geometry_sha256": "49cdca75d609d770713b97acdf209ff3d2434041331b39e3f7d2df319b0d3255"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/231394152",
+      "source_name": "Oak Hill Country Club (East Course)",
+      "source_sha256": "6ca2fe10a27b9d292af55537615ddc2d2c0f5dc503bed1091219b0fb157839e1",
+      "target_facility_id": "osm/relation/3105637",
+      "target_facility_name": "Oak Hill Country Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3105637/5",
+        "https://www.openstreetmap.org/api/0.6/way/231394152/22"
+      ],
+      "target_course_id": "osm/way/231394152",
+      "target_course_name": "Oak Hill Country Club (East Course)",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999998,
+        "target_fraction_in_source": 0.5694555068033358,
+        "iou": 0.5694555068033358,
+        "source_geometry_sha256": "f2a60e03bcdeb13574f440b1ed2f447fb9f93afeb198a46ab131e2a98ea5d187",
+        "target_geometry_sha256": "b91ce8e491aafce9a68389496b1167e2edd384356a6a97df0fef670d7c4afdfd"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/231528197",
+      "source_name": "Oak Hill Country Club (West Course)",
+      "source_sha256": "2a3915e6e2774310f2b549af622dda7851e9d4efee77a991c9ff81a61fb26b8a",
+      "target_facility_id": "osm/relation/3105637",
+      "target_facility_name": "Oak Hill Country Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3105637/5",
+        "https://www.openstreetmap.org/api/0.6/way/231528197/10"
+      ],
+      "target_course_id": "osm/way/231528197",
+      "target_course_name": "Oak Hill Country Club (West Course)",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.43054449319666444,
+        "iou": 0.43054449319666444,
+        "source_geometry_sha256": "70720a3d4d8ee01d1671f5b177ab9732fe1cb5ecc1413d2557d4c84276b44bfb",
+        "target_geometry_sha256": "b91ce8e491aafce9a68389496b1167e2edd384356a6a97df0fef670d7c4afdfd"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/242917004",
+      "source_name": "9-Hole Short/Executive Course",
+      "source_sha256": "2eaa00db8bb361426bd950a992b100eae5de50c3d2c92cdd444caaca6a34b80f",
+      "target_facility_id": "osm/way/137187755",
+      "target_facility_name": "Edgebrook Golf Course",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/137187755/7",
+        "https://www.openstreetmap.org/api/0.6/way/242917004/1"
+      ],
+      "target_course_id": "c-46fab0d1-4f74-450e-9a05-b63bd24a4d5b",
+      "target_course_name": "Par 3 Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.05884120054654213,
+        "iou": 0.05884120054654214,
+        "source_geometry_sha256": "c6aeede9294d6e71f7b380e0e72588aabf55c54da83f0a2aba8353daacda84ca",
+        "target_geometry_sha256": "9560a957c4dbf4b96233e244164efc85d6aad5850e0a7eca61f7d1989806cc29"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/256802340",
+      "source_name": "Hogan's Alley Junior Course",
+      "source_sha256": "8556bf5aa9a8ec24b6d6ca32b681b6e14d442d49b5becbd5b887af52fcac76c2",
+      "target_facility_id": "osm/way/51964160",
+      "target_facility_name": "Wellshire Golf Course",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/256802340/1",
+        "https://www.openstreetmap.org/api/0.6/way/51964160/10"
+      ],
+      "target_course_id": "osm/way/256802340",
+      "target_course_name": "Hogan's Alley Junior Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.019527886763221553,
+        "iou": 0.019527886763221557,
+        "source_geometry_sha256": "f6904dd03914d3341740fca78387fd172305dd3a4db0c073066bc7f49045a69c",
+        "target_geometry_sha256": "1467069c429881dbbaedece061f0ace3ace1e9e1a41222f4468867dc8428b2ad"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/25841862",
+      "source_name": "Championship Course",
+      "source_sha256": "a96aff01a0f13a53643afaebffe184ff96d0ac9acc1e63524ca5eddbd6e9ea38",
+      "target_facility_id": "osm/relation/3573430",
+      "target_facility_name": "Balboa Park Golf Course",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3573430/4",
+        "https://www.openstreetmap.org/api/0.6/way/25841862/19"
+      ],
+      "target_course_id": "osm/way/25841862",
+      "target_course_name": "Championship Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999987,
+        "target_fraction_in_source": 0.8430357231404437,
+        "iou": 0.8430357231404446,
+        "source_geometry_sha256": "a81a065f545c3384b8307ab53d8a0ada774b6d59f95f313f51677511c23b9d44",
+        "target_geometry_sha256": "3e413da29e3da09bb5e6e650fed1460006461b39d379b72a069159d21ce1d433"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/264353987",
+      "source_name": "Conquistador Course",
+      "source_sha256": "b12534473f31fa0ed73d3bc3522a4dfb1678415e0f2418345864ba65ccd2f554",
+      "target_facility_id": "osm/relation/3552031",
+      "target_facility_name": "El Conquistador",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3552031/10",
+        "https://www.openstreetmap.org/api/0.6/way/264353987/12"
+      ],
+      "target_course_id": "osm/way/264353987",
+      "target_course_name": "Conquistador Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999981,
+        "target_fraction_in_source": 0.3524582407382201,
+        "iou": 0.35245824073822035,
+        "source_geometry_sha256": "db5aad3d1f6cdee7a6d8bd0b98662b0c2293ea93db8d30f7122fc4c20fbd320c",
+        "target_geometry_sha256": "df69207954a1429a2180b7162b21ca446b3101ef78231bec50bcba36830d21af"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/264488512",
+      "source_name": "Viewpoint Championship Course",
+      "source_sha256": "992bffff910198e6078a7ba6e0fbe597ab4020f218eaa5892fafbd308b91b918",
+      "target_facility_id": "osm/relation/3554291",
+      "target_facility_name": "Viewpoint Golf Resort",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3554291/5",
+        "https://www.openstreetmap.org/api/0.6/way/264488512/14"
+      ],
+      "target_course_id": "osm/way/264488512",
+      "target_course_name": "Viewpoint Championship Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 0.7622338547860269,
+        "iou": 0.7622338547860268,
+        "source_geometry_sha256": "545f5d30f345f6ad5adb079240c605b39b42861d8169010aa0f1a243e04b8a7c",
+        "target_geometry_sha256": "720b120e33df50aa86a87f4c1378a3af0b8377d53da8db244032b7c00ca4108b"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/264488513",
+      "source_name": "Viewpoint 9 Hole Executive Course",
+      "source_sha256": "146f7c5ecd5c478a6527727cbb3b51e1508f89a4e16615e67010d493e776269e",
+      "target_facility_id": "osm/relation/3554291",
+      "target_facility_name": "Viewpoint Golf Resort",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3554291/5",
+        "https://www.openstreetmap.org/api/0.6/way/264488513/22"
+      ],
+      "target_course_id": "osm/way/264488513",
+      "target_course_name": "Viewpoint 9 Hole Executive Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.23776614521397335,
+        "iou": 0.23776614521397324,
+        "source_geometry_sha256": "00fd1b894b89cf399c7ce39bb2f7228f2bf411d5b4bf41eba49406887b2c66c9",
+        "target_geometry_sha256": "720b120e33df50aa86a87f4c1378a3af0b8377d53da8db244032b7c00ca4108b"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/31522542",
+      "source_name": "Executive Course",
+      "source_sha256": "5c8c502eff346f56dd535b91ffd144778035436d1bc05bad4e32712aeaa43002",
+      "target_facility_id": "osm/relation/3573430",
+      "target_facility_name": "Balboa Park Golf Course",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3573430/4",
+        "https://www.openstreetmap.org/api/0.6/way/31522542/9"
+      ],
+      "target_course_id": "osm/way/31522542",
+      "target_course_name": "Executive Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.15696427685955527,
+        "iou": 0.15696427685955544,
+        "source_geometry_sha256": "754ea6814baf19cfd6ab69961dcb87acfd55d92c55fd316cea7556f8873c856b",
+        "target_geometry_sha256": "3e413da29e3da09bb5e6e650fed1460006461b39d379b72a069159d21ce1d433"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/39680957",
+      "source_name": "Canoe Brook Country Club South Course",
+      "source_sha256": "3c66c2ac792b9cc475648b2ab7043af0daf17b20bde61701126d6b2b312adf9f",
+      "target_facility_id": "osm/relation/21375375",
+      "target_facility_name": "Canoe Brook Country Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/21375375/1",
+        "https://www.openstreetmap.org/api/0.6/way/39680957/13"
+      ],
+      "target_course_id": "osm/way/39680957",
+      "target_course_name": "Canoe Brook Country Club South Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.4995359007852991,
+        "iou": 0.49953590078529925,
+        "source_geometry_sha256": "cb2b75ce901ada27bd27adf0eb206217c25b0efa1b819947059c29d79ab82ea7",
+        "target_geometry_sha256": "f1aeb2cd89756716688da0c66d680a781372d2a91ad7ef00e6fabeed53cd6351"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/39681185",
+      "source_name": "Canoe Brook Country Club North Course",
+      "source_sha256": "afa4869ffb3f85277c597162499fcbd0a169ac9d1bcd07408835cf99ad431888",
+      "target_facility_id": "osm/relation/21375375",
+      "target_facility_name": "Canoe Brook Country Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/21375375/1",
+        "https://www.openstreetmap.org/api/0.6/way/39681185/10"
+      ],
+      "target_course_id": "osm/way/39681185",
+      "target_course_name": "Canoe Brook Country Club North Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999994,
+        "target_fraction_in_source": 0.5004640992147007,
+        "iou": 0.5004640992147008,
+        "source_geometry_sha256": "eac19276f5609328d09eb25d561f6a5a766c343e297f36eb9ecb0381c0be62ec",
+        "target_geometry_sha256": "f1aeb2cd89756716688da0c66d680a781372d2a91ad7ef00e6fabeed53cd6351"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/44043662",
+      "source_name": "Blue Rock Spring Golf Club - East Course",
+      "source_sha256": "0c7bf83dbdde04ba5c96dc152aa5bf1ab6025f19b3340a6dc61da93daba1540f",
+      "target_facility_id": "osm/relation/3571085",
+      "target_facility_name": "Blue Rock Springs GC",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3571085/7",
+        "https://www.openstreetmap.org/api/0.6/way/44043662/14"
+      ],
+      "target_course_id": "c-eb6a05f3-b1dd-44c7-b656-e08f725c27ad",
+      "target_course_name": "East",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0,
+        "target_fraction_in_source": 0.5205866496205234,
+        "iou": 0.5205866496205235,
+        "source_geometry_sha256": "7b9f4fbfcd12e47b9678d038ea434f5e05dfcf51c4125fb8004e20c35c813ca5",
+        "target_geometry_sha256": "8fa145c8f69748ec1ffd975af604e3f05fc729bef3e796c5c33bbc2869761808"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/44043674",
+      "source_name": "Blue Rock Spring Golf Club - West Course",
+      "source_sha256": "43d44fbf08a24e7884a85f828c3bd34791dc23658805293b9196c2267952074f",
+      "target_facility_id": "osm/relation/3571085",
+      "target_facility_name": "Blue Rock Springs GC",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3571085/7",
+        "https://www.openstreetmap.org/api/0.6/way/44043674/12"
+      ],
+      "target_course_id": "c-7dce5a75-b6ea-4f01-9b61-1017d1f5fd4a",
+      "target_course_name": "West",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.4794133503794767,
+        "iou": 0.47941335037947663,
+        "source_geometry_sha256": "b483fe70c6b534fbd8fd0fd359f8dff0888f1f4021af5f63ea22299b7023a548",
+        "target_geometry_sha256": "8fa145c8f69748ec1ffd975af604e3f05fc729bef3e796c5c33bbc2869761808"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/48289832",
+      "source_name": "Oaks Course",
+      "source_sha256": "e680cf8bdb7cddf59fd6381b42e5e13d46534d4f675d5ac5598c31467523ab7b",
+      "target_facility_id": "osm/relation/5462846",
+      "target_facility_name": "Palm Aire Country Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/5462846/4",
+        "https://www.openstreetmap.org/api/0.6/way/48289832/11"
+      ],
+      "target_course_id": "osm/way/48289832",
+      "target_course_name": "Oaks Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.4039363864682108,
+        "iou": 0.4039363864682108,
+        "source_geometry_sha256": "51ae6d677f37c85f8f9f13cec231753bf62de28f788d70b024880e16d1d2c0ba",
+        "target_geometry_sha256": "67d80b6e3e1287a42877df648328c1c92c85f689b9c512ef7d9c556e3874c4f2"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/48289966",
+      "source_name": "Palms Course",
+      "source_sha256": "590d7ed5510e6101b4845743dbef7e9ac96995483e6144f469f4d3331b8e5e66",
+      "target_facility_id": "osm/relation/5462846",
+      "target_facility_name": "Palm Aire Country Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/5462846/4",
+        "https://www.openstreetmap.org/api/0.6/way/48289966/8"
+      ],
+      "target_course_id": "osm/way/48289966",
+      "target_course_name": "Palms Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999999,
+        "target_fraction_in_source": 0.2951004069163998,
+        "iou": 0.2951004069163998,
+        "source_geometry_sha256": "6a9fb4df94f97c3f29f8af4105e751092ed4d6dcfeda64ba57323c8b1a1853aa",
+        "target_geometry_sha256": "67d80b6e3e1287a42877df648328c1c92c85f689b9c512ef7d9c556e3874c4f2"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/676149839",
+      "source_name": "South Course",
+      "source_sha256": "9d9465637c861449e70718366127e37f9d2fc18c4dfa5bee58915c2903a885dd",
+      "target_facility_id": "osm/relation/909401",
+      "target_facility_name": "Detroit Golf Club",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/909401/9",
+        "https://www.openstreetmap.org/api/0.6/way/676149839/1"
+      ],
+      "target_course_id": "osm/way/676149839",
+      "target_course_name": "South Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000004,
+        "target_fraction_in_source": 0.42015205375970816,
+        "iou": 0.42015205375970816,
+        "source_geometry_sha256": "b21ad933143a2d7077defde7c927a9cd187e780b017fc64e30e5564c27689755",
+        "target_geometry_sha256": "593e65cf6ac8c99dbb1c356da2859b55afe48d2f0c934c55fc8ccfd35f65095b"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/913716804",
+      "source_name": "Par 3 Executive Course",
+      "source_sha256": "675e5c13cc3952588575423d521dd9f97ed0d2151a4ec200c623cf9c6ddd5fa8",
+      "target_facility_id": "osm/way/913710102",
+      "target_facility_name": "Fred Arbanas Golf Course",
+      "reason": "contained separately named layout; existing course identity reused when reviewed",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/way/913710102/1",
+        "https://www.openstreetmap.org/api/0.6/way/913716804/4"
+      ],
+      "target_course_id": "osm/way/913716804",
+      "target_course_name": "Par 3 Executive Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 1.0000000000000002,
+        "target_fraction_in_source": 0.1319622014904925,
+        "iou": 0.13196220149049248,
+        "source_geometry_sha256": "471eeb5dea2bd2a3429750fe2a6c657879c09107cf18f4bf3e7f515c18acbf80",
+        "target_geometry_sha256": "2ca51f709023c5ce2ec1382a21b324a30291d1c5d8af222884157371f4fdc869"
+      }
+    },
+    {
+      "rule": "c",
+      "action": "course",
+      "source_id": "osm/way/96656326",
+      "source_name": "Cypress Course",
+      "source_sha256": "0cd64cb257a365139629e353a662b56bf43098c3d33b6eea47ef69ebeb209082",
+      "target_facility_id": "osm/relation/5462846",
+      "target_facility_name": "Palm Aire Country Club",
+      "reason": "Frozen Pompano Beach geometry is an explicit member of Palm Aire relation5462846. Official Palm Aire operator independently lists Cypress among its three courses; no existing catalog course found for this parent or nearby Cypress. Ruskin1011 Cypress Village Blvd/site belongs to different official Cypress Creek venue. Retain contradictory tags raw, exclude them from verified course/facility facts; only Cypress layout identity is resolved.",
+      "evidence": [
+        "https://palmaire.clublink.com/about/",
+        "https://www.cypresscreekgolfclub.com/",
+        "https://www.openstreetmap.org/api/0.6/relation/5462846/4",
+        "https://www.openstreetmap.org/api/0.6/way/96656326/11"
+      ],
+      "target_course_id": "osm/way/96656326",
+      "target_course_name": "Cypress Course",
+      "geometry": {
+        "source_covered_by_target": true,
+        "source_fraction_in_target": 0.9999999999999996,
+        "target_fraction_in_source": 0.30096320661538933,
+        "iou": 0.3009632066153893,
+        "source_geometry_sha256": "6b5a7d1d46914a8d9dc35d025742ce5222ace014957da0a8c8a43126a9c8b544",
+        "target_geometry_sha256": "67d80b6e3e1287a42877df648328c1c92c85f689b9c512ef7d9c556e3874c4f2"
+      },
+      "withheld_course_fields": {
+        "fields": [
+          "website",
+          "address",
+          "address_city",
+          "address_country",
+          "address_postal_code",
+          "address_purpose",
+          "address_region",
+          "address_street_line1",
+          "address_street_line2",
+          "address_text",
+          "booking_url",
+          "contact_url"
+        ],
+        "reason": "Frozen Cypress geometry is part of Palm Aire, but raw source address/site identify unrelated Cypress Creek in Ruskin. Preserve raw observations; withhold these conflicting projections from course facts."
+      }
+    },
+    {
+      "rule": "d",
+      "action": "merge_facility",
+      "source_id": "osm/way/1509566447",
+      "source_name": "Thorncreek Golf Course",
+      "source_sha256": "a66e686d804b9bb2013d35b3123804834b9b28ac97e022ff89a9c14d085b6936",
+      "target_facility_id": "osm/relation/10428759",
+      "target_facility_name": "Thorncreek Golf Course",
+      "reason": "strict positive-area overlap; exact full name and way/relation identity pair reviewed",
+      "evidence": [
+        "https://www.thorntonco.gov/community-culture/thorncreek-golf-course",
+        "https://www.openstreetmap.org/way/1509566447",
+        "https://www.openstreetmap.org/relation/10428759"
+      ],
+      "geometry": {
+        "source_covered_by_target": false,
+        "source_fraction_in_target": 0.3274327373852052,
+        "target_fraction_in_source": 0.9993883136053223,
+        "iou": 0.3273671301518122,
+        "source_geometry_sha256": "b46851e5268eb7d80cc2dfd453215e7a5f08055669f6532ebf32c4c7ffa5590b",
+        "target_geometry_sha256": "ea6262005af134287e8eb52af6795ae34d60229a2e016f58a02f12adf3562bcb"
+      }
+    },
+    {
+      "rule": "d",
+      "action": "merge_facility",
+      "source_id": "osm/way/1545177207",
+      "source_name": "Dunes Island Club",
+      "source_sha256": "8e5f1d51352c42d80e2fc4eeb40ec734aad5319ecec2a93a194c5389991f91f4",
+      "target_facility_id": "osm/relation/16872637",
+      "target_facility_name": "Dunes Island Club",
+      "reason": "strict positive-area overlap; exact full name and way/relation identity pair reviewed",
+      "evidence": [
+        "https://www.sanibeldunesresort.com/",
+        "https://dahlmannproperties.com/hotels-resorts/the-dunes/",
+        "https://www.openstreetmap.org/way/1545177207",
+        "https://www.openstreetmap.org/relation/16872637"
+      ],
+      "geometry": {
+        "source_covered_by_target": false,
+        "source_fraction_in_target": 0.2748569195887304,
+        "target_fraction_in_source": 0.9834671044516817,
+        "iou": 0.2735927644726871,
+        "source_geometry_sha256": "50c0d2b9a9fd4425eca097a0f0f73f345b8244b90786dfe101bc4ba938de28d3",
+        "target_geometry_sha256": "44461bd39e491e3f67cd938362f23c53021302c59fd146987faeacdbc6ca3687"
+      }
+    },
+    {
+      "rule": "d",
+      "action": "merge_facility",
+      "source_id": "osm/way/1570062259",
+      "source_name": "Skyview at Terra Vista",
+      "source_sha256": "1f84770cf3638ce665fc7eacadc684ccde8aada8a2839887a03eb0d9ffd24a47",
+      "target_facility_id": "osm/relation/7565579",
+      "target_facility_name": "Skyview at Terra Vista",
+      "reason": "strict positive-area overlap; exact full name and way/relation identity pair reviewed",
+      "evidence": [
+        "https://www.citrushillsgolfandcountryclub.com/golf/course-information/",
+        "https://www.fsga.org/Club/Detail/497bb473-8168-43b2-92e2-3035926b064d",
+        "https://www.openstreetmap.org/way/1570062259",
+        "https://www.openstreetmap.org/relation/7565579"
+      ],
+      "geometry": {
+        "source_covered_by_target": false,
+        "source_fraction_in_target": 0.27321929934177713,
+        "target_fraction_in_source": 0.9996779655518739,
+        "iou": 0.2731952542336044,
+        "source_geometry_sha256": "490ae1e4dd406f422dc03fbca023269dfadb026732e3ad810b430beb636466f5",
+        "target_geometry_sha256": "6eac3eed8ce96ec81306f6d6460c66c5e4ce3750b9072338b46e2ebc0ba4e73a"
+      }
+    },
+    {
+      "rule": "d",
+      "action": "merge_facility",
+      "source_id": "osm/way/1570464408",
+      "source_name": "The Arboretum Club",
+      "source_sha256": "d0d157ea63b0aaa290723a550ab4514f0c91e5f5704c059184e91658d9552735",
+      "target_facility_id": "osm/relation/3938646",
+      "target_facility_name": "The Arboretum Club",
+      "reason": "strict positive-area overlap; exact full name and way/relation identity pair reviewed",
+      "evidence": [
+        "https://www.arboretumgolf.com/",
+        "https://www.openstreetmap.org/way/1570464408",
+        "https://www.openstreetmap.org/relation/3938646"
+      ],
+      "geometry": {
+        "source_covered_by_target": false,
+        "source_fraction_in_target": 0.8752787066631533,
+        "target_fraction_in_source": 0.9781046234624241,
+        "iou": 0.858458445021004,
+        "source_geometry_sha256": "bedfcbc79ce3fcc8c60f4a1f99f65600a17fda0ee2a698945f3b24b6131ef1d0",
+        "target_geometry_sha256": "acb6057350597ed5c156e1e0df5d312f2c4df81bbf9b404e804b81eceaa608cc"
+      }
+    },
+    {
+      "rule": "d",
+      "action": "merge_facility",
+      "source_id": "osm/way/1570536863",
+      "source_name": "Palmetto Dunes - Robert Trent Jones Golf Course",
+      "source_sha256": "e4ab5fee3d0f87c59a6929921f65791a67f6ff13e907e49dd55ca3683c6600ae",
+      "target_facility_id": "osm/relation/13116136",
+      "target_facility_name": "Palmetto Dunes - Robert Trent Jones Golf Course",
+      "reason": "strict positive-area overlap; exact full name and way/relation identity pair reviewed",
+      "evidence": [
+        "https://www.palmettodunes.com/golf/robert-trent-jones-golf-course",
+        "https://www.openstreetmap.org/way/1570536863",
+        "https://www.openstreetmap.org/relation/13116136"
+      ],
+      "geometry": {
+        "source_covered_by_target": false,
+        "source_fraction_in_target": 0.30312242709684933,
+        "target_fraction_in_source": 0.9675024480924236,
+        "iou": 0.30006725799692974,
+        "source_geometry_sha256": "65b8a578043b1164f9ad21ec4212cec75b335fc61c120f9d5934e702c547791d",
+        "target_geometry_sha256": "71832bf4268b161c3fbbd63516aacc6a8e11b67e1ff518fce34305b29a811dda"
+      }
+    },
+    {
+      "rule": "d",
+      "action": "merge_facility",
+      "source_id": "osm/way/1570541839",
+      "source_name": "Pine Forest Golf Club",
+      "source_sha256": "2b66425c174e79eb72719c3fe2fe9ae9706b5c7076af5b05efa38a0e09fd5e80",
+      "target_facility_id": "osm/relation/12322609",
+      "target_facility_name": "Pine Forest Golf Club",
+      "reason": "strict positive-area overlap; exact full name and way/relation identity pair reviewed",
+      "evidence": [
+        "https://bastropcountryclub.com/",
+        "https://explorebastropcounty.com/listings/bastrop-river-club/",
+        "https://www.openstreetmap.org/way/1570541839",
+        "https://www.openstreetmap.org/relation/12322609"
+      ],
+      "geometry": {
+        "source_covered_by_target": false,
+        "source_fraction_in_target": 0.4048129894237968,
+        "target_fraction_in_source": 0.8090729460588059,
+        "iou": 0.3695137880575991,
+        "source_geometry_sha256": "b9f3ef43be3ac9faba36c8f5e2e488122e85de36d14460705c65ad35f4636ae5",
+        "target_geometry_sha256": "106d483fe412253ac23479bc3cd37a3f6ea1fb402ce3d35e2e7362a5bda64a25"
+      }
+    },
+    {
+      "rule": "d",
+      "action": "merge_facility",
+      "source_id": "osm/way/263470439",
+      "source_name": "Vesper Country Club",
+      "source_sha256": "a17afc6038d8a82dd91da553690fd2a0e6848bf6f792b519a6935525d2c12cb9",
+      "target_facility_id": "osm/relation/3537891",
+      "target_facility_name": "Vesper Country Club",
+      "reason": "strict positive-area overlap; exact full name and way/relation identity pair reviewed",
+      "evidence": [
+        "https://www.vespercc.com/Amenities/Golf",
+        "https://www.openstreetmap.org/way/263470439",
+        "https://www.openstreetmap.org/relation/3537891"
+      ],
+      "geometry": {
+        "source_covered_by_target": false,
+        "source_fraction_in_target": 0.7603076957754786,
+        "target_fraction_in_source": 0.32774964920091226,
+        "iou": 0.297056208625737,
+        "source_geometry_sha256": "28b9c0b4e46d157e2e2aac279b366ef06255ca198430d7245a578a58d8108d0f",
+        "target_geometry_sha256": "79f50fac526bc2cc9726dd5787a2a808d54ce0f2d8da2fe4cb457bea6c7e723a"
+      }
+    },
+    {
+      "rule": "d",
+      "action": "merge_facility",
+      "source_id": "osm/way/263470440",
+      "source_name": "Vesper Country Club",
+      "source_sha256": "5aa5e583db1645662b302ffa89872ca11a22da3cbfa69b43e1cd79aa52bbfeb7",
+      "target_facility_id": "osm/relation/3537891",
+      "target_facility_name": "Vesper Country Club",
+      "reason": "strict positive-area overlap; exact full name and way/relation identity pair reviewed",
+      "evidence": [
+        "https://www.vespercc.com/Amenities/Golf",
+        "https://www.openstreetmap.org/way/263470440",
+        "https://www.openstreetmap.org/relation/3537891"
+      ],
+      "geometry": {
+        "source_covered_by_target": false,
+        "source_fraction_in_target": 0.6940735412310356,
+        "target_fraction_in_source": 0.19937945097248858,
+        "iou": 0.1832733211197664,
+        "source_geometry_sha256": "7feeca7424c43483eebba4f1f84e16a052f156bdccb8d6f231f6b00d68cf3595",
+        "target_geometry_sha256": "79f50fac526bc2cc9726dd5787a2a808d54ce0f2d8da2fe4cb457bea6c7e723a"
+      }
+    },
+    {
+      "rule": "d",
+      "action": "merge_facility",
+      "source_id": "osm/way/468522362",
+      "source_name": "Eastlake Country Club",
+      "source_sha256": "30d8a6004787e7a4045f6f29df8572075b5b179a81cc6aee25667b447ad84bcc",
+      "target_facility_id": "osm/relation/326567",
+      "target_facility_name": "Eastlake Country Club",
+      "reason": "strict positive-area overlap; exact full name and way/relation identity pair reviewed",
+      "evidence": [
+        "https://www.enagicgolfclub.com/",
+        "https://www.openstreetmap.org/way/468522362",
+        "https://www.openstreetmap.org/relation/326567"
+      ],
+      "geometry": {
+        "source_covered_by_target": false,
+        "source_fraction_in_target": 0.9999275644019999,
+        "target_fraction_in_source": 0.02932208041411941,
+        "iou": 0.029322018130741385,
+        "source_geometry_sha256": "aa43732b9a98c2c88466af9fa3b23634bd5e742dbe85b0201939587ae9f8b4fa",
+        "target_geometry_sha256": "628915d7b3b4f4099255e5e6bcab5afb8f7b537446db80888058c1ddabac2cca"
+      }
+    },
+    {
+      "rule": "d",
+      "action": "merge_facility",
+      "source_id": "osm/way/675252211",
+      "source_name": "The Club at Pine Forest",
+      "source_sha256": "3b23a3f002d5f04f730f68bda9386bdbe9acf2b5dda04a8ebcd726fb37bcc484",
+      "target_facility_id": "osm/relation/9379553",
+      "target_facility_name": "The Club at Pine Forest",
+      "reason": "strict positive-area overlap; exact full name and way/relation identity pair reviewed",
+      "evidence": [
+        "https://directory.pga.org/facility/detail/958758892",
+        "https://www.openstreetmap.org/way/675252211",
+        "https://www.openstreetmap.org/relation/9379553"
+      ],
+      "geometry": {
+        "source_covered_by_target": false,
+        "source_fraction_in_target": 0.846313700358225,
+        "target_fraction_in_source": 0.9986637427778476,
+        "iou": 0.8453564137001757,
+        "source_geometry_sha256": "260eae0610b8e247124461271d7ffc43ffbe88d31190b2e81b31d6641d700dff",
+        "target_geometry_sha256": "7afadd8034ac7fb68973f8f617a87b136f23662ef9707425ad2a57eac92f5fea"
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/11077763599",
+      "source_name": "Mountain Top Golf Course",
+      "source_sha256": "3b3bd7fda62f6c2d5b3fa4c2ad2167d0f07f6039674b3a781a62c99c61c0dc4b",
+      "target_facility_id": "f-e888ad8d-2c30-416a-983a-a23551450d35",
+      "target_facility_name": "Mountain Top Golf Course",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/11077763599/1",
+        "https://www.openstreetmap.org/f-e888ad8d-2c30-416a-983a-a23551450d35"
+      ],
+      "target_course_id": "c-661bcd80-961a-4ab9-9500-5f4c6f1f2946",
+      "target_course_name": "Mountain Top Golf Course",
+      "distance_km": 0.06774304824988456,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/11184915746",
+      "source_name": "Crescent Pointe Golf Club",
+      "source_sha256": "af6eaa71e2990ea724b1a45fef19bc21c06d805f54bac976b55a38b1a51f0b8e",
+      "target_facility_id": "f-23d49fb0-71e0-4854-91b9-b440746ac993",
+      "target_facility_name": "Crescent Pointe Golf Club",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/11184915746/4",
+        "https://www.openstreetmap.org/f-23d49fb0-71e0-4854-91b9-b440746ac993"
+      ],
+      "target_course_id": "c-1282a90f-1d23-4b8d-8033-89694144c32a",
+      "target_course_name": "Crescent Pointe Golf Club",
+      "distance_km": 0.06177794398169581,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/11223842238",
+      "source_name": "Rolling Hills Golf Course",
+      "source_sha256": "6d29cf29b9364cb93d73745dafaf7e59e4293f6d0bde075d3bdb4efef5ffd620",
+      "target_facility_id": "osm/relation/5292005",
+      "target_facility_name": "Rolling Hills Golf Course",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/11223842238/4",
+        "https://www.openstreetmap.org/api/0.6/relation/5292005/4"
+      ],
+      "target_course_id": "c-6dcf029b-51c9-48d5-aef5-2efeb968aa85",
+      "target_course_name": "Rolling Hills Golf Course",
+      "distance_km": 0.26578383415615187,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/13576230114",
+      "source_name": "The Baths",
+      "source_sha256": "5ddef96bc397b98561f4c45d4cecdb2a81d4fa87298c2dfdc3894c1be878817b",
+      "target_facility_id": "osm/relation/12871002",
+      "target_facility_name": "Blackwolf Run",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/13576230114/1",
+        "https://www.openstreetmap.org/api/0.6/relation/12871002/3"
+      ],
+      "target_course_id": "c-385b83b9-4136-464b-9997-a3da27a7f255",
+      "target_course_name": "The Baths",
+      "distance_km": 0.7541293613923041,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/14088898244",
+      "source_name": "Puakea Golf Course",
+      "source_sha256": "de2b194142888758fa6e9af3cec901a34ac0b11c2d46087206e95f97b348e7d3",
+      "target_facility_id": "osm/way/1054604752",
+      "target_facility_name": "Puakea Golf Course",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/14088898244/2",
+        "https://www.openstreetmap.org/api/0.6/way/1054604752/4"
+      ],
+      "target_course_id": "c-1ceb55f7-dc55-4e2f-9b52-46811601b61b",
+      "target_course_name": "Puakea Golf Course",
+      "distance_km": 0.4104664538181744,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/2854158382",
+      "source_name": "Bethpage Black",
+      "source_sha256": "257b2cc49eaecdacdf130f1a577e51864caa19f47ad32ffb9b8078bc08cb11cd",
+      "target_facility_id": "f-0129c277-d9de-4db0-b203-0d560081c668",
+      "target_facility_name": "Bethpage State Park",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/2854158382/1",
+        "https://www.openstreetmap.org/f-0129c277-d9de-4db0-b203-0d560081c668"
+      ],
+      "target_course_id": "c-6c4e3d73-2ada-43d1-a4c7-e969258d1630",
+      "target_course_name": "Black Course",
+      "distance_km": 1.3061637300697804,
+      "point_match_reasons": {
+        "bethpage_descriptor_composite": {
+          "kind": "parent + course",
+          "parent_suffix_removed": "state park",
+          "course_suffix_removed": "course"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/3531678047",
+      "source_name": "Morgan Hill Golf Course",
+      "source_sha256": "655d74a60e97fd58f3186890584ed2f327dac67da23d0425e618ac9bd040ed9c",
+      "target_facility_id": "osm/relation/21599693",
+      "target_facility_name": "Morgan Hill Golf Course",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/3531678047/2",
+        "https://www.openstreetmap.org/api/0.6/relation/21599693/4"
+      ],
+      "target_course_id": "c-808a8841-6684-48bf-910f-c0bf2b001124",
+      "target_course_name": "Morgan Hill Golf Course",
+      "distance_km": 0.33566390933328566,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/4324366401",
+      "source_name": "Scotch Pines Golf Course",
+      "source_sha256": "0e913328931bcd8e82512f30f91ba8ec6f9045dfbe62c2f390a7908e4d379101",
+      "target_facility_id": "f-882a71af-0f16-46a1-bcdd-964f6ed51699",
+      "target_facility_name": "Scotch Pines Golf Course",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/4324366401/2",
+        "https://www.openstreetmap.org/f-882a71af-0f16-46a1-bcdd-964f6ed51699"
+      ],
+      "target_course_id": "c-659e2515-7c1b-4e49-9c3b-48ac10e0d6b9",
+      "target_course_name": "Scotch Pines Golf Course",
+      "distance_km": 0.11136702775217669,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/5612442466",
+      "source_name": "Jonathans Landing Golf Club",
+      "source_sha256": "13afd61ec4e7a72fda2ce630d813f15e2d8c6b196d98b53239773b90b0a73c05",
+      "target_facility_id": "osm/way/587576318",
+      "target_facility_name": "Jonathan’s Landing Golf Club",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/5612442466/2",
+        "https://www.openstreetmap.org/api/0.6/way/587576318/11"
+      ],
+      "target_course_id": "c-2fb21adf-fe13-4b61-a1ec-6536a3cbb22c",
+      "target_course_name": "Jonathan’s Landing Golf Club",
+      "distance_km": 0.24605860561223847,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/6439220431",
+      "source_name": "Olde Stonewall",
+      "source_sha256": "7233fcdea5759eeb5572520d1ad1a02850d0e75db80d9854ec3a897cc2f7f183",
+      "target_facility_id": "f-0088617b-f8ce-4495-b4d2-8b017a5cb487",
+      "target_facility_name": "Olde Stonewall Golf Club",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/6439220431/2",
+        "https://www.openstreetmap.org/f-0088617b-f8ce-4495-b4d2-8b017a5cb487"
+      ],
+      "target_course_id": "c-cc260802-b96a-4cfe-8cd1-cf82be43159d",
+      "target_course_name": "Olde Stonewall",
+      "distance_km": 0.24563058351219463,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/6516594242",
+      "source_name": "Oneka Ridge Golf Course",
+      "source_sha256": "813aa41649a7427849b19a75a89ed1d34518de74c9d626e091a53e6bfab662f7",
+      "target_facility_id": "osm/way/977989220",
+      "target_facility_name": "Oneka Ridge Golf Course",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/6516594242/1",
+        "https://www.openstreetmap.org/api/0.6/way/977989220/1"
+      ],
+      "target_course_id": "c-69d35e9d-0491-4821-8a47-44612ee8c5c4",
+      "target_course_name": "Oneka Ridge Golf Course",
+      "distance_km": 0.0903437473343588,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/9461644635",
+      "source_name": "Carolina Colours Golf Club",
+      "source_sha256": "1d0c64cd460fe41c8200bbecc00c13a5dd2ef08f6cd4688dc4ed4e81e9fdb2de",
+      "target_facility_id": "f-cb884544-fc28-4535-81d5-32e30242fd2f",
+      "target_facility_name": "Carolina Colours Golf Club",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/9461644635/1",
+        "https://www.openstreetmap.org/f-cb884544-fc28-4535-81d5-32e30242fd2f"
+      ],
+      "target_course_id": "c-d664ca05-2ce5-4c68-ad06-4828d1d7f6bf",
+      "target_course_name": "Carolina Colours Golf Club",
+      "distance_km": 0.7537649909304464,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/9583952422",
+      "source_name": "Arizona Grand Golf Course",
+      "source_sha256": "14639ffaff2685df812c6c63c4774e8730e03ae46a2f1c2bdc0f7b6b1fd53934",
+      "target_facility_id": "osm/way/1379363588",
+      "target_facility_name": "Arizona Grand Golf Course",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/9583952422/3",
+        "https://www.openstreetmap.org/api/0.6/way/1379363588/1"
+      ],
+      "target_course_id": "c-488e0fcc-a640-4383-9169-2401249819b9",
+      "target_course_name": "Arizona Grand Golf Course",
+      "distance_km": 0.2031265849336201,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    },
+    {
+      "rule": "e",
+      "action": "match_course",
+      "source_id": "osm/node/9953725568",
+      "source_name": "Whitetail Ridge Golf Club",
+      "source_sha256": "5f287d2128390b63179ed7351cac4b6917f6d531f640cffbcedb18b5b5b83cb5",
+      "target_facility_id": "osm/relation/9639770",
+      "target_facility_name": "Whitetail Ridge Golf Club",
+      "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/node/9953725568/4",
+        "https://www.openstreetmap.org/api/0.6/relation/9639770/3"
+      ],
+      "target_course_id": "c-9219f5ce-68f7-4325-b10e-c82a48b99565",
+      "target_course_name": "Whitetail Ridge Golf Club",
+      "distance_km": 0.10288919905463402,
+      "point_match_reasons": {
+        "course_name_exact": {
+          "kind": "normalized course-name equality"
+        }
+      }
+    }
+  ],
+  "held": [
+    {
+      "source_id": "osm/relation/1936917",
+      "rule": "c",
+      "name": "Grand Club Cypress Course",
+      "counterpart_id": "osm/relation/21438275",
+      "reason": "Official current course/history confirms one 18-hole Cypress Knoll venue, but no primary evidence located explicitly connecting historical Grand Club Cypress identity; do not create another course beside existing c-2b11b6ab-ded5-4327-8a14-88a77570b2dd.",
+      "evidence": [
+        "https://www.cypressknollgolfandcountryclub.com/course/"
+      ]
+    },
+    {
+      "source_id": "osm/relation/3573319",
+      "rule": "c",
+      "name": "Diablo Grande Golf & Country Club",
+      "counterpart_id": "osm/relation/1792322",
+      "reason": "Broader resort versus golf and country club scope remains unresolved. Official source domain now redirects to a domain sale page; frozen names differ and no alias/member tie. Do not invent one generic course for a historically multi-layout site.",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/3573319/4",
+        "https://www.openstreetmap.org/api/0.6/relation/1792322/5"
+      ]
+    },
+    {
+      "source_id": "osm/relation/8064374",
+      "rule": "c",
+      "name": "Summit Rock",
+      "counterpart_id": "osm/way/563513408",
+      "reason": "Mandatory hold: Summit Rock relation8064374 versus source way563513408 labeled Slick Rock. Preserve both; membership must not collapse distinct named layouts.",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/8064374/1",
+        "https://www.openstreetmap.org/api/0.6/way/563513408/3"
+      ]
+    },
+    {
+      "source_id": "osm/way/1417078425",
+      "rule": "c",
+      "name": "Olympic Club Lake Course",
+      "counterpart_id": "osm/relation/3573537",
+      "reason": "Lake Course already c-dbdf8a09-f218-438a-a2af-f93b44819a13 under catalog-only f-9150528b-761b-4ce8-9de7-10f6ed2c4723. Approved 14 point set does not resolve parent relation3573537. New course would duplicate; cross-facility identity merge needs an additional exception.",
+      "evidence": [
+        "https://www.olyclub.com/public-homepage/golf/"
+      ]
+    },
+    {
+      "source_id": "osm/way/1564266665",
+      "rule": "c",
+      "name": "Disney's Oak Trail Golf Course",
+      "counterpart_id": "osm/relation/11105783",
+      "reason": "Official operator lists Oak Trail and Magnolia separately. Frozen containing source11105783 is labeled Magnolia; catalog-only combined Palm/Magnolia/Oak Trail facility also exists. Cannot safely make Oak Trail a child of Magnolia or merge the broader parent identity without a new decision.",
+      "evidence": [
+        "https://www.golfwdw.com/courses/disneys-oak-trail-golf-course"
+      ]
+    },
+    {
+      "source_id": "osm/way/254655923",
+      "rule": "c",
+      "name": "Mesquite Course",
+      "counterpart_id": "osm/relation/3524781",
+      "reason": "One Mesquite nine spans two OSM member ways; existing c-f0c384c5-77a6-46ae-b4f4-ca7e342caebd belongs to catalog-only f-71d4a3ab-2fa3-4201-b2f4-256fd6538803. Parent relation3524781 has no course rows; no approved identity exception joins parents. No duplicate course.",
+      "evidence": [
+        "https://www.kierlandgolf.com/mesquite/"
+      ]
+    },
+    {
+      "source_id": "osm/way/254656063",
+      "rule": "c",
+      "name": "Mesquite Course",
+      "counterpart_id": "osm/relation/3524781",
+      "reason": "Same Mesquite nine as way254655923, not a second course. Existing c-f0c384c5-77a6-46ae-b4f4-ca7e342caebd belongs to catalog-only f-71d4a3ab-2fa3-4201-b2f4-256fd6538803. Parent identity remains unresolved.",
+      "evidence": [
+        "https://www.kierlandgolf.com/mesquite/"
+      ]
+    },
+    {
+      "source_id": "osm/way/79848269",
+      "rule": "c",
+      "name": "Ironwood & Acacia Courses",
+      "counterpart_id": "osm/relation/3524781",
+      "reason": "Combined Ironwood & Acacia source describes two existing9-hole identities c-cdd36b69-a48b-4e9c-90d6-2e25d2032857 and c-b20f837b-a6ca-4084-bfab-5278a7f29bf8 under catalog-only Kierland facility. Do not create one new course or move parents via unapproved exception.",
+      "evidence": [
+        "https://www.kierlandgolf.com/"
+      ]
+    }
+  ],
+  "partial_unchanged": "145 of 155 strict-partial facility rows are not removed by rule d; ten way records merge into nine relations. The 84 reverse-containment-only areas are not removed on that basis.",
+  "approval_gate": "Draft only. Deliver final counts and20 reproducible random results with OSM links and wait for user OK before merge."
+}

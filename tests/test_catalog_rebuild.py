@@ -9,6 +9,7 @@ from pathlib import Path
 
 import pytest
 
+from fairway.catalog_reconcile import restore_before_reconciliation
 from fairway.open_catalog import load_source
 from fairway.rebuild_catalog import assert_preserved, rebuild, stored_bindings
 
@@ -165,6 +166,8 @@ def test_every_released_fact_and_source_scope_survives_in_the_single_catalog():
     metadata, rows = load_source(ROOT)
     value = metadata | rows
     assert_preserved(value)
+    baseline = restore_before_reconciliation(value)
+    rows = {kind: baseline[kind] for kind in ("facilities", "courses")}
     receipts = metadata["rebuild"]["preservation"]["rows"]
     assert len(receipts) == 7430 + 4918
     osm = [
@@ -242,6 +245,8 @@ def test_naming_a_withheld_source_feature_restores_its_exact_identity():
 
 def test_pinned_inputs_retain_every_withheld_outline_without_a_second_catalog():
     metadata, rows = load_source(ROOT)
+    baseline = restore_before_reconciliation(metadata | rows)
+    rows = {kind: baseline[kind] for kind in ("facilities", "courses")}
     inputs = {}
     for name, pin in metadata["rebuild"]["build_inputs"].items():
         path = ROOT / "data/catalog-inputs" / name

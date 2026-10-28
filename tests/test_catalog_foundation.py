@@ -67,8 +67,8 @@ def test_native_inventory_never_promotes_components_or_private_booking(catalog):
 
 def test_all_native_relationships_and_public_evidence_are_preserved(catalog):
     assert (
-        sum(len(f["course_ids"]) for f in catalog["facilities"]) == 4918
-        and len(catalog["courses"]) == 4952
+        sum(len(f["course_ids"]) for f in catalog["facilities"]) == 4957
+        and len(catalog["courses"]) == 4991
     )
     assert len(catalog["provenance"]["notes"]) == 8286
     assert all(set(note) == {"id"} for note in catalog["provenance"]["notes"])
