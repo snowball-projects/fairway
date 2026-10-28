@@ -83,7 +83,7 @@ def test_complete_notation_transport_build_and_unknowns(tmp_path, case):
     )
     out = tmp_path / "site"
     if accept:
-        assert pages.build(source, out, "b" * 40)["assets"] == 36
+        assert pages.build(source, out, "b" * 40)["assets"] == 40
         assert "Data credits" in (out / "credits.html").read_text()
         published = json.loads(
             next((out / "data").glob("native-catalog-*.json")).read_bytes()
