@@ -368,7 +368,9 @@ def test_osm_enrichment_fills_nulls_and_preserves_released_facts_and_citations()
 
 def test_known_holes_win_over_osm_without_losing_the_disagreeing_observation():
     data = inputs()
-    data[1]["facilities"][0].update(access=None, physical_holes=27)
+    for row in data[1]["facilities"]:
+        row.update(access=None, physical_holes=None)
+    data[1]["facilities"][0]["physical_holes"] = 27
     data[2][0]["tags"] = {"holes": "18", "fee": "yes"}
     value = rebuild(*data)
     row = next(r for r in value["facilities"] if r["released_id"] == "f-old")
