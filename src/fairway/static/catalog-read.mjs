@@ -54,9 +54,9 @@ export function courseMatches(course,{state='all',access='all',holes='all',round
 }
 export function sortCourses(courses,sort='name') {
   const value=c=>sort==='holes'?(Number.isFinite(c.physical_holes)?c.physical_holes:null):null;
-  const label=c=>recordLabel(c,'course');
+  const label=c=>recordLabel(c,c.course_id?'course':'facility');
   return [...courses].sort((a,b)=>{
-    if(sort==='name')return label(a).localeCompare(label(b)) || a.course_id.localeCompare(b.course_id);
+    if(sort==='name')return label(a).localeCompare(label(b)) || (a.course_id??a.facility_id).localeCompare(b.course_id??b.facility_id);
     const av=value(a),bv=value(b);return av===null?(bv===null?label(a).localeCompare(label(b)):1):bv===null?-1:av-bv||label(a).localeCompare(label(b));
   });
 }

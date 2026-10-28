@@ -1036,6 +1036,25 @@ function scopedRecords() {
     facilityIds:browseScope?.ids?new Set(browseScope.ids):null})), $("browse-sort").value);
 }
 function matchesCourseFilters(course) {return courseMatches(course,filterOptions());}
+function scopedFacilities() {
+  if(planningMode)return [];
+  const withCourses=new Set(catalogModel.courses.map(course=>course.facility_id));
+  const filters={...filterOptions(),
+    bounds:browseScope?.kind==="viewport"?map.getBounds():null,
+    facilityIds:browseScope?.ids?new Set(browseScope.ids):null};
+  return catalogModel.facilities.filter(facility=>!withCourses.has(facility.facility_id)&&courseMatches(facility,filters));
+}
+function browseRecordId(record) {return record.course_id??record.facility_id;}
+function facilityBrowseCard(facility) {
+  const item=node("li"),article=node("article",undefined,"facility-card");
+  article.dataset.facilityId=facility.facility_id;
+  const title=node("button",recordLabel(facility));title.type="button";
+  title.addEventListener("click",()=>selectFacilityById(facility.facility_id,true));
+  article.append(title,node("p","holes and access not recorded yet"));
+  const place=[cityLabel(facility),facility.state].filter(Boolean).join(", ");
+  if(place)article.append(node("p",place));
+  item.append(article);return item;
+}
 function updateDisplaySortOptions() {
   const sort = $("browse-sort"), choices = [["name","Name"],["holes","Holes"]];
   if (planningMode && state.ranking?.courses.some(c=>Number.isFinite(c.maximum_seconds))) choices.push(["maximum","Longest driving time"],["combined","Combined driving time"],
@@ -1047,9 +1066,12 @@ function updateDisplaySortOptions() {
   const value = planningMode && choices.some(([value]) => value === planningDisplaySort) ? planningDisplaySort : choices.some(([value])=>value===sort.value)?sort.value:"name";
   sort.value = value;
 }
-function updateLoadedCount(count) {
+function updateLoadedCount(count, facilities = 0) {
   view.resultCount.textContent = String(count);
-  view.resultCount.setAttribute("aria-label", `Number of courses loaded: ${count}`);
+  view.resultCount.setAttribute("title", facilities ? "Number of entries loaded" : "Number of courses loaded");
+  view.resultCount.setAttribute("aria-label", facilities
+    ? `Number of entries loaded: ${count} (${count-facilities} courses, ${facilities} facilities)`
+    : `Number of courses loaded: ${count}`);
 }
 function catalogLoadMessage() {
   const unavailable=$("catalog-status").textContent?.includes("unavailable");
@@ -1084,34 +1106,36 @@ function renderCourses() {
   let records=scopedRecords();
   reconcileBrowseSelection(records);
   if(activeFacility!==selectedFacility)records=scopedRecords();
+  const facilities=scopedFacilities();
+  if(catalogModel.facilityById.has(activeFacility)&&!catalogModel.facilityCourses(activeFacility).length&&!facilities.some(f=>f.facility_id===activeFacility))closeSelection(false);
+  const entries=sortCourses([...records,...facilities],$("browse-sort").value);
   const held=new Set([...browseNodes].filter(([,item])=>item.contains(document.activeElement)||[...item.querySelectorAll("details")].some(details=>details.open)).map(([id])=>id));
-  const visible=selectedFirst(records).filter((course,index)=>index<listLimit||held.has(course.course_id));
-  updateLoadedCount(visible.length);
+  const visible=selectedFirst(entries,browseRecordId).filter((record,index)=>index<listLimit||held.has(browseRecordId(record)));
+  updateLoadedCount(visible.length,visible.filter(record=>!record.course_id).length);
   $("browse-description").textContent=browseScope?.label || "Courses in this map area";
   let list=view.results.querySelector(".course-list");
   if(!list||list.dataset.planning==="true") {
     rankingNodes.clear();rowInteractions.clear();browseNodes.clear();
     list=node("ol",undefined,"course-list");view.results.replaceChildren(list);
   }
-  const desired=new Set(visible.map(course=>course.course_id));
+  const desired=new Set(visible.map(browseRecordId));
   for(const [id,item] of browseNodes)if(!desired.has(id)){item.remove();browseNodes.delete(id);}
   const focused=document.activeElement;
-  visible.forEach((course,index)=>{
-    let item=browseNodes.get(course.course_id);
-    if(!item){item=courseCard(browseCard(course,catalogModel.destinations),selected("objective"));browseNodes.set(course.course_id,item);}
-    item.firstElementChild.dataset.active=String(course.course_id===state.activeCourse);
+  visible.forEach((record,index)=>{
+    const id=browseRecordId(record);
+    let item=browseNodes.get(id);
+    if(!item){item=record.course_id?courseCard(browseCard(record,catalogModel.destinations),selected("objective")):facilityBrowseCard(record);browseNodes.set(id,item);}
+    item.firstElementChild.dataset.active=String(record.course_id?record.course_id===state.activeCourse:record.facility_id===activeFacility);
     if(list.children[index]!==item)moveCourseCard(list,item,list.children[index]||null);
   });
   if(focused&&list.contains(focused)&&document.activeElement!==focused)focused.focus({preventScroll:true});
   view.results.querySelector(".browse-more")?.remove();view.results.querySelector(".browse-empty")?.remove();
-  if(records.length>visible.length) {
+  if(entries.length>visible.length) {
     const more=node("button","Show more","quiet-button browse-more");
     more.addEventListener("click",()=>{listLimit+=60;renderCourses();});view.results.append(more);
   }
-  if(!records.length) {
-    const message=activeFacility && !catalogModel.facilityCourses(activeFacility).length
-      ? "No course records documented for this facility." : "No matching courses.";
-    view.results.append(node("p",message,"browse-empty"));
+  if(!entries.length) {
+    view.results.append(node("p","No matching courses.","browse-empty"));
   }
 }
 
