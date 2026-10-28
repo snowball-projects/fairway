@@ -29,9 +29,10 @@ class Element {
   get lastElementChild(){return this.children.at(-1)||null;}
   setAttribute(k,v){this.attrs[k]=String(v);}
   addEventListener(t,fn){const f=this.listeners.get(t)||[];f.push(fn);this.listeners.set(t,f);}
-  emit(t,event={}){for(const f of this.listeners.get(t)||[])f.call(this,event);}
+  emit(t,event={}){this[`on${t}`]?.(event);for(const f of this.listeners.get(t)||[])f.call(this,event);}
   contains(n){return this===n||this.children.some(c=>typeof c==='object'&&c.contains(n));}
-  matches(selector){return selector.startsWith('.')?(this.className||'').split(' ').includes(selector.slice(1)):selector.startsWith('[value=')?this.value===selector.slice(8,-2):this.tag===selector;}
+  matches(selector){if(selector.includes(','))return selector.split(',').some(s=>this.matches(s.trim()));return selector.startsWith('.')?(this.className||'').split(' ').includes(selector.slice(1)):selector.startsWith('[value=')?this.value===selector.slice(8,-2):this.tag===selector;}
+  closest(selector){return this.matches(selector)?this:this.parent?.closest(selector)||null;}
   querySelectorAll(selector){const parts=selector.split(' '),matches=[];for(const c of this.children)if(typeof c==='object'){if(c.matches(parts[0])){if(parts.length===1)matches.push(c);else matches.push(...c.querySelectorAll(parts.slice(1).join(' ')));}matches.push(...c.querySelectorAll(selector));}return [...new Set(matches)];}
   querySelector(s){return this.querySelectorAll(s)[0]||null;}
   focus(){this.document.activeElement=this;}
@@ -56,7 +57,7 @@ function harness(model=catalog()){
  const ctx={URL,L,map,document,view,preparationFacilities:{clearLayers(){}},meetingLayer:{clearLayers(){}},STYLES,located,mapEligible,catalogCounts,cityLabel,accessLabel,displayAddress,recordLabel,browseCard,courseMatches,sortCourses,catalogModel:model,state:{activeCourse:null,activeRows:[],rows:[],ranking:null,routingCatalogLabel:'Catalog760'},COLORS:[],planningMode:false,browseMode:true,browseScope:{kind:'viewport',label:'Courses in this map area'},activeFacility:null,popupSelection:null,cataloguePopup:null,movingCourseCard:false,viewportFrame:null,listLimit:60,catalogDate:'revision760',rankingNodes:new Map(),browseNodes:new Map(),rowInteractions:new Set(),$:id=>controls[id],renderOptional:(o,p)=>renderOptional(o,{...p,document}),renderKnownOptional:(o,p)=>renderKnownOptional(o,{...p,document}),requestAnimationFrame:fn=>{frames.push(fn);return frames.length;},drawFacilities:()=>effects.draws++,fitPoints:(p,z)=>effects.fit.push([p,z]),setDrawer:()=>{view.resultsPanel.hidden=false;},selected:()=> 'maximum',updateDisplaySortOptions(){},duration:()=> 'Unavailable',planningSession:{update(){effects.planning++;throw Error('No automatic planning');},invalidate(){effects.planning++;throw Error('No browse invalidation');}}};
  ctx.mobile=()=>false;ctx.REDUCED_MOTION=false;ctx.coursesDrawer=null;
  vm.createContext(ctx);
- for(const name of ['node','selectableCourses','selectCourse','moveCourseCard','courseCard','renderRanking','knownLink','knownAddress','appendKnownOptional','knownRounds','coursePopupDetails','facilityDetails','selectCoincidentFacilities','selectFacilityById','selectionPopupOptions','openSelectionPopup','closeSelection','reconcilePopupChoices','reconcileBrowseSelection','selectedFirst','refreshBrowseViewport','filterOptions','scopedRecords','matchesCourseFilters','scopedFacilities','browseRecordId','facilityGroup','renderFacilityGroups','updateLoadedCount','renderCourses'])vm.runInContext(actual(name),ctx);
+ for(const name of ['node','selectableCourses','selectCourse','moveCourseCard','bindPillSelection','courseCard','renderRanking','knownLink','knownAddress','appendKnownOptional','knownRounds','coursePopupDetails','facilityDetails','selectCoincidentFacilities','selectFacilityById','selectionPopupOptions','openSelectionPopup','closeSelection','reconcilePopupChoices','reconcileBrowseSelection','selectedFirst','refreshBrowseViewport','filterOptions','scopedRecords','matchesCourseFilters','scopedFacilities','browseRecordId','facilityGroup','renderFacilityGroups','updateLoadedCount','renderCourses'])vm.runInContext(actual(name),ctx);
  vm.runInContext(source.slice(source.indexOf('map.on("moveend zoomend"'),source.indexOf('async function loadCatalog()')),ctx);
  const real=ctx.renderCourses;ctx.renderCourses=()=>{effects.render++;return real();};ctx.renderCourses();
  return {ctx,view,effects,controls,document,frames,events,ids:()=>view.results.querySelectorAll('.course-card').map(card=>card.dataset.courseId),cards:()=>view.results.querySelectorAll('.course-card'),pan:box=>{bounds=box;events.moveend();events.zoomend();},flush:()=>{while(frames.length)frames.shift()();},popup:()=>openPopup};
@@ -74,6 +75,31 @@ test('card clicks select/highlight and promote exactly one existing card; repeat
  const h=harness(),item=h.cards().find(card=>card.dataset.courseId==='c-b').parent,card=item.firstElementChild;
  for(let i=0;i<8;i++)card.querySelector('.course-focus').onclick();
  assert.equal(h.ids()[0],'c-b');assert.equal(new Set(h.ids()).size,3);assert.equal(h.cards().filter(c=>c.dataset.active==='true').length,1);assert.equal(h.view.results.querySelector('.facility-courses').children[0],item);assert.equal(h.effects.popups,1);assert.equal(h.effects.fit.length,8);assert.equal(h.ctx.popupSelection.kind,'course');assert.equal(h.ctx.popupSelection.id,'c-b');assert.equal(h.view.results.children.length,1);assert.equal(h.view.results.querySelectorAll('.facility-group').length,2);
+});
+test('facility and course padding select only their own pill and retain their native keyboard buttons',()=>{
+ const h=harness(),group=h.view.results.querySelectorAll('.facility-group').find(g=>g.dataset.facilityId==='f-one'),card=group.querySelectorAll('.course-card')[1];
+ const body=group.querySelector('.facility-facts'),time=card.querySelector('.golfer-times'),title=card.querySelector('.course-title');
+ for(const target of [body,group]){
+  h.ctx.closeSelection();group.emit('click',{target,button:0});assert.equal(h.ctx.activeFacility,'f-one');assert.equal(h.ctx.state.activeCourse,null);assert.equal(h.document.activeElement,group.querySelector('.facility-focus'));
+ }
+ for(const target of [time,card])for(let i=0;i<3;i++){
+  const before=h.effects.fit.length;card.emit('click',{target,button:0});group.emit('click',{target,button:0});
+  assert.equal(h.ctx.state.activeCourse,'c-b');assert.equal(h.ctx.popupSelection.kind,'course');assert.equal(h.effects.fit.length,before+1);assert.equal(h.document.activeElement,card.querySelector('.course-focus'));
+ }
+ const before=h.effects.fit.length,button=card.querySelector('.course-focus');button.emit('click',{target:title,detail:0});card.emit('click',{target:title,button:0});group.emit('click',{target:title,button:0});
+ assert.equal(h.effects.fit.length,before+1);assert.equal(h.cards().length,3);assert.equal(group.querySelectorAll('button').length,3);assert.equal(group.attrs.role,undefined);assert.equal(card.attrs.role,undefined);assert.equal(group.attrs.tabindex,undefined);assert.equal(card.attrs.tabindex,undefined);
+ h.ctx.closeSelection();assert.equal(card.dataset.active,'false');assert.equal(group.dataset.active,'false');
+});
+test('pill body clicks preserve links, other interactive children, text selection and cancelled clicks',()=>{
+ const h=harness(),group=h.view.results.querySelectorAll('.facility-group').find(g=>g.dataset.facilityId==='f-one');
+ for(const tag of ['a','button','input','select','textarea','summary']){
+  const control=h.document.createElement(tag),inner=h.document.createElement('span');control.append(inner);group.append(control);
+  group.emit('click',{target:inner,button:0});assert.equal(h.ctx.activeFacility,null,tag);
+ }
+ for(const event of [{button:1},{button:2},{button:0,defaultPrevented:true}])group.emit('click',{target:group,...event});assert.equal(h.ctx.activeFacility,null);
+ h.document.getSelection=()=>({isCollapsed:false,containsNode:element=>element===group});group.emit('click',{target:group,button:0});group.querySelector('.facility-focus').emit('click',{detail:1});assert.equal(h.ctx.activeFacility,null);
+ group.querySelector('.facility-focus').emit('click',{detail:0});assert.equal(h.ctx.activeFacility,'f-one');h.ctx.closeSelection();
+ h.document.getSelection=()=>({isCollapsed:false,containsNode:()=>false});group.emit('click',{target:group,button:0});assert.equal(h.ctx.activeFacility,'f-one');
 });
 test('shared-facility pin promotes its normal cards without inventing a selected individual; choosing an inventory course selects it',()=>{
  const h=harness();h.ctx.selectFacilityById('f-one');assert.equal(h.ctx.state.activeCourse,null);assert.deepEqual(h.ids(),['c-a','c-b','c-c']);assert.equal(h.ctx.popupSelection.kind,'facility');
