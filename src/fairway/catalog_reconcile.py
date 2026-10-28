@@ -394,7 +394,19 @@ def _refresh(value, facility_ids, course_ids):
             "website",
         ):
             course["facility_" + field] = facility.get(field)
-        for field in ("state", "country", "county", "inventory_complete"):
+        for field, address_field in (
+            ("state", "address_region"),
+            ("country", "address_country"),
+        ):
+            own_address = course.get("address_mode") in {"own", "override"}
+            course[field] = (
+                course[address_field]
+                if facility.get(field) is None
+                and own_address
+                and course.get(address_field) is not None
+                else facility.get(field)
+            )
+        for field in ("county", "inventory_complete"):
             course[field] = facility.get(field)
         if course.get("address_mode") == "inherit":
             course["address"] = copy.deepcopy(facility.get("address"))

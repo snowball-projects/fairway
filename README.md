@@ -19,8 +19,8 @@ uv build
 ```
 
 Serve the new output directory with `python3 -m http.server --directory /tmp/fairway-pages`.
-GitHub Pages publishes from main. One maintained CSV catalog contains 16,174
-facility records and 4,991 course records, rebuilt from the pinned 2026-10-25 US
+GitHub Pages publishes from main. One maintained CSV catalog contains 16,180
+facility records and 4,985 course records, rebuilt from the pinned 2026-10-25 US
 OSM extract and released facts, with reviewed identity decisions and source receipts. Wikidata facts
 use explicit links. Sources, dates, licenses and unknowns remain in the plain files.
 The 3,103 new unnamed OSM facility polygons stay in pinned `data/catalog-inputs/`

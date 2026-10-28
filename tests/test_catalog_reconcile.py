@@ -341,6 +341,40 @@ def test_new_course_does_not_infer_access_or_holes_from_facility_scalars(catalog
     assert restore_before_reconciliation(result) == catalog
 
 
+def test_new_course_keeps_own_state_and_country_when_parent_is_unknown(
+    catalog, tmp_path
+):
+    parent = catalog["facilities"][0]
+    parent.update(state=None, country=None)
+    source = catalog["facilities"][1]
+    source["osm"]["tags"].update({"addr:state": "TX", "addr:country": "US"})
+    result = apply_reconciliation(catalog, [decision("course")])
+    course = next(row for row in result["courses"] if row["course_id"] == "source")
+    assert course["state"] == course["address_region"] == "TX"
+    assert course["country"] == course["address_country"] == "US"
+    assert result["facilities"][0]["state"] is None
+    assert result["facilities"][0]["country"] is None
+    assert course["address"]["region"] == "TX"
+    assert course["osm"] == source["osm"]
+    assert restore_before_reconciliation(result) == catalog
+    validate_optional(result, tmp_path)
+
+
+def test_known_parent_geography_keeps_conflicting_own_address_scoped_to_course(
+    catalog, tmp_path
+):
+    source = catalog["facilities"][1]
+    source["osm"]["tags"].update({"addr:state": "TX", "addr:country": "CA"})
+    result = apply_reconciliation(catalog, [decision("course")])
+    course = next(row for row in result["courses"] if row["course_id"] == "source")
+    assert course["state"] == result["facilities"][0]["state"] == "NY"
+    assert course["country"] == result["facilities"][0]["country"] == "US"
+    assert course["address_region"] == course["address"]["region"] == "TX"
+    assert course["address_country"] == course["address"]["country"] == "CA"
+    assert restore_before_reconciliation(result) == catalog
+    validate_optional(result, tmp_path)
+
+
 def test_course_known_osm_id_already_exists_and_does_not_create_duplicate(catalog):
     existing = catalog["courses"][0]
     existing.update(

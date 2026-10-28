@@ -30,12 +30,12 @@
     "a": 54,
     "b": 29,
     "bethpage": 1,
-    "c": 52,
+    "c": 46,
     "d": 10,
     "e": 14,
     "c_existing_course": 13,
-    "c_new_course": 39,
-    "held_contained": 8
+    "c_new_course": 33,
+    "held_contained": 14
   },
   "decisions": [
     {
@@ -581,8 +581,7 @@
       "target_facility_name": "Windy Knoll Golf Club",
       "reason": "exact normalized full catalog/source name",
       "evidence": [
-        "https://www.openstreetmap.org/api/0.6/way/129019595/7",
-        "https://www.openstreetmap.org/f-9755d33d-078f-4665-9796-fb187c9c7831"
+        "https://www.openstreetmap.org/api/0.6/way/129019595/7"
       ],
       "geometry": {
         "source_covered_by_target": true,
@@ -603,8 +602,7 @@
       "target_facility_name": "Windy Knoll Golf Club",
       "reason": "exact normalized full catalog/source name",
       "evidence": [
-        "https://www.openstreetmap.org/api/0.6/way/129021257/10",
-        "https://www.openstreetmap.org/f-9755d33d-078f-4665-9796-fb187c9c7831"
+        "https://www.openstreetmap.org/api/0.6/way/129021257/10"
       ],
       "geometry": {
         "source_covered_by_target": true,
@@ -2136,80 +2134,6 @@
     {
       "rule": "c",
       "action": "course",
-      "source_id": "osm/relation/5454240",
-      "source_name": "Mustang Course at Lely Resort",
-      "source_sha256": "bc5900e195bf3ecb68fa535c6aeee7cfa6854f613c01c2ba9509839985864ca0",
-      "target_facility_id": "osm/relation/5454242",
-      "target_facility_name": "Lely Resort Golf And Country Club",
-      "reason": "contained separately named layout; existing course identity reused when reviewed",
-      "evidence": [
-        "https://www.openstreetmap.org/api/0.6/relation/5454240/22",
-        "https://www.openstreetmap.org/api/0.6/relation/5454242/30"
-      ],
-      "target_course_id": "osm/relation/5454240",
-      "target_course_name": "Mustang Course at Lely Resort",
-      "geometry": {
-        "source_covered_by_target": true,
-        "source_fraction_in_target": 1.000000000000001,
-        "target_fraction_in_source": 0.46768697517482033,
-        "iou": 0.46768697517482005,
-        "source_geometry_sha256": "1d3d124da62bc30470fb1ccaf5ad07ae7dad7e82cb30bac7cbb3c4b204318333",
-        "target_geometry_sha256": "8d42d0f1763edc81104d91aa17b8985296bf4a4348321cceb302e33f0f3c20b1"
-      }
-    },
-    {
-      "rule": "c",
-      "action": "course",
-      "source_id": "osm/relation/8608093",
-      "source_name": "Lake Havasu Golf Course",
-      "source_sha256": "d08b13af9ed4f8907206129a541c11560fc9bf85dfccaafdff2f52016a645f5f",
-      "target_facility_id": "osm/relation/3538078",
-      "target_facility_name": "London Bridge Golf Club",
-      "reason": "Distinct contained polygon, not duplicate of relation8611121. Official venue inventory confirms two 18-hole layouts (Desert East and Desert West). Preserve original generic source name until source-to-East/West mapping is verified; do not coalesce the two equal names.",
-      "evidence": [
-        "https://lakehavasugolfclub.com/",
-        "https://www.openstreetmap.org/api/0.6/relation/3538078/7",
-        "https://www.openstreetmap.org/api/0.6/relation/8608093/6"
-      ],
-      "target_course_id": "osm/relation/8608093",
-      "target_course_name": "Lake Havasu Golf Course",
-      "geometry": {
-        "source_covered_by_target": true,
-        "source_fraction_in_target": 0.9999999999999999,
-        "target_fraction_in_source": 0.4693903754822009,
-        "iou": 0.46939037548220097,
-        "source_geometry_sha256": "15b517b1f718ea71a741810ee436e376b54fc5dfaa1f1ed01bfca3ba0fed0b66",
-        "target_geometry_sha256": "3c8c1c664ba0f224f5e773a579a502ad04c502fa511cc45baefd573438a2006b"
-      }
-    },
-    {
-      "rule": "c",
-      "action": "course",
-      "source_id": "osm/relation/8611121",
-      "source_name": "Lake Havasu Golf Course",
-      "source_sha256": "e87a18f8bb4e4a673f601e8f2250a14347f24d833a29a34f46bb34670aefd59b",
-      "target_facility_id": "osm/relation/3538078",
-      "target_facility_name": "London Bridge Golf Club",
-      "reason": "Distinct contained polygon, not duplicate of relation8608093. Official venue inventory confirms two 18-hole layouts (Desert East and Desert West). Preserve original generic source name until source-to-East/West mapping is verified; do not coalesce the two equal names.",
-      "evidence": [
-        "https://lakehavasugolfclub.com/",
-        "https://www.openstreetmap.org/api/0.6/relation/3538078/7",
-        "https://www.openstreetmap.org/api/0.6/relation/8611121/4"
-      ],
-      "target_course_id": "osm/relation/8611121",
-      "target_course_name": "Lake Havasu Golf Course",
-      "geometry": {
-        "source_covered_by_target": true,
-        "source_fraction_in_target": 1.0000000000000007,
-        "target_fraction_in_source": 0.4842851993467091,
-        "iou": 0.48428519934670905,
-        "source_geometry_sha256": "84df86b15cbfaa18d330135ac29da5be78294681b784394ab76845fcfb7c28f2",
-        "target_geometry_sha256": "3c8c1c664ba0f224f5e773a579a502ad04c502fa511cc45baefd573438a2006b"
-      }
-    },
-    {
-      "rule": "c",
-      "action": "course",
       "source_id": "osm/relation/9389563",
       "source_name": "North Course",
       "source_sha256": "ef47edf67df051e8324c461016a690b4ed0098da58d2b13d1f62ac9435589497",
@@ -2253,30 +2177,6 @@
         "iou": 0.30409247361560887,
         "source_geometry_sha256": "b6b9d604b75e67dfda7429bb737e8cf8c3663c971012997b4799d6f47997d828",
         "target_geometry_sha256": "1d97caa1865e7b352f7190ff2262d03f63fb416315e70e21ed366ba5306fa764"
-      }
-    },
-    {
-      "rule": "c",
-      "action": "course",
-      "source_id": "osm/way/1257062334",
-      "source_name": "The Industry Hills Golf Club - Babe Zaharias Course",
-      "source_sha256": "accc0a9ff6a64ba0093cc340ad024294f0f4db7cd3e84eb528cdaf292aba5806",
-      "target_facility_id": "osm/relation/17299322",
-      "target_facility_name": "The Industry Hills Golf Club (Dwight D Eisenhower & Babe Zaharias)",
-      "reason": "contained separately named layout; existing course identity reused when reviewed",
-      "evidence": [
-        "https://www.openstreetmap.org/api/0.6/relation/17299322/2",
-        "https://www.openstreetmap.org/api/0.6/way/1257062334/4"
-      ],
-      "target_course_id": "osm/way/1257062334",
-      "target_course_name": "The Industry Hills Golf Club - Babe Zaharias Course",
-      "geometry": {
-        "source_covered_by_target": true,
-        "source_fraction_in_target": 0.9999999999999999,
-        "target_fraction_in_source": 0.5077728938427917,
-        "iou": 0.5077728938427913,
-        "source_geometry_sha256": "6b8a14a2d79fb5a37e5720079b9cc081973662bc02ebe4ffe9d88e1bfbc841ef",
-        "target_geometry_sha256": "49cdca75d609d770713b97acdf209ff3d2434041331b39e3f7d2df319b0d3255"
       }
     },
     {
@@ -2522,30 +2422,6 @@
     {
       "rule": "c",
       "action": "course",
-      "source_id": "osm/way/1552049150",
-      "source_name": "Sandbox at Sand Valley",
-      "source_sha256": "2262f84d71e1bd7bf369126f10eef69d308400b5d4a93cfab97d1f61732882fb",
-      "target_facility_id": "osm/relation/20579379",
-      "target_facility_name": "Sand Valley Golf Resort",
-      "reason": "contained separately named layout; existing course identity reused when reviewed",
-      "evidence": [
-        "https://www.openstreetmap.org/api/0.6/relation/20579379/1",
-        "https://www.openstreetmap.org/api/0.6/way/1552049150/1"
-      ],
-      "target_course_id": "osm/way/1552049150",
-      "target_course_name": "Sandbox at Sand Valley",
-      "geometry": {
-        "source_covered_by_target": true,
-        "source_fraction_in_target": 1.0,
-        "target_fraction_in_source": 0.02707511585660274,
-        "iou": 0.027075115856602758,
-        "source_geometry_sha256": "4aa83b42f02db54455ba8fa24706ce4d067bcf792b3fbfcab6ec76b60018906b",
-        "target_geometry_sha256": "8403c7db7e5bca734754d7b26a6060595405f0692949af8867153c027348286f"
-      }
-    },
-    {
-      "rule": "c",
-      "action": "course",
       "source_id": "osm/way/1564571705",
       "source_name": "mississippi national golf links-lowlands",
       "source_sha256": "ad106a21b156413ce92f5dd4c33ae6bbdf0d332b7660ca20e46d07fac48e96c1",
@@ -2688,30 +2564,6 @@
         "iou": 0.4650664025248916,
         "source_geometry_sha256": "8203676946823034966d2a91e9c3e226884094be42505ad520fe2c17821fb526",
         "target_geometry_sha256": "d652889a530eb2a5a2ab19856b82192592e23df90e7e5939bd2fe3a87b207be1"
-      }
-    },
-    {
-      "rule": "c",
-      "action": "course",
-      "source_id": "osm/way/221560406",
-      "source_name": "The Industry Hills Golf Club - Ike (Dwight D Eisenhower) Course",
-      "source_sha256": "92456d439f5c589ecf3f3ee6d9fcb074ca42db64456f13eb4dbe1b55a251f2f3",
-      "target_facility_id": "osm/relation/17299322",
-      "target_facility_name": "The Industry Hills Golf Club (Dwight D Eisenhower & Babe Zaharias)",
-      "reason": "contained separately named layout; existing course identity reused when reviewed",
-      "evidence": [
-        "https://www.openstreetmap.org/api/0.6/relation/17299322/2",
-        "https://www.openstreetmap.org/api/0.6/way/221560406/10"
-      ],
-      "target_course_id": "osm/way/221560406",
-      "target_course_name": "The Industry Hills Golf Club - Ike (Dwight D Eisenhower) Course",
-      "geometry": {
-        "source_covered_by_target": true,
-        "source_fraction_in_target": 1.0,
-        "target_fraction_in_source": 0.49222710615720855,
-        "iou": 0.4922271061572082,
-        "source_geometry_sha256": "1161c20e775598d094ff1ec0e34828afc7302128ef4ee88645df82727db22389",
-        "target_geometry_sha256": "49cdca75d609d770713b97acdf209ff3d2434041331b39e3f7d2df319b0d3255"
       }
     },
     {
@@ -3408,8 +3260,7 @@
       "target_facility_name": "Mountain Top Golf Course",
       "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
       "evidence": [
-        "https://www.openstreetmap.org/api/0.6/node/11077763599/1",
-        "https://www.openstreetmap.org/f-e888ad8d-2c30-416a-983a-a23551450d35"
+        "https://www.openstreetmap.org/api/0.6/node/11077763599/1"
       ],
       "target_course_id": "c-661bcd80-961a-4ab9-9500-5f4c6f1f2946",
       "target_course_name": "Mountain Top Golf Course",
@@ -3430,8 +3281,7 @@
       "target_facility_name": "Crescent Pointe Golf Club",
       "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
       "evidence": [
-        "https://www.openstreetmap.org/api/0.6/node/11184915746/4",
-        "https://www.openstreetmap.org/f-23d49fb0-71e0-4854-91b9-b440746ac993"
+        "https://www.openstreetmap.org/api/0.6/node/11184915746/4"
       ],
       "target_course_id": "c-1282a90f-1d23-4b8d-8033-89694144c32a",
       "target_course_name": "Crescent Pointe Golf Club",
@@ -3518,8 +3368,7 @@
       "target_facility_name": "Bethpage State Park",
       "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
       "evidence": [
-        "https://www.openstreetmap.org/api/0.6/node/2854158382/1",
-        "https://www.openstreetmap.org/f-0129c277-d9de-4db0-b203-0d560081c668"
+        "https://www.openstreetmap.org/api/0.6/node/2854158382/1"
       ],
       "target_course_id": "c-6c4e3d73-2ada-43d1-a4c7-e969258d1630",
       "target_course_name": "Black Course",
@@ -3564,8 +3413,7 @@
       "target_facility_name": "Scotch Pines Golf Course",
       "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
       "evidence": [
-        "https://www.openstreetmap.org/api/0.6/node/4324366401/2",
-        "https://www.openstreetmap.org/f-882a71af-0f16-46a1-bcdd-964f6ed51699"
+        "https://www.openstreetmap.org/api/0.6/node/4324366401/2"
       ],
       "target_course_id": "c-659e2515-7c1b-4e49-9c3b-48ac10e0d6b9",
       "target_course_name": "Scotch Pines Golf Course",
@@ -3608,8 +3456,7 @@
       "target_facility_name": "Olde Stonewall Golf Club",
       "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
       "evidence": [
-        "https://www.openstreetmap.org/api/0.6/node/6439220431/2",
-        "https://www.openstreetmap.org/f-0088617b-f8ce-4495-b4d2-8b017a5cb487"
+        "https://www.openstreetmap.org/api/0.6/node/6439220431/2"
       ],
       "target_course_id": "c-cc260802-b96a-4cfe-8cd1-cf82be43159d",
       "target_course_name": "Olde Stonewall",
@@ -3652,8 +3499,7 @@
       "target_facility_name": "Carolina Colours Golf Club",
       "reason": "reported and approved unique existing course name match within inclusive 2 km; finite Bethpage suffix variant only",
       "evidence": [
-        "https://www.openstreetmap.org/api/0.6/node/9461644635/1",
-        "https://www.openstreetmap.org/f-cb884544-fc28-4535-81d5-32e30242fd2f"
+        "https://www.openstreetmap.org/api/0.6/node/9461644635/1"
       ],
       "target_course_id": "c-d664ca05-2ce5-4c68-ad06-4828d1d7f6bf",
       "target_course_name": "Carolina Colours Golf Club",
@@ -3732,6 +3578,22 @@
       ]
     },
     {
+      "source_id": "osm/relation/5454240",
+      "rule": "c",
+      "name": "Mustang Course at Lely Resort",
+      "counterpart_id": "osm/relation/5454242",
+      "reason": "Mustang already exists under the catalog-only Lely facility. No stored position identifies a permitted parent identity merge; do not create a duplicate course.",
+      "existing_course_ids": [
+        "c-5349bb19-2b3a-4c27-8fc1-92d6d1a4cf4e"
+      ],
+      "existing_parent_id": "f-c1d86e3b-9c22-43b1-8714-9282920249c8",
+      "evidence": [
+        "https://www.lelyresortgolfandcountryclub.com/",
+        "https://www.openstreetmap.org/api/0.6/relation/5454240/22",
+        "https://www.openstreetmap.org/api/0.6/relation/5454242/30"
+      ]
+    },
+    {
       "source_id": "osm/relation/8064374",
       "rule": "c",
       "name": "Summit Rock",
@@ -3740,6 +3602,56 @@
       "evidence": [
         "https://www.openstreetmap.org/api/0.6/relation/8064374/1",
         "https://www.openstreetmap.org/api/0.6/way/563513408/3"
+      ]
+    },
+    {
+      "source_id": "osm/relation/8608093",
+      "rule": "c",
+      "name": "Lake Havasu Golf Course",
+      "counterpart_id": "osm/relation/3538078",
+      "reason": "Existing East and West layouts are under another catalog-only facility. Shared address-range estimates do not assign this polygon to East or West; hold rather than create a duplicate.",
+      "existing_course_ids": [
+        "c-e6a39440-4069-4805-ace1-e38a85aca5a8",
+        "c-35dc6997-fb0d-4bcd-bc9d-1892f53d5788"
+      ],
+      "existing_parent_id": "f-70bc1890-4ef7-47b3-9c90-540821763d34",
+      "evidence": [
+        "https://lakehavasugolfclub.com/",
+        "https://www.openstreetmap.org/api/0.6/relation/3538078/7",
+        "https://www.openstreetmap.org/api/0.6/relation/8608093/6"
+      ]
+    },
+    {
+      "source_id": "osm/relation/8611121",
+      "rule": "c",
+      "name": "Lake Havasu Golf Course",
+      "counterpart_id": "osm/relation/3538078",
+      "reason": "Existing East and West layouts are under another catalog-only facility. Shared address-range estimates do not assign this polygon to East or West; hold rather than create a duplicate.",
+      "existing_course_ids": [
+        "c-e6a39440-4069-4805-ace1-e38a85aca5a8",
+        "c-35dc6997-fb0d-4bcd-bc9d-1892f53d5788"
+      ],
+      "existing_parent_id": "f-70bc1890-4ef7-47b3-9c90-540821763d34",
+      "evidence": [
+        "https://lakehavasugolfclub.com/",
+        "https://www.openstreetmap.org/api/0.6/relation/3538078/7",
+        "https://www.openstreetmap.org/api/0.6/relation/8611121/4"
+      ]
+    },
+    {
+      "source_id": "osm/way/1257062334",
+      "rule": "c",
+      "name": "The Industry Hills Golf Club - Babe Zaharias Course",
+      "counterpart_id": "osm/relation/17299322",
+      "reason": "The pre-existing Zaharias (Babe) layout is under the catalog-only Industry Hills facility, with no stored position. Hold pending parent identity decision instead of adding the same named layout again.",
+      "existing_course_ids": [
+        "c-ead440d8-638b-49a8-9226-bc4a58708530"
+      ],
+      "existing_parent_id": "f-3f56cf79-544c-4ed7-a0c7-33a233de28ef",
+      "evidence": [
+        "https://ihgolfclub.com/los-angeles-golf-courses/babe-golf-course/",
+        "https://www.openstreetmap.org/api/0.6/relation/17299322/2",
+        "https://www.openstreetmap.org/api/0.6/way/1257062334/4"
       ]
     },
     {
@@ -3753,6 +3665,22 @@
       ]
     },
     {
+      "source_id": "osm/way/1552049150",
+      "rule": "c",
+      "name": "Sandbox at Sand Valley",
+      "counterpart_id": "osm/relation/20579379",
+      "reason": "Sandbox already exists under the catalog-only Sand Valley facility, without stored position. Hold pending parent identity decision; no additional identity exception is authorized.",
+      "existing_course_ids": [
+        "c-acb837ae-4acf-451a-a4f3-c5e2c25fbaf8"
+      ],
+      "existing_parent_id": "f-c529cfd7-c86e-4e27-aed8-c94afcebec33",
+      "evidence": [
+        "https://www.openstreetmap.org/api/0.6/relation/20579379/1",
+        "https://www.openstreetmap.org/api/0.6/way/1552049150/1",
+        "https://www.sandvalley.com/golf-courses"
+      ]
+    },
+    {
       "source_id": "osm/way/1564266665",
       "rule": "c",
       "name": "Disney's Oak Trail Golf Course",
@@ -3760,6 +3688,22 @@
       "reason": "Official operator lists Oak Trail and Magnolia separately. Frozen containing source11105783 is labeled Magnolia; catalog-only combined Palm/Magnolia/Oak Trail facility also exists. Cannot safely make Oak Trail a child of Magnolia or merge the broader parent identity without a new decision.",
       "evidence": [
         "https://www.golfwdw.com/courses/disneys-oak-trail-golf-course"
+      ]
+    },
+    {
+      "source_id": "osm/way/221560406",
+      "rule": "c",
+      "name": "The Industry Hills Golf Club - Ike (Dwight D Eisenhower) Course",
+      "counterpart_id": "osm/relation/17299322",
+      "reason": "The pre-existing Eisenhower (Ike) layout is under the catalog-only Industry Hills facility, with no stored position. Hold pending parent identity decision instead of adding the same named layout again.",
+      "existing_course_ids": [
+        "c-06fd775f-df96-488c-911f-a3e916702b52"
+      ],
+      "existing_parent_id": "f-3f56cf79-544c-4ed7-a0c7-33a233de28ef",
+      "evidence": [
+        "https://ihgolfclub.com/los-angeles-golf-courses/ike-los-angeles-golf-course/",
+        "https://www.openstreetmap.org/api/0.6/relation/17299322/2",
+        "https://www.openstreetmap.org/api/0.6/way/221560406/10"
       ]
     },
     {

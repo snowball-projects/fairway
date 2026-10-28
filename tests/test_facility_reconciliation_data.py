@@ -1,8 +1,10 @@
 """The reviewed data decisions keep layout identities and source scope intact."""
 
 import json
+import re
 from collections import Counter
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import pytest
 
@@ -36,18 +38,18 @@ def test_frozen_decisions_only_remove_zero_actual_course_facilities(data):
     assert Counter(d["rule"] for d in decisions) == {
         "a": 54,
         "b": 29,
-        "c": 52,
+        "c": 46,
         "d": 10,
         "e": 14,
         "bethpage": 1,
     }
-    assert len(decisions) == len({d["source_id"] for d in decisions}) == 160
+    assert len(decisions) == len({d["source_id"] for d in decisions}) == 154
     for decision in decisions:
         source = decision["source_id"]
         assert counts[source] == 0
         assert checksum(before[source]) == decision["source_sha256"]
-    assert len(value["facilities"]) == 16174
-    assert len(value["courses"]) == 4991
+    assert len(value["facilities"]) == 16180
+    assert len(value["courses"]) == 4985
     receipt = value["rebuild"]["preservation"]["reconciliation"]
     assert receipt["plan"] == plan
     assert receipt["plan_sha256"] == checksum(plan)
@@ -65,7 +67,7 @@ def test_existing_courses_and_point_match_targets_keep_their_identities(data):
     assert before.keys() <= after.keys()
     course_decisions = [d for d in plan["decisions"] if d["rule"] == "c"]
     assert sum(d["target_course_id"] in before for d in course_decisions) == 13
-    assert sum(d["target_course_id"] not in before for d in course_decisions) == 39
+    assert sum(d["target_course_id"] not in before for d in course_decisions) == 33
     for d in plan["decisions"]:
         if d["rule"] not in {"c", "e"}:
             continue
@@ -156,15 +158,11 @@ def test_held_identities_and_distinct_sibling_layouts_remain_separate(data):
     value, baseline, plan = data
     after = {f["facility_id"]: f for f in value["facilities"]}
     before = {f["facility_id"]: f for f in baseline["facilities"]}
-    assert len(plan["held"]) == 8
+    assert len(plan["held"]) == 14
     for held in plan["held"]:
         assert after[held["source_id"]] == before[held["source_id"]]
     courses = {c["course_id"]: c for c in value["courses"]}
-    for ids in (
-        ("osm/relation/8608093", "osm/relation/8611121"),
-        ("osm/way/1257062334", "osm/way/221560406"),
-        ("osm/way/231394152", "osm/way/231528197"),
-    ):
+    for ids in (("osm/way/231394152", "osm/way/231528197"),):
         assert all(i in courses for i in ids)
         assert courses[ids[0]]["facility_id"] == courses[ids[1]]["facility_id"]
 
@@ -185,3 +183,16 @@ def test_cypress_conflicting_address_and_site_stay_raw(data):
     )
     assert course["osm"] == original["osm"]
     assert "cypresscreek" in course["osm"]["tags"]["website"]
+
+
+def test_evidence_uses_actual_osm_identities_not_catalog_only_ids(data):
+    _, _, plan = data
+    for item in [*plan["decisions"], *plan["held"]]:
+        for url in item["evidence"]:
+            parsed = urlsplit(url)
+            assert parsed.scheme in {"http", "https"}
+            if parsed.hostname in {"openstreetmap.org", "www.openstreetmap.org"}:
+                assert re.fullmatch(
+                    r"/(?:api/0\.6/)?(?:node|way|relation)/[1-9][0-9]*(?:/[1-9][0-9]*)?",
+                    parsed.path,
+                ), url
