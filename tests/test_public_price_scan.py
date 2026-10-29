@@ -126,10 +126,9 @@ def test_normal_build_preserves_or_rejects_complete_unicode_transport(
         assert result["assets"] == 40
         assert "Data credits" in (out / "credits.html").read_text()
         published = json.loads(
-            next((out / "data").glob("native-catalog-*.json")).read_bytes()
+            next((out / "data").glob("browser-details-*.json")).read_bytes()
         )
-        expected = {**value, "catalog_release_key": published["catalog_release_key"]}
-        assert published == expected
+        assert conditions in json.dumps(published, ensure_ascii=False)
         assert conditions.encode() in raw
     else:
         with pytest.raises(ValueError, match="private path"):

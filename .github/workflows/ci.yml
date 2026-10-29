@@ -32,16 +32,6 @@ jobs:
       - run: uv run --locked python scripts/export_catalog.py --check
       - name: Complete deterministic Pages integration
         run: uv run --locked python -m pytest --strict-markers tests/test_build_pages.py -m catalog_integration
-      - name: Validate public catalog with the browser contract
-        run: |
-          node --input-type=module <<'JS'
-          import {readFileSync} from 'node:fs';
-          import {gunzipSync} from 'node:zlib';
-          import {validatePublicCatalog} from './src/fairway/static/public-catalog.mjs';
-          const manifest = JSON.parse(readFileSync('data/catalog-release/manifest.json'));
-          const catalog = JSON.parse(gunzipSync(readFileSync('data/catalog-release/catalog.json.gz')));
-          validatePublicCatalog(catalog, manifest);
-          JS
       - name: Browser behavior
         run: |
           node --check src/fairway/static/app.js

@@ -86,10 +86,23 @@ def test_complete_notation_transport_build_and_unknowns(tmp_path, case):
         assert pages.build(source, out, "b" * 40)["assets"] == 40
         assert "Data credits" in (out / "credits.html").read_text()
         published = json.loads(
-            next((out / "data").glob("native-catalog-*.json")).read_bytes()
+            next((out / "data").glob("browser-details-*.json")).read_bytes()
         )
-        expected = {**value, "catalog_release_key": published["catalog_release_key"]}
-        assert published == expected
+        rows = [
+            row
+            for subject in published["facilities"] + published["courses"]
+            for round_option in subject["round_options"]
+            for row in round_option["optional"].get("price_observation", [])
+            if row.get(case["field"]) == case["text"]
+        ]
+        assert rows
+        assert all(
+            row.get("billing_basis")
+            is row.get("currency")
+            is row.get("quantity")
+            is None
+            for row in rows
+        )
         assert case["text"].encode() in raw
         assert all(
             r["billing_basis"] is r["currency"] is r["quantity"] is None

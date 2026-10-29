@@ -101,10 +101,15 @@ def test_complete_credentials_and_path_boundary_normal_build(tmp_path, case):
         assert pages.build(source, out, "0" * 40)["assets"] == 40
         assert "Data credits" in (out / "credits.html").read_text()
         published = json.loads(
-            next((out / "data").glob("native-catalog-*.json")).read_bytes()
+            next((out / "data").glob("browser-details-*.json")).read_bytes()
         )
-        expected = {**value, "catalog_release_key": published["catalog_release_key"]}
-        assert published == expected
+        if case["target"] == "license":
+            from html import escape
+
+            assert escape(case["text"]) in (out / "credits.html").read_bytes().decode()
+        else:
+            field = "website" if case["target"] == "website" else "booking_conditions"
+            assert published["courses"][0][field] == case["text"]
         decoded = json.loads(raw)
         assert (
             decoded["source_licenses"][-1]["source_url"]

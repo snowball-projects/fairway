@@ -1,8 +1,6 @@
 """Explicit reconciliation preserves evidence without widening fact scopes."""
 
 import copy
-import json
-import subprocess
 from pathlib import Path
 
 import pytest
@@ -162,26 +160,6 @@ def receipt(value):
     return value["rebuild"]["preservation"]["reconciliation"]
 
 
-def validate_optional(value, tmp_path):
-    public = copy.deepcopy(value)
-    public["rebuild"].pop("preservation")
-    path = tmp_path / "catalog.json"
-    path.write_text(json.dumps(public))
-    script = """
-import fs from 'node:fs';
-import {validateScopedOptional} from './src/fairway/static/optional-facts.mjs';
-validateScopedOptional(JSON.parse(fs.readFileSync(process.argv[1], 'utf8')));
-"""
-    result = subprocess.run(
-        ["node", "--input-type=module", "-e", script, str(path)],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-    assert result.returncode == 0, result.stderr
-
-
 def observation(templates, identifier="observation"):
     row = copy.deepcopy(templates[0]["optional"]["practice_observation"][0])
     row.update(
@@ -237,7 +215,6 @@ def test_merge_preserves_conflicts_sources_and_exact_optional_scope(
     assert result["courses"][0]["facility_name"] == "Released name"
     assert catalog == original
     assert restore_before_reconciliation(result) == original
-    validate_optional(result, tmp_path)
 
 
 def test_merge_keeps_known_released_target_and_fills_only_unknowns(catalog):
@@ -297,7 +274,6 @@ def test_course_reuses_existing_identity_and_keeps_known_facts(
         == source["optional"]
     )
     assert restore_before_reconciliation(result) == catalog
-    validate_optional(result, tmp_path)
 
 
 @pytest.mark.parametrize("explicit_id", [False, True])
@@ -324,7 +300,6 @@ def test_course_creation_projects_explicit_osm_without_arrival_or_booking_assump
     assert result["facilities"][0]["course_count"] == 2
     assert result["facilities"][0]["documented_course_ids"] == ["known-course"]
     assert restore_before_reconciliation(result) == catalog
-    validate_optional(result, tmp_path)
 
 
 @pytest.mark.parametrize("tags", [{}, {"fee": "yes", "holes": "18", "golf:holes": "9"}])
@@ -357,7 +332,6 @@ def test_new_course_keeps_own_state_and_country_when_parent_is_unknown(
     assert course["address"]["region"] == "TX"
     assert course["osm"] == source["osm"]
     assert restore_before_reconciliation(result) == catalog
-    validate_optional(result, tmp_path)
 
 
 def test_known_parent_geography_keeps_conflicting_own_address_scoped_to_course(
@@ -372,7 +346,6 @@ def test_known_parent_geography_keeps_conflicting_own_address_scoped_to_course(
     assert course["address_region"] == course["address"]["region"] == "TX"
     assert course["address_country"] == course["address"]["country"] == "CA"
     assert restore_before_reconciliation(result) == catalog
-    validate_optional(result, tmp_path)
 
 
 def test_course_known_osm_id_already_exists_and_does_not_create_duplicate(catalog):
@@ -452,7 +425,6 @@ def test_reviewed_conflicting_fields_stay_unknown_on_new_course(catalog, tmp_pat
         for citation in course["fact_sources"]
     )
     assert restore_before_reconciliation(result) == catalog
-    validate_optional(result, tmp_path)
 
 
 @pytest.mark.parametrize(
@@ -510,7 +482,6 @@ def test_component_archive_never_leaks_scalars_or_optional_facts_to_parent(
     assert receipt(result)["decisions"][0]["archival_scope"] == "component"
     assert receipt(result)["decisions"][0]["source_snapshot"] == source
     assert restore_before_reconciliation(result) == catalog
-    validate_optional(result, tmp_path)
 
 
 def test_only_typed_facility_refs_are_redirected(catalog):

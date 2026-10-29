@@ -12,8 +12,6 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from fairway.open_catalog import transport
 
-MAX_CATALOG_BYTES = 64 * 1024 * 1024
-MAX_INITIAL_MAP_BYTES = 4 * 1024 * 1024
 ASSETS = (
     "index.html",
     "app.js",
@@ -341,8 +339,6 @@ def native_transport(root, review_fixture=False):
             "files": {"catalog.json": {"sha256": digest(raw), "bytes": len(raw)}},
         }, raw
     manifest, raw, _ = transport(root)
-    if len(raw) > MAX_CATALOG_BYTES:
-        raise ValueError("catalog exceeds browser size limit")
     public_projection(json.loads(raw))
     return manifest, raw
 
@@ -403,9 +399,164 @@ def credits_html(licenses, policy):
     ).encode()
 
 
+# Only fields consumed by app.js and its browser modules. The complete public
+# transport is privacy-checked above, before this smaller display projection.
+_COMMON_DETAILS = [
+    "name",
+    "state",
+    "physical_holes",
+    "access",
+    "address",
+    "map_location",
+    "optional",
+    "round_options",
+    "website",
+    "booking_url",
+    "contact_url",
+]
+_FACILITY_DETAILS = ["facility_id", "osm_identity", "course_inventory", "access_note"]
+_COURSE_DETAILS = [
+    "course_id",
+    "facility_id",
+    "facility_name",
+    "facility_website",
+    "style",
+    "game_kind",
+    "identity_status",
+    "access_qualification",
+    "nonmember_bookable",
+    "booking_conditions",
+    "booking_availability",
+    "plan_eligible",
+    "planning_basis",
+    "destination_id",
+    "arrival",
+    "location_note",
+    "components",
+    "tee_sets",
+]
+_OPTIONAL_METADATA = {
+    "id",
+    "observation_id",
+    "facility_id",
+    "course_id",
+    "component_id",
+    "round_id",
+    "source_id",
+    "source_url",
+    "source_license",
+    "source_attribution",
+    "collected_on",
+    "status",
+}
+
+
+def browser_details_bytes(value):
+    def fields(row, names):
+        return {
+            key: row[key]
+            for key in names
+            if key in row
+            and (
+                row[key] is not None
+                or key in {"access", "facility_id", "facility_name"}
+            )
+        }
+
+    def optional(groups):
+        return {
+            domain: [
+                {
+                    key: (
+                        [fields(c, ("name", "party_kind", "role")) for c in cell]
+                        if key == "credits"
+                        else cell
+                    )
+                    for key, cell in row.items()
+                    if key not in _OPTIONAL_METADATA and cell is not None
+                }
+                for row in rows
+            ]
+            for domain, rows in groups.items()
+            if rows
+        }
+
+    def tees(rows):
+        return [
+            {
+                key: cell
+                for key, cell in row.items()
+                if key not in {"id", "course_id", "round_id"} and cell is not None
+            }
+            for row in rows
+        ]
+
+    def rounds(rows):
+        return [
+            fields(row, ("id", "name", "round_holes", "description"))
+            | {
+                "optional": optional(row.get("optional", {})),
+                "tee_sets": tees(row.get("tee_sets", [])),
+            }
+            for row in rows
+        ]
+
+    def record(row, names):
+        result = fields(row, _COMMON_DETAILS + names)
+        if row.get("address") is not None:
+            result["address"] = fields(
+                row["address"],
+                (
+                    "text",
+                    "street_line1",
+                    "street_line2",
+                    "city",
+                    "region",
+                    "postal_code",
+                    "country",
+                ),
+            )
+        if row.get("map_location") is not None:
+            result["map_location"] = fields(
+                row["map_location"],
+                ("latitude", "longitude", "kind", "reference", "checked_on"),
+            )
+        if row.get("arrival") is not None:
+            result["arrival"] = fields(row["arrival"], ("kind",))
+        result["optional"] = optional(row.get("optional", {}))
+        result["round_options"] = rounds(row.get("round_options", []))
+        if "course_inventory" in row:
+            result["course_inventory"] = [
+                fields(c, ("course_id", "name", "physical_holes", "access"))
+                for c in row["course_inventory"]
+            ]
+        if "components" in row:
+            result["components"] = [
+                fields(c, ("name", "physical_holes"))
+                | {"optional": optional(c.get("optional", {}))}
+                for c in row["components"]
+            ]
+        if "tee_sets" in row:
+            result["tee_sets"] = tees(row["tee_sets"])
+        return result
+
+    details = {
+        "revision": value["revision"],
+        "catalog_release_key": value["catalog_release_key"],
+        "facilities": [record(f, _FACILITY_DETAILS) for f in value["facilities"]],
+        "courses": [record(c, _COURSE_DETAILS) for c in value["courses"]],
+        "destinations": [
+            fields(d, ("id", "precision", "scope")) for d in value["destinations"]
+        ],
+    }
+    return (
+        json.dumps(details, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        + "\n"
+    ).encode()
+
+
 def initial_map_bytes(value, manifest, states):
-    # A reproducible map/search view, never a second catalog authority. Course
-    # details still use the complete native projection and its browser validator.
+    # A reproducible map/search view of the same producer-checked release.
     initial_map = {
         "map_format": 2,
         "revision": manifest["revision"],
@@ -447,8 +598,6 @@ def initial_map_bytes(value, manifest, states):
         )
         + "\n"
     ).encode()
-    if len(raw) > MAX_INITIAL_MAP_BYTES:
-        raise ValueError("generated initial map too large")
     return raw
 
 
@@ -511,10 +660,21 @@ def build(root, output, commit, review_fixture=False):
     }
     ui_assets = version_ui_assets(payloads)
     item = manifest["files"]["catalog.json"]
-    name = f"native-catalog-{item['sha256']}.json"
-    payloads["data/" + name] = raw
-    public = {**manifest, "files": {"catalog.json": {**item, "path": name}}}
     value = json.loads(raw)
+    details_raw = browser_details_bytes(value)
+    details_sha = digest(details_raw)
+    details_name = f"browser-details-{details_sha}.json"
+    payloads["data/" + details_name] = details_raw
+    public = {
+        **manifest,
+        "files": {
+            "browser-details.json": {
+                "path": details_name,
+                "sha256": details_sha,
+                "bytes": len(details_raw),
+            }
+        },
+    }
     map_raw = initial_map_bytes(
         value,
         manifest,

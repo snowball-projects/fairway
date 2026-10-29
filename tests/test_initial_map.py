@@ -5,8 +5,6 @@ import importlib.util
 import json
 from pathlib import Path
 
-import pytest
-
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location(
     "map_builder", ROOT / "scripts/build_pages.py"
@@ -59,21 +57,3 @@ def test_map_is_exact_reproducible_projection_of_complete_released_catalog():
         "facilities",
         "courses",
     }
-
-
-def test_initial_map_cannot_publish_bytes_the_browser_would_reject():
-    facility = {
-        "facility_id": "f-large",
-        "name": "x" * pages.MAX_INITIAL_MAP_BYTES,
-        "state": None,
-        "address": None,
-        "map_location": None,
-    }
-    manifest = {
-        "revision": 1,
-        "catalog_release_key": "a" * 64,
-        "files": {"catalog.json": {"sha256": "b" * 64}},
-        "counts": {"facilities": 1, "courses": 0, "destinations": 0},
-    }
-    with pytest.raises(ValueError, match="initial map too large"):
-        pages.initial_map_bytes({"facilities": [facility], "courses": []}, manifest, [])

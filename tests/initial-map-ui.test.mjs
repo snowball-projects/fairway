@@ -4,7 +4,8 @@ import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 const source=readFileSync(new URL('../src/fairway/static/app.js',import.meta.url),'utf8');
 function actual(name){
- const start=source.indexOf(`function ${name}(`);
+ const syncStart=source.indexOf(`function ${name}(`);
+ const start=source.slice(syncStart-6,syncStart)==="async "?syncStart-6:syncStart;
  for(let end=source.indexOf('\n}',start);end>=0;end=source.indexOf('\n}',end+2)){
   const code=source.slice(start,end+2);try{new vm.Script(code);return code;}catch{}
  }
@@ -13,19 +14,19 @@ function actual(name){
 function harness(){
  const controls={'catalog-status':{hidden:true,textContent:''}},calls=[];let resolve,reject;
  const ctx=vm.createContext({catalogModel:null,initialMap:{manifest:{revision:981}},detailsRequest:null,deferredSelection:null,catalogURL:'https://example.test/data/catalog-release.json',
-  $:id=>controls[id],loadPublicCatalog:(url,options)=>{calls.push({url,options});return new Promise((yes,no)=>{resolve=yes;reject=no;});},applyCatalog:next=>{ctx.catalogModel=next;},renderCourses:()=>{},setDrawer:()=>{},
+  performance:{mark(){}},$:id=>controls[id],loadPublicCatalog:(url,options)=>{calls.push({url,options});return new Promise((yes,no)=>{resolve=yes;reject=no;});},applyCatalog:next=>{ctx.catalogModel=next;},renderCourses:()=>{},setDrawer:()=>{},
  });
  for(const name of ['ensureCatalog','selectFacilityById','selectCoincidentFacilities'])vm.runInContext(actual(name),ctx);
  return {ctx,controls,calls,resolve:next=>resolve(next),reject:()=>reject(Error('Interrupted'))};
 }
-test('early interaction waits for verified map identity and concurrent detail requests coalesce',async()=>{
+test('early interaction waits for pinned map release and concurrent detail requests coalesce',async()=>{
  const h=harness();h.ctx.initialMap=null;h.ctx.ensureCatalog();assert.equal(h.calls.length,0);
  h.ctx.initialMap={manifest:{revision:981}};h.ctx.ensureCatalog();h.ctx.ensureCatalog();
  assert.equal(h.calls.length,1);assert.equal(h.calls[0].options.pinnedManifest,h.ctx.initialMap.manifest);
  assert.match(h.controls['catalog-status'].textContent,/Loading course details/);
  h.resolve({revision:981});await h.ctx.detailsRequest;assert.equal(h.ctx.catalogModel.revision,981);
 });
-test('latest pending selection wins without fake course rows, then replays only after full validation',async()=>{
+test('latest pending selection wins without fake course rows, then replays only after details load',async()=>{
  const h=harness(),selected=[];
  h.ctx.selectFacilityById('f-first');h.ctx.selectFacilityById('f-latest');assert.equal(h.calls.length,1);assert.equal(h.ctx.catalogModel,null);
  h.ctx.selectFacilityById=id=>selected.push(id);h.resolve({revision:981});await h.ctx.detailsRequest;
@@ -87,4 +88,16 @@ test('a pan before detail readiness follows the new viewport without publishing 
  Object.assign(h.ctx,{viewportFrame:null,planningMode:false,browseMode:false,browseScope:{ids:['f-old']},requestAnimationFrame:fn=>{frame=fn;return 1;},renderCourses:()=>renders++});
  vm.runInContext(actual('refreshBrowseViewport'),h.ctx);h.ctx.refreshBrowseViewport();frame();
  assert.equal(h.ctx.browseScope.kind,'viewport');assert.equal(h.ctx.browseScope.ids,undefined);assert.equal(renders,0);
+});
+
+test('initial map paint starts background details with both panels closed',async()=>{
+ const h=harness();let frame,timer;const order=[];
+ Object.assign(h.ctx,{loadInitialMap:async()=>({states:[],manifest:{}}),geometry:null,
+  drawFacilities:()=>order.push('draw'),renderProgress:()=>{},performance:{mark:()=>order.push('mark')},
+  requestAnimationFrame:fn=>{frame=fn;},setTimeout:fn=>{timer=fn;},
+  view:{resultsPanel:{hidden:true}},planningMode:false,browseMode:true});
+ vm.runInContext(actual('loadCatalog'),h.ctx);await h.ctx.loadCatalog();
+ assert.deepEqual(order,['draw','mark']);assert.equal(h.calls.length,0);
+ frame();assert.equal(h.calls.length,0);timer();assert.equal(h.calls.length,1);
+ h.resolve({revision:981});await h.ctx.detailsRequest;
 });
