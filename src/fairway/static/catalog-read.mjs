@@ -21,28 +21,25 @@ export function searchCatalog(facilities,states,query) {
   return [...found.filter(r=>r.kind==='state'),...cities.values(),...found.filter(r=>r.kind==='facility')];
 }
 export class CatalogRead {
-  constructor({revision,catalog_release_key,facilities,courses,destinations=[]}) {
+  constructor({revision,catalog_release_key,facilities,courses,destinations=[],indexes}) {
     this.revision=revision;this.catalogReleaseKey=catalog_release_key;
     this.facilities=facilities;this.courses=courses;
-    this.destinations=new Map(destinations.map(d=>[d.id,d]));
-    this.facilityById=new Map(facilities.map(f=>[f.facility_id,f]));
-    this.courseById=new Map(courses.map(c=>[c.course_id,c]));
-    this.coursesByFacility=new Map();
-    for(const course of courses) {
-      const group=this.coursesByFacility.get(course.facility_id)||[];
-      group.push(course);this.coursesByFacility.set(course.facility_id,group);
+    const lookup=(rows,identity)=>new Map(rows.map(row=>[row[identity],row]));
+    this.facilityById=lookup(facilities,'facility_id');
+    this.courseById=lookup(courses,'course_id');
+    this.destinations=lookup(destinations,'id');
+    const entries=[...courses,...facilities];
+    const records=positions=>positions.map(at=>entries[at]);
+    const groups=positions=>new Map(positions.map(([id,items])=>[id,records(items)]));
+    this.coursesByFacility=groups(indexes.coursesByFacility);
+    this.browseEntries={};this.browseGroups={};this.browseIndependent={};
+    for(const sort of ['name','holes']) {
+      const browse=indexes.browse[sort];
+      this.browseEntries[sort]=records(browse.entries);
+      this.browseGroups[sort]=groups(browse.groups);
+      this.browseIndependent[sort]=records(browse.independent);
     }
-    const entries=[...courses,...facilities.filter(f=>!this.coursesByFacility.has(f.facility_id))];
-    this.browseEntries={name:sortCourses(entries),holes:sortCourses(entries,'holes')};
-    this.browseGroups={name:new Map(),holes:new Map()};
-    this.browseIndependent={name:[],holes:[]};
-    for(const sort of ['name','holes'])for(const record of this.browseEntries[sort]) {
-      if(record.facility_id===null)this.browseIndependent[sort].push(record);
-      if(!record.course_id||!record.facility_id||this.facilityCourses(record.facility_id).length<2)continue;
-      const groups=this.browseGroups[sort],records=groups.get(record.facility_id)||[];
-      records.push(record);groups.set(record.facility_id,records);
-    }
-    this.mapRecords=mapRecords(this);
+    this.mapRecords=[...facilities,...indexes.mapCourses.map(at=>({...courses[at],facility_id:courses[at].course_id,record_kind:'course'}))];
     this.mapRecordById=new Map(this.mapRecords.map(r=>[r.facility_id,r]));
   }
   facilityCourses(id) {return this.coursesByFacility.get(id)||[];}
@@ -100,14 +97,6 @@ export function courseMatches(course,{state='all',access='all',holes='all',round
   if(facilityIds && !facilityIds.has(courseMapId(course)))return false;
   if(bounds && (!course.map_location || !bounds.contains([course.map_location.latitude,course.map_location.longitude])))return false;
   return true;
-}
-export function sortCourses(courses,sort='name') {
-  const value=c=>sort==='holes'?(Number.isFinite(c.physical_holes)?c.physical_holes:null):null;
-  const label=c=>recordLabel(c,c.course_id?'course':'facility');
-  return [...courses].sort((a,b)=>{
-    if(sort==='name')return label(a).localeCompare(label(b)) || (a.course_id??a.facility_id).localeCompare(b.course_id??b.facility_id);
-    const av=value(a),bv=value(b);return av===null?(bv===null?label(a).localeCompare(label(b)):1):bv===null?-1:av-bv||label(a).localeCompare(label(b));
-  });
 }
 export function browseCard(course,destinations) {
   const target=destinations.get(course.destination_id)||null;

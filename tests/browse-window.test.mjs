@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {CatalogRead,courseMapId,courseMatches} from '../src/fairway/static/catalog-read.mjs';
+import {courseMapId,courseMatches} from '../src/fairway/static/catalog-read.mjs';
+import {CatalogRead} from './catalog-model.mjs';
 const identity=r=>r.course_id??r.facility_id;
 function model() {
  const facilities=[],courses=[];
