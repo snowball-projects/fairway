@@ -6,7 +6,10 @@ import json
 import os
 import re
 from hashlib import sha256
+from html.parser import HTMLParser
 from pathlib import Path
+from struct import unpack
+from urllib.parse import urljoin, urlsplit
 
 import pytest
 
@@ -39,7 +42,7 @@ def test_native_pages_are_reproducible_public_only_and_leave_source_unchanged(tm
         and "REVIEW FIXTURE: synthetic records" in html
     )
     assert one["review_fixture"] is True
-    assert one["assets"] == 36
+    assert one["assets"] == 40
     assert json.loads((output / "deployment.json").read_text())["commit"] == "a" * 40
     for name in [
         "catalog.mjs",
@@ -63,6 +66,65 @@ def test_native_pages_are_reproducible_public_only_and_leave_source_unchanged(tm
         r"from\s+[\"\'](\./[^\"\']+)", (output / "app.js").read_text()
     ):
         assert (output / dependency).is_file(), dependency
+
+
+def test_home_screen_assets_are_published_with_app_relative_urls(tmp_path):
+    output = tmp_path / "site"
+    pages.build(ROOT, output, "a" * 40, review_fixture=True)
+
+    class Head(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.links = {}
+            self.meta = {}
+
+        def handle_starttag(self, tag, attrs):
+            attrs = dict(attrs)
+            if tag == "link":
+                self.links[attrs["rel"]] = attrs
+            if tag == "meta" and "content" in attrs:
+                self.meta[attrs.get("name", attrs.get("http-equiv"))] = attrs["content"]
+
+    head = Head()
+    head.feed((output / "index.html").read_text())
+    base = "https://snowball-projects.github.io/fairway/"
+
+    def published(href):
+        assert href.startswith("./")
+        url = urljoin(base, href)
+        assert url.startswith(base)
+        path = output / urlsplit(url).path.removeprefix("/fairway/")
+        assert path.is_file(), url
+        return path
+
+    touch = head.links["apple-touch-icon"]
+    assert touch["sizes"] == "180x180"
+    assert head.meta["apple-mobile-web-app-title"] == "fairway"
+    assert head.meta["apple-mobile-web-app-capable"] == "yes"
+    manifest = json.loads(published(head.links["manifest"]["href"]).read_text())
+    assert manifest["name"] == manifest["short_name"] == "fairway"
+    assert manifest["display"] == "standalone"
+    for key in ("start_url", "scope"):
+        assert manifest[key] == "./"
+        assert urljoin(base, manifest[key]) == base
+    for key in ("theme_color", "background_color"):
+        assert manifest[key] == head.meta["theme-color"] == "#f4f2e9"
+    pngs = [(touch["href"], (180, 180))]
+    assert {icon["sizes"] for icon in manifest["icons"]} == {"192x192", "512x512"}
+    for icon in manifest["icons"]:
+        assert icon["type"] == "image/png"
+        pngs.append((icon["src"], tuple(map(int, icon["sizes"].split("x")))))
+    for href, size in pngs:
+        png = published(href).read_bytes()
+        assert png[:16] == b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR"
+        assert unpack(">II", png[16:24]) == size
+        assert png[25] == 2  # Opaque RGB prevents a black iOS transparency fill.
+    policy = dict(
+        directive.strip().split(" ", 1)
+        for directive in head.meta["Content-Security-Policy"].split(";")
+    )
+    for resource in ("manifest-src", "img-src"):
+        assert "'self'" in policy.get(resource, policy["default-src"]).split()
 
 
 @pytest.fixture(scope="module")

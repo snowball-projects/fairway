@@ -123,7 +123,7 @@ def test_normal_build_preserves_or_rejects_complete_unicode_transport(
     out = tmp_path / "site"
     if accept:
         result = pages.build(source, out, "a" * 40)
-        assert result["assets"] == 36
+        assert result["assets"] == 40
         assert "Data credits" in (out / "credits.html").read_text()
         published = json.loads(
             next((out / "data").glob("browser-details-*.json")).read_bytes()

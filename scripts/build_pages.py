@@ -29,6 +29,10 @@ ASSETS = (
     "leaflet.css",
     "favicon.png",
     "icon.png",
+    "apple-touch-icon.png",
+    "icon-192.png",
+    "icon-512.png",
+    "manifest.webmanifest",
     "LEAFLET-LICENSE.txt",
 )
 
