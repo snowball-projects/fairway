@@ -11,7 +11,6 @@ test('published orders and sibling indexes are read without sorting or relabelin
   {course_id:'c-i',facility_id:null,name:'Independent',physical_holes:18},
  ];
  const destinations=[{id:'d-one'}],value={facilities,courses,destinations},published=publishedCatalog(value);
- for(const [kind,key] of [['facilities','facility_id'],['courses','course_id'],['destinations','id']])for(const row of Object.values(published[kind]))delete row[key];
  const compare=String.prototype.localeCompare,sort=Array.prototype.sort;
  let model;
  try {
@@ -19,6 +18,7 @@ test('published orders and sibling indexes are read without sorting or relabelin
   Array.prototype.sort=()=>assert.fail('runtime sort');
   model=new CatalogRead({...published,indexes:JSON.parse(JSON.stringify(published.indexes))});
  } finally {String.prototype.localeCompare=compare;Array.prototype.sort=sort;}
+ assert.equal(model.facilities,facilities);assert.equal(model.courses,courses);
  assert.deepEqual(model.browseEntries.name,[facilities[1],courses[1],courses[2],courses[0]]);
  assert.deepEqual(model.browseEntries.holes,[courses[1],courses[2],facilities[1],courses[0]]);
  assert.deepEqual(model.browseGroup('f-one','name'),[courses[1],courses[0]]);

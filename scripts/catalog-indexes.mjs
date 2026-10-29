@@ -11,7 +11,7 @@ export function sortCourses(courses,sort='name') {
     const av=value(a),bv=value(b);return av===null?(bv===null?label(a).localeCompare(label(b),'en-US'):1):bv===null?-1:av-bv||label(a).localeCompare(label(b),'en-US');
   });
 }
-export function catalogIndexes({facilities,courses,destinations=[]}) {
+export function catalogIndexes({facilities,courses}) {
   const entries=[...courses,...facilities],at=new Map(entries.map((row,i)=>[row,i]));
   const coursesByFacility=new Map();
   for(const [i,course] of courses.entries()) {

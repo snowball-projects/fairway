@@ -288,12 +288,8 @@ def test_browser_details_keep_display_facts_without_duplicate_transport_material
         "destinations",
         "indexes",
     }
-    for original, actual in zip(
-        value["courses"], details["courses"].items(), strict=True
-    ):
-        identity, actual = actual
-        assert identity == original["course_id"]
-        assert "course_id" not in actual
+    for original, actual in zip(value["courses"], details["courses"], strict=True):
+        assert actual["course_id"] == original["course_id"]
         assert actual["facility_id"] == original["facility_id"]
         assert actual["access"] == original["access"]
         assert actual.get("nonmember_bookable") == original["nonmember_bookable"]
@@ -306,7 +302,7 @@ def test_browser_details_keep_display_facts_without_duplicate_transport_material
             "inventory_qualification",
         ):
             assert removed not in actual
-    main = next(c for c in details["courses"].values() if c.get("plan_eligible"))
+    main = next(c for c in details["courses"] if c.get("plan_eligible"))
     assert main["optional"]["practice_observation"][0]["driving_range_lighted"] is False
     price = main["round_options"][0]["optional"]["price_observation"][0]
     original_price = next(c for c in value["courses"] if c["plan_eligible"])[

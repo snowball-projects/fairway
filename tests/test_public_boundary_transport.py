@@ -109,10 +109,7 @@ def test_complete_credentials_and_path_boundary_normal_build(tmp_path, case):
             assert escape(case["text"]) in (out / "credits.html").read_bytes().decode()
         else:
             field = "website" if case["target"] == "website" else "booking_conditions"
-            assert (
-                published["courses"][value["courses"][0]["course_id"]][field]
-                == case["text"]
-            )
+            assert published["courses"][0][field] == case["text"]
         decoded = json.loads(raw)
         assert (
             decoded["source_licenses"][-1]["source_url"]

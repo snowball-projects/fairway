@@ -48,7 +48,7 @@ test('browser details use response.json and preserve object references without c
   calls.push(String(url));return {ok:true,json:async()=>calls.length===1?manifest:publishedCatalog(value)};
  }});
  assert.deepEqual(calls,['https://example.test/fairway/data/catalog-release.json','https://example.test/fairway/data/browser-details-hash.json']);
- assert.deepEqual(model.facilities,value.facilities);assert.deepEqual(model.courses,value.courses);
+ assert.equal(model.facilities,value.facilities);assert.equal(model.courses,value.courses);
  assert.equal(model.facilityById.get(value.facilities[0].facility_id),value.facilities[0]);
  assert.equal(model.destinations.get(value.destinations[0].id),value.destinations[0]);
 });
