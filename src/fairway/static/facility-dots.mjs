@@ -7,7 +7,7 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
   let source = null, coincident = new Map(), active = null, radius = null;
   let hovered = null, tapped = null, pointerType = "mouse", lastClick = null;
   const cell = 16;
-  let indexedZoom=null, anchor=null;
+  let indexedZoom=null, anchor=null, paintOrder=0;
   const pointKey = f => `${f.map_location.latitude},${f.map_location.longitude}`;
   const highlight = document.createElement("span");
   highlight.className = "facility-hover";
@@ -65,12 +65,16 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
     let found;
     for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++)
       for(const marker of grid.get(`${x+dx},${y+dy}`)||[])
-        if(marker._containsPoint(point)&&(!found||marker.facilityRecord.facility_id===active||found.facilityRecord.facility_id!==active&&marker.dotOrder>found.dotOrder))found=marker;
+        if(marker._containsPoint(point)&&(!found||marker.dotOrder>found.dotOrder))found=marker;
     return found;
   }
   const DotCanvas = L.Canvas.extend({
     _draw() {
-      if(drawFrame!==null)cancelAnimationFrame(drawFrame);
+      if(drawFrame!==null) {
+        cancelAnimationFrame(drawFrame);
+        // An unfinished paint can include dots outside a new partial bound.
+        if(this._redrawBounds){this._redrawBounds=null;this._clear();}
+      }
       const canvas=this,ctx=this._ctx,bounds=this._redrawBounds,incremental=painted;
       let order=this._drawFirst;
       const normal=stamps.get(`${radius}:false`),selected=stamps.get(`${radius+3}:true`);
@@ -154,7 +158,6 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
         idsAtPoint.push(f.facility_id);coincident.set(key,idsAtPoint);
       }
       for(const [id,marker] of markers)if(!ids.has(id)){layer.removeLayer(marker);markers.delete(id);}
-      let order=0;
       for(const f of eligible) {
         const coordinates=[f.map_location.latitude,f.map_location.longitude];
         let marker=markers.get(f.facility_id);
@@ -172,10 +175,10 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
             else onSelect(f.facility_id,marker.getLatLng());
           });
           marker.on("dblclick",()=>{});
+          marker.dotOrder=++paintOrder;
           marker.addTo(layer);markers.set(f.facility_id,marker);
         }
         marker.facilityPointKey=pointKey(f);marker.facilityRecord=f;
-        marker.dotOrder=order++;
       }
     }
     if(resized&&!refreshed) {
@@ -187,7 +190,10 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
     if(active!==selected) {
       markers.get(active)?.setStyle(style(false));markers.get(selected)?.setStyle(style(true));
     }
-    if(selected&&(active!==selected||resized||refreshed))markers.get(selected)?.bringToFront();
+    if(selected&&(active!==selected||resized||refreshed)) {
+      const marker=markers.get(selected);
+      if(marker){marker.bringToFront();marker.dotOrder=++paintOrder;}
+    }
     active=selected;
     if(refreshed)indexPoints();
     return markers;

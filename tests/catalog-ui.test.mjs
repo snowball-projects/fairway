@@ -168,7 +168,7 @@ function dotMap() {
           this.styles++;
         },
         bringToFront() {
-          this.front = true;
+          this.front = true;paths.delete(this);paths.add(this);
         },
       };
     },
@@ -327,4 +327,40 @@ test('canvas paints its first frame fully, then bounds and cancels later paint b
   while(frames.length)frames.shift()();
   assert.equal(draws,11);assert.equal(saves,restores);
  } finally {Object.assign(globalThis,old);}
+});
+
+test('a partial selection repaint cannot discard dots from an unfinished full paint',()=>{
+ const old={performance:globalThis.performance,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame};
+ const frames=[],seen=new Set();let clock=0,clears=0;
+ globalThis.performance={now:()=>clock+=5};globalThis.requestAnimationFrame=fn=>{frames.push(fn);return fn;};
+ globalThis.cancelAnimationFrame=fn=>{const at=frames.indexOf(fn);if(at>=0)frames.splice(at,1);};
+ try {
+  const fake=dotMap(),dots=createFacilityDots(fake.L,fake.map,()=>{});
+  const records=Array.from({length:5},(_,i)=>({...facility,facility_id:`partial-${i}`,map_location:{...facility.map_location,longitude:-80+i}}));
+  const markers=[...dots.update(records,null).values()],renderer=fake.renderer;
+  renderer._map=fake.map;renderer._ctx={save(){},restore(){},beginPath(){},rect(){},clip(){}};
+  renderer._clear=()=>{clears++;seen.clear();};
+  fake.L.Canvas.prototype._updateCircle=marker=>seen.add(marker.facilityRecord.facility_id);
+  let next=null;for(const marker of [...markers].reverse()) {
+   marker._empty=()=>false;marker._pxBounds={intersects:bounds=>bounds.allowed.has(marker.facilityRecord.facility_id)};
+   next={layer:marker,next};
+  }
+  renderer._drawFirst=next;renderer._draw();assert.equal(seen.size,5);
+  seen.clear();renderer._redrawBounds=null;renderer._draw();assert.equal(seen.size,1);
+  renderer._redrawBounds={allowed:new Set([records[0].facility_id]),min:{x:0,y:0},getSize:()=>({x:1,y:1})};
+  renderer._draw();while(frames.length)frames.shift()();
+  assert.deepEqual([...seen],records.map(r=>r.facility_id));assert.equal(clears,1);
+ } finally {Object.assign(globalThis,old);}
+});
+
+test('overlap hover follows the painter after selection, clearing and source refresh',()=>{
+ const fake=dotMap(),dots=createFacilityDots(fake.L,fake.map,()=>{});
+ const records=[{...facility,facility_id:'overlap-a',course_count:1},{...facility,facility_id:'overlap-b',course_count:1,map_location:{...facility.map_location,longitude:facility.map_location.longitude+.1}}];
+ const markers=dots.update(records,null),a=markers.get('overlap-a'),b=markers.get('overlap-b');
+ const point={x:a._point.x+.5,y:a._point.y};
+ fake.renderer._handleMouseHover({type:'mousemove'},point);assert.equal(fake.renderer._hoveredLayer,b);
+ dots.update(records,'overlap-a');dots.update(records,null);dots.update([...records],null);
+ assert.equal([...fake.paths].at(-1),a);
+ const styles=[a.styles,b.styles];fake.renderer._handleMouseHover({type:'mousemove'},point);
+ assert.equal(fake.renderer._hoveredLayer,a);assert.deepEqual([a.styles,b.styles],styles);
 });

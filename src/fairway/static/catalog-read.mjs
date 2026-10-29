@@ -34,10 +34,61 @@ export class CatalogRead {
     }
     const entries=[...courses,...facilities.filter(f=>!this.coursesByFacility.has(f.facility_id))];
     this.browseEntries={name:sortCourses(entries),holes:sortCourses(entries,'holes')};
+    this.browseGroups={name:new Map(),holes:new Map()};
+    this.browseIndependent={name:[],holes:[]};
+    for(const sort of ['name','holes'])for(const record of this.browseEntries[sort]) {
+      if(record.facility_id===null)this.browseIndependent[sort].push(record);
+      if(!record.course_id||!record.facility_id||this.facilityCourses(record.facility_id).length<2)continue;
+      const groups=this.browseGroups[sort],records=groups.get(record.facility_id)||[];
+      records.push(record);groups.set(record.facility_id,records);
+    }
     this.mapRecords=mapRecords(this);
     this.mapRecordById=new Map(this.mapRecords.map(r=>[r.facility_id,r]));
   }
   facilityCourses(id) {return this.coursesByFacility.get(id)||[];}
+  browseGroup(id,sort) {
+    const ordered=this.browseGroups[sort].get(id);
+    if(ordered)return ordered;
+    const courses=this.coursesByFacility.get(id);
+    if(courses?.length)return courses;
+    const record=this.facilityById.get(id)||this.courseById.get(id);
+    return record?[record]:[];
+  }
+  browseWindow({sort='name',limit=60,matches=()=>true,activeCourse=null,activeFacility=null,focusedGroup=null}={}) {
+    const shown=new Set(),groups=[];
+    const recordsFor=id=>this.browseGroup(id,sort).filter(matches);
+    const include=(id,records)=>{
+      if(shown.has(id)||shown.size>=limit||!records.length)return;
+      shown.add(id);groups.push(records);
+    };
+    const selected=this.courseById.get(activeCourse);
+    if(selected&&matches(selected))include(courseMapId(selected),recordsFor(courseMapId(selected)));
+    if(activeFacility&&!shown.has(activeFacility)) {
+      const records=recordsFor(activeFacility);
+      if(records.some(r=>r.facility_id===activeFacility))include(activeFacility,records);
+    }
+    let more=false;
+    // Keep selectedFirst's existing null-facility course priority.
+    const all=this.browseEntries[sort],sources=activeFacility===null?[this.browseIndependent[sort],all]:[all];
+    scan:for(const records of sources)for(const record of records) {
+      if(records===all&&activeFacility===null&&record.facility_id===null)continue;
+      const id=courseMapId(record);
+      if(shown.has(id)||!matches(record))continue;
+      if(shown.size<limit)include(id,recordsFor(id));
+      else if(id!==focusedGroup){more=true;break scan;}
+    }
+    if(focusedGroup&&!shown.has(focusedGroup)) {
+      const records=recordsFor(focusedGroup);
+      if(records.length)groups.push(records);
+    }
+    const visible=[];
+    for(const records of groups) {
+      const at=records.findIndex(record=>record.course_id===activeCourse);
+      if(at>0)records.unshift(...records.splice(at,1));
+      visible.push(...records);
+    }
+    return {visible,more};
+  }
 }
 export function courseMatches(course,{state='all',access='all',holes='all',roundHoles='all',style='all',facilityIds=null,bounds=null}={}) {
   if(state!=='all' && course.state!==state)return false;
