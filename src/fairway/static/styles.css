@@ -1351,6 +1351,10 @@ dialog > p:last-child {
     padding: 0;
     min-height: 0;
   }
+  .controls {
+    /* Keep scrolling content above the closed Courses grip without moving the sheet. */
+    border-bottom: 44px solid var(--paper);
+  }
   .results {
     overflow-y: auto;
   }
