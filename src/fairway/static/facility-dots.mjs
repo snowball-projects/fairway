@@ -13,16 +13,18 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
   highlight.className = "facility-hover";
   const tooltip = L.tooltip({direction:"top",offset:[0,-10],opacity:1,className:"facility-preview"});
   const stamps=new Map();
-  let stampFrame=null;
+  let stampFrame=null, drawFrame=null, painted=false;
   for(const base of [3.5,4,5,6])for(const selected of [false,true]) {
     const r=selected?base+3:base,size=2*(r+1),image=new Image();
-    image.onload=()=>{
+    const stamp={image,size,bitmap:null};
+    image.onload=async()=>{
+      stamp.bitmap=await createImageBitmap(image);
       if(!renderer._map||stampFrame!==null)return;
       stampFrame=requestAnimationFrame(()=>{stampFrame=null;renderer._redraw();});
     };
     const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${size*devicePixelRatio}" height="${size*devicePixelRatio}" viewBox="0 0 ${size} ${size}"><circle cx="${r+1}" cy="${r+1}" r="${r}" fill="#216d4d" fill-opacity="${selected?1:0.58}" stroke="${selected?"#e7b447":"#fff"}" stroke-width="${selected?2:1.5}"/></svg>`;
     image.src=`data:image/svg+xml,${encodeURIComponent(svg)}`;
-    stamps.set(`${r}:${selected}`,{image,size});
+    stamps.set(`${r}:${selected}`,stamp);
   }
 
   function preview(marker) {
@@ -68,24 +70,33 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
   }
   const DotCanvas = L.Canvas.extend({
     _draw() {
-      const ctx=this._ctx, bounds=this._redrawBounds;
-      ctx.save();
-      if(bounds) {
-        const size=bounds.getSize();ctx.beginPath();ctx.rect(bounds.min.x,bounds.min.y,size.x,size.y);ctx.clip();
+      if(drawFrame!==null)cancelAnimationFrame(drawFrame);
+      const canvas=this,ctx=this._ctx,bounds=this._redrawBounds,incremental=painted;
+      let order=this._drawFirst;
+      const normal=stamps.get(`${radius}:false`),selected=stamps.get(`${radius+3}:true`);
+      function paintDots() {
+        drawFrame=null;
+        if(!canvas._map)return;
+        const start=performance.now();ctx.save();
+        if(bounds) {
+          const size=bounds.getSize();ctx.beginPath();ctx.rect(bounds.min.x,bounds.min.y,size.x,size.y);ctx.clip();
+        }
+        canvas._drawing=true;ctx.globalAlpha=1;
+        while(order) {
+          const marker=order.layer;order=order.next;
+          if(!marker._empty()&&(!bounds||marker._pxBounds.intersects(bounds))) {
+            const {bitmap,size}=marker.facilityRecord?.facility_id===active?selected:normal,p=marker._point;
+            if(bitmap)ctx.drawImage(bitmap,p.x-size/2,p.y-size/2,size,size);
+            else {L.Canvas.prototype._updateCircle.call(canvas,marker);ctx.globalAlpha=1;}
+          }
+          if(incremental&&performance.now()-start>=4&&order) {
+            drawFrame=requestAnimationFrame(paintDots);break;
+          }
+        }
+        canvas._drawing=false;ctx.restore();
       }
-      // Rasterize each small SVG once, then stamp individual dots on this
-      // canvas. This keeps the ring/alpha without a fill/stroke per record.
-      this._drawing=true;ctx.globalAlpha=1;
-      for(let order=this._drawFirst;order;order=order.next) {
-        const marker=order.layer;
-        if(marker._empty()||bounds&&!marker._pxBounds.intersects(bounds))continue;
-        const selected=marker.facilityRecord?.facility_id===active;
-        const {image,size}=stamps.get(`${marker._radius}:${selected}`),p=marker._point;
-        if(image.complete&&image.naturalWidth)ctx.drawImage(image,p.x-size/2,p.y-size/2,size,size);
-        else {L.Canvas.prototype._updateCircle.call(this,marker);ctx.globalAlpha=1;}
-      }
-      this._drawing=false;
-      ctx.restore();
+      paintDots();
+      if(this._drawFirst)painted=true;
     },
     _updatePaths() {
       L.Canvas.prototype._updatePaths.call(this);

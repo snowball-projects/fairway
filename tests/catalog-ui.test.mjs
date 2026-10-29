@@ -308,3 +308,23 @@ test('colocated mouse click and second touch retain every chooser identity',()=>
  fake.pointer('touch');marker.click();assert.equal(choices.length,1);
  marker.click();assert.equal(choices.length,2);assert.deepEqual(choices[1].ids,choices[0].ids);assert.deepEqual(choices[1].point,marker.getLatLng());
 });
+
+test('canvas paints its first frame fully, then bounds and cancels later paint batches',()=>{
+ const old={performance:globalThis.performance,requestAnimationFrame:globalThis.requestAnimationFrame,cancelAnimationFrame:globalThis.cancelAnimationFrame};
+ const frames=[];let clock=0,draws=0,saves=0,restores=0;
+ globalThis.performance={now:()=>clock+=5};globalThis.requestAnimationFrame=fn=>{frames.push(fn);return fn;};
+ globalThis.cancelAnimationFrame=fn=>{const at=frames.indexOf(fn);if(at>=0)frames.splice(at,1);};
+ try {
+  const fake=dotMap(),dots=createFacilityDots(fake.L,fake.map,()=>{});
+  const markers=[...dots.update(Array.from({length:5},(_,i)=>({...facility,facility_id:`paint-${i}`})),null).values()];
+  fake.renderer._map=fake.map;fake.renderer._ctx={save(){saves++;},restore(){restores++;}};
+  fake.L.Canvas.prototype._updateCircle=()=>draws++;
+  let next=null;for(const marker of markers.reverse()){marker._empty=()=>false;next={layer:marker,next};}
+  fake.renderer._drawFirst=next;
+  fake.renderer._draw();assert.equal(draws,5);assert.equal(frames.length,0);
+  fake.renderer._draw();assert.equal(draws,6);assert.equal(frames.length,1);
+  fake.renderer._draw();assert.equal(draws,7);assert.equal(frames.length,1);
+  while(frames.length)frames.shift()();
+  assert.equal(draws,11);assert.equal(saves,restores);
+ } finally {Object.assign(globalThis,old);}
+});
