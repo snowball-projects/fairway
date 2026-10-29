@@ -286,6 +286,7 @@ def test_browser_details_keep_display_facts_without_duplicate_transport_material
         "facilities",
         "courses",
         "destinations",
+        "indexes",
     }
     for original, actual in zip(value["courses"], details["courses"], strict=True):
         assert actual["course_id"] == original["course_id"]

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {loadPublicCatalog} from '../src/fairway/static/public-catalog.mjs';
 import {PublicPlanningSession,resolvePublicOrigin} from '../src/fairway/static/public-planning.mjs';
-import {CatalogRead} from '../src/fairway/static/catalog-read.mjs';
+import {CatalogRead} from './catalog-model.mjs';
 import {fixture} from './native5-fixture.mjs';
 const course=(id,longitude=0)=>({course_id:`c-${id}`,facility_id:'f-one',name:id,facility_name:'One',nonmember_bookable:true,plan_eligible:true,access:'public',arrival:null,destination_id:null,map_location:{latitude:0,longitude},round_options:[{round_holes:9}],physical_holes:9});
 test('committed origins select every nearby course across both neighborhoods without routing',()=>{

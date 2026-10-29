@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {fixture,fixtureBytes,document} from './native5-fixture.mjs';
 import {OPTIONAL_DOMAINS,renderOptional} from '../src/fairway/static/optional-facts.mjs';
 import {OPTIONAL_SCHEMA} from '../src/fairway/static/optional-schema.mjs';
-import {CatalogRead} from '../src/fairway/static/catalog-read.mjs';
+import {CatalogRead} from './catalog-model.mjs';
 import {accessLabel,browseCard,courseMatches,cityLabel,displayAddress} from '../src/fairway/static/catalog-read.mjs';
 const main=v=>v.courses.find(c=>c.plan_eligible===true);
 const facility=v=>v.facilities.find(f=>f.facility_id===main(v).facility_id);

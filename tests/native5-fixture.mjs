@@ -1,7 +1,8 @@
+import {catalogIndexes} from '../scripts/catalog-indexes.mjs';
 import {readFileSync} from 'node:fs';
 export const fixtureBytes=readFileSync(new URL('./fixtures/native5-ui/transport.json',import.meta.url));
 export function fixture(){
-  const value=JSON.parse(fixtureBytes);
+  const value=JSON.parse(fixtureBytes);value.indexes=catalogIndexes(value);
   const manifest={...Object.fromEntries(['format_version','schema','revision','catalog_release_key'].map(k=>[k,value[k]])),counts:Object.fromEntries(['facilities','courses','destinations'].map(k=>[k,value[k].length]))};
   return {value,manifest};
 }

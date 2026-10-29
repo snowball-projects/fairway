@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from html import escape
 from pathlib import Path
@@ -549,6 +550,15 @@ def browser_details_bytes(value):
             fields(d, ("id", "precision", "scope")) for d in value["destinations"]
         ],
     }
+    details["indexes"] = json.loads(
+        subprocess.run(
+            ["node", str(ROOT / "scripts/catalog-indexes.mjs")],
+            input=json.dumps(details, ensure_ascii=False),
+            text=True,
+            capture_output=True,
+            check=True,
+        ).stdout
+    )
     return (
         json.dumps(details, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         + "\n"
