@@ -724,7 +724,7 @@ let activeFacility = null,
   popupSelection = null,
   browseMode = true,
   browseScope = {kind:"viewport",label:"Courses in this map area"};
-let viewportFrame = null;
+let viewportFrame = null, browseGroupFrame = null;
 let searchMatches = [],
   searchIndex = -1,
   listLimit = 60,
@@ -1025,7 +1025,7 @@ function refreshBrowseViewport() {
     viewportFrame=null;
     if(planningMode)return;
     browseMode=true;browseScope={kind:"viewport",label:"Courses in this map area"};
-    if(catalogModel&&!view.resultsPanel.hidden)renderCourses();
+    if(catalogModel&&!view.resultsPanel.hidden)renderCourses(true);
   });
 }
 
@@ -1038,10 +1038,19 @@ function scopedEntries() {
   const bounds=browseScope?.kind === "viewport"?map.getBounds():null;
   const facility=popupSelection?catalogModel.mapRecordById.get(activeFacility):null;
   const selectedFacilityVisible=bounds&&located(facility||{})&&bounds.contains([facility.map_location.latitude,facility.map_location.longitude]);
-  const filters={...filterOptions(),bounds,facilityIds:browseScope?.ids?new Set(browseScope.ids):null};
-  const selectedFilters=selectedFacilityVisible?{...filters,bounds:null}:filters;
-  return catalogModel.browseEntries[$("browse-sort").value].filter(record=>
-    (!planningMode||record.course_id)&&courseMatches(record,record.course_id&&(record.facility_id??record.course_id)===activeFacility?selectedFilters:filters));
+  const filters=filterOptions(), ids=browseScope?.ids?new Set(browseScope.ids):null;
+  const unfiltered=Object.values(filters).every(value=>value==="all");
+  const south=bounds?.getSouth(),north=bounds?.getNorth(),west=bounds?.getWest(),east=bounds?.getEast();
+  return catalogModel.browseEntries[$("browse-sort").value].filter(record=>{
+    if(planningMode&&!record.course_id)return false;
+    const id=record.facility_id??record.course_id;
+    if(ids&&!ids.has(id))return false;
+    if(bounds&&!(selectedFacilityVisible&&record.course_id&&id===activeFacility)) {
+      const p=record.map_location;
+      if(!p||p.latitude<south||p.latitude>north||p.longitude<west||p.longitude>east)return false;
+    }
+    return unfiltered||courseMatches(record,filters);
+  });
 }
 function scopedRecords() {return scopedEntries().filter(record=>record.course_id);}
 function matchesCourseFilters(course) {return courseMatches(course,filterOptions());}
@@ -1074,7 +1083,9 @@ function facilityGroup(facility, id) {
   const courses=node("ol",undefined,"facility-courses"),empty=node("p","Courses: not recorded","facility-empty");
   article.append(courses,empty);item.append(article);return item;
 }
-function renderFacilityGroups(list, entries) {
+function renderFacilityGroups(list, entries, incremental = false) {
+  if(browseGroupFrame!==null)cancelAnimationFrame(browseGroupFrame);
+  browseGroupFrame=null;
   const groups=new Map(),existing=new Map([...list.children].map(item=>[item.dataset.groupId,item]));
   for(const {record,item} of entries) {
     const id=record.facility_id??record.course_id;
@@ -1083,17 +1094,28 @@ function renderFacilityGroups(list, entries) {
   }
   for(const [id,item] of existing)if(!groups.has(id))item.remove();
   let index=0;
-  for(const [id,group] of groups) {
-    const item=existing.get(id)||facilityGroup(group.facility,id),article=item.firstElementChild;
-    article.dataset.active=String(group.facility?.facility_id===activeFacility);
-    const courses=article.querySelector(".facility-courses");
-    for(const child of [...courses.children])if(!group.items.includes(child))child.remove();
-    group.items.forEach((child,at)=>{if(courses.children[at]!==child)moveCourseCard(courses,child,courses.children[at]||null);});
-    courses.hidden=!group.items.length;
-    article.querySelector(".facility-empty").hidden=Boolean(group.items.length);
-    if(list.children[index]!==item)moveCourseCard(list,item,list.children[index]||null);
-    index++;
+  const pending=[...groups];
+  function appendGroups() {
+    browseGroupFrame=null;
+    if(view.resultsPanel.hidden)return;
+    const start=incremental?performance.now():0;
+    while(index<pending.length) {
+      const [id,group]=pending[index];
+      const item=existing.get(id)||facilityGroup(group.facility,id),article=item.firstElementChild;
+      article.dataset.active=String(group.facility?.facility_id===activeFacility);
+      const courses=article.querySelector(".facility-courses");
+      for(const child of [...courses.children])if(!group.items.includes(child))child.remove();
+      group.items.forEach((child,at)=>{if(courses.children[at]!==child)moveCourseCard(courses,child,courses.children[at]||null);});
+      courses.hidden=!group.items.length;
+      article.querySelector(".facility-empty").hidden=Boolean(group.items.length);
+      if(list.children[index]!==item)moveCourseCard(list,item,list.children[index]||null);
+      index++;
+      if(incremental&&performance.now()-start>=4&&index<pending.length) {
+        browseGroupFrame=requestAnimationFrame(appendGroups);return;
+      }
+    }
   }
+  appendGroups();
 }
 function updateDisplaySortOptions() {
   const sort = $("browse-sort"), choices = [["name","Name"],["holes","Holes"]];
@@ -1118,7 +1140,7 @@ function catalogLoadMessage() {
   if(!initialMap)return unavailable?"Catalog unavailable.":"Catalog is still loading. No browse course list is available yet.";
   return unavailable?"Course details unavailable.":"Course details are loading. The course list will appear when verified.";
 }
-function renderCourses() {
+function renderCourses(incremental = false) {
   if(view.resultsPanel.hidden)return;
   updateDisplaySortOptions();
   $("browse-access").querySelector('[value="nonmember"]').hidden = !planningMode;
@@ -1172,7 +1194,7 @@ function renderCourses() {
     }
     return {record,item};
   });
-  renderFacilityGroups(list,grouped);
+  renderFacilityGroups(list,grouped,incremental);
   if(focused&&list.contains(focused)&&document.activeElement!==focused)focused.focus({preventScroll:true});
   view.results.querySelector(".browse-more")?.remove();view.results.querySelector(".browse-empty")?.remove();
   if(entries.length>visible.length) {

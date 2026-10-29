@@ -123,7 +123,7 @@ function dotMap() {
   let creations = 0;
   const L = {
     Canvas:{prototype:{_updatePaths(){},_handleMouseOut(){this._hoveredLayer=null;}},extend(methods){return class {
-      constructor(options){Object.assign(this,methods);this.options=options;this._container={};renderer=this;}
+      constructor(options){Object.assign(this,methods);this.options=options;this._container={};this._requestRedraw=()=>{};renderer=this;}
     };}},
     DomUtil:{setPosition(){},addClass(){}},
     tooltip:()=>({setLatLng(){return this;},setContent(value){this.content=value;return this;},addTo(){return this;}}),
@@ -142,6 +142,7 @@ function dotMap() {
       return {
         coordinates,
         _point:{x:coordinates[1]*10,y:coordinates[0]*10},
+        _updateBounds(){this.options.radius=this._radius;},
         _containsPoint(p){return Math.hypot(p.x-this._point.x,p.y-this._point.y)<=this.options.radius+this.options.weight/2;},
         options,
         styles: 0,
@@ -287,6 +288,9 @@ test('hover only updates its card/highlight, and touch arms the current dot befo
  fake.renderer._handleMouseHover({type:'mousemove'},first._point);
  fake.renderer._handleMouseHover({type:'mousemove'},second._point);
  assert.deepEqual([first.styles,second.styles],styles);assert.deepEqual(selected,[]);
+ for(const marker of markers.values()){marker._point.x+=100;marker._point.y+=50;}
+ fake.renderer._handleMouseHover({type:'mousemove'},first._point);
+ assert.equal(fake.renderer._hoveredLayer,first);
  assert.equal(fake.renderer.options.tolerance,0);assert.equal(first.options.weight,1.5);
  assert.equal(first._containsPoint({x:first._point.x+4.2,y:first._point.y}),true);
  assert.equal(first._containsPoint({x:first._point.x+4.3,y:first._point.y}),false);

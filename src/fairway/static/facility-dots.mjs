@@ -7,6 +7,7 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
   let source = null, coincident = new Map(), active = null, radius = null;
   let hovered = null, tapped = null, pointerType = "mouse", lastClick = null;
   const cell = 16;
+  let indexedZoom=null, anchor=null;
   const pointKey = f => `${f.map_location.latitude},${f.map_location.longitude}`;
   const highlight = document.createElement("span");
   highlight.className = "facility-hover";
@@ -32,7 +33,10 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
     map.getPanes().overlayPane.append(highlight);
   }
   function indexPoints() {
-    grid.clear();
+    if(indexedZoom===map.getZoom())return;
+    indexedZoom=map.getZoom();grid.clear();
+    const marker=markers.values().next().value;
+    anchor=marker?{marker,x:marker._point.x,y:marker._point.y}:null;
     for(const marker of markers.values()) {
       const p = marker._point;
       const key = `${Math.floor(p.x/cell)},${Math.floor(p.y/cell)}`;
@@ -41,7 +45,9 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
     }
   }
   function hit(point) {
-    const x = Math.floor(point.x/cell), y = Math.floor(point.y/cell);
+    if(!anchor)return;
+    const x = Math.floor((point.x-anchor.marker._point.x+anchor.x)/cell);
+    const y = Math.floor((point.y-anchor.marker._point.y+anchor.y)/cell);
     let found;
     for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++)
       for(const marker of grid.get(`${x+dx},${y+dy}`)||[])
@@ -49,6 +55,27 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
     return found;
   }
   const DotCanvas = L.Canvas.extend({
+    _draw() {
+      const ctx=this._ctx, bounds=this._redrawBounds;
+      ctx.save();
+      if(bounds) {
+        const size=bounds.getSize();ctx.beginPath();ctx.rect(bounds.min.x,bounds.min.y,size.x,size.y);ctx.clip();
+      }
+      // The same circles share fill/stroke commands, rather than resetting the
+      // canvas state for every dot. Every record still has its own path and hit.
+      for(const selected of [false,true]) {
+        ctx.beginPath();
+        for(let order=this._drawFirst;order;order=order.next) {
+          const marker=order.layer;
+          if((marker.facilityRecord?.facility_id===active)!==selected||marker._empty()||bounds&&!marker._pxBounds.intersects(bounds))continue;
+          const p=marker._point,r=marker._radius;
+          ctx.moveTo(p.x+r,p.y);ctx.arc(p.x,p.y,r,0,2*Math.PI);
+        }
+        ctx.fillStyle="#216d4d";ctx.globalAlpha=selected?1:0.58;ctx.fill("nonzero");
+        ctx.strokeStyle=selected?"#e7b447":"#fff";ctx.globalAlpha=1;ctx.lineWidth=selected?2:1.5;ctx.stroke();
+      }
+      ctx.restore();
+    },
     _updatePaths() {
       L.Canvas.prototype._updatePaths.call(this);
       indexPoints();
@@ -97,7 +124,7 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
     const resized = radius!==nextRadius, refreshed = source!==records;
     radius=nextRadius;
     if(refreshed) {
-      source=records;
+      source=records;indexedZoom=null;
       const eligible=records.filter(mapEligible), ids=new Set(eligible.map(f=>f.facility_id));
       coincident=new Map();
       for(const f of eligible) {
@@ -129,8 +156,13 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
         marker.dotOrder=order++;
       }
     }
-    if(resized||refreshed)for(const [id,marker] of markers)marker.setStyle(style(id===selected));
-    else if(active!==selected) {
+    if(resized&&!refreshed) {
+      for(const [id,marker] of markers) {
+        marker._radius=marker.options.radius=id===selected?radius+3:radius;
+        marker._updateBounds();
+      }
+    }
+    if(active!==selected) {
       markers.get(active)?.setStyle(style(false));markers.get(selected)?.setStyle(style(true));
     }
     if(selected&&(active!==selected||resized||refreshed))markers.get(selected)?.bringToFront();
