@@ -111,3 +111,9 @@ def test_cc_by_attributes_are_scoped_to_the_declared_ugrc_publisher():
                     "https://services1.arcgis.com/99lidPhWCzftIe9K/ArcGIS/rest/services/GolfCourses/",
                 )
             )
+
+
+def test_public_manifest_uses_the_catalog_rebuild_date():
+    metadata, _ = load_source(ROOT)
+    manifest, _, _ = transport(ROOT)
+    assert manifest["rebuilt_on"] == metadata["rebuild"]["rebuilt_on"]
