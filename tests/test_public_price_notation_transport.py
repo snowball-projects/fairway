@@ -90,7 +90,10 @@ def test_complete_notation_transport_build_and_unknowns(tmp_path, case):
         )
         rows = [
             row
-            for subject in published["facilities"] + published["courses"]
+            for subject in [
+                *published["facilities"].values(),
+                *published["courses"].values(),
+            ]
             for round_option in subject["round_options"]
             for row in round_option["optional"].get("price_observation", [])
             if row.get(case["field"]) == case["text"]
