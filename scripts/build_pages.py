@@ -557,8 +557,12 @@ def browser_details_bytes(value):
 
 def initial_map_bytes(value, manifest, states):
     # A reproducible map/search view of the same producer-checked release.
+    course_counts = {}
+    for course in value["courses"]:
+        identity = course["facility_id"]
+        course_counts[identity] = course_counts.get(identity, 0) + 1
     initial_map = {
-        "map_format": 2,
+        "map_format": 3,
         "revision": manifest["revision"],
         "catalog_release_key": manifest["catalog_release_key"],
         "catalog_sha256": manifest["files"]["catalog.json"]["sha256"],
@@ -572,6 +576,9 @@ def initial_map_bytes(value, manifest, states):
                 [point["latitude"], point["longitude"], point["kind"]]
                 if (point := f["map_location"]) is not None
                 else None,
+                f["physical_holes"],
+                course_counts.get(f["facility_id"], 0),
+                f["access"],
             ]
             for f in value["facilities"]
         ],
@@ -584,6 +591,9 @@ def initial_map_bytes(value, manifest, states):
                 [p["latitude"], p["longitude"], p["kind"]]
                 if (p := c["map_location"])
                 else None,
+                c["physical_holes"],
+                1,
+                c["access"],
             ]
             for c in value["courses"]
             if c["facility_id"] is None

@@ -3,6 +3,7 @@
 import gzip
 import importlib.util
 import json
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,14 +31,18 @@ def test_map_is_exact_reproducible_projection_of_complete_released_catalog():
     assert index["counts"] == manifest["counts"]
     assert index["states"] == states
     assert len(index["facilities"]) == manifest["counts"]["facilities"]
+    course_counts = Counter(c["facility_id"] for c in value["courses"])
     for row, facility in zip(index["facilities"], value["facilities"], strict=True):
-        identity, name, state, city, point = row
+        identity, name, state, city, point, holes, courses, access = row
         assert (identity, name, state, city) == (
             facility["facility_id"],
             facility["name"],
             facility["state"],
             (facility["address"] or {}).get("city"),
         )
+        assert holes == facility["physical_holes"]
+        assert access == facility["access"]
+        assert courses == course_counts[identity]
         expected = facility["map_location"]
         assert point == (
             [expected["latitude"], expected["longitude"], expected["kind"]]

@@ -12,7 +12,7 @@ function actual(name){
 }
 function harness(){
  let next=0;const frames=new Map(),events={},inputs={},applied=[],order=[];
- const ctx=vm.createContext({searchChoiceFrame:null,pendingSearchChoice:null,searchCameraActive:false,viewportFrame:null,planningMode:false,browseMode:false,browseScope:null,catalogModel:{},
+ const ctx=vm.createContext({searchChoiceFrame:null,pendingSearchChoice:null,searchCameraActive:false,viewportFrame:null,planningMode:false,browseMode:false,browseScope:null,view:{resultsPanel:{hidden:false}},catalogModel:{},
   requestAnimationFrame:fn=>{const id=++next;frames.set(id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id),
   applySearchChoice:result=>{ctx.browseScope={ids:[result.id],label:'Facility search'};applied.push(result);order.push(result.id);},closeSearch(){},renderCourses(){order.push('old viewport');},
   document:{addEventListener:(name,fn)=>{inputs[name]=fn;}},$:id=>({addEventListener:(name,fn)=>{inputs[id+':'+name]=fn;}}),

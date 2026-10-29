@@ -1,4 +1,4 @@
-import {located,mapEligible,catalogCounts,cityLabel,searchCatalog,courseMatches,sortCourses,browseCard,STYLES,accessLabel,displayAddress,recordLabel} from "./catalog-read.mjs";
+import {located,mapEligible,catalogCounts,cityLabel,searchCatalog,courseMatches,browseCard,STYLES,accessLabel,displayAddress,recordLabel} from "./catalog-read.mjs";
 import {shapeRings} from "./map-geometry.mjs";
 import { createFacilityDots } from "./facility-dots.mjs";
 import {
@@ -71,8 +71,8 @@ let automaticCoursesKey = null;
 
 const map = L.map("map", {
   zoomControl: true,
-  zoomSnap: 0.25,
-  zoomDelta: 0.5,
+  zoomSnap: 1,
+  zoomDelta: 1,
 }).fitBounds(
   [
     [24, -125],
@@ -560,10 +560,11 @@ function courseCard(course, objective) {
   focus.type = "button";
   focus.className = "course-focus";
   bindPillSelection(article,focus,()=>selectCourse(course.id));
-  const rank = document.createElement("span");
-  rank.className = "rank";
-  rank.textContent = course.rank ?? "…";
-  rank.hidden = course.browseOnly === true || course.catalogOnly === true;
+  if(!course.browseOnly) {
+    const rank = document.createElement("span");
+    rank.className = "rank";rank.textContent = course.rank ?? "…";
+    rank.hidden = course.catalogOnly === true;focus.append(rank);
+  }
   const body = document.createElement("span");
   const title = document.createElement("span");
   title.className = "course-title";
@@ -574,40 +575,44 @@ function courseCard(course, objective) {
   const meta = document.createElement("span");
   meta.className = "course-meta";
   meta.textContent = Number.isFinite(course.holes) ? course.holes + " holes" : "Holes: not recorded";
-  const scores = document.createElement("span");
-  scores.className = "score-row";
-  [
-    ["maximum", course.maximum_seconds === null ? "Unavailable" : duration(course.maximum_seconds), "longest drive"],
-    ["combined", course.combined_seconds === null ? "Unavailable" : duration(course.combined_seconds), "combined drive"],
-  ].forEach(([kind, value, label]) => {
-    const score = document.createElement("span");
-    score.className = `score${kind === objective ? " primary" : ""}`;
-    const strong = document.createElement("strong");
-    strong.textContent = value;
-    const small = document.createElement("small");
-    small.textContent = label;
-    score.append(strong, small);
-    scores.append(score);
-  });
-  body.append(title, meta, scores);
-  if (course.browseOnly) {scores.hidden = true;body.style.gridColumn = "1 / -1";}
-  focus.append(rank, body);
-  const times = document.createElement("ul");
-  times.className = "golfer-times";
-  times.hidden = course.browseOnly === true;
-  course.travel_times_seconds.forEach((seconds, index) => {
-    const time = document.createElement("li");
-    time.className = "golfer-time";
-    time.style.setProperty(
-      "--golfer",
-      state.activeRows[index]?.color || COLORS[index],
-    );
-    const value = seconds === null ? "Unavailable" : duration(seconds);
-    time.textContent = `${index + 1} · ${value}`;
-    time.ariaLabel = `Golfer ${index + 1}: ${value}`;
-    times.append(time);
-  });
-  article.append(focus, times);
+  body.append(title, meta);
+  if(course.browseOnly)body.style.gridColumn = "1 / -1";
+  else {
+    const scores = document.createElement("span");
+    scores.className = "score-row";
+    [
+      ["maximum", course.maximum_seconds === null ? "Unavailable" : duration(course.maximum_seconds), "longest drive"],
+      ["combined", course.combined_seconds === null ? "Unavailable" : duration(course.combined_seconds), "combined drive"],
+    ].forEach(([kind, value, label]) => {
+      const score = document.createElement("span");
+      score.className = `score${kind === objective ? " primary" : ""}`;
+      const strong = document.createElement("strong");
+      strong.textContent = value;
+      const small = document.createElement("small");
+      small.textContent = label;
+      score.append(strong, small);
+      scores.append(score);
+    });
+    body.append(scores);
+  }
+  focus.append(body);article.append(focus);
+  if(!course.browseOnly) {
+    const times = document.createElement("ul");
+    times.className = "golfer-times";
+    course.travel_times_seconds.forEach((seconds, index) => {
+      const time = document.createElement("li");
+      time.className = "golfer-time";
+      time.style.setProperty(
+        "--golfer",
+        state.activeRows[index]?.color || COLORS[index],
+      );
+      const value = seconds === null ? "Unavailable" : duration(seconds);
+      time.textContent = `${index + 1} · ${value}`;
+      time.ariaLabel = `Golfer ${index + 1}: ${value}`;
+      times.append(time);
+    });
+    article.append(times);
+  }
   item.append(article);
   return item;
 }
@@ -710,8 +715,8 @@ const fmt = (n) => n.toLocaleString("en-US");
 const facilityDots = createFacilityDots(
   L,
   map,
-  (id) => selectFacilityById(id, true),
-  (ids, coordinate) => selectCoincidentFacilities(ids, coordinate),
+  (id, coordinate) => selectMapDot([id], coordinate),
+  (ids, coordinate) => selectMapDot(ids, coordinate),
 );
 let catalogDate = "";
 let catalogModel = null,
@@ -724,7 +729,7 @@ let activeFacility = null,
   popupSelection = null,
   browseMode = true,
   browseScope = {kind:"viewport",label:"Courses in this map area"};
-let viewportFrame = null;
+let viewportFrame = null, browseGroupFrame = null;
 let searchMatches = [],
   searchIndex = -1,
   listLimit = 60,
@@ -788,8 +793,14 @@ function fitPoints(points, maxZoom = 15, animate = !REDUCED_MOTION) {
     });
 }
 function drawFacilities() {
-  if (catalogModel) facilityDots.update(catalogModel.mapRecords, activeFacility);
-  else if (initialMap) facilityDots.update(initialMap.mapRecords, activeFacility);
+  const records=initialMap?.mapRecords || catalogModel?.mapRecords;
+  if(records)facilityDots.update(records,activeFacility);
+}
+function selectMapDot(ids, coordinate) {
+  setDrawer("courses",true,false);
+  map.setView(coordinate,13,{animate:false});
+  if(ids.length>1)selectCoincidentFacilities(ids,coordinate);
+  else selectFacilityById(ids[0],false);
 }
 function knownLink(container, value, label) {
   try {
@@ -1006,7 +1017,13 @@ function reconcileBrowseSelection(records) {
   }
 }
 function selectedFirst(records, id = course => course.course_id) {
-  return [...records].sort((a,b)=>Number(id(b)===state.activeCourse)-Number(id(a)===state.activeCourse)||Number(b.facility_id===activeFacility)-Number(a.facility_id===activeFacility));
+  const selected=[],facility=[],other=[];
+  for(const record of records) {
+    if(id(record)===state.activeCourse)selected.push(record);
+    else if(record.facility_id===activeFacility)facility.push(record);
+    else other.push(record);
+  }
+  return [...selected,...facility,...other];
 }
 function refreshBrowseViewport() {
   if(viewportFrame!==null)return;
@@ -1014,7 +1031,7 @@ function refreshBrowseViewport() {
     viewportFrame=null;
     if(planningMode)return;
     browseMode=true;browseScope={kind:"viewport",label:"Courses in this map area"};
-    if(catalogModel)renderCourses();
+    if(catalogModel&&!view.resultsPanel.hidden)renderCourses(true);
   });
 }
 
@@ -1022,24 +1039,42 @@ function filterOptions() {
   return {state:$("browse-state").value,access:$("browse-access").value,holes:$("browse-holes").value,
     roundHoles:$("browse-round").value,style:$("browse-style").value};
 }
-function scopedRecords() {
-  if (!catalogModel) return [];
+function browsePredicate() {
   const bounds=browseScope?.kind === "viewport"?map.getBounds():null;
   const facility=popupSelection?catalogModel.mapRecordById.get(activeFacility):null;
   const selectedFacilityVisible=bounds&&located(facility||{})&&bounds.contains([facility.map_location.latitude,facility.map_location.longitude]);
-  return sortCourses(catalogModel.courses.filter(course=>courseMatches(course,{...filterOptions(),
-    bounds:selectedFacilityVisible&&(course.facility_id??course.course_id)===activeFacility?null:bounds,
-    facilityIds:browseScope?.ids?new Set(browseScope.ids):null})), $("browse-sort").value);
+  const filters=filterOptions(), ids=browseScope?.ids?new Set(browseScope.ids):null;
+  const unfiltered=Object.values(filters).every(value=>value==="all");
+  const south=bounds?.getSouth(),north=bounds?.getNorth(),west=bounds?.getWest(),east=bounds?.getEast();
+  return record=>{
+    if(planningMode&&!record.course_id)return false;
+    const id=record.facility_id??record.course_id;
+    if(ids&&!ids.has(id))return false;
+    if(bounds&&!(selectedFacilityVisible&&record.course_id&&id===activeFacility)) {
+      const p=record.map_location;
+      if(!p||p.latitude<south||p.latitude>north||p.longitude<west||p.longitude>east)return false;
+    }
+    return unfiltered||courseMatches(record,filters);
+  };
 }
+function scopedEntries() {
+  return catalogModel?catalogModel.browseEntries[$("browse-sort").value].filter(browsePredicate()):[];
+}
+function browseWindow() {
+  const matches=browsePredicate();
+  const course=catalogModel.courseById.get(state.activeCourse);
+  const choices=popupSelection?.kind==="facility"?catalogModel.facilityCourses(activeFacility):course?[course]:[];
+  reconcileBrowseSelection(choices.filter(matches));
+  const facility=catalogModel.facilityById.get(activeFacility);
+  if(facility&&!catalogModel.facilityCourses(activeFacility).length&&!matches(facility))closeSelection(false);
+  const list=view.results.querySelector(".course-list"),focused=document.activeElement;
+  let focusedGroup=null;
+  if(list?.contains(focused))for(const item of list.children)if(item.contains(focused)){focusedGroup=item.dataset.groupId;break;}
+  return catalogModel.browseWindow({sort:$("browse-sort").value,limit:listLimit,matches,
+    activeCourse:state.activeCourse,activeFacility,focusedGroup});
+}
+function scopedRecords() {return scopedEntries().filter(record=>record.course_id);}
 function matchesCourseFilters(course) {return courseMatches(course,filterOptions());}
-function scopedFacilities() {
-  if(planningMode)return [];
-  const withCourses=new Set(catalogModel.courses.map(course=>course.facility_id));
-  const filters={...filterOptions(),
-    bounds:browseScope?.kind==="viewport"?map.getBounds():null,
-    facilityIds:browseScope?.ids?new Set(browseScope.ids):null};
-  return catalogModel.facilities.filter(facility=>!withCourses.has(facility.facility_id)&&courseMatches(facility,filters));
-}
 function browseRecordId(record) {return record.course_id??record.facility_id;}
 function facilityGroup(facility, id) {
   const item=node("li"),article=node("article",undefined,"facility-group");
@@ -1069,26 +1104,43 @@ function facilityGroup(facility, id) {
   const courses=node("ol",undefined,"facility-courses"),empty=node("p","Courses: not recorded","facility-empty");
   article.append(courses,empty);item.append(article);return item;
 }
-function renderFacilityGroups(list, entries) {
+function renderFacilityGroups(list, entries, incremental = false, createItem = null) {
+  if(browseGroupFrame!==null)cancelAnimationFrame(browseGroupFrame);
+  browseGroupFrame=null;
   const groups=new Map(),existing=new Map([...list.children].map(item=>[item.dataset.groupId,item]));
-  for(const {record,item} of entries) {
-    const id=record.facility_id??record.course_id;
-    if(!groups.has(id))groups.set(id,{facility:catalogModel.facilityById.get(record.facility_id),items:[]});
-    if(item)groups.get(id).items.push(item);
+  for(const entry of entries) {
+    const {record}=entry,id=record.facility_id??record.course_id;
+    if(!groups.has(id))groups.set(id,{facility:catalogModel.facilityById.get(record.facility_id),entries:[]});
+    groups.get(id).entries.push(entry);
   }
   for(const [id,item] of existing)if(!groups.has(id))item.remove();
-  let index=0;
-  for(const [id,group] of groups) {
-    const item=existing.get(id)||facilityGroup(group.facility,id),article=item.firstElementChild;
-    article.dataset.active=String(group.facility?.facility_id===activeFacility);
-    const courses=article.querySelector(".facility-courses");
-    for(const child of [...courses.children])if(!group.items.includes(child))child.remove();
-    group.items.forEach((child,at)=>{if(courses.children[at]!==child)moveCourseCard(courses,child,courses.children[at]||null);});
-    courses.hidden=!group.items.length;
-    article.querySelector(".facility-empty").hidden=Boolean(group.items.length);
-    if(list.children[index]!==item)moveCourseCard(list,item,list.children[index]||null);
-    index++;
+  let index=0,entryIndex=0,items=[];
+  const pending=[...groups];
+  const defer=()=>{browseGroupFrame=requestAnimationFrame(appendGroups);};
+  function appendGroups() {
+    browseGroupFrame=null;
+    if(view.resultsPanel.hidden)return;
+    const start=incremental?performance.now():0;
+    while(index<pending.length) {
+      const [id,group]=pending[index];
+      while(entryIndex<group.entries.length) {
+        const entry=group.entries[entryIndex++],item=entry.item||createItem?.(entry.record);
+        if(item)items.push(item);
+        if(incremental&&performance.now()-start>=4&&entryIndex<group.entries.length){defer();return;}
+      }
+      const item=existing.get(id)||facilityGroup(group.facility,id),article=item.firstElementChild;
+      article.dataset.active=String(group.facility?.facility_id===activeFacility);
+      const courses=article.querySelector(".facility-courses");
+      for(const child of [...courses.children])if(!items.includes(child))child.remove();
+      items.forEach((child,at)=>{if(courses.children[at]!==child)moveCourseCard(courses,child,courses.children[at]||null);});
+      courses.hidden=!items.length;
+      article.querySelector(".facility-empty").hidden=Boolean(items.length);
+      if(list.children[index]!==item)moveCourseCard(list,item,list.children[index]||null);
+      index++;entryIndex=0;items=[];
+      if(incremental&&performance.now()-start>=4&&index<pending.length){defer();return;}
+    }
   }
+  if(incremental)defer();else appendGroups();
 }
 function updateDisplaySortOptions() {
   const sort = $("browse-sort"), choices = [["name","Name"],["holes","Holes"]];
@@ -1113,7 +1165,8 @@ function catalogLoadMessage() {
   if(!initialMap)return unavailable?"Catalog unavailable.":"Catalog is still loading. No browse course list is available yet.";
   return unavailable?"Course details unavailable.":"Course details are loading. The course list will appear when verified.";
 }
-function renderCourses() {
+function renderCourses(incremental = false) {
+  if(view.resultsPanel.hidden)return;
   updateDisplaySortOptions();
   $("browse-access").querySelector('[value="nonmember"]').hidden = !planningMode;
   $("browse-description").hidden = !browseMode;
@@ -1137,17 +1190,7 @@ function renderCourses() {
     view.results.replaceChildren(node("p",message));
     return;
   }
-  const selectedFacility=activeFacility;
-  let records=scopedRecords();
-  reconcileBrowseSelection(records);
-  if(activeFacility!==selectedFacility)records=scopedRecords();
-  const facilities=scopedFacilities();
-  if(catalogModel.facilityById.has(activeFacility)&&!catalogModel.facilityCourses(activeFacility).length&&!facilities.some(f=>f.facility_id===activeFacility))closeSelection(false);
-  const entries=sortCourses([...records,...facilities],$("browse-sort").value);
-  const ordered=selectedFirst(entries,browseRecordId),groupId=record=>record.facility_id??record.course_id;
-  const shown=new Set([...new Set(ordered.map(groupId))].slice(0,listLimit));
-  for(const item of view.results.querySelector(".course-list")?.children||[])if(item.contains(document.activeElement))shown.add(item.dataset.groupId);
-  const visible=ordered.filter(record=>shown.has(groupId(record)));
+  const {visible,more}=browseWindow();
   updateLoadedCount(visible.length,visible.filter(record=>!record.course_id).length);
   $("browse-description").textContent=browseScope?.label || "Courses in this map area";
   let list=view.results.querySelector(".course-list");
@@ -1158,23 +1201,21 @@ function renderCourses() {
   const desired=new Set(visible.map(browseRecordId));
   for(const [id,item] of browseNodes)if(!desired.has(id)){item.remove();browseNodes.delete(id);}
   const focused=document.activeElement;
-  const grouped=visible.map(record=>{
-    const id=browseRecordId(record);
+  renderFacilityGroups(list,visible.map(record=>({record})),incremental,record=>{
+    if(!record.course_id)return null;
+    const id=record.course_id;
     let item=browseNodes.get(id);
-    if(record.course_id) {
-      if(!item){item=courseCard(browseCard(record,catalogModel.destinations),selected("objective"));browseNodes.set(id,item);}
-      item.firstElementChild.dataset.active=String(record.course_id===state.activeCourse);
-    }
-    return {record,item};
+    if(!item){item=courseCard(browseCard(record,catalogModel.destinations));browseNodes.set(id,item);}
+    item.firstElementChild.dataset.active=String(id===state.activeCourse);
+    return item;
   });
-  renderFacilityGroups(list,grouped);
   if(focused&&list.contains(focused)&&document.activeElement!==focused)focused.focus({preventScroll:true});
   view.results.querySelector(".browse-more")?.remove();view.results.querySelector(".browse-empty")?.remove();
-  if(entries.length>visible.length) {
+  if(more) {
     const more=node("button","Show more","quiet-button browse-more");
     more.addEventListener("click",()=>{listLimit+=60;renderCourses();});view.results.append(more);
   }
-  if(!entries.length) {
+  if(!visible.length) {
     view.results.append(node("p","No matching courses.","browse-empty"));
   }
 }
