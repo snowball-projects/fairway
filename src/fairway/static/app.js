@@ -1,4 +1,4 @@
-import {located,mapEligible,catalogCounts,cityLabel,searchCatalog,courseMatches,sortCourses,browseCard,STYLES,accessLabel,displayAddress,recordLabel} from "./catalog-read.mjs";
+import {located,mapEligible,catalogCounts,cityLabel,searchCatalog,courseMatches,browseCard,STYLES,accessLabel,displayAddress,recordLabel} from "./catalog-read.mjs";
 import {shapeRings} from "./map-geometry.mjs";
 import { createFacilityDots } from "./facility-dots.mjs";
 import {
@@ -71,8 +71,8 @@ let automaticCoursesKey = null;
 
 const map = L.map("map", {
   zoomControl: true,
-  zoomSnap: 0.25,
-  zoomDelta: 0.5,
+  zoomSnap: 1,
+  zoomDelta: 1,
 }).fitBounds(
   [
     [24, -125],
@@ -710,7 +710,7 @@ const fmt = (n) => n.toLocaleString("en-US");
 const facilityDots = createFacilityDots(
   L,
   map,
-  (id) => selectFacilityById(id, true),
+  (id, coordinate) => selectMapDot(id, coordinate),
   (ids, coordinate) => selectCoincidentFacilities(ids, coordinate),
 );
 let catalogDate = "";
@@ -788,8 +788,13 @@ function fitPoints(points, maxZoom = 15, animate = !REDUCED_MOTION) {
     });
 }
 function drawFacilities() {
-  if (catalogModel) facilityDots.update(catalogModel.mapRecords, activeFacility);
-  else if (initialMap) facilityDots.update(initialMap.mapRecords, activeFacility);
+  const records=initialMap?.mapRecords || catalogModel?.mapRecords;
+  if(records)facilityDots.update(records,activeFacility);
+}
+function selectMapDot(id, coordinate) {
+  setDrawer("courses",true,false);
+  map.setView(coordinate,13,{animate:false});
+  selectFacilityById(id,false);
 }
 function knownLink(container, value, label) {
   try {
@@ -1006,7 +1011,13 @@ function reconcileBrowseSelection(records) {
   }
 }
 function selectedFirst(records, id = course => course.course_id) {
-  return [...records].sort((a,b)=>Number(id(b)===state.activeCourse)-Number(id(a)===state.activeCourse)||Number(b.facility_id===activeFacility)-Number(a.facility_id===activeFacility));
+  const selected=[],facility=[],other=[];
+  for(const record of records) {
+    if(id(record)===state.activeCourse)selected.push(record);
+    else if(record.facility_id===activeFacility)facility.push(record);
+    else other.push(record);
+  }
+  return [...selected,...facility,...other];
 }
 function refreshBrowseViewport() {
   if(viewportFrame!==null)return;
@@ -1014,7 +1025,7 @@ function refreshBrowseViewport() {
     viewportFrame=null;
     if(planningMode)return;
     browseMode=true;browseScope={kind:"viewport",label:"Courses in this map area"};
-    if(catalogModel)renderCourses();
+    if(catalogModel&&!view.resultsPanel.hidden)renderCourses();
   });
 }
 
@@ -1022,24 +1033,18 @@ function filterOptions() {
   return {state:$("browse-state").value,access:$("browse-access").value,holes:$("browse-holes").value,
     roundHoles:$("browse-round").value,style:$("browse-style").value};
 }
-function scopedRecords() {
+function scopedEntries() {
   if (!catalogModel) return [];
   const bounds=browseScope?.kind === "viewport"?map.getBounds():null;
   const facility=popupSelection?catalogModel.mapRecordById.get(activeFacility):null;
   const selectedFacilityVisible=bounds&&located(facility||{})&&bounds.contains([facility.map_location.latitude,facility.map_location.longitude]);
-  return sortCourses(catalogModel.courses.filter(course=>courseMatches(course,{...filterOptions(),
-    bounds:selectedFacilityVisible&&(course.facility_id??course.course_id)===activeFacility?null:bounds,
-    facilityIds:browseScope?.ids?new Set(browseScope.ids):null})), $("browse-sort").value);
+  const filters={...filterOptions(),bounds,facilityIds:browseScope?.ids?new Set(browseScope.ids):null};
+  const selectedFilters=selectedFacilityVisible?{...filters,bounds:null}:filters;
+  return catalogModel.browseEntries[$("browse-sort").value].filter(record=>
+    (!planningMode||record.course_id)&&courseMatches(record,record.course_id&&(record.facility_id??record.course_id)===activeFacility?selectedFilters:filters));
 }
+function scopedRecords() {return scopedEntries().filter(record=>record.course_id);}
 function matchesCourseFilters(course) {return courseMatches(course,filterOptions());}
-function scopedFacilities() {
-  if(planningMode)return [];
-  const withCourses=new Set(catalogModel.courses.map(course=>course.facility_id));
-  const filters={...filterOptions(),
-    bounds:browseScope?.kind==="viewport"?map.getBounds():null,
-    facilityIds:browseScope?.ids?new Set(browseScope.ids):null};
-  return catalogModel.facilities.filter(facility=>!withCourses.has(facility.facility_id)&&courseMatches(facility,filters));
-}
 function browseRecordId(record) {return record.course_id??record.facility_id;}
 function facilityGroup(facility, id) {
   const item=node("li"),article=node("article",undefined,"facility-group");
@@ -1114,6 +1119,7 @@ function catalogLoadMessage() {
   return unavailable?"Course details unavailable.":"Course details are loading. The course list will appear when verified.";
 }
 function renderCourses() {
+  if(view.resultsPanel.hidden)return;
   updateDisplaySortOptions();
   $("browse-access").querySelector('[value="nonmember"]').hidden = !planningMode;
   $("browse-description").hidden = !browseMode;
@@ -1138,12 +1144,11 @@ function renderCourses() {
     return;
   }
   const selectedFacility=activeFacility;
-  let records=scopedRecords();
-  reconcileBrowseSelection(records);
-  if(activeFacility!==selectedFacility)records=scopedRecords();
-  const facilities=scopedFacilities();
+  let entries=scopedEntries();
+  reconcileBrowseSelection(entries.filter(record=>record.course_id));
+  if(activeFacility!==selectedFacility)entries=scopedEntries();
+  const facilities=entries.filter(record=>!record.course_id);
   if(catalogModel.facilityById.has(activeFacility)&&!catalogModel.facilityCourses(activeFacility).length&&!facilities.some(f=>f.facility_id===activeFacility))closeSelection(false);
-  const entries=sortCourses([...records,...facilities],$("browse-sort").value);
   const ordered=selectedFirst(entries,browseRecordId),groupId=record=>record.facility_id??record.course_id;
   const shown=new Set([...new Set(ordered.map(groupId))].slice(0,listLimit));
   for(const item of view.results.querySelector(".course-list")?.children||[])if(item.contains(document.activeElement))shown.add(item.dataset.groupId);

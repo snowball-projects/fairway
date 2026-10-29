@@ -101,3 +101,12 @@ test('initial map paint starts background details with both panels closed',async
  frame();assert.equal(h.calls.length,0);timer();assert.equal(h.calls.length,1);
  h.resolve({revision:981});await h.ctx.detailsRequest;
 });
+
+test('map dot opens the drawer then centres at zoom 13 and selects without refitting',()=>{
+ const h=harness(),events=[];
+ Object.assign(h.ctx,{setDrawer:(...args)=>events.push(['drawer',...args]),
+  map:{setView:(...args)=>events.push(['camera',...args])},selectFacilityById:(...args)=>events.push(['select',...args])});
+ vm.runInContext(actual('selectMapDot'),h.ctx);
+ const point={lat:41,lng:-88};h.ctx.selectMapDot('f-one',point);
+ assert.deepEqual(JSON.parse(JSON.stringify(events)),[['drawer','courses',true,false],['camera',point,13,{animate:false}],['select','f-one',false]]);
+});

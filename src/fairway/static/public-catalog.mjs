@@ -11,8 +11,8 @@ async function loadPublished(manifestURL,{fetcher=globalThis.fetch,pinnedManifes
   const file=manifest.files[initialMap?'initial-map.json':'browser-details.json'];
   const value=await readJSON(new URL(file.path,base),fetcher);
   if(!initialMap)return new CatalogRead(value);
-  const records=(rows,identity)=>rows.map(([id,name,state,city,point])=>({
-    [identity]:id,...(identity==='course_id'?{facility_id:null}:{}),name,state,
+  const records=(rows,identity)=>rows.map(([id,name,state,city,point,physical_holes,course_count,access])=>({
+    [identity]:id,physical_holes,course_count,access,...(identity==='course_id'?{facility_id:null}:{}),name,state,
     address:city===null?null:{city},
     map_location:point===null?null:{latitude:point[0],longitude:point[1],kind:point[2]},
   }));

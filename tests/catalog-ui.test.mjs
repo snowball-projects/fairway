@@ -107,19 +107,26 @@ test("Census state geometry inverts its projection without supplying fabricated 
 
 function dotMap() {
   const paths = new Set();
-  const renderer = {};
+  let renderer;
+  const pointerEvents={},mapEvents={};
+  globalThis.document={createElement:()=>({style:{},children:[],append(...items){this.children.push(...items);},remove(){}}),addEventListener(){}};
   const map = {
     zoom: 4,
+    getContainer:()=>({addEventListener:(name,handler)=>{pointerEvents[name]=handler;}}),
+    getPanes:()=>({overlayPane:{append(){}}}),
+    on:(names,handler)=>{for(const name of names.split(' '))mapEvents[name]=handler;},
+    removeLayer(){},
     getZoom() {
       return this.zoom;
     },
   };
   let creations = 0;
   const L = {
-    canvas(options) {
-      renderer.options = options;
-      return renderer;
-    },
+    Canvas:{prototype:{_updatePaths(){},_handleMouseOut(){this._hoveredLayer=null;}},extend(methods){return class {
+      constructor(options){Object.assign(this,methods);this.options=options;this._container={};renderer=this;}
+    };}},
+    DomUtil:{setPosition(){},addClass(){}},
+    tooltip:()=>({setLatLng(){return this;},setContent(value){this.content=value;return this;},addTo(){return this;}}),
     layerGroup() {
       return {
         addTo() {
@@ -134,10 +141,13 @@ function dotMap() {
       creations++;
       return {
         coordinates,
+        _point:{x:coordinates[1]*10,y:coordinates[0]*10},
+        _containsPoint(p){return Math.hypot(p.x-this._point.x,p.y-this._point.y)<=this.options.radius+this.options.weight/2;},
         options,
         styles: 0,
         setLatLng(value) {
           this.coordinates = value;
+          this._point={x:value[1]*10,y:value[0]*10};
           return this;
         },
         getLatLng() {
@@ -165,7 +175,8 @@ function dotMap() {
     L,
     map,
     paths,
-    renderer,
+    get renderer(){return renderer;},
+    pointer:type=>pointerEvents.pointerdown({pointerType:type}),
     get creations() {
       return creations;
     },
@@ -199,24 +210,24 @@ test("canvas dots retain every eligible identity and coordinate across national 
   const first = markers.get(facility.facility_id);
   assert.deepEqual(first.coordinates, [42.1576593, -79.3887563]);
   assert.equal(first.options.renderer, fake.renderer);
-  assert.equal(first.options.radius, 2.5);
-  assert.equal(first.options.stroke, false);
+  assert.equal(first.options.radius, 3.5);
+  assert.equal(first.options.color, "#fff");
   assert.ok(first.options.fillOpacity < 1);
   const styles = first.styles;
   for (let pan = 0; pan < 10; pan++) layer.update(records, null);
   assert.equal(first.styles, styles);
   fake.map.zoom = 15;
   layer.update(records, facility.facility_id);
-  assert.equal(first.options.radius, 7);
+  assert.equal(first.options.radius, 9);
   assert.equal(first.options.stroke, true);
   assert.equal(first.front, true);
-  assert.equal(markers.get("nearby").options.radius, 4);
+  assert.equal(markers.get("nearby").options.radius, 6);
   assert.equal(fake.creations, 2);
   assert.deepEqual(first.coordinates, [42.1576593, -79.3887563]);
   first.click();
   assert.deepEqual(selected, [facility.facility_id]);
   layer.update(records, "nearby");
-  assert.equal(first.options.stroke, false);
+  assert.equal(first.options.color, "#fff");
   assert.equal(markers.get("nearby").options.stroke, true);
 });
 
@@ -267,4 +278,19 @@ test("the published national catalog keeps one persistent canvas path per mapped
     assert.equal(markers.size, eligible.length);
     assert.equal(fake.creations, eligible.length);
   }
+});
+
+test('hover only updates its card/highlight, and touch arms the current dot before selecting',()=>{
+ const fake=dotMap(),selected=[],dots=createFacilityDots(fake.L,fake.map,id=>selected.push(id));
+ const records=[{...facility,course_count:2},{...facility,facility_id:'second',map_location:{...facility.map_location,longitude:-81},course_count:1}];
+ const markers=dots.update(records,null),first=markers.get(facility.facility_id),second=markers.get('second'),styles=[first.styles,second.styles];
+ fake.renderer._handleMouseHover({type:'mousemove'},first._point);
+ fake.renderer._handleMouseHover({type:'mousemove'},second._point);
+ assert.deepEqual([first.styles,second.styles],styles);assert.deepEqual(selected,[]);
+ assert.equal(fake.renderer.options.tolerance,0);assert.equal(first.options.weight,1.5);
+ assert.equal(first._containsPoint({x:first._point.x+4.2,y:first._point.y}),true);
+ assert.equal(first._containsPoint({x:first._point.x+4.3,y:first._point.y}),false);
+ fake.pointer('touch');first.click();assert.deepEqual(selected,[]);
+ second.click();assert.deepEqual(selected,[]);first.click();assert.deepEqual(selected,[]);
+ first.click();assert.deepEqual(selected,[facility.facility_id]);
 });

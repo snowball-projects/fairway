@@ -1493,3 +1493,28 @@ body.credits-page {overflow: auto;}
 @media (max-width: 800px) {
   .leaflet-control-attribution {max-width: calc(50vw - 40px); text-align: right;}
 }
+
+.facility-hover {
+  position: absolute;
+  z-index: 1;
+  box-sizing: content-box;
+  border: 1.5px solid #e7b447;
+  border-radius: 50%;
+  background: #216d4d;
+  translate: -50% -50%;
+  pointer-events: none;
+}
+.facility-preview {
+  position: absolute;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 24px));
+  padding: 8px 10px;
+  border: 1px solid #d6dfd8;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 3px 12px #173a2526;
+  pointer-events: none;
+  font: 13px/1.45 system-ui, sans-serif;
+  color: #172c22;
+}
+.facility-preview strong { display: block; }

@@ -27,10 +27,17 @@ export class CatalogRead {
     this.destinations=new Map(destinations.map(d=>[d.id,d]));
     this.facilityById=new Map(facilities.map(f=>[f.facility_id,f]));
     this.courseById=new Map(courses.map(c=>[c.course_id,c]));
+    this.coursesByFacility=new Map();
+    for(const course of courses) {
+      const group=this.coursesByFacility.get(course.facility_id)||[];
+      group.push(course);this.coursesByFacility.set(course.facility_id,group);
+    }
+    const entries=[...courses,...facilities.filter(f=>!this.coursesByFacility.has(f.facility_id))];
+    this.browseEntries={name:sortCourses(entries),holes:sortCourses(entries,'holes')};
     this.mapRecords=mapRecords(this);
     this.mapRecordById=new Map(this.mapRecords.map(r=>[r.facility_id,r]));
   }
-  facilityCourses(id) {return this.courses.filter(c=>c.facility_id===id);}
+  facilityCourses(id) {return this.coursesByFacility.get(id)||[];}
 }
 export function courseMatches(course,{state='all',access='all',holes='all',roundHoles='all',style='all',facilityIds=null,bounds=null}={}) {
   if(state!=='all' && course.state!==state)return false;
