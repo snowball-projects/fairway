@@ -6,6 +6,7 @@ import hashlib
 import json
 import re
 from collections import defaultdict
+from datetime import UTC, datetime
 from pathlib import Path
 
 from .open_catalog import encoded, load_source, write_source
@@ -465,6 +466,7 @@ def build(root, work, released_root):
     )
     value = rebuild(metadata, released, features, wiki, pin, bindings)
     value["rebuild"]["build_inputs"] = input_pins
+    value["rebuild"]["rebuilt_on"] = datetime.now(UTC).date().isoformat()
     decisions_path = Path(root) / "data/catalog-inputs/facility-reconciliation.json"
     if decisions_path.exists():
         from .catalog_reconcile import apply_reconciliation

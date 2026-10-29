@@ -134,6 +134,7 @@ def transport(root):
             "qualification",
         )
     }
+    manifest["rebuilt_on"] = value.get("rebuild", {}).get("rebuilt_on")
     manifest["counts"] = {
         key: len(value[key]) for key in ("facilities", "courses", "destinations")
     }
