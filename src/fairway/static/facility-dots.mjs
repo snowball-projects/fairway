@@ -12,6 +12,18 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
   const highlight = document.createElement("span");
   highlight.className = "facility-hover";
   const tooltip = L.tooltip({direction:"top",offset:[0,-10],opacity:1,className:"facility-preview"});
+  const stamps=new Map();
+  let stampFrame=null;
+  for(const base of [3.5,4,5,6])for(const selected of [false,true]) {
+    const r=selected?base+3:base,size=2*(r+1),image=new Image();
+    image.onload=()=>{
+      if(!renderer._map||stampFrame!==null)return;
+      stampFrame=requestAnimationFrame(()=>{stampFrame=null;renderer._redraw();});
+    };
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${size*devicePixelRatio}" height="${size*devicePixelRatio}" viewBox="0 0 ${size} ${size}"><circle cx="${r+1}" cy="${r+1}" r="${r}" fill="#216d4d" fill-opacity="${selected?1:0.58}" stroke="${selected?"#e7b447":"#fff"}" stroke-width="${selected?2:1.5}"/></svg>`;
+    image.src=`data:image/svg+xml,${encodeURIComponent(svg)}`;
+    stamps.set(`${r}:${selected}`,{image,size});
+  }
 
   function preview(marker) {
     if(hovered === marker)return;
@@ -61,19 +73,18 @@ export function createFacilityDots(L, map, onSelect, onCoincident) {
       if(bounds) {
         const size=bounds.getSize();ctx.beginPath();ctx.rect(bounds.min.x,bounds.min.y,size.x,size.y);ctx.clip();
       }
-      // The same circles share fill/stroke commands, rather than resetting the
-      // canvas state for every dot. Every record still has its own path and hit.
-      for(const selected of [false,true]) {
-        ctx.beginPath();
-        for(let order=this._drawFirst;order;order=order.next) {
-          const marker=order.layer;
-          if((marker.facilityRecord?.facility_id===active)!==selected||marker._empty()||bounds&&!marker._pxBounds.intersects(bounds))continue;
-          const p=marker._point,r=marker._radius;
-          ctx.moveTo(p.x+r,p.y);ctx.arc(p.x,p.y,r,0,2*Math.PI);
-        }
-        ctx.fillStyle="#216d4d";ctx.globalAlpha=selected?1:0.58;ctx.fill("nonzero");
-        ctx.strokeStyle=selected?"#e7b447":"#fff";ctx.globalAlpha=1;ctx.lineWidth=selected?2:1.5;ctx.stroke();
+      // Rasterize each small SVG once, then stamp individual dots on this
+      // canvas. This keeps the ring/alpha without a fill/stroke per record.
+      this._drawing=true;ctx.globalAlpha=1;
+      for(let order=this._drawFirst;order;order=order.next) {
+        const marker=order.layer;
+        if(marker._empty()||bounds&&!marker._pxBounds.intersects(bounds))continue;
+        const selected=marker.facilityRecord?.facility_id===active;
+        const {image,size}=stamps.get(`${marker._radius}:${selected}`),p=marker._point;
+        if(image.complete&&image.naturalWidth)ctx.drawImage(image,p.x-size/2,p.y-size/2,size,size);
+        else {L.Canvas.prototype._updateCircle.call(this,marker);ctx.globalAlpha=1;}
       }
+      this._drawing=false;
       ctx.restore();
     },
     _updatePaths() {

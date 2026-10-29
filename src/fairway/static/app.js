@@ -710,8 +710,8 @@ const fmt = (n) => n.toLocaleString("en-US");
 const facilityDots = createFacilityDots(
   L,
   map,
-  (id, coordinate) => selectMapDot(id, coordinate),
-  (ids, coordinate) => selectCoincidentFacilities(ids, coordinate),
+  (id, coordinate) => selectMapDot([id], coordinate),
+  (ids, coordinate) => selectMapDot(ids, coordinate),
 );
 let catalogDate = "";
 let catalogModel = null,
@@ -791,10 +791,11 @@ function drawFacilities() {
   const records=initialMap?.mapRecords || catalogModel?.mapRecords;
   if(records)facilityDots.update(records,activeFacility);
 }
-function selectMapDot(id, coordinate) {
+function selectMapDot(ids, coordinate) {
   setDrawer("courses",true,false);
   map.setView(coordinate,13,{animate:false});
-  selectFacilityById(id,false);
+  if(ids.length>1)selectCoincidentFacilities(ids,coordinate);
+  else selectFacilityById(ids[0],false);
 }
 function knownLink(container, value, label) {
   try {

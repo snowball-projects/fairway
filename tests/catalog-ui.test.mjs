@@ -108,6 +108,7 @@ test("Census state geometry inverts its projection without supplying fabricated 
 function dotMap() {
   const paths = new Set();
   let renderer;
+  globalThis.Image=class {};globalThis.devicePixelRatio=1;
   const pointerEvents={},mapEvents={};
   globalThis.document={createElement:()=>({style:{},children:[],append(...items){this.children.push(...items);},remove(){}}),addEventListener(){}};
   const map = {
@@ -297,4 +298,13 @@ test('hover only updates its card/highlight, and touch arms the current dot befo
  fake.pointer('touch');first.click();assert.deepEqual(selected,[]);
  second.click();assert.deepEqual(selected,[]);first.click();assert.deepEqual(selected,[]);
  first.click();assert.deepEqual(selected,[facility.facility_id]);
+});
+
+test('colocated mouse click and second touch retain every chooser identity',()=>{
+ const fake=dotMap(),choices=[],dots=createFacilityDots(fake.L,fake.map,()=>assert.fail('must retain chooser'),(ids,point)=>choices.push({ids,point}));
+ const records=[{...facility,course_count:2},{...facility,facility_id:'colocated',course_count:1}];
+ const marker=dots.update(records,null).get(facility.facility_id);
+ marker.click();assert.deepEqual(choices[0].ids,[facility.facility_id,'colocated']);
+ fake.pointer('touch');marker.click();assert.equal(choices.length,1);
+ marker.click();assert.equal(choices.length,2);assert.deepEqual(choices[1].ids,choices[0].ids);assert.deepEqual(choices[1].point,marker.getLatLng());
 });
