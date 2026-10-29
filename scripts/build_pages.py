@@ -715,6 +715,13 @@ def build(root, output, commit, review_fixture=False):
             + '" />',
         )
     )
+    rebuilt_on = manifest.get("rebuilt_on")
+    rebuilt = (
+        f'Catalog rebuilt <time datetime="{escape(rebuilt_on)}">{escape(rebuilt_on)}</time>.'
+        if rebuilt_on
+        else "Catalog rebuild date not recorded."
+    )
+    html = html.replace("Catalog rebuild date not recorded.", rebuilt)
     if review_fixture:
         html = html.replace(
             "<body>",

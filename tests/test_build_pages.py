@@ -36,6 +36,7 @@ def test_native_pages_are_reproducible_public_only_and_leave_source_unchanged(tm
     html = (output / "index.html").read_text()
     assert f'src="./{one["ui_assets"]["app.js"]}"' in html
     assert "Content-Security-Policy" in html
+    assert "Catalog rebuild date not recorded." in html
     assert "photon.komoot.io" in html and "onrender.com" not in html
     assert (
         "data/catalog-release.json" in html
@@ -312,3 +313,31 @@ def test_browser_details_keep_display_facts_without_duplicate_transport_material
     assert price["historical"] is True
     assert "observation_id" not in price and "source_id" not in price
     assert json.dumps(value, sort_keys=True) == before
+
+
+def test_catalog_rebuild_date_survives_site_redeploys_and_privacy_copy_is_plain(
+    tmp_path, monkeypatch
+):
+    original = pages.native_transport
+
+    def dated(root, review_fixture=False):
+        manifest, raw = original(root, review_fixture)
+        return manifest | {"rebuilt_on": "2026-02-04"}, raw
+
+    monkeypatch.setattr(pages, "native_transport", dated)
+    for commit in ("a" * 40, "b" * 40):
+        output = tmp_path / commit
+        pages.build(ROOT, output, commit, review_fixture=True)
+        manifest = json.loads((output / "data/catalog-release.json").read_text())
+        assert manifest["rebuilt_on"] == "2026-02-04"
+        html = (output / "index.html").read_text()
+        assert 'Catalog rebuilt <time datetime="2026-02-04">2026-02-04</time>.' in html
+        assert "straight-line radius, not a driving-time limit" in html
+        assert "Booking availability and driving times are unavailable" in html
+        assert "Address lookup uses Photon" in html
+        assert "Typed coordinates stay in your browser" in html
+        assert "OpenStreetMap contributors" in html and "ODbL 1.0" in html
+        assert (
+            "Committed origins" not in html
+            and "Typed optional observations" not in html
+        )
