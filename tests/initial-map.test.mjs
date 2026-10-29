@@ -4,10 +4,11 @@ import {createHash} from 'node:crypto';
 import {loadInitialMap,loadPublicCatalog} from '../src/fairway/static/public-catalog.mjs';
 import {catalogCounts,searchCatalog} from '../src/fairway/static/catalog-read.mjs';
 import {fixture} from './native5-fixture.mjs';
+import {publishedCatalog} from './catalog-model.mjs';
 const hash=raw=>createHash('sha256').update(raw).digest('hex');
 const base='https://example.test/fairway/data/catalog-release.json';
 function transport(){
- const {value,manifest}=fixture(),full=JSON.stringify(value),sha=hash(full);
+ const {value,manifest}=fixture(),full=JSON.stringify(publishedCatalog(value)),sha=hash(full);
  manifest.files={'browser-details.json':{sha256:sha,bytes:Buffer.byteLength(full),path:`native-catalog-${sha}.json`}};
  const index={courses:[],map_format:3,revision:manifest.revision,catalog_release_key:manifest.catalog_release_key,catalog_sha256:sha,counts:manifest.counts,
   facilities:value.facilities.map(f=>[f.facility_id,f.name,f.state,f.address?.city??null,f.map_location?[f.map_location.latitude,f.map_location.longitude,f.map_location.kind]:null,f.physical_holes,value.courses.filter(c=>c.facility_id===f.facility_id).length,f.access]),
