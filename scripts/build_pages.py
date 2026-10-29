@@ -559,9 +559,19 @@ def browser_details_bytes(value):
             check=True,
         ).stdout
     )
+    # Keyed records are the published ID indexes. Avoid repeating every ID in a
+    # separate position table; the reader restores the identity field in place.
+    for kind, identity in (
+        ("facilities", "facility_id"),
+        ("courses", "course_id"),
+        ("destinations", "id"),
+    ):
+        details[kind] = {
+            row[identity]: {key: cell for key, cell in row.items() if key != identity}
+            for row in details[kind]
+        }
     return (
-        json.dumps(details, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-        + "\n"
+        json.dumps(details, ensure_ascii=False, separators=(",", ":")) + "\n"
     ).encode()
 
 

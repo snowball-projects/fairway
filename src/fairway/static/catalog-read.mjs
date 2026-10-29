@@ -21,16 +21,16 @@ export function searchCatalog(facilities,states,query) {
   return [...found.filter(r=>r.kind==='state'),...cities.values(),...found.filter(r=>r.kind==='facility')];
 }
 export class CatalogRead {
-  constructor({revision,catalog_release_key,facilities,courses,destinations=[],indexes}) {
+  constructor({revision,catalog_release_key,facilities,courses,destinations={},indexes}) {
     this.revision=revision;this.catalogReleaseKey=catalog_release_key;
-    this.facilities=facilities;this.courses=courses;
-    const lookup=(positions,rows)=>new Map(positions.map(([id,at])=>[id,rows[at]]));
-    const entries=[...courses,...facilities];
+    const lookup=(rows,identity)=>new Map(Object.entries(rows).map(([id,row])=>{row[identity]=id;return [id,row];}));
+    this.facilityById=lookup(facilities,'facility_id');
+    this.courseById=lookup(courses,'course_id');
+    this.destinations=lookup(destinations,'id');
+    this.facilities=[...this.facilityById.values()];this.courses=[...this.courseById.values()];
+    const entries=[...this.courses,...this.facilities];
     const records=positions=>positions.map(at=>entries[at]);
     const groups=positions=>new Map(positions.map(([id,items])=>[id,records(items)]));
-    this.destinations=lookup(indexes.destinations,destinations);
-    this.facilityById=lookup(indexes.facilities,facilities);
-    this.courseById=lookup(indexes.courses,courses);
     this.coursesByFacility=new Map(indexes.coursesByFacility.map(([id,items])=>[id,records(items)]));
     this.browseEntries={};this.browseGroups={};this.browseIndependent={};
     for(const sort of ['name','holes']) {
@@ -39,7 +39,7 @@ export class CatalogRead {
       this.browseGroups[sort]=groups(browse.groups);
       this.browseIndependent[sort]=records(browse.independent);
     }
-    this.mapRecords=[...facilities,...indexes.mapCourses.map(at=>({...courses[at],facility_id:courses[at].course_id,record_kind:'course'}))];
+    this.mapRecords=[...this.facilities,...indexes.mapCourses.map(at=>({...this.courses[at],facility_id:this.courses[at].course_id,record_kind:'course'}))];
     this.mapRecordById=new Map(this.mapRecords.map(r=>[r.facility_id,r]));
   }
   facilityCourses(id) {return this.coursesByFacility.get(id)||[];}

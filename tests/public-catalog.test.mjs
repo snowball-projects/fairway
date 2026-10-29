@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {loadPublicCatalog} from '../src/fairway/static/public-catalog.mjs';
 import {PublicPlanningSession,resolvePublicOrigin} from '../src/fairway/static/public-planning.mjs';
-import {CatalogRead} from './catalog-model.mjs';
+import {CatalogRead,publishedCatalog} from './catalog-model.mjs';
 import {fixture} from './native5-fixture.mjs';
 const course=(id,longitude=0)=>({course_id:`c-${id}`,facility_id:'f-one',name:id,facility_name:'One',nonmember_bookable:true,plan_eligible:true,access:'public',arrival:null,destination_id:null,map_location:{latitude:0,longitude},round_options:[{round_holes:9}],physical_holes:9});
 test('committed origins select every nearby course across both neighborhoods without routing',()=>{
@@ -45,10 +45,10 @@ test('browser details use response.json and preserve object references without c
  const {value}=fixture();const calls=[];
  const manifest={files:{'browser-details.json':{path:'browser-details-hash.json'}}};
  const model=await loadPublicCatalog('https://example.test/fairway/data/catalog-release.json',{fetcher:async url=>{
-  calls.push(String(url));return {ok:true,json:async()=>calls.length===1?manifest:value};
+  calls.push(String(url));return {ok:true,json:async()=>calls.length===1?manifest:publishedCatalog(value)};
  }});
  assert.deepEqual(calls,['https://example.test/fairway/data/catalog-release.json','https://example.test/fairway/data/browser-details-hash.json']);
- assert.equal(model.facilities,value.facilities);assert.equal(model.courses,value.courses);
+ assert.deepEqual(model.facilities,value.facilities);assert.deepEqual(model.courses,value.courses);
  assert.equal(model.facilityById.get(value.facilities[0].facility_id),value.facilities[0]);
  assert.equal(model.destinations.get(value.destinations[0].id),value.destinations[0]);
 });

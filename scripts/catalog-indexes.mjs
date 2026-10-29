@@ -12,7 +12,6 @@ export function sortCourses(courses,sort='name') {
   });
 }
 export function catalogIndexes({facilities,courses,destinations=[]}) {
-  const positions=(rows,key)=>rows.map((row,at)=>[row[key],at]);
   const entries=[...courses,...facilities],at=new Map(entries.map((row,i)=>[row,i]));
   const coursesByFacility=new Map();
   for(const [i,course] of courses.entries()) {
@@ -31,7 +30,7 @@ export function catalogIndexes({facilities,courses,destinations=[]}) {
     }
     browse[sort]={entries:ordered.map(row=>at.get(row)),groups:[...groups],independent};
   }
-  return {facilities:positions(facilities,'facility_id'),courses:positions(courses,'course_id'),destinations:positions(destinations,'id'),coursesByFacility:[...coursesByFacility],browse,
+  return {coursesByFacility:[...coursesByFacility],browse,
     mapCourses:courses.flatMap((c,i)=>c.facility_id===null?[i]:[])};
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)
