@@ -116,6 +116,11 @@ def test_normal_build_preserves_or_rejects_complete_unicode_transport(
     (data / "manifest.json").write_text(json.dumps(manifest))
     (data / "catalog.json.gz").write_bytes(packed)
     write_source(source, value)
+    (source / "data/catalog-inputs").mkdir()
+    shutil.copyfile(
+        ROOT / "data/catalog-inputs/withheld-facilities.json",
+        source / "data/catalog-inputs/withheld-facilities.json",
+    )
     shutil.copytree(ROOT / "src/fairway/static", source / "src/fairway/static")
     shutil.copyfile(
         ROOT / "data/map-boundaries.json", source / "data/map-boundaries.json"

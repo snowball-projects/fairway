@@ -5,16 +5,16 @@ import json
 import re
 from pathlib import Path
 
-from fairway.open_catalog import load_source, transport
+from fairway.open_catalog import load_public_source, load_source, transport
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_full_plain_rows_and_geojson_preserve_geometryless_records_and_relationships():
-    _, rows = load_source(ROOT)
+def test_public_rows_and_geojson_preserve_geometryless_records_and_relationships():
+    _, rows = load_public_source(ROOT)
     assert {kind: len(items) for kind, items in rows.items()} == {
-        "facilities": 16181,
-        "courses": 4993,
+        "facilities": 16180,
+        "courses": 4992,
     }
     for kind, key, missing in (
         ("facilities", "facility_id", None),
@@ -29,7 +29,7 @@ def test_full_plain_rows_and_geojson_preserve_geometryless_records_and_relations
         row["facility_id"] is None or row["facility_id"] in facilities
         for row in rows["courses"]
     )
-    assert sum(len(f["course_ids"]) for f in facilities.values()) == 4959
+    assert sum(len(f["course_ids"]) for f in facilities.values()) == 4958
     assert any(len(f["course_ids"]) > 1 for f in facilities.values())
 
 
@@ -39,7 +39,7 @@ def test_browser_projection_is_derived_from_csv_and_preserves_designer_credits()
         gzip.decompress((ROOT / "data/catalog-release/catalog.json.gz").read_bytes())
     )
     value = json.loads(raw)
-    assert manifest["counts"]["courses"] == 4993
+    assert manifest["counts"]["courses"] == 4992
     parties = {}
 
     def visit(item):
