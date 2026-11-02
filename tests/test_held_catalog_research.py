@@ -120,3 +120,46 @@ def test_held_design_is_senior_and_monterey_totals_stay_uninvented(catalog):
     assert monterey["physical_holes"] == 9
     assert monterey["tee_sets"] == [] and monterey["style"] is None
     assert not monterey["optional"]["architecture_event"]
+
+
+def test_dated_tee_totals_are_not_attributed_to_current_html(catalog):
+    _, courses = catalog
+    for cid, pdf_name, field in (
+        ("c-23979c7b-4850-5879-8111-d506f2334c28", "CFHC-SC.pdf", "tee_sets"),
+        (
+            "c-e9309768-5dc6-502a-a121-1b47cf95f00d",
+            "CFHN-SC.pdf",
+            "round_options.tee_sets",
+        ),
+    ):
+        course = next(c for c in courses if c["course_id"] == cid)
+        html = [c for c in course["fact_sources"] if c["checked_on"] == "2026-11-02"]
+        assert all(
+            "tee_sets" not in field and field != "round_options"
+            for citation in html
+            for field in citation["fields"]
+        )
+        pdf = next(
+            c for c in course["fact_sources"] if c["source_url"].endswith(pdf_name)
+        )
+        assert pdf["checked_on"] == "2026-10-15"
+        assert pdf["fields"] == [field]
+        if field == "round_options.tee_sets":
+            assert any("round_options.round_holes" in c["fields"] for c in html)
+
+
+def test_rebuild_date_does_not_change_the_pinned_osm_snapshot(catalog):
+    metadata, _ = load_source(ROOT)
+    assert metadata["rebuild"]["rebuilt_on"] == "2026-11-02"
+    assert metadata["rebuild"]["osm_extract"]["data_through"] == "2026-10-25T21:21:21Z"
+    _, courses = catalog
+    greeley = next(
+        c for c in courses if c["course_id"] == "c-ee4941f7-d369-54e4-bad1-67a18d7260f9"
+    )
+    expansion = next(
+        e
+        for e in greeley["optional"]["architecture_event"]
+        if e["event_kind"] == "expansion"
+    )
+    assert expansion["source_url"] == "https://www.greeleycc.org/club/story"
+    assert expansion["event_year"] is None
