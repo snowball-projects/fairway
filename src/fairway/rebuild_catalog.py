@@ -394,6 +394,17 @@ def rebuild(metadata, released, features, wiki, pin, bindings):
     return value
 
 
+def _before_reviewed_additions(values, pin):
+    """Verify reviewed appended facts while retaining the original release pins."""
+    count = pin["count"]
+    if type(count) is not int or not 0 <= count <= len(values):
+        raise ValueError("Invalid reviewed addition count")
+    boundary = len(values) - count
+    if checksum(values[boundary:]) != pin["sha256"]:
+        raise ValueError("Reviewed additions changed")
+    return values[:boundary]
+
+
 def assert_preserved(value):
     if value.get("rebuild", {}).get("preservation", {}).get("reconciliation"):
         from .catalog_reconcile import restore_before_reconciliation
@@ -413,6 +424,16 @@ def assert_preserved(value):
         row = by_id[receipt["record_id"]]
         original = {k: row[k] for k in rebuild["released_columns"][receipt["kind"]]}
         original["fact_sources"] = original["fact_sources"][: receipt["citation_count"]]
+        additions = (
+            rebuild.get("reviewed_additions", {})
+            .get("optional", {})
+            .get(receipt["record_id"], {})
+        )
+        if additions:
+            original["optional"] = dict(original["optional"])
+            for family, pin in additions.items():
+                values = original["optional"][family]
+                original["optional"][family] = _before_reviewed_additions(values, pin)
         for field in receipt.get("filled_fields", []):
             if (
                 field not in {"access", "physical_holes"}
@@ -424,6 +445,20 @@ def assert_preserved(value):
             raise ValueError("Released fact changed: " + old)
     for key, expected in rebuild["preservation"]["metadata"].items():
         data = value[key]
+        if key == "provenance" and rebuild.get("reviewed_additions"):
+            pin = rebuild["reviewed_additions"]["sources"]
+            data = data | {"sources": _before_reviewed_additions(data["sources"], pin)}
+        if key == "relationships" and rebuild.get("reviewed_additions"):
+            data = dict(data)
+            for kind, pins in (
+                rebuild["reviewed_additions"].get("relationships", {}).items()
+            ):
+                additions = [row for row in data[kind] if row["id"] in pins]
+                if len(additions) != len(pins) or any(
+                    checksum(row) != pins[row["id"]] for row in additions
+                ):
+                    raise ValueError("Reviewed relationship additions changed")
+                data[kind] = [row for row in data[kind] if row["id"] not in pins]
         if key == "source_licenses":
             data = data[:-2]
         if checksum(rekey(data, inverse)) != expected:

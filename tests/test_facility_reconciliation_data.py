@@ -48,8 +48,8 @@ def test_frozen_decisions_only_remove_zero_actual_course_facilities(data):
         source = decision["source_id"]
         assert counts[source] == 0
         assert checksum(before[source]) == decision["source_sha256"]
-    assert len(value["facilities"]) == 16180
-    assert len(value["courses"]) == 4985
+    assert len(value["facilities"]) == 16181
+    assert len(value["courses"]) == 4993
     receipt = value["rebuild"]["preservation"]["reconciliation"]
     assert receipt["plan"] == plan
     assert receipt["plan_sha256"] == checksum(plan)

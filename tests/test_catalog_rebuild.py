@@ -382,3 +382,50 @@ def test_known_holes_win_over_osm_without_losing_the_disagreeing_observation():
     assert row["physical_holes"] == 27 and row["access"] is None
     assert row["osm"]["tags"] == {"holes": "18", "fee": "yes"}
     assert_preserved(value)
+
+
+@pytest.mark.parametrize("add_source", [False, True])
+def test_reviewed_append_only_facts_keep_original_release_integrity(add_source):
+    from fairway.rebuild_catalog import checksum
+
+    data = inputs()
+    for row in data[1]["facilities"]:
+        row["optional"] = {"architecture_event": []}
+    data[0]["relationships"] = {"round_option": []}
+    value = rebuild(*data)
+    original = copy.deepcopy(value)
+    row = value["facilities"][0]
+    observation = {"source_url": "https://owner.test/course", "event_kind": "design"}
+    row["optional"]["architecture_event"] = [observation]
+    new_sources = (
+        [{"id": "owner", "url": "https://owner.test/course"}] if add_source else []
+    )
+    value["provenance"]["sources"].extend(new_sources)
+    round_option = {"id": "new-round", "course_id": "c-layout", "round_holes": 18}
+    value["relationships"]["round_option"].append(round_option)
+    value["rebuild"]["reviewed_additions"] = {
+        "optional": {
+            row["facility_id"]: {
+                "architecture_event": {"count": 1, "sha256": checksum([observation])}
+            }
+        },
+        "sources": {"count": len(new_sources), "sha256": checksum(new_sources)},
+        "relationships": {"round_option": {"new-round": checksum(round_option)}},
+    }
+    assert_preserved(value)
+    assert value["rebuild"]["preservation"] == original["rebuild"]["preservation"]
+    assert row["optional"]["architecture_event"] == [observation]
+    damaged = copy.deepcopy(value)
+    damaged["facilities"][0]["optional"]["architecture_event"][0]["event_kind"] = (
+        "opening"
+    )
+    with pytest.raises(ValueError, match="Reviewed additions changed"):
+        assert_preserved(damaged)
+    damaged = copy.deepcopy(value)
+    damaged["provenance"]["sources"][0]["url"] = "https://changed.test"
+    with pytest.raises(ValueError, match="Released source/scope changed"):
+        assert_preserved(damaged)
+    damaged = copy.deepcopy(value)
+    damaged["relationships"]["round_option"][0]["round_holes"] = 19
+    with pytest.raises(ValueError, match="Reviewed relationship additions changed"):
+        assert_preserved(damaged)
