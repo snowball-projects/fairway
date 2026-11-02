@@ -1,0 +1,40 @@
+[
+  {
+    "name": "The Club at Forest Ridge",
+    "facility_ids": [
+      "osm/relation/4498071",
+      "f-9f10d815-80e8-4d16-a79b-235f9716e638"
+    ],
+    "address": "7501 E Kenosha St, Broken Arrow, OK 74014",
+    "reason": "Private members-only golf. Withheld from the public catalog and map; the conversion date is unknown. Earlier public-access observations remain historical source facts, not current access claims.",
+    "first_verified_on": "2026-11-01",
+    "conversion_date": null,
+    "sources": [
+      {
+        "source_url": "https://www.theclubatforestridge.com/Home.aspx",
+        "checked_on": "2026-11-02",
+        "fields": [
+          "name",
+          "address",
+          "private_members_only"
+        ]
+      },
+      {
+        "source_url": "https://www.theclubatforestridge.com/Golf/Course_Info",
+        "checked_on": "2026-11-02",
+        "fields": [
+          "private_golf"
+        ]
+      },
+      {
+        "source_url": "https://www.openstreetmap.org/api/0.6/relation/4498071/3",
+        "checked_on": "2026-10-26",
+        "fields": [
+          "osm_identity",
+          "address"
+        ],
+        "qualification": "Pinned OSM observation, not access verification."
+      }
+    ]
+  }
+]

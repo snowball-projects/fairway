@@ -27,6 +27,11 @@ The 3,103 new unnamed OSM facility polygons stay in pinned `data/catalog-inputs/
 snapshots, outside this public catalog. The remaining 97 unnamed OSM facilities
 are 94 source points and three unassembled geometries; released unnamed courses stay.
 `python3 scripts/export_catalog.py` regenerates GeoJSON and browser projections.
+`data/catalog-inputs/withheld-facilities.json` records reviewed exclusions with sources
+and check dates. Exports and Pages builds omit those facilities, their courses and
+linked records; maintained CSV facts and pinned observations remain for provenance.
+Forest Ridge in Broken Arrow is withheld as private, leaving 16,180 published
+facilities and 4,992 courses; its conversion date is unknown.
 Property points do not establish entrances or independently bookable layouts.
 
 The fairway course catalog is © OpenStreetMap contributors, licensed under the [Open Database License (ODbL) 1.0](https://opendatacommons.org/licenses/odbl/1-0/). Data we create from scratch is [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).

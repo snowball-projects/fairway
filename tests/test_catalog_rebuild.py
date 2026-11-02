@@ -429,3 +429,21 @@ def test_reviewed_append_only_facts_keep_original_release_integrity(add_source):
     damaged["relationships"]["round_option"][0]["round_holes"] = 19
     with pytest.raises(ValueError, match="Reviewed relationship additions changed"):
         assert_preserved(damaged)
+
+
+def test_reviewed_exclusion_survives_rebuilding_a_named_released_facility():
+    from fairway.open_catalog import withhold_facilities
+
+    data = inputs()
+    exclusions = [{"facility_ids": ["f-old", "osm/way/1"]}]
+    for name in ("Forest Ridge", "Changed source name"):
+        data[2][0]["name"] = name
+        rebuilt = rebuild(*data)
+        public = withhold_facilities(rebuilt, exclusions)
+        assert not any(r["facility_id"] == "osm/way/1" for r in public["facilities"])
+        assert not any(r["course_id"] == "c-layout" for r in public["courses"])
+        assert not any(r["id"] == "osm/way/1" for r in public["destinations"])
+        # Rebuild and retention checks still see all original facts and source scope.
+        assert_preserved(rebuilt)
+        assert any(r["facility_id"] == "osm/way/1" for r in rebuilt["facilities"])
+        assert any(r["facility_id"] == "f-ambiguous" for r in public["facilities"])

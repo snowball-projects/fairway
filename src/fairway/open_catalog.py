@@ -80,6 +80,64 @@ def load_source(root):
     return metadata, rows
 
 
+def withhold_facilities(value, exclusions):
+    """Withhold reviewed identities and their children, retaining maintained facts."""
+    identities = {key for item in exclusions for key in item["facility_ids"]}
+    withheld = {
+        row["facility_id"]
+        for row in value["facilities"]
+        if any(
+            row.get(key) in identities
+            for key in ("facility_id", "released_id", "osm_identity")
+        )
+    } | identities
+    facilities = [r for r in value["facilities"] if r["facility_id"] not in withheld]
+    courses = [r for r in value["courses"] if r["facility_id"] not in withheld]
+    withheld.update(
+        r["course_id"] for r in value["courses"] if r["facility_id"] in withheld
+    )
+    # Remove dependent relationship IDs too, including rounds built from components.
+    references = (
+        "facility_id",
+        "course_id",
+        "component_id",
+        "round_id",
+        "destination_id",
+    )
+    relationships = value["relationships"]
+    while True:
+        related = {
+            row["id"]
+            for rows in relationships.values()
+            for row in rows
+            if any(row.get(key) in withheld for key in references)
+        }
+        if related <= withheld:
+            break
+        withheld.update(related)
+    return value | {
+        "facilities": facilities,
+        "courses": courses,
+        "destinations": [r for r in value["destinations"] if r["id"] not in withheld],
+        "relationships": {
+            kind: [r for r in rows if r["id"] not in withheld]
+            for kind, rows in relationships.items()
+        },
+    }
+
+
+def load_public_source(root):
+    metadata, rows = load_source(root)
+    exclusions = json.loads(
+        (Path(root) / "data/catalog-inputs/withheld-facilities.json").read_text()
+    )
+    value = withhold_facilities(metadata | rows, exclusions)
+    return (
+        {k: v for k, v in value.items() if k not in rows},
+        {k: value[k] for k in rows},
+    )
+
+
 def display_location(row):
     osm = row.get("osm")
     if osm and osm.get("position"):
@@ -96,7 +154,7 @@ def display_location(row):
 
 
 def transport(root):
-    metadata, rows = load_source(root)
+    metadata, rows = load_public_source(root)
     for items in rows.values():
         for row in items:
             row["map_location"] = display_location(row)
@@ -112,12 +170,20 @@ def transport(root):
             for k, v in value["rebuild"].items()
             if k not in {"preservation", "released_columns"}
         }
+        value["rebuild"]["counts"] = value["rebuild"]["counts"] | {
+            kind: len(rows[kind]) for kind in rows
+        }
+        value["rebuild"]["public_catalog_policy"] += (
+            " Reviewed withheld-facility identities and their linked records are"
+            " excluded from all public projections; maintained facts are retained."
+        )
     target = Path(root) / "data/catalog"
     value["catalog_release_key"] = hashlib.sha256(
         b"".join(
             (target / name).read_bytes()
             for name in ("facilities.csv", "courses.csv", "metadata.json")
         )
+        + (Path(root) / "data/catalog-inputs/withheld-facilities.json").read_bytes()
     ).hexdigest()
     raw = (encoded(value) + "\n").encode()
     packed = bytearray(gzip.compress(raw, mtime=0))
@@ -170,7 +236,7 @@ def geojson(rows, identity):
 
 def derived_files(root):
     """Return deterministic projections; never read the old SQLite database."""
-    _, rows = load_source(root)
+    _, rows = load_public_source(root)
     manifest, _, packed = transport(root)
     return {
         "data/catalog/facilities.geojson": (
